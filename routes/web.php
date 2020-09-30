@@ -17,4 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('pantallainicio','PantallaInicioController@PantallaInicio');
+
+Route::get('pantallainiciomenuagenda','MenuAgendaController@MenuAgenda');
+
