@@ -24,7 +24,7 @@
                 height: 100vh;
             }
 
-            .flex-center {
+            .flex-center { 
                 align-items: center;
                 display: flex;
                 justify-content: center;
