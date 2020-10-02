@@ -14,4 +14,5 @@ class Cita extends Model
     {
         return $this->belongsTo(Especialidad::class);/* pertenece a una especialidad */
     }
+   
 }

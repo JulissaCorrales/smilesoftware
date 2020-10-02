@@ -15,11 +15,11 @@ class CreateCitasTable extends Migration
     {
         Schema::create('citas', function (Blueprint $table) {
             $table->id();
-            $table->string('especialidad_id');
+            $table->unsignedInteger('especialidad_id');
             $table->unsignedInteger('odontologo_id');
             $table->string('duracionCita');
-            $table->string('hora');
-            $table->string('fecha');
+            $table->time('hora');
+            $table->date('fecha');
             $table->timestamps();
         });
     }

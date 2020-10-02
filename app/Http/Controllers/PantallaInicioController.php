@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Paciente;
 
 class PantallaInicioController extends Controller
 {
     public function PantallaInicio()
     {
-        return view('PantallaInicio');
+        $pacientes=Paciente::All();
+        return view('PantallaInicio')->with('pacientes',$pacientes);
 }
 
 }

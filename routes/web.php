@@ -20,3 +20,5 @@ Route::get('/', function () {
 
 Route::get('pantallainiciomenuagenda','MenuAgendaController@MenuAgenda');
 
+//ruta para vista cita diaria
+Route::get('/citadiaria','PantallaInicioController@PantallaInicio');
