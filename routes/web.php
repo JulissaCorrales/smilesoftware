@@ -22,3 +22,6 @@ Route::get('pantallainiciomenuagenda','MenuAgendaController@MenuAgenda');
 
 //ruta para vista cita diaria
 Route::get('/citadiaria','PantallaInicioController@PantallaInicio');
+
+//ruta para darcita(cita nueva)
+Route::get('/darcita','CitaController@crear');

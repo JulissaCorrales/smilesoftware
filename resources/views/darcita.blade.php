@@ -11,39 +11,70 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form>
-        </select> 
-            
-            
-            @foreach($citas as $cita)
-              <label for="state_id" class="control-label">Especialidad:</label>
-              <select class="form-control" id="state_id">
-                  <option value="especialidad">{{$cita->especialidad->nombreEspecialidad}}</option>
-              </select>
-              <label for="state_id" class="control-label">Doctor:</label>
-              <select class="form-control" id="state_id">
-              <option value="doctor">{{$cita->odontologo->nombres}} {{$cita->odontologo->apellidos}}</option>
-              </select>
-              <label for="state_id" class="control-label">Duración:</label>
-              <select class="form-control" id="state_id">
-              <option value="duracionCita">{{$cita->duracionCita}}</option>
-              </select>
-              <hr>
-              <label for="state_id" class="control-label">Hora:</label>
-              <input type="time" name="eta">
-              </select>
-              <hr>
-              <label for="state_id" class="control-label">Fecha:</label>
-              <input type="week" name="unasemana"> 
-              <hr>
-              <button type="submit" class="btn btn-default" formaction="">Continuar</button>
-            <input type="reset" class="btn btn-danger">
 
-            
-            
-            @endforeach 
-            
-         
+
+    <!-- Esta parte del codigo es para poder ir a traer informacion de la base de datos -->
+      <?php
+        $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
+        $mysqli->set_charset("utf8");
+      ?>
+
+				<form method="post" action="">
+        @csrf
+        <!-- especialidad -->
+        <label for="state_id" class="control-label">Especialidad:</label>
+        <select name="especialidad_id" class="form-control">
+       
+         <?php
+        $getEspecialidad =$mysqli->query("select * from especialidads order by id");
+        while($f=$getEspecialidad->fetch_object()) {
+          echo $f->id;
+          echo $f->nombreEspecialidad;
+          ?>
+          <option value="<?php echo $f->id; ?>"><?php echo $f->nombreEspecialidad;?></option>
+          <?php
+        } 
+        ?>
+        </select>
+        <!-- Doctor -->
+        <label for="state_id" class="control-label">Doctor:</label>
+        <select name="odontologo_id" class="form-control">
+        <?php
+        $getDoctor =$mysqli->query("select * from odontologos order by id");
+        while($f=$getDoctor->fetch_object()) {
+          echo $f->id;
+          echo $f->nombres;
+          echo $f->apellidos;
+
+          ?>
+          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos;?></option>
+          <?php
+        } 
+        ?>
+        </select>
+       <!-- Duracion (en duda)-->
+       <label for="duracionCita" class="control-label">Duracion de la cita:</label>
+        <select name="duracionCita" class="form-control">
+
+        <option value="10m">10 minutos</option>
+        <option value="15m">15 minutos</option>
+        <option value="20m">20 minutos</option>
+        <option value="30m">30 minutos</option>
+        <option value="40">40 minutos</option>
+        <option value="50m">50 minutos</option>
+        </select>
+        <!-- Hora -->
+        <label for="hora" class="control-label">Hora:</label>
+        <input type="time" name="hora" id="hora">
+        <hr>
+        <!-- Fecha -->      
+        <label for="fecha" class="control-label">Fecha:</label>
+        <input type="week" name="fecha" id="fecha"> 
+        <hr>
+        <button type="submit" class="btn btn-default" formaction="">Continuar</button>
+        <input type="reset" class="btn btn-danger">
+
+              
           
 
         
