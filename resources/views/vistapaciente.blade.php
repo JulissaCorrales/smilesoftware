@@ -1,5 +1,8 @@
+@extends('Plantilla.Plantilla')
+
 <!DOCTYPE html>
 <html lang="en">
+@section('Titulo','Paciente')
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +32,7 @@ text-align: center;
 
 </style>
 </head>
+@section('contenido')
 <body>
 
 
@@ -125,4 +129,6 @@ text-align: center;
 
 
 </body>
+
+@endsection
 </html>
