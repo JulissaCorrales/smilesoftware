@@ -15,4 +15,10 @@ class PacienteController extends Controller
         //return "texto de contacto desde el controlador ";
         return view('nuevopaciente');
      }
+
+
+     public function DatosPaciente(){
+      //return "texto de contacto desde el controlador ";
+      return view('Datospersonales');
+   }
 }
