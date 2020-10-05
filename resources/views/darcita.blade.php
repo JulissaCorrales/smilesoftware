@@ -52,6 +52,7 @@
         } 
         ?>
         </select>
+        
        <!-- Duracion (en duda)-->
        <label for="duracionCita" class="control-label">Duracion de la cita:</label>
         <select name="duracionCita" class="form-control">
