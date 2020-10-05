@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class PacienteController extends Controller
 {
-<<<<<<< HEAD
     public function nuevo(){
         return view('tipoPaciente');
     }
@@ -42,9 +41,7 @@ class PacienteController extends Controller
         }
     }
 
-=======
     public function vistapaciente(){
-        //return "texto de contacto desde el controlador ";
         return view('vistapaciente');
      } 
 
@@ -52,14 +49,10 @@ class PacienteController extends Controller
         //return "texto de contacto desde el controlador ";
         return view('nuevopaciente');
      }
-<<<<<<< HEAD
 
 
      public function DatosPaciente(){
       //return "texto de contacto desde el controlador ";
       return view('Datospersonales');
    }
-=======
->>>>>>> 36de8202ee7354306837ccda800849d24f8e1cb1
->>>>>>> 2973848928762d7bbf72635fb33ae4c65a7f7482
 }

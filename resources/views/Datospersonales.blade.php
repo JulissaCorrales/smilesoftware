@@ -8,23 +8,30 @@
 <body>
 @section('contenido')
 
-<nav id="navbar-example3" class="navbar navbar-light bg-light" style="position: absolute; top: 50 px; left: 100 px;">
-  <a class="navbar-brand" href="#">Datos Personales</a>
-  <nav class="nav nav-pills flex-column">
-    <a class="nav-link" href="#item-1">Item 1</a>
-    <nav class="nav nav-pills flex-column">
-      <a class="nav-link ml-3 my-1" href="#item-1-1">Item 1-1</a>
-      <a class="nav-link ml-3 my-1" href="#item-1-2">Item 1-2</a>
-    </nav>
-    <a class="nav-link" href="#item-2">Item 2</a>
-    <a class="nav-link" href="#item-3">Item 3</a>
-    <nav class="nav nav-pills flex-column">
-      <a class="nav-link ml-3 my-1" href="#item-3-1">Item 3-1</a>
-      <a class="nav-link ml-3 my-1" href="#item-3-2">Item 3-2</a>
-    </nav>
-  </nav>
-</nav>
+<div class="card" style="width: 20rem;">
+<svg width="10em" height="10em" viewBox="0 0 16 16" class="bi bi-person-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10zM13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+</svg>
+  <div class="card-body">
+    <a href="" class="btn btn-outline-info" > Datos Personales</a><br>
+    <a href=""> Imagenes y Archivos</a><br>
+    <a href=""> Citas</a><br>
+    <a href=""> Comentarios Admnistrativos</a><br>
+    <a href="" class="btn btn-outline-info" > Clinicos</a><br>
+    <a href=""> Planes de Tratamiento</a><br>
+    <a href=""> Evoluciones</a><br>
+    <a href=""> Documentos Clinicos</a><br>
+    <a href=""> Alertas</a>
+  
 
-</body>
+  </div>
+</div>
+
+<div>
+
+<img src="Imagenes/Icono.jpg" class="mr-3" width="80px" id="dos">
+
+</div>
+
 
 @endsection
