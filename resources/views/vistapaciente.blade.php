@@ -1,8 +1,15 @@
 @extends('Plantilla.Plantilla')
 
-@section('imagen')
+@section('titulo','Cita diaria')
+@section('contenido')
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-@section('Titulo','Paciente')
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>

@@ -163,7 +163,7 @@
   <h1 id="uno" >Smile Software</h1>
   
   <div class="" >
-  <img src="Imagenes/Icono.jpg" class="mr-3" width="80px" id="dos">
+  <img src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" width="80px" id="dos">
   
 </div>
   <div class="collapse navbar-collapse" width="80px" id="buscador">
