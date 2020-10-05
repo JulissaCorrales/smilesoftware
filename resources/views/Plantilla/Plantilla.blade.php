@@ -38,6 +38,7 @@
       #dos{
         
   border-radius: 50%;
+            
 
       }
 
@@ -161,10 +162,9 @@
   <nav class="navbar navbar-expand-lg" style=" background-image: linear-gradient(to right, #FACC2E,#00BFFF);" >
   <h1 id="uno" >Smile Software</h1>
   
-  <div class="media" >
+  <div class="" >
   <img src="Imagenes/Icono.jpg" class="mr-3" width="80px" id="dos">
-  <div class="media-body">
-  </div>
+  
 </div>
   <div class="collapse navbar-collapse" width="80px" id="buscador">
   <form class="form-inline my-2 my-lg-0" id="buscar1">
