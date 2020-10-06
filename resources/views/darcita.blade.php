@@ -120,13 +120,12 @@
                         ?>
                       </div>
                       <div></div>
+                      <div></div>
+                      <div></div>
                       <div class="form-group">
                           <label for="apellido">comentarios:</label>
                           <input type="text" class="form-control-file" name="comentarios" id="comentarios" placeholder="comentarios">
                       </div>
-               
-                      <button type="submit" class="btn btn-primary">Guardar</button>
-                      <button type="reset" class="btn btn-danger">borrar</button>
                
                   </form>
                   </div>
@@ -136,7 +135,7 @@
                       @csrf
                       <div class="form-group">
                           <label for="nombre">Nombre:</label>
-                          <input type="text" class="form-control-file" name="nombre" id="nombre" placeholder="ingresar nombre del estudiante">
+                          <input type="text" class="form-control-file" name="nombre" id="nombre" placeholder="ingresar nombre del paciente">
                       </div>
 
                       <div class="form-group">
@@ -193,9 +192,6 @@
                     <input type="text" class="form-control-file" name="observaciones" id="observaciones" placeholder="Alguna observacion?">
                   </div>
 
-                      <button type="submit" class="btn btn-primary">Guardar</button>
-                      <button type="reset" class="btn btn-danger">borrar</button>
-               
                   </form>
 
                   </div>
