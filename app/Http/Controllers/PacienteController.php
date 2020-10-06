@@ -20,6 +20,21 @@ class PacienteController extends Controller
     
 
     public function guardar(Request $request){
+        $request->validate([
+            'nombres'=>'required',
+            'apellidos'=>'required',
+            'identidad'=>'required|unique:pacientes,identidad',
+            'sexo'=>'required',
+            'fechaNacimiento'=>'required',
+            'departamento'=>'required',
+            'ciudad'=>'required',
+            'direccion'=>'required',
+            'telefonoFijo'=>'required',
+            'telefonoCelular'=>'required',
+            'profesion'=>'required',
+            'empresa'=>'required',
+            'observaciones'=>'required',
+        ]);
 
         $nuevoPaciente = new Paciente();
 

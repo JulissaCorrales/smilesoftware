@@ -1,11 +1,19 @@
+<style>
+      #div1{background-color:#00AAE4}
+      #botonContinuar{text-align: center;}
+     
+      
+</style>
+  
+  
   <!-- Este codigo es para la ventana modal darcita -->
 <div class="modal fade" id="create">
   
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
-			<div class="modal-header">
-			
-				<h4 class="modal-title" id="myModalLabel">Dar Cita(Agendar)</h4>
+			<div id="div1"class="modal-header">
+	
+				<h4  class="modal-title" id="myModalLabel">Dar Cita(Agendar)</h4>
         	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -65,16 +73,17 @@
         <option value="40">40 minutos</option>
         <option value="50m">50 minutos</option>
         </select>
-        <hr>
+        <br>
         <!-- Hora -->
         <label for="hora" class="control-label">Hora:</label>
         <input type="time" name="hora" id="hora">
-        <hr>
+        
+        
         <!-- Fecha -->      
         <label for="fecha" class="control-label">Fecha:</label>
         <input type="date" name="fecha" id="fecha"> 
-        <hr>
-        <!--  -->
+        <br>
+        <!-- Paciente_id -->
 
         <div class="form-group">
                         <label for="state_id" class="control-label">Paciente:</label>
@@ -90,28 +99,42 @@
                         <?php
                         } 
                         ?>
-                      </div>
-        
+                        </select>
+                        
+        </div>
+         <div>
+         <!-- comentario -->
+         <label></label>
+         <label for="comentarios" id="comentariolabel"class="control-label">Comentarios:</label>
          <br>
-         <label for="comentarios" class="control-label">Comentarios:</label>
          <input type="text" name="comentarios" id="comentarios"> 
-         
-
-        <button type="submit"class="btn btn-primary" data-toggle="modal" data-target="#tipoPaciente">
+         </div>
+        <br>
+        <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
           Continuar
         </button>
-        <tr>
-        <br>
+        
+        
+         
         </form>
-
-        <!--  -->
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                  <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#pacienteNuevo" role="tab" aria-controls="v-pills-profile" aria-selected="false">Paciente Nuevo</a>
-                  
-                </div>
-                
+        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#npaciente">Paciente Nuevo</button>
+        </div>
+        </div>
+        </div>
 
-                  <div class="tab-pane fade" id="pacienteNuevo" role="tabpanel" aria-labelledby="v-pills-profile-tab">Formulario Para Paciente Nuevo
+<!-- Modal 2 -->
+        <div class="modal fade" id="npaciente">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Paciente Nuevo</h4>      
+            </div>
+              <!--Barra de desplazamiento-->
+              <div style="width: 450px; height: 550px; overflow-y: scroll;">
+            <div class="modal-body"> 
+
+
                     <form method="post" action="/pacienteNuevo">
                       @csrf
                       <div class="form-group">
@@ -179,19 +202,22 @@
 
                   <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Guardar Pacientes</button>
+                <button type="submit" class="btn btn-primary" >Guardar Pacientes</button>
               </div>
                   </form>
-
+                  </div>
+                  </div>
+               
 
 
       
         
-        </form>
         
         
-        </form>
+        
+        
       </div>
       
-      </script>
+ 
+      
 </div>
