@@ -12,9 +12,12 @@ class PacienteController extends Controller
     }
 
 
-    public function DatosPersonales(){
-        return view('DatosPersonales');
+    public function datos(){
+        return view('datospersonales');
     }
+
+
+    
 
     public function guardar(Request $request){
 
