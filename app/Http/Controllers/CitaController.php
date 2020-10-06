@@ -25,13 +25,13 @@ class CitaController extends Controller
         $nuevacita->comentarios=$request->input('comentarios');    
 
         $creado = $nuevacita->save();
-      /*   //Asegurarse que fue creado
+        //Asegurarse que fue creado
         if ($creado){
-            return redirect()->route("/pantallainiciomenuagenda")
+            return redirect()->route("citadiaria")
                 ->with('mensaje','La cita fue creado exitosamente');
 
         }else{
             //Retornar con un mensaje de error
-        } */
+        } 
 }
 }

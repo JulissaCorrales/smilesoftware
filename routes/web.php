@@ -18,10 +18,10 @@ Route::get('/', function () {
 });
 
 
-Route::get('pantallainiciomenuagenda','MenuAgendaController@MenuAgenda');
+Route::get('pantallainiciomenuagenda','MenuAgendaController@MenuAgenda')->name('pantallainiciomenuagenda');
 
 //ruta para vista cita diaria
-Route::get('/citadiaria','PantallaInicioController@PantallaInicio');
+Route::get('/citadiaria','PantallaInicioController@PantallaInicio')->name('citadiaria');
 
 
 

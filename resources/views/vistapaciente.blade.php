@@ -34,7 +34,11 @@ text-align: center;
 </head>
 @section('contenido')
 <body>
-
+@if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif
 
 
 <h3>Directorio de Pacientes </h3>

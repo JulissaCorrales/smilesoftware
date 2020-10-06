@@ -3,6 +3,11 @@
 @section('titulo','Cita diaria')
 @section('contenido')
 
+@if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif
 <!--  -->
 <!DOCTYPE html>
 <html lang="en">

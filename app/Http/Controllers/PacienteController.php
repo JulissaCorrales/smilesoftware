@@ -38,12 +38,12 @@ class PacienteController extends Controller
 
        $creado = $nuevoPaciente->save();
 
-       /*  if ($creado){
-            return redirect()->route('pantallainiciomenuagenda')
+         if ($creado){
+            return redirect()->route('paciente.vista')
                 ->with('mensaje', 'el paciente fue creado exitosamente!');
         }else{
             //retornar con un msj de error
-        } */
+        } 
     }
 
     public function vistapaciente(){
