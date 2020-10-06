@@ -101,10 +101,25 @@
 
                     <form method="post" action="">
                       @csrf
+
+                      
+
                       <div class="form-group">
-                          <label for="nombre">Nombre:</label>
-                          <input type="text" class="form-control-file" name="nombre" id="nombre" placeholder="ingresar nombre del estudiante">
+                        <label for="state_id" class="control-label">Paciente:</label>
+                        <select name="odontologo_id" class="form-control">
+                        <?php
+                        $getPaciente =$mysqli->query("select * from pacientes order by id");
+                        while($f=$getPaciente->fetch_object()) {
+                        echo $f->nombres;
+                        echo $f->apellidos;
+  
+                         ?>
+                          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos;?></option>
+                        <?php
+                        } 
+                        ?>
                       </div>
+                      <div></div>
                       <div class="form-group">
                           <label for="apellido">comentarios:</label>
                           <input type="text" class="form-control-file" name="comentarios" id="comentarios" placeholder="comentarios">
