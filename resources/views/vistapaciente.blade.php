@@ -9,26 +9,45 @@
     <title>Contacto</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+
+ #table{
+
+
+
+
+ }
 
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
-  padding: 8px;
+  padding: 20px;
+  text-align: left;
+  background-color: #F0FFFF;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #00CED1;
 }
 
 btn{
 text-align: center;
 
 }
+
+
+
+#lista{
+  background-color: #F0FFFF;
+  
+
+}
+
+ #lista:hover{
+   border: 1px solid #FF4500;
+   color: hotpink;
+ 
+
+ }
 
 </style>
 </head>
@@ -40,6 +59,13 @@ text-align: center;
         </div>
     @endif
 
+    <div class="container">
+
+    <nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">Directorio de Pacientes</span>
+</nav>
+
+</div>
 
 <h3>Directorio de Pacientes </h3>
 <div class="item-input-inset" align="right">
@@ -92,12 +118,11 @@ text-align: center;
 
 </DIV>
 
-
-
-
-
-<table>
-  <tr>
+<div  class="container">
+ <div class="list-group">
+ 
+<table class="table" id="table ">
+  <tr   class="table-info">
     <th  class="table-primary">Nº</th>
     <th class="table-primary">Nombre</th>
     <th class="table-primary">Apellidos</th>
@@ -106,7 +131,7 @@ text-align: center;
   </tr>
   <tr>
       @foreach($pacientes as $paciente)
-    <td>{{$paciente->id}}</td>
+    <td><a  class="btn btn-outline-info"  href="/paciente/datospersonales" id="lista">{{$paciente->id}}</a></td>
     <td>{{$paciente->nombres}}</td>
     <td>{{$paciente->apellidos}}</td>
     <td>{{$paciente->identidad}}</td>
@@ -118,6 +143,9 @@ text-align: center;
     @endforeach
 </table>
 
+</div>
+
+</div>
 
 
 </body>
