@@ -14,6 +14,16 @@ class CitaController extends Controller
       //funcion para gurdar el formulario cita
       public  function guardar(Request $request){
 
+        $request->validate([
+            'especialidad_id'=>'required|numeric',
+            'odontologo_id'=>'required|numeric',
+            'duracionCita'=>'required',
+            'hora'=>'required',
+            'fecha'=>'required|date',
+            'paciente_id'=>'required|numeric',
+            'comentarios'=>'required|alpha',
+        ]);
+
         // formulario
         $nuevacita = new Cita();
         $nuevacita->especialidad_id= $request->input('especialidad_id');
