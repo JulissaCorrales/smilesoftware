@@ -15,13 +15,13 @@ class CitaController extends Controller
       public  function guardar(Request $request){
 
         $request->validate([
-            'especialidad_id'=>'required|numeric',
-            'odontologo_id'=>'required|numeric',
+            'especialidad_id'=>'required',
+            'odontologo_id'=>'required',
             'duracionCita'=>'required',
             'hora'=>'required',
-            'fecha'=>'required|date',
-            'paciente_id'=>'required|numeric',
-            'comentarios'=>'required|alpha',
+            'fecha'=>'required',
+            'paciente_id'=>'required',
+            'comentarios'=>'required',
         ]);
 
         // formulario
