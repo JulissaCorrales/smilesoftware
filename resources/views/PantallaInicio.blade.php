@@ -270,12 +270,12 @@ function mifecha() {
         <tbody>
             <tr>
                 <td>    
-                        @foreach($pacientes as $paciente)
+                        @foreach($citas as $cita)
                             <tr>
-                            <th scope="row">{{$paciente->cita->hora}}</th>
-                                <td>{{$paciente->cita->fecha}}</td>
-                                <td>{{$paciente->nombres}} <br>{{$paciente->apellidos}}<br>{{$paciente->telefonoFijo}}<br>{{$paciente->telefonoCelular}} </td>
-                                <td>{{$paciente->cita->odontologo->nombres}}<br>{{$paciente->cita->odontologo->apellidos}}</td>
+                            <th scope="row">{{$cita->hora}}</th>
+                                <td>{{$cita->fecha}}</td>
+                                <td>{{$cita->paciente->nombres}} <br>{{$cita->paciente->apellidos}}<br>{{$cita->paciente->telefonoFijo}}<br>{{$cita->paciente->telefonoCelular}} </td>
+                                <td>{{$cita->odontologo->nombres}}<br>{{$cita->odontologo->apellidos}}</td>
                                 
                         
                             </tr>

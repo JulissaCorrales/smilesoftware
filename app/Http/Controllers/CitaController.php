@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Cita;
 
 class CitaController extends Controller
 {
@@ -10,4 +11,27 @@ class CitaController extends Controller
         return view('darcita');
 
     }
+      //funcion para gurdar el formulario cita
+      public  function guardar(Request $request){
+
+        // formulario
+        $nuevacita = new Cita();
+        $nuevacita->especialidad_id= $request->input('especialidad_id');
+        $nuevacita->odontologo_id=$request->input('odontologo_id');
+        $nuevacita->duracionCita=$request->input('duracionCita');
+        $nuevacita->hora=$request->input('hora');
+        $nuevacita->fecha=$request->input('fecha');
+       $nuevacita->paciente_id=$request->input('paciente_id');
+        $nuevacita->comentarios=$request->input('comentarios');    
+
+        $creado = $nuevacita->save();
+      /*   //Asegurarse que fue creado
+        if ($creado){
+            return redirect()->route("/pantallainiciomenuagenda")
+                ->with('mensaje','La cita fue creado exitosamente');
+
+        }else{
+            //Retornar con un mensaje de error
+        } */
+}
 }

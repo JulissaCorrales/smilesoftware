@@ -32,6 +32,8 @@ class OdontologosTableSeeder extends Seeder
         $cita->duracionCita="15 minutos";
         $cita->hora="12:00";
         $cita->fecha = Carbon::now();
+        $cita->paciente_id=1;
+        $cita->comentarios="Paciente con alergia al pescado";
         $cita->save();
         
         $cita=new Cita();
@@ -40,6 +42,8 @@ class OdontologosTableSeeder extends Seeder
         $cita->duracionCita="15 minutos";
         $cita->hora="11:00";
         $cita->fecha = Carbon::now();
+        $cita->paciente_id=2;
+        $cita->comentarios="Paciente con alergia al camaron";
         $cita->save();
         
 
@@ -59,7 +63,7 @@ class OdontologosTableSeeder extends Seeder
         $paciente->profesion="Maestro";
         $paciente->empresa="Escuela Miriam Gallardo";
         $paciente->observaciones="Alergias al mani";
-        $paciente->cita_id=1;
+        /* $paciente->cita_id=1; */
         $paciente->save();
 
 
@@ -78,7 +82,7 @@ class OdontologosTableSeeder extends Seeder
         $paciente->profesion="Maestro";
         $paciente->empresa="Escuela Miriam Gallardo";
         $paciente->observaciones="Alergias al mani";
-        $paciente->cita_id=2;
+       /*  $paciente->cita_id=2; */
         $paciente->save();
 
         Odontologo::truncate();

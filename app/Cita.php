@@ -15,4 +15,8 @@ class Cita extends Model
         return $this->belongsTo(Especialidad::class);/* pertenece a una especialidad */
     }
    
+    public function paciente()
+    {
+        return $this->belongsTo(Paciente::class);/* pertenece a un paciente*/
+    }
 }

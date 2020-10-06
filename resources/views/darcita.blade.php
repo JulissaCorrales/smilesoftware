@@ -19,7 +19,7 @@
         $mysqli->set_charset("utf8");
       ?>
 
-				<form method="post" action="/tipoPaciente">
+				<form method="post" action="/darcita">
         @csrf
         <!-- especialidad -->
         <label for="state_id" class="control-label">Especialidad:</label>
@@ -55,7 +55,7 @@
         
        <!-- Duracion (en duda)-->
        <label for="duracionCita" class="control-label">Duracion de la cita:</label>
-        <select name="duracionCita" class="form-control">
+        <select name="duracionCita" id="duracionCita" class="form-control">
 
         <option value="10m">10 minutos</option>
         <option value="15m">15 minutos</option>
@@ -70,14 +70,37 @@
         <hr>
         <!-- Fecha -->      
         <label for="fecha" class="control-label">Fecha:</label>
-        <input type="week" name="fecha" id="fecha"> 
+        <input type="date" name="fecha" id="fecha"> 
         <hr>
+        <!--  -->
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tipoPaciente">
+        <div class="form-group">
+                        <label for="state_id" class="control-label">Paciente:</label>
+                        <select name="paciente_id" id="paciente_id" class="form-control">
+                        <?php
+                        $getPaciente =$mysqli->query("select * from pacientes order by id");
+                        while($f=$getPaciente->fetch_object()) {
+                        echo $f->nombres;
+                        echo $f->apellidos;
+  
+                         ?>
+                          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos;?></option>
+                        <?php
+                        } 
+                        ?>
+                      </div>
+        
+         <br>
+         <label for="comentarios" class="control-label">Comentarios:</label>
+         <input type="text" name="comentarios" id="comentarios"> 
+         
+
+        <button type="submit"class="btn btn-primary" data-toggle="modal" data-target="#tipoPaciente">
           continuar
         </button>
 
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </form>
         
         <!-- Modal -->
         <div class="modal fade" id="tipoPaciente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -99,14 +122,14 @@
                 <div class="tab-content" id="v-pills-tabContent">
                   <div class="tab-pane fade show active" id="pacienteExistente" role="tabpanel" aria-labelledby="v-pills-home-tab">formulario para paciente existente
 
-                    <form method="post" action="">
+                    <form method="post" action="/darcita">
                       @csrf
 
                       
 
                       <div class="form-group">
                         <label for="state_id" class="control-label">Paciente:</label>
-                        <select name="odontologo_id" class="form-control">
+                        <select name="paciente_id" id="paciente_id" class="form-control">
                         <?php
                         $getPaciente =$mysqli->query("select * from pacientes order by id");
                         while($f=$getPaciente->fetch_object()) {
@@ -119,6 +142,7 @@
                         } 
                         ?>
                       </div>
+                      <button type="submit" class="btn btn-primary">Guardar</button>
                       <div></div>
                       <div></div>
                       <div></div>
@@ -131,15 +155,15 @@
                   </div>
 
                   <div class="tab-pane fade" id="pacienteNuevo" role="tabpanel" aria-labelledby="v-pills-profile-tab">formulario para paciente nuevo
-                    <form method="post" action="">
+                    <form method="post" action="/pacienteNuevo">
                       @csrf
                       <div class="form-group">
-                          <label for="nombre">Nombre:</label>
-                          <input type="text" class="form-control-file" name="nombre" id="nombre" placeholder="ingresar nombre del paciente">
+                          <label for="nombres">Nombres:</label>
+                          <input type="text" class="form-control-file" name="nombres" id="nombres" placeholder="ingresar nombre del paciente">
                       </div>
 
                       <div class="form-group">
-                          <label for="apellido">Apellidos:</label>
+                          <label for="apellidos">Apellidos:</label>
                           <input type="text" class="form-control-file" name="apellidos" id="apellidos" placeholder="ingresar apellido del paciente">
                       </div>
 
@@ -147,10 +171,14 @@
                         <label for="identidad">identidad:</label>
                         <input type="text" class="form-control-file" name="identidad" id="identidad" placeholder="ingresar identidad del paciente">
                     </div>
+                    <div class="form-group">
+                        <label for="identidad">Sexo :</label>
+                        <input type="text" class="form-control-file" name="sexo" id="sexo" placeholder="ingresar el sexo del paciente">
+                    </div>
 
                     <div class="form-group">
-                      <label for="fecha_de_nacimiento">fecha de nacimiento:</label>
-                      <input type="text" class="form-control-file" name="fecha_de_nacimiento" id="fecha_de_nacimiento" placeholder="ingresar fecha de nacimiento del paciente">
+                      <label for="fechaNacimiento">fecha de nacimiento:</label>
+                      <input type="text" class="form-control-file" name="fechaNacimiento" id="fechaNacimiento" placeholder="ingresar fecha de nacimiento del paciente">
                   </div>
 
                   <div class="form-group">
@@ -192,16 +220,17 @@
                     <input type="text" class="form-control-file" name="observaciones" id="observaciones" placeholder="Alguna observacion?">
                   </div>
 
+                  <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
                   </form>
 
                   </div>
                 </div>
                 
               </div><!--final del cuerpo del modal-->
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
+             
             </div>
           </div>
         </div>
@@ -210,4 +239,18 @@
         </form>
       </div>
       @include('tipoPaciente')<!-- esta seccion hace que funcione modal dar cita -->
+
+
+      <!-- probando
+      <script>
+      $(function){
+        $("form").submit(function(e){
+           e.preventDefault();
+           alert("Interceptado")
+        })
+
+      } -->
+      
+      
+      </script>
 </div>
