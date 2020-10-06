@@ -25,16 +25,8 @@ Route::get('/citadiaria','PantallaInicioController@PantallaInicio');
 
 //ruta para darcita(cita nueva)
 Route::get('/darcita','CitaController@crear');
-<<<<<<< HEAD
-
-//ruta para formulario de paciente nuevo
-Route::get('/pacienteNuevo','PacienteController@Nuevo');
-
-Route::post('/pacienteNuevo','PacienteController@guardar')
-    ->name('paciente.guardar');
-=======
 //ruta para vista de pacientes
+
 Route::get('/paciente/vista','PacienteController@vistapaciente')->name ('paciente.vista');
 //ruta para vista de nuevo paciente
 Route::get('/paciente/nuevo','PacienteController@nuevopaciente');
->>>>>>> 36de8202ee7354306837ccda800849d24f8e1cb1
