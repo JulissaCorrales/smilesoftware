@@ -28,7 +28,8 @@ Route::get('/citadiaria','PantallaInicioController@PantallaInicio')->name('citad
 //ruta para formulario de paciente nuevo
 Route::get('/pacienteNuevo','PacienteController@Nuevo');
 
-Route::get('/paciente/datospaciente','PacienteController@Nuevo');
+Route::get('/datospersonales','PacienteController@datos');
+
 
 
 
