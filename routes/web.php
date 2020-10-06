@@ -18,13 +18,12 @@ Route::get('/', function () {
 });
 
 
-Route::get('pantallainiciomenuagenda','MenuAgendaController@MenuAgenda');
+Route::get('pantallainiciomenuagenda','MenuAgendaController@MenuAgenda')->name('pantallainiciomenuagenda');
 
 //ruta para vista cita diaria
-Route::get('/citadiaria','PantallaInicioController@PantallaInicio');
+Route::get('/citadiaria','PantallaInicioController@PantallaInicio')->name('citadiaria');
 
-//ruta para darcita(cita nueva)
-Route::get('/darcita','CitaController@crear');
+
 
 //ruta para formulario de paciente nuevo
 Route::get('/pacienteNuevo','PacienteController@Nuevo');
@@ -41,3 +40,8 @@ Route::post('/pacienteNuevo','PacienteController@guardar')
 Route::get('/paciente/vista','PacienteController@vistapaciente')->name ('paciente.vista');
 //ruta para vista de nuevo paciente
 Route::get('/paciente/nuevo','PacienteController@nuevopaciente');
+
+//ruta para darcita(cita nueva)
+Route::get('/darcita','CitaController@crear');
+//Ruta para guardar cita
+Route::post('/darcita','CitaController@guardar');

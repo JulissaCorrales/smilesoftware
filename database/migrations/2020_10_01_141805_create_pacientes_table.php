@@ -28,7 +28,7 @@ class CreatePacientesTable extends Migration
             $table->string('profesion');
             $table->string('empresa');
             $table->string('observaciones');
-            $table->unsignedInteger('cita_id');//relacion con cita
+           // $table->unsignedInteger('cita_id');//relacion con cita
             $table->timestamps();
             
         });

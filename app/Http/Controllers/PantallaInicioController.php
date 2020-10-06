@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Paciente;
+use App\Cita;
 
 class PantallaInicioController extends Controller
 {
     public function PantallaInicio()
     {
-        $pacientes=Paciente::All();
-        return view('PantallaInicio')->with('pacientes',$pacientes);
+        $citas=Cita::All();
+        return view('PantallaInicio')->with('citas',$citas);
 }
 
 }

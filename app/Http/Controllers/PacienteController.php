@@ -28,7 +28,7 @@ class PacienteController extends Controller
         $nuevoPaciente->apellidos = $request->input('apellidos');
         $nuevoPaciente->identidad = $request->input('identidad');
         $nuevoPaciente->sexo = $request->input('sexo');
-        $nuevoPaciente->fecha_nacimiento = $request -> input('fecha_de_nacimiento');
+        $nuevoPaciente->fechaNacimiento = $request -> input('fechaNacimiento');
         $nuevoPaciente->departamento = $request->input('departamento');
         $nuevoPaciente->ciudad = $request->input('ciudad');
         $nuevoPaciente->direccion = $request -> input('direccion');
@@ -41,12 +41,12 @@ class PacienteController extends Controller
 
        $creado = $nuevoPaciente->save();
 
-        if ($creado){
-            return redirect()->route('pantallainiciomenuagenda')
+         if ($creado){
+            return redirect()->route('paciente.vista')
                 ->with('mensaje', 'el paciente fue creado exitosamente!');
         }else{
             //retornar con un msj de error
-        }
+        } 
     }
 
     public function vistapaciente(){

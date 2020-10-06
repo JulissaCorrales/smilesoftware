@@ -20,6 +20,8 @@ class CreateCitasTable extends Migration
             $table->string('duracionCita');
             $table->time('hora');
             $table->date('fecha');
+            $table->unsignedInteger('paciente_id');
+            $table->string('comentarios');
             $table->timestamps();
         });
     }
