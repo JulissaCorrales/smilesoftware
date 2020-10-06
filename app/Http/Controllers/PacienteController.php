@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class PacienteController extends Controller
 {
-<<<<<<< HEAD
     public function nuevo(){
         return view('tipoPaciente');
     }
@@ -42,15 +41,14 @@ class PacienteController extends Controller
         }
     }
 
-=======
     public function vistapaciente(){
         //return "texto de contacto desde el controlador ";
-        return view('vistapaciente');
+        $pacientes=Paciente::All();
+        return view('vistapaciente')->with ('pacientes',$pacientes);
      } 
 
      public function nuevopaciente(){
         //return "texto de contacto desde el controlador ";
         return view('nuevopaciente');
      }
->>>>>>> 36de8202ee7354306837ccda800849d24f8e1cb1
 }

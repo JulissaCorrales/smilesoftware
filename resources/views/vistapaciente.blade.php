@@ -92,38 +92,26 @@ text-align: center;
 
 
 
-<table >
+<table>
   <tr>
-    <th>Nº.</th>
-    <th>Nombre</th>
-    <th>Apellidos</th>
-    <th>Identidad</th>
-    <th>Accion</th>
+    <th  class="table-primary">Nº</th>
+    <th class="table-primary">Nombre</th>
+    <th class="table-primary">Apellidos</th>
+    <th class="table-primary">Identidad</th>
+    <th class="table-primary">Accion</th>
   </tr>
   <tr>
-    <td>9</td>
-    <td>Eduardo</td>
-    <td>Aguilar</td>
-    <td>0801198505896</td>
-    <td><button type="button" class="btn btn-danger">Eliminar Paciente</button></td>
-  </tr>
-  <tr>
-    <td>80</td>
-    <td>Alexandra</td>
-    <td>Aguilera</td>
-     <td>0801198505897</td>
-     <td><button type="button" class="btn btn-danger">Eliminar Paciente</button></td>
-  </tr> 
-  <tr>
-    <td>90</td>
-    <td>Junior</td>
-    <td>Salinas</td>
-     <td>0801198505898</td>
-     <td><button type="button" class="btn btn-danger">Eliminar Paciente</button></td>
-  </tr> 
-
-
-
+      @foreach($pacientes as $paciente)
+    <td>{{$paciente->id}}</td>
+    <td>{{$paciente->nombres}}</td>
+    <td>{{$paciente->apellidos}}</td>
+    <td>{{$paciente->identidad}}</td>
+    <td><button type="button" class="btn btn-primary">Ver</button>
+    <button type="button" class="btn btn-warning">Editar</button>
+    <button type="button" class="btn btn-danger">Eliminar</button>
+    </td>
+    <tr>
+    @endforeach
 </table>
 
 
