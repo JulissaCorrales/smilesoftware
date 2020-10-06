@@ -29,6 +29,10 @@ Route::get('/darcita','CitaController@crear');
 //ruta para formulario de paciente nuevo
 Route::get('/pacienteNuevo','PacienteController@Nuevo');
 
+Route::get('/paciente/datospaciente','PacienteController@Nuevo');
+
+
+
 Route::post('/pacienteNuevo','PacienteController@guardar')
     ->name('paciente.guardar');
 //ruta para vista de pacientes

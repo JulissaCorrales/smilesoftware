@@ -162,7 +162,8 @@
   <h1 id="uno" >Smile Software</h1>
   
   <div class="media" >
-  <img src="Imagenes/Icono.jpg" class="mr-3" width="80px" id="dos">
+  <!-- Correpcion de ruta de imagen -->
+  <img class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" width="80px" id="dos">
   <div class="media-body">
   </div>
 </div>
