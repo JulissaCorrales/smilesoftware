@@ -152,8 +152,13 @@
                         <input type="text" class="form-control-file" name="identidad" id="identidad" placeholder="ingresar identidad del paciente">
                     </div>
                     <div class="form-group">
-                        <label for="identidad">Sexo :</label>
-                        <input type="text" class="form-control-file" name="sexo" id="sexo" placeholder="ingresar el sexo del paciente">
+                        <label for="sexo">Sexo :</label>
+                        <select  name="sexo" id="sexo">
+                          <option></option>
+                          <option>Masculino</option>
+                          <option>Femenino</option>
+                        
+                        </select>
                     </div>
 
                     <div class="form-group">
