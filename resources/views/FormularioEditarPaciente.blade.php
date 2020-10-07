@@ -5,7 +5,7 @@
 <div></div>    
                     <form method="post" action="{{route('paciente.update',['id'=> $pacientes-> id])}} ">
                       @csrf
-
+                      @method('put')
                       <div class="form-group">
                         <label for="nombres" class="col-sm-2 col-form-label col-form-label-lg" >Nombres:</label>
                         <div class ="col-sm-6">
