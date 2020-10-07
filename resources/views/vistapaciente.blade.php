@@ -131,12 +131,12 @@ text-align: center;
   </tr>
   <tr>
       @foreach($pacientes as $paciente)
-    <td><a  class="btn btn-outline-info"  href="/paciente/datospersonales" id="lista">{{$paciente->id}}</a></td>
+    <td><a  class="btn btn-outline-info"  href="/paciente/{{ $paciente->id}}"  id="lista">{{$paciente->id}}</a></td>
     <td>{{$paciente->nombres}}</td>
     <td>{{$paciente->apellidos}}</td>
     <td>{{$paciente->identidad}}</td>
     <td><button type="button" class="btn btn-primary">Ver</button>
-    <button type="button" class="btn btn-warning">Editar</button>
+    <a  class="btn btn-warning"  href="/paciente/{{ $paciente->id}}/editar">Editar</a>
     <button type="button" class="btn btn-danger">Eliminar</button>
     </td>
     <tr>

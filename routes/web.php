@@ -28,7 +28,13 @@ Route::get('/citadiaria','PantallaInicioController@PantallaInicio')->name('citad
 //ruta para formulario de paciente nuevo
 Route::get('/pacienteNuevo','PacienteController@Nuevo');
 
-Route::get('paciente/datospersonales','PacienteController@datos');
+Route::get('/paciente/{id}','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
+
+
+//Ruta para editar Paciente
+
+Route::get('/paciente/{id}/editar','PacienteController@editar') ->name('paciente.editar') -> where('id' ,'[0-9]+');
+Route::put('/paciente/{id}/editar','PacienteController@update')->name('paciente.update') -> where('id' ,'[0-9]+');
 
 
 
