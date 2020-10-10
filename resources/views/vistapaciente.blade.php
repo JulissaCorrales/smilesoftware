@@ -122,6 +122,7 @@ text-align: center;
  <div class="list-group">
  
 <table class="table" id="table ">
+<thead>
   <tr   class="table-info">
     <th  class="table-primary">Nº</th>
     <th class="table-primary">Nombre</th>
@@ -129,7 +130,9 @@ text-align: center;
     <th class="table-primary">Identidad</th>
     <th class="table-primary">Accion</th>
   </tr>
+  </thead>
   <tr>
+  <tbody>
       @foreach($pacientes as $paciente)
     <td><a  class="btn btn-outline-info"  href="/paciente/{{ $paciente->id}}"  id="lista">{{$paciente->id}}</a></td>
     <td>{{$paciente->nombres}}</td>
@@ -141,6 +144,7 @@ text-align: center;
     </td>
     <tr>
     @endforeach
+    </tbody>
 </table>
 
 </div>
