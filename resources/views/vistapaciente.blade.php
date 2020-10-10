@@ -135,7 +135,7 @@ text-align: center;
     <td>{{$paciente->nombres}}</td>
     <td>{{$paciente->apellidos}}</td>
     <td>{{$paciente->identidad}}</td>
-    <td><button type="button" class="btn btn-primary">Ver</button>
+    <td>
     <a  class="btn btn-warning"  href="/paciente/{{ $paciente->id}}/editar">Editar</a>
     <button type="button" class="btn btn-danger">Eliminar</button>
     </td>
