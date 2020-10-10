@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <style>
 
@@ -50,6 +51,7 @@ text-align: center;
  }
 
 </style>
+
 </head>
 @section('contenido')
 <body>
@@ -121,7 +123,7 @@ text-align: center;
 <div  class="container">
  <div class="list-group">
  
-<table class="table" id="table ">
+<table id="datatable" class="table" id="table ">
 <thead>
   <tr   class="table-info">
     <th  class="table-primary">Nº</th>
@@ -150,8 +152,15 @@ text-align: center;
 </div>
 
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
+$(document).ready( function () {
+    $('#datatable').DataTable();
+} );
 
 
+</script>
 </body>
 
 @endsection
