@@ -134,7 +134,7 @@ $(document).ready( function () {
 
 <!-- escript de datatable con el id de la tabla este muy importante en este caso la tabla es id="datatable"-->
 </div>
-</div><!-- fin del contenedor de la buscador  -->
+</div><!-- fin del div contenedor de la buscador  -->
 
 @endsection
 
