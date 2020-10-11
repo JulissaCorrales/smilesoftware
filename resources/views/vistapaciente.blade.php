@@ -80,7 +80,11 @@ text-align: center;
 
 
 
-<div  class="container">
+<div  class="container"><!-- es necesario para que funcione el boton de buscar por nombre
+y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflicto la pantilla de extencion
+ ademas se debe incluir la liberia de boostrap y la libreria de datatable en la vista 
+ ademas de al final de la pagina el scritp de java y despues el scritp de date table
+ para que funcione correctamente-->
  <div class="list-group">
  
 <table id="datatable">
@@ -108,9 +112,11 @@ text-align: center;
      @endforeach
      </tbody>
 </table>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<!-- script de jquery para que funcione el buscado de nombre-->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+<!-- script de datatable para que funcione el buscado de nombre-->
 
 
 
@@ -126,9 +132,9 @@ $(document).ready( function () {
 } );
 </script>
 
-
+<!-- escript de datatable con el id de la tabla este muy importante -->
 </div>
-</div>
+</div><!-- fin del contenedor de la buscador  -->
 
 @endsection
 
