@@ -32,13 +32,14 @@
         <!-- especialidad -->
         <label for="state_id" class="control-label">Especialidad:</label>
         <select name="especialidad_id" class="form-control">
-       
+        <option></option>
          <?php
         $getEspecialidad =$mysqli->query("select * from especialidads order by id");
         while($f=$getEspecialidad->fetch_object()) {
           echo $f->id;
           echo $f->nombreEspecialidad;
           ?>
+          
           <option value="<?php echo $f->id; ?>"><?php echo $f->nombreEspecialidad;?></option>
           <?php
         } 
@@ -48,6 +49,7 @@
         <!-- Doctor -->
         <label for="state_id" class="control-label">Doctor:</label>
         <select name="odontologo_id" class="form-control">
+        <option></option>
         <?php
         $getDoctor =$mysqli->query("select * from odontologos order by id");
         while($f=$getDoctor->fetch_object()) {
@@ -56,6 +58,7 @@
           echo $f->apellidos;
 
           ?>
+         
           <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos;?></option>
           <?php
         } 
@@ -65,7 +68,7 @@
        <!-- Duracion (en duda)-->
        <label for="duracionCita" class="control-label">Duracion de la cita:</label>
         <select name="duracionCita" id="duracionCita" class="form-control">
-
+        <option></option>
         <option value="10m">10 minutos</option>
         <option value="15m">15 minutos</option>
         <option value="20m">20 minutos</option>
@@ -88,6 +91,7 @@
         <div class="form-group">
                         <label for="state_id" class="control-label">Paciente:</label>
                         <select name="paciente_id" id="paciente_id" class="form-control">
+                        <option></option>
                         <?php
                         $getPaciente =$mysqli->query("select * from pacientes order by id");
                         while($f=$getPaciente->fetch_object()) {
@@ -95,6 +99,7 @@
                         echo $f->apellidos;
   
                          ?>
+                        
                           <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos;?></option>
                         <?php
                         } 

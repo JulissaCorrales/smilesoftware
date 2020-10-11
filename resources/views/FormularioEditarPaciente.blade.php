@@ -1,8 +1,21 @@
 @extends('Plantilla.Plantilla')
 @section('contenido')  
-<h3>formulario de edicion de datos del paciente</h3> 
-<div></div>    
-<div></div>    
+<style>
+#titulo{
+  text-align: center;
+  padding: 2rem;
+}
+#padre {
+  margin: 2rem;
+  padding: 1rem;
+  border: 2px solid #ccc;
+  
+}
+
+</style>
+<h3 id="titulo">Edicion de datos del paciente</h3>  
+<div id="padre"> 
+  
                     <form method="post" action="{{route('paciente.update',['id'=> $pacientes-> id])}} ">
                       @csrf
                       @method('put')
@@ -22,11 +35,11 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="identidad"class="col-sm-2 col-form-label col-form-label-lg">identidad:</label>
+                        <label for="identidad"class="col-sm-2 col-form-label col-form-label-lg">Identidad:</label>
                         <div class="col-sm-6">
                         <input type="text" class="form-control form-control-sm" name="identidad" id="identidad" placeholder="ingresar identidad del paciente"  value="{{ $pacientes->identidad }}">
                     </div>
-                  </div>
+                    </div>
 
                     <div class="form-group">
                         <label for="identidad" class="col-sm-2 col-form-label col-form-label-lg">Sexo :</label>
@@ -36,7 +49,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="fechaNacimiento" class="col-sm-2 col-form-label col-form-label-lg">fecha de nacimiento:</label>
+                      <label for="fechaNacimiento" class="col-sm-2 col-form-label col-form-label-lg">Fecha de nacimiento:</label>
                      <div class="col-sm-6">
                       <input type="text" class="form-control form-control-sm" name="fechaNacimiento" id="fechaNacimiento" placeholder="ingresar fecha de nacimiento del paciente"  value="{{ $pacientes->fechaNacimiento }}">
                     </div>
@@ -50,7 +63,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="ciudad" class="col-sm-2 col-form-label col-form-label-lg">ciudad:</label>
+                    <label for="ciudad" class="col-sm-2 col-form-label col-form-label-lg">Ciudad:</label>
                   <div class="col-sm-6">
                     <input type="text" class="form-control form-control-sm" name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $pacientes->ciudad }}">
                   </div>
@@ -92,31 +105,25 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="observaciones" class="col-sm-2 col-form-label col-form-label-lg">observaciones:</label>
+                    <label for="observaciones" class="col-sm-2 col-form-label col-form-label-lg">Observaciones:</label>
                   <div class="col-sm-6">
                     <input type="text" class="form-control form-control-sm" name="observaciones" id="observaciones" placeholder="Alguna observacion?"  value="{{ $pacientes->observaciones }}">
                   </div>
                   </div>
 
                   <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" onclick="location.href='/paciente/vista'"class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary" >Guardar Pacientes</button>
+                <input type="reset" class="btn btn-danger">
               </div>
                   </form>
                   </div>
-                  </div>
                
-
-
-      
         
         
-        
-        
-        
-      </div>
+     
       
  
       
-</div>
+
 @endsection 

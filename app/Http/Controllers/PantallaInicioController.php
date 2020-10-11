@@ -9,7 +9,7 @@ class PantallaInicioController extends Controller
 {
     public function PantallaInicio()
     {
-        $citas=Cita::All();
+        $citas=Cita::Paginate(10);
         return view('PantallaInicio')->with('citas',$citas);
 }
 

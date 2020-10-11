@@ -55,4 +55,8 @@ Route::get('/darcita','CitaController@crear');
 Route::post('/darcita','CitaController@guardar');
 
 
+//ruta para borrar paciente
+//Route::get('/paciente/{id}/borrar','PacienteController@destroy')->nombre('paciente.')->donde('id','[0-9]+'); 
+
+
 
