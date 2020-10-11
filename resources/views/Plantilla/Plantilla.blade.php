@@ -141,14 +141,11 @@
 
         }
 
-      
-
-       
-      
+  
         
   
 }
-       
+
 
     </style>
     <!-- Custom styles for this template -->
@@ -170,12 +167,18 @@
   <div class="media-body">
   </div>
 </div>
+
+ 
   <div class="collapse navbar-collapse" width="80px" id="buscador">
   <form class="form-inline my-2 my-lg-0" id="buscar1">
-      <input class="form-control mr-sm-2" type="search" placeholder="Buscar Paciente" aria-label="Buscar Paciente" width="500px"  >
-      <button class= "btn btn-info" id="buscar"   type="submit">Buscar</button>
+      <input  name="buscarpor"  class="form-control" type="search" placeholder="Buscar Paciente" aria-label="Search" width="500px" id="texto"  >
+      <button class= "btn btn-outline-success my-2 my-sm-0" id="buscar" type='submit'>Buscar</button>
       </form>
-  </div>
+
+  </div> 
+
+
+
   <br>
   <br>
   <div class="btn-group" id="administrador1">
@@ -242,10 +245,17 @@
   <div>
   @yield('contenido')
   </div>
-
+<!-- link para configurar el buscador -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoftBy2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
 </body>
+
+
+
+
+
+
 </html>

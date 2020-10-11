@@ -13,4 +13,10 @@ class PantallaInicioController extends Controller
         return view('PantallaInicio')->with('citas',$citas);
 }
 
+
+
+
+
+
+
 }

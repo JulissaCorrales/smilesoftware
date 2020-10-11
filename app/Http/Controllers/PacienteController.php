@@ -73,10 +73,6 @@ class PacienteController extends Controller
     }
 
 
-
-
-
-
     
 
     public function guardar(Request $request){
@@ -134,4 +130,22 @@ class PacienteController extends Controller
         //return "texto de contacto desde el controlador ";
         return view('nuevopaciente');
      }
+
+
+// Configuracion del Buscador Principal
+     public function index(Request $request){
+        if($request){
+            $query= trim($request->get('buscarpor'));
+            $pacientes =Paciente::where('nombres','LIKE','%'. $query .'%')->orderBy('id','asc')->get();
+            return view('vistapaciente',['pacientes' => $pacientes , 'buscarpor'=> $query] );
+
+        }
+        
+        }
+        
+       
+    
+
+     
+
 }

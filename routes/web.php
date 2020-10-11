@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 Route::get('pantallainiciomenuagenda','MenuAgendaController@MenuAgenda')->name('pantallainiciomenuagenda');
 
+Route::get('pantallainicio','PacienteController@index')->name('pantallainicio');
+
 //ruta para vista cita diaria
 Route::get('/citadiaria','PantallaInicioController@PantallaInicio')->name('citadiaria');
 
@@ -31,11 +33,11 @@ Route::get('/pacienteNuevo','PacienteController@Nuevo');
 Route::get('/paciente/{id}','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
 
 
+
 //Ruta para editar Paciente
 
 Route::get('/paciente/{id}/editar','PacienteController@editar') ->name('paciente.editar') -> where('id' ,'[0-9]+');
 Route::put('/paciente/{id}/editar','PacienteController@update')->name('paciente.update') -> where('id' ,'[0-9]+');
-
 
 
 
@@ -51,3 +53,6 @@ Route::get('/paciente/nuevo','PacienteController@nuevopaciente');
 Route::get('/darcita','CitaController@crear');
 //Ruta para guardar cita
 Route::post('/darcita','CitaController@guardar');
+
+
+
