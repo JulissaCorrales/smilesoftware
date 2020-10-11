@@ -106,7 +106,37 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
      <td>{{$paciente->identidad}}</td>
      <td>
      <a  class="btn btn-warning"  href="/paciente/{{ $paciente->id}}/editar">Editar</a>
-     <button type="button" class="btn btn-danger">Eliminar</button>
+
+     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$paciente->id}}">
+      Eliminar
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal-{{$paciente->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Eliminar Paciente</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  ¿Desea realmente eliminar el paciente {{$paciente->nombres}} {{$paciente->apellidos}}?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <form method="post" action="{{route('paciente.borrar',['id'=>$paciente->id])}}">
+
+                      @csrf
+                      @method('delete')
+                      <input type="submit" value="Eliminar" class="btn btn-danger">
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+     
      </td>
      </tr>
      @endforeach

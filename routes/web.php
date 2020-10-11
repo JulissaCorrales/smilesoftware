@@ -51,3 +51,7 @@ Route::get('/paciente/nuevo','PacienteController@nuevopaciente');
 Route::get('/darcita','CitaController@crear');
 //Ruta para guardar cita
 Route::post('/darcita','CitaController@guardar');
+
+//ruta para borrar paciente
+Route::delete('/paciente/{id}/borrar','PacienteController@destroy')
+    ->name('paciente.borrar')->where('id','[0-9]+');
