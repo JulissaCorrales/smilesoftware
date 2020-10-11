@@ -29,6 +29,14 @@
             margin: 10px;
             float: left;
         }  
+        #encabezado{
+            background-color:#A3E4D7;
+
+        }
+        #cuerpot{
+            border: #F2F3F4  2px solid;
+        }
+        
     </style>
 </head>
 <body>
@@ -53,14 +61,14 @@
 #buscafecha [type=text]  { text-align: center; }
 #buscafecha  [type=button] { cursor: pointer; }
 /*cabecera del calendario*/ 
-#anterior { float: left; width: 90px; font: bold 8pt arial;
+#anterior { text-transform: capitalize;float: left; width: 90px; font: bold 8pt arial;
           padding: 0.5em 0.1em; cursor: pointer ; 
           }
-#posterior { float: right; width: 90px; font: bold 8pt arial; 
+#posterior {text-transform: capitalize; float: right; width: 90px; font: bold 8pt arial; 
           padding: 0.5em 0.1em; cursor: pointer ;}
 #anterior:hover {color: blue;text-decoration: underline;}
 #posterior:hover {color: blue; text-decoration: underline;}
-#titulos { font: normal 12pt "arial black"; padding: 0.2em; }
+#titulos { text-transform: capitalize;font: normal 12pt "arial black"; padding: 0.2em; }
 </style>
 
 
@@ -264,7 +272,7 @@ function mifecha() {
 <div  id="hijo2">
 <table class="table">
         <thead class="table table-striped table-bordered">
-            <tr>
+            <tr id="encabezado">
                 <th scope="col">Hora</th>
                 <th>Fecha</th>
                 <th scope="col">Paciente</th>
@@ -274,9 +282,9 @@ function mifecha() {
         </thead>
         <tbody>
             <tr>
-                <td>    
+                <td >    
                         @foreach($citas as $cita)
-                            <tr>
+                            <tr id="cuerpot">
                             <th scope="row">{{$cita->hora}}</th>
                                 <td>{{$cita->fecha}}</td>
                                 <td>{{$cita->paciente->nombres}} <br>{{$cita->paciente->apellidos}}<br>{{$cita->paciente->telefonoFijo}}<br>{{$cita->paciente->telefonoCelular}} </td>
@@ -287,11 +295,25 @@ function mifecha() {
                         @endforeach
                 </td>
             </tr>
+            <tr>
+            <td id="paginacion"> 
+         
+                    {{$citas->links()}}
+
+
+            
+            </td>
+            
+            <tr>
+        
+            
         </tbody>
+
     </table>
     </div>
 
-
+   
+    
 </div>
 
 

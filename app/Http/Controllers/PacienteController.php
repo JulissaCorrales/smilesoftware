@@ -44,19 +44,17 @@ class PacienteController extends Controller
         $pacientes->empresa=$_request->input('empresa');
         $pacientes->observaciones=$_request->input('observaciones');
 
-        $pacientes->Fecha_Nacimiento =('');
-
         $create = $pacientes->save();
 
-        /*
+        
         if($create){
-            return redirect()->route('estudiantes.index')->with('mensaje','El estudiante ha sido modifcado exitosamente');
+            return redirect()->route('paciente.vista')->with('mensaje','El paciente ha sido modifcado exitosamente');
         }else{
           
           
             //error
         }
-        */
+        
 
         //validar
         $_request->validate(['nombre'=>'required|alpha',
