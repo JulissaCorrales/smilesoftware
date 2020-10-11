@@ -71,7 +71,7 @@ text-align: center;
 <label class="item-input-wrapper" > 
        <button type="button" class="btn btn-secondary">Configuraciones de Pacientes</button>
        <button type="button" class="btn btn-secondary">Descargar</button>
-       <a href="http://smilesoftware.test/paciente/nuevo" <button link rel="stylesheet" type="button" class="btn btn-success">Nuevo Paciente </button> </a>  
+       <a href= > <button link rel="stylesheet" type="button" class="btn btn-success">Nuevo Paciente </button> </a>  
 </div>
 </div>
 
@@ -105,11 +105,12 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
      <td>{{$paciente->apellidos}}</td>
      <td>{{$paciente->identidad}}</td>
      <td>
-     <a  class="btn btn-warning"  href="/paciente/{{ $paciente->id}}/editar">Editar</a>
 
-     <!--<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$paciente->id}}">
+     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$paciente->id}}">
       Eliminar
-  </button> -->
+  </button>
+
+  </td>
 
   <!-- Modal -->
   <div class="modal fade" id="modal-{{$paciente->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -126,7 +127,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <form method="post">
+                  <form method="post" action="{{route('paciente.borrar',['id'=>$paciente->id])}}">
 
                       @csrf
                       @method('delete')
@@ -136,11 +137,8 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
           </div>
       </div>
   </div>
-
-  <!--action="{{route('paciente.borrar',['id'=>$paciente->id])}}" -->
      
-     </td>
-     </tr>
+     </tr> 
      @endforeach
      </tbody>
 </table>

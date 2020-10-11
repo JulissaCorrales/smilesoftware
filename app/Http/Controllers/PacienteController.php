@@ -135,7 +135,7 @@ class PacienteController extends Controller
         if($request){
             $query= trim($request->get('buscarpor'));
             $pacientes =Paciente::where('nombres','LIKE','%'. $query .'%')->orderBy('id','asc')->get();
-            return view('vistapaciente',['pacientes' => $pacientes , 'buscarpor'=> $query] );
+            return view('vistapaciente',['pacientes' => $pacientes ,' buscarpor '=> $query] );
 
         }
         

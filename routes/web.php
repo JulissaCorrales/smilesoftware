@@ -45,7 +45,7 @@ Route::post('/pacienteNuevo','PacienteController@guardar')
     ->name('paciente.guardar');
 //ruta para vista de pacientes
 
-Route::get('/paciente/vista','PacienteController@vistapaciente')->name ('paciente.vista');
+Route::get('/paciente/vista','PacienteController@vistapaciente','PacienteController@index')->name ('paciente.vista');
 //ruta para vista de nuevo paciente
 Route::get('/paciente/nuevo','PacienteController@nuevopaciente');
 
@@ -56,7 +56,10 @@ Route::post('/darcita','CitaController@guardar');
 
 
 //ruta para borrar paciente
-//Route::get('/paciente/{id}/borrar','PacienteController@destroy')->nombre('paciente.')->donde('id','[0-9]+'); 
+Route::delete('/paciente/{id}/borrar','PacienteController@destroy') ->name('paciente.borrar')->where('id','[0-9]+');
+
+
+
 
 
 
