@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <style>
 
@@ -50,6 +51,7 @@ text-align: center;
  }
 
 </style>
+
 </head>
 @section('contenido')
 <body>
@@ -121,7 +123,8 @@ text-align: center;
 <div  class="container">
  <div class="list-group">
  
-<table class="table" id="table ">
+<table id="datatable" class="table" id="table ">
+<thead>
   <tr   class="table-info">
     <th  class="table-primary">Nº</th>
     <th class="table-primary">Nombre</th>
@@ -129,25 +132,35 @@ text-align: center;
     <th class="table-primary">Identidad</th>
     <th class="table-primary">Accion</th>
   </tr>
+  </thead>
   <tr>
+  <tbody>
       @foreach($pacientes as $paciente)
     <td><a  class="btn btn-outline-info"  href="/paciente/{{ $paciente->id}}"  id="lista">{{$paciente->id}}</a></td>
     <td>{{$paciente->nombres}}</td>
     <td>{{$paciente->apellidos}}</td>
     <td>{{$paciente->identidad}}</td>
-    <td><button type="button" class="btn btn-primary">Ver</button>
+    <td>
     <a  class="btn btn-warning"  href="/paciente/{{ $paciente->id}}/editar">Editar</a>
     <button type="button" class="btn btn-danger">Eliminar</button>
     </td>
     <tr>
     @endforeach
+    </tbody>
 </table>
 
 </div>
 
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
+$(document).ready( function () {
+    $('#datatable').DataTable();
+} );
 
 
+</script>
 </body>
 
 @endsection
