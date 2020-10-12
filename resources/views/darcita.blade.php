@@ -32,7 +32,7 @@
         <!-- especialidad -->
         <label for="state_id" class="control-label">Especialidad:</label>
         <select name="especialidad_id" class="form-control">
-        <option></option>
+        <option disabled selected>Seleccione una especialidad</option>
          <?php
         $getEspecialidad =$mysqli->query("select * from especialidads order by id");
         while($f=$getEspecialidad->fetch_object()) {
@@ -49,7 +49,7 @@
         <!-- Doctor -->
         <label for="state_id" class="control-label">Doctor:</label>
         <select name="odontologo_id" class="form-control">
-        <option></option>
+        <option disabled selected>Seleccione un Doctor</option>
         <?php
         $getDoctor =$mysqli->query("select * from odontologos order by id");
         while($f=$getDoctor->fetch_object()) {
@@ -68,7 +68,7 @@
        <!-- Duracion (en duda)-->
        <label for="duracionCita" class="control-label">Duracion de la cita:</label>
         <select name="duracionCita" id="duracionCita" class="form-control">
-        <option></option>
+        <option disabled selected>Seleccione la duracion de la cita</option>
         <option value="10m">10 minutos</option>
         <option value="15m">15 minutos</option>
         <option value="20m">20 minutos</option>
@@ -91,7 +91,7 @@
         <div class="form-group">
                         <label for="state_id" class="control-label">Paciente:</label>
                         <select name="paciente_id" id="paciente_id" class="form-control">
-                        <option></option>
+                        <option disabled selected>Seleccione el paciente</option>
                         <?php
                         $getPaciente =$mysqli->query("select * from pacientes order by id");
                         while($f=$getPaciente->fetch_object()) {
@@ -159,7 +159,7 @@
                     <div class="form-group">
                         <label for="sexo">Sexo :</label>
                         <select  name="sexo" id="sexo">
-                          <option></option>
+                        <option disabled selected>Seleccione el sexo</option>
                           <option>Masculino</option>
                           <option>Femenino</option>
                         
@@ -168,12 +168,33 @@
 
                     <div class="form-group">
                       <label for="fechaNacimiento">fecha de nacimiento:</label>
-                      <input type="text" class="form-control-file" name="fechaNacimiento" id="fechaNacimiento" placeholder="ingresar fecha de nacimiento del paciente">
+                      <input type="date" class="form-control-file" name="fechaNacimiento" id="fechaNacimiento" placeholder="ingresar fecha de nacimiento del paciente">
                   </div>
 
                   <div class="form-group">
                     <label for="departamento">Departamento:</label>
-                    <input type="text" class="form-control-file" name="departamento" id="departamento" placeholder="ingresar departamento del paciente">
+                      <select name="departamento" id="departamento" class="form-control">
+                      <option disabled selected>Seleccione un departamento</option>
+                      <option >Atlántida</option>
+                      <option >Choluteca</option>
+                      <option>Colón</option>
+                      <option >Comayagua</option>
+                      <option >Copán</option>
+                      <option >Cortés</option>
+                      <option >El Paraíso</option>
+                      <option >Francisco Morazán</option>
+                      <option >Gracias a Dios</option>
+                      <option >Intibucá</option>
+                      <option >Islas de la Bahía</option>
+                      <option >La Paz</option>
+                      <option >Lempira</option>
+                      <option >Ocotepeque</option>
+                      <option >Olancho</option>
+                      <option >Santa Bárbara</option>
+                      <option >Valle</option>
+                      <option >Yoro</option>
+
+                  </select>
                   </div>
 
                   <div class="form-group">

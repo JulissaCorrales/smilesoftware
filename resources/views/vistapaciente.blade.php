@@ -71,7 +71,7 @@ text-align: center;
 <label class="item-input-wrapper" > 
        <button type="button" class="btn btn-secondary">Configuraciones de Pacientes</button>
        <button type="button" class="btn btn-secondary">Descargar</button>
-       <a href= > <button link rel="stylesheet" type="button" class="btn btn-success">Nuevo Paciente </button> </a>  
+       <a href="{{route('paciente.nuevo')}}" > <button link rel="stylesheet" type="button" class="btn btn-success">Nuevo Paciente </button> </a>  
 </div>
 </div>
 

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PacienteController extends Controller
 {
     public function nuevo(){
-        return view('tipoPaciente');
+        return view('nuevopaciente');
     }
 
 
@@ -57,11 +57,19 @@ class PacienteController extends Controller
         
 
         //validar
-        $_request->validate(['nombre'=>'required|alpha',
-        'Apellido'=>'required|alpha',
-        'nota'=>'required|numeric|min:0|max:100',
-        'Identidad'=>'required|unique:estudiantes,Identidad',
-        'Cuenta'=>'required|numeric||unique:estudiantes,Cuenta',
+        $_request->validate([     'nombres'=>'required',
+        'apellidos'=>'required',
+        'identidad'=>'required|unique:pacientes,identidad',
+        'sexo'=>'required',
+        'fechaNacimiento'=>'required',
+        'departamento'=>'required',
+        'ciudad'=>'required',
+        'direccion'=>'required',
+        'telefonoFijo'=>'required',
+        'telefonoCelular'=>'required',
+        'profesion'=>'required',
+        'empresa'=>'required',
+        'observaciones'=>'required'
 
         ]);
 
@@ -87,7 +95,7 @@ class PacienteController extends Controller
             'telefonoCelular'=>'required',
             'profesion'=>'required',
             'empresa'=>'required',
-            'observaciones'=>'required',
+            'observaciones'=>'required'
         ]);
 
         $nuevoPaciente = new Paciente();
