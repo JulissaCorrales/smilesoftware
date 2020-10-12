@@ -129,6 +129,13 @@ class PacienteController extends Controller
         return view('nuevopaciente');
      }
 
+     //funcion para eliminar
+    // recibe el id del que se va eliminar
+    public function destroy($id){
+        Paciente::destroy($id);
+        //rediccionar a la pagina index
+        return redirect('/paciente/vista')->with('mensaje','Paciente borrado satisfactoriamente');
+    }
 
 // Configuracion del Buscador Principal
      public function index(Request $request){
