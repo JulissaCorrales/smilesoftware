@@ -65,6 +65,14 @@ Route::prefix('pantallainicio')->group( function(){
     
 });
 
+Route::prefix('pantallainicio/pantallainicio')->group( function(){
+    Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
+    Route::get('vista','PacienteController@index')->name ('paciente.vista');
+    
+});
+
+
+
 
 
 
