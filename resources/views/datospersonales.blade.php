@@ -20,6 +20,8 @@
     position: relative;
     bottom:  -25px;
   left: 200px;
+  background-color: #AFEEEE;
+  background-image: linear-gradient(to left,  #AFEEEE,#20B2AA);
 
 }
 
@@ -39,6 +41,38 @@
 #lista1{
     position: relative;
     bottom:  -10px;
+    
+}
+
+#nombre{
+  color: #008B8B;
+  text-align: center;
+  font-family:  serif;
+  font-size: 35px;
+
+}
+
+#apellido{
+  color: #008B8B;
+  text-align: center;
+  font-family: serif;
+  font-size: 35px;
+
+}
+
+#mostrar{
+  position: relative;
+    bottom:  -20px;
+    height: 150px;
+  width: 320px;
+  background-color: #AFEEEE;
+
+
+}
+
+
+#personal{
+  background-color: #AFEEEE;
 
 }
   
@@ -54,21 +88,19 @@
 <div class="card" style="width: 20rem;" id="ventana">
   <img src="{{ asset('Imagenes/foto1.jpg') }}" class="btn btn-light" width="100px" id="datos">
 
-  <div>
-  <h1>{{ $pacientes->nombres}}</h1>
+  <div id="mostrar">
+  <h2 id="nombre">{{ $pacientes->nombres}}</h2>
+  <h2 id="apellido">{{ $pacientes->apellidos}}</h2>
   </div>
 
-  @foreach($pacientes as $paciente)
   
-
-  @endforeach
 
   <div class="list-group" id="carbdos">
     <a class="btn btn-info" id="card1" href="/paciente/{{ $pacientes->id}}/editar" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
 </svg>   Datos Personales</a>
 
-<div>
+<div id="personal">
 
  <ul class="list-group-item" id="lista1">
     <a class="btn btn-light" id=""><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-camera-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -109,24 +141,16 @@
 
 
 </div>
-
-
-
-
-<
-               
-
-
-      
-        
-        
-        
-        
         
       </div>
       
  
       
+</div>
+
+
+<div>
+
 </div>
 </body>
 
