@@ -56,7 +56,14 @@ Route::post('/darcita','CitaController@guardar');
 //ruta para borrar paciente
 Route::delete('/paciente/{id}/borrar','PacienteController@destroy') ->name('paciente.borrar')->where('id','[0-9]+');
 
-
+//grupo de rutas se ingresa con pantallainicio/y luego a ruta que desea ingresar
+//este caso solo para probar el buscador ingrese en la ruta pantallainicio/vista
+Route::prefix('pantallainicio')->group( function(){
+    Route::get('pantalla','PacienteController@index')->name('pantallainicio');
+    Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
+    Route::get('vista','PacienteController@index')->name ('paciente.vista');
+    
+});
 
 
 
