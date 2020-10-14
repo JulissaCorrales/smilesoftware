@@ -11,6 +11,11 @@ class PacienteController extends Controller
         return view('nuevopaciente');
     }
 
+    public function vistaprincipal(){
+        $pacientes = Paciente::findOrFail();
+        return view('Plantilla.Plantilla')->with('pacientes',$pacientes);;
+    }
+
 
     public function datosVer($id){
         $pacientes = Paciente::findOrFail($id);
@@ -150,7 +155,7 @@ class PacienteController extends Controller
         if($request){
             $query= trim($request->get('buscarpor'));
             $pacientes =Paciente::where('nombres','LIKE','%'. $query .'%')->orderBy('id','asc')->get();
-            return view('vistapaciente',['pacientes' => $pacientes ,' buscarpor '=> $query] );
+            return view('Buscarpaciente',['pacientes' => $pacientes ,' buscarpor '=> $query] );
 
         }
         

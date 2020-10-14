@@ -61,15 +61,19 @@ Route::delete('/paciente/{id}/borrar','PacienteController@destroy') ->name('paci
 Route::prefix('pantallainicio')->group( function(){
     Route::get('pantalla','PacienteController@index')->name('pantallainicio');
     Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
-    Route::get('vista','PacienteController@index')->name ('paciente.vista');
+    Route::get('vista','PacienteController@vistapaciente')->name ('paciente.vista');
+    Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
     
 });
 
 Route::prefix('pantallainicio/pantallainicio')->group( function(){
     Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
-    Route::get('vista','PacienteController@index')->name ('paciente.vista');
+    //Route::get('','PacienteController@index')->name ('paciente.vista');
+    Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
     
 });
+
+Route::get('vistaprincipal','PacienteController@vistaprincipal')->name ('paciente.vista');
 
 
 

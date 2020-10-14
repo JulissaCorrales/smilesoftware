@@ -168,14 +168,17 @@
   </div>
 </div>
 
+
  
   <div class="collapse navbar-collapse" width="80px" id="buscador">
-  <form class="form-inline my-2 my-lg-0" id="buscar1">
+  <form class="form-inline my-2 my-lg-0" id="buscar1"  action="buscar">
       <input  name="buscarpor"  class="form-control" type="search" placeholder="Buscar Paciente" aria-label="Search" width="500px" id="texto"  >
       <button class= "btn btn-outline-success my-2 my-sm-0" id="buscar" type='submit'>Buscar</button>
       </form>
 
   </div> 
+
+
 
 
 
