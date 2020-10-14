@@ -29,6 +29,8 @@ Route::get('/citadiaria','PantallaInicioController@PantallaInicio')->name('citad
 
 //ruta para formulario de paciente nuevo
 Route::get('/pacienteNuevo','PacienteController@Nuevo')->name('paciente.nuevo');
+//ruta para guardar paciente
+Route::post('/pacienteNuevo','PacienteController@guardar')->name('paciente.guardar');
 
 Route::get('/paciente/{id}','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
 
@@ -40,9 +42,8 @@ Route::get('/paciente/{id}/editar','PacienteController@editar') ->name('paciente
 Route::put('/paciente/{id}/editar','PacienteController@update')->name('paciente.update') -> where('id' ,'[0-9]+');
 
 
-//ruta para guardar paciente
-Route::post('/pacienteNuevo','PacienteController@guardar')
-    ->name('paciente.guardar');
+    Route::post('nuevo','PacienteController@GuardarNuevo')
+    ->name('guardar.nuevo');
 //ruta para vista de pacientes
 
 Route::get('/paciente/vista','PacienteController@vistapaciente')->name ('paciente.vista');
@@ -73,7 +74,6 @@ Route::prefix('pantallainicio/pantallainicio')->group( function(){
     
 });
 
-Route::get('vistaprincipal','PacienteController@vistaprincipal')->name ('paciente.vista');
 
 
 
