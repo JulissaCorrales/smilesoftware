@@ -1,5 +1,5 @@
-@extends('Plantilla.Plantilla')
-@section('contenido')  
+@extends('datospersonales')
+@section('cuerpo')   
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +22,7 @@
 </style>
 </head>
 <body>
-<h3 id="titulo">Edicion de datos del paciente</h3>  
+<h3 id="titulo">Edición de datos del paciente</h3>  
 <div id="padre"> 
   
                     <form method="post" action="{{route('paciente.update',['id'=> $pacientes-> id])}} ">

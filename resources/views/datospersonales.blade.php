@@ -17,11 +17,13 @@
 
 #ventana{
 
-    position: relative;
-    bottom:  -25px;
-  left: 200px;
+    
+  position: relative;
+  bottom:  -25px;
+  left: 50px;
   background-color: #AFEEEE;
   background-image: linear-gradient(to left,  #AFEEEE,#20B2AA);
+  float:left;
 
 }
 
@@ -75,8 +77,13 @@
   background-color: #AFEEEE;
 
 }
-  
+#hijo{
+  overflow: hidden;
+  position: relative;}
+
 </style>
+  
+
 
 </head>
 
@@ -103,7 +110,7 @@
 <div id="personal">
 
  <ul class="list-group-item" id="lista1">
-    <a class="btn btn-light" id=""><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-camera-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <a class="btn btn-light" id="" href="" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-camera-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
   <path fill-rule="evenodd" d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"/>
 </svg>     Imagenes y archivos</a> <br>
@@ -114,7 +121,7 @@
   <circle cx="3.5" cy="5.5" r=".5"/>
   <circle cx="3.5" cy="8" r=".5"/>
   <circle cx="3.5" cy="10.5" r=".5"/>
-</svg>   Citas</li>
+</svg> Citas</li>
     <li class="btn btn-light"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
 </svg>   Comentarios Administrativos</li>
@@ -150,6 +157,10 @@
 
 
 <div>
+<div style="float:right; with:auto"  id='hijo'>
+@yield('cuerpo')
+</div>
+
 
 </div>
 </body>
