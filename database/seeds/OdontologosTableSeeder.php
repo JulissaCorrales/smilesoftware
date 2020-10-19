@@ -6,6 +6,7 @@ use App\Odontologo;
 use App\Cita;
 use Carbon\Carbon;
 use App\Paciente;
+use App\PlanTratamiento;
 
 class OdontologosTableSeeder extends Seeder
 {
@@ -46,9 +47,29 @@ class OdontologosTableSeeder extends Seeder
         $cita->comentarios="Paciente con alergia al camaron";
         $cita->save();
         
+        /*  */
+
+        PlanTratamiento::truncate();
+        $plantratamiento=new PlanTratamiento;
+        $plantratamiento->nombreTratamiento="Blanqueamiento dental";
+        $plantratamiento->estado="activo";
+        $plantratamiento->paciente_id=1;
+        $plantratamiento->odontologo_id=1;
+        $plantratamiento->cita_id=1;
+        $plantratamiento->save();
+        
+        $plantratamiento=new PlanTratamiento;
+        $plantratamiento->nombreTratamiento="Brakes";
+        $plantratamiento->estado="activo";
+        $plantratamiento->paciente_id=2;
+        $plantratamiento->odontologo_id=1;
+        $plantratamiento->cita_id=2;
+        $plantratamiento->save();
 
 
-        Paciente::truncate();
+      
+
+         Paciente::truncate(); 
         $paciente=new Paciente;
         $paciente->nombres="Luis David";
         $paciente->apellidos="Ferrera Martinez";
@@ -63,8 +84,9 @@ class OdontologosTableSeeder extends Seeder
         $paciente->profesion="Maestro";
         $paciente->empresa="Escuela Miriam Gallardo";
         $paciente->observaciones="Alergias al mani";
-        /* $paciente->cita_id=1; */
         $paciente->save();
+
+        $paciente->planestratamientos()->attach([1, 2]);//Relacionar el paciente a dos planes
 
 
         
@@ -82,13 +104,13 @@ class OdontologosTableSeeder extends Seeder
         $paciente->profesion="Maestro";
         $paciente->empresa="Escuela Miriam Gallardo";
         $paciente->observaciones="Alergias al mani";
-       /*  $paciente->cita_id=2; */
         $paciente->save();
+        $paciente->planestratamientos()->attach([1]);//Relacionar el paciente al 1° planestratamiento
 
         Odontologo::truncate();
         $odontologo=new Odontologo;
         $odontologo->nombres="Juan Jose";
-        $odontologo->apellidos="perez pereira";
+        $odontologo->apellidos="Perez Pereira";
         $odontologo->identidad="0703-1998-15123";
         $odontologo->telefonoCelular="95652356";
         $odontologo->telefonoFijo="2763-8826";
@@ -99,6 +121,24 @@ class OdontologosTableSeeder extends Seeder
         $odontologo->especialidad_id=1;
         $odontologo->intervalos="30 min";
         $odontologo->save();
+
+        $odontologo=new Odontologo;
+        $odontologo->nombres="Mercedes Dariela";
+        $odontologo->apellidos="Mejia Vasquez";
+        $odontologo->identidad="0703-1985-12345";
+        $odontologo->telefonoCelular="95562414";
+        $odontologo->telefonoFijo="2763-8826";
+        $odontologo->email="mercedezmejia@gmail.com";
+        $odontologo->departamento="El paraiso";
+        $odontologo->ciudad="Danli";
+        $odontologo->direccion="Col Nueva Esperanza";
+        $odontologo->especialidad_id=1;
+        $odontologo->intervalos="30 min";
+        $odontologo->save();
+     
+        
+
+
 
         
     

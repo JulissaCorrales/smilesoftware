@@ -367,16 +367,18 @@ function mifecha() {
         <tbody>
             <tr>
                 <td >    
-                        @foreach($citas as $cita)
+                        @forelse($citas as $cita)
                             <tr id="cuerpot">
                             <th scope="row">{{$cita->hora}}</th>
                                 <td>{{$cita->fecha}}</td>
                                 <td>{{$cita->paciente->nombres}} <br>{{$cita->paciente->apellidos}}<br>{{$cita->paciente->telefonoFijo}}<br>{{$cita->paciente->telefonoCelular}} </td>
                                 <td>{{$cita->odontologo->nombres}}<br>{{$cita->odontologo->apellidos}}</td>
                                 
-                        
+                                @empty
+                            No hay citas programadas
                             </tr>
-                        @endforeach
+                           
+                        @endforelse
                 </td>
             </tr>
             <tr>

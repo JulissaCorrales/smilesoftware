@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Paciente;
+use App\Plantratamiento;
+use App\Cita;
+
 use Illuminate\Http\Request;
 
 class PacienteController extends Controller
@@ -192,7 +195,12 @@ class PacienteController extends Controller
     public function destroy($id){
         Paciente::destroy($id);
         //rediccionar a la pagina index
+        PlanTratamiento::where('paciente_id','=',$id)->delete();
+        Cita::where('paciente_id','=',$id)->delete();
         return redirect('/paciente/vista')->with('mensaje','Paciente borrado satisfactoriamente');
+
+
+       
     }
 
 // Configuracion del Buscador Principal

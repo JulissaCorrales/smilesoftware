@@ -28,5 +28,10 @@ class Paciente extends Model
    }
 
 
+/* Relacion de Planesde Tratamiento con paciente de muchos a muchos */
+public function planestratamientos(){
+    return $this->belongsToMany(PlanTratamiento::class); // Muchos a muchos
+}
+
     
 }

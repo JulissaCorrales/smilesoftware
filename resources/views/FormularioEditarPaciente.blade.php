@@ -9,7 +9,7 @@
   <style>
 #titulo{
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
 }
 #padre {
   margin: 2rem;
@@ -22,8 +22,9 @@
 </style>
 </head>
 <body>
-<h3 id="titulo">Edición de datos del paciente</h3>  
+  
 <div id="padre"> 
+<h3 id="titulo">Edición de datos del paciente</h3>
   
                     <form method="post" action="{{route('paciente.update',['id'=> $pacientes-> id])}} ">
                       @csrf
