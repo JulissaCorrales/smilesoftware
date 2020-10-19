@@ -74,6 +74,8 @@ Route::prefix('pantallainicio/pantallainicio')->group( function(){
     
 });
 
+Route::get('calendar','CitaController@calendar');
+
 
 
 

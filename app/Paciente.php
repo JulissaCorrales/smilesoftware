@@ -22,10 +22,10 @@ class Paciente extends Model
        // }
         
     //}
-//     public function cita()
-//     {
-//         return $this->belongsTo(Cita::class);/* pertenece a una cita */
-//     }
+    public function cita()
+    {
+       return $this->belongsTo(Cita::class);/* pertenece a una cita */
+   }
 
 
     

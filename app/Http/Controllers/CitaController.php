@@ -11,6 +11,11 @@ class CitaController extends Controller
         return view('darcita');
 
     }
+
+    public function calendar(){
+        return view('FullCalendar');
+
+    }
       //funcion para gurdar el formulario cita
       public  function guardar(Request $request){
 
