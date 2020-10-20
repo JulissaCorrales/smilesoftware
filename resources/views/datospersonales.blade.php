@@ -124,7 +124,7 @@
         
       </div> 
 </div><!-- div cierre de ventana -->
-<!-- Contenido a la derecha: -->
+<!-- Contenido a la derecha: :. -->
 <div style="position:static;"  id='hijo'>
 <div >
 @yield('cuerpo')

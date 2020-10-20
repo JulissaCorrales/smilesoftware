@@ -75,7 +75,7 @@ Route::prefix('pantallainicio/pantallainicio')->group( function(){
     
 });
 
-//ruta para plan de tratamiento
+//ruta para planes de tratamientos
 Route::get('/plandetratamiento/{id}','PlanTratamientoController@ver')->name('tratamiento.ver');
 //ruta para nuevo tratamiento
 
