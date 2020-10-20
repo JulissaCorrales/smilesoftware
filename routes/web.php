@@ -85,6 +85,7 @@ Route::post('/tratamientoNuevo/{id}','PlanTratamientoController@guardar')->name(
 //Ruta Para eliminar plan de tratamiento
 Route::delete('/plandetratamiento/{id}/borrar','PlanTratamientoController@destroy') ->name('plandetratamiento.borrar')->where('id','[0-9]+');
 
+Route::get('calendar','CitaController@calendar');
 
 
 
