@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Paciente;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,17 @@ Route::prefix('pantallainicio/pantallainicio')->group( function(){
     Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
     
 });
+
+//ruta para plan de tratamiento
+Route::get('/plandetratamiento/{id}','PlanTratamientoController@ver')->name('tratamiento.ver');
+//ruta para nuevo tratamiento
+
+Route::get('/tratamientoNuevo/{id}','PlanTratamientoController@Nuevo')->name('tratamiento.nuevo');
+//ruta para guardar paciente
+Route::post('/tratamientoNuevo/{id}','PlanTratamientoController@guardar')->name('tratamiento.guardar');
+//Ruta Para eliminar plan de tratamiento
+Route::delete('/plandetratamiento/{id}/borrar','PlanTratamientoController@destroy') ->name('plandetratamiento.borrar')->where('id','[0-9]+');
+
 
 
 
