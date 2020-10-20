@@ -96,9 +96,9 @@
         <!--cita -->
   <label for="state_id" class="control-label">Cita:</label>
         <select name="cita_id" class="form-control">
-        <option disabled selected>Seleccione la cita(El numero despues de la fecha indica el numero de Paciente, si no está debe crear la cita) </option>
+        <option disabled selected>Seleccione la cita (El numero despues de la fecha indica el numero de Paciente, si no está debe crear la cita) </option>
         <?php
-        $getCitas =$mysqli->query("select * from citas where paciente_id= order by id");
+        $getCitas =$mysqli->query("select * from citas order by id");
         while($f=$getCitas->fetch_object()) {
           echo $f->id;
           echo $f->fecha;
