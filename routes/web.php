@@ -65,13 +65,16 @@ Route::prefix('pantallainicio')->group( function(){
     Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
     Route::get('vista','PacienteController@vistapaciente')->name ('paciente.vista');
     Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+    Route::get('calendar','CitaController@calendar');
+
     
 });
 
 Route::prefix('pantallainicio/pantallainicio')->group( function(){
-    Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
-    //Route::get('','PacienteController@index')->name ('paciente.vista');
+Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
+Route::get('','PacienteController@index')->name ('paciente.vista');
     Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+    Route::get('calendar','CitaController@calendar');
     
 });
 
@@ -85,7 +88,18 @@ Route::post('/tratamientoNuevo/{id}','PlanTratamientoController@guardar')->name(
 //Ruta Para eliminar plan de tratamiento
 Route::delete('/plandetratamiento/{id}/borrar','PlanTratamientoController@destroy') ->name('plandetratamiento.borrar')->where('id','[0-9]+');
 
-Route::get('calendar','CitaController@calendar');
+//Route::get('calendar','CitaController@calendar');
+
+
+Route::prefix('pantallainicio/pantallainicio/calendar')->group( function(){
+    Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
+    //Route::get('','PacienteController@index')->name ('paciente.vista');
+});
+
+Route::prefix('/pantallainicio/pantallainicio/pantallainicio/calendar/citadiaria')->group( function(){
+    Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
+    //Route::get('','PacienteController@index')->name ('paciente.vista');
+});
 
 
 
