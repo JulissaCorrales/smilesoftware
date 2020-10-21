@@ -34,6 +34,7 @@ class OdontologosTableSeeder extends Seeder
         $cita->hora="12:00";
         $cita->fecha = Carbon::now();
         $cita->paciente_id=1;
+        $cita->stard='2020-10-21  5:30:00';
         $cita->comentarios="Paciente con alergia al pescado";
         $cita->save();
         
@@ -44,6 +45,7 @@ class OdontologosTableSeeder extends Seeder
         $cita->hora="11:00";
         $cita->fecha = Carbon::now();
         $cita->paciente_id=2;
+        $cita->stard='2020-10-21  5:30:00';
         $cita->comentarios="Paciente con alergia al camaron";
         $cita->save();
         

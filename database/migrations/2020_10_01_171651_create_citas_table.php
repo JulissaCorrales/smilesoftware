@@ -21,6 +21,7 @@ class CreateCitasTable extends Migration
             $table->time('hora');
             $table->date('fecha');
             $table->unsignedInteger('paciente_id');
+            $table->datetime('stard');
             $table->string('comentarios');
             $table->timestamps();
         });

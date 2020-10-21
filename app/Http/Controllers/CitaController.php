@@ -118,8 +118,8 @@ class CitaController extends Controller
         $nuevacita->duracionCita=$request->input('duracionCita');
         $nuevacita->hora=$request->input('hora');
         $nuevacita->fecha=$request->input('fecha');
-        $nuevacita->stard=$request->input('stard');
        $nuevacita->paciente_id=$request->input('paciente_id');
+       $nuevacita->stard=$request->input('stard');
         $nuevacita->comentarios=$request->input('comentarios');    
 
         $creado = $nuevacita->save();
