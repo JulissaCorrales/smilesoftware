@@ -126,6 +126,8 @@ class CitaController extends Controller
         $creado = $nuevacita->save();
         //Asegurarse que fue creado
         if ($creado){
+            $paciente=Paciente::findOrFail($nuevacita->paciente_id);
+            $paciente->citas()->attach($nuevacita);
             return redirect()->route("citadiaria")
                 ->with('mensaje','La cita fue creado exitosamente');
 
