@@ -116,6 +116,12 @@ Route::prefix('/pantallainicio/pantallainicio/pantallainicio/calendar/citadiaria
     //Route::get('','PacienteController@index')->name ('paciente.vista');
 });
 
+//*****************rutas para ver imagenes y archivos del paciente******************//
+
+//ruta para ver imagenenes del paciente------->
+
+Route::get('/imagenesYarchivos/{id}','imagenesYarchivosController@ver')
+->name('imagenesYarchivos.ver');
 
 //Route::get('calendario','CitaController@calendario');
 
