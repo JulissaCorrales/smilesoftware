@@ -62,21 +62,36 @@ Route::delete('/paciente/{id}/borrar','PacienteController@destroy') ->name('paci
 //este caso solo para probar el buscador ingrese en la ruta pantallainicio/vista
 Route::prefix('pantallainicio')->group( function(){
     Route::get('pantalla','PacienteController@index')->name('pantallainicio');
-    Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
+   // Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
     Route::get('vista','PacienteController@vistapaciente')->name ('paciente.vista');
     Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
-    Route::get('calendar','CitaController@calendar');
+    Route::get('calendario','CitaController@calendario');
+    //Route::get('calendar','CitaController@calendar');
 
     
 });
+
+Route::prefix('pantallainicio/calendario')->group( function(){
+    Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
+    //Route::get('/darcita','CitaController@crear');
+   // Route::post('/darcita','CitaController@guardar');
+    //Route::get('','PacienteController@index')->name ('paciente.vista');
+        Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+        Route::get('calendar','CitaController@calendar');
+        
+    });
 
 Route::prefix('pantallainicio/pantallainicio')->group( function(){
-Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
+Route::get('pantallainicio/citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
 Route::get('','PacienteController@index')->name ('paciente.vista');
     Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
-    Route::get('calendar','CitaController@calendar');
+    
+    //Route::get('pantallainicio/calendar','CitaController@calendar');
     
 });
+
+
+
 
 //ruta para planes de tratamientos
 Route::get('/plandetratamiento/{id}','PlanTratamientoController@ver')->name('tratamiento.ver');
@@ -108,6 +123,9 @@ Route::prefix('/pantallainicio/pantallainicio/pantallainicio/calendar/citadiaria
 Route::get('/imagenesYarchivos/{id}','imagenesYarchivosController@ver')
 ->name('imagenesYarchivos.ver');
 
+//Route::get('calendario','CitaController@calendario');
+
+//Route::get('datos','CitaController@datos')->name ('paciente.datos');
 
 
 

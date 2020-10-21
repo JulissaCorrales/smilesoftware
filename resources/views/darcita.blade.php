@@ -1,11 +1,16 @@
+<html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
       #div1{background-color:#00AAE4}
       #botonContinuar{text-align: center;}
      
+
       
 </style>
   
-  
+  <body>
   <!-- Este codigo es para la ventana modal darcita -->
 <div class="modal fade" id="create">
   
@@ -86,6 +91,9 @@
         <label for="fecha" class="control-label">Fecha:</label>
         <input type="date" name="fecha" id="fecha"> 
         <br>
+
+        <label for="hora" class="control-label">Hora:</label>
+        <input type="datetime-local" name="hora" id="hora">
         <!-- Paciente_id -->
 
         <div class="form-group">
@@ -252,3 +260,7 @@
  
       
 </div>
+
+<body>
+
+</html>
