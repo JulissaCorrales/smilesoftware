@@ -128,7 +128,7 @@ class CitaController extends Controller
         if ($creado){
             $paciente=Paciente::findOrFail($nuevacita->paciente_id);
             $paciente->citas()->attach($nuevacita);
-            return redirect()->route("citadiaria")
+            return redirect()->route('citaIndividual',['id'=>$paciente->id])
                 ->with('mensaje','La cita fue creado exitosamente');
 
         }else{
@@ -140,9 +140,8 @@ class CitaController extends Controller
 
  //funcion para ver cita individual
  public function verCitaIndividual($id){
-    $citas = Cita::findOrFail($id);
     $pacientes = Paciente::findOrFail($id);
-    return view('citaIndividual',compact('citas','pacientes'));
+    return view('citaIndividual',compact('pacientes'));
 }
  //funcion para eliminar
     // recibe el id del que se va eliminar
@@ -150,7 +149,7 @@ class CitaController extends Controller
         Cita::destroy($id);
         //rediccionar a la pagina index
         PlanTratamiento::where('cita_id','=',$id)->delete();/* para que al borrar la cita se borre el plan de tratamiento ya que el plan existe solo si esta en la cita */
-        return redirect('/paciente/vista')->with('mensaje','Cita borrada satisfactoriamente');
+        return redirect('/pantallainicio/vista')->with('mensaje','Cita borrada satisfactoriamente');
     }
 
 

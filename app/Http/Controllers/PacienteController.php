@@ -56,7 +56,7 @@ class PacienteController extends Controller
 
         
         if($create){
-            return redirect()->route('paciente.vista')->with('mensaje','El paciente ha sido modifcado exitosamente');
+            return redirect('/pantallainicio/vista')->with('mensaje','El paciente ha sido modifcado exitosamente');
         }else{
           
           
@@ -127,7 +127,7 @@ class PacienteController extends Controller
        $creado = $nuevoPaciente->save();
 
          if ($creado){
-            return redirect()->route('paciente.vista')
+            return redirect('/pantallainicio/vista')
                 ->with('mensaje', 'el paciente fue creado exitosamente!');
         }else{
             //retornar con un msj de error
@@ -173,7 +173,7 @@ class PacienteController extends Controller
        $creado = $nuevoPaciente->save();
 
          if ($creado){
-            return redirect()->route('paciente.vista')->with('mensaje', 'el paciente fue creado exitosamente!');
+            return redirect('/pantallainicio/vista')->with('mensaje', 'el paciente fue creado exitosamente!');
         }else{
             //retornar con un msj de error
         } 
@@ -197,7 +197,7 @@ class PacienteController extends Controller
         //rediccionar a la pagina index
         PlanTratamiento::where('paciente_id','=',$id)->delete();
         Cita::where('paciente_id','=',$id)->delete();
-        return redirect('/paciente/vista')->with('mensaje','Paciente borrado satisfactoriamente');
+        return redirect('/pantallainicio/vista')->with('mensaje','Paciente borrado satisfactoriamente');
 
 
        
