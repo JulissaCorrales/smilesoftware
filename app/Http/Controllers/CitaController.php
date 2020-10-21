@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cita;
 use App\Paciente;
+use App\PlanTratamiento;
 
 
 class CitaController extends Controller
@@ -133,6 +134,22 @@ class CitaController extends Controller
         } 
 }
 
+
+
+ //funcion para ver cita individual
+ public function verCitaIndividual($id){
+    $citas = Cita::findOrFail($id);
+    $pacientes = Paciente::findOrFail($id);
+    return view('citaIndividual',compact('citas','pacientes'));
+}
+ //funcion para eliminar
+    // recibe el id del que se va eliminar
+    public function destroyCita($id){
+        Cita::destroy($id);
+        //rediccionar a la pagina index
+        PlanTratamiento::where('cita_id','=',$id)->delete();/* para que al borrar la cita se borre el plan de tratamiento ya que el plan existe solo si esta en la cita */
+        return redirect('/paciente/vista')->with('mensaje','Cita borrada satisfactoriamente');
+    }
 
 
 

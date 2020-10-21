@@ -129,5 +129,12 @@ Route::get('/imagenesYarchivos/{id}','imagenesYarchivosController@ver')
 
 
 
+//ver cita individual
+Route::get('/citaIndividual/{id}','CitaController@verCitaIndividual')->where('id','[0-9]+')->name('citaIndividual');
+//borrar cita individual
+Route::delete('/citaIndividual/{id}/borrar','CitaController@destroyCita') ->name('cita.borrar')->where('id','[0-9]+');
+
+
+
 
 
