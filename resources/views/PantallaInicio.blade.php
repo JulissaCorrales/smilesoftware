@@ -1,6 +1,6 @@
-@extends('Plantilla.Plantilla')
+@extends('Calendario')
 
-@section('contenido')
+@section('cuerpo')
 
 @if(session('mensaje'))
         <div class="alert alert-success">
@@ -27,15 +27,15 @@
             width:700px;
             margin: 10px;
             position: absolute;
-            top: 350px;
-            left: 790px;
+            top: 300px;
+            left: 700px;
         }  
         #encabezado{
-            background-color:#A3E4D7;
+            background-color: #33ccff;
 
         }
-        #cuerpot{
-            border: #F2F3F4  2px solid;
+        #cuerpo{
+            border: #99d6ff  2px solid;
         }
         
 #diaria{
@@ -102,6 +102,7 @@
     </style>
 </head>
 <body>
+<!--
 <div class="container"  id="conte" >
 <nav class="navbar navbar-light bg-light"  id="navasdeBotones" >
   <h5>Agenda</h5>
@@ -125,7 +126,7 @@
 
 
 
-</nav>
+</nav> -->
 <div class="container" id="padre">
 <div  id="hijo1">
 <!-- calendario -->
@@ -159,7 +160,7 @@
 
 
 
-
+<!--
 <br/><br/>
 <div id="calendario">
 <h2 id="titulos"></h2>
@@ -351,7 +352,7 @@ function mifecha() {
          }
 
 </script>
-
+ -->
 
 </div>
 
@@ -370,7 +371,7 @@ function mifecha() {
             <tr>
                 <td >    
                         @forelse($citas as $cita)
-                            <tr id="cuerpot">
+                            <tr id="cuerpo">
                             <th scope="row">{{$cita->hora}}</th>
                                 <td>{{$cita->fecha}}</td>
                                 <td>{{$cita->paciente->nombres}} <br>{{$cita->paciente->apellidos}}<br>{{$cita->paciente->telefonoFijo}}<br>{{$cita->paciente->telefonoCelular}} </td>

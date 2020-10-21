@@ -199,7 +199,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light" style=" background-image: linear-gradient(to right, #A9E2F3,#81DAF5);">
 <div class="btn-group btn-group-lg" id="agenda1" >
-  <a id ="agenda" type="button" class="btn btn-outline-info" href="/pantallainicio/citadiaria">
+  <a id ="agenda" type="button" class="btn btn-outline-info" href="/pantallainicio/calendario">
     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
 </svg>Agenda</a>
