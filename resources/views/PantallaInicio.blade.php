@@ -364,6 +364,7 @@ function mifecha() {
                 <th>Fecha</th>
                 <th scope="col">Paciente</th>
                 <th scope="col">Doctor</th>
+                <th scope="col">Fecha y hora</th>
                 
             </tr>  
         </thead>
@@ -376,6 +377,7 @@ function mifecha() {
                                 <td>{{$cita->fecha}}</td>
                                 <td>{{$cita->paciente->nombres}} <br>{{$cita->paciente->apellidos}}<br>{{$cita->paciente->telefonoFijo}}<br>{{$cita->paciente->telefonoCelular}} </td>
                                 <td>{{$cita->odontologo->nombres}}<br>{{$cita->odontologo->apellidos}}</td>
+                                <td>{{$cita->stard}}</td>
                                 
                                 @empty
                             No hay citas programadas

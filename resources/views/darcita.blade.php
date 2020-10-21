@@ -93,7 +93,7 @@
         <br>
 
         <label for="hora" class="control-label">Hora:</label>
-        <input type="datetime-local" name="hora" id="hora">
+        <input type="datetime-local" name="stard" id="hora">
         <!-- Paciente_id -->
 
         <div class="form-group">

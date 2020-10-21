@@ -277,14 +277,12 @@ new Vue({
 
     {
           title:"<?php echo "paciente". $fila["paciente_id"]; ?>",
-          start: "2020-10-21  5:30:00",
-          end: "2020-10-22 5:30:00"
+          start: "<?php echo $fila["stard"]; ?>",
+          end: " "
 
 
 /*
-     // paciente_id: "<?php echo "paciente". $fila["paciente_id"]; ?>",
-     //  fecha: "<?php echo $fila["fecha"]; ?>",
-     //  hora: "<?php echo $fila["hora"]; ?>",
+     
  */
     },
 <?php
