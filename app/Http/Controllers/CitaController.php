@@ -43,20 +43,7 @@ class CitaController extends Controller
         
 
 
-    public function datos()
-    {
-        if(request()->ajax()) 
-        {
- 
-         $pacientes = (!empty($_GET["id"])) ? ($_GET["id"]) : ('');
-         $citas = (!empty($_GET["nombres"])) ? ($_GET["nombres"]) : ('');
- 
-         $data = Paciente::whereDate('id', '>=', $pacientes)->whereDate('id',   '<=', $citas)->get(['id']);
-         return calendar::json($data);
-        }
-        return view('Calendario');
-    }
-
+    
     public function create(Request $request)
     {  
         $insertArr = [ 'title' => $request->title,

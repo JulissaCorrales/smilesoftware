@@ -141,4 +141,9 @@ Route::delete('/citaIndividual/{id}/borrar','CitaController@destroyCita') ->name
 
 
 
+//Route::get('comentarios','PacienteController@comentarios');
+        
+Route::get('/comentarios/{id}','PacienteController@comentarios') ->name('comentarios.crear');
+Route::post('/comentarios/{id}','PacienteController@GuardarComentario')->name('comentario.guardar');
+
 
