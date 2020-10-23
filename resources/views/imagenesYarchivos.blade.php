@@ -183,7 +183,11 @@
               <li>
                 <div>
                   <time>22-12-2020</time>
+                  <br>
+                  <br>
                   Cirugía dental para implantes dentales
+                  <br>
+                  <br>
 
                   La colocación de implantes dentales es una 
                   de las intervenciones quirúrgicas más comunes. 
@@ -199,8 +203,11 @@
               <li>
                 <div>
                   <time>21-12-2020</time>
+                  <br>
+                  <br>
                   Cirugía dental en las encías
- 
+                  <br>
+                  <br>
 
                   Cuando una enfermedad periodontal 
                   está en fase avanzada, es probable 
@@ -218,9 +225,11 @@
               <li>
                 <div>
                   <time>16-11-2020</time>
+                  <br>
+                  <br>
                   Cirugía de injerto de hueso
- 
-
+                  <br>
+                  <br>
                 La cirugía de injerto de hueso es una
                  intervención quirúrgica llevada a cabo
                   por especialistas en cirugía oral o 
@@ -237,9 +246,11 @@
               <li>
                 <div>
                   <time>10-10-2020</time>
+                  <br>
+                  <br>
                   Cirugía de muelas del juicio
- 
-
+                  <br>
+                  <br>
                    La extracción de muelas del juicio es
                     una de las cirugías dentales más habituales 
                     en el día a día de cualquier clínica dental.
@@ -257,8 +268,11 @@
               <li>
                 <div>
                   <time>09-09-2020</time>
+                  <br>
+                  <br>
                   Cirugía de elevación de seno maxilar
- 
+                  <br>
+                  <br>
 
                   La cirugía de elevación de seno maxilar
                    es una intervención quirúrgica destinada
@@ -274,8 +288,11 @@
               <li>
                 <div>
                   <time>1934</time>
+                  <br>
+                  <br>
                   Cirugías periapicales
- 
+                  <br>
+                  <br>
 
                   También conocida como apicectomía, 
                   la cirugía periapical es un procedimiento

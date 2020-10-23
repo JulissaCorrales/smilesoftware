@@ -11,4 +11,8 @@ class imagenesYarchivosController extends Controller
         $pacientes = Paciente::findOrFail($id);
         return view('imagenesYarchivos',compact('pacientes'));
     }
+
+    public function nuevo(){
+        return view('formularioImagenesYarchivos');
+    }
 }

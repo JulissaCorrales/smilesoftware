@@ -123,6 +123,14 @@ Route::prefix('/pantallainicio/pantallainicio/pantallainicio/calendar/citadiaria
 Route::get('/imagenesYarchivos/{id}','imagenesYarchivosController@ver')
 ->name('imagenesYarchivos.ver');
 
+//ruta para el formulario de nuevo archivo del paciente
+Route::get('/nuevoArchivo','imagenesYarchivosController@nuevo');
+
+//rutas para comentarios administrativos
+Route::get('/comentarios/{id}','PacienteController@comentarios') ->name('comentarios.crear');
+
+Route::post('/comentarios/{id}','PacienteController@GuardarComentario')->name('comentario.guardar');
+
 //Route::get('calendario','CitaController@calendario');
 
 //Route::get('datos','CitaController@datos')->name ('paciente.datos');

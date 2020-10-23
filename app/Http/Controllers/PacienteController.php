@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Paciente;
 use App\Plantratamiento;
 use App\Cita;
+use App\Comentario;
 
 use Illuminate\Http\Request;
 
@@ -212,6 +213,26 @@ class PacienteController extends Controller
 
         }
         
+        }
+
+        public function comentarios($id){
+            //$comentarios= Comentarios::All();
+            //return "texto de contacto desde el controlador ";
+            $pacientes = Paciente::findOrFail($id);
+            return view('Comentarios')->with('pacientes',$pacientes);
+         }
+    
+    
+         public function GuardarComentario(Request $request){
+            $nuevocomentario = new Comentario();
+            $nuevocomentario->comentarios= $request->input('caja');
+            $creado= $nuevocomentario->save();
+             if ($creado){
+              //  $pacientes = Paciente::findOrFail($id);
+              return redirect()->back()->with('mensaje','Comentario Administrativo guardado exitosamente');
+    
+               //return redirect()('/comentarios/{id}');
+            } 
         }
         
        
