@@ -219,7 +219,7 @@ class PacienteController extends Controller
             //$comentarios= Comentarios::All();
             //return "texto de contacto desde el controlador ";
             $pacientes = Paciente::findOrFail($id);
-            return view('Comentarios')->with('pacientes',$pacientes);
+            return view('comentarios')->with('pacientes',$pacientes);
          }
     
     
