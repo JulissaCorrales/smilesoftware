@@ -168,7 +168,7 @@
     <div class="container" id="vPrincipal">
 
         <div div id="titulo" class="card-body d-flex justify-content-between align-items-center">
-            <h2>imagenes y archivos del paciente</h2>
+            <h2>vista de prueba de imagenes y archivos del paciente</h2>
 
             <button id="upload">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
