@@ -33,7 +33,7 @@ Route::get('/pacienteNuevo','PacienteController@Nuevo')->name('paciente.nuevo');
 //ruta para guardar paciente
 Route::post('/pacienteNuevo','PacienteController@guardar')->name('paciente.guardar');
 
-Route::get('/paciente/{id}','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
+//Route::get('/paciente/{id}','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
 
 
 
@@ -64,6 +64,7 @@ Route::prefix('pantallainicio')->group( function(){
     Route::get('pantalla','PacienteController@index')->name('pantallainicio');
    // Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
     Route::get('vista','PacienteController@vistapaciente')->name ('paciente.vista');
+    Route::get('pantallainicio/paciente/{id}','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
     Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
     Route::get('calendario','CitaController@calendario');
     //Route::get('calendar','CitaController@calendar');
@@ -80,6 +81,9 @@ Route::prefix('pantallainicio/calendario')->group( function(){
         Route::get('calendar','CitaController@calendar');
         
     });
+
+
+
 
 Route::prefix('pantallainicio/pantallainicio')->group( function(){
 Route::get('pantallainicio/citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
@@ -137,5 +141,17 @@ Route::post('/comentarios/{id}','PacienteController@GuardarComentario')->name('c
 
 
 
+//ver cita individual
+Route::get('/citaIndividual/{id}','CitaController@verCitaIndividual')->where('id','[0-9]+')->name('citaIndividual');
+//borrar cita individual
+Route::delete('/citaIndividual/{id}/borrar','CitaController@destroyCita') ->name('cita.borrar')->where('id','[0-9]+');
+
+
+
+
+//Route::get('comentarios','PacienteController@comentarios');
+        
+Route::get('/comentarios/{id}','PacienteController@comentarios') ->name('comentarios.crear');
+Route::post('/comentarios/{id}','PacienteController@GuardarComentario')->name('comentario.guardar');
 
 

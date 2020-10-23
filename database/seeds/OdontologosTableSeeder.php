@@ -89,7 +89,7 @@ class OdontologosTableSeeder extends Seeder
         $paciente->save();
 
         $paciente->planestratamientos()->attach([1, 2]);//Relacionar el paciente a dos planes
-
+        $paciente->citas()->attach([1]);
 
         
         $paciente=new Paciente;
@@ -108,6 +108,7 @@ class OdontologosTableSeeder extends Seeder
         $paciente->observaciones="Alergias al mani";
         $paciente->save();
         $paciente->planestratamientos()->attach([1]);//Relacionar el paciente al 1° planestratamiento
+        $paciente->citas()->attach([2]);
 
         Odontologo::truncate();
         $odontologo=new Odontologo;

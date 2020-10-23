@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cita;
 use App\Paciente;
+use App\PlanTratamiento;
 
 
 class CitaController extends Controller
@@ -42,20 +43,7 @@ class CitaController extends Controller
         
 
 
-    public function datos()
-    {
-        if(request()->ajax()) 
-        {
- 
-         $pacientes = (!empty($_GET["id"])) ? ($_GET["id"]) : ('');
-         $citas = (!empty($_GET["nombres"])) ? ($_GET["nombres"]) : ('');
- 
-         $data = Paciente::whereDate('id', '>=', $pacientes)->whereDate('id',   '<=', $citas)->get(['id']);
-         return calendar::json($data);
-        }
-        return view('Calendario');
-    }
-
+    
     public function create(Request $request)
     {  
         $insertArr = [ 'title' => $request->title,
@@ -125,7 +113,9 @@ class CitaController extends Controller
         $creado = $nuevacita->save();
         //Asegurarse que fue creado
         if ($creado){
-            return redirect()->route("citadiaria")
+            $paciente=Paciente::findOrFail($nuevacita->paciente_id);
+            $paciente->citas()->attach($nuevacita);
+            return redirect()->route('citaIndividual',['id'=>$paciente->id])
                 ->with('mensaje','La cita fue creado exitosamente');
 
         }else{
@@ -133,6 +123,21 @@ class CitaController extends Controller
         } 
 }
 
+
+
+ //funcion para ver cita individual
+ public function verCitaIndividual($id){
+    $pacientes = Paciente::findOrFail($id);
+    return view('citaIndividual',compact('pacientes'));
+}
+ //funcion para eliminar
+    // recibe el id del que se va eliminar
+    public function destroyCita($id){
+        Cita::destroy($id);
+        //rediccionar a la pagina index
+        PlanTratamiento::where('cita_id','=',$id)->delete();/* para que al borrar la cita se borre el plan de tratamiento ya que el plan existe solo si esta en la cita */
+        return redirect('/pantallainicio/vista')->with('mensaje','Cita borrada satisfactoriamente');
+    }
 
 
 

@@ -33,5 +33,7 @@ public function planestratamientos(){
     return $this->belongsToMany(PlanTratamiento::class); // Muchos a muchos
 }
 
-    
+public function citas(){
+    return $this->belongsToMany(Cita::class); // Muchos a muchos
+}
 }
