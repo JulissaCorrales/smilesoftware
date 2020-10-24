@@ -91,8 +91,6 @@ class CitaController extends Controller
             'especialidad_id'=>'required',
             'odontologo_id'=>'required',
             'duracionCita'=>'required',
-            'hora'=>'required',
-            'fecha'=>'required',
             'paciente_id'=>'required',
             'comentarios'=>'required',
             'stard' =>'required',
@@ -104,8 +102,6 @@ class CitaController extends Controller
         $nuevacita->especialidad_id= $request->input('especialidad_id');
         $nuevacita->odontologo_id=$request->input('odontologo_id');
         $nuevacita->duracionCita=$request->input('duracionCita');
-        $nuevacita->hora=$request->input('hora');
-        $nuevacita->fecha=$request->input('fecha');
        $nuevacita->paciente_id=$request->input('paciente_id');
        $nuevacita->stard=$request->input('stard');
         $nuevacita->comentarios=$request->input('comentarios');    

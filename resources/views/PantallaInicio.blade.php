@@ -27,8 +27,8 @@
             width:700px;
             margin: 10px;
             position: absolute;
-            top: 300px;
-            left: 700px;
+            top: 235px;
+            left: 900px;
         }  
         #encabezado{
             background-color: #33ccff;
@@ -360,11 +360,9 @@ function mifecha() {
 <table class="table">
         <thead class="table table-striped table-bordered">
             <tr id="encabezado">
-                <th scope="col">Hora</th>
-                <th>Fecha</th>
                 <th scope="col">Paciente</th>
                 <th scope="col">Doctor</th>
-                <th scope="col">Fecha y hora</th>
+                <th scope="col">Fecha y Hora</th>
                 
             </tr>  
         </thead>
@@ -373,8 +371,6 @@ function mifecha() {
                 <td >    
                         @forelse($citas as $cita)
                             <tr id="cuerpo">
-                            <th scope="row">{{$cita->hora}}</th>
-                                <td>{{$cita->fecha}}</td>
                                 <td>{{$cita->paciente->nombres}} <br>{{$cita->paciente->apellidos}}<br>{{$cita->paciente->telefonoFijo}}<br>{{$cita->paciente->telefonoCelular}} </td>
                                 <td>{{$cita->odontologo->nombres}}<br>{{$cita->odontologo->apellidos}}</td>
                                 <td>{{$cita->stard}}</td>
