@@ -36,4 +36,7 @@ public function planestratamientos(){
 public function citas(){
     return $this->belongsToMany(Cita::class); // Muchos a muchos
 }
+public function comentarios(){
+    return $this->belongsToMany(Comentario::class); // Muchos a muchos
+}
 }

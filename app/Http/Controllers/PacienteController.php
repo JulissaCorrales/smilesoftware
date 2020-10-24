@@ -197,7 +197,7 @@ class PacienteController extends Controller
         Paciente::destroy($id);
         //rediccionar a la pagina index
         PlanTratamiento::where('paciente_id','=',$id)->delete();
-        Cita::where('paciente_id','=',$id)->delete();
+        Cita::where('paciente_id','=',$id)->delete(); 
         return redirect('/pantallainicio/vista')->with('mensaje','Paciente borrado satisfactoriamente');
 
 
@@ -223,12 +223,14 @@ class PacienteController extends Controller
          }
     
     
-         public function GuardarComentario(Request $request){
+         public function GuardarComentario(Request $request,$id){
             $nuevocomentario = new Comentario();
             $nuevocomentario->comentarios= $request->input('caja');
             $creado= $nuevocomentario->save();
              if ($creado){
-              //  $pacientes = Paciente::findOrFail($id);
+            
+                $paciente=Paciente::findOrFail($id);
+                $paciente->comentarios()->attach($nuevocomentario);
               return redirect()->back()->with('mensaje','Comentario Administrativo guardado exitosamente');
     
                //return redirect()('/comentarios/{id}');
