@@ -17,7 +17,7 @@
                      $mysqli->set_charset("utf8");
                     ?>
 
-        <form method="post" action="/pacienteNuevo">
+        <form method="post" action="" enctype="multipart/form-data">
                   @csrf
                   <hr>
         <!-- Doctor -->

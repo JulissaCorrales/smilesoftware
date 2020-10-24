@@ -128,7 +128,11 @@ Route::get('/imagenesYarchivos/{id}','imagenesYarchivosController@ver')
 ->name('imagenesYarchivos.ver');
 
 //ruta para el formulario de nuevo archivo del paciente
-Route::get('/nuevoArchivo','imagenesYarchivosController@nuevo');
+Route::get('/nuevoArchivo/{id}','imagenesYarchivosController@nuevo');
+Route::post('/nuevoArchivo/{id}','imagenesYarchivosController@guardar');
+
+
+//*********************************************************************//
 
 //rutas para comentarios administrativos
 Route::get('/comentarios/{id}','PacienteController@comentarios') ->name('comentarios.crear');
