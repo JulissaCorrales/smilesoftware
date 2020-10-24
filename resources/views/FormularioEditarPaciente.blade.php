@@ -9,7 +9,7 @@
   <style>
 #titulo{
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
 }
 #padre {
   margin: 2rem;
@@ -22,8 +22,9 @@
 </style>
 </head>
 <body>
-<h3 id="titulo">Edición de datos del paciente</h3>  
+  
 <div id="padre"> 
+<h3 id="titulo">Edición de datos del paciente</h3>
   
                     <form method="post" action="{{route('paciente.update',['id'=> $pacientes-> id])}} ">
                       @csrf
@@ -121,7 +122,7 @@
                   </div>
 
                   <div class="modal-footer">
-                <button type="button" onclick="location.href='/paciente/vista'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+                <button type="button" onclick="location.href='/pantallainicio/vista'" class="btn btn-secondary" data-dismiss="modal">Atrás</button>
                 <input type="reset" class="btn btn-danger">
                 <button type="submit" class="btn btn-primary" >Guardar Pacientes</button>
                 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCitasTable extends Migration
+class CreatePlanTratamientosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateCitasTable extends Migration
      */
     public function up()
     {
-        Schema::create('citas', function (Blueprint $table) {
+        Schema::create('plantratamientos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('especialidad_id');
+            $table->string('nombreTratamiento');
+            $table->string('estado');
+            $table->bigInteger('paciente_id')->unsigned();
             $table->unsignedInteger('odontologo_id');
-            $table->string('duracionCita');
-            $table->unsignedInteger('paciente_id');
-            $table->datetime('stard');
-            $table->string('comentarios');
+            $table->unsignedInteger('cita_id');
             $table->timestamps();
+            $table->foreign('paciente_id')->references('id')->on('pacientes')->onDelete('cascade');
         });
     }
 
@@ -32,6 +32,6 @@ class CreateCitasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('citas');
+        Schema::dropIfExists('plantratamientos');
     }
 }

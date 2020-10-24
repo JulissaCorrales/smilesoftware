@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Paciente;
+use App\Plantratamiento;
+use App\Cita;
+use App\Comentario;
+
 use Illuminate\Http\Request;
 
 class PacienteController extends Controller
@@ -53,7 +57,7 @@ class PacienteController extends Controller
 
         
         if($create){
-            return redirect()->route('paciente.vista')->with('mensaje','El paciente ha sido modifcado exitosamente');
+            return redirect('/pantallainicio/vista')->with('mensaje','El paciente ha sido modifcado exitosamente');
         }else{
           
           
@@ -124,7 +128,7 @@ class PacienteController extends Controller
        $creado = $nuevoPaciente->save();
 
          if ($creado){
-            return redirect()->route('paciente.vista')
+            return redirect('/pantallainicio/vista')
                 ->with('mensaje', 'el paciente fue creado exitosamente!');
         }else{
             //retornar con un msj de error
@@ -170,7 +174,7 @@ class PacienteController extends Controller
        $creado = $nuevoPaciente->save();
 
          if ($creado){
-            return redirect()->route('paciente.vista')->with('mensaje', 'el paciente fue creado exitosamente!');
+            return redirect('/pantallainicio/vista')->with('mensaje', 'el paciente fue creado exitosamente!');
         }else{
             //retornar con un msj de error
         } 
@@ -191,8 +195,11 @@ class PacienteController extends Controller
     // recibe el id del que se va eliminar
     public function destroy($id){
         Paciente::destroy($id);
-        //rediccionar a la pagina index
-        return redirect('/paciente/vista')->with('mensaje','Paciente borrado satisfactoriamente');
+        Cita::where('paciente_id','=',$id)->delete();
+        return redirect()->back()->with('mensaje','Paciente borrado satisfactoriamente');
+
+
+       
     }
 
 // Configuracion del Buscador Principal
@@ -204,6 +211,29 @@ class PacienteController extends Controller
 
         }
         
+        }
+
+        public function comentarios($id){
+            //$comentarios= Comentarios::All();
+            //return "texto de contacto desde el controlador ";
+            $pacientes = Paciente::findOrFail($id);
+            return view('comentarios')->with('pacientes',$pacientes);
+         }
+    
+    
+         public function GuardarComentario(Request $request,$id){
+            $paciente=Paciente::findOrFail($id);
+
+            $nuevocomentario = new Comentario();
+            $nuevocomentario->paciente_id= $id;
+            $nuevocomentario->comentarios= $request->input('caja');
+            $creado= $nuevocomentario->save();
+             if ($creado){
+                
+              return redirect()->back()->with('mensaje','Comentario Administrativo guardado exitosamente');
+    
+               //return redirect()('/comentarios/{id}');
+            } 
         }
         
        

@@ -99,12 +99,13 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   </thead>
   <tbody>
   <tr>
-      @foreach($pacientes as $paciente)
-     <td><a  class="btn btn-outline-info"  href="/paciente/{{ $paciente->id}}"  id="lista">{{$paciente->id}}</a></td>
+      @forelse($pacientes as $paciente)
+     <td><a  class="btn btn-outline-info"  href="pantallainicio/paciente/{{ $paciente->id}}"  id="lista">{{$paciente->id}}</a></td>
      <td>{{$paciente->nombres}}</td>
      <td>{{$paciente->apellidos}}</td>
      <td>{{$paciente->identidad}}</td>
      <td>
+     
 
      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$paciente->id}}">
       Eliminar
@@ -137,9 +138,11 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
           </div>
       </div>
   </div>
-     
+
      </tr> 
-     @endforeach
+     @empty
+     <h1>No hay Pacientes Existentes</h1>
+     @endforelse
      </tbody>
 </table>
 
