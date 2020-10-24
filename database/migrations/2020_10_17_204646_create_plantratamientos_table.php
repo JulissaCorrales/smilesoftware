@@ -17,10 +17,11 @@ class CreatePlanTratamientosTable extends Migration
             $table->id();
             $table->string('nombreTratamiento');
             $table->string('estado');
-            $table->unsignedInteger('paciente_id');
+            $table->bigInteger('paciente_id')->unsigned();
             $table->unsignedInteger('odontologo_id');
             $table->unsignedInteger('cita_id');
             $table->timestamps();
+            $table->foreign('paciente_id')->references('id')->on('pacientes')->onDelete('cascade');
         });
     }
 

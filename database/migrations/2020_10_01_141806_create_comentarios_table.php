@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePacientePlantratamientoTable extends Migration
+class CreateComentariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreatePacientePlantratamientoTable extends Migration
      */
     public function up()
     {
-        Schema::create('paciente_plantratamiento', function (Blueprint $table) {
+        Schema::create('comentarios', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('paciente_id');
-            $table->unsignedInteger('plantratamiento_id');
+            $table->bigInteger('paciente_id')->unsigned();
+            $table->string('comentarios');
             $table->timestamps();
+            $table->foreign('paciente_id')->references('id')->on('pacientes')->onDelete('cascade');
         });
-        
     }
 
     /**
@@ -29,6 +29,6 @@ class CreatePacientePlantratamientoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paciente_plantratamiento');
+        Schema::dropIfExists('comentarios');
     }
 }

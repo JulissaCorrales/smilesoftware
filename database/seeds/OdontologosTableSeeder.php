@@ -17,7 +17,7 @@ class OdontologosTableSeeder extends Seeder
      */
     public function run()
     {
-        Especialidad::truncate();
+      //  Especialidad::truncate();
         $especialidad = new Especialidad();
         $especialidad->nombreEspecialidad="Endodoncia";
         $especialidad->save();
@@ -26,7 +26,7 @@ class OdontologosTableSeeder extends Seeder
         $especialidad->nombreEspecialidad="Ortodoncia";
         $especialidad->save();
 
-        Cita::truncate();
+        //Cita::truncate();
         $cita=new Cita();
         $cita->especialidad_id=1;
         $cita->odontologo_id=1;
@@ -51,27 +51,8 @@ class OdontologosTableSeeder extends Seeder
         
         /*  */
 
-        PlanTratamiento::truncate();
-        $plantratamiento=new PlanTratamiento;
-        $plantratamiento->nombreTratamiento="Blanqueamiento dental";
-        $plantratamiento->estado="activo";
-        $plantratamiento->paciente_id=1;
-        $plantratamiento->odontologo_id=1;
-        $plantratamiento->cita_id=1;
-        $plantratamiento->save();
-        
-        $plantratamiento=new PlanTratamiento;
-        $plantratamiento->nombreTratamiento="Brakes";
-        $plantratamiento->estado="activo";
-        $plantratamiento->paciente_id=2;
-        $plantratamiento->odontologo_id=1;
-        $plantratamiento->cita_id=2;
-        $plantratamiento->save();
-
-
-      
-
-         Paciente::truncate(); 
+    
+         //Paciente::truncate(); 
         $paciente=new Paciente;
         $paciente->nombres="Luis David";
         $paciente->apellidos="Ferrera Martinez";
@@ -88,7 +69,6 @@ class OdontologosTableSeeder extends Seeder
         $paciente->observaciones="Alergias al mani";
         $paciente->save();
 
-        $paciente->planestratamientos()->attach([1, 2]);//Relacionar el paciente a dos planes
         $paciente->citas()->attach([1]);
 
         
@@ -107,10 +87,27 @@ class OdontologosTableSeeder extends Seeder
         $paciente->empresa="Escuela Miriam Gallardo";
         $paciente->observaciones="Alergias al mani";
         $paciente->save();
-        $paciente->planestratamientos()->attach([1]);//Relacionar el paciente al 1° planestratamiento
+
         $paciente->citas()->attach([2]);
 
-        Odontologo::truncate();
+           //PlanTratamiento::truncate();
+           $plantratamiento=new PlanTratamiento;
+           $plantratamiento->nombreTratamiento="Blanqueamiento dental";
+           $plantratamiento->estado="activo";
+           $plantratamiento->paciente_id=1;
+           $plantratamiento->odontologo_id=1;
+           $plantratamiento->cita_id=1;
+           $plantratamiento->save();
+           
+           $plantratamiento=new PlanTratamiento;
+           $plantratamiento->nombreTratamiento="Brakes";
+           $plantratamiento->estado="activo";
+           $plantratamiento->paciente_id=2;
+           $plantratamiento->odontologo_id=1;
+           $plantratamiento->cita_id=2;
+           $plantratamiento->save();
+
+        //Odontologo::truncate();
         $odontologo=new Odontologo;
         $odontologo->nombres="Juan Jose";
         $odontologo->apellidos="Perez Pereira";

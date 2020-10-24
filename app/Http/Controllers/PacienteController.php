@@ -195,10 +195,8 @@ class PacienteController extends Controller
     // recibe el id del que se va eliminar
     public function destroy($id){
         Paciente::destroy($id);
-        //rediccionar a la pagina index
-        PlanTratamiento::where('paciente_id','=',$id)->delete();
         Cita::where('paciente_id','=',$id)->delete();
-        return redirect('/pantallainicio/vista')->with('mensaje','Paciente borrado satisfactoriamente');
+        return redirect()->back()->with('mensaje','Paciente borrado satisfactoriamente');
 
 
        
@@ -223,12 +221,15 @@ class PacienteController extends Controller
          }
     
     
-         public function GuardarComentario(Request $request){
+         public function GuardarComentario(Request $request,$id){
+            $paciente=Paciente::findOrFail($id);
+
             $nuevocomentario = new Comentario();
+            $nuevocomentario->paciente_id= $id;
             $nuevocomentario->comentarios= $request->input('caja');
             $creado= $nuevocomentario->save();
              if ($creado){
-              //  $pacientes = Paciente::findOrFail($id);
+                
               return redirect()->back()->with('mensaje','Comentario Administrativo guardado exitosamente');
     
                //return redirect()('/comentarios/{id}');

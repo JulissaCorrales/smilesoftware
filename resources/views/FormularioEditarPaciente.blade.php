@@ -122,7 +122,7 @@
                   </div>
 
                   <div class="modal-footer">
-                <button type="button" onclick="location.href='/paciente/vista'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+                <button type="button" onclick="location.href='/pantallainicio/vista'" class="btn btn-secondary" data-dismiss="modal">Atrás</button>
                 <input type="reset" class="btn btn-danger">
                 <button type="submit" class="btn btn-primary" >Guardar Pacientes</button>
                 
