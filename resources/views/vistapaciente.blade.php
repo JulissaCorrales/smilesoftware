@@ -144,7 +144,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 </table>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<!-- script de jquery para que funcione el buscado de nombre-->
+<!-- script de jquery para que funcione el buscador de nombre-->
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 <!-- script de datatable para que funcione el buscado de nombre-->
 

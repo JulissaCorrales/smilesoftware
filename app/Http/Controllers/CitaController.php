@@ -31,7 +31,7 @@ class CitaController extends Controller
         $nuevacita->duracionCita=$request->input('duracionCita');
         $nuevacita->hora=$request->input('hora');
         $nuevacita->fecha=$request->input('fecha');
-       $nuevacita->paciente_id=$request->input('paciente_id');
+        $nuevacita->paciente_id=$request->input('paciente_id');
         $nuevacita->comentarios=$request->input('comentarios');    
 
         $creado = $nuevacita->save();
@@ -44,4 +44,14 @@ class CitaController extends Controller
             //Retornar con un mensaje de error
         } 
 }
+
+        public function vistamensual(){
+          return view('vistamensual');
+
+          } 
+          public function vistaprueba(){
+            return view('vistaprueba');
+
+    } 
+
 }
