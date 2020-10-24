@@ -36,7 +36,9 @@ public function planestratamientos(){
 public function citas(){
     return $this->belongsToMany(Cita::class); // Muchos a muchos
 }
-public function comentarios(){
-    return $this->belongsToMany(Comentario::class); // Muchos a muchos
+public function comentarios()
+{
+   return $this->hasMany(Comentario::class,'paciente_id','id');/*un paciente tiene muchos comentarios */
 }
+
 }

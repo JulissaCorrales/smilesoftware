@@ -62,6 +62,12 @@
 </style>
 
 <body>
+@if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif
+<!--  -->
 
     <div class="container" id="padre">
         <div id="divtitulo" class="card-body d-flex justify-content-between     align-items-center">

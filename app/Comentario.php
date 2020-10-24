@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comentario extends Model
 {
-    public function paciente(){
-        return $this->belongsToMany(Paciente::class); // Muchos a muchos
-    }
+    /* un comentario solo pertenece a un paciente */
+
+    public function paciente()
+{
+   return $this->belongsTo(Paciente::class);
+}
 }

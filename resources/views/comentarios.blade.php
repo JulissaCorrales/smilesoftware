@@ -71,13 +71,20 @@
 </div>
 
 </form>
+<!-- para probar si guarda los comentarios -->
+<!-- <div>
+@forelse($pacientes->comentarios as $ver)
+    {{$ver->comentarios}}
+    @empty
+    no tiene comentarios
+    @endforelse
 
+</div> -->
 </div>
 
 
 
 </div>
-    
 
 
 </body>

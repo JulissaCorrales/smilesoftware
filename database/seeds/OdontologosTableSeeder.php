@@ -17,7 +17,7 @@ class OdontologosTableSeeder extends Seeder
      */
     public function run()
     {
-        Especialidad::truncate();
+      //  Especialidad::truncate();
         $especialidad = new Especialidad();
         $especialidad->nombreEspecialidad="Endodoncia";
         $especialidad->save();
@@ -26,7 +26,7 @@ class OdontologosTableSeeder extends Seeder
         $especialidad->nombreEspecialidad="Ortodoncia";
         $especialidad->save();
 
-        Cita::truncate();
+        //Cita::truncate();
         $cita=new Cita();
         $cita->especialidad_id=1;
         $cita->odontologo_id=1;
@@ -51,7 +51,7 @@ class OdontologosTableSeeder extends Seeder
         
         /*  */
 
-        PlanTratamiento::truncate();
+        //PlanTratamiento::truncate();
         $plantratamiento=new PlanTratamiento;
         $plantratamiento->nombreTratamiento="Blanqueamiento dental";
         $plantratamiento->estado="activo";
@@ -71,7 +71,7 @@ class OdontologosTableSeeder extends Seeder
 
       
 
-         Paciente::truncate(); 
+         //Paciente::truncate(); 
         $paciente=new Paciente;
         $paciente->nombres="Luis David";
         $paciente->apellidos="Ferrera Martinez";
@@ -110,7 +110,7 @@ class OdontologosTableSeeder extends Seeder
         $paciente->planestratamientos()->attach([1]);//Relacionar el paciente al 1° planestratamiento
         $paciente->citas()->attach([2]);
 
-        Odontologo::truncate();
+        //Odontologo::truncate();
         $odontologo=new Odontologo;
         $odontologo->nombres="Juan Jose";
         $odontologo->apellidos="Perez Pereira";
