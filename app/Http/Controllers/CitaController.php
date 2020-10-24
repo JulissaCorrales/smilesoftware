@@ -102,14 +102,8 @@ class CitaController extends Controller
         $nuevacita->especialidad_id= $request->input('especialidad_id');
         $nuevacita->odontologo_id=$request->input('odontologo_id');
         $nuevacita->duracionCita=$request->input('duracionCita');
-<<<<<<< HEAD
-        $nuevacita->hora=$request->input('hora');
-        $nuevacita->fecha=$request->input('fecha');
-        $nuevacita->paciente_id=$request->input('paciente_id');
-=======
        $nuevacita->paciente_id=$request->input('paciente_id');
        $nuevacita->stard=$request->input('stard');
->>>>>>> 0f2194bd0cbb89c81fd958543ae5d360ad723d28
         $nuevacita->comentarios=$request->input('comentarios');    
 
         $creado = $nuevacita->save();
@@ -125,7 +119,6 @@ class CitaController extends Controller
         } 
 }
 
-<<<<<<< HEAD
         public function vistamensual(){
           return view('vistamensual');
 
@@ -134,7 +127,6 @@ class CitaController extends Controller
             return view('vistaprueba');
 
     } 
-=======
 
 
  //funcion para ver cita individual
@@ -152,6 +144,5 @@ class CitaController extends Controller
     }
 
 
->>>>>>> 0f2194bd0cbb89c81fd958543ae5d360ad723d28
 
 }
