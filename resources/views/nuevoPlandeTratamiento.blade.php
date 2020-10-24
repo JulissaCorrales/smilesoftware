@@ -30,6 +30,12 @@
             </ul>
         </div>
     @endif
+    @section('cuerpo')
+@if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif
     <div id="todo">
     <h2>Creación de Nuevo Tratamiento</h2>
 
@@ -116,10 +122,11 @@
     
     
     <br>
+    <button style="background-color:purple"type="button" onclick="location.href='/plandetratamiento/{{ $pacientes->id}}'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
         <input type="reset" class="btn btn-danger">
          <button type="submit" class="btn btn-primary" >Guardar Tratamiento</button>
-         
-    
+       
+        
      </form>
 
 </div>

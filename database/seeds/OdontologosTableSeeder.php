@@ -51,26 +51,7 @@ class OdontologosTableSeeder extends Seeder
         
         /*  */
 
-        //PlanTratamiento::truncate();
-        $plantratamiento=new PlanTratamiento;
-        $plantratamiento->nombreTratamiento="Blanqueamiento dental";
-        $plantratamiento->estado="activo";
-        $plantratamiento->paciente_id=1;
-        $plantratamiento->odontologo_id=1;
-        $plantratamiento->cita_id=1;
-        $plantratamiento->save();
-        
-        $plantratamiento=new PlanTratamiento;
-        $plantratamiento->nombreTratamiento="Brakes";
-        $plantratamiento->estado="activo";
-        $plantratamiento->paciente_id=2;
-        $plantratamiento->odontologo_id=1;
-        $plantratamiento->cita_id=2;
-        $plantratamiento->save();
-
-
-      
-
+    
          //Paciente::truncate(); 
         $paciente=new Paciente;
         $paciente->nombres="Luis David";
@@ -88,7 +69,6 @@ class OdontologosTableSeeder extends Seeder
         $paciente->observaciones="Alergias al mani";
         $paciente->save();
 
-        $paciente->planestratamientos()->attach([1, 2]);//Relacionar el paciente a dos planes
         $paciente->citas()->attach([1]);
 
         
@@ -107,8 +87,25 @@ class OdontologosTableSeeder extends Seeder
         $paciente->empresa="Escuela Miriam Gallardo";
         $paciente->observaciones="Alergias al mani";
         $paciente->save();
-        $paciente->planestratamientos()->attach([1]);//Relacionar el paciente al 1° planestratamiento
+
         $paciente->citas()->attach([2]);
+
+           //PlanTratamiento::truncate();
+           $plantratamiento=new PlanTratamiento;
+           $plantratamiento->nombreTratamiento="Blanqueamiento dental";
+           $plantratamiento->estado="activo";
+           $plantratamiento->paciente_id=1;
+           $plantratamiento->odontologo_id=1;
+           $plantratamiento->cita_id=1;
+           $plantratamiento->save();
+           
+           $plantratamiento=new PlanTratamiento;
+           $plantratamiento->nombreTratamiento="Brakes";
+           $plantratamiento->estado="activo";
+           $plantratamiento->paciente_id=2;
+           $plantratamiento->odontologo_id=1;
+           $plantratamiento->cita_id=2;
+           $plantratamiento->save();
 
         //Odontologo::truncate();
         $odontologo=new Odontologo;

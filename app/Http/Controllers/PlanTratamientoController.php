@@ -42,10 +42,7 @@ public function guardar(Request $request){
 
 
     if ($creado){
-        $paciente=Paciente::findOrFail($nuevotraTamiento->paciente_id);
-        $paciente->planestratamientos()->attach($nuevotraTamiento);
-        return redirect()->route('tratamiento.ver',['id'=>$paciente->id])
-            ->with('mensaje', 'El Plan de tratamiento fue creado exitosamente!');
+          return redirect()->back()->with('mensaje', 'El Plan de tratamiento fue creado exitosamente!');
     }else{
         //retornar con un msj de error
     }  

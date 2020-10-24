@@ -30,7 +30,7 @@ class Paciente extends Model
 
 /* Relacion de Planesde Tratamiento con paciente de muchos a muchos */
 public function planestratamientos(){
-    return $this->belongsToMany(PlanTratamiento::class); // Muchos a muchos
+    return $this->hasMany(PlanTratamiento::class,'paciente_id','id'); // un paciente tiene muchos planes de tratamiento
 }
 
 public function citas(){

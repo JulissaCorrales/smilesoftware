@@ -195,7 +195,6 @@ class PacienteController extends Controller
     // recibe el id del que se va eliminar
     public function destroy($id){
         Paciente::destroy($id);
-        PlanTratamiento::where('paciente_id','=',$id)->delete();
         Cita::where('paciente_id','=',$id)->delete();
         return redirect()->back()->with('mensaje','Paciente borrado satisfactoriamente');
 
