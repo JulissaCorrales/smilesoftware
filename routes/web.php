@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('pantallainiciomenuagenda','MenuAgendaController@MenuAgenda')->name('pantallainiciomenuagenda');
+Route::get('menuagenda','MenuAgendaController@MenuAgenda')->name('pantallainiciomenuagenda');
 
 Route::get('pantallainicio','PacienteController@index')->name('pantallainicio');
 

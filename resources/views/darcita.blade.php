@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
-      #div1{background-color:#00AAE4;}
+      #div1{background-color:#00cccc;}
       #botonContinuar{text-align: center;}
       
 </style>

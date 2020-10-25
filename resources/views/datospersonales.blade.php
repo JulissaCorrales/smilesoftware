@@ -5,29 +5,43 @@
 #datos{
     margin-left: auto;
   margin-right: auto;
-  border-radius: 50%;
+  border-radius: 70%;
   position: relative;
   bottom: -10px;
+
 }
-#ventana{   
+#ventana{  
+  width: 900px; 
   position: static;
-  bottom:  -25px;
-  left: 50px;
+  left: 100px;
   background-color: #AFEEEE;
   background-image: linear-gradient(to left,  #AFEEEE,#20B2AA);
   float:left;
-  margin: 2rem;
+  margin: 40px;
+  height: 900px;
+ 
+  
 }
 #card1{
-    position: relative;
-    bottom:  -10px;
+    position: absolute;
+    top: 470px;
+    width: 300px;
+   
 }
 #carbdos{
     list-style-position: inside;
 }
 #lista1{
-    position: relative;
-    bottom:  -10px;   
+  position: absolute;
+    top: 500px;
+    width: 300px; 
+}
+
+#lista2{
+  position: absolute;
+    top: 650px;
+    width: 300px; 
+
 }
 #nombre{
   color: #008B8B;
@@ -42,10 +56,10 @@
   font-size: 35px;
 }
 #mostrar{
-  position: relative;
-  bottom:  -20px;
+  position: absolute;
+    top: 330px;
+    width: 300px; 
   height: 150px;
-  width: 320px;
   background-color: #AFEEEE;
 }
 #personal{
@@ -54,6 +68,16 @@
 #hijo{
   overflow: hidden;
   position: relative;}
+
+  #im{
+    position: absolute;
+    top: 230px;
+    left: 140px;
+    width: 320px; 
+  height: 150px;
+ 
+
+  }
 </style>
 </head>
 
@@ -61,7 +85,9 @@
 @section('contenido')
 <body>
 <div class="card" style="width: 20rem;" id="ventana">
+  <div id="im">
   <img src="{{ asset('Imagenes/foto1.jpg') }}" class="btn btn-light" width="100px" id="datos">
+</div>
 
       <div id="mostrar">
       <h2 id="nombre">{{ $pacientes->nombres}}</h2>
@@ -96,7 +122,7 @@
             </ul>
 
           </div>
-          <div class="list-group">
+          <div class="list-group" id="lista2">
             <a class="btn btn-info">Clinicos</a>
             <ul class="list-group-item">
                 <!--  -->

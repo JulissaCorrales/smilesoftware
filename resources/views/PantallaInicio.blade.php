@@ -1,4 +1,4 @@
-@extends('Calendario')
+@extends('VistaMenuAgenda')
 
 @section('cuerpo')
 
@@ -21,87 +21,30 @@
         #hijo1 {
           
             margin: 10px;
-            float:left;
+            position: absolute;
+            top: 235px;
+            
             }
         #hijo2{
             width:700px;
             margin: 10px;
             position: absolute;
-            top: 235px;
-            left: 900px;
+            top: 330px;
+            left: 290px;
         }  
         #encabezado{
-            background-color: #33ccff;
+            background-color: #ffad33;
 
         }
         #cuerpo{
-            border: #99d6ff  2px solid;
+            border: #00cccc  2px solid;
         }
         
-#diaria{
-    border-radius: 12px;
-            width: 100px;
-            background-color: #A9E2F3;
-            font-size: 14px;
-            border-color: #00BFFF;
-            position: absolute;
-            right: 800px;
         
-}
-
-#semanal{
-    border-radius: 12px;
-            width: 100px;
-            background-color: #A9E2F3;
-            font-size: 14px;
-            border-color: #00BFFF;
-            position: absolute;
-            right: 690px;
-        
-
-}
-
-
-#mensual{
-    border-radius: 12px;
-            width: 100px;
-            background-color: #A9E2F3;
-            font-size: 14px;
-            border-color: #00BFFF;
-            position: absolute;
-            right: 580px;
-
-            
-
-}
-
-#darcita{
-    border-radius: 12px;
-            width: 100px;
-            background-color: #A9E2F3;
-            font-size: 14px;
-            right: 600px;
-            border-color: #00BFFF;
-            position: absolute;
-            right: 470px;
-
-
-}
-
-#fecha{
-    border-radius: 12px;
-            width: 100px;
-            background-color: #A9E2F3;
-            font-size: 14px;
-            border-color: #00BFFF;
-        
-        
-
-}
         
     </style>
 </head>
-<body>
+<body id="body">
 <!--
 <div class="container"  id="conte" >
 <nav class="navbar navbar-light bg-light"  id="navasdeBotones" >
@@ -130,7 +73,7 @@
 <div class="container" id="padre">
 <div  id="hijo1">
 <!-- calendario -->
-
+<!--
  <style>
 /*div principal del calendario*/
 #calendario {  max-width: 200px;   text-align: center; }
@@ -158,7 +101,7 @@
 #titulos { text-transform: capitalize;font: normal 12pt "arial black"; padding: 0.2em; }
 </style>
 
-
+-->
 
 <!--
 <br/><br/>

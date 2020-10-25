@@ -1,8 +1,11 @@
-@extends('Plantilla.Plantilla')
+@extends('VistaMenuAgenda')
+
+@section('cuerpo')
 
 <!DOCTYPE html>
 <html lang="en">
-@section('Titulo','Paciente')
+@section('Titulo','Vista Mensual')
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,79 +15,28 @@
     
     <style>
 
-#diaria{
-    border-radius: 12px;
-            width: 100px;
-            background-color: #A9E2F3;
-            font-size: 14px;
-            border-color: #00BFFF;
-            position: absolute;
-            right: 800px;
-        
-}
-
-#semanal{
-    border-radius: 12px;
-            width: 100px;
-            background-color: #A9E2F3;
-            font-size: 14px;
-            border-color: #00BFFF;
-            position: absolute;
-            right: 690px;
-        
-
-}
 
 
-#mensual{
-    border-radius: 12px;
-            width: 100px;
-            background-color: #A9E2F3;
-            font-size: 14px;
-            border-color: #00BFFF;
-            position: absolute;
-            right: 580px;
+  #datatable{
+    position: absolute;
+            top: 330px;
+            left:250px;
 
-            
+  }
 
-}
-
-#darcita{
-    border-radius: 12px;
-            width: 100px;
-            background-color: #A9E2F3;
-            font-size: 14px;
-            right: 600px;
-            border-color: #00BFFF;
-            position: absolute;
-            right: 470px;
-
-
-}
-
-#fecha{
-    border-radius: 12px;
-            width: 100px;
-            background-color: #A9E2F3;
-            font-size: 14px;
-            border-color: #00BFFF;
-        
-        
-
-}
+  
 
 </style>
 
 </head>
-@section('contenido')
-<body>
+<body id="body">
 @if(session('mensaje'))
         <div class="alert alert-success">
             {{session('mensaje')}}
         </div>
     @endif
 
-
+<!--
 <div class="container"   >
 <nav class="navbar navbar-light bg-light"  id="navasdeBotones" >
   <h5>Agenda</h5>
@@ -106,22 +58,15 @@
   <path fill-rule="evenodd" d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
 </svg>Fecha</button>
 </nav>
-
+-->
 
 <?php
         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
         $mysqli->set_charset("utf8");
       ?>
 
-
-
-
-
-
-
-
 <table id="datatable">
-<thead>
+<thead id="tr1">
 
   <tr>
     <th class="table-primary" colspan="2"> <?php

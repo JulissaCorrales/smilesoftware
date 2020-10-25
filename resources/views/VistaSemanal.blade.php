@@ -1,8 +1,8 @@
 
-@extends('Plantilla.Plantilla')
-@section('Titulo','Agenda')
+@extends('VistaMenuAgenda')
+@section('Titulo','AgendaSemanal')
 
-@section('contenido')
+@section('cuerpo')
 <?php 
 
 try
@@ -47,7 +47,7 @@ catch(Exception $e)
      .comp-full-calendar {
 
        background: #cceeff;
-       width: 1000px;
+       width: 700px;
        color: #ff4d4d;
        background-color: #A9E2F3;
        padding: 25px 25px 25px 25px;
@@ -57,9 +57,9 @@ catch(Exception $e)
 
      #app{
       position:absolute;
-            top: 250px;
+            top: 390px;
             color: #ff4d4d;
-            left: 300px;
+            left: 290px;
 
            
 
@@ -74,63 +74,10 @@ catch(Exception $e)
 
      }
 
-     #diaria{
-    border-radius: 12px;
-            width: 100px;
-            background-color: #A9E2F3;
-            font-size: 14px;
-            border-color: #00BFFF;
-            position: absolute;
-            left: 100px;
-        
-}
-
-
-
-
-
-
-#darcita{
-    border-radius: 12px;
-            width: 100px;
-            background-color: #A9E2F3;
-            font-size: 14px;
-            right: 600px;
-            border-color: #00BFFF;
-            position: absolute;
-            left: 250px;
-
-
-}
-
-#fecha{
-    border-radius: 12px;
-            width: 100px;
-            background-color: #A9E2F3;
-            font-size: 14px;
-            border-color: #00BFFF;
-            left: 100px;
-
-        
-        
-        
-
-}
-
- #navasdeBotones{
-            width: 500px;
-            background-color: #A9E2F3;
-            font-size: 14px;
-            left: 1000px;
-            border-color: #00BFFF;
-            position: absolute;
-            right: 470px;
-
-
- }
+    
    </style>
 </head>
-<body>
+<body id="body">
 <!--
 <div class="container"   >
 <nav class="navbar navbar-light bg-light"  id="navasdeBotones" >

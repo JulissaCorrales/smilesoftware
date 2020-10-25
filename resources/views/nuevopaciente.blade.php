@@ -16,12 +16,58 @@
     h2{
       text-align:center;
     }
+
+    #na{
+      width: 800px;
+  height: 50px;
+    border-radius: 12px;
+    background-image: linear-gradient(to bottom, #b3ffff ,#ffd9b3);
+    position: absolute;
+    top:200px;
+    left:300px;
+    border: 2px solid #ccc;
+    }
+
+    #n{
+      position: absolute;
+    top:30px;
+    left:150px;
+    width: 500px;
+    border-radius: 12px;
+    }
+
+    #mo{
+      width: 800px;
+  height: 1100px;
+  background-image: linear-gradient(to bottom, #b3ffff ,#ffd9b3);
+  position: absolute;
+    top:250px;
+    left:300px;
+    border-radius: 12px;
+    
+    
+
+
+    }
+  
+    #cre{
+      color: #ff9933;
+  text-shadow: -1px 0 #009999, 0 1px #009999, 1px 0 #009999, 0 -1px #009999;
+  font-family: serif;
+  position: absolute;
+            font-size:30px;
+            top: 2px;
+            left:170px;
+            text-aling: center;
+}
+    }
+
   
     </style>
     
 </head>
 @section('contenido')
-<body>
+<body id="bii">
 @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -31,9 +77,13 @@
             </ul>
         </div>
     @endif
-    <div id="todo">
-    <h2>Creación de Nuevo Paciente</h2>
-
+    <div  class="content" id="ne">
+    <nav class="navbar navbar-light bg-light" id="na">
+  <h1 id="cre">Creacion de Paciente</h1>
+   </nav>
+  </div>
+  <div id="mo" >
+<div class="content" id="n">
 <form method="post" action="/pacienteNuevo">
                       @csrf
                       <div class="form-group">
@@ -132,7 +182,10 @@
               </div>
                   </form>
 
+
 </div>
+
+  </div>
 </body>
 @endsection
 </html>
