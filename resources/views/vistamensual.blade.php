@@ -127,35 +127,62 @@
     <th class="table-primary" colspan="2"> <?php
         $getDoctor =$mysqli->query("select nombres, apellidos from odontologos where id ='1'");
         while($f=$getDoctor->fetch_object()) {
-          echo $f->nombres;
-          echo $f->apellidos;
+          echo $f->nombres." ".$f->apellidos;
+          
           
         } 
         ?>   </th>  
     <th class="table-primary" colspan="2">  <?php
         $getDoctor =$mysqli->query("select nombres, apellidos from odontologos where id ='2'");
         while($f=$getDoctor->fetch_object()) {
-          echo $f->nombres;
-          echo $f->apellidos;
+          echo $f->nombres." ".$f->apellidos;
           
         } ?>    </th>       
   </tr>
  
   </thead>
   <tbody>
-  <tr>
-  <td>08:00</td>
-  <td><input type="text" placeholder=""></td>
-  <td>08:15</td>
-  <td><input type="text" placeholder=""></td>
-  </tr>
-  <tr>
-  <td>08:30</td>
-  <td><input type="text" placeholder=""></td>
-  <td>08:45</td>
-  <td><input type="text" placeholder=""></td>
-  </tr>
-     
+<tr>
+<td>08:00</td>
+<td><input type="text" placeholder="paciente" value="
+<?php
+                        $getPaciente =$mysqli->query("select nombres,apellidos from pacientes where id = '1'");
+                        while($f=$getPaciente->fetch_object()) {
+                          echo $f->nombres." ".$f->apellidos;
+                        } 
+                        ?>"></td>
+<td>08:15</td>
+<td>
+<input type="text" placeholder="paciente" value="">
+</td>
+</tr>
+<tr>
+<td>08:30</td>
+<td><input type="text" placeholder="paciente" value="
+<?php
+                        $getPaciente =$mysqli->query("select nombres,apellidos from pacientes where id = '2'");
+                        while($f=$getPaciente->fetch_object()) {
+                          echo $f->nombres." ".$f->apellidos;
+                        } 
+                        ?>"></td>
+<td>08:45</td>
+<td><input type="text" placeholder="paciente"></td>
+</tr>
+
+<tr>
+<td>08:30</td>
+<td><input type="text" placeholder="paciente" value="
+<?php
+                        $getPaciente =$mysqli->query("select nombres,apellidos from pacientes where id = '2'");
+                        while($f=$getPaciente->fetch_object()) {
+                          echo $f->nombres." ".$f->apellidos;
+                        } 
+                        ?>"></td>
+<td>08:45</td>
+<td><input type="text" placeholder="paciente"></td>
+</tr>
+
+
      </tbody>
 
 </table>
