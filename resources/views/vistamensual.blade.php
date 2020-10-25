@@ -125,13 +125,20 @@
 
   <tr>
     <th class="table-primary" colspan="2"> <?php
-        $getDoctor =$mysqli->query("select * from odontologos order by id");
+        $getDoctor =$mysqli->query("select nombres, apellidos from odontologos where id ='1'");
         while($f=$getDoctor->fetch_object()) {
           echo $f->nombres;
           echo $f->apellidos;
+          
         } 
-        ?>     </th>  
-    <th class="table-primary" colspan="2">Junior anibal</th>       
+        ?>   </th>  
+    <th class="table-primary" colspan="2">  <?php
+        $getDoctor =$mysqli->query("select nombres, apellidos from odontologos where id ='2'");
+        while($f=$getDoctor->fetch_object()) {
+          echo $f->nombres;
+          echo $f->apellidos;
+          
+        } ?>    </th>       
   </tr>
  
   </thead>
