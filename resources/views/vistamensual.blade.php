@@ -153,7 +153,7 @@
                         ?>"></td>
 <td>08:15</td>
 <td>
-<input type="text" placeholder="paciente" value="">
+hola
 </td>
 </tr>
 <tr>
@@ -184,15 +184,8 @@
 
 
      </tbody>
-
+     
 </table>
-
-
-
-
-
-
-
 
 
 </body>
