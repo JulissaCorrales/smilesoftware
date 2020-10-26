@@ -75,9 +75,9 @@ Route::get('/', function () {
              Route::get('{id}/editar','PacienteController@editar') ->name('paciente.editar') -> where('id' ,'[0-9]+');
              Route::put('{id}/editar','PacienteController@update')->name('paciente.update') -> where('id' ,'[0-9]+');
              //ruta de Imagenes y Archivos
-             Route::get('{id}/imagenesArchivos','imagenesYarchivosController@ver')->name('imagenesYarchivos.ver');
-             Route::get('{id}/nuevoarchivo','imagenesYarchivosController@nuevo');
-             Route::post('{id}/nuevoarchivo','imagenesYarchivosController@guardar');
+             Route::get('{id}/imagenesArchivos','ArchivoController@ver')->name('imagenesYarchivos.ver');
+             Route::get('{id}/nuevoarchivo','ArchivoController@nuevo');
+             Route::post('{id}/nuevoarchivo','ArchivoYarchivosController@guardar');
              //ruta de cita individual
              Route::get('{id}/citaindividual','CitaController@verCitaIndividual')->where('id','[0-9]+')->name('citaIndividual');
              //ruta de borrar cita individual
