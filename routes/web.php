@@ -64,7 +64,7 @@ Route::delete('/paciente/{id}/borrar','PacienteController@destroy') ->name('paci
 Route::prefix('pantallainicio')->group( function(){
     Route::get('calendario','CitaController@calendario');
     Route::get('vista','PacienteController@vistapaciente')->name ('paciente.vista');
-    //Route::get('pantallainicio/paciente/{id}','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
+   // Route::get('paciente/{id}','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
     Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
     
 
@@ -79,6 +79,38 @@ Route::prefix('pantallainicio/calendario')->group( function(){
         
     });
 
+
+    Route::prefix('pantallainicio/vista')->group( function(){
+       // Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+        Route::get('paciente/{id}','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
+
+            
+        });
+
+        
+        
+        Route::prefix('pantallainicio/vista/paciente')->group( function(){
+            Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+            // Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+             //Route::get('paciente/{id}','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
+             Route::get('{id}/editar','PacienteController@editar') ->name('paciente.editar') -> where('id' ,'[0-9]+');
+             Route::put('{id}/editar','PacienteController@update')->name('paciente.update') -> where('id' ,'[0-9]+');
+                 
+             });
+
+             Route::prefix('pantallainicio/vista/paciente/{id}')->group( function(){
+                Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+                // Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+                 //Route::get('paciente/{id}','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
+                // Route::get('{id}/editar','PacienteController@editar') ->name('paciente.editar') -> where('id' ,'[0-9]+');
+                // Route::put('{id}/editar','PacienteController@update')->name('paciente.update') -> where('id' ,'[0-9]+');
+                     
+                 });
+    
+
+
+
+    
 
 
 //Route::get('vistamensual','CitaController@vistamensual');
