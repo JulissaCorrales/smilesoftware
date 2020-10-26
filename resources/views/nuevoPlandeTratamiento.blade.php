@@ -21,7 +21,9 @@
 </head>
 @section('cuerpo')
 <body>
-@if ($errors->any())
+
+    @section('cuerpo')
+    @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -30,7 +32,6 @@
             </ul>
         </div>
     @endif
-    @section('cuerpo')
 @if(session('mensaje'))
         <div class="alert alert-success">
             {{session('mensaje')}}
