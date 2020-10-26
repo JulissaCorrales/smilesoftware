@@ -15,6 +15,7 @@
         padding: 2rem;
         width:auto;
     } 
+  
     #btnuevot{
         font: 10 1em Tahoma, Arial, Verdana, sans-serif;
         color: #fff; background-color: #59B0E5;
@@ -26,14 +27,19 @@
         float:right;
     }
     #padre{
-     margin: 5rem;
-    padding: 2rem;
+    
     border: 2px solid #ccc;
-    width:auto;
+    width: 900px;
+    height: 600px;
     background-color:#F4F6F6  ;
+    position: absolute;
+    top:250px;
+    left: 400px;
+    
+
     }
     table {
-    width:100%;
+    width: 50px;
     }
     table, th, td {
     border: 1px solid black;
@@ -44,7 +50,7 @@
     text-align: left;
     }
     th{
-        background-color:#82E0AA ;
+        background-color:#ffad33 ;
     }
     td{
         background-color:#FEF5E7 ;
@@ -59,6 +65,10 @@
     background-color:  #85C1E9;
     color: black;
     }
+
+
+
+
 </style>
 
 <body>
@@ -78,7 +88,7 @@
             </svg>
             Agendar Cita</button>
         </div>
-    <div>
+    <div id="ta">
         <hr>
         <table>
         <thead>

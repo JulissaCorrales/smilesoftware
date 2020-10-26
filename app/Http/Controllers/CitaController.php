@@ -18,7 +18,7 @@ class CitaController extends Controller
     public function calendar(Request $request){
         $query=trim($request->get('/darcita'));
          $citas=Cita::get('id');
-        return view('FullCalendar');
+        return view('VistaSemanal');
 
     }
 
