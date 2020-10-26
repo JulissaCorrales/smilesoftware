@@ -97,9 +97,7 @@
                         } 
                         ?>"></td>
 <td>08:15</td>
-<td>
-hola
-</td>
+<td><input type="text" placeholder="paciente"></td>
 </tr>
 <tr>
 <td>08:30</td>
@@ -116,7 +114,7 @@ hola
 
 <tr>
 <td>09:00</td>
-<td><input type="text" placeholder="paciente" value="hola"></td>
+<td><input type="text" placeholder="paciente" value=""></td>
 <td>09:15</td>
 <td><input type="text" placeholder="paciente"></td>
 </tr>
