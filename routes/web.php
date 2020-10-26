@@ -25,6 +25,8 @@ Route::get('/', function () {
 
             Route::delete('{id}/borrar','PacienteController@destroy') ->name('paciente.borrar')->where('id','[0-9]+');
 
+            Route::delete('{id}/borrar','CitaController@destroyCita') ->name('cita.borrar')->where('id','[0-9]+');
+
                 // *********RUTAS PARA EL MENU PRINCIPAL********//
 //grupo de rutas se ingresa con pantallainicio/calendario y luego a ruta que desea ingresar
 
@@ -81,7 +83,7 @@ Route::get('/', function () {
              //ruta de cita individual
              Route::get('{id}/citaindividual','CitaController@verCitaIndividual')->where('id','[0-9]+')->name('citaIndividual');
              //ruta de borrar cita individual
-             Route::delete('{id}/borrar','CitaController@destroyCita') ->name('cita.borrar')->where('id','[0-9]+');
+            // Route::delete('{id}/borrar','CitaController@destroyCita') ->name('cita.borrar')->where('id','[0-9]+');
              //ruta para crear comentarios
              Route::get('{id}/comentarios','PacienteController@comentarios') ->name('comentarios.crear');
              //ruta pra guardar comentarios
