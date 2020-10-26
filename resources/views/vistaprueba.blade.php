@@ -179,6 +179,18 @@ body {font-family: "Lato", sans-serif;}
            </form></p>
 </div>
 
+<div id="planesdetratamiento" class="tabcontent">
+<p class=" p-md-5"><FORM METHOD="POST" ACTION="http://miservidor/cgi-bin/test2-cgi">
+
+
+
+
+
+</div>
+
+
+
+
 <script>
 function openCity(evt, cityName) {
   var i, tabcontent, tablinks;
