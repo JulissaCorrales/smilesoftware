@@ -47,7 +47,7 @@
         $mysqli->set_charset("utf8");
       ?>
 
-<form method="post" action="/tratamientoNuevo/{$pacientes->id}">
+<form method="post" action="">
                       @csrf
                       <div class="form-group">
                           <label for="nombreTratamiento">Nombre del Tratamiento:</label>
