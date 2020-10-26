@@ -3,22 +3,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
-      #div1{background-color:#00AAE4}
+      #div1{background-color:#00cccc;}
       #botonContinuar{text-align: center;}
-     
-
       
 </style>
   
   <body>
   <!-- Este codigo es para la ventana modal darcita -->
-<div class="modal fade" id="create">
+<div class="modal fade" id="create" >
   
 	<div class="modal-dialog" role="document">
-		<div class="modal-content">
+		<div class="modal-content" >
 			<div id="div1"class="modal-header">
 	
-				<h4  class="modal-title" id="myModalLabel">Dar Cita(Agendar)</h4>
+				<h4  class="modal-title" id="myModalLabel">
+        <svg width="2em" height="2em" color="#fff" viewBox="0 0 16 16" class="bi bi-file-ruled" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v4h10V2a1 1 0 0 0-1-1H4zm9 6H6v2h7V7zm0 3H6v2h7v-2zm0 3H6v2h6a1 1 0 0 0 1-1v-1zm-8 2v-2H3v1a1 1 0 0 0 1 1h1zm-2-3h2v-2H3v2zm0-3h2V7H3v2z"/>
+      </svg>
+        Dar Cita(Agendar)</h4>
         	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -82,18 +84,9 @@
         <option value="50m">50 minutos</option>
         </select>
         <br>
-        <!-- Hora -->
-        <label for="hora" class="control-label">Hora:</label>
-        <input type="time" name="hora" id="hora">
-        
-        
-        <!-- Fecha -->      
-        <label for="fecha" class="control-label">Fecha:</label>
-        <input type="date" name="fecha" id="fecha"> 
-        <br>
-
-        <label for="hora" class="control-label">Hora:</label>
+        <label for="hora" class="control-label">Fecha y Hora:</label>
         <input type="datetime-local" name="stard" id="hora">
+        <hr>
         <!-- Paciente_id -->
 
         <div class="form-group">

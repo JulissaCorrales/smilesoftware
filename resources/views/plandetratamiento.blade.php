@@ -144,7 +144,7 @@
                
                 <td>
                 @forelse ($pacientes->planestratamientos as $tag) 
-                <span class="badge">Fecha: {{ $tag->cita->fecha}} Hora: {{ $tag->cita->hora}}</span> <hr>
+                <span class="badge">{{ $tag->cita->stard}} </span> <hr>
                 @empty
                     No tiene 
                     @endforelse

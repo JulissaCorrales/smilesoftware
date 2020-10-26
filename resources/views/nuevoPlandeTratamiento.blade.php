@@ -107,13 +107,12 @@
         $getCitas =$mysqli->query("select * from citas order by id");
         while($f=$getCitas->fetch_object()) {
           echo $f->id;
-          echo $f->fecha;
-          echo $f->hora;
+          echo $f->stard;
           echo $f->paciente_id;
 
           ?>
          
-          <option value="<?php echo $f->id; ?>"><?php echo $f->fecha." ".$f->hora." ".$f->paciente_id;?></option>
+          <option value="<?php echo $f->id; ?>"><?php echo $f->stard." ".$f->paciente_id;?></option>
           <?php
         } 
         ?>

@@ -18,8 +18,6 @@ class CreateCitasTable extends Migration
             $table->unsignedInteger('especialidad_id');
             $table->unsignedInteger('odontologo_id');
             $table->string('duracionCita');
-            $table->time('hora');
-            $table->date('fecha');
             $table->unsignedInteger('paciente_id');
             $table->datetime('stard');
             $table->string('comentarios');
