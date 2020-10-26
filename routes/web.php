@@ -23,6 +23,7 @@ Route::get('/', function () {
                       //Ruta para guardar cita
             Route::post('/darcita','CitaController@guardar');
 
+            Route::delete('{id}/borrar','PacienteController@destroy') ->name('paciente.borrar')->where('id','[0-9]+');
 
                 // *********RUTAS PARA EL MENU PRINCIPAL********//
 //grupo de rutas se ingresa con pantallainicio/calendario y luego a ruta que desea ingresar
@@ -69,7 +70,7 @@ Route::get('/', function () {
              //ruta de ver paciente
              Route::get('{id}/paciente','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
              //ruta de borrar paciente
-             Route::delete('{id}/borrar','PacienteController@destroy') ->name('paciente.borrar')->where('id','[0-9]+');
+             //Route::delete('{id}/borrar','PacienteController@destroy') ->name('paciente.borrar')->where('id','[0-9]+');
              //ruta de editar paciente
              Route::get('{id}/editar','PacienteController@editar') ->name('paciente.editar') -> where('id' ,'[0-9]+');
              Route::put('{id}/editar','PacienteController@update')->name('paciente.update') -> where('id' ,'[0-9]+');
