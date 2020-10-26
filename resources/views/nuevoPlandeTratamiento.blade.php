@@ -122,7 +122,7 @@
     
     
     <br>
-    <button style="background-color:purple"type="button" onclick="location.href='/plandetratamiento/{{ $pacientes->id}}'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+    <button style="background-color:purple"type="button" onclick="location.href='/pantallainicio/vista/paciente/{{ $pacientes->id}}/plandetratamiento'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
         <input type="reset" class="btn btn-danger">
          <button type="submit" class="btn btn-primary" >Guardar Tratamiento</button>
        
