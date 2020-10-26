@@ -15,9 +15,11 @@ class CreateCitaPacienteTable extends Migration
     {
         Schema::create('cita_paciente', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('cita_id');
-            $table->unsignedInteger('paciente_id');
+            $table->bigInteger('cita_id')->unsigned();
+            $table->bigInteger('paciente_id')->unsigned();
             $table->timestamps();
+            $table->foreign('paciente_id')->references('id')->on('pacientes')->onDelete('cascade');
+            $table->foreign('cita_id')->references('id')->on('citas')->onDelete('cascade');
         });
     }
 
