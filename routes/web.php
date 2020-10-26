@@ -111,50 +111,6 @@ Route::get('/', function () {
 
 
 
-    
-
-
-//Route::get('vistamensual','CitaController@vistamensual');
-Route::get('vistaprueba','CitaController@vistaprueba');
-
-
-
-
-
-//ruta para planes de tratamientos
-Route::get('/plandetratamiento/{id}','PlanTratamientoController@ver')->name('tratamiento.ver');
-//ruta para nuevo tratamiento
-
-Route::get('/tratamientoNuevo/{id}','PlanTratamientoController@Nuevo')->name('tratamiento.nuevo');
-//ruta para guardar paciente
-Route::post('/tratamientoNuevo/{id}','PlanTratamientoController@guardar')->name('tratamiento.guardar');
-//Ruta Para eliminar plan de tratamiento
-Route::delete('/plandetratamiento/{id}/borrar','PlanTratamientoController@destroy') ->name('plandetratamiento.borrar')->where('id','[0-9]+');
-
-//Route::get('calendar','CitaController@calendar');
-
-
-Route::prefix('pantallainicio/pantallainicio/calendar')->group( function(){
-    Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
-    //Route::get('','PacienteController@index')->name ('paciente.vista');
-});
-
-Route::prefix('/pantallainicio/pantallainicio/pantallainicio/calendar/citadiaria')->group( function(){
-    Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
-    //Route::get('','PacienteController@index')->name ('paciente.vista');
-});
-
-//*****************rutas para ver imagenes y archivos del paciente******************//
-
-//ruta para ver imagenenes del paciente------->
-
-Route::get('/imagenesYarchivos/{id}','ArchivoController@ver')
-->name('imagenesYarchivos.ver');
-
-//ruta para el formulario de nuevo archivo del paciente
-Route::get('/nuevoArchivo/{id}','ArchivoController@nuevo');
-Route::post('/nuevoArchivo/{id}','ArchivoController@guardar');
-
 
 //Route::get('vistaprueba','CitaController@vistaprueba');
 
