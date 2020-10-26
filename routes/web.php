@@ -23,7 +23,7 @@ Route::get('/', function () {
                       //Ruta para guardar cita
             Route::post('/darcita','CitaController@guardar');
 
-            Route::delete('{id}/borrar','PacienteController@destroy') ->name('paciente.borrar')->where('id','[0-9]+');
+            Route::delete('paciente/{id}/borrar','PacienteController@destroy') ->name('paciente.borrar')->where('id','[0-9]+');
 
             Route::delete('{id}/borrar','CitaController@destroyCita') ->name('cita.borrar')->where('id','[0-9]+');
 
