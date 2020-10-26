@@ -141,7 +141,7 @@
             <div class="modal-body"> 
 
 
-                    <form method="post" action="/pacienteNuevo">
+                    <form method="post" action="/pantallainicio/vista/pacienteNuevo">
                       @csrf
                       <div class="form-group">
                           <label for="nombres">Nombres:</label>
