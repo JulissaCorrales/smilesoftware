@@ -23,7 +23,12 @@ class imagenesYarchivosController extends Controller
             $file = $request->file('imagen');
             $name = time().$file->getClientOriginalName();
             $file->move(\public_path().'/images/',$name);
-            return $name;
         }
+        $imagen = new ImagenYarchivo();
+        $imagen ->$name = $request->input('name');
+        $imagen ->imagen = $name;
+        $imagen -> save();
+
+        return 'saved';
     }
 }
