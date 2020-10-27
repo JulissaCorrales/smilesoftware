@@ -88,7 +88,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   <tbody>
   <tr>
       @foreach($pacientes as $paciente)
-     <td><a  class="btn btn-outline-info"  href="/paciente/{{ $paciente->id}}"  id="lista">{{$paciente->id}}</a></td>
+     <td><a  class="btn btn-outline-info"  href="/pantallainicio/vista/paciente/{{ $paciente->id}}/paciente"  id="lista">{{$paciente->id}}</a></td>
      <td>{{$paciente->nombres}}</td>
      <td>{{$paciente->apellidos}}</td>
      <td>{{$paciente->identidad}}</td>

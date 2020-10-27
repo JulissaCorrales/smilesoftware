@@ -84,7 +84,7 @@
   </div>
   <div id="mo" >
 <div class="content" id="n">
-<form method="post" action="/pacienteNuevo">
+<form method="post" action="">
                       @csrf
                       <div class="form-group">
                           <label for="nombres">Nombres:</label>

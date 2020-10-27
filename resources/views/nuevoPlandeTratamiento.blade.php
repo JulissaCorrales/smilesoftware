@@ -21,7 +21,9 @@
 </head>
 @section('cuerpo')
 <body>
-@if ($errors->any())
+
+    @section('cuerpo')
+    @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -30,7 +32,6 @@
             </ul>
         </div>
     @endif
-    @section('cuerpo')
 @if(session('mensaje'))
         <div class="alert alert-success">
             {{session('mensaje')}}
@@ -46,7 +47,7 @@
         $mysqli->set_charset("utf8");
       ?>
 
-<form method="post" action="/tratamientoNuevo/{$pacientes->id}">
+<form method="post" action="">
                       @csrf
                       <div class="form-group">
                           <label for="nombreTratamiento">Nombre del Tratamiento:</label>
@@ -121,7 +122,7 @@
     
     
     <br>
-    <button style="background-color:purple"type="button" onclick="location.href='/plandetratamiento/{{ $pacientes->id}}'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+    <button style="background-color:purple"type="button" onclick="location.href='/pantallainicio/vista/paciente/{{ $pacientes->id}}/plandetratamiento'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
         <input type="reset" class="btn btn-danger">
          <button type="submit" class="btn btn-primary" >Guardar Tratamiento</button>
        

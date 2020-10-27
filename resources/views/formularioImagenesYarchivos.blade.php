@@ -39,7 +39,7 @@
         </select>
         <hr>
 
-              <label for="identidad">imagen:</label>
+              <label for="identidad">imagen a subir:</label>
               <input type="file" class="form-control-file" name="imagen" id="imagen">
                     
             
