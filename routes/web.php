@@ -111,7 +111,6 @@ Route::get('/', function () {
     
 
 
-<<<<<<< HEAD
 //Route::get('vistamensual','CitaController@vistamensual');
 Route::get('vistaprueba','CitaController@vistaprueba');
 
@@ -152,8 +151,7 @@ Route::get('/imagenesYarchivos/{id}','ArchivoController@ver')
 //ruta para el formulario de nuevo archivo del paciente
 Route::get('/nuevoArchivo/{id}','ArchivoController@nuevo');
 Route::post('/nuevoArchivo/{id}','ArchivoController@guardar');
-=======
->>>>>>> 95863829c5e7561c7636912d89d22b27d9ca23bc
+
 
 //Route::get('vistaprueba','CitaController@vistaprueba');
 
