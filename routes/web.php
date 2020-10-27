@@ -17,95 +17,74 @@ use App\Paciente;
 Route::get('/', function () {
     return view('welcome');
 });
+                    // *********RUTA PARA DAR CITA********//
+                     //ruta para darcita(cita nueva)
+            Route::get('/darcita','CitaController@crear');
+                      //Ruta para guardar cita
+            Route::post('/darcita','CitaController@guardar');
 
 
-Route::get('menuagenda','MenuAgendaController@MenuAgenda')->name('pantallainiciomenuagenda');
+                // *********RUTAS PARA EL MENU PRINCIPAL********//
+//grupo de rutas se ingresa con pantallainicio/calendario y luego a ruta que desea ingresar
 
-Route::get('pantallainicio','PacienteController@index')->name('pantallainicio');
-
-//ruta para vista cita diaria
-Route::get('/citadiaria','PantallaInicioController@PantallaInicio')->name('citadiaria');
-
-
-
-//ruta para formulario de paciente nuevo
-Route::get('/pacienteNuevo','PacienteController@Nuevo')->name('paciente.nuevo');
-//ruta para guardar paciente
-Route::post('/pacienteNuevo','PacienteController@guardar')->name('paciente.guardar');
-
-//Route::get('/paciente/{id}','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
-
-
-
-//Ruta para editar Paciente
-
-Route::get('/paciente/{id}/editar','PacienteController@editar') ->name('paciente.editar') -> where('id' ,'[0-9]+');
-Route::put('/paciente/{id}/editar','PacienteController@update')->name('paciente.update') -> where('id' ,'[0-9]+');
-
-
-    Route::post('nuevo','PacienteController@GuardarNuevo')
-    ->name('guardar.nuevo');
-//ruta para vista de pacientes
-
-Route::get('/paciente/vista','PacienteController@vistapaciente')->name ('paciente.vista');
-
-//ruta para darcita(cita nueva)
-Route::get('/darcita','CitaController@crear');
-//Ruta para guardar cita
-Route::post('/darcita','CitaController@guardar');
-
-
-//ruta para borrar paciente
-Route::delete('/paciente/{id}/borrar','PacienteController@destroy') ->name('paciente.borrar')->where('id','[0-9]+');
-
-
-//grupo de rutas se ingresa con pantallainicio/y luego a ruta que desea ingresar
-//este caso solo para probar el buscador ingrese en la ruta pantallainicio/vista
-Route::prefix('pantallainicio')->group( function(){
-    Route::get('calendario','CitaController@calendario');
-    Route::get('vista','PacienteController@vistapaciente')->name ('paciente.vista');
-   // Route::get('paciente/{id}','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
-    Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+         Route::prefix('pantallainicio')->group( function(){
+                Route::get('calendario','CitaController@calendario');
+                Route::get('vista','PacienteController@vistapaciente')->name ('paciente.vista');
+                Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
     
 
-});
+           });
 
+                           // *********RUTAS PARA EL MENU DE AGENDA********//
 //grupo de ruta para agenda
-Route::prefix('pantallainicio/calendario')->group( function(){
-    Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
-    Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
-    Route::get('semanal','CitaController@calendar');
-    Route::get('vistamensual','CitaController@vistamensual');
+        Route::prefix('pantallainicio/calendario')->group( function(){
+               Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+               Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
+               Route::get('semanal','CitaController@calendar');
+               Route::get('vistamensual','CitaController@vistamensual');
         
     });
 
+                          // *********RUTAS PARA PACIENTE********//
 
+ //grupo de ruta de paciente
     Route::prefix('pantallainicio/vista')->group( function(){
-       // Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
-        Route::get('paciente/{id}','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
-
-            
-        });
-
+        Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+        Route::get('pacienteNuevo','PacienteController@Nuevo')->name('paciente.nuevo');
+        Route::post('pacienteNuevo','PacienteController@guardar')->name('paciente.guardar');
         
-        
-        Route::prefix('pantallainicio/vista/paciente')->group( function(){
-            Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
-            // Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
-             //Route::get('paciente/{id}','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
+  });
+
+                        // *********RUTAS PARA las rutas con ID********//
+    //Agrupamiento de rutas por ID
+    Route::prefix('pantallainicio/vista/paciente')->group( function(){
+             Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+             Route::get('{id}/paciente','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
+             Route::delete('{id}/borrar','PacienteController@destroy') ->name('paciente.borrar')->where('id','[0-9]+');
              Route::get('{id}/editar','PacienteController@editar') ->name('paciente.editar') -> where('id' ,'[0-9]+');
              Route::put('{id}/editar','PacienteController@update')->name('paciente.update') -> where('id' ,'[0-9]+');
-                 
+             Route::get('{id}/imagenesArchivos','imagenesYarchivosController@ver')->name('imagenesYarchivos.ver');
+             Route::get('{id}/nuevoarchivo','imagenesYarchivosController@nuevo');
+             Route::post('{id}/nuevoarchivo','imagenesYarchivosController@guardar');
+             Route::get('{id}/citaindividual','CitaController@verCitaIndividual')->where('id','[0-9]+')->name('citaIndividual');
+             Route::delete('{id}/borrar','CitaController@destroyCita') ->name('cita.borrar')->where('id','[0-9]+');
+             Route::get('{id}/comentarios','PacienteController@comentarios') ->name('comentarios.crear');
+             Route::post('{id}/comentarios','PacienteController@GuardarComentario')->name('comentario.guardar');
+             Route::get('{id}/plandetratamiento','PlanTratamientoController@ver')->name('tratamiento.ver');
+             Route::get('{id}/tratamientonuevo','PlanTratamientoController@Nuevo')->name('tratamiento.nuevo');
+             Route::post('{id}/tratamientonuevo','PlanTratamientoController@guardar')->name('tratamiento.guardar');
+             Route::delete('{id}/borrar','PlanTratamientoController@destroy') ->name('plandetratamiento.borrar')->where('id','[0-9]+');
+
              });
 
-             Route::prefix('pantallainicio/vista/paciente/{id}')->group( function(){
-                Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
-                // Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
-                 //Route::get('paciente/{id}','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
-                // Route::get('{id}/editar','PacienteController@editar') ->name('paciente.editar') -> where('id' ,'[0-9]+');
-                // Route::put('{id}/editar','PacienteController@update')->name('paciente.update') -> where('id' ,'[0-9]+');
+              // *********RUTA PARA EL BUSCADOR********//
+             //agrupamiento para que funcione el buscador 
+
+    Route::prefix('pantallainicio/vista/paciente/{id}')->group( function(){
+            Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+                
                      
-                 });
+            });
     
 
 
@@ -113,6 +92,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
     
 
 
+<<<<<<< HEAD
 //Route::get('vistamensual','CitaController@vistamensual');
 Route::get('vistaprueba','CitaController@vistaprueba');
 
@@ -153,32 +133,16 @@ Route::get('/imagenesYarchivos/{id}','ArchivoController@ver')
 //ruta para el formulario de nuevo archivo del paciente
 Route::get('/nuevoArchivo/{id}','ArchivoController@nuevo');
 Route::post('/nuevoArchivo/{id}','ArchivoController@guardar');
+=======
+>>>>>>> 95863829c5e7561c7636912d89d22b27d9ca23bc
 
-
-//*********************************************************************//
-
-//rutas para comentarios administrativos
-Route::get('/comentarios/{id}','PacienteController@comentarios') ->name('comentarios.crear');
-
-Route::post('/comentarios/{id}','PacienteController@GuardarComentario')->name('comentario.guardar');
-
-//Route::get('calendario','CitaController@calendario');
-
-//Route::get('datos','CitaController@datos')->name ('paciente.datos');
-
-
-
-//ver cita individual
-Route::get('/citaIndividual/{id}','CitaController@verCitaIndividual')->where('id','[0-9]+')->name('citaIndividual');
-//borrar cita individual
-Route::delete('/citaIndividual/{id}/borrar','CitaController@destroyCita') ->name('cita.borrar')->where('id','[0-9]+');
+//Route::get('vistaprueba','CitaController@vistaprueba');
 
 
 
 
-//Route::get('comentarios','PacienteController@comentarios');
-        
-Route::get('/comentarios/{id}','PacienteController@comentarios') ->name('comentarios.crear');
-Route::post('/comentarios/{id}','PacienteController@GuardarComentario')->name('comentario.guardar');
+
+
+
 
 
