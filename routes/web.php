@@ -42,24 +42,12 @@ Route::get('/', function () {
 
                            // *********RUTAS PARA EL MENU DE AGENDA********//
 //grupo de ruta para agenda
-<<<<<<< HEAD
 Route::prefix('pantallainicio/calendario')->group( function(){
     Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
     Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
     Route::get('semanal','CitaController@calendar');
     Route::get('vistamensual','CitaController@vistamensual');
     Route::get('diaria','CitaController@vistadiaria'); 
-=======
-        Route::prefix('pantallainicio/calendario')->group( function(){
-               Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
-               //ruta de citadiaria
-               Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
-               //ruta de cita semanal
-               Route::get('semanal','CitaController@calendar');
-               //ruta de cita mensual
-               Route::get('vistamensual','CitaController@vistamensual');
-        
->>>>>>> e4abefda9a61997a8ab7c9ac268f32ffb9f494a6
     });
 
                           // *********RUTAS PARA PACIENTE********//
@@ -118,33 +106,6 @@ Route::prefix('pantallainicio/calendario')->group( function(){
             });
     
 
-
-
-
-//Route::get('vistaprueba','CitaController@vistaprueba');
-
-<<<<<<< HEAD
-Route::get('/tratamientoNuevo/{id}','PlanTratamientoController@Nuevo')->name('tratamiento.nuevo');
-//ruta para guardar paciente
-Route::post('/tratamientoNuevo/{id}','PlanTratamientoController@guardar')->name('tratamiento.guardar');
-//Ruta Para eliminar plan de tratamiento
-Route::delete('/plandetratamiento/{id}/borrar','PlanTratamientoController@destroy') ->name('plandetratamiento.borrar')->where('id','[0-9]+');
-
-//Route::get('calendar','CitaController@calendar');
-
-
-Route::prefix('pantallainicio/pantallainicio/calendar')->group( function(){
-    Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
-    //Route::get('','PacienteController@index')->name ('paciente.vista');
-});
-
-Route::prefix('/pantallainicio/pantallainicio/pantallainicio/calendar/citadiaria')->group( function(){
-    Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
-    //Route::get('','PacienteController@index')->name ('paciente.vista');
-    
-});
-=======
->>>>>>> e4abefda9a61997a8ab7c9ac268f32ffb9f494a6
 
 
 
