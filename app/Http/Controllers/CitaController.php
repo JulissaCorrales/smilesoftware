@@ -143,6 +143,13 @@ class CitaController extends Controller
         return redirect()->back()->with('mensaje','Cita borrada satisfactoriamente');
     }
 
+    //controlador vista diaria
+    public function vistadiaria(Request $request){
+        $query=trim($request->get('/darcita'));
+         $citas=Cita::get('id');
+        return view('VistaDiaria');
+
+    }
 
 
 }

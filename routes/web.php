@@ -76,7 +76,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
     Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
     Route::get('semanal','CitaController@calendar');
     Route::get('vistamensual','CitaController@vistamensual');
-        
+    Route::get('diaria','CitaController@vistadiaria'); 
     });
 
 
@@ -141,6 +141,7 @@ Route::prefix('pantallainicio/pantallainicio/calendar')->group( function(){
 Route::prefix('/pantallainicio/pantallainicio/pantallainicio/calendar/citadiaria')->group( function(){
     Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
     //Route::get('','PacienteController@index')->name ('paciente.vista');
+    
 });
 
 //*****************rutas para ver imagenes y archivos del paciente******************//
