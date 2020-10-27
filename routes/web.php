@@ -147,12 +147,12 @@ Route::prefix('/pantallainicio/pantallainicio/pantallainicio/calendar/citadiaria
 
 //ruta para ver imagenenes del paciente------->
 
-Route::get('/imagenesYarchivos/{id}','imagenesYarchivosController@ver')
+Route::get('/imagenesYarchivos/{id}','ArchivoController@ver')
 ->name('imagenesYarchivos.ver');
 
 //ruta para el formulario de nuevo archivo del paciente
-Route::get('/nuevoArchivo/{id}','imagenesYarchivosController@nuevo');
-Route::post('/nuevoArchivo/{id}','imagenesYarchivosController@guardar');
+Route::get('/nuevoArchivo/{id}','ArchivoController@nuevo');
+Route::post('/nuevoArchivo/{id}','ArchivoController@guardar');
 
 
 //*********************************************************************//
