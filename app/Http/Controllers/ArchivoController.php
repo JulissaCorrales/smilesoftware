@@ -14,13 +14,14 @@ class ArchivoController extends Controller
         return view('imagenesYarchivos',compact('pacientes'));
     }
 
-    public function nuevo(){
-        return view('formularioImagenesYarchivos');
+    public function nuevo($id){
+        $pacientes = Paciente::findOrFail($id);
+        return view('formularioImagenesYarchivos',compact('pacientes'));
     }
 
     
 
-    public function guardar(Request $request){
+    public function guardar(Request $request,$id){
         
         if($request->hasFile('imagen')){
             $file = $request->file('imagen');
@@ -28,8 +29,18 @@ class ArchivoController extends Controller
             $file->move(\public_path().'/images/',$name);
         }
         $imagen = new Archivo();
-        $imagen ->$name = $request->input('name');
+        $imagen->paciente_id=$id;
         $imagen ->imagen = $name;
-        $imagen -> save();
+        $imagen->observaciones=$request->input('observaciones');
+        $imagen->odontologo_id=$request->input('odontologo_id');
+        $creado= $imagen->save();
+        if ($creado){
+           
+         return redirect()->back()->with('mensaje','Archivo guardado exitosamente');
+
+          //return redirect()('/comentarios/{id}');
+       } 
+
+
     }
 }

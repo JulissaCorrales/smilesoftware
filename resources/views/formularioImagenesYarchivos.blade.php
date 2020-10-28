@@ -1,15 +1,19 @@
-@extends('Plantilla.Plantilla')
+@extends('datospersonales')
 <!DOCTYPE html>
 <html lang="en">
-@section('Titulo','Paciente')
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuevo registro</title>
 </head>
-@section('contenido')
+@section('cuerpo')
 <body>
 <div id="todo">
+@if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif
 <h2>Creación un nuevo archivo del paciente</h2>
 
                     <?php

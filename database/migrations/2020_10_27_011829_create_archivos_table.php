@@ -15,9 +15,11 @@ class CreateArchivosTable extends Migration
     {
         Schema::create('archivos', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('paciente_id')->unsigned();
             $table->string('imagen');
             $table->string('observaciones');
             $table->string('odontologo_id');
+            $table->foreign('paciente_id')->references('id')->on('pacientes')->onDelete('cascade');
             $table->timestamps();
         });
     }

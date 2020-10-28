@@ -179,26 +179,29 @@
         </div>
 
         <section class="timeline">
-            <ul>
-              <li>
-                <div>
-                  <time>22-12-2020</time>
-                  <br>
-                  <br>
-                  Cirugía dental para implantes dentales
-                  <br>
-                  <br>
+          @forelse ($pacientes->archivos as $tag)
+          <ul>
+            <li>
+              <div>
+                <time>{{$tag->fecha}}</time>
+                <br>
+                <br>
+              <p>{{$tag->odontologo->nombres}} {{$tag->odontologo->apellidos}}</p>
+                <br>
+                <br>
 
-                  La colocación de implantes dentales es una 
-                  de las intervenciones quirúrgicas más comunes. 
-                  Este tratamiento representa la mejor solución 
-                  para aquellas personas que sufren la ausencia de uno,
-                   varios o todos los dientes.
+                <p>{{$tag->observaciones}}</p>
 
-                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ0OPMJPv3wXqVmWGM3m088ZQK8gx0djrxpaw&usqp=CAU">
+              <img src="images/{{$tag->imagen}}" alt="">
 
-                </div>
-              </li>
+              </div>
+            </li>
+              
+          @empty
+          <p> no hay archivos de historial disponible</p>
+              
+          @endforelse
+            
 
               
               <!-- more list items here -->

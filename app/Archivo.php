@@ -10,4 +10,8 @@ class Archivo extends Model
     {
        return $this->belongsTo(Paciente::class);
     }
+
+    public function odontologo(){
+        return $this->belongsTo(Odontologo::class);
+    }
 }

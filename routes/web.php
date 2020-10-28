@@ -75,8 +75,8 @@ Route::prefix('pantallainicio/calendario')->group( function(){
              Route::put('{id}/editar','PacienteController@update')->name('paciente.update') -> where('id' ,'[0-9]+');
              //ruta de Imagenes y Archivos
              Route::get('{id}/imagenesArchivos','ArchivoController@ver')->name('imagenesYarchivos.ver');
-             Route::get('{id}/nuevoarchivo','ArchivoController@nuevo');
-             Route::post('{id}/nuevoarchivo','ArchivoController@guardar');
+             Route::get('{id}/nuevoarchivo','ArchivoController@nuevo')-> where('id' ,'[0-9]+');
+             Route::post('{id}/nuevoarchivo','ArchivoController@guardar')-> where('id' ,'[0-9]+');
              //ruta de cita individual
              Route::get('{id}/citaindividual','CitaController@verCitaIndividual')->where('id','[0-9]+')->name('citaIndividual');
              //ruta de borrar cita individual
