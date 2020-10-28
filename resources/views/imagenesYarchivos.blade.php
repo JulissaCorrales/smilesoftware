@@ -192,7 +192,7 @@
 
                 <p>{{$tag->observaciones}}</p>
 
-              <img src="images/{{$tag->imagen}}" alt="">
+              <img src="/images/{{$tag->imagen}}" width="150" alt="imagen">
 
               </div>
             </li>
