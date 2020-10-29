@@ -18,6 +18,7 @@ class CreateArchivosTable extends Migration
             $table->bigInteger('paciente_id')->unsigned();
             $table->string('imagen');
             $table->string('observaciones');
+            $table->datetime('fecha');
             $table->string('odontologo_id');
             $table->foreign('paciente_id')->references('id')->on('pacientes')->onDelete('cascade');
             $table->timestamps();

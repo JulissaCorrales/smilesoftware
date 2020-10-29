@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Paciente;
 use App\Archivo; 
+use Carbon\Carbon;
 
 
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ class ArchivoController extends Controller
         }
         $imagen = new Archivo();
         $imagen->paciente_id=$id;
+        $imagen->fecha = Carbon::now();
         $imagen ->imagen = $name;
         $imagen->observaciones=$request->input('observaciones');
         $imagen->odontologo_id=$request->input('odontologo_id');
