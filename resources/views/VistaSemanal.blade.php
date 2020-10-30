@@ -9,8 +9,18 @@ try
 {
   $mbd = new PDO('mysql:host=127.0.0.1;dbname=smilesoftware', "root", "");
   $sth= $mbd->query('select * from citas');
+
+  //$sth=array("Volvo","BMW","Toyota");
+//echo  "hola" .count($sth);
+
+  //$count= $mbd->query('select count(*) from citas');
+  
+  //echo "Total de Paciente". $count;
+
+ 
+
   //foreach($sth as $fila){
-  //  echo "paciente".$fila["hora"];
+  // echo "paciente".$fila["hora"];
    // echo "<br>";
 
  // } 
@@ -22,6 +32,7 @@ catch(Exception $e)
 }
 
  ?>
+
 <html>
 
 <head>
@@ -31,7 +42,6 @@ catch(Exception $e)
    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.16/vue.min.js"></script>
    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
-   
  <!-- este es importante -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" />
  <!-- Este Tambien es Importante -->
@@ -47,9 +57,11 @@ catch(Exception $e)
      .comp-full-calendar {
 
        background: #cceeff;
-       width: 700px;
+       width: 940px;
        color: #ff4d4d;
-       background-color: #A9E2F3;
+       height: 1200px; 
+       background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff);
+
        padding: 25px 25px 25px 25px;
      
       
@@ -59,7 +71,7 @@ catch(Exception $e)
       position:absolute;
             top: 390px;
             color: #ff4d4d;
-            left: 290px;
+            left: 400px;
 
            
 
@@ -74,33 +86,97 @@ catch(Exception $e)
 
      }
 
+     #did{
+      position:absolute;
+            top: 500px;
+            color: #ff4d4d;
+            left: 50px;
+            border-color: #00BFFF;
+            width: 320px; 
+            height: 70px;
+            background-color: #ccffff;
+
+     }
+
+     #can{
+
+      position:absolute;
+            top: 400px;
+            color: #ff4d4d;
+            left: 50px;
+            border-color: #00BFFF;
+            width: 320px; 
+            height: 100px;
+            background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff);
+
+     }
+
+     #te{
+      color: #ff4d4d;
+      position:absolute;
+      left: 50px;
+      font-size:29px;
+      top: 20;
+      text-shadow: -1px 0 #009999, 0 1px #009999, 1px 0 #009999, 0 -1px #009999;
+     }
+
+     #cantidad{
+      color: #ff4d4d;
+      position:absolute;
+      left: 150px;
+      font-size:29px;
+      top: 10;
+      text-shadow: -1px 0 #009999, 0 1px #009999, 1px 0 #009999, 0 -1px #009999;
+
+     }
+
+
+     .fc-event{
+      background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff);
+     
+
+
+     }
+
+
+    
+
+     .fc table {
+    border-top-color: #000066;
+    
+    font-size: 1em; /* normalize cross-browser */
+    width: 900px; 
+            height: 1100px;
+  }
+
+  .fc th {
+    text-align: center;
+    border-color: #000066;
+  }
+  .fc th,
+  .fc td {
+    vertical-align: top;
+    border-color: #000066;
+    padding: 2px;
+    
+  }
     
    </style>
 </head>
 <body id="body">
-<!--
-<div class="container"   >
-<nav class="navbar navbar-light bg-light"  id="navasdeBotones" >
-  <h5>Agenda</h5>
-  <a type="button" class="btn btn-outline-info" id="diaria" href="/pantallainicio/pantallainicio/pantallainicio/calendar/citadiaria/citadiaria"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-day" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-  <path d="M4.684 11.523v-2.3h2.261v-.61H4.684V6.801h2.464v-.61H4v5.332h.684zm3.296 0h.676V8.98c0-.554.227-1.007.953-1.007.125 0 .258.004.329.015v-.613a1.806 1.806 0 0 0-.254-.02c-.582 0-.891.32-1.012.567h-.02v-.504H7.98v4.105zm2.805-5.093c0 .238.192.425.43.425a.428.428 0 1 0 0-.855.426.426 0 0 0-.43.43zm.094 5.093h.672V7.418h-.672v4.105z"/>
-</svg>Ver Cita</a>
-  
-  <button type="button" class="btn btn-outline-info" id="darcita"  data-toggle="modal" data-target="#create">Dar cita</button>
-  <button type="button" class="btn btn-outline-info" id="fecha"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
-  <path fill-rule="evenodd" d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-</svg>Fecha</button>
 
 
-</nav>
+<div id="can">
+<h1 id="te">Cantidad de Citas</h1>
 
+</div>
 
-</nav>
--->
+<div id ="did">
+ <h1 id="cantidad"></h1>
+</div>
 
   <div id="app" class="wrapper">
+
     <div class="comp-full-calendar test-fc" id="calendar"> 
      
       <calendar  :events="events" :editable="true" id="cal"></calendar>
@@ -129,6 +205,8 @@ Vue.component('calendar', {
     },
   },
 
+  
+
   data: function()
   {
     return {
@@ -145,7 +223,7 @@ Vue.component('calendar', {
     self.cal = $(self.$el);
 
     var args = {
-      lang: 'de',
+      lang: 'es',
       header: {
         left:   'prev,next today',
         center: 'title',
@@ -157,8 +235,10 @@ Vue.component('calendar', {
       height: "auto",
       allDaySlot: false,
       slotEventOverlap: false,
-      timeFormat: 'HH:mm',
-
+      timeFormat:'HH:mm',
+      
+      
+      
       events: self.events,
 
      /* dayClick: function(date)
@@ -168,7 +248,11 @@ Vue.component('calendar', {
             self.cal.fullCalendar('changeView', 'agendaDay');
       },
       */
-
+      eventAfterAllRender: function (view) {
+    // Count events
+    var quantity = $('.fc-event').length;
+     $("#cantidad").html(quantity);
+},
 
 
 
@@ -209,6 +293,8 @@ Vue.component('calendar', {
   }
 
 })
+
+
 
 new Vue({
   el: '#app',
@@ -258,6 +344,8 @@ end: "2020-10-13 16:30:00"
           end: '2020-10-07 21:30:00'
         } */
     ]
+
+
   },
 
   events: {
