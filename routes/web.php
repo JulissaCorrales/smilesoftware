@@ -104,6 +104,20 @@ Route::prefix('pantallainicio/calendario')->group( function(){
                 
                      
             });
+            //********* Rutas para administracion(gastos,etc)*********//
+            Route::prefix('pantallainicio')->group( function(){
+                //ruta para ver los gastos de la clinica
+                   Route::get('gastos','GastoController@ver')->name('gastos.ver');
+               //  //ruta para crear un nuevo gasto de la clinica
+               //     Route::get('gastos/nuevo','GastoController@creargasto')->name('gastos.crear');
+                //    Ruta para guardar el gasto creado
+                   Route::post('gastos/nuevo','GastoController@guardargasto')->name('gastos.guardar');
+                //    Ruta para eliminar el gasto creado
+                Route::delete('{id}/borrar','GastoController@borrargasto') ->name('gasto.borrar')->where('id','[0-9]+');
+
+       
+   
+              });
     
 
 
