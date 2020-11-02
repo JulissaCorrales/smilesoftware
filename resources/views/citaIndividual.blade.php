@@ -114,7 +114,7 @@
         </td>
         <td>
         @forelse ($pacientes->citas as $tag) 
-         <p>{{ $tag->especialidad->Especialidad}}</p>
+         <p>{{ $tag->odontologo->especialidad}}</p>
          <hr>
         @empty
          vacio
