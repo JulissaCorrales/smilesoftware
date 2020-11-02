@@ -24,7 +24,7 @@ class CreateOdontologosTable extends Migration
             $table->string('departamento');
             $table->string('ciudad');
             $table->string('direccion');
-            $table->unsignedInteger('especialidad_id');
+            $table->string('especialidad',250);
             $table->string('intervalos');
             $table->timestamps();
        

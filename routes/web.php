@@ -44,12 +44,39 @@ Route::get('/', function () {
 //grupo de ruta para agenda
 Route::prefix('pantallainicio/calendario')->group( function(){
     Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+    //Route::get('{id}','citaController@citaodontologo')->name('cita.odontolo');
     Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
     Route::get('semanal','CitaController@calendar');
     Route::get('vistamensual','CitaController@vistamensual');
     Route::get('diaria','CitaController@vistadiaria'); 
     });
 
+
+
+    Route::prefix('pantallainicio/calendario')->group( function(){
+      //  Route::get('{id}/odontologo','CitaController@datosver');
+          Route::get('{id}/doctor','CitaController@citaodontologo');
+        
+        });
+
+        Route::prefix('pantallainicio/calendario/semanal')->group( function(){
+            Route::get('{id}/odontologo','CitaController@datosver');
+              Route::get('{id}/doctor','CitaController@citaodontologo');
+            
+            });
+
+
+
+            Route::get('odontologo','OdontologoController@vistaodontologo');
+            Route::get('odontologo/nuevo','OdontologoController@nuevoodontologo');
+
+
+            Route::get('especialidad','EspecialidadController@vistaespecialidad');
+            
+
+
+
+        
                           // *********RUTAS PARA PACIENTE********//
 
  //grupo de ruta de paciente
@@ -115,10 +142,23 @@ Route::prefix('pantallainicio/calendario')->group( function(){
                 //    Ruta para eliminar el gasto creado
                 Route::delete('{id}/borrar','GastoController@borrargasto') ->name('gasto.borrar')->where('id','[0-9]+');
 
+                Route::get('odontologo','OdontologoController@vistaodontologo');
+                Route::get('odontologo/nuevo','OdontologoController@nuevoodontologo');
+                Route::post('odontologo/nuevo','OdontologoController@GuardarNuevo');
+                Route::get('especialidad','EspecialidadController@vistaespecialidad');
+                Route::get('nueva/especialidad','EspecialidadController@nuevaespecialidad');
+                Route::post('nueva/especialidad','EspecialidadController@GuardarNuevo');
+            
+
+
+
        
    
               });
     
+
+              
+              
 
 
 

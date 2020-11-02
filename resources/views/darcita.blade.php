@@ -41,13 +41,13 @@
         <select name="especialidad_id" class="form-control">
         <option disabled selected>Seleccione una especialidad</option>
          <?php
-        $getEspecialidad =$mysqli->query("select * from especialidads order by id");
+        $getEspecialidad =$mysqli->query("select * from odontologos order by id");
         while($f=$getEspecialidad->fetch_object()) {
           echo $f->id;
-          echo $f->nombreEspecialidad;
+          echo $f->especialidad;
           ?>
           
-          <option value="<?php echo $f->id; ?>"><?php echo $f->nombreEspecialidad;?></option>
+          <option value="<?php echo $f->id; ?>"><?php echo $f->especialidad;?></option>
           <?php
         } 
         ?>

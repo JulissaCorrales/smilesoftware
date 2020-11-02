@@ -1,4 +1,3 @@
-
 @extends('VistaMenuAgenda')
 @section('Titulo','AgendaSemanal')
 
@@ -9,20 +8,20 @@ try
 {
   $mbd = new PDO('mysql:host=127.0.0.1;dbname=smilesoftware', "root", "");
   $sth= $mbd->query('select * from citas');
-  //foreach($sth as $fila){
+  foreach($sth as $fila){
   //echo $fila["odontologo_id"];
   //echo "<br>";
-  //}
+  }
 
 
- $mos= $mbd->query('select odontologo_id, count(*) as cita
+  $mos= $mbd->query('select odontologo_id, count(*) as cita
   from citas 
   group by odontologo_id');
- /* foreach($mos as $fila){
+  foreach($mos as $fila){
     echo $fila["odontologo_id"] . " " . $fila["cita"];
     echo "<br>";
     }
-*/
+
 
 
   //$sth=array("Volvo","BMW","Toyota");
@@ -235,7 +234,7 @@ catch(Exception $e)
           ?>
          <!-- <option value="/pantallainicio/calendario/semanal"><?php echo $f->nombres." ".$f->apellidos;?> </option> -->
          
-          <option   value="<?php echo $f->id; ?>" ><?php echo $f->nombres." ".$f->apellidos;?>  </option> 
+          <option   value="" ><?php echo $f->nombres." ".$f->apellidos;?>  </option> 
           <?php
         } 
         ?>
@@ -380,7 +379,6 @@ new Vue({
     events: [
 <?php 
       
-    
       foreach($sth as $fila){
 ?>
     //print_r($fila);
@@ -446,8 +444,8 @@ function  vai()
   document.getElementById('doct').options[document.getElementById('doct').selectedIndex].text;
   
   
- // var texto = 
- // window.location.href= document.getElementById("doct").value;
+  var texto = 
+  window.location.href= document.getElementById("doct").value;
 
   var combo = document.getElementById("doct");
 var selected = combo.options[combo.selectedIndex].text;
