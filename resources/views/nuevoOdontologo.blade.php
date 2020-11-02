@@ -93,32 +93,32 @@
                       @csrf
                       <div class="form-group">
                           <label for="nombres">Nombres:</label>
-                          <input type="text" class="form-control-file" name="nombres" id="nombres" placeholder="ingresar nombre del paciente">
+                          <input type="text" class="form-control-file" name="nombres" id="nombres" placeholder="Ingrese el Nombre ">
                       </div>
 
                       <div class="form-group">
                           <label for="apellidos">Apellidos:</label>
-                          <input type="text" class="form-control-file" name="apellidos" id="apellidos" placeholder="ingresar apellido del paciente">
+                          <input type="text" class="form-control-file" name="apellidos" id="apellidos" placeholder="Ingrese el Apellido">
                       </div>
 
                       <div class="form-group">
                         <label for="identidad">identidad:</label>
-                        <input type="text" class="form-control-file" name="identidad" id="identidad" placeholder="ingresar identidad del paciente">
+                        <input type="text" class="form-control-file" name="identidad" id="identidad" placeholder="Ingrese la Identidad ">
                     </div>
 
                     <div class="form-group">
                     <label for="telefonoFijo">Telefono fijo:</label>
-                    <input type="text" class="form-control-file" name="telefonoFijo" id="telefonoFijo" placeholder="ingresar telefono Fijo del paciente">
+                    <input type="text" class="form-control-file" name="telefonoFijo" id="telefonoFijo" placeholder="Ingrese el  Numero del Telefono Fijo">
                   </div>
 
                   <div class="form-group">
                     <label for="telefonoCelular">Telefono celular:</label>
-                    <input type="text" class="form-control-file" name="telefonoCelular" id="telefonoCelular" placeholder="ingresar telefono Celular del paciente">
+                    <input type="text" class="form-control-file" name="telefonoCelular" id="telefonoCelular" placeholder="Ingrese el Numero de Celular">
                   </div>
 
                   <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control-file" name="email" id="email" placeholder="ingresar telefono Celular del paciente">
+                    <input type="email" class="form-control-file" name="email" id="email" placeholder="Ingrese el Correo Electronico">
                   </div>
 
                   <div class="form-group">
@@ -149,11 +149,11 @@
 
                   <div class="form-group">
                     <label for="ciudad">ciudad:</label>
-                    <input type="text" class="form-control-file" name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente">
+                    <input type="text" class="form-control-file" name="ciudad" id="ciudad" placeholder="Ingrese la ciudad  en que reside ">
                   
                   </div><div class="form-group">
                     <label for="direccion">Direccion:</label>
-                    <input type="text" class="form-control-file" name="direccion" id="direccion" placeholder="ingresar direccion del paciente">
+                    <input type="text" class="form-control-file" name="direccion" id="direccion" placeholder="Ingrese su direccion">
                   </div>
                
         <!-- especialidad -->
@@ -171,7 +171,7 @@
                   
         </select>
 
-        <label for="intervalo" class="control-label">Duracion de la cita:</label>
+        <label for="intervalo" class="control-label">Intervalo</label>
         <select name="intervalo" id="intervalo" class="form-control">
         <option disabled selected>Seleccione la duracion de la cita</option>
         <option value="10m">10 minutos</option>
