@@ -91,7 +91,7 @@
       ?>
 
                       @csrf
-                      <label for="state_id" class="control-label">Doctor:</label>
+                     <!-- <label for="state_id" class="control-label">Doctor:</label>
         <select name="odontologo_id" class="form-control">
         <option disabled selected>Seleccione un Doctor</option>
         <?php
@@ -107,7 +107,11 @@
           <?php
         } 
         ?>
-        </select>
+        </select> -->
+
+        
+
+        
                       <div class="form-group">
                           <label for="nombres">Nombre:</label>
                           <input type="text" class="form-control-file" name="nombres" id="nombres" placeholder="ingresar nombre de la especialidad">

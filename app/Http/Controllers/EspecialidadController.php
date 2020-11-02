@@ -10,9 +10,8 @@ use App\Odontologo;
 class EspecialidadController extends Controller
 {
     public function vistaespecialidad(){
-        //return "texto de contacto desde el controlador ";
-        $odontologos=Odontologo::All();
-        return view('Especialidades')->with ('odontologos',$odontologos);
+        $especialidads=Especialidad::All();
+        return view('Especialidades')->with ('especialidads',$especialidads);
      } 
      public function nuevaespecialidad(){
         //return "texto de contacto desde el controlador ";
@@ -23,9 +22,7 @@ class EspecialidadController extends Controller
         
 
         $nuevo = new Especialidad();
-
         //formulario
-        $nuevo->odontologo_id=$request->input('odontologo_id');
         $nuevo->Especialidad = $request->input('nombres');
         
         

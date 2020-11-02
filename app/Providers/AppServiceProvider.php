@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
-// use App\Logotipo;
+ use App\Logotipo;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //para pasar el logotipo a todas las vistas
         
-        // $logotipos=Logotipo::where('id','=',1)->get();
-        // View::share('logotipos',$logotipos);
+        $logotipos=Logotipo::where('id','=',1)->get();
+         View::share('logotipos',$logotipos);
     }
 }

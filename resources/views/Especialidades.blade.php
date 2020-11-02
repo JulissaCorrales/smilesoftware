@@ -176,9 +176,9 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   </thead>
   <tbody>
   <tr>
-      @forelse($odontologos as $especialidad)
-     <td><a  class="btn btn-outline-info"  href=""  id="lista"></a></td>
-     <td>{{$especialidad->especialidad}}</td>
+      @forelse($especialidads as $especialidad)
+     <td><a  class="btn btn-outline-info"  href=""  id="lista">{{  $especialidad->id}}</a></td>
+     <td>{{$especialidad->Especialidad}}</td>
      
      
      

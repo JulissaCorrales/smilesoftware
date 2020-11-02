@@ -203,7 +203,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   <tbody>
   <tr>
       @forelse($odontologos as $odontologo)
-     <td><a  class="btn btn-outline-info"  href=""  id="lista"></a></td>
+     <td><a  class="btn btn-outline-info"  href=""  id="lista">{{$odontologo->id}}</a></td>
      <td>{{$odontologo->nombres}}</td>
      <td>{{$odontologo->apellidos}}</td>
      <td>{{$odontologo->identidad}}</td>

@@ -155,8 +155,26 @@
                     <label for="direccion">Direccion:</label>
                     <input type="text" class="form-control-file" name="direccion" id="direccion" placeholder="Ingrese su direccion">
                   </div>
+
+
+                  <label for="state_id" class="control-label">Especialidad:</label>
+        <select name="especialidad" class="form-control">
+        <option disabled selected>Seleccione una especialidad</option>
+         <?php
+        $getEspecialidad =$mysqli->query("select * from especialidads order by id");
+        while($f=$getEspecialidad->fetch_object()) {
+          echo $f->id;
+          echo $f->Especialidad;
+          ?>
+          
+          <option value="<?php echo $f->id;?>"><?php echo $f->Especialidad;?></option>
+          <?php
+        } 
+        ?>
+        </select>
                
         <!-- especialidad -->
+        <!--
              <label for="state_id" class="control-label">Especialidad:</label>
                 <select name="especialidad" class="form-control">
           <option disabled selected>Seleccione una especialidad</option>
@@ -170,6 +188,7 @@
                     <option >Patologogia oral y maxilofacial</option>
                   
         </select>
+        -->
 
         <label for="intervalo" class="control-label">Intervalo</label>
         <select name="intervalo" id="intervalo" class="form-control">

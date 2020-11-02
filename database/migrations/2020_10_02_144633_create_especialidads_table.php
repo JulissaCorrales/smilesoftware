@@ -16,8 +16,8 @@ class CreateEspecialidadsTable extends Migration
         Schema::create('especialidads', function (Blueprint $table) {
             $table->id()->unique();
             $table->string('Especialidad');
-            $table->unsignedBigInteger('odontologo_id');
-            $table->foreign('odontologo_id')->references('id')->on('odontologos')->onDelete('cascade')->update('cascade');
+            //$table->unsignedBigInteger('odontologo_id');
+            //$table->foreign('odontologo_id')->references('id')->on('odontologos')->onDelete('cascade')->update('cascade');
             $table->timestamps();
         });
     }
