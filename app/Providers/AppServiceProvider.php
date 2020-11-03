@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //para pasar el logotipo a todas las vistas
         
-        // $logotipos=Logotipo::where('id','=',1)->get();
-        // View::share('logotipos',$logotipos);
+        $logotipos=Logotipo::where('id','=',1)->get();
+        View::share('logotipos',$logotipos);
     }
 }
