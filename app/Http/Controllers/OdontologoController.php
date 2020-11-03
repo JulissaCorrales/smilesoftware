@@ -18,7 +18,7 @@ class OdontologoController extends Controller
 
      public function nuevoodontologo(){
         //return "texto de contacto desde el controlador ";
-        return view('nuevoOdontologo');
+        return view('nuevoDoctor');
      }
     
 

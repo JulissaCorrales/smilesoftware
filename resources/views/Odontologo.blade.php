@@ -112,8 +112,8 @@
   width: 170px;
   height: 45px;
   font-size:14px;
-            top: 70px;
-            left:525px;
+            top: 75px;
+            left:500px;
 
 }
 
@@ -124,6 +124,8 @@
             left:550px;
 
 }
+
+
 
 
 </style>
@@ -173,10 +175,10 @@
 </div>
 
 <div class="btn-group btn-group-lg" id="d1" >
-  <a id ="n1" type="button" class="btn btn-outline-info" href="/pantallainicio/odontologo/nuevo">
+  <button id ="n1" type="button" data-toggle="modal" data-target="#create">
     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-</svg>Nuevo odontologo </a> </div>
+</svg>Nuevo odontologo </button> </div>
 
 
 
@@ -188,15 +190,15 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
  ademas de al final de la pagina el scritp de java y despues el scritp de date table
  para que funcione correctamente-->
  <div class="list-group">
- 
+
 <table id="datatable" class="table">
 <thead class="table table-striped table-bordered">
   <tr id="can">
     <th >Nº</th>
-    <th>Nombre</th>
-    <th>Apellidos</th>
+    <th>Odontologo</th>
+    
     <th>Identidad</th>
-    <th>Citas</th>
+    <th>Especialidad</th>
     <th>Accion</th>
   </tr>
   </thead>
@@ -204,10 +206,9 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   <tr>
       @forelse($odontologos as $odontologo)
      <td><a  class="btn btn-outline-info"  href=""  id="lista">{{$odontologo->id}}</a></td>
-     <td>{{$odontologo->nombres}}</td>
-     <td>{{$odontologo->apellidos}}</td>
+     <td>{{$odontologo->nombres}} <br> {{$odontologo->apellidos}} <br>{{$odontologo->telefonoCelular}} <br>{{$odontologo->email}}</td>
      <td>{{$odontologo->identidad}}</td>
-     <td>{{$odontologo->cita_id}}</td>
+     <td>{{$odontologo->especialidad}}</td>
      <td>
      
 
@@ -228,6 +229,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
      @endforelse
      </tbody>
 </table>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <!-- script de jquery para que funcione el buscador de nombre-->
@@ -252,6 +254,8 @@ $(document).ready( function () {
 </div>
 </div><!-- fin del DIV contenedor de la buscador!!!  -->
 
-@endsection
 
 </html>
+
+@include('nuevoDoctor')
+@endsection

@@ -77,7 +77,7 @@
     @csrf
     @method('put')
      <label for="archivo"><b>Suba el nuevo logo que desea: </b></label><br>
-     <input style="padding-left: 400px;" type="file" class="form-control-file" id="imagedoc" name="imagedoc"  accept="image/png" required >
+     <input style="padding-left: 400px;" type="file" class="form-control-file" id="imagedoc" name="imagedoc"  accept="image/*" required >
      <br>
      <input class="btn btn-success" type="submit" value="Cambiar" >
     </form>
@@ -136,7 +136,7 @@
 							    <div class="form-group" style="background-color: #c8dadf;border-radius: 5px;padding-bottom: 50px">
 								<br>												
 								    <div class="col-sm-12">					
-									    <input type="file" class="form-control-file" id="imagedoc" name="imagedoc"  accept="image/png" required>										
+									    <input type="file" class="form-control-file" id="imagedoc" name="imagedoc"  accept="image/*" required>										
 								    </div>
 							    </div>
 					    	</div>
@@ -168,7 +168,7 @@
                                 function LimitAttach(tField,iType) {
                                     file=tField.value;
                                     if (iType==1) {
-                                    extArray = new Array(".png");
+                                    extArray = new Array(".jpeg",".jpe",".gif",".jpg",".png");
                                     }	
                                     allowSubmit = false;
                                     if (!file) return false;

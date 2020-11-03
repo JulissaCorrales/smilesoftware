@@ -147,8 +147,8 @@ Route::prefix('pantallainicio/calendario')->group( function(){
 
 
                 Route::get('odontologo','OdontologoController@vistaodontologo');
-                Route::get('odontologo/nuevo','OdontologoController@nuevoodontologo');
-                Route::post('odontologo/nuevo','OdontologoController@GuardarNuevo');
+               // Route::get('odontologo/nuevo','OdontologoController@nuevoodontologo');
+               // Route::post('odontologo/nuevo','OdontologoController@GuardarNuevo');
                 Route::get('especialidad','EspecialidadController@vistaespecialidad');
                 Route::get('nueva/especialidad','EspecialidadController@nuevaespecialidad');
                 Route::post('nueva/especialidad','EspecialidadController@GuardarNuevo');
@@ -170,6 +170,8 @@ Route::prefix('pantallainicio/calendario')->group( function(){
     
 
               
+        Route::get('odontologo/nuevo','OdontologoController@nuevoodontologo');
+        Route::post('odontologo/nuevo','OdontologoController@GuardarNuevo');
               
 
 
