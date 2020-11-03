@@ -133,14 +133,18 @@ Route::prefix('pantallainicio/calendario')->group( function(){
             });
             //********* Rutas para administracion(gastos,etc)*********//
             Route::prefix('pantallainicio')->group( function(){
+                Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
                 //ruta para ver los gastos de la clinica
-                   Route::get('gastos','GastoController@ver')->name('gastos.ver');
-               //  //ruta para crear un nuevo gasto de la clinica
-               //     Route::get('gastos/nuevo','GastoController@creargasto')->name('gastos.crear');
+                Route::get('gastos','GastoController@ver')->name('gastos.ver');
                 //    Ruta para guardar el gasto creado
-                   Route::post('gastos/nuevo','GastoController@guardargasto')->name('gastos.guardar');
+                Route::post('gastos/nuevo','GastoController@guardargasto')->name('gastos.guardar');
                 //    Ruta para eliminar el gasto creado
                 Route::delete('{id}/borrar','GastoController@borrargasto') ->name('gasto.borrar')->where('id','[0-9]+');
+                    /* Ruta para editar gasto */
+                Route::get('{id}/editar','GastoController@editar') ->name('gasto.editar') -> where('id' ,'[0-9]+');
+                /* Ruta para guardar la edicion del gasto */
+                Route::put('{id}/editar','GastoController@update')->name('gasto.update') -> where('id' ,'[0-9]+');
+
 
                 Route::get('odontologo','OdontologoController@vistaodontologo');
                 Route::get('odontologo/nuevo','OdontologoController@nuevoodontologo');
@@ -148,13 +152,21 @@ Route::prefix('pantallainicio/calendario')->group( function(){
                 Route::get('especialidad','EspecialidadController@vistaespecialidad');
                 Route::get('nueva/especialidad','EspecialidadController@nuevaespecialidad');
                 Route::post('nueva/especialidad','EspecialidadController@GuardarNuevo');
-            
-
-
-
-       
-   
               });
+
+                //********* Rutas para Logotipo*********//
+                Route::prefix('pantallainicio/logotipo')->group( function(){
+                Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+                ///////////////////logotipo///////////////////
+                Route::get('ver','LogotipoController@ver')->name('logotipo.ver');
+                /* Ruta para crear logotipo */
+                Route::post('logotipo','LogotipoController@subirArchivo')->name('logotipo.guardar');
+                Route::get('/editar','LogotipoController@editar') ->name('logotipo.editar') -> where('id' ,'[0-9]+');
+                /* Ruta para guardar la edicionlogo */
+                Route::put('{/editar','LogotipoController@update')->name('logotipo.update') -> where('id' ,'[0-9]+');
+                /* Ruta para borrar logotipo */
+                Route::delete('{id}/borrar','LogotipoController@borrarlogotipo') ->name('logotipo.borrar')->where('id','[0-9]+');
+        });
     
 
               

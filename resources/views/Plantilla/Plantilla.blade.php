@@ -206,13 +206,20 @@
     <header> 
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-lg"   id="cuatro">
-  <h1 id="uno" >Smile </h1><br>
-  <h1 id="tres">Software</h1>
-
-  
+<!--   <h1 id="uno" >Smile </h1><br>
+  <h1 id="tres">Software</h1> -->
   <div class="media" >
   <!-- Correpcion de ruta de imagen -->
-  <img class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" width="80px" id="dos">
+ <!--  <img class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" width="80px" id="dos"> -->
+ @forelse($logotipos  as $tag)
+ <img style="margin-left:150px; " class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="80px" high="100px" id="dos">
+ @empty
+ <h1 id="uno" >Smile </h1><br>
+  <h1 id="tres">Software</h1>
+ <img class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" width="80px" id="dos"> 
+ @endforelse
+
+
   <div class="media-body">
   </div>
 </div>
@@ -302,6 +309,13 @@
           </svg>
         Especialidad
     </a>
+    <a class="dropdown-item" href="{{route('logotipo.ver')}}">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-image" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9c0 .013 0 .027.002.04V12l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094L15 9.499V3.5a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13zm4.502 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+      </svg>
+       Logotipo
+    </a>
+	
 </div>
  
 

@@ -45,5 +45,38 @@ class GastoController extends Controller
         Gasto::destroy($id);
         return redirect()->back()->with('mensaje','Gasto borrado satisfactoriamente');
     }
+
+    /* funcion para poder editar un gasto */
+    public function editar($id){
+     
+        $gastos=Gasto::findOrFail($id);
+        return view('editargasto')->with('gastos',$gastos);
+
+    }
+    public function update(Request $request,$id){
+        $request->validate([
+            'categoria'     =>  'required',
+            'detalle'       =>  'required',
+            'monto'         =>  'required|numeric|min:0|max:100000000000000000',
+            'fechafactura'  =>  'required|date',
+            'fechapago'     =>  'required|date',
+        ]);
+
+        $gastos=Gasto::findOrFail($id);
+        //formulario
+        $gastos->categoria=    $request->input('categoria');
+        $gastos->detalle=      $request->input('detalle');
+        $gastos->monto=        $request->input('monto');
+        $gastos->fechafactura= $request->input('fechafactura');
+        $gastos->fechapago=    $request->input('fechapago');
+
+        $actualizado = $gastos->save();
+        //Asegurarse que fue creado
+        if ($actualizado){
+            return redirect()->back()->with('mensaje','¡¡El  Gasto Fué Modificado Exitosamente!!');
+        }else{ 
+        }
+
+    }
     
 }
