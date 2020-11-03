@@ -30,6 +30,7 @@
   width: 900px;
   height: 60px;
   border-collapse: collapse;
+  
  }
 
 
