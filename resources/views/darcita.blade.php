@@ -121,10 +121,11 @@
         </button>
         
         
-         
         </form  action="">
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#npaciente">Paciente Nuevo</button>
+        </div>
+        </div>
         </div>
         </div>
         </div>
