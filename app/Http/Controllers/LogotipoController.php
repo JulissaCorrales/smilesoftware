@@ -18,7 +18,6 @@ class LogotipoController extends Controller
            $logo->logo=$imagen; 
            $creado= $logo->save();
            if ($creado){
-            /* lo va a actualizar */
       
             return redirect("pantallainicio/logotipo/ver")->with('mensaje','Archivo guardado exitosamente');
           } 
