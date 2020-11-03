@@ -206,13 +206,13 @@
     <header> 
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-lg"   id="cuatro">
-<!--   <h1 id="uno" >Smile </h1><br>
-  <h1 id="tres">Software</h1> -->
+  <h1 id="uno" >Smile </h1><br>
+  <h1 id="tres">Software</h1>
   <div class="media" >
   <!-- Correpcion de ruta de imagen -->
  <!--  <img class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" width="80px" id="dos"> -->
  @forelse($logotipos  as $tag)
- <img style="margin-left:150px; " class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="80px" high="100px" id="dos">
+ <img style="margin-left:210px; " class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="80px" high="100px" id="dos">
  @empty
  <h1 id="uno" >Smile </h1><br>
   <h1 id="tres">Software</h1>
