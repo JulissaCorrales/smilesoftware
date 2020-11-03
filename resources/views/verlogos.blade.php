@@ -4,11 +4,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<script src="http://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <style>
+#padre{
+   
+    padding-right: 30px;
+    padding-bottom: 30px;
+    margin-top: 30px;
+    
+}
+#fondo{
+    background-color:#F2F4F4 ;
+
+}
 </style>
 </head>
 <body>
@@ -25,12 +32,16 @@
         <div>
              <h5 style="text-align:center" for="">Logo Actual:</h5>
     
-                <div  align="center">
+                <div id="verlogoactual" align="center">
                     @forelse($logotipos as $tag)
+                        <div id="fondo">
                         <img  class="mr-3" id="imlogoactual"src="{{Storage::url($tag->logo)}}" alt="image" width="250px" high="100px" >
+                        </div>
+                       
                         <!-- Borrar logo -->
     <td>
            <!-- boton eliminar -->
+           <br>
                  <button  type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$tag->id}}">
                 
                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -71,7 +82,7 @@
    <div style=" padding-top: 30px;
                                 padding-right: 30px;
                                 padding-bottom: 30px;
-                                 background-color: #EBF5FB;border: 10px solid #fff;">
+                                ">
     <form method="POST" action="{{route('logotipo.update')}}" accept-charset="UTF-8" enctype="multipart/form-data">
      {{ csrf_field() }}
     @csrf
@@ -200,7 +211,7 @@
                   
               </div>
 </div>
-   x
+   
 </body>
 </html>
 @endsection

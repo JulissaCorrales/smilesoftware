@@ -37,8 +37,7 @@ class OdontologoController extends Controller
         $nuevo->departamento = $request->input('departamento');
         $nuevo->ciudad = $request->input('ciudad');
         $nuevo->direccion = $request -> input('direccion');
-        
-        $nuevo->especialidad = $request->input('especialidad');
+        $nuevo->especialidad_id = $request->input('especialidad');
         $nuevo->intervalos = $request->input('intervalo');
         
         

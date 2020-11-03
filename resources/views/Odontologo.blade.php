@@ -12,15 +12,25 @@
     
     <style>
 
- td{
-  border: 1px solid #00cccc;
+ tr{
+  border: 1px solid #00cccc; 
   text-align: left;
-  padding: 20px;
-  text-align: left;
+  border-collapse: collapse;
+
   background-color: #ccffff
   
 } 
+ 
+ 
 
+
+
+ #datatable{
+  border: 1px solid #FF4500;
+  width: 900px;
+  height: 60px;
+  border-collapse: collapse;
+ }
 
 
  #lista:hover{
@@ -39,14 +49,14 @@
   border: #00cccc  2px solid;
  }
 
- #na{
-  width: 650px;
+ #nae{
+  width: 800px;
   height: 60px;
     border-radius: 12px;
     background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff); 
     position: absolute;
-    top:250px;
-    left:150px;
+    top:240px;
+    left:330px;
   
     
     
@@ -112,8 +122,8 @@
   width: 170px;
   height: 45px;
   font-size:14px;
-            top: 75px;
-            left:500px;
+            top: 60px;
+            left:830px;
 
 }
 
@@ -121,7 +131,7 @@
     background-color: #ccffff;
     position: absolute;
             top: 8px;
-            left:550px;
+            left:700px;
 
 }
 
@@ -141,7 +151,7 @@
 
     <div class="container">
 
-    <nav class="navbar navbar-light bg-light" id="na">
+    <nav class="navbar navbar-light bg-light" id="nae">
   <h1 id="dire">Gestion de Odontologos</h1>
   <!--Menu desplegable  -->
   <div class="btn-group" id="control">
@@ -176,8 +186,8 @@
 
 <div class="btn-group btn-group-lg" id="d1" >
   <button id ="n1" type="button" data-toggle="modal" data-target="#create">
-    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
 </svg>Nuevo odontologo </button> </div>
 
 
@@ -191,29 +201,42 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
  para que funcione correctamente-->
  <div class="list-group">
 
-<table id="datatable" class="table">
+<table id="datatable" class="container">
 <thead class="table table-striped table-bordered">
-  <tr id="can">
+  <!--<tr id="can">
     <th >Nº</th>
     <th>Odontologo</th>
-    
-    <th>Identidad</th>
+  
     <th>Especialidad</th>
     <th>Accion</th>
   </tr>
-  </thead>
+  </thead> -->
   <tbody>
   <tr>
       @forelse($odontologos as $odontologo)
      <td><a  class="btn btn-outline-info"  href=""  id="lista">{{$odontologo->id}}</a></td>
-     <td>{{$odontologo->nombres}} <br> {{$odontologo->apellidos}} <br>{{$odontologo->telefonoCelular}} <br>{{$odontologo->email}}</td>
-     <td>{{$odontologo->identidad}}</td>
-     <td>{{$odontologo->especialidad}}</td>
-     <td>
-     
+     <td>Nombre:{{$odontologo->nombres}}  {{$odontologo->apellidos}} <br>Telefono Celular:{{$odontologo->telefonoCelular}} 
+     <br>Correo Electronico{{$odontologo->email}} 
+     <br>Identidad: {{$odontologo->identidad}}</td>
+   <td>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+  <path fill-rule="evenodd" d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+</svg>Editar Horarios
+    
+  </button></td>
 
-     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+  <td>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+</svg>
+    Editar Datos
+  </button></td>
+
+     <td>
+    
+     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
 </svg>
       Eliminar
   </button>

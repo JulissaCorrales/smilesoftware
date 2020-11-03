@@ -94,19 +94,7 @@
                      <!-- <label for="state_id" class="control-label">Doctor:</label>
         <select name="odontologo_id" class="form-control">
         <option disabled selected>Seleccione un Doctor</option>
-        <?php
-        $getDoctor =$mysqli->query("select * from odontologos order by id");
-        while($f=$getDoctor->fetch_object()) {
-          echo $f->id;
-          echo $f->nombres;
-          echo $f->apellidos;
-
-          ?>
-         
-          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos;?></option>
-          <?php
-        } 
-        ?>
+       
         </select> -->
 
         
