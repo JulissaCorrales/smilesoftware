@@ -167,6 +167,22 @@ Route::prefix('pantallainicio/calendario')->group( function(){
                 /* Ruta para borrar logotipo */
                 Route::delete('{id}/borrar','LogotipoController@borrarlogotipo') ->name('logotipo.borrar')->where('id','[0-9]+');
         });
+
+        //**************Rutas de  usuarios******************/
+
+        //rutas para ver todos los usuarios
+
+        Route::get('pantallainicio/usuarios','UsuarioController@ver')
+    ->name('usuarios.indice');
+
+    //ruta para crear un nuevo usuario
+
+    Route::get('pantallainicio/usuarios/nuevo','UsuarioController@nuevo');
+
+    //ruta para
+
+    Route::post('pantallainicio/usuarios/guardar','UsuarioController@guardar')
+    ->name('usuario.guardar');
     
 
               
