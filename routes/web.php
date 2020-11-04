@@ -183,6 +183,20 @@ Route::prefix('pantallainicio/calendario')->group( function(){
 
     Route::post('pantallainicio/usuarios/guardar','UsuarioController@guardar')
     ->name('usuario.guardar');
+
+    //*****************rutas para usuarios administrativos********************/
+
+    Route::get('pantallainicio/usuariosAdministrativos','AdministrativoController@ver')
+    ->name('administrativo.indice');
+
+    //ruta para crear un nuevo usuario administrativo
+
+    Route::get('usuariosAdministrativos/nuevo','AdministrativoController@nuevo');
+
+    //ruta para guadar niveos usuarios administrativos
+
+    Route::post('usuariosAdministrativos/guardar','AdministrativoController@guardar')
+    ->name('administrativo.guardar');
     
 
               
