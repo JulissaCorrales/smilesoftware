@@ -188,6 +188,8 @@ Route::prefix('pantallainicio/calendario')->group( function(){
               
         Route::get('odontologo/nuevo','OdontologoController@nuevoodontologo');
         Route::post('odontologo/nuevo','OdontologoController@GuardarNuevo');
+        Route::get('/{id}/editar/odontologo','OdontologoController@editarodontologo') ->name('odontologo.editar') -> where('id' ,'[0-9]+');
+        Route::put('/{id}/editar/odontologo','odontologoController@updateodontologo')->name('odontologo.update') -> where('id' ,'[0-9]+');
               
 
 

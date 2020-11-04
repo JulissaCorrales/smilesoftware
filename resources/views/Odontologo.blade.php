@@ -20,6 +20,14 @@
   background-color: #ccffff
   
 } 
+
+#bot{
+        position: absolute;
+    top:990px;
+    left:150px;
+    width: 100px;
+  height: 40px;
+}
  
  
 
@@ -216,9 +224,14 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   <tr>
       @forelse($odontologos as $odontologo)
      <td><a  class="btn btn-outline-info"  href=""  id="lista">{{$odontologo->id}}</a></td>
-     <td>Nombre:{{$odontologo->nombres}}  {{$odontologo->apellidos}} <br>Telefono Celular:{{$odontologo->telefonoCelular}} 
+     <td>Nombre:{{ $odontologo->nombres }}  {{$odontologo->apellidos}} <br>Telefono Celular:{{$odontologo->telefonoCelular}} 
      <br>Correo Electronico{{$odontologo->email}} 
      <br>Identidad: {{$odontologo->identidad}}</td>
+
+     <td>
+     Especialidad: {{$odontologo->especialidad}}
+     </td>
+  
    <td>
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
@@ -228,15 +241,154 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   </button></td>
 
   <td>
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <buttton type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$odontologo->id}}" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
 </svg>
     Editar Datos
-  </button></td>
+  </buttton></td>
+
+  <div class="modal fade" id="modal-{{$odontologo->id}}" >
+  
+	<div class="modal-dialog" role="document">
+		<div class="modal-content" >
+			<div id="div1"class="modal-header">
+	
+				<h4  class="modal-title" id="myModalLabel">
+        <svg width="2em" height="2em" color="#fff" viewBox="0 0 16 16" class="bi bi-file-ruled" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v4h10V2a1 1 0 0 0-1-1H4zm9 6H6v2h7V7zm0 3H6v2h7v-2zm0 3H6v2h6a1 1 0 0 0 1-1v-1zm-8 2v-2H3v1a1 1 0 0 0 1 1h1zm-2-3h2v-2H3v2zm0-3h2V7H3v2z"/>
+      </svg>
+        Editar Odontologo</h4>
+        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+
+
+    <!-- Esta parte del codigo es para poder ir a traer informacion de la base de datos -->
+    <div class="content" id="n">
+    <form method="post"  action="{{route('odontologo.editar',['id'=> $odontologo-> id])}}">
+    <form method="post"  action="{{route('odontologo.update',['id'=> $odontologo-> id])}} ">
+    <?php
+        $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
+        $mysqli->set_charset("utf8");
+      ?>
+                      @csrf
+                      @method('put')
+                    <div class="form-group">
+                        <label for="nombres" class="col-sm-2 col-form-label col-form-label-lg" >Nombres:</label>
+                        <div >
+                        <input type="text" class="form-control form-control-sm" name="nombres" id="nombres" placeholder="ingresar nombre del paciente"  value="{{ $odontologo->nombres }}" >
+                        </div>
+                    </div>
+
+              
+                      <div class="form-group">
+                          <label for="apellidos" class="col-sm-2 col-form-label col-form-label-lg" >Apellidos:</label>
+                          <div >
+                          <input type="text" class="form-control form-control-sm" name="apellidos" id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $odontologo->apellidos }}">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="identidad"class="col-sm-2 col-form-label col-form-label-lg">Identidad:</label>
+                        <div>
+                        <input type="text" class="form-control form-control-sm" name="identidad" id="identidad" placeholder="ingresar identidad del paciente"  value="{{ $odontologo->identidad }}">
+                    </div>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="telefonoFijo" class="col-sm-2 col-form-label col-form-label-lg">Telefono fijo:</label>
+                    <div >
+                    <input type="text" class="form-control form-control-sm" name="telefonoFijo" id="telefonoFijo" placeholder="ingresar telefono Fijo del paciente"  value="{{ $odontologo->telefonoFijo}}">
+                  </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="telefonoCelular" class="col-sm-2 col-form-label col-form-label-lg">Telefono celular:</label>
+                  <div >
+                    <input type="text" class="form-control form-control-sm" name="telefonoCelular" id="telefonoCelular" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->telefonoCelular }}">
+                  </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email" class="col-sm-2 col-form-label col-form-label-lg">Email:</label>
+                  <div >
+                    <input type="email" class="form-control form-control-sm" name="email" id="email" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->email }}">
+                  </div>
+                  </div>
+
+                    
+                  <div class="form-group">
+                    <label for="departamento" class="col-sm-2 col-form-label col-form-label-lg">Departamento:</label>
+                    <div >
+                    <input type="text" class="form-control form-control-sm" name="departamento" id="departamento" placeholder="ingresar departamento del paciente"  value="{{ $odontologo->departamento }}">
+                  </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="ciudad" class="col-sm-2 col-form-label col-form-label-lg">Ciudad:</label>
+                  <div >
+                    <input type="text" class="form-control form-control-sm" name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $odontologo->ciudad }}">
+                  </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="direccion" class="col-sm-2 col-form-label col-form-label-lg">Direccion:</label>
+                  <div >
+                    <input type="text" class="form-control form-control-sm" name="direccion" id="direccion" placeholder="ingresar direccion del paciente"  value="{{ $odontologo->direccion }}">
+                  </div>
+                  </div>
+
+                  <label for="state_id" class="control-label">Especialidad:</label>
+                <select name="especialidad" class="form-control" value="{{$odontologo->especialidad}}">
+          <option disabled selected >{{$odontologo->especialidad}}</option>
+          <option >General</option>
+                    <option >Cirugia y Maxilofacial</option>
+                    <option>Radiologia oral y maxilofacial</option>
+                    <option >Ortodoncia</option>
+                    <option >Endodoncia</option>
+                    <option >Prostodoncia</option>
+                    <option >Periodancia</option>
+                    <option >Patologogia oral y maxilofacial</option>
+                  
+        </select>
+
+                  <div class="form-group">
+                    <label for="intervalo" class="col-sm-2 col-form-label col-form-label-lg">Intervalo:</label>
+                  <div >
+                    <input type="text" class="form-control form-control-sm" name="intervalo" id="intervalo" placeholder="ingresar profesion del paciente"  value="{{ $odontologo->intervalos }}">
+                  </div>
+                  </div>
+               
+                  
+</div>
+<div>
+        <br>
+        
+        <button id="bot"type="submit"class="btn btn-primary" data-toggle="modal" >
+          Continuar
+        </button>
+
+        </form>
+    
+        <br>
+       
+                  </div>
+                  </div>
+      </div>
+      
+ 
+      
+</div>
+
+<body>
+
+</html>
 
      <td>
     
-     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+     <buttton type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
 </svg>
       Eliminar
@@ -282,4 +434,5 @@ $(document).ready( function () {
 </html>
 
 @include('nuevoDoctor')
-@endsection
+
+@endsection 

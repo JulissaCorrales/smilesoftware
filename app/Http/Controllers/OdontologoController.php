@@ -37,7 +37,7 @@ class OdontologoController extends Controller
         $nuevo->departamento = $request->input('departamento');
         $nuevo->ciudad = $request->input('ciudad');
         $nuevo->direccion = $request -> input('direccion');
-        $nuevo->especialidad_id = $request->input('especialidad');
+        $nuevo->especialidad = $request->input('especialidad');
         $nuevo->intervalos = $request->input('intervalo');
         
         
@@ -50,5 +50,65 @@ class OdontologoController extends Controller
             //retornar con un msj de error
         } 
     }
+
+
+
+
+    public function editarodontologo($id){
+        $odontologos = Odontologo::findOrFail($id);
+        return view('FormularioOdontologo')->with('odontologos',$odontologos);
+
+    }
+
+    public function updateodontologo(Request $_request,$id){
+        
+        $odontologos = Odontologo::findOrFail($id);
+
+        $odontologos->nombres = $_request->input('nombres');
+        $odontologos->apellidos = $_request->input('apellidos');
+        $odontologos->identidad = $_request->input('identidad');
+        $odontologos->telefonoCelular = $_request->input('telefonoCelular');
+        $odontologos->telefonoFijo = $_request->input('telefonoFijo');
+        $odontologos->email = $_request->input('email');
+        $odontologos->departamento = $_request->input('departamento');
+        $odontologos->ciudad = $_request->input('ciudad');
+        $odontologos->direccion = $_request -> input('direccion');
+        $odontologos->especialidad = $_request->input('especialidad');
+        $odontologos->intervalos = $_request->input('intervalo');
+
+        $create = $odontologos->save();
+
+        
+        if($create){
+            return redirect('/pantallainicio/odontologo')->with('mensaje','El paciente ha sido modifcado exitosamente');
+        }else{
+          
+          
+            //error
+        }
+        
+
+        //validar
+        $_request->validate([     'nombres'=>'required',
+        'apellidos'=>'required',
+        'identidad'=>'required|unique:pacientes,identidad',
+        'sexo'=>'required',
+        'fechaNacimiento'=>'required',
+        'departamento'=>'required',
+        'ciudad'=>'required',
+        'direccion'=>'required',
+        'telefonoFijo'=>'required',
+        'telefonoCelular'=>'required',
+        'profesion'=>'required',
+        'empresa'=>'required',
+        'observaciones'=>'required'
+
+        ]);
+
+
+
+
+    }
+
 
 }
