@@ -123,7 +123,7 @@
                     <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                     </svg>
                     
-                    {{ $tag->odontologo->nombres }} {{ $tag->odontologo->apellidos }}</p>
+                    {{ $tag->cita->odontologo->nombres }}  {{ $tag->cita->odontologo->apellidos }}</p>
                     <hr>
                     @empty
                     No tiene plan de tratamiento

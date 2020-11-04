@@ -39,6 +39,7 @@
     @endif
     <div id="todo">
     <h2>Creación de Nuevo Tratamiento</h2>
+    <h4>Paciente # {{$pacientes->id}}</h4>
 
 
      <!-- Esta parte del codigo es para poder ir a traer informacion de la base de datos -->
@@ -64,60 +65,17 @@
                 
 
   <!-- paciente -->
-  <label for="state_id" class="control-label">Paciente:</label>
-        <select name="paciente_id" class="form-control">
-        <option disabled selected>Seleccione el paciente </option>
-        <?php
-        $getPacientes =$mysqli->query("select * from pacientes order by id");
-        while($f=$getPacientes->fetch_object()) {
-          echo $f->id;
-          echo $f->nombres;
-          echo $f->apellidos;
-
-          ?>
-         
-          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos;?></option>
-          <?php
-        } 
-        ?>
-        </select>
-        <!-- Doctor -->
-        <label for="state_id" class="control-label">Doctor:</label>
-        <select name="odontologo_id" class="form-control">
-        <option disabled selected>Seleccione un Odontologo</option>
-        <?php
-        $getDoctor =$mysqli->query("select * from odontologos order by id");
-        while($f=$getDoctor->fetch_object()) {
-          echo $f->id;
-          echo $f->nombres;
-          echo $f->apellidos;
-
-          ?>
-         
-          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos;?></option>
-          <?php
-        } 
-        ?>
-        </select>
-        <hr>
         <!--cita -->
   <label for="state_id" class="control-label">Cita:</label>
         <select name="cita_id" class="form-control">
-        <option disabled selected>Seleccione la cita (El numero despues de la fecha indica el numero de Paciente, si no está debe crear la cita) </option>
-        <?php
-        $getCitas =$mysqli->query("select * from citas order by id");
-        while($f=$getCitas->fetch_object()) {
-          echo $f->id;
-          echo $f->stard;
-          echo $f->paciente_id;
-
-          ?>
-         
-          <option value="<?php echo $f->id; ?>"><?php echo $f->stard." ".$f->paciente_id;?></option>
-          <?php
-        } 
-        ?>
+        <option disabled selected>Seleccione la cita </option>
+        @forelse ($pacientes->citas as $tag) 
+        <option value={{$tag->id}} >{{$tag->stard}} Con el Doctor: {{$tag->odontologo->nombres}} {{$tag->odontologo->apellidos}}</option>
+        @empty
+        todavia no tiene una cita
+        @endforelse
         </select>
+
         
     
     

@@ -20,12 +20,12 @@ class PlanTratamientoController extends Controller
           return view('nuevoPlandeTratamiento')->with('pacientes',$pacientes); 
     }
 //guardar plan de trtamiento
-public function guardar(Request $request){
+public function guardar(Request $request,$id){
     
     $request->validate([
         'nombreTratamiento'=>'required',
         'estado'=>'required',
-        'odontologo_id'=>'required'
+        // 'odontologo_id'=>'required'
     ]);
 
     $nuevotraTamiento = new PlanTratamiento();
@@ -34,8 +34,8 @@ public function guardar(Request $request){
     //formulario
     $nuevotraTamiento->nombreTratamiento = $request->input('nombreTratamiento');
     $nuevotraTamiento->estado = $request->input('estado');
-    $nuevotraTamiento->paciente_id = $request->input('paciente_id');
-    $nuevotraTamiento->odontologo_id = $request->input('odontologo_id');
+    $nuevotraTamiento->paciente_id = $id;
+    // $nuevotraTamiento->odontologo_id = $request->input('odontologo_id');
     $nuevotraTamiento->cita_id = $request->input('cita_id');
     $creado = $nuevotraTamiento->save();
    
