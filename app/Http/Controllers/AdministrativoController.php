@@ -38,7 +38,7 @@ class AdministrativoController extends Controller
        $creado = $nuevo->save();
 
          if ($creado){
-            return redirect('/pantallainicio/VistaAdministrativos')->with('mensaje', 'el usuario administrativo fue creado exitosamente!');
+            return redirect('pantallainicio/usuariosAdministrativos')->with('mensaje', 'el usuario administrativo fue creado exitosamente!');
         }else{
             //retornar con un msj de error
         } 
