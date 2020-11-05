@@ -44,6 +44,12 @@ class AdministrativoController extends Controller
         } 
     }
 
+    public function borrar($id){
+        Administrativo::destroy($id);
+        return redirect()->back()->with('mensaje','usuario administrativo borrado satisfactoriamente');
+    }
+
+
 
 
 }

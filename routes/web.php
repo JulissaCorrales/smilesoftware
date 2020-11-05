@@ -185,6 +185,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
     ->name('usuario.guardar');
 
     //*****************rutas para usuarios administrativos********************/
+    //*********no agrupar esta rutas hasta haberse terminado con lo de update*******/
 
     Route::get('pantallainicio/usuariosAdministrativos','AdministrativoController@ver')
     ->name('administrativo.indice');
@@ -197,6 +198,11 @@ Route::prefix('pantallainicio/calendario')->group( function(){
 
     Route::post('usuariosAdministrativos/guardar','AdministrativoController@guardar')
     ->name('administrativo.guardar');
+
+    //ruta para borrar nuevos usuarios administrativos
+
+    Route::delete('usuariosAdministrativos/{id}/borrar','AdministrativoController@borrar')
+    ->name('administrativo.borrar');
     
 
               

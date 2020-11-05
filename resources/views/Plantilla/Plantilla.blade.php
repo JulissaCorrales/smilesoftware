@@ -252,6 +252,7 @@
   </button>
   <div class="dropdown-menu">
     <a class="dropdown-item" href="#">Usuario</a>
+    <a class="dropdown-item" href="/pantallainicio/usuariosAdministrativos">Usuario administrativo</a>
     <a class="dropdown-item" href="#">Clinico</a>
 </div>
 </nav>
