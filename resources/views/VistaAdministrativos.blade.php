@@ -203,7 +203,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   <tbody>
   <tr>
       @forelse($administrativos as $administrativo)
-     <td><a  class="btn btn-outline-info"  href=""  id="lista"></a></td>
+     <td>{{$administrativo->id}}</td>
      <td>{{$administrativo->nombres}}</td>
      <td>{{$administrativo->apellidos}}</td>
      <td>{{$administrativo->identidad}}</td>
@@ -238,7 +238,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                </div>
                <div class="modal-footer">
                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                   <form method="post" action="{{ route('gasto.borrar',['id'=>$administrativo->id]) }}">
+                   <form method="post" action="{{ route('administrativo.borrar',['id'=>$administrativo->id]) }}">
                    @csrf
                    @method('delete')
                    <input type="submit" value="Eliminar" class="btn btn-danger">
