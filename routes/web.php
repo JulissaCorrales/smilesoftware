@@ -204,7 +204,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
         Route::post('odontologo/nuevo','OdontologoController@GuardarNuevo');
         Route::get('/{id}/editar/odontologo','OdontologoController@editarodontologo') ->name('odontologo.editar') -> where('id' ,'[0-9]+');
         Route::put('/{id}/editar/odontologo','odontologoController@updateodontologo')->name('odontologo.update') -> where('id' ,'[0-9]+');
-              
+        Route::delete('{id}/borrar','OdontologoController@destroy') ->name('odontologo.borrar')->where('id','[0-9]+');
 
 
 

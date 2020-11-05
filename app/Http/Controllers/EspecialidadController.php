@@ -23,6 +23,7 @@ class EspecialidadController extends Controller
 
         $nuevo = new Especialidad();
         //formulario
+        $nuevo->odontologo_id = $request->input('odontologo_id');
         $nuevo->Especialidad = $request->input('nombres');
         
         

@@ -45,7 +45,7 @@ class OdontologoController extends Controller
        $creado = $nuevo->save();
 
          if ($creado){
-            return redirect('/pantallainicio/odontologo')->with('mensaje', 'el paciente fue creado exitosamente!');
+            return redirect('/pantallainicio/odontologo')->with('mensaje', 'El Odontologo fue creado exitosamente!');
         }else{
             //retornar con un msj de error
         } 
@@ -80,7 +80,7 @@ class OdontologoController extends Controller
 
         
         if($create){
-            return redirect('/pantallainicio/odontologo')->with('mensaje','El paciente ha sido modifcado exitosamente');
+            return redirect('/pantallainicio/odontologo')->with('mensaje','El Odontologo ha sido modifcado exitosamente');
         }else{
           
           
@@ -108,6 +108,13 @@ class OdontologoController extends Controller
 
 
 
+    }
+    public function destroy($id){
+        Odontologo::destroy($id);
+        return redirect()->back()->with('mensaje','Odontologo borrado satisfactoriamente');
+
+
+       
     }
 
 

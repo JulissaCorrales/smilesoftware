@@ -144,6 +144,9 @@
 
 }
 
+#td1{
+
+}
 
 
 
@@ -223,7 +226,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   <tbody>
   <tr>
       @forelse($odontologos as $odontologo)
-     <td><a  class="btn btn-outline-info"  href=""  id="lista">{{$odontologo->id}}</a></td>
+     <td id="td1"><a  class="btn btn-outline-info"  href=""  id="lista">{{$odontologo->id}}</a></td>
      <td>Nombre:{{ $odontologo->nombres }}  {{$odontologo->apellidos}} <br>Telefono Celular:{{$odontologo->telefonoCelular}} 
      <br>Correo Electronico{{$odontologo->email}} 
      <br>Identidad: {{$odontologo->identidad}}</td>
@@ -267,7 +270,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
     <!-- Esta parte del codigo es para poder ir a traer informacion de la base de datos -->
     <div class="content" id="n">
-    <form method="post"  action="{{route('odontologo.editar',['id'=> $odontologo-> id])}}">
+   <!-- <form method="post"  action="{{route('odontologo.editar',['id'=> $odontologo-> id])}}"> -->
     <form method="post"  action="{{route('odontologo.update',['id'=> $odontologo-> id])}} ">
     <?php
         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
@@ -340,10 +343,18 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                   </div>
                   </div>
 
-                  <label for="state_id" class="control-label">Especialidad:</label>
+                   <div class="form-group">
+                    <label for="especialidad" class="col-sm-2 col-form-label col-form-label-lg">Especialidad:</label>
+                  <div >
+                    <input type="text" class="form-control form-control-sm" name="especialidad" id="especialidad" placeholder="ingresar la especialidad del Odontologo"  value="{{ $odontologo->especialidad }}">
+                  </div>
+                  </div> 
+
+  
+              <!--    <label for="state_id" class="control-label">Especialidad:</label>
                 <select name="especialidad" class="form-control" value="{{$odontologo->especialidad}}">
           <option disabled selected >{{$odontologo->especialidad}}</option>
-          <option >General</option>
+                    <option >General</option>
                     <option >Cirugia y Maxilofacial</option>
                     <option>Radiologia oral y maxilofacial</option>
                     <option >Ortodoncia</option>
@@ -353,6 +364,8 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                     <option >Patologogia oral y maxilofacial</option>
                   
         </select>
+ -->
+        
 
                   <div class="form-group">
                     <label for="intervalo" class="col-sm-2 col-form-label col-form-label-lg">Intervalo:</label>
@@ -367,7 +380,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
         <br>
         
         <button id="bot"type="submit"class="btn btn-primary" data-toggle="modal" >
-          Continuar
+          Guardar
         </button>
 
         </form>
@@ -388,7 +401,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
      <td>
     
-     <buttton type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+     <buttton type="button" class="btn btn-danger" data-toggle="modal" data-target="#modall-{{$odontologo->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
 </svg>
       Eliminar
@@ -399,9 +412,36 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   
   </div>
 
+  <div class="modal fade" id="modall-{{$odontologo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+</svg> Eliminar Paciente</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <!--<span aria-hidden="true">&times;</span>-->
+                  </button>
+              </div>
+              <div class="modal-body">
+                  ¿Desea realmente eliminar el Odontologo {{$odontologo->nombres}} {{$odontologo->apellidos}}?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <form method="post" action="{{route('odontologo.borrar',['id'=>$odontologo->id])}}">
+
+                      @csrf
+                      @method('delete')
+                      <input type="submit" value="Eliminar" class="btn btn-danger">
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
      </tr> 
      @empty
-     <h1>No hay Pacientes Existentes</h1>
+     <h1>No hay Odontologo Existentes</h1>
      @endforelse
      </tbody>
 </table>

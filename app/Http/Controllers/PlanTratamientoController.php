@@ -42,7 +42,7 @@ public function guardar(Request $request,$id){
 
 
     if ($creado){
-          return redirect()->back()->with('mensaje', 'El Plan de tratamiento fue creado exitosamente!');
+          return redirect("/pantallainicio/vista/paciente/$id/plandetratamiento")->with('mensaje', 'El Plan de tratamiento fue creado exitosamente!');
     }else{
         //retornar con un msj de error
     }  
@@ -54,7 +54,7 @@ public function guardar(Request $request,$id){
     public function destroy($id){
         Plantratamiento::destroy($id);
         //rediccionar a la pagina index
-         return redirect()->back()->with('mensaje','Plan de Tratamiento borrado satisfactoriamente');
+         return redirect("/pantallainicio/vista/paciente/$id/plandetratamiento")->with('mensaje','Plan de Tratamiento borrado satisfactoriamente');
     }
 
 

@@ -122,10 +122,17 @@
                     <input type="text" class="form-control-file" name="direccion" id="direccion" placeholder="Ingrese su direccion">
                   </div>
 
+
+                  </div><div class="form-group">
+                    <label for="especialidad">Especialidad:</label>
+                    <input type="text" class="form-control-file" name="especialidad" id="especialidad" placeholder="Ingrese la Especialidad">
+                  </div>
+
+                  
                
-        <!-- especialidad -->
+  
       
-             <label for="state_id" class="control-label">Especialidad:</label>
+           <!--  <label for="state_id" class="control-label">Especialidad:</label>
                 <select name="especialidad" class="form-control">
           <option disabled selected>Seleccione una especialidad</option>
           <option >General</option>
@@ -137,7 +144,7 @@
                     <option >Periodancia</option>
                     <option >Patologogia oral y maxilofacial</option>
                   
-        </select>
+        </select>  -->
         
 
         <label for="intervalo" class="control-label">Intervalo</label>
@@ -186,8 +193,26 @@
                     <form method="post" action="/pantallainicio/nueva/especialidad">
                       @csrf
                       
+        <label for="state_id" class="control-label">Odontologo:</label>
+        <select name="odontologo_id" class="form-control">
+        <option disabled selected>Seleccione un odontologo</option>
+         <?php
+        $getOdontologo =$mysqli->query("select * from odontologos order by id");
+        while($f=$getOdontologo->fetch_object()) {
+          echo $f->id;
+          echo $f->nombres;
+          echo $f->apellidos;
+          ?>
+          
+          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres;?><?php echo $f->apellidos;?></option>
+          <?php
+        } 
+        ?>
+        </select>
+
+
                       <div class="form-group">
-                          <label for="nombres">Nombre:</label>
+                          <label for="nombres">Nombre Especialidad:</label>
                           <input type="text" class="form-control-file" name="nombres" id="nombres" placeholder="Ingresar el  nombre de la Especialidad">
                       </div>
 
