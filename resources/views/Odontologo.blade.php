@@ -94,11 +94,7 @@
   
  }
 
- label{
-
-  font-family: "Times New Roman";
-
- }
+ l
 
 
  #lista:hover{
@@ -228,9 +224,27 @@
 
   }
 
+  #odon{
+    font-family: "Times New Roman";
+  text-align: center;
+  font-size: 30px;
+  position: absolute;
+            top: 200px;
+  
+
+
+  }
+
 
   #div2{
-    background-color: #e6ffff;
+    background-color: #84e1e1;
+  }
+
+  #modal{
+    text-shadow: -1px 0 #ccfff5, 0 1px #ccfff5, 1px 0 #009999, 0 -1px #009999;
+  font-family: "Times New Roman";
+            font-size: 30px;
+            border-bottom: 5px solid #00cccc;
   }
 
   #datos{
@@ -239,6 +253,9 @@
   border-radius: 70%;
   position: relative;
   bottom: -10px;}
+
+  
+
 
 
 </style>
@@ -347,7 +364,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 		<div class="modal-content" >
 			<div id="div2"class="modal-header">
 	
-				<h4  class="modal-title" id="myModalLabel">
+				<h4  class="modal-title" id="modal">
         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
   <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
@@ -493,7 +510,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
      <td id="td5">
     
-     <buttton type="button" class="btn btn-danger" data-toggle="modal" data-target="#modall-{{$odontologo->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+     <buttton type="button" class="btn btn-danger" data-toggle="modal" data-target="#modall"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
 </svg>
       Eliminar
@@ -504,13 +521,13 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   
   </div>
 
-  <div class="modal fade" id="modall-{{$odontologo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
           <div class="modal-content">
               <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
-</svg> Eliminar Paciente</h5>
+</svg> Eliminar Odontologo</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <!--<span aria-hidden="true">&times;</span>-->
                   </button>
@@ -533,7 +550,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
      </tr> 
      @empty
-     <h1>No hay Odontologo Existentes</h1>
+     <h1 id="odon">No hay Odontologo Existentes</h1>
      @endforelse
      </tbody>
 </table>

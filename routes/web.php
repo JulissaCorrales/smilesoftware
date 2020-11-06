@@ -107,7 +107,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
              //ruta de cita individual
              Route::get('{id}/citaindividual','CitaController@verCitaIndividual')->where('id','[0-9]+')->name('citaIndividual');
              //ruta de borrar cita individual
-            // Route::delete('{id}/borrar','CitaController@destroyCita') ->name('cita.borrar')->where('id','[0-9]+');
+           // Route::delete('{id}/borrar','CitaController@destroyCita') ->name('cita.borrar')->where('id','[0-9]+');
              //ruta para crear comentarios
              Route::get('{id}/comentarios','PacienteController@comentarios') ->name('comentarios.crear');
              //ruta pra guardar comentarios
@@ -216,7 +216,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
         Route::post('odontologo/nuevo','OdontologoController@GuardarNuevo');
         Route::get('/{id}/editar/odontologo','OdontologoController@editarodontologo') ->name('odontologo.editar') -> where('id' ,'[0-9]+');
         Route::put('/{id}/editar/odontologo','odontologoController@updateodontologo')->name('odontologo.update') -> where('id' ,'[0-9]+');
-        Route::delete('{id}/borrar','OdontologoController@destroy') ->name('odontologo.borrar')->where('id','[0-9]+');
+        Route::delete('{id}/borrar/odontologo','OdontologoController@destroy') ->name('odontologo.borrar')->where('id','[0-9]+');
 
 
 
