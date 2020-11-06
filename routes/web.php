@@ -121,6 +121,12 @@ Route::prefix('pantallainicio/calendario')->group( function(){
              //ruta de borrar tratamiento
              Route::delete('{id}/borrar','PlanTratamientoController@destroy') ->name('plandetratamiento.borrar')->where('id','[0-9]+');
 
+             //rutas para documentos clinicos 
+              Route::get('{id}/documentosClinicos','DocumentosClinicosController@ver');
+              Route::get('{id}/nuevodocumento','DocumentosClinicosController@nuevo')-> where('id' ,'[0-9]+');
+              Route::post('{id}/nuevodocumento','DocumentosClinicosController@guardar')-> where('id' ,'[0-9]+');
+
+
              });
 
               // *********RUTA PARA EL BUSCADOR********//
