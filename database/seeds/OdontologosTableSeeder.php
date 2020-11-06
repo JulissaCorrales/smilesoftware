@@ -18,13 +18,13 @@ class OdontologosTableSeeder extends Seeder
     public function run()
     {
       //  Especialidad::truncate();
-        $especialidad = new Especialidad();
+    /*     $especialidad = new Especialidad();
         $especialidad->nombreEspecialidad="Endodoncia";
         $especialidad->save();
 
         $especialidad = new Especialidad();
         $especialidad->nombreEspecialidad="Ortodoncia";
-        $especialidad->save();
+        $especialidad->save(); */
 
         //Cita::truncate();
         $cita=new Cita();
@@ -71,7 +71,7 @@ class OdontologosTableSeeder extends Seeder
         $paciente=new Paciente;
         $paciente->nombres="Laura Leonela";
         $paciente->apellidos="Ferrera Martinez";
-        $paciente->identidad="0703199911527";
+        $paciente->identidad="0703199911528";
         $paciente->sexo="Femenino";
         $paciente->fechaNacimiento="19990108";
         $paciente->departamento="El Paraiso";
@@ -91,7 +91,7 @@ class OdontologosTableSeeder extends Seeder
            $plantratamiento->nombreTratamiento="Blanqueamiento dental";
            $plantratamiento->estado="activo";
            $plantratamiento->paciente_id=1;
-           $plantratamiento->odontologo_id=1;
+           /* $plantratamiento->odontologo_id=1; */
            $plantratamiento->cita_id=1;
            $plantratamiento->save();
            
@@ -99,7 +99,7 @@ class OdontologosTableSeeder extends Seeder
            $plantratamiento->nombreTratamiento="Brakes";
            $plantratamiento->estado="activo";
            $plantratamiento->paciente_id=2;
-           $plantratamiento->odontologo_id=1;
+      /*      $plantratamiento->odontologo_id=1; */
            $plantratamiento->cita_id=2;
            $plantratamiento->save();
 
@@ -114,7 +114,7 @@ class OdontologosTableSeeder extends Seeder
         $odontologo->departamento="El paraiso";
         $odontologo->ciudad="Danli";
         $odontologo->direccion="Col la reforma";
-        $odontologo->especialidad_id=1;
+        $odontologo->especialidad="General";
         $odontologo->intervalos="30 min";
         $odontologo->save();
 
@@ -128,7 +128,7 @@ class OdontologosTableSeeder extends Seeder
         $odontologo->departamento="El paraiso";
         $odontologo->ciudad="Danli";
         $odontologo->direccion="Col Nueva Esperanza";
-        $odontologo->especialidad_id=1;
+        $odontologo->especialidad="General";
         $odontologo->intervalos="30 min";
         $odontologo->save();
      

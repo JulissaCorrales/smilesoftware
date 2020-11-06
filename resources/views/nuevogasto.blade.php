@@ -53,7 +53,7 @@
                     <!-- Monto-->
                     <div class="form-group" id="div3">
                     <label for="monto" class="control-label">Monto:</label>
-                    <input type="number"  class="form-control-file" name="monto" id="monto" placeholder="Ingrese el monto del gasto">
+                    <input type="number"  step="any" class="form-control-file" name="monto" id="monto" placeholder="Ingrese el monto del gasto">
                     </div>
                  
                     <!-- Fecha de la factura-->
