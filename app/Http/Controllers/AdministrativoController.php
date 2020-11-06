@@ -49,6 +49,38 @@ class AdministrativoController extends Controller
         return redirect()->back()->with('mensaje','usuario administrativo borrado satisfactoriamente');
     }
 
+    /* funcion para poder editar un usuario administrativo*/
+    public function editar($id){
+     
+        $administrativos=Administrativo::findOrFail($id);
+        return view('EditarAdministrativo')->with('administrativos',$administrativos);
+
+    }
+
+    public function actualizar(Request $request,$id){
+
+        $administrativos = Administrativo::findOrFail($id);
+        //formulario
+
+        $administrativos->nombres = $request->input('nombres');
+        $administrativos->apellidos = $request->input('apellidos');
+        $administrativos->identidad = $request->input('identidad');
+        $administrativos->telefonoCelular = $request->input('telefonoCelular');
+        $administrativos->telefonoFijo = $request->input('telefonoFijo');
+        $administrativos->email = $request->input('email');
+        $administrativos->departamento = $request->input('departamento');
+        $administrativos->ciudad = $request->input('ciudad');
+        $administrativos->direccion = $request -> input('direccion');
+
+        $actualizado = $administrativos->save();
+        //Asegurarse que fue creado
+        if ($actualizado){
+            return redirect()->back()->with('mensaje','¡¡El usuario administrativo Fué Modificado Exitosamente!!');
+        }else{ 
+        }
+
+    }
+
 
 
 

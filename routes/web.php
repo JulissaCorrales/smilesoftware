@@ -209,6 +209,14 @@ Route::prefix('pantallainicio/calendario')->group( function(){
 
     Route::delete('usuariosAdministrativos/{id}/borrar','AdministrativoController@borrar')
     ->name('administrativo.borrar');
+
+     //rutas para editar usuarios administrativos
+     Route::get('/{id}/editar/administrativo','AdministrativoController@editar')
+     ->name('administrativo.editar') -> where('id' ,'[0-9]+');
+
+    Route::put('/{id}/editar/administrativo','AdministrativoController@actualizar')
+    ->name('administrativo.actualizar') -> where('id' ,'[0-9]+');
+
     
 
               
