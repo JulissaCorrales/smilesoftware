@@ -50,7 +50,7 @@
 
               <div class="form-group">
                 <label for="observaciones">observaciones:</label>
-                <input type="text" class="form-control-file" name="observaciones" id="observaciones" placeholder="Especifique que tipo de archivo pdf, word, excel etc.?">
+                <input type="text" class="form-control-file" name="observaciones" id="observaciones" accept="application/pdf" placeholder="Seleccione un archivo a subir dpf, word, excel, etc.. ">
               </div>
               
 
