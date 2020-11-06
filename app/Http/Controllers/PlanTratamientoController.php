@@ -54,7 +54,7 @@ public function guardar(Request $request,$id){
     public function destroy($id){
         Plantratamiento::destroy($id);
         //rediccionar a la pagina index
-         return redirect("/pantallainicio/vista/paciente/$id/plandetratamiento")->with('mensaje','Plan de Tratamiento borrado satisfactoriamente');
+        return redirect()->back()->with('mensaje','Plan de Tratamiento borrado satisfactoriamente');
     }
 
 
