@@ -175,7 +175,7 @@
         </div>
 
         <section class="timeline">
-          @forelse ($pacientes->archivos as $tag)
+          @forelse ($pacientes->documentos as $tag)
           <ul>
             <li>
               <div>
@@ -188,8 +188,9 @@
 
                 <p>{{$tag->observaciones}}</p>
 
-              <img src="/documento/{{$tag->imagen1}}" width="150" alt="imagen">
-
+                <a target="_blank" href="/documento/{{$tag->imagen1}}" >Vista para PDF o descargar archivo word, excel</a>
+                
+      
               </div>
             </li>
               
@@ -242,4 +243,3 @@ window.addEventListener("scroll", callbackFunc);
 </body>
 </html>
 @endsection
-
