@@ -194,6 +194,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
     <th>Clave</th>
     <th>Permisos</th>
     <th>estado de cuenta</th>
+    <th>eliminar</th>
   </tr>
   </thead>
   <tbody>
@@ -203,7 +204,9 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
      <td>{{$usuario->nombre}}</td>
      <td>{{$usuario->usuario}}</td>
      <td>{{$usuario->clave}}</td>
+     <td>{{$usuario->perfilPermisos}}</td>
      <td>{{$usuario->estadoCuenta}}</td>
+
      <td>
      
 

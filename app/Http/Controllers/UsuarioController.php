@@ -44,7 +44,7 @@ class UsuarioController extends Controller
        $creado = $nuevo->save();
 
          if ($creado){
-            return redirect('/pantallainicio/odontologo')->with('mensaje', 'el usuario fue creado exitosamente!');
+            return redirect('/pantallainicio/usuarios')->with('mensaje', 'el usuario fue creado exitosamente!');
         }else{
             //retornar con un msj de error
         } 
