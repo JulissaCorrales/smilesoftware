@@ -7,7 +7,6 @@
 <style>
 table {
    width: 100%;
-   border: 1px solid #000;
    text-align:center;
 }
 th, td {
@@ -24,7 +23,6 @@ th{
 }
 #padre{
     width:auto;
-    font:1em Tahoma;
     margin: 5rem;
     padding: 2rem;
     border: 2px solid #ccc;
@@ -33,10 +31,10 @@ th{
     border-radius: 5px;
     width: 160px;
     background-color: #b3f0ff;
-    font-size: 16px;
+    font-size: 14px;
     position: absolute;
     left: 900px;
-    top:10px;
+    top:1px;
     border-color: #e67300;
     color: #ff8000;       
    }
@@ -77,30 +75,36 @@ th{
             {{session('mensaje')}}
         </div>
     @endif
-<table>
-        <thead>
+
+    <div  class="container" id="dd">
+ <div class="list-group">
+ 
+<table id="datatable">
+<thead>
         <tr>
             <th>Categoria</th>
             <th>Detalle</th>
             <th>Fecha de Factura</th>
             <th>Fecha  de Pago</th>
             <th>Total</th>
-            <th colspan="2">Acción</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+            
         </tr>
         </thead>
         <!-- pie de tabla -->
         <tfoot>
-            <td style="text-align: center;background-color:#D7DBDD  ;">Total a pagar=</td>
-            <td colspan="6" style="text-align: center;background-color:#D7DBDD  ;">
+            <td  colspan="4" style="text-align: left; background-color:#D7DBDD  ;">Total a pagar=</td>
+            <td colspan="3"style="text-align: left;background-color:#D7DBDD  ;">
             {{$monto}}
             </td>
         </tfoot>
         <!--  -->
         <tbody>
-        @forelse($gastos as $gasto)
+       
         <tr>
-            
-            <td>{{$gasto->categoria}}</>
+        @forelse($gastos as $gasto)
+            <td>{{$gasto->categoria}}</td>
             <td>{{$gasto->detalle}}</td>
             <td>{{$gasto->fechafactura}}</td>
             <td>{{$gasto->fechapago}}</td>
@@ -155,16 +159,29 @@ th{
         @endforelse   
         </tbody>
     </table>
-    <hr>
-    <td id="paginacion"> 
-         
-                    {{$gastos->links()}}
+  
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<!-- script de jquery para que funcione el buscador de nombre-->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+<!-- script de datatable para que funcione el buscado de nombre-->
 
 
-            
-            </td>
-    </div><!-- Fin div1 padre-->
+
 </body>
+
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#datatable').DataTable( {
+    language: {
+        search: "Buscador de Gastos según categoria o monto:"
+    }
+});
+} );
+</script>
+
+<!-- escript de datatable con el id de la tabla este muy importante en este caso la tabla es id="datatable"-->
+</div>
+</div><!-- fin del DIV contenedor de la buscador!!!  -->
 </html>
 @include('nuevogasto')<!-- esta seccion hace que funcione modal nuevo gasto -->
 @endsection

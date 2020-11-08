@@ -22,10 +22,10 @@ class Paciente extends Model
        // }
         
     //}
-    public function cita()
-    {
-       return $this->belongsTo(Cita::class);/* pertenece a una cita */
-   }
+   //  public function cita()
+   //  {
+   //     return $this->belongsTo(Cita::class);/* pertenece a una cita */
+   // }
 
 
 /* Relacion de Planesde Tratamiento con paciente de muchos a muchos */
@@ -34,7 +34,7 @@ public function planestratamientos(){
 }
 
 public function citas(){
-    return $this->belongsToMany(Cita::class); // Muchos a muchos
+    return $this->hasMany(Cita::class); //*un paciente tiene muchas citas */
 }
 public function comentarios()
 {

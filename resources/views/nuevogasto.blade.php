@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <style>
- form{background-color:#F2F3F4;padding:30px;}
+ form{padding:30px;}
  #div1{background-color: #AED6F1}
  button{float:right;}
     

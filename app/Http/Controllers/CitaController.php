@@ -87,7 +87,7 @@ class CitaController extends Controller
       public  function guardar(Request $request){
 
         $request->validate([
-            'especialidad_id'=>'required',
+            
             'odontologo_id'=>'required',
             'duracionCita'=>'required',
             'paciente_id'=>'required',
@@ -98,7 +98,7 @@ class CitaController extends Controller
 
         // formulario
         $nuevacita = new Cita();
-        $nuevacita->especialidad_id= $request->input('especialidad_id');
+        // $nuevacita->especialidad_id= $request->input('especialidad_id');
         $nuevacita->odontologo_id=$request->input('odontologo_id');
         $nuevacita->duracionCita=$request->input('duracionCita');
        $nuevacita->paciente_id=$request->input('paciente_id');
@@ -108,8 +108,8 @@ class CitaController extends Controller
         $creado = $nuevacita->save();
         //Asegurarse que fue creado
         if ($creado){
-            $paciente=Paciente::findOrFail($nuevacita->paciente_id);
-            $paciente->citas()->attach($nuevacita);
+            // $paciente=Paciente::findOrFail($nuevacita->paciente_id);
+            // $paciente->citas()->attach($nuevacita);
             return redirect()->back()
                 ->with('mensaje','La cita fue creado exitosamente');
 
@@ -138,7 +138,6 @@ class CitaController extends Controller
     public function destroyCita($id){
         Cita::destroy($id);
         //rediccionar a la pagina index
-        PlanTratamiento::where('cita_id','=',$id)->delete();/* para que al borrar la cita se borre el plan de tratamiento ya que el plan existe solo si esta en la cita */
         return redirect()->back()->with('mensaje','Cita borrada satisfactoriamente');
     }
 

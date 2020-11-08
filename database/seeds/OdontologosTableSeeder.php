@@ -17,33 +17,9 @@ class OdontologosTableSeeder extends Seeder
      */
     public function run()
     {
-      //  Especialidad::truncate();
-    /*     $especialidad = new Especialidad();
-        $especialidad->nombreEspecialidad="Endodoncia";
-        $especialidad->save();
+      
 
-        $especialidad = new Especialidad();
-        $especialidad->nombreEspecialidad="Ortodoncia";
-        $especialidad->save(); */
-
-        //Cita::truncate();
-        $cita=new Cita();
-        $cita->especialidad_id=1;
-        $cita->odontologo_id=1;
-        $cita->duracionCita="15 minutos";
-        $cita->paciente_id=1;
-        $cita->stard='2020-10-21  5:30:00';
-        $cita->comentarios="Paciente con alergia al pescado";
-        $cita->save();
-        
-        $cita=new Cita();
-        $cita->especialidad_id=1;
-        $cita->odontologo_id=1;
-        $cita->duracionCita="15 minutos";
-        $cita->paciente_id=2;
-        $cita->stard='2020-10-21  5:30:00';
-        $cita->comentarios="Paciente con alergia al camaron";
-        $cita->save();
+    
         
         /*  */
 
@@ -65,7 +41,7 @@ class OdontologosTableSeeder extends Seeder
         $paciente->observaciones="Alergias al mani";
         $paciente->save();
 
-        $paciente->citas()->attach([1]);
+        
 
         
         $paciente=new Paciente;
@@ -84,24 +60,8 @@ class OdontologosTableSeeder extends Seeder
         $paciente->observaciones="Alergias al mani";
         $paciente->save();
 
-        $paciente->citas()->attach([2]);
+        
 
-           //PlanTratamiento::truncate();
-           $plantratamiento=new PlanTratamiento;
-           $plantratamiento->nombreTratamiento="Blanqueamiento dental";
-           $plantratamiento->estado="activo";
-           $plantratamiento->paciente_id=1;
-           /* $plantratamiento->odontologo_id=1; */
-           $plantratamiento->cita_id=1;
-           $plantratamiento->save();
-           
-           $plantratamiento=new PlanTratamiento;
-           $plantratamiento->nombreTratamiento="Brakes";
-           $plantratamiento->estado="activo";
-           $plantratamiento->paciente_id=2;
-      /*      $plantratamiento->odontologo_id=1; */
-           $plantratamiento->cita_id=2;
-           $plantratamiento->save();
 
         //Odontologo::truncate();
         $odontologo=new Odontologo;
@@ -131,9 +91,55 @@ class OdontologosTableSeeder extends Seeder
         $odontologo->especialidad="General";
         $odontologo->intervalos="30 min";
         $odontologo->save();
+
+
+        //  Especialidad::truncate();
+        // $especialidad = new Especialidad();
+        // $especialidad->Especialidad="Endodoncia";
+        // $especialidad->odontologo_id=1;
+        // $especialidad->save();
+
+        // $especialidad = new Especialidad();
+        // $especialidad->Especialidad="Ortodoncia";
+        // $especialidad->odontologo_id=2;
+        // $especialidad->save();
      
         
-
+    //Cita::truncate();
+    $cita=new Cita();
+    // $cita->especialidad_id=1;
+    $cita->odontologo_id=1;
+    $cita->duracionCita="15 minutos";
+    $cita->paciente_id=1;
+    $cita->stard='2020-10-21  5:30:00';
+    $cita->comentarios="Paciente con alergia al pescado";
+    $cita->save();
+    
+    $cita=new Cita();
+    // $cita->especialidad_id=1;
+    $cita->odontologo_id=1;
+    $cita->duracionCita="15 minutos";
+    $cita->paciente_id=2;
+    $cita->stard='2020-10-21  5:30:00';
+    $cita->comentarios="Paciente con alergia al camaron";
+    $cita->save();
+    
+           //PlanTratamiento::truncate();
+           $plantratamiento=new PlanTratamiento;
+           $plantratamiento->nombreTratamiento="Blanqueamiento dental";
+           $plantratamiento->estado="activo";
+           $plantratamiento->paciente_id=1;
+           /* $plantratamiento->odontologo_id=1; */
+           $plantratamiento->cita_id=1;
+           $plantratamiento->save();
+           
+           $plantratamiento=new PlanTratamiento;
+           $plantratamiento->nombreTratamiento="Brakes";
+           $plantratamiento->estado="activo";
+           $plantratamiento->paciente_id=2;
+      /*      $plantratamiento->odontologo_id=1; */
+           $plantratamiento->cita_id=2;
+           $plantratamiento->save();
 
 
         

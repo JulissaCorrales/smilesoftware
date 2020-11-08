@@ -15,12 +15,15 @@ class CreateCitasTable extends Migration
     {
         Schema::create('citas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('especialidad_id');
-            $table->unsignedInteger('odontologo_id');
+          //  $table->bigInteger('especialidad_id')->unsigned();
+            $table->bigInteger('odontologo_id')->unsigned();
             $table->string('duracionCita');
-            $table->unsignedInteger('paciente_id');
+            $table->bigInteger('paciente_id')->unsigned();
             $table->datetime('stard');
             $table->string('comentarios');
+            $table->foreign('paciente_id')->references('id')->on('pacientes')->onDelete('cascade');
+            $table->foreign('odontologo_id')->references('id')->on('odontologos')->onDelete('cascade');
+            // $table->foreign('especialidad_id')->references('id')->on('especialidads')->onDelete('cascade');
             $table->timestamps();
         });
     }

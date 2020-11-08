@@ -36,25 +36,9 @@
 
 				<form method="post" action="/darcita">
         @csrf
-        <!-- especialidad -->
-        <label for="state_id" class="control-label">Especialidad:</label>
-        <select name="especialidad_id" class="form-control">
-        <option disabled selected>Seleccione una especialidad</option>
-         <?php
-        $getEspecialidad =$mysqli->query("select * from odontologos order by id");
-        while($f=$getEspecialidad->fetch_object()) {
-          echo $f->id;
-          echo $f->especialidad;
-          ?>
-          
-          <option value="<?php echo $f->id; ?>"><?php echo $f->especialidad;?></option>
-          <?php
-        } 
-        ?>
-        </select>
-        <hr>
+       
         <!-- Doctor -->
-        <label for="state_id" class="control-label">Doctor:</label>
+        <label for="state_id" class="control-label">Doctor y su especialidad:</label>
         <select name="odontologo_id" class="form-control">
         <option disabled selected>Seleccione un Doctor</option>
         <?php
@@ -63,10 +47,11 @@
           echo $f->id;
           echo $f->nombres;
           echo $f->apellidos;
+          echo $f->especialidad;
 
           ?>
          
-          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos;?></option>
+          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos." |  Especialidad:".$f->especialidad;?></option>
           <?php
         } 
         ?>
