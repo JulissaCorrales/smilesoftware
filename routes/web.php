@@ -227,6 +227,24 @@ Route::prefix('pantallainicio/calendario')->group( function(){
         Route::delete('{id}/borrar/odontologo','OdontologoController@destroy') ->name('odontologo.borrar')->where('id','[0-9]+');
 
 
+        
+//**************Rutas de  tratamientos******************/
+Route::get('tratamiento','TratamientoController@vistaprincipal');
+Route::get('tratamientonuevo','TratamientoController@nuevo');
+Route::post('tratamientoNuevo','TratamientoController@guardar');
+Route::delete('tratamiento/{id}/borrar','TratamientoController@destroy') ->name('tratamiento.borrar')->where('id','[0-9]+');
+Route::get('{id}/editar','TratamientoController@editar') ->name('tratamiento.editar') -> where('id' ,'[0-9]+');
+Route::put('{id}/editar','TratamientoController@update')->name('tratamiento.update') -> where('id' ,'[0-9]+');
+
+
+//**************Rutas de  tratamientos******************/
+Route::get('/tratamiento/{id}/producto','ProductosController@datos')->name('productos.datos')->where('id', '[0-9]+');
+Route::get('tratamiento/{id}/producto/editar','ProductosController@editar') ->name('producto.editar') -> where('id' ,'[0-9]+');
+Route::put('tratamiento/{id}/producto/editar','ProductosController@update')->name('producto.update') -> where('id' ,'[0-9]+');
+Route::get('/tratamiento/{id}/producto/nuevo','ProductosController@nuevo')->name('producto.nuevo') -> where('id' ,'[0-9]+');
+Route::post('/tratamiento/{id}/producto/Nuevo','ProductosController@guardar');
+Route::delete('tratamiento/{id}/producto/borrar','ProductosController@destroy') ->name('producto.borrar')->where('id','[0-9]+');
+
 
 
 
