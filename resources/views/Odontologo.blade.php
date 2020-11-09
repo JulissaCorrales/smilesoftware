@@ -116,7 +116,7 @@
 
  #nae{
   width: 1300px;
-  height: 700px;
+  height: 900px;
     border-radius: 12px;
     background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff); 
     position: absolute;
@@ -188,7 +188,7 @@
   width: 170px;
   height: 45px;
   font-size:17px;
-            top: 60px;
+            top: 10px;
             left:1020px;
             font-family: "Times New Roman";
   text-align: center;
@@ -214,7 +214,7 @@
   height: 45px;
   font-size:17px;
   
-            top: 60px;
+            top: 10px;
             left:830px;
             font-family: "Times New Roman";
   text-align: center;
@@ -254,6 +254,15 @@
   position: relative;
   bottom: -10px;}
 
+  #hh2{
+    font-family: "Times New Roman";
+  text-align: center;
+  font-size: 20px;
+  position: absolute;
+            top: 650px;
+            left: 900px;
+  }
+
   
 
 
@@ -262,7 +271,7 @@
 
 </head>
 @section('contenido')
-<body id="bo">
+<body id=>
 @if(session('mensaje'))
         <div class="alert alert-success">
             {{session('mensaje')}}
@@ -275,36 +284,16 @@
   <h1 id="dire"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-people-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
 </svg>Gestion de Odontologos</h1>
+
+
   <!--Menu desplegable  -->
-  
-
- <!--fin de menu desplegable  -->
-</nav>
-
-</div>
-
-<div class="btn-group btn-group-lg" id="d1" >
-<!--
-<div class="btn-group btn-group-lg" id="d1" >
-  <button id ="but1" type="button" data-toggle="modal" data-target="#create">
-  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-</svg>Habilitados </button> </div>
-
-<div class="btn-group btn-group-lg" id="d1" >
-  <button id ="but2" type="button" data-toggle="modal" data-target="#create">
-  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-</svg>Deshabilitados </button> </div> -->
 
 
-<div class="btn-group btn-group-lg" id="d1" >
   <a id ="but3" type="button" class="btn btn-outline-info"  href="/pantallainicio/especialidad">
   <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-week" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
   <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
-</svg>  Especialidades </a> </div>
-
+</svg>  Especialidades </a>
 
 
 
@@ -313,13 +302,12 @@
   <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
 </svg>Nuevo odontologo </button> 
 
+  
 
+ <!--fin de menu desplegable  -->
+</nav>
 
 </div>
-
-
-
-
 
 <div  class="container" id="dd"><!-- es necesario para que funcione el boton de buscar por nombre
 y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflicto la pantilla de extencion
@@ -555,6 +543,9 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
      </tbody>
 </table>
 
+<h3 id="hh2">{{ $odontologos->links() }}</h1>
+
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <!-- script de jquery para que funcione el buscador de nombre-->
@@ -583,5 +574,7 @@ $(document).ready( function () {
 </html>
 
 @include('nuevoDoctor')
+
+
 
 @endsection 

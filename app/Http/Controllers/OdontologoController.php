@@ -11,7 +11,7 @@ class OdontologoController extends Controller
 
     public function vistaodontologo(){
         //return "texto de contacto desde el controlador ";
-        $odontologos=Odontologo::All();
+        $odontologos=Odontologo::paginate(4);
         return view('Odontologo')->with ('odontologos',$odontologos);
      } 
 
@@ -80,7 +80,7 @@ class OdontologoController extends Controller
 
         
         if($create){
-            return redirect('/pantallainicio/odontologo')->with('mensaje','El Odontologo ha sido modifcado exitosamente');
+            return redirect()->back()->with('mensaje','El Odontologo ha sido modifcado exitosamente');
         }else{
           
           

@@ -6,8 +6,8 @@
       #div1{background-color:#00cccc;}
       #botonContinuar{
         position: absolute;
-    top:820px;
-    left:150px;
+    top:900px;
+    left:130px;
     width: 100px;
   height: 40px;
 
@@ -17,9 +17,9 @@
           #bu1{
 
             position: absolute;
-    top:820px;
-    left:300px;
-    width: 150px;
+    top:900px;
+    left:270px;
+    width: 200px;
   height: 40px;
 
             
@@ -173,7 +173,7 @@
          
         </form  action="">
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <button id="bu1" type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#ndoctor">Especialidad</button>
+        <button id="bu1" type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#ndoctor">Agregar Especialidad</button>
         </div>
         </div>
         </div>

@@ -11,7 +11,8 @@ class EspecialidadController extends Controller
 {
     public function vistaespecialidad(){
         $especialidads=Especialidad::All();
-        return view('Especialidades')->with ('especialidads',$especialidads);
+        $odontologos=Odontologo::All();
+        return view('Especialidades')->with ('especialidads',$especialidads)->with('odontologos',$odontologos);
      } 
      public function nuevaespecialidad(){
         //return "texto de contacto desde el controlador ";
@@ -35,6 +36,15 @@ class EspecialidadController extends Controller
         }else{
             //retornar con un msj de error
         } 
+    }
+
+
+    public function destroy($id){
+        Especialidad::destroy($id);
+        return redirect()->back()->with('mensaje','Odontologo borrado satisfactoriamente');
+
+
+       
     }
 
 

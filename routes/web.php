@@ -27,6 +27,9 @@ Route::get('/', function () {
 
             Route::delete('{id}/borrar','CitaController@destroyCita') ->name('cita.borrar')->where('id','[0-9]+');
 
+
+            Route::delete('{id}/borrar/especialidad','EspecialidadController@destroy') ->name('especialidad.borrar')->where('id','[0-9]+');
+
                 // *********RUTAS PARA EL MENU PRINCIPAL********//
 //grupo de rutas se ingresa con pantallainicio/calendario y luego a ruta que desea ingresar
 
@@ -218,7 +221,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
     ->name('administrativo.actualizar') -> where('id' ,'[0-9]+');
 
     
-
+//Rutas de Odontologo//
               
         Route::get('odontologo/nuevo','OdontologoController@nuevoodontologo');
         Route::post('odontologo/nuevo','OdontologoController@GuardarNuevo');
