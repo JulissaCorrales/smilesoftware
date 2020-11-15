@@ -123,28 +123,35 @@
                   </div>
 
 
-                  </div><div class="form-group">
+                 <!-- </div><div class="form-group">
                     <label for="especialidad">Especialidad:</label>
                     <input type="text" class="form-control-file" name="especialidad" id="especialidad" placeholder="Ingrese la Especialidad">
-                  </div>
+                  </div>  -->
 
-                  
-               
-  
-      
-           <!--  <label for="state_id" class="control-label">Especialidad:</label>
+                  <?php
+        $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
+        $mysqli->set_charset("utf8");
+      ?>
+
+            <label for="state_id" class="control-label">Especialidad:</label>
                 <select name="especialidad" class="form-control">
           <option disabled selected>Seleccione una especialidad</option>
-          <option >General</option>
-                    <option >Cirugia y Maxilofacial</option>
-                    <option>Radiologia oral y maxilofacial</option>
-                    <option >Ortodoncia</option>
-                    <option >Endodoncia</option>
-                    <option >Prostodoncia</option>
-                    <option >Periodancia</option>
-                    <option >Patologogia oral y maxilofacial</option>
+         
+                    <?php
+        $getDoctor =$mysqli->query("select * from especialidads order by id");
+        while($f=$getDoctor->fetch_object()) {
+          echo $f->id;
+          echo $f->Especialidad;
+
+          ?>
+          <option value="<?php echo $f->id; ?>"><?php echo $f->Especialidad ?></option>
+          <?php
+        } 
+        ?>
+
+
                   
-        </select>  -->
+        </select> 
         
 
         <label for="intervalo" class="control-label">Intervalo</label>
@@ -173,13 +180,13 @@
          
         </form  action="">
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <button id="bu1" type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#ndoctor">Agregar Especialidad</button>
+        <button id="bu1" type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#especia">Agregar Especialidad</button>
         </div>
         </div>
         </div>
 
 <!-- Modal 2 -->
-        <div class="modal fade" id="ndoctor">
+        <div class="modal fade" id="especia">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -192,47 +199,58 @@
 
                     <form method="post" action="/pantallainicio/nueva/especialidad">
                       @csrf
-                      
-        <label for="state_id" class="control-label">Odontologo:</label>
+                      <?php
+        $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
+        $mysqli->set_charset("utf8");
+      ?>
+       <label for="state_id" class="control-label">Odontologo:</label>
         <select name="odontologo_id" class="form-control">
         <option disabled selected>Seleccione un odontologo</option>
-         <?php
-        $getOdontologo =$mysqli->query("select * from odontologos order by id");
-        while($f=$getOdontologo->fetch_object()) {
+        <?php
+        $getDoctor =$mysqli->query("select * from odontologos order by id");
+        while($f=$getDoctor->fetch_object()) {
           echo $f->id;
           echo $f->nombres;
           echo $f->apellidos;
+          echo $f->especialidad_id;
+
           ?>
-          
-          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres;?><?php echo $f->apellidos;?></option>
+         
+          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos ?></option>
           <?php
         } 
         ?>
         </select>
+                    
+          
 
+                      <label for="state_id" class="control-label">Especialidad:</label>
+        <select name="odontologo_id" class="form-control">
+        <option disabled selected>Seleccione una Especialidad</option>
+        <?php
+        $getDoctor =$mysqli->query("select * from especialidads order by id");
+        while($f=$getDoctor->fetch_object()) {
+          echo $f->id;
+          
+          echo $f->Especialidad;
 
-                      <div class="form-group">
-                          <label for="nombres">Nombre Especialidad:</label>
-                          <input type="text" class="form-control-file" name="nombres" id="nombres" placeholder="Ingresar el  nombre de la Especialidad">
-                      </div>
-
-
+          ?>
+         
+          <option value="<?php echo $f->id; ?>"><?php echo $f->Especialidad ?></option>
+          <?php
+        } 
+        ?>
+        </select>
+                    
+                      
                   <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" >Guardar Pacientes</button>
+                <button type="submit" class="btn btn-primary" >Guardar Especialidad</button>
               </div>
                   </form>
                   </div>
                   </div>
-               
-
-
-      
-        
-        
-        
-        
-        
+              
       </div>
       
  

@@ -249,9 +249,11 @@ Route::post('/tratamiento/{id}/producto/Nuevo','ProductosController@guardar');
 Route::delete('tratamiento/{id}/producto/borrar','ProductosController@destroy') ->name('producto.borrar')->where('id','[0-9]+');
 
 
+Route::get('pantallainicio/{id}/especialidades','EspecialidadController@VistaEspecial')->where('id','[0-9]+')->name('especialidades');
 
 
+Route::get('especialidad/nueva','EspecialidadOdontologosController@especialidadOdontologo');
+Route::post('especialidad/nueva','EspecialidadOdontologosController@GuardarNuevo');
 
-
-
+Route::get('pantallainicio/odontologo/{id}','EspecialidadOdontologosController@EspecialidadesOdontologo')->where('id','[0-9]+')->name('odontologo.especialidad');
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Odontologo;
+use App\EspecialidadOdontologos;
 
 class OdontologoController extends Controller
 {
@@ -12,6 +13,7 @@ class OdontologoController extends Controller
     public function vistaodontologo(){
         //return "texto de contacto desde el controlador ";
         $odontologos=Odontologo::paginate(4);
+        $especialidad_odontologos= EspecialidadOdontologos::all();
         return view('Odontologo')->with ('odontologos',$odontologos);
      } 
 
@@ -37,7 +39,7 @@ class OdontologoController extends Controller
         $nuevo->departamento = $request->input('departamento');
         $nuevo->ciudad = $request->input('ciudad');
         $nuevo->direccion = $request -> input('direccion');
-        $nuevo->especialidad = $request->input('especialidad');
+        $nuevo->especialidad_id = $request->input('especialidad');
         $nuevo->intervalos = $request->input('intervalo');
         
         

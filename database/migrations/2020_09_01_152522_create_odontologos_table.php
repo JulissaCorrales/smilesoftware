@@ -24,9 +24,8 @@ class CreateOdontologosTable extends Migration
             $table->string('departamento');
             $table->string('ciudad');
             $table->string('direccion');
-            $table->string('especialidad');
-           // $table->unsignedBigInteger('especialidad_id')->unsigned();
-           // $table->foreign('especialidad_id')->references('id')->on('especialidads')->onDelete('cascade')->update('cascade');
+           $table->unsignedBigInteger('especialidad_id')->unsigned();
+           $table->foreign('especialidad_id')->references('id')->on('especialidads')->onDelete('cascade')->update('cascade');
 
             $table->string('intervalos');
             $table->timestamps();

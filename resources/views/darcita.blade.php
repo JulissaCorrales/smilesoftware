@@ -47,11 +47,11 @@
           echo $f->id;
           echo $f->nombres;
           echo $f->apellidos;
-          echo $f->especialidad;
+          echo $f->especialidad_id;
 
           ?>
          
-          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos." |  Especialidad:".$f->especialidad;?></option>
+          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos." |  Especialidad:".$f->especialidad_id;?></option>
           <?php
         } 
         ?>
