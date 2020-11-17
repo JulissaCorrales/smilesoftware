@@ -18,6 +18,6 @@ class Controller extends BaseController
      $logotipos=Logotipo::where('id','=',1)->get();
        View::share('logotipos',$logotipos);
        ///Codigo para proteger todas las rutas
-       //$this->middleware('auth');
+       $this->middleware('auth');
     }
 }
