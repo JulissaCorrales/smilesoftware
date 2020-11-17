@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Paciente;
+use App\Logotipo;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,8 @@ use App\Paciente;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  $logotipos=Logotipo::where('id','=',1)->get();
+    return view('welcome')->with('logotipos',$logotipos);
 });
                     // *********RUTA PARA DAR CITA********//
                      //ruta para darcita(cita nueva)
@@ -192,33 +194,24 @@ Route::prefix('pantallainicio/calendario')->group( function(){
 
     Route::post('pantallainicio/usuarios/guardar','UsuarioController@guardar')
     ->name('usuario.guardar');
+    /* Ruta para editar un usuario */
+    Route::get('pantallainicio/usuarios/{id}/editar','UsuarioController@editar') ->name('usuario.editar') -> where('id' ,'[0-9]+');
+    Route::put('pantallainicio/usuarios/{id}/editar','UsuarioController@actualizar') ->name('usuario.actualizar') -> where('id' ,'[0-9]+');
+    Route::delete('pantallainicio/usuarios/{id}/borrar','UsuarioController@borrar') ->name('usuario.borrar')->where('id','[0-9]+');
+
 
     //*****************rutas para usuarios administrativos********************/
     //*********no agrupar esta rutas hasta haberse terminado con lo de update*******/
 
     Route::get('pantallainicio/usuariosAdministrativos','AdministrativoController@ver')
     ->name('administrativo.indice');
-
     //ruta para crear un nuevo usuario administrativo
-
     Route::get('usuariosAdministrativos/nuevo','AdministrativoController@nuevo');
-
-    //ruta para guadar niveos usuarios administrativos
-
-    Route::post('usuariosAdministrativos/guardar','AdministrativoController@guardar')
-    ->name('administrativo.guardar');
-
-    //ruta para borrar nuevos usuarios administrativos
-
-    Route::delete('usuariosAdministrativos/{id}/borrar','AdministrativoController@borrar')
-    ->name('administrativo.borrar');
-
      //rutas para editar usuarios administrativos
      Route::get('/{id}/editar/administrativo','AdministrativoController@editar')
      ->name('administrativo.editar') -> where('id' ,'[0-9]+');
 
-    Route::put('/{id}/editar/administrativo','AdministrativoController@actualizar')
-    ->name('administrativo.actualizar') -> where('id' ,'[0-9]+');
+  
 
     
 //Rutas de Odontologo//
@@ -257,3 +250,11 @@ Route::post('especialidad/nueva','EspecialidadOdontologosController@GuardarNuevo
 
 Route::get('pantallainicio/odontologo/{id}','EspecialidadOdontologosController@EspecialidadesOdontologo')->where('id','[0-9]+')->name('odontologo.especialidad');
 
+
+
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

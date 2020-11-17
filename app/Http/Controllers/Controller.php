@@ -13,8 +13,11 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function __construct()
-    {                   
+    {                
+      //Codigo para pasar el logo a todas las vistas   
      $logotipos=Logotipo::where('id','=',1)->get();
        View::share('logotipos',$logotipos);
+       ///Codigo para proteger todas las rutas
+       //$this->middleware('auth');
     }
 }

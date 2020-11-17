@@ -2,51 +2,89 @@
 
 namespace App\Http\Controllers;
 
-use App\Usuario;
+use App\User;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
+
+
     public function ver(){
-        $usuarios = Usuario::All();
-        return view('VistaUsuarios')->with ('usuarios',$usuarios);
+        $usuarios =User::where('rol_id','=',1)->get();
+        return view('usuarios.VistaUsuarios')->with ('usuarios',$usuarios);
     }
 
     public function nuevo(){
-        return view('nuevoUsuario');
+        return view('usuarios.nuevoUsuario');
      }
 
-     /*$table->id();
-     $table->string('nombre');
-     $table->string('usuario');
-     $table->string('clave');
-     $table->string('repetirClave');
-     $table->string('perfilPermisos');
-     $table->string('esDentista');
-     $table->string('estadoCuenta');
-     $table->timestamps();**/
-
      public function guardar(Request $request){
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'usuario' => ['required', 'string', 'max:255','unique:users'],
+            'esDentista' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'rol_id' => ['required'],
+           
+        ]);
         
 
-        $nuevo = new Usuario();
+        $nuevo = new User();
 
         //formulario
-        $nuevo->nombre = $request->input('nombre');
+        $nuevo->name = $request->input('name');
         $nuevo->usuario = $request->input('usuario');
-        $nuevo->clave = $request->input('clave');
-        $nuevo->repetirClave = $request->input('repetirClave');
-        $nuevo->perfilPermisos = $request->input('perfilPermisos');
-        $nuevo->esDentista = $request->input('esDentista');
-        $nuevo->estadoCuenta = $request->input('estadoCuenta');
-        
+        $nuevo->email = $request->input('email');
+        $nuevo->password = bcrypt($request->password);
+       $nuevo->esDentista = $request->input('esDentista');
+       $nuevo->rol_id = $request->input('rol_id');
+   
 
        $creado = $nuevo->save();
 
          if ($creado){
-            return redirect('/pantallainicio/usuarios')->with('mensaje', 'el usuario fue creado exitosamente!');
+            return back()->with('mensaje', 'El usuario fué creado exitosamente!');
         }else{
             //retornar con un msj de error
         } 
     }
+    
+    public function editar($id){
+        $usuarios = User::findOrFail($id);
+        return view('usuarios.editarusuario')->with('usuarios',$usuarios);
+
+    }
+    public function actualizar(Request $request,$id){
+        $request->validate([
+            'name'                    =>  'required|max:255',
+            'email'          =>  'required|email|max:255',
+            'password'                     =>  'required|min:8',
+            // 'rol_id' => 'required',
+           
+        ]);
+        
+
+        $usuarios = User::findOrFail($id);
+        $usuarios->name = $request->input('name');
+        $usuarios->usuario = $request->input('usuario');
+        $usuarios->email = $request->input('email');
+        $usuarios->password = $request->input('password');
+        $usuarios->esDentista = $request->input('esDentista');
+        // $usuarios->rol_id = $request->input('rol_id');
+
+        $creado = $usuarios->update();
+        if($creado){
+            return back()->with('mensaje','El Usuario ha sido modifcado exitosamente');
+        }else{
+          
+          
+            //error
+        }
+    }
+    public function borrar($id){
+        User::destroy($id);
+        return redirect()->back()->with('mensaje','Usuario borrado satisfactoriamente');
+    }
+
 }

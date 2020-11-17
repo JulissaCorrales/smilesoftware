@@ -61,7 +61,16 @@ class OdontologosTableSeeder extends Seeder
         $paciente->save();
 
         
+        // Especialidad::truncate();
+        $especialidad = new Especialidad();
+        $especialidad->Especialidad="Endodoncia";
+        
+        $especialidad->save();
 
+        $especialidad = new Especialidad();
+        $especialidad->Especialidad="Ortodoncia";
+      
+        $especialidad->save();
 
         //Odontologo::truncate();
         $odontologo=new Odontologo;
@@ -74,7 +83,7 @@ class OdontologosTableSeeder extends Seeder
         $odontologo->departamento="El paraiso";
         $odontologo->ciudad="Danli";
         $odontologo->direccion="Col la reforma";
-        $odontologo->especialidad="General";
+        $odontologo->especialidad_id="2";
         $odontologo->intervalos="30 min";
         $odontologo->save();
 
@@ -88,21 +97,12 @@ class OdontologosTableSeeder extends Seeder
         $odontologo->departamento="El paraiso";
         $odontologo->ciudad="Danli";
         $odontologo->direccion="Col Nueva Esperanza";
-        $odontologo->especialidad="General";
+        $odontologo->especialidad_id="2";
         $odontologo->intervalos="30 min";
         $odontologo->save();
 
 
-        //  Especialidad::truncate();
-        // $especialidad = new Especialidad();
-        // $especialidad->Especialidad="Endodoncia";
-        // $especialidad->odontologo_id=1;
-        // $especialidad->save();
-
-        // $especialidad = new Especialidad();
-        // $especialidad->Especialidad="Ortodoncia";
-        // $especialidad->odontologo_id=2;
-        // $especialidad->save();
+    
      
         
     //Cita::truncate();

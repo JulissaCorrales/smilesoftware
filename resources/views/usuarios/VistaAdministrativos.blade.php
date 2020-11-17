@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios</title>
+    <title>Usuarios administrativos</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     
@@ -86,7 +86,7 @@
   text-shadow: -1px 0 #009999, 0 1px #009999, 1px 0 #009999, 0 -1px #009999;
   font-family: serif;
   position: absolute;
-            font-size:30px;
+            font-size:20px;
             top: 2px;
             left:10px;
 }
@@ -111,7 +111,7 @@
   position: absolute;
   width: 170px;
   height: 45px;
-  font-size:14px;
+  font-size:12px;
             top: 70px;
             left:525px;
 
@@ -131,16 +131,11 @@
 </head>
 @section('contenido')
 <body id="bo">
-@if(session('mensaje'))
-        <div class="alert alert-success">
-            {{session('mensaje')}}
-        </div>
-    @endif
 
     <div class="container">
 
     <nav class="navbar navbar-light bg-light" id="na">
-  <h1 id="dire">Usuarios de la clinica</h1>
+  <h1 id="dire">Usuarios administrativos de la clinica</h1>
   <!--Menu desplegable  -->
   <div class="btn-group" id="control">
   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="cont"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-border-width" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -169,13 +164,17 @@
 </div>
 
 <div class="btn-group btn-group-lg" id="d1" >
-  <a id ="n1" type="button" class="btn btn-outline-info" href="/pantallainicio/usuarios/nuevo">
+  <a id ="n1" type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#createadministrativo">
     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-</svg>Nuevo usuario</a> </div>
+</svg>Nuevo usuario administrativo</a> </div>
 
 
-
+@if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif
 
 
 <div  class="container" id="dd"><!-- es necesario para que funcione el boton de buscar por nombre
@@ -188,45 +187,77 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 <table id="datatable" class="table">
 <thead class="table table-striped table-bordered">
   <tr id="can">
-    <th >Nº</th>
+  <th >Nº</th>
     <th>Nombre</th>
     <th>Usuario</th>
-    <th>Clave</th>
-    <th>Permisos</th>
-    <th>estado de cuenta</th>
-    <th>eliminar</th>
+    <th>Correo</th>
+    <th>Eliminar</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-      @forelse($usuarios as $usuario)
-     <td><a  class="btn btn-outline-info"  href=""  id="lista"></a></td>
-     <td>{{$usuario->nombre}}</td>
-     <td>{{$usuario->usuario}}</td>
-     <td>{{$usuario->clave}}</td>
-     <td>{{$usuario->perfilPermisos}}</td>
-     <td>{{$usuario->estadoCuenta}}</td>
-
-     <td>
+      @forelse($administrativos as $administrativo)
+      <td><a  class="btn btn-outline-info"  href="{{route('administrativo.editar',$administrativo->id)}}"  id="lista">{{$administrativo->id}}</a></td>
+     <td>{{$administrativo->name}}</td>
+     <td>{{$administrativo->usuario}}</td>
+     <td>{{$administrativo->email}}</td>
      
-
-     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    
+ 
+    
+     <td>
+     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$administrativo->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
 </svg>
       Eliminar
   </button>
 
   </td>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal-{{$administrativo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+</svg> Eliminar Paciente</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <!--<span aria-hidden="true">&times;</span>-->
+                  </button>
+              </div>
+              <div class="modal-body">
+                  ¿Desea realmente eliminar el usuario {{$administrativo->name}}?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <form method="post" action="{{route('usuario.borrar',['id'=>$administrativo->id])}}">
+
+                      @csrf
+                      @method('delete')
+                      <input type="submit" value="Eliminar" class="btn btn-danger">
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
+
+  </td>
  
   
   </div>
+</div>
+
 
      </tr> 
      @empty
-     <h1>No hay usuarios disponibles</h1>
+     <h1>No hay usuarios administrativos disponibles disponibles</h1>
      @endforelse
      </tbody>
+
 </table>
+<hr>
+    
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <!-- script de jquery para que funcione el buscador de nombre-->
@@ -251,6 +282,7 @@ $(document).ready( function () {
 </div>
 </div><!-- fin del DIV contenedor de la buscador!!!  -->
 
-@endsection
-
 </html>
+
+@include('usuarios.nuevoUsuarioAdministrativo')<!-- esta seccion hace que funcione modal nuevo gasto -->
+@endsection
