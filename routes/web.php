@@ -182,35 +182,41 @@ Route::prefix('pantallainicio/calendario')->group( function(){
 
         //**************Rutas de  usuarios******************/
 
-        //rutas para ver todos los usuarios
+        //rutas para ver todos los usuarios(Todos,Administrativos y clínicos)
+        Route::prefix('pantallainicio/')->group( function(){
+          Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+          Route::get('usuarios/ver','UsuarioController@ver')
+          ->name('usuarios.indice');
+          Route::get('usuarios/nuevo','UsuarioController@nuevo');
+          Route::post('usuarios/guardar','UsuarioController@guardar')
+          ->name('usuario.guardar');
+          Route::get('usuarios/{id}/editar','UsuarioController@editar') ->name('usuario.editar') -> where('id' ,'[0-9]+');
+          Route::put('usuarios/{id}/editar','UsuarioController@actualizar') ->name('usuario.actualizar') -> where('id' ,'[0-9]+');
+          Route::delete('usuarios/{id}/borrar','UsuarioController@borrar') ->name('usuario.borrar')->where('id','[0-9]+');
+           //*****************rutas para usuarios administrativos********************/
+          Route::get('usuariosAdministrativos','AdministrativoController@ver')
+          ->name('administrativo.indice');
+          Route::get('usuariosAdministrativos/nuevo','AdministrativoController@nuevo');
+          Route::get('/{id}/editar/administrativo','AdministrativoController@editar')
+          ->name('administrativo.editar') -> where('id' ,'[0-9]+');
+          // Rutas Para Usuarios Clinicos:
+          Route::get('usuariosClinicos','UsuarioClinicoController@ver')
+          ->name('clinico.indice');
+            Route::get('usuariosClinicos/nuevo','UsuarioClinicoController@nuevo')->name('clinico.nuevo');
+            Route::get('/{id}/editar/clinico','UsuarioClinicoController@editar')
+            ->name('clinico.editar') -> where('id' ,'[0-9]+');
 
-        Route::get('pantallainicio/usuarios','UsuarioController@ver')
-    ->name('usuarios.indice');
-
-    //ruta para crear un nuevo usuario
-
-    Route::get('pantallainicio/usuarios/nuevo','UsuarioController@nuevo');
-
-    //ruta para
-
-    Route::post('pantallainicio/usuarios/guardar','UsuarioController@guardar')
-    ->name('usuario.guardar');
-    /* Ruta para editar un usuario */
-    Route::get('pantallainicio/usuarios/{id}/editar','UsuarioController@editar') ->name('usuario.editar') -> where('id' ,'[0-9]+');
-    Route::put('pantallainicio/usuarios/{id}/editar','UsuarioController@actualizar') ->name('usuario.actualizar') -> where('id' ,'[0-9]+');
-    Route::delete('pantallainicio/usuarios/{id}/borrar','UsuarioController@borrar') ->name('usuario.borrar')->where('id','[0-9]+');
+        });
+       
 
 
-    //*****************rutas para usuarios administrativos********************/
-    //*********no agrupar esta rutas hasta haberse terminado con lo de update*******/
 
-    Route::get('pantallainicio/usuariosAdministrativos','AdministrativoController@ver')
-    ->name('administrativo.indice');
-    //ruta para crear un nuevo usuario administrativo
-    Route::get('usuariosAdministrativos/nuevo','AdministrativoController@nuevo');
-     //rutas para editar usuarios administrativos
-     Route::get('/{id}/editar/administrativo','AdministrativoController@editar')
-     ->name('administrativo.editar') -> where('id' ,'[0-9]+');
+   
+   
+  
+
+
+   
 
   
 
@@ -244,17 +250,13 @@ Route::delete('tratamiento/{id}/producto/borrar','ProductosController@destroy') 
 
 
 Route::get('pantallainicio/{id}/especialidades','EspecialidadController@VistaEspecial')->where('id','[0-9]+')->name('especialidades');
-
-
 Route::get('{id}/evoluciones','EvolucionesController@EvolucionesPaciente')->where('id','[0-9]+')->name('paciente.evoluciones');
-
-
 Route::get('especialidad/nueva','EspecialidadOdontologosController@especialidadOdontologo');
 Route::post('especialidad/nueva','EspecialidadOdontologosController@GuardarNuevo');
 
 Route::get('pantallainicio/odontologo/{id}','EspecialidadOdontologosController@EspecialidadesOdontologo')->where('id','[0-9]+')->name('odontologo.especialidad');
 
-Route::get('usuarioClinico','UsuarioController@UsuariosClinicos')->name('usuario.clinico');
+
 
 
 

@@ -75,7 +75,7 @@
 
                    
                     <div class="form-group" id="div6">
-                    <button style="background-color:purple"type="button" onclick="location.href='{{route('usuarios.indice')}}'" class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+                    <button style="background-color:purple"type="button" onclick="location.href='{{route('clinico.indice')}}'" class="btn btn-secondary" data-dismiss="modal">Atrás</button>
                     <input type="reset" class="btn btn-danger">
                     <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
                         Actualizar 

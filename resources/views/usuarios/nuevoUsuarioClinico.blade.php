@@ -18,8 +18,8 @@
 </head>
 <body>
     
-    <div  class="container" id="padre" style="background-color: #FEF9E7;">
-    <h3 id="titulo">Ingresar Datos del Usuario</h3>
+    <div  class="container" id="padre" style="background-color: #F5EEF8;">
+    <h3 id="titulo">Ingresar Datos del Usuario Clínico</h3>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -40,14 +40,29 @@
                         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
                         $mysqli->set_charset("utf8");
                     ?>
-                     <form method="post" action="{{route('usuario.guardar')}} ">
+                    
+                     <form style="background-color: #F5EEF8;" method="post" action="{{route('usuario.guardar')}} ">
                         @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
                             <div class="col-md-6">
-                              
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <select id="name" name="name" class="form-control" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <option disabled selected>Seleccione un Doctor</option>
+                                <?php
+                                $getDoctor =$mysqli->query("select * from odontologos order by id");
+                                while($f=$getDoctor->fetch_object()) {
+                                echo $f->nombres;
+                                echo $f->apellidos;
+                                ?>
+                                
+                                <option><?php echo $f->nombres." ".$f->apellidos;?></option>
+                                <?php
+                                } 
+                                ?>
+                                
+                                </select>
+                                <!-- <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus> -->
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -115,7 +130,7 @@
                         <!--  -->
                         <!-- esDentista -->
                         <div class="form-group row">
-                            <label for="esDentista" class="col-md-4 col-form-label text-md-right">{{ __('¿Es Dentista?') }}</label>
+                            <label for="esDentista" class="col-md-4 col-form-label text-md-right">{{ __('Es Dentista') }}</label>
 
                             <div class="col-md-6">
                                 <!-- <input id="esDentista" type="text" class="form-control @error('esDentista') is-invalid @enderror" name="esDentista" value="{{ old('esDentista') }}" required autocomplete="esDentista"> -->
@@ -145,7 +160,7 @@
                                 <select id="rol_id" name="rol_id" class="form-control" class="form-control @error('name') is-invalid @enderror" name="rol_id" value="{{ old('rol_id') }}" required autocomplete="rol_id" autofocus>
                                 <option disabled selected>Seleccione un Rol</option>
                                 <?php
-                                $getRol =$mysqli->query("select * from rols order by id");
+                                $getRol =$mysqli->query("select * from rols where id=1");
                                 while($f=$getRol->fetch_object()) {
                                 echo $f->nombreRol;
                                 echo $f->id;
@@ -172,7 +187,7 @@
 
                    
                     <div class="form-group" align=center id="div6">
-                    <button style="background-color:purple"type="button" onclick="location.href='{{route('usuarios.indice')}}'" class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+                    <button style="background-color:purple"type="button" onclick="location.href='{{route('clinico.indice')}}'" class="btn btn-secondary" data-dismiss="modal">Atrás</button>
                     <input type="reset" class="btn btn-danger">
                     <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
                         Registrar

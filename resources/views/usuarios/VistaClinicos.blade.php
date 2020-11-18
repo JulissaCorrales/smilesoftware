@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios administrativos</title>
+    <title>Usuarios</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     
@@ -86,7 +86,7 @@
   text-shadow: -1px 0 #009999, 0 1px #009999, 1px 0 #009999, 0 -1px #009999;
   font-family: serif;
   position: absolute;
-            font-size:20px;
+            font-size:30px;
             top: 2px;
             left:10px;
 }
@@ -110,8 +110,8 @@
     background-color: #ccffff;
   position: absolute;
   width: 170px;
-  height: 45px;
-  font-size:12px;
+  height: 50px;
+  font-size:13px;
             top: 70px;
             left:525px;
 
@@ -135,7 +135,7 @@
     <div class="container">
 
     <nav class="navbar navbar-light bg-light" id="na">
-  <h1 id="dire">Usuarios administrativos de la clinica</h1>
+  <h1 id="dire">Usuarios Clinicos:</h1>
   <!--Menu desplegable  -->
   <div class="btn-group" id="control">
   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="cont"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-border-width" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -164,17 +164,18 @@
 </div>
 
 <div class="btn-group btn-group-lg" id="d1" >
-  <a id ="n1" type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#createadministrativo">
+  <a id ="n1" type="button" class="btn btn-outline-info" href="{{route('clinico.nuevo')}}">
     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-</svg>Nuevo Usuario Administrativo</a> </div>
-
+</svg>Nuevo Usuario Clínico</a> </div>
 
 @if(session('mensaje'))
         <div class="alert alert-success">
             {{session('mensaje')}}
         </div>
     @endif
+  
+
 
 
 <div  class="container" id="dd"><!-- es necesario para que funcione el boton de buscar por nombre
@@ -187,26 +188,22 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 <table id="datatable" class="table">
 <thead class="table table-striped table-bordered">
   <tr id="can">
-  <th >Nº</th>
+    <th >Nº</th>
     <th>Nombre</th>
     <th>Usuario</th>
     <th>Correo</th>
-    <th>Eliminar</th>
+    <th>eliminar</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-      @forelse($administrativos as $administrativo)
-      <td><a  class="btn btn-outline-info"  href="{{route('administrativo.editar',$administrativo->id)}}"  id="lista">{{$administrativo->id}}</a></td>
-     <td>{{$administrativo->name}}</td>
-     <td>{{$administrativo->usuario}}</td>
-     <td>{{$administrativo->email}}</td>
-     
-    
- 
-    
+      @forelse($usuarios as $usuario)
+     <td><a  class="btn btn-outline-info"  href="{{route('clinico.editar',$usuario->id)}}"  id="lista">{{$usuario->id}}</a></td>
+     <td>{{$usuario->name}}</td>
+     <td>{{$usuario->usuario}}</td>
+     <td>{{$usuario->email}}</td>
      <td>
-     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$administrativo->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$usuario->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
 </svg>
       Eliminar
@@ -215,7 +212,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   </td>
 
   <!-- Modal -->
-  <div class="modal fade" id="modal-{{$administrativo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modal-{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
           <div class="modal-content">
               <div class="modal-header">
@@ -227,39 +224,34 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                   </button>
               </div>
               <div class="modal-body">
-                  ¿Desea realmente eliminar el usuario {{$administrativo->name}}?
+                  ¿Desea realmente eliminar el usuario {{$usuario->name}}?
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <form method="post" action="{{route('usuario.borrar',['id'=>$administrativo->id])}}">
+                  <form method="post" action="{{route('usuario.borrar',['id'=>$usuario->id])}}">
 
                       @csrf
                       @method('delete')
                       <input type="submit" value="Eliminar" class="btn btn-danger">
-                   </form>
-               </div>
-           </div>
-       </div>
-   </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
 
   </td>
  
   
   </div>
-</div>
-
 
      </tr> 
      @empty
      <td colspan="5" style="text-align:center;">
-    <h4>¡¡No hay usuarios administrativos disponibles!! </h4></td>
-     
+    <h4>¡¡No hay usuarios Clinicos(Odontologos) disponibles!! </h4></td>
      @endforelse
      </tbody>
-
 </table>
-<hr>
-    
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <!-- script de jquery para que funcione el buscador de nombre-->
@@ -284,7 +276,6 @@ $(document).ready( function () {
 </div>
 </div><!-- fin del DIV contenedor de la buscador!!!  -->
 
-</html>
-
-@include('usuarios.nuevoUsuarioAdministrativo')<!-- esta seccion hace que funcione modal nuevo gasto -->
 @endsection
+
+</html>

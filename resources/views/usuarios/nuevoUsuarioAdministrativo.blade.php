@@ -144,7 +144,7 @@
                                 <select id="rol_id" name="rol_id" class="form-control" class="form-control @error('name') is-invalid @enderror" name="rol_id" value="{{ old('rol_id') }}" required autocomplete="rol_id" autofocus>
                                 <option disabled selected>Seleccione un Rol</option>
                                 <?php
-                                $getRol =$mysqli->query("select * from rols where id=2");
+                                $getRol =$mysqli->query("select * from rols where id=2 or id=3");
                                 while($f=$getRol->fetch_object()) {
                                 echo $f->nombreRol;
                                 echo $f->id;

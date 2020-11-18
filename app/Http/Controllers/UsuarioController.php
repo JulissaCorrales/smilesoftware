@@ -10,7 +10,7 @@ class UsuarioController extends Controller
 
 
     public function ver(){
-        $usuarios =User::where('rol_id','=',1)->get();
+        $usuarios =User::All();
         return view('usuarios.VistaUsuarios')->with ('usuarios',$usuarios);
     }
 
@@ -44,6 +44,7 @@ class UsuarioController extends Controller
        $creado = $nuevo->save();
 
          if ($creado){
+            // return redirect('pantallainicio/usuarios/ver')->with('mensaje', 'El usuario fué creado exitosamente!');
             return back()->with('mensaje', 'El usuario fué creado exitosamente!');
         }else{
             //retornar con un msj de error
@@ -71,7 +72,7 @@ class UsuarioController extends Controller
         $usuarios->email = $request->input('email');
         $usuarios->password = $request->input('password');
         $usuarios->esDentista = $request->input('esDentista');
-        // $usuarios->rol_id = $request->input('rol_id');
+        $usuarios->rol_id = $request->input('rol_id');
 
         $creado = $usuarios->update();
         if($creado){
