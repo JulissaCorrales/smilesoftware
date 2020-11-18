@@ -45,4 +45,8 @@ class ArchivoController extends Controller
 
 
     }
+    public function borrar($id){
+        Archivo::destroy($id);
+        return redirect()->back()->with('mensaje','archivo borrado satisfactoriamente');
+    }
 }

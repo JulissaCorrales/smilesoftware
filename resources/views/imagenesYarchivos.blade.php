@@ -16,11 +16,15 @@
     margin: 5rem;
     padding: 2rem;
     border: 2px solid #ccc;
-    background-color: #F5EEF8;}
+    background-color: #F5EEF8;
+    border-style: groove;}
 
-    table {
-    width:auto;
-     height:20px;"
+    .vPrincipal{
+      border-style: groove;
+      width: 1100px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0;
     }
 
     #upload{
@@ -35,124 +39,125 @@
        float:right; 
    }
 
+  
 
+    .content{
+      border-style: groove;
+    }
 
-   .timeline ul li {
-  list-style-type: none;
-  position: relative;
-  width: 6px;
-  margin: 0 auto;
-  padding-top: 50px;
-  background: #fff;
+    @import url(
+  https://fonts.googleapis.com/css?family=Source + Sans + Pro:200,
+  300,
+  400,
+  600,
+  700|Oswald:400,
+  300,
+  700
+);
+body {
+  background: #e3e3e3;
+  font-size: 16px;
 }
- 
-.timeline ul li::after {
-  content: '';
+strong {
+  font-weight: 600;
+}
+h1 {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 1.5px;
+  color: #333333;
+  font-weight: 100;
+  font-size: 2.4em;
+}
+#content {
+  margin-top: 50px;
+  text-align: center;
+}
+/* Timeline */
+.timeline {
+  border-left: 4px solid #4298c3;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #333;
+  font-family: "Source Sans Pro", sans-serif;
+  margin: 50px auto;
+  letter-spacing: 0.5px;
+  position: relative;
+  line-height: 1.4em;
+  font-size: 1.03em;
+  padding: 30px;
+  list-style: none;
+  text-align: left;
+  font-weight: 1;
+  max-width: 50%;
+}
+.timeline h1,
+.timeline h2,
+.timeline h3 {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 1.5px;
+  font-weight: 100;
+  font-size: 1.4em;
+}
+.timeline .event {
+  border-bottom: 1px dashed #4298c3;
+  padding-bottom: 25px;
+  margin-bottom: 50px;
+  position: relative;
+}
+.timeline .event:last-of-type {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border: none;
+}
+.timeline .event:before,
+.timeline .event:after {
   position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 30px;
+  display: block;
+  top: 0;
+}
+.timeline .event:before {
+  left: -217.5px;
+  color: #717171;
+  content: attr(data-date);
+  text-align: right;
+  font-weight: 400;
+  font-size: 0.9em;
+  min-width: 120px;
+}
+.timeline .event:after {
+  box-shadow: 0 0 0 4px #169eda;
+  left: -57.85px;
+  background: #91c740;
   border-radius: 50%;
-  background: inherit;
+  height: 11px;
+  width: 11px;
+  content: "";
+  top: 5px;
 }
-
-.timeline ul li div {
-  position: relative;
-  bottom: 0;
-  width: 400px;
-  padding: 15px;
-  background: #F45B69;
-}
- 
-.timeline ul li div::before {
-  content: '';
-  position: absolute;
-  bottom: 7px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-}
-
-.timeline ul li:nth-child(odd) div {
-  left: 45px;
-}
- 
-.timeline ul li:nth-child(odd) div::before {
-  left: -15px;
-  border-width: 8px 16px 8px 0;
-  border-color: transparent #F45B69 transparent transparent;
-}
-
-.timeline ul li:nth-child(even) div {
-  left: -439px;
-}
- 
-.timeline ul li:nth-child(even) div::before {
-  right: -15px;
-  border-width: 8px 0 8px 16px;
-  border-color: transparent transparent transparent #F45B69;
-}
-
-.timeline ul li::after {
-  background: #fff;
-  transition: background .5s ease-in-out;
-}
- 
-.timeline ul li.in-view::after {
-  background: #F45B69;
-}
- 
-.timeline ul li div {
-  visibility: hidden;
-  opacity: 0;
-  transition: all .5s ease-in-out;
-}
- 
-.timeline ul li:nth-child(odd) div {
-  transform: translate3d(200px,0,0);
-}
- 
-.timeline ul li:nth-child(even) div {
-  transform: translate3d(-200px,0,0);
-}
- 
-.timeline ul li.in-view div {
-  transform: none;
-  visibility: visible;
-  opacity: 1;
-}
-
-@media screen and (max-width: 900px) {
-  .timeline ul li div {
-    width: 250px;
+@media (max-width: 800px) {
+  .timeline .event:before {
+    left: -0.5px;
+    top: 28px;
+    background-color: #4298c3;
+    color: white;
+    margin-top: 8px;
+    padding: 2px 8px 2px 8px;
+    content: attr(data-date);
+    text-align: right;
+    font-weight: 400;
+    font-size: 0.9em;
+    min-width: 120px;
   }
-  .timeline ul li:nth-child(even) div {
-    left: -289px; /*250+45-6*/
+  .timeline .event p {
+    top: 27px;
+    padding: 10px 0px 10px 0px;
+    position: relative;
   }
 }
 
-@media screen and (max-width: 600px) {
-  .timeline ul li {
-    margin-left: 20px;
-  }
-   
-  .timeline ul li div {
-    width: calc(100vw - 91px);
-  }
-   
-  .timeline ul li:nth-child(even) div {
-    left: 45px;
-  }
-   
-  .timeline ul li:nth-child(even) div::before {
-    left: -15px;
-    border-width: 8px 16px 8px 0;
-    border-color: transparent #F45B69 transparent transparent;
-  }
-}
 
+    
 
 
     </style>
@@ -161,49 +166,41 @@
 <body>
     @section('cuerpo')
  
-    <div class="container" id="vPrincipal">
+    <div class="container" id="vPrincipal" class="vPrincipal">
 
         <div div id="titulo" class="card-body d-flex justify-content-between align-items-center">
-            <h2>vista de prueba de imagenes y archivos del paciente</h2>
-
+          <div class="vPrincipal" style="background-color:#CCFFFF;">
+            <h2>Historial del paciente: {{$pacientes->nombres}}<br>  {{$pacientes->apellidos}}</h2>
             <button id="upload" onclick="location.href='/pantallainicio/vista/paciente/{{$pacientes->id}}/nuevoarchivo'">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
                   </svg>
                 subir archivos</button>
+              </div>
 
         </div>
-
-        <section class="timeline">
-          @forelse ($pacientes->archivos as $tag)
-          <ul>
-            <li>
+        <div id="content" class="content" style="background-color:#CCFFFF;">
+          <h3>imagenes de radiografias y tomografias y otros</h3>
+          
+          <ul class="timeline">
+            @forelse ($pacientes->archivos as $tag)
+            <li class="event" data-date="{{$tag->fecha}}">
+              <h3>Doctor:{{$tag->odontologo->nombres}} {{$tag->odontologo->apellidos}}</h3>
+              <p>{{$tag->observaciones}}</p>
               <div>
-                <time>{{$tag->fecha}}</time>
-                <br>
-                <br>
-              <p>{{$tag->odontologo->nombres}} {{$tag->odontologo->apellidos}}</p>
-                <br>
-                <br>
-
-                <p>{{$tag->observaciones}}</p>
-
-              <img src="/images/{{$tag->imagen}}" width="150" alt="imagen">
-
+                <img src="/images/{{$tag->imagen}}" width="150" alt="imagen">
               </div>
             </li>
-              
-          @empty
-          <p> no hay archivos de historial disponible</p>
-              
-          @endforelse
-            
-
-              
-              <!-- more list items here -->
-            </ul>
+            @empty
+            <p> no hay archivos de historial disponible</p>
         
-          </section>
+            @endforelse
+                 
+          </ul>
+         
+        </div>
+        
+        
         
         </div>
 
@@ -212,31 +209,7 @@
 
     <script>
 
-function isElementInViewport(el) {
-  var rect = el.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
-}
 
-var items = document.querySelectorAll(".timeline li");
- 
-// code for the isElementInViewport function
- 
-function callbackFunc() {
-  for (var i = 0; i < items.length; i++) {
-    if (isElementInViewport(items[i])) {
-      items[i].classList.add("in-view");
-    }
-  }
-}
- 
-window.addEventListener("load", callbackFunc);
-window.addEventListener("scroll", callbackFunc);
-        
     </script>
     
 </body>
