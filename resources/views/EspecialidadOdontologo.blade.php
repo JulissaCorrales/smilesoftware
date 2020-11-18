@@ -52,6 +52,7 @@
         <td><h2>{{$odontologos->nombres}}  {{$odontologos->apellidos}}   </h2></td>
 
         <td>
+        {{$odontologos->especialidad->Especialidad}} <br>
         @forelse ($odontologos->especialidadOdontologos as $tag) 
           
                     {{ $tag->especialidad->Especialidad}}

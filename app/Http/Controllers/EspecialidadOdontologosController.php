@@ -14,36 +14,13 @@ class EspecialidadOdontologosController extends Controller
         return view('NuevaEspecialidadOdontologo');
      }
 
+     
+
      public function EspecialidadesOdontologo($id){
         $especialidad_odontologos=EspecialidadOdontologos::all();
         $odontologos= Odontologo::findorfail($id);
        return view('EspecialidadOdontologo')->with ('especialidad_odontologos',$especialidad_odontologos)->with('odontologos',$odontologos);
        }
-
-
-    /* public function EspecialidadesOdontologo($id){
-        $especialidad_odontologos= EspecialidadOdontologos::find($id)->odontologos;
-        
-        return view('EspecialidadOdontologo',compact('especialidad_odontologos'))->with ('especialidad_odontologos',
-        $especialidad_odontologos);;
-     }  */
-
-    /* public function EspecialidadesOdontologo($id){
-        $odontologos= EspecialidadOdontologos::findOrFail($id);
-        $especialidad_odontologos= EspecialidadOdontologos::all();
-        $especialidads=Especialidad::all ();
-        return view('EspecialidadOdontologo',compact('odontologos'))->with ('especialidad_odontologos',$especialidad_odontologos)
-        ->with('especialidads',$especialidads);
-     } */
-
-     /*
-     public function EspecialidadesOdontologo($id){
-         $odontologos=EspecialidadOdontologos::findOrFail($id);
-         $especialidad_odontologos= EspecialidadOdontologos::all();
-
-        return view('EspecialidadOdontologo',compact('especialidad_odontologos','especialidads','odontologos'));
-      
-     }  */
 
 
 

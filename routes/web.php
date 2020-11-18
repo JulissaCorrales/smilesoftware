@@ -130,6 +130,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
               Route::get('{id}/documentosClinicos','DocumentosClinicosController@ver');
               Route::get('{id}/nuevodocumento','DocumentosClinicosController@nuevo')-> where('id' ,'[0-9]+');
               Route::post('{id}/nuevodocumento','DocumentosClinicosController@guardar')-> where('id' ,'[0-9]+');
+              Route::get('{id}/evoluciones','EvolucionesController@EvolucionesPaciente')->where('id','[0-9]+')->name('paciente.evoluciones');
 
 
              });
@@ -245,12 +246,15 @@ Route::delete('tratamiento/{id}/producto/borrar','ProductosController@destroy') 
 Route::get('pantallainicio/{id}/especialidades','EspecialidadController@VistaEspecial')->where('id','[0-9]+')->name('especialidades');
 
 
+Route::get('{id}/evoluciones','EvolucionesController@EvolucionesPaciente')->where('id','[0-9]+')->name('paciente.evoluciones');
+
+
 Route::get('especialidad/nueva','EspecialidadOdontologosController@especialidadOdontologo');
 Route::post('especialidad/nueva','EspecialidadOdontologosController@GuardarNuevo');
 
 Route::get('pantallainicio/odontologo/{id}','EspecialidadOdontologosController@EspecialidadesOdontologo')->where('id','[0-9]+')->name('odontologo.especialidad');
 
-
+Route::get('usuarioClinico','UsuarioController@UsuariosClinicos')->name('usuario.clinico');
 
 
 
