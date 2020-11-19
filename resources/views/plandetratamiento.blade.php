@@ -33,6 +33,7 @@
     
     }
     table {
+    margin:-15px;
     width:auto;
      height:20px;"
     }
@@ -54,6 +55,7 @@
     #t01 th {
     background-color:  #85C1E9;
     color: black;
+    text-align:center;
     }
     </style>
  
@@ -85,13 +87,13 @@
             <table id="t01">
             <thead>
             <tr>
-                              <th>Código Tratamiento</th>
+                              <th>N°</th>
                               <th>Plan de Tratamiento</th>
                               <th>Dentista</th>
                               <th>Estado</th>
                               <th>Paciente</th>
                               <th>Fecha y Hora de Cita</th>
-                              <th>Acción</th>
+                              <th colspan="2">Acción</th>
                               
                                 
             </tr>
@@ -107,9 +109,9 @@
                     @endforelse
                 </td>
                 <td>
-                    @forelse($pacientes->planestratamientos as $tag)
-                    
-                    <p>{{ $tag->nombreTratamiento }}</p>
+                    @forelse($pacientes->planestratamientos as $plantratamiento)
+                            <p>{{ $plantratamiento->tratamiento->categoria}}</p>
+                            <hr> 
                     <hr>
                     @empty
                     No tiene plan de tratamiento
@@ -151,7 +153,10 @@
             
 
                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$tag->id}}">
-                 Eliminar
+                 <!-- Eliminar -->
+                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                </svg>
                  </button>
                  <!-- Modal -->
                 <div class="modal fade" id="modal-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -178,6 +183,14 @@
                     </div>
                 </div>
                  <hr>
+                @empty
+                No tiene 
+                @endforelse
+                </td>
+                <td>
+                @forelse ($pacientes->planestratamientos as $tag) 
+                <button onclick="location.href='{{route('factura.ver',['id'=>$pacientes->id,'idplantratamiento'=>$tag->id])}}'" style="background-color:purple;" class="btn btn-secondary">Factura</button>
+                <hr>
                 @empty
                 No tiene 
                 @endforelse

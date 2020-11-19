@@ -48,12 +48,26 @@
         $mysqli->set_charset("utf8");
       ?>
 
-<form method="post" action="">
+        <form method="post" action="">
                       @csrf
-                      <div class="form-group">
-                          <label for="nombreTratamiento">Nombre del Tratamiento:</label>
-                          <input type="text" class="form-control-file" name="nombreTratamiento" id="nombreTratamiento" placeholder="ingresar nombre del tratamiento">
-                      </div>
+                    <div class="form-group">
+                    <select name="tratamiento_id" class="form-control">
+                    <label for="nombreTratamiento">Nombre del Tratamiento:</label>
+                        <option disabled selected>Seleccione el Nombre del Tratamiento</option>
+                        
+                                @forelse ($tratamientos as $tag) 
+                                <option value={{$tag->id}} >{{$tag->categoria}} </option>
+                                @empty
+                                <option disabled selected> ¡¡La clinica todavia no tiene un tratamiento.!!Cree uno por favor</option>
+                               
+                                @endforelse 
+
+
+                     
+                    </select>
+                          <!-- <label for="nombreTratamiento">Nombre del Tratamiento:</label>
+                          <input type="text" class="form-control-file" name="nombreTratamiento" id="nombreTratamiento" placeholder="ingresar nombre del tratamiento"> -->
+                    </div>
 
                       <div class="form-group">
                             <label for="estado" class="control-label">Estado:</label>
@@ -72,6 +86,7 @@
         @forelse ($pacientes->citas as $tag) 
         <option value={{$tag->id}} >{{$tag->stard}} Con el Doctor: {{$tag->odontologo->nombres}} {{$tag->odontologo->apellidos}}</option>
         @empty
+        <option disabled selected>¡¡Todavia no tiene una cita!! Asignele una por favor.</option>
         todavia no tiene una cita
         @endforelse
         </select>

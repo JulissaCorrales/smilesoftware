@@ -10,4 +10,10 @@ class Tratamiento extends Model
 {
    return $this->hasMany(Producto::class,'tratamiento_id','id');/*un tratamiento tiene muchos productos */
 }
+public function plantratamientos()
+{
+   return $this->hasMany(Plantratamientos::class,'tratamiento_id','id');/*un tratamiento tiene muchos planes de tratamientos */
+}
+
+
 }

@@ -18,12 +18,9 @@ class Plantratamiento extends Model
     {
         return $this->belongsTo(Cita::class);/* pertenece a una cita*/
     }
-/* 
-public function pacientes(){
-    return $this->belongsToMany(Paciente::class);//pertenece a muchos pacientes
-
-}
- */
+    public function tratamiento(){ 
+        return $this->belongsTo(Tratamiento::class); //Pertenece a un tratamiento.
+    }
 
 
    

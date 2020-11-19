@@ -125,6 +125,9 @@ Route::prefix('pantallainicio/calendario')->group( function(){
              Route::post('{id}/tratamientonuevo','PlanTratamientoController@guardar')->name('tratamiento.guardar');
              //ruta de borrar tratamiento
              Route::delete('{id}/borrar','PlanTratamientoController@destroy') ->name('plandetratamiento.borrar')->where('id','[0-9]+');
+             //Rutas para la factura de plan de tratamiento
+             Route::get('{id}/plandetratamiento/{idplantratamiento}/factura','PlanTratamientoController@factura')->name('factura.ver')->where('id','[0-9]+');
+
 
              //rutas para documentos clinicos 
               Route::get('{id}/documentosClinicos','DocumentosClinicosController@ver');
@@ -260,7 +263,8 @@ Route::get('pantallainicio/odontologo/{id}','EspecialidadOdontologosController@E
 
 
 
-
+//Rutas para el login(Autenticación)
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+
