@@ -260,6 +260,18 @@ Route::post('especialidad/nueva','EspecialidadOdontologosController@GuardarNuevo
 Route::get('pantallainicio/odontologo/{id}','EspecialidadOdontologosController@EspecialidadesOdontologo')->where('id','[0-9]+')->name('odontologo.especialidad');
 
 
+//**************Rutas de  inventarios******************/
+Route::get('inventario','InventarioController@vistaprincipal');
+Route::delete('inventario/{id}/borrar','InventarioController@destroy') ->name('inventario.borrar')->where('id','[0-9]+');
+Route::post('inventarioNuevo','InventarioController@guardar');
+Route::get('inventarionuevo','InventarioController@nuevo');
+Route::get('inventario/{id}/editar','InventarioController@editar') ->name('inventario.editar') -> where('id' ,'[0-9]+');
+Route::put('inventario/{id}/editar','InventarioController@update')->name('inventario.update') -> where('id' ,'[0-9]+');
+
+
+
+
+
 
 
 
