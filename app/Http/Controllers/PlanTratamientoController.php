@@ -64,8 +64,7 @@ public function guardar(Request $request,$id){
     public function factura($id,$idplantratamiento){
         $pacientes = Paciente::findOrFail($id);
         $plantratamientos=Plantratamiento::findOrFail($idplantratamiento);
-        $totalpagar =Producto::sum('monto');
-        // $totalpagar =Producto::where('tratamiento_id','=',$idplantratamiento);
+        $totalpagar =Producto::groupby('tratamiento_id')->sum('monto');
         return view('facturaPlantratamiento',compact('pacientes','plantratamientos','totalpagar'));
     }
 
