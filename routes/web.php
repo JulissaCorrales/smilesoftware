@@ -135,7 +135,8 @@ Route::prefix('pantallainicio/calendario')->group( function(){
               Route::post('{id}/nuevodocumento','DocumentosClinicosController@guardar')-> where('id' ,'[0-9]+');
               Route::get('{id}/evoluciones','EvolucionesController@EvolucionesPaciente')->where('id','[0-9]+')->name('paciente.evoluciones');
 
-
+              Route::get('{id}/evolucion/nueva','EvolucionesController@nuevaevolucion')->name('evolucion.nueva') -> where('id' ,'[0-9]+');
+              Route::post('{id}/evolucion/nueva','EvolucionesController@GuardarEvolucion')->name('evolucion.guardar') -> where('id' ,'[0-9]+');
              });
 
               // *********RUTA PARA EL BUSCADOR********//
@@ -270,6 +271,8 @@ Route::put('inventario/{id}/editar','InventarioController@update')->name('invent
 
 
 
+
+Route::get('evolucion/nueva/{id}','EvolucionesController@nuevaevolucion')->name('evolucion.nueva') -> where('id' ,'[0-9]+');;
 
 
 

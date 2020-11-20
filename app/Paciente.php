@@ -36,6 +36,12 @@ public function planestratamientos(){
 public function citas(){
     return $this->hasMany(Cita::class); //*un paciente tiene muchas citas */
 }
+
+
+public function evoluciones(){
+   return $this->hasMany(Evoluciones::class,'paciente_id','id'); //*un paciente tiene muchas citas */
+}
+
 public function comentarios()
 {
    return $this->hasMany(Comentario::class,'paciente_id','id');/*un paciente tiene muchos comentarios */

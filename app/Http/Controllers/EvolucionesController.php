@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Evoluciones;
-use App\Odontologo;
+use App\Tratamiento;
 use App\Paciente;
 use Illuminate\Http\Request;
 
@@ -20,21 +20,42 @@ class EvolucionesController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function nuevaevolucion($id){
+        $pacientes = Paciente::findOrFail($id);
+          return view('nuevaEvolucion')->with('pacientes',$pacientes);
     }
+    
+
+    public function GuardarEvolucion(Request $request,$id){
+        $paciente=Paciente::findOrFail($id);
+
+        $nuevoevaluacion = new  Evoluciones();
+        $nuevoevaluacion->paciente_id= $id;
+        $nuevoevaluacion->plantratamiento_id= $request->input('tratamiento_id');
+
+        $nuevoevaluacion->evolucion= $request->input('caja');
+        $creado= $nuevoevaluacion->save();
+         if ($creado){
+            
+          return redirect("/pantallainicio/vista/paciente/$id/evoluciones")->with('mensaje','Evolucion guardado exitosamente');
+
+           //return redirect()('/comentarios/{id}');
+        } 
+    }
+    
+
+
+//guardar plan de trtamiento
+
+    
+
 
     public function EvolucionesPaciente($id){
         $evoluciones=Evoluciones::all();
-        $odontologos= Odontologo::all();
+        $tratamientos= Tratamiento::all();
+
         $pacientes = Paciente::findOrFail($id);
-       return view('Evoluciones')->with ('evoluciones',$evoluciones)->with('odontologos',$odontologos)->with('pacientes',$pacientes);
+       return view('Evoluciones')->with ('evoluciones',$evoluciones)->with('tratamientos',$tratamientos)->with('pacientes',$pacientes);
        }
 
     /**

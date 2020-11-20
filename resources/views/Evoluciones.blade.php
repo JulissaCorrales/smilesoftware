@@ -10,7 +10,18 @@
   
   position: absolute;
     left:450px;
-    top: 400px;
+    top: 500px;
+
+ }
+
+
+ #datatable3{
+  width: 500px;
+  height: 60px;
+  
+  position: absolute;
+    left:900px;
+    top: 500px;
 
  }
 
@@ -26,7 +37,7 @@
 
  #na2a2{
   width: 950px;
-  height: 800px;
+  height: 100px;
     border-radius: 12px;
     background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff);
     position: absolute;
@@ -60,6 +71,18 @@
 
  }
 
+ #evolucion{
+
+  width: 200px;
+  height: 50px;
+    border-radius: 12px;
+    background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff);
+    position: absolute;
+    top:1px;
+    left:350px;
+
+ }
+
  
 
 
@@ -67,6 +90,12 @@
 
 <body>
 @section('cuerpo')
+
+@if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif
 <div class="container">
 
     <nav class="navbar navbar-light bg-light" id="na2a2">
@@ -84,47 +113,58 @@
 
 
   <div id="dis2" >
-    <a  id="especia" type="button"  class="btn btn-outline-info" data-toggle="modal" data-target="#nespecialidad"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <button  id="evolucion" type="button"  class="btn btn-outline-info" onclick="location.href='/pantallainicio/vista/paciente/{{ $pacientes->id}}/evolucion/nueva'"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
   <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-</svg>   Nueva</a>
+</svg> Nueva Evolucion </button>
     
   </div>
 </nav>
 </div>
 
+<table id="datatable2">
+            <thead>
+            <tr>
+                            
+                             
+                                                    
+            </tr>
+            </thead>
+            <tbody>               
+            <tr>
+             <!--  <td>
+                   @forelse ($pacientes->planestratamientos as $tag) 
+                    <p>{{ $tag->id}}</p>
+                    Plan de tratamiento: {{ $tag->tratamiento->categoria}}
+                  
+                    <hr>      
+                    @empty
+                    vacio
+                    @endforelse 
 
+                  
+                </td> -->
 
+               
+                <td>  
+                @forelse ($pacientes->evoluciones as $tag)
+                PlanTratamiento: {{ $tag->plantratamiento_id}} <br>
+                Paciente:{{$pacientes->nombres}}  {{$pacientes->apellidos}} <br>
+               {{ $tag->evolucion}}
+              
+          
 
-<table id="datatable2" class="container">
-<thead class="table table-striped table-bordered">
-  <tr id="can">
-   
-      <th id="thh2"  >
-    </th>
+                         <hr> 
+                 <hr>
+                 @empty
+                 No tiene ninguna Evolucion
+                 @endforelse
+                 
 
-      <th id="thh2"  >
-    </th>
-
-  </tr>
-  </thead>
-  <tbody>
-  
-        
-        <tr>
-        
-
-        <td><h2>hola  </h2></td>
-
-        <td>
-      
-        
-        </td>
-
-  
-    </tr>
-    
-  
+               
+                  
+                    
+                </td>
 
   
  
@@ -138,6 +178,17 @@
      </tbody>
 </table>
 
+
+
+
+
+  
+ 
+  
+
+  
+    
+ 
 
 
   
