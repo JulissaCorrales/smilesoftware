@@ -7,6 +7,8 @@ use App\Cita;
 use Carbon\Carbon;
 use App\Paciente;
 use App\PlanTratamiento;
+use App\Tratamiento;
+use App\Producto;
 
 class OdontologosTableSeeder extends Seeder
 {
@@ -17,62 +19,14 @@ class OdontologosTableSeeder extends Seeder
      */
     public function run()
     {
-      
-
-    
-        
-        /*  */
-
-    
-         //Paciente::truncate(); 
-        $paciente=new Paciente;
-        $paciente->nombres="Luis David";
-        $paciente->apellidos="Ferrera Martinez";
-        $paciente->identidad="0703199901527";
-        $paciente->sexo="Masculino";
-        $paciente->fechaNacimiento="19990108";
-        $paciente->departamento="El Paraiso";
-        $paciente->ciudad="Danli";
-        $paciente->direccion="Bella vista";
-        $paciente->telefonoFijo="27638852";
-        $paciente->telefonoCelular="95612356";
-        $paciente->profesion="Maestro";
-        $paciente->empresa="Escuela Miriam Gallardo";
-        $paciente->observaciones="Alergias al mani";
-        $paciente->save();
-
-        
-
-        
-        $paciente=new Paciente;
-        $paciente->nombres="Laura Leonela";
-        $paciente->apellidos="Ferrera Martinez";
-        $paciente->identidad="0703199911528";
-        $paciente->sexo="Femenino";
-        $paciente->fechaNacimiento="19990108";
-        $paciente->departamento="El Paraiso";
-        $paciente->ciudad="Danli";
-        $paciente->direccion="Bella vista";
-        $paciente->telefonoFijo="27638852";
-        $paciente->telefonoCelular="95612356";
-        $paciente->profesion="Maestro";
-        $paciente->empresa="Escuela Miriam Gallardo";
-        $paciente->observaciones="Alergias al mani";
-        $paciente->save();
-
-        
-        // Especialidad::truncate();
         $especialidad = new Especialidad();
-        $especialidad->Especialidad="Endodoncia";
-        
+        $especialidad->Especialidad="Endodoncia";   
         $especialidad->save();
 
         $especialidad = new Especialidad();
         $especialidad->Especialidad="Ortodoncia";
-      
         $especialidad->save();
 
-        //Odontologo::truncate();
         $odontologo=new Odontologo;
         $odontologo->nombres="Juan Jose";
         $odontologo->apellidos="Perez Pereira";
@@ -102,44 +56,74 @@ class OdontologosTableSeeder extends Seeder
         $odontologo->save();
 
 
-    
-     
+        $cita=new Cita();
+        $cita->odontologo_id=1;
+        $cita->duracionCita="15 minutos";
+        $cita->paciente_id=1;
+        $cita->stard='2020-11-20  5:30:00';
+        $cita->comentarios="Paciente con alergia al pescado";
+        $cita->save();
         
-    //Cita::truncate();
-    $cita=new Cita();
-    // $cita->especialidad_id=1;
-    $cita->odontologo_id=1;
-    $cita->duracionCita="15 minutos";
-    $cita->paciente_id=1;
-    $cita->stard='2020-10-21  5:30:00';
-    $cita->comentarios="Paciente con alergia al pescado";
-    $cita->save();
-    
-    $cita=new Cita();
-    // $cita->especialidad_id=1;
-    $cita->odontologo_id=1;
-    $cita->duracionCita="15 minutos";
-    $cita->paciente_id=2;
-    $cita->stard='2020-10-21  5:30:00';
-    $cita->comentarios="Paciente con alergia al camaron";
-    $cita->save();
-    
-           //PlanTratamiento::truncate();
-           $plantratamiento=new PlanTratamiento;
-           $plantratamiento->nombreTratamiento="Blanqueamiento dental";
-           $plantratamiento->estado="activo";
-           $plantratamiento->paciente_id=1;
-           /* $plantratamiento->odontologo_id=1; */
-           $plantratamiento->cita_id=1;
-           $plantratamiento->save();
-           
-           $plantratamiento=new PlanTratamiento;
-           $plantratamiento->nombreTratamiento="Brakes";
-           $plantratamiento->estado="activo";
-           $plantratamiento->paciente_id=2;
-      /*      $plantratamiento->odontologo_id=1; */
-           $plantratamiento->cita_id=2;
-           $plantratamiento->save();
+        $cita=new Cita();
+        $cita->odontologo_id=1;
+        $cita->duracionCita="15 minutos";
+        $cita->paciente_id=2;
+        $cita->stard='2020-11-20  5:30:00';
+        $cita->comentarios="Paciente con alergia al camaron";
+        $cita->save();
+
+
+        $tratamientos=new Tratamiento;
+        $tratamientos->categoria="Extraccion Dental";
+        $tratamientos->tipo="Accion Clinica";
+        $tratamientos->save();
+
+        $tratamientos=new Tratamiento;
+        $tratamientos->categoria="Cambio de Placa";
+        $tratamientos->tipo="Accion Clinica";
+        $tratamientos->save();
+
+        $productos=new Producto;
+        $productos->nombre="Placa";
+        $productos->permitedescuento="Si";
+        $productos->monto=200.00;
+        $productos->tratamiento_id=1;
+        $productos->save();
+        
+        $productos=new Producto;
+        $productos->nombre="Guantes";
+        $productos->permitedescuento="Si";
+        $productos->monto=50.00;
+        $productos->tratamiento_id=1;
+        $productos->save();
+
+        $productos=new Producto;
+        $productos->nombre="Anestecia";
+        $productos->permitedescuento="No";
+        $productos->monto=100.00;
+        $productos->tratamiento_id=2;
+        $productos->save();
+        
+        $productos=new Producto;
+        $productos->nombre="Alcohol";
+        $productos->permitedescuento="No";
+        $productos->monto=50.00;
+        $productos->tratamiento_id=2;
+        $productos->save();
+
+        $plantratamiento=new PlanTratamiento;
+        $plantratamiento->tratamiento_id=1;
+        $plantratamiento->estado="activo";
+        $plantratamiento->paciente_id=1;
+        $plantratamiento->cita_id=1;
+        $plantratamiento->save();
+        
+        $plantratamiento=new PlanTratamiento;
+        $plantratamiento->tratamiento_id=1;
+        $plantratamiento->estado="activo";
+        $plantratamiento->paciente_id=2;
+        $plantratamiento->cita_id=2;
+        $plantratamiento->save();
 
 
         

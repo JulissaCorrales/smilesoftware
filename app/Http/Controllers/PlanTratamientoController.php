@@ -7,6 +7,7 @@ use App\Plantratamiento;
 use App\Paciente;
 use App\Tratamiento;
 use App\Producto;
+use DB;
 
 class PlanTratamientoController extends Controller
 {
@@ -64,7 +65,8 @@ public function guardar(Request $request,$id){
     public function factura($id,$idplantratamiento){
         $pacientes = Paciente::findOrFail($id);
         $plantratamientos=Plantratamiento::findOrFail($idplantratamiento);
-        $totalpagar =Producto::groupby('tratamiento_id')->sum('monto');
+        $totalpagar= $plantratamientos->tratamiento->productos->sum('monto'); 
+
         return view('facturaPlantratamiento',compact('pacientes','plantratamientos','totalpagar'));
     }
 

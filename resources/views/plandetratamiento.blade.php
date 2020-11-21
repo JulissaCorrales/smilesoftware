@@ -26,8 +26,9 @@
     #padre{
     width:auto;
     font:1em Tahoma;
-    margin: 5rem;
+    margin: 2rem;
     padding: 2rem;
+    margin-top: 5rem;
     border: 2px solid #ccc;
     background-color: #F5EEF8;
     
@@ -35,7 +36,8 @@
     table {
     margin:-15px;
     width:auto;
-     height:20px;"
+     height:20px;
+
     }
     table, th, td {
     border: 3px solid #85929E;
@@ -57,6 +59,9 @@
     color: black;
     text-align:center;
     }
+    h4{
+        font-family:arial;
+    }
     </style>
  
     <title>Plan de Tratamiento</title>
@@ -72,7 +77,7 @@
 
 <div class="container" id="padre">
         <div id="divtitulo" class="card-body d-flex justify-content-between align-items-center">
-        <h2>Planes de Tratamiento</h2>
+        <h4>Planes de Tratamiento del Paciente:<br> {{$pacientes->nombres}} {{$pacientes->apellidos}}</h4>
     
         
         <a id="btnuevot" onclick="location.href='/pantallainicio/vista/paciente/{{ $pacientes->id}}/tratamientonuevo'"> 
@@ -91,7 +96,7 @@
                               <th>Plan de Tratamiento</th>
                               <th>Dentista</th>
                               <th>Estado</th>
-                              <th>Paciente</th>
+                              <!-- <th>Paciente</th> -->
                               <th>Fecha y Hora de Cita</th>
                               <th colspan="2">Acción</th>
                               
@@ -100,23 +105,26 @@
             </thead>
             <tbody>               
             <tr>
+            <!-- N° -->
                 <td>
                     @forelse ($pacientes->planestratamientos as $tag) 
-                    <p>{{ $tag->id}}</p>
+                  <p>{{ $tag->id}}</p>
                     <hr>
                     @empty
                     vacio
                     @endforelse
                 </td>
+                <!-- Plan de tratamiento -->
                 <td>
                     @forelse($pacientes->planestratamientos as $plantratamiento)
-                            <p>{{ $plantratamiento->tratamiento->categoria}}</p>
-                            <hr> 
-                    <hr>
+                            <p>{{ $plantratamiento->tratamiento->categoria}}</p><hr>
+                     
                     @empty
                     No tiene plan de tratamiento
                     @endforelse
+                    
                 </td>
+                <!-- Dentista -->
                 <td>
                     @forelse($pacientes->planestratamientos as $tag)
                     <p>
@@ -131,6 +139,7 @@
                     No tiene plan de tratamiento
                     @endforelse
                 </td>
+                <!-- Estado -->
                 <td>
                 @forelse ($pacientes->planestratamientos as $tag) 
                 <p> {{ $tag->estado}}</p> <hr>
@@ -138,8 +147,8 @@
                     No tiene estado
                     @endforelse
                 </td>
-                <td>{{$pacientes->nombres}} {{$pacientes->apellidos}}</td>
-               
+                <!-- <td>{{$pacientes->nombres}} {{$pacientes->apellidos}}</td> -->
+               <!-- Fecha y Hora de Cita -->
                 <td>
                 @forelse ($pacientes->planestratamientos as $tag) 
                 <span class="badge">{{ $tag->cita->stard}} </span> <hr>
@@ -147,6 +156,7 @@
                     No tiene 
                     @endforelse
                 </td>
+                <!-- Acciones -->
 <!-- Para boton borrar -->
                 <td>
                 @forelse ($pacientes->planestratamientos as $tag) 
@@ -158,6 +168,7 @@
                     <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
                 </svg>
                  </button>
+                 <hr>
                  <!-- Modal -->
                 <div class="modal fade" id="modal-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -169,7 +180,7 @@
                             </button>
                             </div>
                             <div class="modal-body">
-                            ¿Desea realmente eliminar el plan de tratamiento {{$tag->nombreTratamiento }} ?
+                            ¿Desea realmente eliminar el plan de tratamiento {{ $tag->tratamiento->categoria}} ?
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -182,14 +193,16 @@
                         </div>
                     </div>
                 </div>
-                 <hr>
                 @empty
                 No tiene 
                 @endforelse
                 </td>
                 <td>
                 @forelse ($pacientes->planestratamientos as $tag) 
-                <button onclick="location.href='{{route('factura.ver',['id'=>$pacientes->id,'idplantratamiento'=>$tag->id])}}'" style="background-color:purple;" class="btn btn-secondary">Factura</button>
+                <button onclick="location.href='{{route('factura.ver',['id'=>$pacientes->id,'idplantratamiento'=>$tag->id])}}'" style="background-color:purple;" class="btn btn-secondary">
+
+                
+                Factura</button>
                 <hr>
                 @empty
                 No tiene 

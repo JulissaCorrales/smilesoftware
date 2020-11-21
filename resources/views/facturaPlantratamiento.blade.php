@@ -10,56 +10,114 @@
     #padre{
         margin:4em;
         width:auto;
+        border:solid 1px #A2D9CE;
+        padding:2em;
+        font-family: arial; 
+        
     }
-    
+    #titulo{
+        float:right;
+    }
+    #fecha,#identidad{
+        float:right;
+    }
+    #total{
+        text-align:right;
+        color:red;  
+    }
+    #tptitulo{
+        text-align:center;    
+    }
+    h6,th{
+        background-color:#AED6F1 ;
+    }
+    #titempresa{
+        
+        color: #0099cc;
+        text-shadow: 2px 0 #ffcc66, 0 2px #ffcc66, 2px 0 #ffcc66, 0 2px #ffcc66;
+        font-family: serif;
+    }  
+    #divtabla{ background-color:#FEF9E7 ;}
     </style>
 </head>
 @section('cuerpo')
 <body>
     <div id="padre" class="container">
-        <table class="table">
+            <h2 id="titulo"><svg width="2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-card-checklist" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+            <path fill-rule="evenodd" d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+            </svg>  Factura</h2><br>
+            <h2 id="titempresa">Smile Software
+            @forelse($logotipos  as $tag)
+            <img style="margin-left:10px; " class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3"  width="80px" high="100px" >
+            @empty
+            <img class="logo" style="margin-left:10px; " src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" width="80px"> 
+            @endforelse
+            
+            </h2>
+          
+            <h6>FACTURAR A:</h6>
+            <p><strong>Nombre:</strong>  {{$pacientes->nombres}} {{$pacientes->apellidos}}</p>
+
+            <p><strong>Dirección:</strong>  {{$pacientes->direccion}}</p>
+            <p><strong>Telefonos:</strong>  {{$pacientes->telefonoCelular}} | {{$pacientes->telefonoFijo}}</p>
+            <?php use Carbon\Carbon;?>
+            <p id="fecha"><strong>Fecha:</strong>  <?php echo Carbon::now();?></p><br><br>
+            <p id="identidad"><strong>Identificación del Cliente:</strong>  {{$pacientes->identidad}}</p> <br><br>
+
+            <div id="divtabla">
+            <table class="table">
             <thead>
+                <th>N°</th>
                 <th>Tratamiento</th>
                 <th>Productos</th>
                 <th>Precio</th>
-                <th>Total a Pagar</th>
+                <th id="tptitulo">Total a Pagar</th>
             </thead>
             <tbody>
-
+                <td>1</td>
                 <td>{{$plantratamientos->tratamiento->categoria}}</td>
-                <td>
-                @forelse($plantratamientos->tratamiento->productos as $tag)
-                <p> {{$tag->nombre}}</p>
-               
-                @empty
-                Todavia no tiene productos registrados,Vaya a la seccion de tratamientos y asignele uno
-                @endforelse
-                </td>
-                <td>
-                @forelse($plantratamientos->tratamiento->productos as $tag)
-                <p> {{$tag->monto}}</p>
-               
-                @empty
-                Todavia no tiene productos registrados,Vaya a la seccion de tratamientos y asignele uno
-                @endforelse
-                </td>
-                <!-- total a pagar -->
-                <td>
-                @forelse($plantratamientos->tratamiento->productos as $tag)
-                <!-- {{$totalpagar}} -->falta
-               
-                @empty
-                Todavia no tiene productos registrados,Vaya a la seccion de tratamientos y asignele uno
-                @endforelse
-                </td>
          
+                <td>
+                @forelse($plantratamientos->tratamiento->productos as $tag)
+                <ul><li> <p> {{$tag->nombre}}</p></li></ul>
+               
+                @empty
+               <p>Todavia no tiene productos registrados,Vaya a la seccion de tratamientos y asignele uno</p> 
+                @endforelse
+                </td>
+                <td>
+                @forelse($plantratamientos->tratamiento->productos as $tag)
+                <ul><li><p>L. {{$tag->monto}}</p></li></ul>
+                
+               
+                @empty
+                <p>  Todavia no tiene productos registrados,Vaya a la seccion de tratamientos y asignele uno</p>
+              
+                @endforelse
+                </td>
+                <td></td> 
+                
             </tbody>
             <tfoot>
+              <!-- total a pagar -->
+              <td id="total" colspan="5">
+               Lps. {{$totalpagar}}
+                </td>
             </tfoot>
         
         
         </table>
-    </div>
+            
+            </div>  <!-- fin divtabla --> 
+        <button onclick="location.href='{{route('tratamiento.ver',['id'=>$pacientes->id])}}'"
+        style="background-color:#45B39D" class="btn btn-secondary">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-90deg-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z"/>
+                </svg>
+            Atrás
+        </button>
+    </div> <!-- fin div padre -->
   
 
 
