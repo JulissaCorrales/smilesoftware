@@ -100,13 +100,13 @@
         
 
         
-                      <div class="form-group">
+<div class="form-group">
                           <label for="nombres">Nombre:</label>
                           <input type="text" class="form-control-file" name="nombres" id="nombres" placeholder="ingresar nombre de la especialidad">
                       </div>
 
                      
-
+                      
                   <div class="modal-footer">
                   <button type="button" onclick="location.href='/pantallainicio/especialidad'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
                   <input type="reset" class="btn btn-danger">

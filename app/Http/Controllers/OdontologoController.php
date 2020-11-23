@@ -25,7 +25,8 @@ class OdontologoController extends Controller
     
 
      public function GuardarNuevo(Request $request){
-        
+       
+
 
         $nuevo = new Odontologo();
 
@@ -41,9 +42,14 @@ class OdontologoController extends Controller
         $nuevo->direccion = $request -> input('direccion');
         $nuevo->especialidad_id = $request->input('especialidad');
         $nuevo->intervalos = $request->input('intervalo');
-        
-        
 
+        $file = $request->file('file');
+        //obtenemos el nombre del archivo
+        $image =  time()." ".$file->getClientOriginalName();
+        //indicamos que queremos guardar un nuevo archivo en el disco local
+        $file->move(\public_path().'/Imagenes/',$image);
+        $nuevo->imagen= $image;
+    
        $creado = $nuevo->save();
 
          if ($creado){
@@ -64,6 +70,7 @@ class OdontologoController extends Controller
 
     public function updateodontologo(Request $_request,$id){
         
+        
         $odontologos = Odontologo::findOrFail($id);
 
         $odontologos->nombres = $_request->input('nombres');
@@ -75,8 +82,15 @@ class OdontologoController extends Controller
         $odontologos->departamento = $_request->input('departamento');
         $odontologos->ciudad = $_request->input('ciudad');
         $odontologos->direccion = $_request -> input('direccion');
-        $odontologos->especialidad = $_request->input('especialidad');
+        $odontologos->especialidad_id= $_request->input('especialidad');
         $odontologos->intervalos = $_request->input('intervalo');
+        
+        $file = $_request->file('file');
+        //obtenemos el nombre del archivo
+        $image =  time()." ".$file->getClientOriginalName();
+        //indicamos que queremos guardar un nuevo archivo en el disco local
+        $file->move(\public_path().'/Imagenes/',$image);
+        $odontologos->imagen= $image;
 
         $create = $odontologos->save();
 

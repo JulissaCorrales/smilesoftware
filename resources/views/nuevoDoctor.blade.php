@@ -6,8 +6,8 @@
       #div1{background-color:#00cccc;}
       #botonContinuar{
         position: absolute;
-    top:900px;
-    left:130px;
+    top: 950px;
+    left:100px;
     width: 100px;
   height: 40px;
 
@@ -17,8 +17,8 @@
           #bu1{
 
             position: absolute;
-    top:900px;
-    left:270px;
+    top:950px;
+    left:220px;
     width: 200px;
   height: 40px;
 
@@ -50,7 +50,7 @@
 
     <!-- Esta parte del codigo es para poder ir a traer informacion de la base de datos -->
     <div class="content" id="n">
-<form method="post" action="/odontologo/nuevo">
+<form method="post" action="/odontologo/nuevo" file="true" enctype="multipart/form-data">
 <?php
         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
         $mysqli->set_charset("utf8");
@@ -165,6 +165,15 @@
         <option value="50m">50 minutos</option>
         </select>
 
+<br>
+        <div class="form-group">
+                    <input type="file" class="form-control-file" name="file" id="direccion" placeholder="Seleccione una Imagen">
+                  </div>
+
+
+        </div>
+        
+        
 </div>
  <br>
  <br>
@@ -172,7 +181,7 @@
 <div>
         <br>
         <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
-          Continuar
+         Guardar
         </button>
     
         <br>
@@ -190,7 +199,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">Especialidad Nueva</h4>      
+              <h4 class="modal-title" id="myModalLabel">Agregar Especialidad Nueva</h4>      
             </div>
               <!--Barra de desplazamiento-->
               <div style="width: 450px; height: 550px; overflow-y: scroll;">
@@ -203,54 +212,22 @@
         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
         $mysqli->set_charset("utf8");
       ?>
-       <label for="state_id" class="control-label">Odontologo:</label>
-        <select name="odontologo_id" class="form-control">
-        <option disabled selected>Seleccione un odontologo</option>
-        <?php
-        $getDoctor =$mysqli->query("select * from odontologos order by id");
-        while($f=$getDoctor->fetch_object()) {
-          echo $f->id;
-          echo $f->nombres;
-          echo $f->apellidos;
-          echo $f->especialidad_id;
+       <div class="form-group">
+                          <label for="nombres">Nombre:</label>
+                          <input type="text" class="form-control-file" name="nombres" id="nombres" placeholder="ingresar nombre de la especialidad">
+                      </div>
 
-          ?>
-         
-          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos ?></option>
-          <?php
-        } 
-        ?>
-        </select>
-                    
-          
-
-                      <label for="state_id" class="control-label">Especialidad:</label>
-        <select name="odontologo_id" class="form-control">
-        <option disabled selected>Seleccione una Especialidad</option>
-        <?php
-        $getDoctor =$mysqli->query("select * from especialidads order by id");
-        while($f=$getDoctor->fetch_object()) {
-          echo $f->id;
-          
-          echo $f->Especialidad;
-
-          ?>
-         
-          <option value="<?php echo $f->id; ?>"><?php echo $f->Especialidad ?></option>
-          <?php
-        } 
-        ?>
-        </select>
-                    
+                     
                       
                   <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" >Guardar Especialidad</button>
+                  <button type="button" onclick="location.href='/pantallainicio/especialidad'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+                  <input type="reset" class="btn btn-danger">
+                <button type="submit" class="btn btn-primary" >Guardar </button>
               </div>
                   </form>
-                  </div>
-                  </div>
-              
+                    
+                      
+                 
       </div>
       
  

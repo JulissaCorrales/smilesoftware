@@ -26,7 +26,7 @@
 <div id="padre"> 
 <h3 id="titulo">Edición de Datos Personales Odontologo</h3>
   
-                    <form method="post"  action=" ">
+                    <form method="post"  action=" "  file="true" enctype="multipart/form-data">
                       @csrf
                       @method('put')
                       <div class="form-group">

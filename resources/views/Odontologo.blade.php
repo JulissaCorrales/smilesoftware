@@ -68,7 +68,7 @@
 
 #bot{
         position: absolute;
-    top:1070px;
+    top:1200px;
     left:30px;
     width: 450px;
   height: 40px;
@@ -337,7 +337,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   <tbody>
   <tr>
       @forelse($odontologos as $odontologo)
-     <td id="td1"><img src="{{ asset('Imagenes/foto1.jpg') }}" class="btn btn-light" width="100px" id="datos"></td>
+     <td id="td1"><img src='/Imagenes/{{$odontologo->imagen}}' width=" 50px" height="50px"id="datos"></td>
      <td id="td2">Nombre: {{ $odontologo->nombres }}  {{$odontologo->apellidos}} <br>Telefono Celular:  {{$odontologo->telefonoCelular}} 
      <br>Correo Electronico: {{$odontologo->email}} 
      <br>Especialidad:  {{$odontologo->especialidad->Especialidad}}</td>
@@ -379,7 +379,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
     <!-- Esta parte del codigo es para poder ir a traer informacion de la base de datos -->
     <div class="content" id="n">
    <!-- <form method="post"  action="{{route('odontologo.editar',['id'=> $odontologo-> id])}}"> -->
-    <form method="post"  action="{{route('odontologo.update',['id'=> $odontologo-> id])}} ">
+    <form method="post"  action="{{route('odontologo.update',['id'=> $odontologo-> id])}} "file="true" enctype="multipart/form-data">
     <?php
         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
         $mysqli->set_charset("utf8");
@@ -454,7 +454,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                    <div class="form-group">
                     <label for="especialidad" class="col-sm-2 col-form-label col-form-label-lg">Especialidad:</label>
                   <div >
-                    <input type="text" class="form-control form-control-sm" name="especialidad" id="especialidad" placeholder="ingresar la especialidad del Odontologo"  value="{{ $odontologo->especialidad }}">
+                    <input type="text" class="form-control form-control-sm" name="especialidad" id="especialidad" placeholder="ingresar la especialidad del Odontologo"  value="{{ $odontologo->especialidad_id }}">
                   </div>
                   </div> 
 
@@ -481,6 +481,18 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                     <input type="text" class="form-control form-control-sm" name="intervalo" id="intervalo" placeholder="ingresar profesion del paciente"  value="{{ $odontologo->intervalos }}">
                   </div>
                   </div>
+
+                  <div class="form-group">
+                    <label for="intervalo" class="col-sm-2 col-form-label col-form-label-lg">Imagen:</label>
+                  <div >
+                    <input type="text" class="form-control form-control-sm" name="imagen" id="intervalo" placeholder="ingresar profesion del paciente"  value="{{ $odontologo->imagen }}">
+                  </div>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="file" class="form-control-file" name="file" id="direccion" value="{{$odontologo->imagen}}">
+                  </div>
+
                
                   
 </div>
