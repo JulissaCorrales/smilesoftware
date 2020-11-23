@@ -5,16 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuevo Documento</title>
+    <style>
+    #todo{
+      margin:4em;
+        width:auto;
+        border:solid 1px #A2D9CE;
+        padding:2em;
+        font-family: arial; 
+    }
+    h2{
+      text-align:center;
+    }
+    </style>
 </head>
 @section('cuerpo')
 <body>
-<div id="todo">
+<div id="todo" class="container">
 @if(session('mensaje'))
         <div class="alert alert-success">
             {{session('mensaje')}}
         </div>
     @endif
-<h2>Creación un nuevo documento del paciente</h2>
+<h2>Creación de un Nuevo Documento del Paciente:</h2>
 
                     <?php
                     $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
@@ -55,7 +67,7 @@
               
 
               <div class="modal-footer">
-              <button type="button" onclick="location.href='/pantallainicio/vista'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+              <button type="button" onclick="location.href='{{route('documentos.ver',['id'=>$pacientes->id])}}'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
               <input type="reset" class="btn btn-danger">
             <button type="submit" class="btn btn-primary" >Guardar Archivo</button>
           </div>

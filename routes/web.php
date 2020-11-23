@@ -130,7 +130,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
 
 
              //rutas para documentos clinicos 
-              Route::get('{id}/documentosClinicos','DocumentosClinicosController@ver');
+              Route::get('{id}/documentosClinicos','DocumentosClinicosController@ver')->name('documentos.ver');
               Route::get('{id}/nuevodocumento','DocumentosClinicosController@nuevo')-> where('id' ,'[0-9]+');
               Route::post('{id}/nuevodocumento','DocumentosClinicosController@guardar')-> where('id' ,'[0-9]+');
               Route::get('{id}/evoluciones','EvolucionesController@EvolucionesPaciente')->where('id','[0-9]+')->name('paciente.evoluciones');
@@ -236,7 +236,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
 
         
 //**************Rutas de  tratamientos******************/
-Route::get('tratamiento','TratamientoController@vistaprincipal');
+Route::get('tratamiento','TratamientoController@vistaprincipal')->name('tratamiento.vista');
 Route::get('tratamientonuevo','TratamientoController@nuevo');
 Route::post('tratamientoNuevo','TratamientoController@guardar');
 Route::delete('tratamiento/{id}/borrar','TratamientoController@destroy') ->name('tratamiento.borrar')->where('id','[0-9]+');
