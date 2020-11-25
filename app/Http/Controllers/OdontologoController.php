@@ -26,19 +26,7 @@ class OdontologoController extends Controller
     
 
      public function GuardarNuevo(Request $request){
-        $request->validate(['nombres'=>'required',
-        'apellidos'=>'required|alpha',
         
-        'identidad'=>'required|unique:odontologos,identidad',
-        'departamento'=>'required',
-        'ciudad'=>'required',
-        'telefonoCelular'=>'required|numeric',
-        
-        'direccion'=>'required|',
-
-        
-
-        ]);
        
 
 
@@ -66,6 +54,21 @@ class OdontologoController extends Controller
             $nuevo->imagen= $image;
         
         }
+        
+        $request->validate(['nombres'=>'required',
+        'apellidos'=>'required|alpha',
+        
+        'identidad'=>'required|unique:odontologos,identidad',
+        'departamento'=>'required',
+        'ciudad'=>'required',
+        'telefonoCelular'=>'required|numeric',
+        
+        'direccion'=>'required|',
+
+        
+
+        ]);
+        
 
         
     
