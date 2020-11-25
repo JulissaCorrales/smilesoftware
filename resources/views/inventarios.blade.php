@@ -103,20 +103,20 @@ text-align: center;
 
       
 
-<!-- Button trigger modal -->
+<!-- Button trigger modal 
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
   Ingresar Inv por modal
-</button>
+</button>-->
 <button type="button" class="btn btn-success" onclick="window.location.href='/inventarionuevo'">
   Ingresar Inventario
 </button>
 
-<!-- Modal -->
+<!-- Modal 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ingreso de nuevo Inventario</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Ingreso de nuevo Inventarioo</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -148,13 +148,13 @@ text-align: center;
       </div>
       </form>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrarr</button>
+        <button type="button" class="btn btn-primary">Guardarr</button>
       </div>
     </div>
   </div>
 </div>
-
+-->
  <div class="list-group">
 
 
