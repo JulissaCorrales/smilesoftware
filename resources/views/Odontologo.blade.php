@@ -17,6 +17,8 @@
   text-align: left;
   font-family: "Times New Roman";
   border-bottom: 5px solid #00cccc;
+  height: 80px;
+  
   
   
 } 
@@ -24,22 +26,41 @@
 #td1{
   border-left: 5px solid #00cccc;
  /* border: 1px solid #00cccc; */
+ width: 100px;
+ height: 40px;
 }
 
 #td2{
-  border-left: 5px solid #00cccc;
+ /* border-left: 5px solid #00cccc;*/
  /* border: 1px solid #00cccc; */
+ width: 400px;
+ 
+
+}
+
+#td4{
+  
+  width: 100px;
+  
 
 }
 
 #td3{
-  border-left: 5px solid #00cccc;
+  border-left: 5px solid #00cccc; 
+  width: 100px;
+  
 
 }
 
 #td5{
-  border-right: 5px solid #00cccc;
  
+ width: 100px;
+
+}
+
+#td6{
+ border-right: 5px solid #00cccc; 
+ width: 100px;
 }
 
 
@@ -87,10 +108,12 @@
  #datatable{
   /*border: 1px solid #FF4500;*/
   width: 1000px;
-  height: 60px;
+  height: 90px;
   border-collapse: collapse;
   position: absolute;
     left:50px;
+    background-color: #e6ffff;
+    top: 100px;
   
   
  }
@@ -107,6 +130,7 @@
 
  #can{
   background-color: #e6ffff;
+  height: 80px;
  
 
  }
@@ -116,13 +140,13 @@
  }
 
  #nae{
-  width: 1300px;
-  height: 900px;
+  width: 1005px;
+  height: 100px;
     border-radius: 12px;
     background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff); 
     position: absolute;
-    top:220px;
-    left:40px;
+    top:260px;
+    left: 190px;
   
     
     
@@ -157,6 +181,8 @@
 
 }
 
+
+
 #dire{
   
   text-shadow: -1px 0 #ccfff5, 0 1px #ccfff5, 1px 0 #009999, 0 -1px #009999;
@@ -189,8 +215,8 @@
   width: 170px;
   height: 45px;
   font-size:17px;
-            top: 10px;
-            left:1020px;
+            top: 50px;
+            left:800px;
             font-family: "Times New Roman";
   text-align: center;
   border: 1px solid #FF4500;
@@ -215,8 +241,8 @@
   height: 45px;
   font-size:17px;
   
-            top: 10px;
-            left:830px;
+            top: 50px;
+            left:620px;
             font-family: "Times New Roman";
   text-align: center;
   border: 1px solid #FF4500;
@@ -224,6 +250,29 @@
   
 
   }
+
+  #butoneliminar{
+    width: 100px;
+  height: 55px;
+    
+  }
+
+  #verespecialidad{
+   
+  width: 120px;
+  height: 55px;
+  font-size:17px;
+  
+            
+            font-family: "Times New Roman";
+  text-align: center;
+  background-color: #84e184;
+  color:#00001a;
+  
+
+  }
+
+
 
   #odon{
     font-family: "Times New Roman";
@@ -277,7 +326,11 @@
   margin-right: auto;
   border-radius: 70%;
   position: relative;
-  bottom: -10px;}
+  top: 5px;
+  left: 20px;
+  border: 4px solid  #00ccff;
+  }
+
 
   #datos6{
     margin-left: auto;
@@ -291,7 +344,7 @@
             #imagen4{
               position: absolute;
             
-            left: 50px;
+            left: 60px;
            
             }
             
@@ -301,8 +354,9 @@
   text-align: center;
   font-size: 20px;
   position: absolute;
-            top: 650px;
-            left: 900px;
+            top: 550px;
+            left: 915px;
+            width: 50px;
   }
 
 
@@ -358,10 +412,11 @@
 
 
   <a id ="but3" type="button" class="btn btn-outline-info"  href="/pantallainicio/especialidad">
-  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-week" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-  <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
-</svg>  Especialidades </a>
+  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-heading" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+  <path fill-rule="evenodd" d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+  <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z"/>
+</svg> Especialidades </a>
 
 
 
@@ -393,10 +448,10 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   </thead> 
   <tbody>
   
-  <tr>
+  <tr id="can">
   @forelse($odontologos as $odontologo)
      
-     <td id="td1"><img src='/Imagenes/{{$odontologo->imagen}}' width=" 50px" height="50px"id="datos"></td>
+     <td id="td1"><img src='/Imagenes/{{$odontologo->imagen}}' width="70px" height="70px"id="datos"></td>
      <td id="td2">Nombre: {{ $odontologo->nombres }}  {{$odontologo->apellidos}} <br>Telefono Celular:  {{$odontologo->telefonoCelular}} 
      <br>Correo Electronico: {{$odontologo->email}} 
      <br>Especialidad:  {{$odontologo->especialidad->Especialidad}}</td>
@@ -410,11 +465,11 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   </button></td>
 
   <td id="td4">
-    <buttton type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$odontologo->id}}" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$odontologo->id}}" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
 </svg>
     Editar Datos
-  </buttton></td>
+  </button></td>
 
   <div class="modal fade" id="modal-{{$odontologo->id}}" >
   
@@ -581,7 +636,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
      <td id="td5">
     
-     <buttton type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalll-{{$odontologo->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+     <buttton  id="butoneliminar" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalll-{{$odontologo->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
 </svg>
       Eliminar
@@ -619,10 +674,12 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
       </div>
   </div>
 
-  <td id="td5">
+  <td id="td6">
     
-    <a class="dropdown-item"  href="{{route('odontologo.especialidad',['id'=>$odontologo->id])}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
- <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+    <a id="verespecialidad" class="btn btn-danger" type="button"  href="{{route('odontologo.especialidad',['id'=>$odontologo->id])}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-heading" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+  <path fill-rule="evenodd" d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+  <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z"/>
 </svg>
      Ver Especialidad
  </a>

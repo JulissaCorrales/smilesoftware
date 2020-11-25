@@ -3,10 +3,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
-      #div1{background-color:#00cccc;}
+      #divv9{
+
+        
+        
+    background-image: linear-gradient(to top, #33d6ff ,#e6ffff );
+    height: 100px;
+  }
+
+  #myModalLabel{
+    text-shadow: -1px 0 #ccfff5, 0 1px #ccfff5, 1px 0 #009999, 0 -1px #009999;
+  font-family: "Times New Roman";
+            font-size: 30px;
+            border-bottom: 5px solid #00cccc;
+  }
+
+
       #botonContinuar{
         position: absolute;
-    top: 1110px;
+    top: 990px;
     left:100px;
     width: 100px;
   height: 40px;
@@ -17,7 +32,7 @@
           #bu1{
 
             position: absolute;
-    top:1110px;
+    top:990px;
     left:220px;
     width: 200px;
   height: 40px;
@@ -34,12 +49,12 @@
   
 	<div class="modal-dialog" role="document">
 		<div class="modal-content" >
-			<div id="div1"class="modal-header">
+			<div id="divv9"class="modal-header">
 	
 				<h4  class="modal-title" id="myModalLabel">
-        <svg width="2em" height="2em" color="#fff" viewBox="0 0 16 16" class="bi bi-file-ruled" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v4h10V2a1 1 0 0 0-1-1H4zm9 6H6v2h7V7zm0 3H6v2h7v-2zm0 3H6v2h6a1 1 0 0 0 1-1v-1zm-8 2v-2H3v1a1 1 0 0 0 1 1h1zm-2-3h2v-2H3v2zm0-3h2V7H3v2z"/>
-      </svg>
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+</svg>
         Crear Odontologo</h4>
         	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
@@ -49,7 +64,7 @@
 
 
     <!-- Esta parte del codigo es para poder ir a traer informacion de la base de datos -->
-    <div class="content" id="n">
+    <div class="content" id="nuevodoctor">
 <form method="post" action="/odontologo/nuevo" file="true" enctype="multipart/form-data">
 <?php
         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
