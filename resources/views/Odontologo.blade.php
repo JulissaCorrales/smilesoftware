@@ -631,7 +631,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
      </tr> 
      @empty
-     <h1 id="odon">No hay Odontologo Existentes</h1>
+     <h1 id="odon">No hay Odontologo Registrados</h1>
      @endforelse
      </tbody>
 </table>

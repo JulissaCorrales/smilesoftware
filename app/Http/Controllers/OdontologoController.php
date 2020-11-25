@@ -37,7 +37,6 @@ class OdontologoController extends Controller
         'direccion'=>'required|',
 
         
-        
 
         ]);
        
