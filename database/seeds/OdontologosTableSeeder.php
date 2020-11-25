@@ -27,6 +27,7 @@ class OdontologosTableSeeder extends Seeder
         $especialidad->Especialidad="Ortodoncia";
         $especialidad->save();
 
+        /*
         $odontologo=new Odontologo;
         $odontologo->nombres="Juan Jose";
         $odontologo->apellidos="Perez Pereira";
@@ -53,9 +54,9 @@ class OdontologosTableSeeder extends Seeder
         $odontologo->direccion="Col Nueva Esperanza";
         $odontologo->especialidad_id="2";
         $odontologo->intervalos="30 min";
-        $odontologo->save();
+        $odontologo->save(); */
 
-
+/*
         $cita=new Cita();
         $cita->odontologo_id=1;
         $cita->duracionCita="15 minutos";
@@ -70,10 +71,10 @@ class OdontologosTableSeeder extends Seeder
         $cita->paciente_id=2;
         $cita->stard='2020-11-20  5:30:00';
         $cita->comentarios="Paciente con alergia al camaron";
-        $cita->save();
+        $cita->save(); */
 
 
-        $tratamientos=new Tratamiento;
+       /* $tratamientos=new Tratamiento;
         $tratamientos->categoria="Extraccion Dental";
         $tratamientos->tipo="Accion Clinica";
         $tratamientos->save();
@@ -125,7 +126,7 @@ class OdontologosTableSeeder extends Seeder
         $plantratamiento->cita_id=2;
         $plantratamiento->save();
 
-
+*/
         
     
     }

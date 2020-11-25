@@ -133,6 +133,8 @@ Route::prefix('pantallainicio/calendario')->group( function(){
               Route::get('{id}/documentosClinicos','DocumentosClinicosController@ver')->name('documentos.ver');
               Route::get('{id}/nuevodocumento','DocumentosClinicosController@nuevo')-> where('id' ,'[0-9]+');
               Route::post('{id}/nuevodocumento','DocumentosClinicosController@guardar')-> where('id' ,'[0-9]+');
+
+              
               Route::get('{id}/evoluciones','EvolucionesController@EvolucionesPaciente')->where('id','[0-9]+')->name('paciente.evoluciones');
 
               Route::get('{id}/evolucion/nueva','EvolucionesController@nuevaevolucion')->name('evolucion.nueva') -> where('id' ,'[0-9]+');

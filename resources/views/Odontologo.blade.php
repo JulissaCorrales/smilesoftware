@@ -68,7 +68,7 @@
 
 #bot{
         position: absolute;
-    top:1200px;
+    top:1125px;
     left:30px;
     width: 450px;
   height: 40px;
@@ -238,7 +238,8 @@
 
 
   #div2{
-    background-color: #84e1e1;
+    background-image: linear-gradient(to top, #33d6ff ,#e6ffff );
+    height: 150px;
   }
 
   #modal{
@@ -246,7 +247,30 @@
   font-family: "Times New Roman";
             font-size: 30px;
             border-bottom: 5px solid #00cccc;
+          
+
+
   }
+
+  #bodymodal{
+    
+  font-family: "Times New Roman";
+            font-size: 25px;
+            border-bottom: 5px solid #00cccc;
+            background-color: #e6ffff;
+
+  }
+
+  #n{
+    width: 450px;
+    font-family: "Times New Roman";
+    font-size: 20px;
+
+    
+  }
+
+
+
 
   #datos{
     margin-left: auto;
@@ -254,6 +278,23 @@
   border-radius: 70%;
   position: relative;
   bottom: -10px;}
+
+  #datos6{
+    margin-left: auto;
+  margin-right: auto;
+  border-radius: 70%;
+  position: absolute;
+  border: 4px solid  #00ccff;
+            
+            left: 300px;}
+
+            #imagen4{
+              position: absolute;
+            
+            left: 50px;
+           
+            }
+            
 
   #hh2{
     font-family: "Times New Roman";
@@ -282,7 +323,23 @@
 
 </head>
 @section('contenido')
-<body id=>
+<body >
+@if($errors->any())
+<div class="alert alert-danger">
+
+<ul>
+
+ @foreach($errors->all() as $error)
+
+ <li>{{$error}}</li>
+
+ @endforeach
+</ul>
+
+</div>
+
+@endif
+
 @if(session('mensaje'))
         <div class="alert alert-success">
             {{session('mensaje')}}
@@ -335,8 +392,10 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   </tr>
   </thead> 
   <tbody>
+  
   <tr>
-      @forelse($odontologos as $odontologo)
+  @forelse($odontologos as $odontologo)
+     
      <td id="td1"><img src='/Imagenes/{{$odontologo->imagen}}' width=" 50px" height="50px"id="datos"></td>
      <td id="td2">Nombre: {{ $odontologo->nombres }}  {{$odontologo->apellidos}} <br>Telefono Celular:  {{$odontologo->telefonoCelular}} 
      <br>Correo Electronico: {{$odontologo->email}} 
@@ -369,23 +428,29 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
 </svg>
         Editar Odontologo</h4>
+        <div id="imagen4">
+                      <img src='/Imagenes/{{$odontologo->imagen}}' width=" 100px" height="100px"id="datos6">
+                      </div>
+
         	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
+
 			</div>
-			<div class="modal-body">
+			<div class="modal-body" id="bodymodal">
 
 
     <!-- Esta parte del codigo es para poder ir a traer informacion de la base de datos -->
     <div class="content" id="n">
    <!-- <form method="post"  action="{{route('odontologo.editar',['id'=> $odontologo-> id])}}"> -->
-    <form method="post"  action="{{route('odontologo.update',['id'=> $odontologo-> id])}} "file="true" enctype="multipart/form-data">
+    <form method="post"  action="{{route('odontologo.update',['id'=> $odontologo-> id])}} "file="true" enctype="multipart/form-data" id="form1">
     <?php
         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
         $mysqli->set_charset("utf8");
       ?>
                       @csrf
                       @method('put')
+                      
                     <div class="form-group">
                         <label for="nombres" class="col-sm-2 col-form-label col-form-label-lg" >Nombres:</label>
                         <div >
@@ -482,12 +547,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                   </div>
                   </div>
 
-                  <div class="form-group">
-                    <label for="intervalo" class="col-sm-2 col-form-label col-form-label-lg">Imagen:</label>
-                  <div >
-                    <input type="text" class="form-control form-control-sm" name="imagen" id="intervalo" placeholder="ingresar profesion del paciente"  value="{{ $odontologo->imagen }}">
-                  </div>
-                  </div>
+                 
 
                   <div class="form-group">
                     <input type="file" class="form-control-file" name="file" id="direccion" value="{{$odontologo->imagen}}">
@@ -521,7 +581,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
      <td id="td5">
     
-     <buttton type="button" class="btn btn-danger" data-toggle="modal" data-target="#modall"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+     <buttton type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalll-{{$odontologo->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
 </svg>
       Eliminar
@@ -532,7 +592,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   
   </div>
 
-  <div class="modal fade" id="modall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modalll-{{$odontologo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
           <div class="modal-content">
               <div class="modal-header">
@@ -569,23 +629,6 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
  </td>
 
- 
- 
-   
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
      </tr> 
      @empty
      <h1 id="odon">No hay Odontologo Existentes</h1>
@@ -594,7 +637,6 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 </table>
 
 <h3 id="hh2">{{ $odontologos->links() }}</h1>
-
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -606,19 +648,12 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
 </body>
 
-<script type="text/javascript">
-$(document).ready( function () {
-    $('#datatable').DataTable( {
-    language: {
-        search: "Busqueda por nombre o identidad:"
-    }
-});
-} );
-</script>
+
 
 <!-- escript de datatable con el id de la tabla este muy importante en este caso la tabla es id="datatable"-->
 </div>
 </div><!-- fin del DIV contenedor de la buscador!!!  -->
+
 
 
 </html>

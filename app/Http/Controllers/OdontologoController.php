@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Odontologo;
 use App\EspecialidadOdontologos;
+use DispatchesJobs, ValidatesRequests;
 
 class OdontologoController extends Controller
 {
@@ -25,6 +26,20 @@ class OdontologoController extends Controller
     
 
      public function GuardarNuevo(Request $request){
+        $request->validate(['nombres'=>'required',
+        'apellidos'=>'required|alpha',
+        
+        'identidad'=>'required|unique:odontologos,identidad',
+        'departamento'=>'required',
+        'ciudad'=>'required',
+        'telefonoCelular'=>'required|numeric',
+        
+        'direccion'=>'required|',
+
+        
+        
+
+        ]);
        
 
 
@@ -43,12 +58,17 @@ class OdontologoController extends Controller
         $nuevo->especialidad_id = $request->input('especialidad');
         $nuevo->intervalos = $request->input('intervalo');
 
-        $file = $request->file('file');
-        //obtenemos el nombre del archivo
-        $image =  time()." ".$file->getClientOriginalName();
-        //indicamos que queremos guardar un nuevo archivo en el disco local
-        $file->move(\public_path().'/Imagenes/',$image);
-        $nuevo->imagen= $image;
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            //obtenemos el nombre del archivo
+            $image =  time()." ".$file->getClientOriginalName();
+            //indicamos que queremos guardar un nuevo archivo en el disco local
+            $file->move(\public_path().'/Imagenes/',$image);
+            $nuevo->imagen= $image;
+        
+        }
+
+        
     
        $creado = $nuevo->save();
 
@@ -85,18 +105,21 @@ class OdontologoController extends Controller
         $odontologos->especialidad_id= $_request->input('especialidad');
         $odontologos->intervalos = $_request->input('intervalo');
         
-        $file = $_request->file('file');
-        //obtenemos el nombre del archivo
-        $image =  time()." ".$file->getClientOriginalName();
-        //indicamos que queremos guardar un nuevo archivo en el disco local
-        $file->move(\public_path().'/Imagenes/',$image);
-        $odontologos->imagen= $image;
+        if ($_request->hasFile('file')) {
+            $file = $_request->file('file');
+            //obtenemos el nombre del archivo
+            $image =  time()." ".$file->getClientOriginalName();
+            //indicamos que queremos guardar un nuevo archivo en el disco local
+            $file->move(\public_path().'/Imagenes/',$image);
+            $odontologos->imagen= $image;
+        
+        }
 
         $create = $odontologos->save();
 
         
         if($create){
-            return redirect()->back()->with('mensaje','El Odontologo ha sido modifcado exitosamente');
+            return redirect('/pantallainicio/odontologo')->with('mensaje','El Odontologo ha sido modifcado exitosamente');
         }else{
           
           
@@ -105,19 +128,18 @@ class OdontologoController extends Controller
         
 
         //validar
-        $_request->validate([     'nombres'=>'required',
-        'apellidos'=>'required',
-        'identidad'=>'required|unique:pacientes,identidad',
-        'sexo'=>'required',
-        'fechaNacimiento'=>'required',
-        'departamento'=>'required',
+        $_request->validate(['nombres'=>'required|alpha',
+        'apellidos'=>'required|alpha',
+        
+        'identidad'=>'required|unique:odontologos,identidad',
+        'departamento'=>'required|alpha',
         'ciudad'=>'required',
-        'direccion'=>'required',
-        'telefonoFijo'=>'required',
-        'telefonoCelular'=>'required',
-        'profesion'=>'required',
-        'empresa'=>'required',
-        'observaciones'=>'required'
+        'telefonoCelular'=>'required|numeric',
+        
+        'direccion'=>'required|',
+
+        
+        
 
         ]);
 
@@ -127,7 +149,7 @@ class OdontologoController extends Controller
     }
     public function destroy($id){
         Odontologo::destroy($id);
-        return redirect()->back()->with('mensaje','Odontologo borrado satisfactoriamente');
+        return redirect('/pantallainicio/odontologo')->with('mensaje','Odontologo borrado satisfactoriamente');
 
 
        

@@ -103,6 +103,13 @@
                   </div>
                   </div>
 
+                  <div class="form-group">
+                    <label for="profesion" class="col-sm-2 col-form-label col-form-label-lg">Intervalo:</label>
+                  <div >
+                    <input type="text" class="form-control form-control-sm" name="intervalo" id="intervalo" placeholder="ingresar profesion del paciente"  value="{{ $odontologos->intervalo}}">
+                  </div>
+                  </div>
+
                 
                   <div class="modal-footer">
                 <button type="button" onclick="location.href='/pantallainicio/vista'" class="btn btn-secondary" data-dismiss="modal">Atrás</button>

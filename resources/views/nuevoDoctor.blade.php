@@ -6,7 +6,7 @@
       #div1{background-color:#00cccc;}
       #botonContinuar{
         position: absolute;
-    top: 950px;
+    top: 1110px;
     left:100px;
     width: 100px;
   height: 40px;
@@ -17,7 +17,7 @@
           #bu1{
 
             position: absolute;
-    top:950px;
+    top:1110px;
     left:220px;
     width: 200px;
   height: 40px;
