@@ -255,6 +255,7 @@
     <a class="dropdown-item" href="{{route('usuarios.indice')}}">Usuarios</a>
     <a class="dropdown-item" href="/pantallainicio/usuariosAdministrativos">Usuario administrativo</a>
     <a class="dropdown-item" href="{{route('clinico.indice')}}">Clinico</a>
+    <a class="dropdown-item" href="{{route('roles.ver')}}">Roles</a>
 </div>
 <!--Autenticación  -->
 <ul class="navbar-nav ml-auto">

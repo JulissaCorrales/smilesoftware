@@ -16,12 +16,20 @@ class RolesTableSeeder extends Seeder
             'Administrador',
             'Secretario',
             );
+
+        
+
     
             foreach($roles as $rol){
                 DB::table('rols')->insert([
                     'nombreRol'=>$rol,
+                    'slug'=>$rol,
                 ]);
     
             }
+
+            
+    
+            
     }
 }

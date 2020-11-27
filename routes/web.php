@@ -218,6 +218,13 @@ Route::prefix('pantallainicio/calendario')->group( function(){
        
 
 
+        //ruta para los roles
+        Route::get('roles/ver','RolController@Roles') ->name('roles.ver');
+          Route::get('{id}/verrol','RolController@verRoles')->name('rol.verroles') -> where('id' ,'[0-9]+');
+          Route::get('rol/nuevo','RolController@nuevoRol')->name('nuevo.rol');
+          Route::post('rol/nuevo','RolController@guardarRol')->name('rol.guardar');
+
+
 
    
    
