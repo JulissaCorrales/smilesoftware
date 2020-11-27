@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use\Iluminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -12,6 +13,12 @@ class UsuarioController extends Controller
     public function ver(){
         $usuarios =User::All();
         return view('usuarios.VistaUsuarios')->with ('usuarios',$usuarios);
+    }
+
+
+    public function verUsuario($id){
+        $usuarios =User::findOrFail($id);
+        return view('usuarios.Verusuario')->with ('usuarios',$usuarios);
     }
 
     public function nuevo(){
@@ -70,9 +77,12 @@ class UsuarioController extends Controller
         $usuarios->name = $request->input('name');
         $usuarios->usuario = $request->input('usuario');
         $usuarios->email = $request->input('email');
-        $usuarios->password = $request->input('password');
+       // $usuarios->password = $request->input('password');
         $usuarios->esDentista = $request->input('esDentista');
         $usuarios->rol_id = $request->input('rol_id');
+        //if($request->password != null){
+          //  $usuarios->password= Hash::make($request->password);
+        //}
 
         $creado = $usuarios->update();
         if($creado){

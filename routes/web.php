@@ -196,6 +196,8 @@ Route::prefix('pantallainicio/calendario')->group( function(){
           Route::get('usuarios/nuevo','UsuarioController@nuevo');
           Route::post('usuarios/guardar','UsuarioController@guardar')
           ->name('usuario.guardar');
+
+          Route::get('{id}/verusuario','UsuarioController@verusuario')->name('usuario.verusuario') -> where('id' ,'[0-9]+');
           Route::get('usuarios/{id}/editar','UsuarioController@editar') ->name('usuario.editar') -> where('id' ,'[0-9]+');
           Route::put('usuarios/{id}/editar','UsuarioController@actualizar') ->name('usuario.actualizar') -> where('id' ,'[0-9]+');
           Route::delete('usuarios/{id}/borrar','UsuarioController@borrar') ->name('usuario.borrar')->where('id','[0-9]+');
