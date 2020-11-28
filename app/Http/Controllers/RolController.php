@@ -37,16 +37,19 @@ class RolController extends Controller
 
           $listOfPermissions = explode(',',  $request->roles_permisos); //crear matriz a partir de permisos separados/coma
         
-        /*foreach ($listOfPermissions as  $permiso) {
-             $permisos= new permiso();
-             $permisos->nombre -  $ permiso;
-             $permisos->slug á strtolower(str_replace(" , "-",  $permiso));
-             $permisos->guardar();
-             $rol->permisos()->adjuntar($permisos->id);
-             $rol->guardar();
-        }    */ 
+         
+        foreach ($listOfPermissions as  $permiso) {
+             $permisos= new Permiso();
+             $permisos->Permiso= $permiso;
+             $permisos->slug= strtolower(str_replace(" ", "-",  $permiso));
+             $permisos->save();
+             $nuevo->permisos()->attach($permisos->id);
+             $nuevo->save();
+        }    
 
-       
+        
+
+    
       
       
          if ($creado){
@@ -63,7 +66,7 @@ class RolController extends Controller
     }
     public function update(Request $request,$id){
         $request->validate([
-            'rol'                     =>  'required',
+            'name'                     =>  'required',
             'slug'           =>  'required',
         ]);
     
