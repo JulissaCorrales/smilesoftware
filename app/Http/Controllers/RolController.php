@@ -59,19 +59,19 @@ class RolController extends Controller
         } 
     }
     public function editarRol($id){
-        $roles = Rol::findOrFail($id);
+        $roles = Role::findOrFail($id);
         return view('usuarios.editarRol')->with('roles',$roles);
 
     }
     public function update(Request $request,$id){
         $request->validate([
-            'rol'                     =>  'required',
+            'name'                     =>  'required',
             'slug'           =>  'required',
         ]);
     
-        $roles=Rol::findOrFail($id);
+        $roles=Role::findOrFail($id);
         //formulario
-        $roles->nombreRol= $request->input('rol');
+        $roles->Nombre= $request->input('name');
         $roles->slug= $request->input('slug');
     
         $actualizado = $roles->save();
@@ -82,7 +82,7 @@ class RolController extends Controller
     
     }
     public function borrar($id){
-        Rol::destroy($id);
+        Role::destroy($id);
         return redirect()->back()->with('mensaje','Rol borrado satisfactoriamente');
 
 
