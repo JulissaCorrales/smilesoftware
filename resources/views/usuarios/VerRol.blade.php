@@ -6,8 +6,8 @@
 <div class="card">
 <div class="card-header">
 
-<h3>Name: {{$rols->nombreRol}}</h1>
-<h3>Slug:{{$rols->slug}}</h1>
+<h3>Name: {{$roles->Nombre}}</h1>
+<h3>Slug:{{$roles->slug}}</h1>
 
 
 </div>

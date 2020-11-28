@@ -15,7 +15,7 @@ class CreatePermisosTable extends Migration
     {
         Schema::create('permisos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombreRol');
+            $table->string('Permiso');
             $table->string('slug');
             $table->timestamps();
         });

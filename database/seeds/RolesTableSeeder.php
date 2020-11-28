@@ -21,8 +21,8 @@ class RolesTableSeeder extends Seeder
 
     
             foreach($roles as $rol){
-                DB::table('rols')->insert([
-                    'nombreRol'=>$rol,
+                DB::table('roles')->insert([
+                    'Nombre'=>$rol,
                     'slug'=>$rol,
                 ]);
     

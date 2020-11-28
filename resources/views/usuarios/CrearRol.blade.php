@@ -40,23 +40,23 @@
         </div>
     @endif
 
-    <form method="post" action=" ">
+    <form method="post" action="/rol/nuevo ">
 
     @csrf
    
     <div class="form-group">
         <label for="name">Nombre del Rol</label>
-        <input type="text" class="form-control-file" name="rol" id="name" placeholder="Ingrese el nombre del Rol">
+        <input type="text" class="form-control-file" name="name" id="name" placeholder="Ingrese el nombre del Rol">
     </div>
 
     <div class="form-group">
         <label for="usuario">Slug</label>
-        <input type="text" class="form-control-file" name="slug" id="slug" placeholder="Ingrese el slug">
+        <input type="text" class="form-control-file" name="slug" id="slug" placeholder="Ingrese el slug" tag="slug">
     </div>
 
     <div class="form-group">
         <label for="permisos">Permisos</label>
-        <input type="text" value="" data-role="tagsinput" >
+        <input type="text" value="" data-role="tagsinput" name="roles_permisos" >
     </div>
 
     
@@ -90,6 +90,20 @@
 
 @section('js_role')
 <script src="/js/bootstrap-tagsinput.js"></script>
+
+
+<script>
+
+$(document).ready(function(){
+    $('#name').keyup(function(e){
+        var str= $('#name').val();
+        str= str.replace(/\W+(?!$)/g,'-').toLowerCase();
+        $('#slug').val(str);
+        $('#slug').attr('placeholder',str);
+
+    });
+});
+</script>
 @endsection
 
 
