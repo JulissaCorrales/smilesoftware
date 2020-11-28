@@ -15,11 +15,11 @@ class CreatePermisoUserTable extends Migration
     {
         Schema::create('permiso_user', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('User_id');
-            $table->unsignedBigInteger('Permiso_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('permiso_id');
 
-            $table->foreign('User_id')->references('id')->on('users')->onDelete('cascade')->update('cascade');
-            $table->foreign('Permiso_id')->references('id')->on('permisos')->onDelete('cascade')->update('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->update('cascade');
+            $table->foreign('permiso_id')->references('id')->on('permisos')->onDelete('cascade')->update('cascade');
            // $table->primary(['User_id','Permiso_id']);
             $table->timestamps();
         });
