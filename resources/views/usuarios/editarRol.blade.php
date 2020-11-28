@@ -43,7 +43,7 @@
    
     <div class="form-group">
         <label for="rol">Nombre del Rol</label>
-        <input type="text" class="form-control-file" value="{{$roles->nombreRol}}" name="rol" id="name" >
+        <input type="text" class="form-control-file" value="{{$roles->Nombre}}" name="rol" id="name" >
     </div>
 
     <div class="form-group">

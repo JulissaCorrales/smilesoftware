@@ -11,13 +11,6 @@
 }
 </style>
 
-<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="/tagsinput/css/bootstrap-tagsinput.css" rel="stylesheet" type="text/css">
-<script src="/tagsinput/js/bootstrap-tagsinput.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-css/1.4.6/select2-bootstrap.min.css" rel="stylesheet" />
 
 
 </head>
@@ -82,7 +75,7 @@
     
     </div><!-- fin div padre -->
 
-@section('css_role')
+<!--@section('css_role')
 
 <link rel="stylesheet" href="/css/bootstrap-tagsinput.css">
 
@@ -91,7 +84,7 @@
 @section('js_role')
 <script src="/js/bootstrap-tagsinput.js"></script>
 
-
+-->
 <script>
 
 $(document).ready(function(){

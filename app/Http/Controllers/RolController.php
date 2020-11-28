@@ -35,21 +35,19 @@ class RolController extends Controller
        
           $creado = $nuevo->save();
 
-       
-      // $listOfPermissions= explode(',',$request->roles_permisos); //create el array de permisos
+          $listOfPermissions = explode(',',  $request->roles_permisos); //crear matriz a partir de permisos separados/coma
+        
+        /*foreach ($listOfPermissions as  $permiso) {
+             $permisos= new permiso();
+             $permisos->nombre -  $ permiso;
+             $permisos->slug á strtolower(str_replace(" , "-",  $permiso));
+             $permisos->guardar();
+             $rol->permisos()->adjuntar($permisos->id);
+             $rol->guardar();
+        }    */ 
 
+       
       
-
-       //foreach($listOfPermissions as $permiso){
-          
-       // $permiso = new Permiso();
-       // $permiso->Permiso= $permiso;
-       // $permiso->slug= strtolower(str_replace(", ","-", $permiso['slug']));
-       // $nuevo->permisos()->attach($permiso->id);
-       // $creado= $nuevo->save();
-       // $permiso->save();
-       
-      // }
       
          if ($creado){
             // return redirect('pantallainicio/usuarios/ver')->with('mensaje', 'El usuario fué creado exitosamente!');
@@ -59,7 +57,7 @@ class RolController extends Controller
         } 
     }
     public function editarRol($id){
-        $roles = Rol::findOrFail($id);
+        $roles = Role::findOrFail($id);
         return view('usuarios.editarRol')->with('roles',$roles);
 
     }
@@ -69,9 +67,9 @@ class RolController extends Controller
             'slug'           =>  'required',
         ]);
     
-        $roles=Rol::findOrFail($id);
+        $roles=Role::findOrFail($id);
         //formulario
-        $roles->nombreRol= $request->input('rol');
+        $roles->Nombre= $request->input('rol');
         $roles->slug= $request->input('slug');
     
         $actualizado = $roles->save();
@@ -82,7 +80,7 @@ class RolController extends Controller
     
     }
     public function borrar($id){
-        Rol::destroy($id);
+        Role::destroy($id);
         return redirect()->back()->with('mensaje','Rol borrado satisfactoriamente');
 
 
