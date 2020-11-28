@@ -223,7 +223,9 @@ Route::prefix('pantallainicio/calendario')->group( function(){
           Route::get('{id}/verrol','RolController@verRoles')->name('rol.verroles') -> where('id' ,'[0-9]+');
           Route::get('rol/nuevo','RolController@nuevoRol')->name('nuevo.rol');
           Route::post('rol/nuevo','RolController@guardarRol')->name('rol.guardar');
-
+          Route::get('{id}/rol/editar','RolController@editarRol') ->name('rol.editar') -> where('id' ,'[0-9]+');
+          Route::put('{id}/rol/editar','RolController@update')->name('rol.update') -> where('id' ,'[0-9]+');
+          Route::delete('{id}/rol/borrar','RolController@borrar') ->name('rol.borrar')->where('id','[0-9]+');
 
 
    

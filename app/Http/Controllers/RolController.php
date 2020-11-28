@@ -58,6 +58,37 @@ class RolController extends Controller
             //retornar con un msj de error
         } 
     }
+    public function editarRol($id){
+        $roles = Rol::findOrFail($id);
+        return view('usuarios.editarRol')->with('roles',$roles);
+
+    }
+    public function update(Request $request,$id){
+        $request->validate([
+            'rol'                     =>  'required',
+            'slug'           =>  'required',
+        ]);
+    
+        $roles=Rol::findOrFail($id);
+        //formulario
+        $roles->nombreRol= $request->input('rol');
+        $roles->slug= $request->input('slug');
+    
+        $actualizado = $roles->save();
+        if ($actualizado){
+            return redirect()->back()->with('mensaje','¡¡El Rol Fué Modificado Exitosamente!!');
+        }else{ 
+        }
+    
+    }
+    public function borrar($id){
+        Rol::destroy($id);
+        return redirect()->back()->with('mensaje','Rol borrado satisfactoriamente');
+
+
+       
+    }
+
     
 
 
