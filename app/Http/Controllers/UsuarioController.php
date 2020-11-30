@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 use\Iluminate\Support\Facades\Hash;
 
@@ -22,6 +23,8 @@ class UsuarioController extends Controller
     }
 
     public function nuevo(){
+        $roles=Role::all();
+        dd($role);
         return view('usuarios.nuevoUsuario');
      }
 

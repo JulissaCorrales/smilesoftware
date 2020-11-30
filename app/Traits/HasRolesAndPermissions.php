@@ -3,7 +3,7 @@
 namespace App\Traits;
 
 use App\Role;
-use App\Permission;
+use App\Permiso;
 trait HasRolesAndPermissions
 {
 
@@ -23,15 +23,15 @@ trait HasRolesAndPermissions
      */
     public function roles()
     {
-        return $this->belongsToMany(Role::class,'users_roles');
+        return $this->belongsToMany(Role::class,'role_user');
     }
 
     /**
      * @return mixed
      */
-    public function permissions()
+    public function permisos()
     {
-        return $this->belongsToMany(Permission::class,'users_permissions');
+        return $this->belongsToMany(Permiso::class,'permiso_user');
     }
 
     /**
@@ -42,7 +42,8 @@ trait HasRolesAndPermissions
      */
     public function hasRole($role)
     {        
-        if( strpos($role, ',') !== false ){
+        if( strpos($role, ',') !== false ){//check if this is an list of roles
+
             $listOfRoles = explode(',',$role);
 
             foreach ($listOfRoles as $role) {                    
