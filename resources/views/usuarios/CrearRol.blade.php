@@ -43,7 +43,7 @@
     </div>
 
     <div class="form-group">
-        <label for="usuario">Slug</label>
+        <label for="slug">Slug</label>
         <input type="text" class="form-control-file" name="slug" id="slug" placeholder="Ingrese el slug" tag="slug">
     </div>
 
@@ -90,12 +90,16 @@
 $(document).ready(function(){
     $('#name').keyup(function(e){
         var str= $('#name').val();
-        str= str.replace(/\W+(?!$)/g,'-').toLowerCase();
+        str.replace(/\W+(?!$)/g,'-').toLowerCase();
         $('#slug').val(str);
         $('#slug').attr('placeholder',str);
 
     });
 });
+
+
+
+
 </script>
 @endsection
 

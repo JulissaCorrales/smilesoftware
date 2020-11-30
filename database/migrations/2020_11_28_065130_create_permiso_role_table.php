@@ -14,14 +14,13 @@ class CreatePermisoRoleTable extends Migration
     public function up()
     {
         Schema::create('permiso_role', function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger('role_id');
             $table->unsignedBigInteger('permiso_id');
 
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade')->update('cascade');
             $table->foreign('permiso_id')->references('id')->on('permisos')->onDelete('cascade')->update('cascade');
-           // $table->primary(['Role_id','Permiso_id']);
-            $table->timestamps();
+            $table->primary(['role_id','permiso_id']);
+           
         });
     }
 

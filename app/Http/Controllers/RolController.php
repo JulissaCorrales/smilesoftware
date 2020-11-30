@@ -84,6 +84,7 @@ class RolController extends Controller
     }
     public function borrar($id){
         Role::destroy($id);
+        
         return redirect()->back()->with('mensaje','Rol borrado satisfactoriamente');
 
 

@@ -66,9 +66,21 @@
         @forelse ($rols as $tag) 
      
         <td><a  class="btn btn-outline-info"  href="{{route('rol.editar',$tag->id)}}"  id="lista">{{ $tag->id}}</a></td>
-        <td>{{ $tag->nombreRol}} </td>
+        <td>{{ $tag->Nombre}} </td>
         <td>{{ $tag->slug}} </td>
-        <td>permisoss</td>
+        <td>
+          @if($tag->permisos !=null)
+                                    
+                                @foreach ($tag->permisos as $permission )
+                                <span class"insignia-secundaria" >
+                                    {{ $permission->Permiso }}                                    
+                                </envergadura>
+                                @endforeach
+                            @endif
+                          
+                                
+                               
+        </td>
         <td>
 
         <a type="button" class="btn btn-primary" href="{{route('rol.verroles',$tag->id)}}" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -86,6 +98,8 @@
 </svg>
       Eliminar
   </button>
+
+ <!-- <a href="#"  type="button" data-toggle="modal" data-target="#deleteModal" data-roleid="{{$tag['id']}}"></a>-->
 
   </td>
 
