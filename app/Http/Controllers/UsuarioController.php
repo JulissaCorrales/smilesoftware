@@ -22,10 +22,16 @@ class UsuarioController extends Controller
         return view('usuarios.Verusuario')->with ('usuarios',$usuarios);
     }
 
-    public function nuevo(){
+    public function nuevo(Request $request){
+        if($request->ajax()){
+            $roles = Role::where('id', $request->role_id)->first();
+            $permisos = $roles->permisos;
+
+            return $permisos;
+        }
         $roles=Role::all();
         
-        return view('usuarios.nuevoUsuario')->with ('roles',$roles);;
+        return view('usuarios.NuevoUsuario')->with ('roles',$roles);;
      }
 
      public function guardar(Request $request){
