@@ -27,14 +27,31 @@
    
  } 
  #crear{
-   margin:2em;
+   margin:1em;
+   float:right;
+   margin-right:18em;
+   
  }
 
 
 </style>
 <body>
-
+<div><p>  @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif</p></div><br><br>
 <div class="container">
+
 <div>
 <a id="crear" type="button" class="btn btn-warning" href="/rol/nuevo" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -43,10 +60,12 @@
 </svg>
       Crear Rol
   </a>
+
 </div>
 
 <!--  -->
 
+<div>
 <table id="datatable1" >
 <thead class="table table-striped table-bordered">
   <tr id="can">
@@ -55,7 +74,7 @@
       <th id="thh2"  > Roles</th>
       <th id="thh2"  >Slug</th>
       <th id="thh2"  > Permisos</th>
-      <th id="thh2" colspan="2" > Tools</th>
+      <th id="thh2" colspan="3" > Tools</th>
 
   </tr>
   </thead>
@@ -72,9 +91,9 @@
           @if($tag->permisos !=null)
                                     
                                 @foreach ($tag->permisos as $permission )
-                                <span class"insignia-secundaria" >
+                                <span class="badge badge-secondary" >
                                     {{ $permission->Permiso }}                                    
-                                </envergadura>
+                                </span>
                                 @endforeach
                             @endif
                           
@@ -91,12 +110,16 @@
               Ver
           </a>
         </td>
+        <!-- editar -->
+        <td><a  class="btn btn-outline-info"  href="{{route('rol.editar',$tag->id)}}"  id="lista"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+</svg></a></td>
         <!-- Eliminar -->
         <td>
      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$tag->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
 </svg>
-      Eliminar
+   
   </button>
 
  <!-- <a href="#"  type="button" data-toggle="modal" data-target="#deleteModal" data-roleid="{{$tag['id']}}"></a>-->
@@ -153,7 +176,7 @@
      
      </tbody>
 </table>
-
+  </div>
 
 
 </div>
