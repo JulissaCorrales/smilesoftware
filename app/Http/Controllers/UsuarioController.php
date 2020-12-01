@@ -25,14 +25,17 @@ class UsuarioController extends Controller
     public function nuevo(Request $request){
         if($request->ajax()){
             $roles = Role::where('id', $request->role_id)->first();
-            $permisos = $roles->permisos;
+            $permissions = $roles->permisos;
 
-            return $permisos;
+            return $permissions;
         }
+
         $roles=Role::all();
         
         return view('usuarios.NuevoUsuario')->with ('roles',$roles);;
      }
+
+
 
      public function guardar(Request $request){
         $request->validate([
@@ -56,6 +59,18 @@ class UsuarioController extends Controller
    
 
        $creado = $nuevo->save();
+
+       if($request->role != null){
+        $nuevo->roles()->attach($request->role);
+        $nuevo->save();
+    }
+
+    if($request->permissions != null){            
+        foreach ($request->permissions as $permission) {
+            $nuevo->permisos()->attach($permission);
+            $nuevo->save();
+        }
+    }
 
          if ($creado){
             // return redirect('pantallainicio/usuarios/ver')->with('mensaje', 'El usuario fué creado exitosamente!');

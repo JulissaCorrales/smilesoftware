@@ -195,18 +195,40 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
     <th >Nº</th>
     <th>Usuario</th>
     <th>Correo</th>
+    <th>Roles</th>
     <th>Permisos</th>
    
-    <th>eliminar</th>
+    <th>Tools</th>
   </tr>
   </thead>
   <tbody>
   <tr>
       @forelse($usuarios as $usuario)
      <td><a  class="btn btn-outline-info"  href="{{route('usuario.editar',$usuario->id)}}"  id="lista">{{$usuario->id}}</a></td>
-     <td>{{$usuario->usuario}}</td>
+     <td>{{$usuario->name}}</td>
      <td>{{$usuario->email}}</td>
-     <td>Permisos</td>
+     
+     <td> 
+                                    @if($usuario->roles->isNotEmpty())
+                                    @foreach ($usuario->roles as $role )
+                                    <span class="badge badge-secondary" >
+                                        {{ $role->Nombre }}                                    
+                                    </span>
+                                   
+                                    @endforeach
+                                    @endif
+                               </td>
+
+     <td> 
+     @if($usuario->permisos->isNotEmpty())
+                                    @foreach ($usuario->permisos as $permiso )
+                                    <span class="badge badge-secondary" >
+                                        {{ $permiso->Permiso }}                                    
+                                    </span>
+                                   
+                                    @endforeach
+                                    @endif</td>
+
 
      
      <td>

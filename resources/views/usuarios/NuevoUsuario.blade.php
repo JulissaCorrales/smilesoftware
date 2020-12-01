@@ -1,4 +1,4 @@
-@extends('Plantilla.Plantilla')
+@extends('Plantilla.PermisoPlantilla')
 @section('titulo','Nuevo Usuario')
 @section('contenido')
 <!DOCTYPE html>
@@ -15,13 +15,26 @@
     text-align:center;
 }
 
-#role{
+/*#role{
     position: absolute;
-    top: 550px;
+    top: 400px;
     width: 300px;
-    left:400px;
+    left:500px;
 
 }
+
+#role3{
+    position: absolute;
+    top: 900px;
+   
+    left:390px;
+
+}*/
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -105,40 +118,27 @@
                         </div>
                        
                         <div class="form-group row">
-                            <label for="rol_id" class="col-md-4 col-form-label text-md-right">{{ __('Rol') }}</label>
-
+                            <label for="roles" class="col-md-4 col-form-label text-md-right">{{ __('Rol') }}</label>
                             <div class="col-md-6">
-                                <select id="rol_id" name="rol_id" class="form-control" class="form-control @error('name') is-invalid @enderror" name="rol_id" value="{{ old('rol_id') }}" required autocomplete="rol_id" autofocus>
-                                <option disabled selected>Seleccione un Rol</option>
-                                @foreach ($roles as $role)
+                            <select class="role form-control" name="role" id="role">
+            <option value="">Select Role...</option>
+            @foreach ($roles as $role)
             <option data-role-id="{{$role->id}}" data-role-slug="{{$role->slug}}" value="{{$role->id}}">{{$role->Nombre}}</option>
             @endforeach
-                                
-                                </select>
-                    
-                               
+        </select>
                             </div>
                         </div>
 
 
-                    
-                       
-                        <div class="form-group row">
-                            <label for="rol_id" class="col-md-4 col-form-label text-md-right">{{ __('Permiso') }}</label>
 
-                            <div class="col-md-6">
-                                <select id="rol_id" name="rol_id" class="form-control" class="form-control @error('name') is-invalid @enderror" name="rol_id" value="{{ old('rol_id') }}" required autocomplete="rol_id" autofocus>
-                                <option disabled selected>Seleccione un Rol</option>
-                                @foreach ($roles as $role)
-            <option data-role-id="{{$role->id}}" data-role-slug="{{$role->slug}}" value="{{$role->id}}">{{$role->Nombre}}</option>
-            @endforeach
-                                
-                                </select>
-                    
-                               
-                            </div>
+                        <div class="form-group row" id="permissions_box">
+                            <label for="permiso" class="col-md-4 col-form-label text-md-right">{{ __('Seccione Permiso') }}</label>
+
+                            <div class="col-md-6" id="permissions_ckeckbox_list"> </div>
                         </div>
-                        <!--  -->
+
+                    
+      
                         <!-- esDentista -->
                         
                         <!--  -->
@@ -149,9 +149,9 @@
 
                    
                     <div class="form-group" align=center id="div6">
-                    <button style="background-color:purple"type="button" onclick="location.href='{{route('usuarios.indice')}}'" class="btn btn-secondary" data-dismiss="modal">Atrás</button>
-                    <input type="reset" class="btn btn-danger">
-                    <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
+                    <button style="background-color:purple"type="button" onclick="location.href='{{route('usuarios.indice')}}'" class="btn btn-secondary" data-dismiss="modal" id="atras">Atrás</button>
+                    <input type="reset" class="btn btn-danger" id="reset">
+                    <button id="registrar "type="submit"class="btn btn-primary" data-toggle="modal" >
                         Registrar
                     </button>
                     
@@ -166,6 +166,52 @@
     
     
     </div><!-- fin div padre -->
+    @section('js_user_page')
+
+    <script>
+        $(document).ready(function(){
+            var permissions_box = $('#permissions_box');
+            var permissions_ckeckbox_list = $('#permissions_ckeckbox_list');
+            permissions_box.hide(); // hide all boxes
+            $('#role').on('change', function() {
+                var role = $(this).find(':selected');    
+                var role_id = role.data('role-id');
+                var role_slug = role.data('role-slug');
+                permissions_ckeckbox_list.empty();
+              // console.log(role_slug);
+
+
+               $.ajax({
+                url: "/pantallainicio/usuarios/nuevo",
+                    method: 'get',
+                    dataType: 'json',
+                    data: {
+                        role_id: role_id,
+                        role_slug: role_slug,
+                    }
+                   
+               }).done(function(data){
+console.log(data);
+
+           permissions_box.show();
+           permissions_ckeckbox_list.empty();
+
+           $.each(data, function(index, element){
+                        $(permissions_ckeckbox_list).append(       
+                            '<div class="custom-control custom-checkbox">'+                         
+                                '<input class="custom-control-input" type="checkbox" name="permissions[]" id="'+ element.slug +'" value="'+ element.id +'">' +
+                                '<label class="custom-control-label" for="'+ element.slug +'">'+ element.Permiso +'</label>'+
+                            '</div>'
+                        );
+                    });
+               });
+               
+                
+            });
+        });
+    </script>
+
+@endsection
 </body>
 </html>
 @endsection
