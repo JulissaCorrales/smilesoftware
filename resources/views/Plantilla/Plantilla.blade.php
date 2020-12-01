@@ -21,8 +21,8 @@
 <link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="/tagsinput/css/bootstrap-tagsinput.css" rel="stylesheet" type="text/css">
-<script src="/tagsinput/js/bootstrap-tagsinput.min.js"></script>
+<link href="/css/bootstrap-tagsinput.css" rel="stylesheet" type="text/css">
+<script src="/js/bootstrap-tagsinput.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
@@ -32,6 +32,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 <script src="/js/bootstrap-tagsinput.js"></script>
 @yield('css_role')
+@yield('js_role')
 
 <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#563d7c">

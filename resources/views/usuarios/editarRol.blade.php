@@ -58,7 +58,7 @@
         <label for="roles_permisos">Permisos</label>
         <input type="text" data-role="tagsinput"  class="form-control" id="roles_permisos" name="roles_permisos" value="@foreach ($roles->permisos as $permiso)
             {{$permiso->Permiso. ','}}
-        @endforeach" placeholder="para ingresar varios separe por una coma y para borrar use la tecla de borrar"
+        @endforeach" 
         >   
     </div>
     
@@ -78,20 +78,20 @@
     
     </form>
 
-    @section('css_role_page')
-    <link rel="stylesheet" href="/css/admin/bootstrap-tagsinput.css">
+    @section('css_role')
+    <link rel="stylesheet" href="\css\bootstrap-tagsinput.css">
 @endsection
 
-@section('js_role_page')
-    <script src="/js/admin/bootstrap-tagsinput.js"></script>
+@section('js_role')
+    <script src="\js\bootstrap-tagsinput.js"></script>
 
     <script>
         $(document).ready(function(){
-            $('#role_name').keyup(function(e){
-                var str = $('#role_name').val();
+            $('#name').keyup(function(e){
+                var str = $('#name').val();
                 str = str.replace(/\W+(?!$)/g, '-').toLowerCase();//rplace stapces with dash
-                $('#role_slug').val(str);
-                $('#role_slug').attr('placeholder', str);
+                $('#slug').val(str);
+                $('#slug').attr('placeholder', str);
             });
         });
         

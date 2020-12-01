@@ -75,7 +75,7 @@
     
     </div><!-- fin div padre -->
 
-<!--@section('css_role')
+@section('css_role')
 
 <link rel="stylesheet" href="/css/bootstrap-tagsinput.css">
 
@@ -84,13 +84,13 @@
 @section('js_role')
 <script src="/js/bootstrap-tagsinput.js"></script>
 
--->
+
 <script>
 
 $(document).ready(function(){
     $('#name').keyup(function(e){
         var str= $('#name').val();
-        str.replace(/\W+(?!$)/g,'-').toLowerCase();
+        str = str.replace(/\W+(?!$)/g,'-').toLowerCase();
         $('#slug').val(str);
         $('#slug').attr('placeholder',str);
 
