@@ -287,7 +287,7 @@
                 <li class="nav-item dropdown">
                     <a style="margin-left:7px;background: #43A047;" id="navbarDropdown" class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                   
-                        {{ Auth::user()->usuario }} <span class="caret"></span>
+                        {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
