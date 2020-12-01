@@ -37,22 +37,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <!-- usuario -->
-                        <div class="form-group row">
-                            <label for="usuario" class="col-md-4 col-form-label text-md-right">{{ __('Usuario') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="usuario" type="text" class="form-control @error('usuario') is-invalid @enderror" name="usuario" value="{{ old('usuario') }}" required autocomplete="usuario">
-
-                                @error('usuario')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <!--  -->
+                       
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo Electronico') }}</label>
 
@@ -89,63 +74,10 @@
                             </div>
                         </div>
                 
-                        <!-- esDentista -->
-                        <div class="form-group row">
-                            <label for="esDentista" class="col-md-4 col-form-label text-md-right">{{ __('Es Dentista') }}</label>
-
-                            <div class="col-md-6">
-                                <!-- <input id="esDentista" type="text" class="form-control @error('esDentista') is-invalid @enderror" name="esDentista" value="{{ old('esDentista') }}" required autocomplete="esDentista"> -->
-                               
-                              
-                                <select class="form-control @error('esDentista') is-invalid @enderror" name="esDentista" value="{{ old('esDentista') }}" required autocomplete="esDentista" id="esDentista" class="form-control">
-                                <option disabled selected>Seleccione una opción</option>
-                                <option >si</option>
-                                <option >no</option>
-                            </select>
-
-
-                                @error('esDentista')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <!--  -->
-                        <!-- Roles -->
-                        <div class="form-group row">
-                            <label for="rol_id" class="col-md-4 col-form-label text-md-right">{{ __('Rol') }}</label>
-
-                            <div class="col-md-6">
-                                <select id="rol_id" name="rol_id" class="form-control" class="form-control @error('name') is-invalid @enderror" name="rol_id" value="{{ old('rol_id') }}" required autocomplete="rol_id" autofocus>
-                                <option disabled selected>Seleccione un Rol</option>
-                                <?php
-                                $getRol =$mysqli->query("select * from roles order by id");
-                                while($f=$getRol->fetch_object()) {
-                                echo $f->Nombre;
-                                echo $f->id;
-                                
-
-                                ?>
-                                
-                                <option value="<?php echo $f->id;?>"><?php echo $f->Nombre;?></option>
-                                <?php
-                                } 
-                                ?>
-                                
-                                </select>
-                    
-                                @error('rol_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <!--  -->
                        
+
+                        <!--  -->
+                        
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

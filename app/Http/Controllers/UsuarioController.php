@@ -24,18 +24,17 @@ class UsuarioController extends Controller
 
     public function nuevo(){
         $roles=Role::all();
-        dd($role);
-        return view('usuarios.nuevoUsuario');
+        
+        return view('usuarios.nuevoUsuario')->with ('roles',$roles);;
      }
 
      public function guardar(Request $request){
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'usuario' => ['required', 'string', 'max:255','unique:users'],
-            'esDentista' => ['required', 'string', 'max:255'],
+            
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'rol_id' => ['required'],
+            'password' => ['required', 'string', 'min:8', 'confirmed']
+          
            
         ]);
         
@@ -44,11 +43,10 @@ class UsuarioController extends Controller
 
         //formulario
         $nuevo->name = $request->input('name');
-        $nuevo->usuario = $request->input('usuario');
+        
         $nuevo->email = $request->input('email');
         $nuevo->password = bcrypt($request->password);
-       $nuevo->esDentista = $request->input('esDentista');
-       $nuevo->rol_id = $request->input('rol_id');
+      
    
 
        $creado = $nuevo->save();

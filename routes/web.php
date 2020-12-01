@@ -193,7 +193,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
           Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
           Route::get('usuarios/ver','UsuarioController@ver')
           ->name('usuarios.indice');
-          Route::get('usuarios/nuevo','UsuarioController@nuevo');
+          Route::get('usuarios/nuevo','UsuarioController@nuevo')->name('usuario.nuevo');
           Route::post('usuarios/guardar','UsuarioController@guardar')
           ->name('usuario.guardar');
 
