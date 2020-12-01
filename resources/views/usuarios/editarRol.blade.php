@@ -8,7 +8,8 @@
 #padre{
     width:auto;
     font:1em Tahoma;
-    margin: 5rem;
+    margin: center;
+    margin-top: 2em;
     padding: 2rem;
     border: 2px solid #ccc;
     background-color:#A3E4D7  ;
@@ -20,7 +21,10 @@
 <body>
     
     <div  class="container" id="padre">
-    <h3 id="titulo">Editar Rol</h3>
+    <h3 id="titulo"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+</svg>Editar Rol</h3>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -35,7 +39,7 @@
             {{session('mensaje')}}
         </div>
     @endif
-
+    <br><br>
     <form method="post" action=" ">
 
     @csrf
@@ -43,16 +47,19 @@
    
     <div class="form-group">
         <label for="rol">Nombre del Rol</label>
-        <input type="text" class="form-control-file" value="{{$roles->Nombre}}" name="rol" id="name" >
+        <input type="text" class="form-control" value="{{$roles->Nombre}}"  required name="rol" id="name" >
     </div>
 
     <div class="form-group">
         <label for="usuario">Slug</label>
-        <input type="text" class="form-control-file" name="slug" id="slug" placeholder="Ingrese el slug" value="{{$roles->slug}}">
+        <input type="text" class="form-control" name="slug" id="slug" placeholder="Ingrese el slug" value="{{$roles->slug}}" required>
     </div>
     <div class="form-group">
-        <label for="permisos">Permisos</label>
-        <input type="text" value="" placeholder="Ingrese los permisos separados por una coma" data-role="tagsinput" >
+        <label for="roles_permisos">Permisos</label>
+        <input type="text" data-role="tagsinput"  class="form-control" id="roles_permisos" name="roles_permisos" value="@foreach ($roles->permisos as $permiso)
+            {{$permiso->Permiso. ','}}
+        @endforeach" placeholder="para ingresar varios separe por una coma y para borrar use la tecla de borrar"
+        >   
     </div>
     
 
@@ -71,6 +78,26 @@
     
     </form>
 
+    @section('css_role_page')
+    <link rel="stylesheet" href="/css/admin/bootstrap-tagsinput.css">
+@endsection
+
+@section('js_role_page')
+    <script src="/js/admin/bootstrap-tagsinput.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#role_name').keyup(function(e){
+                var str = $('#role_name').val();
+                str = str.replace(/\W+(?!$)/g, '-').toLowerCase();//rplace stapces with dash
+                $('#role_slug').val(str);
+                $('#role_slug').attr('placeholder', str);
+            });
+        });
+        
+    </script>
+
+@endsection
     
     
     

@@ -66,7 +66,7 @@ class RolController extends Controller
     }
     public function update(Request $request,$id){
         $request->validate([
-            'name'                     =>  'required',
+            'rol'                     =>  'required',
             'slug'           =>  'required',
         ]);
     
@@ -76,6 +76,19 @@ class RolController extends Controller
         $roles->slug= $request->input('slug');
     
         $actualizado = $roles->save();
+        $roles->permisos()->delete();
+        $roles->permisos()->detach();
+        $listOfPermissions = explode(',',  $request->roles_permisos); //crear matriz a partir de permisos separados/coma
+        
+         
+        foreach ($listOfPermissions as  $permiso) {
+             $permisos= new Permiso();
+             $permisos->Permiso= $permiso;
+             $permisos->slug= strtolower(str_replace(" ", "-",  $permiso));
+             $permisos->save();
+             $roles->permisos()->attach($permisos->id);
+             $actualizado = $roles->save();
+        }  
         if ($actualizado){
             return redirect()->back()->with('mensaje','¡¡El Rol Fué Modificado Exitosamente!!');
         }else{ 
@@ -83,7 +96,10 @@ class RolController extends Controller
     
     }
     public function borrar($id){
-        Role::destroy($id);
+        $roles=Role::findOrFail($id);
+        $roles->permisos()->delete();
+        $roles->delete();
+        $roles->permisos()->detach();
         
         return redirect()->back()->with('mensaje','Rol borrado satisfactoriamente');
 
