@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Role;
 use Illuminate\Http\Request;
-use\Iluminate\Support\Facades\Hash;
+use Hash;
+
 
 class UsuarioController extends Controller
 {
@@ -81,32 +82,63 @@ class UsuarioController extends Controller
     }
     
     public function editar($id){
-        $usuarios = User::findOrFail($id);
-        return view('usuarios.editarusuario')->with('usuarios',$usuarios);
+        $user = User::findOrFail($id);
+        $roles = Role::get();
+        $userRole = $user->roles->first();
+        if($userRole != null){
+            $rolePermissions = $userRole->allRolePermissions;
+        }else{
+            $rolePermissions = null;
+        }
+        $userPermissions = $user->permisos;
+
+      
+        // dd($rolePermission);
+        return view('usuarios.editarusuario', [
+            'user'=>$user,
+            'roles'=>$roles,
+            'userRole'=>$userRole,
+            'rolePermissions'=>$rolePermissions,
+            'userPermissions'=>$userPermissions
+            ]);
+
+
+        
 
     }
     public function actualizar(Request $request,$id){
         $request->validate([
-            'name'                    =>  'required|max:255',
-            'email'          =>  'required|email|max:255',
-            'password'                     =>  'required|min:8',
-            // 'rol_id' => 'required',
-           
+            'name' => 'required|max:255',
+            'email' => ['required', 'string', 'email', 'max:255', ],
+            'password' => ['required', 'string', 'min:8', 'confirmed']
+          
         ]);
+
+        $user = User::findOrFail($id);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        if($request->password != null){
+            $user->password = Hash::make($request->password);
+        }
+        $creado =  $user->save();
+
+        $user->roles()->detach();
+        $user->permisos()->detach();
+
+        if($request->role != null){
+            $user->roles()->attach($request->role);
+            $user->save();
+        }
+
+        if($request->permissions != null){            
+            foreach ($request->permissions as $permission) {
+                $user->permisos()->attach($permission);
+                $user->save();
+            }
+        }
+    
         
-
-        $usuarios = User::findOrFail($id);
-        $usuarios->name = $request->input('name');
-        $usuarios->usuario = $request->input('usuario');
-        $usuarios->email = $request->input('email');
-       // $usuarios->password = $request->input('password');
-        $usuarios->esDentista = $request->input('esDentista');
-        $usuarios->rol_id = $request->input('rol_id');
-        //if($request->password != null){
-          //  $usuarios->password= Hash::make($request->password);
-        //}
-
-        $creado = $usuarios->update();
+        
         if($creado){
             return back()->with('mensaje','El Usuario ha sido modifcado exitosamente');
         }else{
@@ -116,7 +148,11 @@ class UsuarioController extends Controller
         }
     }
     public function borrar($id){
-        User::destroy($id);
+        $user=User::findOrFail($id);
+        $user->roles()->detach();
+        $user->permisos()->detach();
+        $user->delete();
+
         return redirect()->back()->with('mensaje','Usuario borrado satisfactoriamente');
     }
 
