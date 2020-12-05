@@ -92,8 +92,8 @@
                                     
                                 @foreach ($tag->permisos as $permission )
                                 <span class="badge badge-secondary" >
-                                    {{ $permission->Permiso }}                                    
-                                </span>
+                                    {{ $permission->Permiso }}                                  
+                                </span><br>
                                 @endforeach
                             @endif
                           
