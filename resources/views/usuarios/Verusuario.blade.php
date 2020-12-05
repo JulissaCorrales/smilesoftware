@@ -6,7 +6,7 @@
 <div class="card">
 <div class="card-header">
 
-<h3>Name: {{$usuarios->usuario}}</h1>
+<h3>Name: {{$usuarios->name}}</h1>
 <h3>Correo Electronico:{{$usuarios->email}}</h1>
 
 
@@ -14,14 +14,32 @@
 
 <div class="card-body">
 <h5 class="card-title">Roles</h5>
-<p class="card-text">
-........
+
+<p>
+
+@if($usuarios->roles->isNotEmpty())
+                                    @foreach ($usuarios->roles as $role )
+                                    <span class="badge badge-secondary" >
+                                        {{ $role->Nombre }}                                    
+                                    </span>
+                                   
+                                    @endforeach
+                                    @endif
 
 </p>
 
+
+
 <h5 class="card-title">Permisos</h5>
 <p class="card-text">
-........
+@if($usuarios->roles->isNotEmpty())
+                                    @foreach ($usuarios->roles as $role )
+                                    <span class="badge badge-secondary" >
+                                        {{ $role->Nombre }}                                    
+                                    </span>
+                                   
+                                    @endforeach
+                                    @endif
 
 </p>
 
