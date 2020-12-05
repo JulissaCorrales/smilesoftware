@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Odontologo;
 use App\EspecialidadOdontologos;
 use DispatchesJobs, ValidatesRequests;
+use Illuminate\Support\Facades\Gate;
 
 class OdontologoController extends Controller
 {
@@ -13,6 +14,11 @@ class OdontologoController extends Controller
 
     public function vistaodontologo(){
         //return "texto de contacto desde el controlador ";
+
+        if(Gate::denies('isAdmin')){
+           abort(403);
+        }
+        
         $odontologos=Odontologo::paginate(4);
         $especialidad_odontologos= EspecialidadOdontologos::all();
         return view('Odontologo')->with ('odontologos',$odontologos);

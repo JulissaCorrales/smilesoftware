@@ -6,6 +6,7 @@ use App\User;
 use App\Role;
 use Illuminate\Http\Request;
 use Hash;
+use Illuminate\Support\Facades\Gate;
 
 
 class UsuarioController extends Controller
@@ -13,17 +14,27 @@ class UsuarioController extends Controller
 
 
     public function ver(){
-        $usuarios =User::All();
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
+
+        $usuarios = User::orderBy('id', 'desc')->get();
         return view('usuarios.VistaUsuarios')->with ('usuarios',$usuarios);
     }
 
 
     public function verUsuario($id){
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
         $usuarios =User::findOrFail($id);
         return view('usuarios.Verusuario')->with ('usuarios',$usuarios);
     }
 
     public function nuevo(Request $request){
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
         if($request->ajax()){
             $roles = Role::where('id', $request->role_id)->first();
             $permissions = $roles->permisos;
@@ -39,6 +50,9 @@ class UsuarioController extends Controller
 
 
      public function guardar(Request $request){
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             
@@ -82,6 +96,9 @@ class UsuarioController extends Controller
     }
     
     public function editar($id){
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
         $user = User::findOrFail($id);
         $roles = Role::get();
         $userRole = $user->roles->first();
@@ -107,6 +124,9 @@ class UsuarioController extends Controller
 
     }
     public function actualizar(Request $request,$id){
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
         $request->validate([
             'name' => 'required|max:255',
             'email' => ['required', 'string', 'email', 'max:255', ],
@@ -148,6 +168,11 @@ class UsuarioController extends Controller
         }
     }
     public function borrar($id){
+
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
+         
         $user=User::findOrFail($id);
         $user->roles()->detach();
         $user->permisos()->detach();

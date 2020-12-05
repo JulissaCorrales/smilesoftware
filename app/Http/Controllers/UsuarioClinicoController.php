@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Gate;
+
 class UsuarioClinicoController extends Controller
+
 {
     public function ver(){
         $usuarios=User::where('rol_id','=',1)->get();

@@ -17,7 +17,7 @@
   text-align: left;
   padding: 20px;
   text-align: left;
-  background-color: #ccffff
+ /* background-color: #ccffff */
   
 } 
 
@@ -189,9 +189,10 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
  para que funcione correctamente-->
  <div class="list-group">
  
-<table id="datatable" class="table">
+<table id="datatable" class="table table-bordered">
 <thead class="table table-striped table-bordered">
-  <tr id="can">
+
+  <tr id="can" >
     <th >Nº</th>
     <th>Usuario</th>
     <th>Correo</th>
@@ -201,9 +202,13 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
     <th>Tools</th>
   </tr>
   </thead>
+ 
   <tbody>
-  <tr>
-      @forelse($usuarios as $usuario)
+  @forelse($usuarios as $usuario)
+  
+  <tr id="" {{ Auth::user()->id == $usuario->id  ?  'bgcolor=#FFFF00' : ''}} >
+
+  
      <td><a  class="btn btn-outline-info"  href="{{route('usuario.editar',$usuario->id)}}"  id="lista">{{$usuario->id}}</a></td>
      <td>{{$usuario->name}}</td>
      <td>{{$usuario->email}}</td>
@@ -224,7 +229,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                                     @foreach ($usuario->permisos as $permiso )
                                     <span class="badge badge-secondary" >
                                         {{ $permiso->Permiso }}                                    
-                                    </span>
+                                    </span><br>
                                    
                                     @endforeach
                                     @endif</td>
@@ -295,6 +300,8 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
      @endforelse
      </tbody>
 </table>
+
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <!-- script de jquery para que funcione el buscador de nombre-->

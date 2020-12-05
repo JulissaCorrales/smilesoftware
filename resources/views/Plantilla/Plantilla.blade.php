@@ -261,16 +261,21 @@
 
   <br>
   <br>
+  @can('isAdmin')
   <div class="btn-group" id="administrador1">
 
   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="Administrador">
     Administrador 
   </button>
+  @endcan
   <div class="dropdown-menu">
+  @can('isAdmin')
     <a class="dropdown-item" href="{{route('usuarios.indice')}}">Usuarios</a>
-    <a class="dropdown-item" href="/pantallainicio/usuariosAdministrativos">Usuario administrativo</a>
-    <a class="dropdown-item" href="{{route('clinico.indice')}}">Clinico</a>
+    @endcan
+    
+    @can('isAdmin')
     <a class="dropdown-item" href="{{route('roles.ver')}}">Roles</a>
+    @endcan
 </div>
 <!--Autenticación  -->
 <ul class="navbar-nav ml-auto">

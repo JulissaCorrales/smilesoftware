@@ -132,6 +132,7 @@ class CitaController extends Controller
  public function verCitaIndividual($id){
     $pacientes = Paciente::findOrFail($id);
     return view('citaIndividual',compact('pacientes'));
+    
 }
  //funcion para eliminar
     // recibe el id del que se va eliminar

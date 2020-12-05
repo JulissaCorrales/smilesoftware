@@ -191,16 +191,14 @@ Route::prefix('pantallainicio/calendario')->group( function(){
         //rutas para ver todos los usuarios(Todos,Administrativos y clínicos)
         Route::prefix('pantallainicio/')->group( function(){
           Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
-          Route::get('usuarios/ver','UsuarioController@ver')
-          ->name('usuarios.indice');
-          Route::get('usuarios/nuevo','UsuarioController@nuevo')->name('usuario.nuevo');
-          Route::post('usuarios/guardar','UsuarioController@guardar')
-          ->name('usuario.guardar');
+          Route::get('usuarios/ver','UsuarioController@ver')->name('usuarios.indice')->middleware('can:isAdmin');;
+          Route::get('usuarios/nuevo','UsuarioController@nuevo')->name('usuario.nuevo')->middleware('can:isAdmin');;
+          Route::post('usuarios/guardar','UsuarioController@guardar')->name('usuario.guardar')->middleware('can:isAdmin');;
 
-          Route::get('{id}/verusuario','UsuarioController@verusuario')->name('usuario.verusuario') -> where('id' ,'[0-9]+');
-          Route::get('usuarios/{id}/editar','UsuarioController@editar') ->name('usuario.editar') -> where('id' ,'[0-9]+');
-          Route::put('usuarios/{id}/editar','UsuarioController@actualizar') ->name('usuario.actualizar') -> where('id' ,'[0-9]+');
-          Route::delete('usuarios/{id}/borrar','UsuarioController@borrar') ->name('usuario.borrar')->where('id','[0-9]+');
+          Route::get('{id}/verusuario','UsuarioController@verusuario')->name('usuario.verusuario') -> where('id' ,'[0-9]+')->middleware('can:isAdmin');;
+          Route::get('usuarios/{id}/editar','UsuarioController@editar') ->name('usuario.editar') -> where('id' ,'[0-9]+')->middleware('can:isAdmin');;
+          Route::put('usuarios/{id}/editar','UsuarioController@actualizar') ->name('usuario.actualizar') -> where('id' ,'[0-9]+')->middleware('can:isAdmin');;
+          Route::delete('usuarios/{id}/borrar','UsuarioController@borrar') ->name('usuario.borrar')->where('id','[0-9]+')->middleware('can:isAdmin');;
            //*****************rutas para usuarios administrativos********************/
           Route::get('usuariosAdministrativos','AdministrativoController@ver')
           ->name('administrativo.indice');
@@ -219,13 +217,13 @@ Route::prefix('pantallainicio/calendario')->group( function(){
 
 
         //ruta para los roles
-        Route::get('roles/ver','RolController@Roles') ->name('roles.ver');
-          Route::get('{id}/verrol','RolController@verRoles')->name('rol.verroles') -> where('id' ,'[0-9]+');
-          Route::get('rol/nuevo','RolController@nuevoRol')->name('nuevo.rol');
-          Route::post('rol/nuevo','RolController@guardarRol')->name('rol.guardar');
-          Route::get('{id}/rol/editar','RolController@editarRol') ->name('rol.editar') -> where('id' ,'[0-9]+');
-          Route::put('{id}/rol/editar','RolController@update')->name('rol.update') -> where('id' ,'[0-9]+');
-          Route::delete('{id}/rol/borrar','RolController@borrar') ->name('rol.borrar')->where('id','[0-9]+');
+        Route::get('roles/ver','RolController@Roles') ->name('roles.ver')->middleware('can:isAdmin');
+          Route::get('{id}/verrol','RolController@verRoles')->name('rol.verroles') -> where('id' ,'[0-9]+')->middleware('can:isAdmin');
+          Route::get('rol/nuevo','RolController@nuevoRol')->name('nuevo.rol')->middleware('can:isAdmin');
+          Route::post('rol/nuevo','RolController@guardarRol')->name('rol.guardar')->middleware('can:isAdmin');
+          Route::get('{id}/rol/editar','RolController@editarRol') ->name('rol.editar') -> where('id' ,'[0-9]+')->middleware('can:isAdmin');
+          Route::put('{id}/rol/editar','RolController@update')->name('rol.update') -> where('id' ,'[0-9]+')->middleware('can:isAdmin');
+          Route::delete('{id}/rol/borrar','RolController@borrar') ->name('rol.borrar')->where('id','[0-9]+')->middleware('can:isAdmin');
 
 
    
