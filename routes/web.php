@@ -280,6 +280,13 @@ Route::get('inventarionuevo','InventarioController@nuevo');
 Route::get('inventario/{id}/editar','InventarioController@editar') ->name('inventario.editar') -> where('id' ,'[0-9]+');
 Route::put('inventario/{id}/editar','InventarioController@update')->name('inventario.update') -> where('id' ,'[0-9]+');
 
+//**************Rutas de  medios de pago******************/
+Route::get('mediopago','MediodepagoController@vistaprincipal');
+Route::delete('mediopago/{id}/borrar','MediodepagoController@destroy') ->name('mediopago.borrar')->where('id','[0-9]+');
+Route::post('mediopagoNuevo','MediodepagoController@guardar');
+Route::get('mediopagonuevo','MediodepagoController@nuevo');
+Route::get('mediopago/{id}/editar','MediodepagoController@editar') ->name('mediopago.editar') -> where('id' ,'[0-9]+');
+Route::put('mediopago/{id}/editar','MediodepagoController@update')->name('mediopago.update') -> where('id' ,'[0-9]+');
 
 
 
