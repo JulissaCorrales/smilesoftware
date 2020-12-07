@@ -1,4 +1,5 @@
 @extends('Plantilla.Plantilla')
+@canany(['isAdmin','isSecretaria'])
 <!DOCTYPE html>
 <html lang="en">
 @section('Titulo','Paciente')
@@ -119,5 +120,6 @@
 
   </div>
 </body>
+@endcanany
 @endsection
 </html>

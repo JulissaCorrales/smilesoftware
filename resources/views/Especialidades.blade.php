@@ -1,7 +1,7 @@
 
 
 @extends('Plantilla.Plantilla')
-
+@canany(['isAdmin','isSecretaria'])
 <!DOCTYPE html>
 <html lang="en">
 @section('Titulo','Paciente')
@@ -342,7 +342,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
     <th id="thh1" colspan="1" >
       Especialidades</th>
 
-      <th  id="thh2"><a id="a3" class="btn btn-outline-info" type="button" data-toggle="modal" data-target="#modall"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <th  id="thh2" colspan="2"><a id="a3" class="btn btn-outline-info" type="button" data-toggle="modal" data-target="#modall"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
   <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
 </svg>Especialidad</a></th>
@@ -397,8 +397,45 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
         <tr>
   @forelse($especialidads as $tag) 
   
-   <td colspan="2"> {{$tag->Especialidad}}
+   <td colspan="2"> {{$tag->Especialidad}} </td>
+   <td>
+   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalll-{{$tag->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+</svg>
+      Eliminar
+  </button>
    </td>
+  
+
+
+
+  <div class="modal fade" id="modalll-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+</svg> Eliminar Paciente</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <!--<span aria-hidden="true">&times;</span>-->
+                  </button>
+              </div>
+              <div class="modal-body">
+                  ¿Desea realmente eliminar la especialidad {{$tag->Especialidad}}?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <form method="post" action="{{route('especialidad.borrar',['id'=>$tag->id])}}">
+
+                      @csrf
+                      @method('delete')
+                      <input type="submit" value="Eliminar" class="btn btn-danger">
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
   </tr>
   @empty
          vacio
@@ -493,7 +530,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 <!-- Modal 2 -->
 
 
-
+@endcanany
 @endSection
 </body>
 </html>

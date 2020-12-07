@@ -153,11 +153,12 @@ class PacienteController extends Controller
     //funcion para eliminar
     // recibe el id del que se va eliminar
     public function destroy($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
         Paciente::destroy($id);
         Cita::where('paciente_id','=',$id)->delete();
         return redirect()->back()->with('mensaje','Paciente borrado satisfactoriamente');
 
-
+        }
        
     }
 

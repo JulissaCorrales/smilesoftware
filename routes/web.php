@@ -82,7 +82,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
             Route::get('odontologo/nuevo','OdontologoController@nuevoodontologo');
 
 
-            Route::get('especialidad','EspecialidadController@vistaespecialidad');
+           
             
 
 
@@ -169,13 +169,12 @@ Route::prefix('pantallainicio/calendario')->group( function(){
                 /* Ruta para guardar la edicion del gasto */
                 Route::put('{id}/editar','GastoController@update')->name('gasto.update') -> where('id' ,'[0-9]+');
 
-
                 Route::get('odontologo','OdontologoController@vistaodontologo');
-               // Route::get('odontologo/nuevo','OdontologoController@nuevoodontologo');
-               // Route::post('odontologo/nuevo','OdontologoController@GuardarNuevo');
-                Route::get('especialidad','EspecialidadController@vistaespecialidad');
-                Route::get('nueva/especialidad','EspecialidadController@nuevaespecialidad');
-                Route::post('nueva/especialidad','EspecialidadController@GuardarNuevo');
+              
+                Route::get('especialidad','EspecialidadController@vistaespecialidad')->middleware('role:admin,secretaria');
+                Route::get('nueva/especialidad','EspecialidadController@nuevaespecialidad')->middleware('role:admin,secretaria');
+                Route::post('nueva/especialidad','EspecialidadController@GuardarNuevo')->middleware('role:admin,secretaria');
+
               });
 
                 //********* Rutas para Logotipo*********//

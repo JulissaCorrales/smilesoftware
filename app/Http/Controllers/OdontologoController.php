@@ -15,9 +15,7 @@ class OdontologoController extends Controller
     public function vistaodontologo(){
         //return "texto de contacto desde el controlador ";
 
-        if(Gate::denies('isAdmin')){
-           abort(403);
-        }
+       
         
         $odontologos=Odontologo::paginate(4);
         $especialidad_odontologos= EspecialidadOdontologos::all();
