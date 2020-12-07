@@ -1,6 +1,7 @@
 @extends('datospersonales')
 
 @section('cuerpo')
+@canany(['isAdmin','isSecretaria'])
 
 <head>
 
@@ -88,6 +89,8 @@
 
 
 </body>
+
+@endcanany
 
 
 @endsection

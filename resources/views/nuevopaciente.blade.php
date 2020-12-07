@@ -67,6 +67,7 @@
     
 </head>
 @section('contenido')
+@canany(['isAdmin','isSecretaria'])
 <body id="bii">
 @if ($errors->any())
         <div class="alert alert-danger">
@@ -187,5 +188,6 @@
 
   </div>
 </body>
+@endcanany
 @endsection
 </html>

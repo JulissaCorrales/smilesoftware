@@ -134,8 +134,11 @@ text-align: center;
   text-shadow: -1px 0 #009999, 0 1px #009999, 1px 0 #009999, 0 -1px #009999;
   font-family: serif;position: absolute;font-size:35px;top: 2px;left:90px;;"id="dire">Directorio de Paciente</h1>
   <!--Menu desplegable  -->
+  @canany(['isAdmin','isSecretaria'])
  <div class="dropdown" style="  background-color: #00ccff;border-radius: 12px;
-position: absolute;top: 10px;left: 510px;" > <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-border-width" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+position: absolute;top: 10px;left: 510px;" >
+
+ <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-border-width" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
 </svg></button>
  <ul class="dropdown-menu">
@@ -154,6 +157,7 @@ position: absolute;top: 10px;left: 510px;" > <button class="btn btn-default drop
 </svg>  Descargar</a></li>
  </ul>
  </div>
+ @endcanany
  <!--fin de menu desplegable  -->
 </nav>
 </div>
@@ -182,7 +186,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   <tbody>
   <tr>
       @forelse($pacientes as $paciente)
-     <td>@canany(['isAdmin','isOdontologo'])
+     <td>@canany(['isAdmin','isOdontologo','isSecretaria'])
      <a  class="btn btn-outline-info"  href="/pantallainicio/vista/paciente/{{ $paciente->id}}/paciente"  id="lista">@endcanany{{$paciente->id}}
      </a></td>
      <td>{{$paciente->nombres}}</td>

@@ -1,5 +1,6 @@
 @extends('datospersonales')
 @section('cuerpo')   
+@canany(['isAdmin','isSecretaria','isOdontologo'])
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -120,17 +121,20 @@
                     <input type="text" class="form-control form-control-sm" name="observaciones" id="observaciones" placeholder="Alguna observacion?"  value="{{ $pacientes->observaciones }}">
                   </div>
                   </div>
-
+                  @canany(['isAdmin','isSecretaria'])
                   <div class="modal-footer">
                 <button type="button" onclick="location.href='/pantallainicio/vista'" class="btn btn-secondary" data-dismiss="modal">Atrás</button>
                 <input type="reset" class="btn btn-danger">
+               
                 <button type="submit" class="btn btn-primary" >Guardar Pacientes</button>
                 
               </div>
+             @endcanany
                   </form>
                   </div>
                
   
 </body>
 </html>
+@endcanany
 @endsection 

@@ -94,9 +94,9 @@ Route::prefix('pantallainicio/calendario')->group( function(){
     Route::prefix('pantallainicio/vista')->group( function(){
         Route::get('buscar','PacienteController@index')->name ('paciente.buscar')->middleware('role:admin,secretaria,odontologo');
         //ruta de crear un nuevo paciente
-        Route::get('pacienteNuevo','PacienteController@Nuevo')->name('paciente.nuevo');
+        Route::get('pacienteNuevo','PacienteController@Nuevo')->name('paciente.nuevo')->middleware('role:admin,secretaria');
         //ruta de guardar nuevo paciente
-        Route::post('pacienteNuevo','PacienteController@guardar')->name('paciente.guardar');
+        Route::post('pacienteNuevo','PacienteController@guardar')->name('paciente.guardar')->middleware('role:admin,secretaria');;
         
   });
 
@@ -105,12 +105,12 @@ Route::prefix('pantallainicio/calendario')->group( function(){
     Route::prefix('pantallainicio/vista/paciente')->group( function(){
              Route::get('buscar','PacienteController@index')->name ('paciente.buscar')->middleware('role:admin,secretaria,odontologo');
              //ruta de ver paciente
-             Route::get('{id}/paciente','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+')->middleware('role:admin,odontologo');
+             Route::get('{id}/paciente','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+')->middleware('role:admin,odontologo,secretaria');
              //ruta de borrar paciente
              //Route::delete('{id}/borrar','PacienteController@destroy') ->name('paciente.borrar')->where('id','[0-9]+');
              //ruta de editar paciente
-             Route::get('{id}/editar','PacienteController@editar') ->name('paciente.editar') -> where('id' ,'[0-9]+');
-             Route::put('{id}/editar','PacienteController@update')->name('paciente.update') -> where('id' ,'[0-9]+');
+             Route::get('{id}/editar','PacienteController@editar') ->name('paciente.editar') -> where('id' ,'[0-9]+')->middleware('role:admin,secretaria,odontologo');
+             Route::put('{id}/editar','PacienteController@update')->name('paciente.update') -> where('id' ,'[0-9]+')->middleware('role:admin,secretaria');
              //ruta de Imagenes y Archivos
              Route::get('{id}/imagenesArchivos','ArchivoController@ver')->name('imagenesYarchivos.ver');
              Route::get('{id}/nuevoarchivo','ArchivoController@nuevo')-> where('id' ,'[0-9]+');
@@ -120,9 +120,9 @@ Route::prefix('pantallainicio/calendario')->group( function(){
              //ruta de borrar cita individual
            // Route::delete('{id}/borrar','CitaController@destroyCita') ->name('cita.borrar')->where('id','[0-9]+');
              //ruta para crear comentarios
-             Route::get('{id}/comentarios','PacienteController@comentarios') ->name('comentarios.crear');
+             Route::get('{id}/comentarios','PacienteController@comentarios') ->name('comentarios.crear')->middleware('role:admin,secretaria');
              //ruta pra guardar comentarios
-             Route::post('{id}/comentarios','PacienteController@GuardarComentario')->name('comentario.guardar');
+             Route::post('{id}/comentarios','PacienteController@GuardarComentario')->name('comentario.guardar')->middleware('role:admin,secretaria');
              //ruta de plandetratamiento ver
              Route::get('{id}/plandetratamiento','PlanTratamientoController@ver')->name('tratamiento.ver');
              //ruta de plande tratamiento nuevo
