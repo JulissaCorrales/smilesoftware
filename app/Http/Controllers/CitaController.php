@@ -6,147 +6,139 @@ use Illuminate\Http\Request;
 use App\Cita;
 use App\Paciente;
 use App\PlanTratamiento;
+use Illuminate\Support\Facades\Gate;
 
 
 class CitaController extends Controller
 {
-    public function crear(){
-        return view('darcita');
 
+
+       //vista Crear Cita Acceso a admin y secretaria
+        public function crear(){
+            if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+            return view('darcita');
+        }
     }
 
-    public function calendar(Request $request){
-        $query=trim($request->get('/darcita'));
-         $citas=Cita::get('id');
-        return view('VistaSemanal');
 
+      //Vista Semanal acceso a admin,secretaria, odontologo
+        public function calendar(Request $request){
+            if(Gate::denies('isAdmin') || Gate::denies('isSecretaria') || Gate::denies('isOdontologo')){
+            $query=trim($request->get('/darcita'));
+            $citas=Cita::get('id');
+             return view('VistaSemanal');
+         }
     }
 
-    public function calendario(Request $request){
+
+
+       public function calendario(Request $request){
          $query=trim($request->get('/darcita'));
          $citas=Cita::get('id');
         return view('Calendario',['citas'=>$citas,'/darcita'=>$query]);
-
     }
 
 
-    public function index(Request $request){
-        if($request){
+    //buscador
+        public function index(Request $request){
+            if($request){
             $query= trim($request->get('buscarpor'));
             $pacientes =Paciente::where('nombres','LIKE','%'. $query .'%')->orderBy('id','asc')->get();
             return view('Buscarpaciente',['pacientes' => $pacientes ,' buscarpor '=> $query] );
-
         }
         
-        }
-        
-
-
-    
-    public function create(Request $request)
-    {  
-        $insertArr = [ 'title' => $request->title,
-                       'start' => $request->start,
-                       'end' => $request->end
-                    ];
-        $event = Citas::insert($insertArr);   
-        return calendar::json($event);
     }
-     
- 
-    public function update(Request $request)
-    {   
-        $where = array('id' => $request->id);
-        $updateArr = ['title' => $request->title,'start' => $request->start, 'end' => $request->end];
-        $event  = Event::where($where)->update($updateArr);
- 
-        return Response::json($event);
-    } 
- 
- 
-    public function destroy(Request $request)
-    {
-        $event = Event::where('id',$request->id)->delete();
-   
-        return Response::json($event);
-    } 
+        
 
-    
-    public function mostrar(Request $request){
-        if($request){
+           public function mostrar(Request $request){
+             if($request){
             $query= trim($request->get('buscarpor'));
             $pacientes =Paciente::where('nombres','LIKE','%'. $query .'%')->orderBy('id','asc')->get();
             return view('Buscarpaciente',['pacientes' => $pacientes ,' buscarpor '=> $query] );
-
         }
         
-        }
+     }
         
 
-      //funcion para gurdar el formulario cita
-      public  function guardar(Request $request){
+      //funcion para gurardar el formulario cita
+      //Acceso solo al admin y secretaria guardar cita
+            public  function guardar(Request $request){
+               if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+                $request->validate([
+                'odontologo_id'=>'required',
+                'duracionCita'=>'required',
+                'paciente_id'=>'required',
+                'comentarios'=>'required',
+                'stard' =>'required',]);
 
-        $request->validate([
-            
-            'odontologo_id'=>'required',
-            'duracionCita'=>'required',
-            'paciente_id'=>'required',
-            'comentarios'=>'required',
-            'stard' =>'required',
+            // formulario
+            $nuevacita = new Cita();
+            // $nuevacita->especialidad_id= $request->input('especialidad_id');
+            $nuevacita->odontologo_id=$request->input('odontologo_id');
+            $nuevacita->duracionCita=$request->input('duracionCita');
+            $nuevacita->paciente_id=$request->input('paciente_id');
+            $nuevacita->stard=$request->input('stard');
+            $nuevacita->comentarios=$request->input('comentarios');    
     
-        ]);
-
-        // formulario
-        $nuevacita = new Cita();
-        // $nuevacita->especialidad_id= $request->input('especialidad_id');
-        $nuevacita->odontologo_id=$request->input('odontologo_id');
-        $nuevacita->duracionCita=$request->input('duracionCita');
-       $nuevacita->paciente_id=$request->input('paciente_id');
-       $nuevacita->stard=$request->input('stard');
-        $nuevacita->comentarios=$request->input('comentarios');    
-
-        $creado = $nuevacita->save();
-        //Asegurarse que fue creado
-        if ($creado){
-            // $paciente=Paciente::findOrFail($nuevacita->paciente_id);
-            // $paciente->citas()->attach($nuevacita);
-            return redirect()->back()
-                ->with('mensaje','La cita fue creado exitosamente');
-
-        }else{
-            //Retornar con un mensaje de error
+            $creado = $nuevacita->save();
+            //Asegurarse que fue creado
+            if ($creado){
+                // $paciente=Paciente::findOrFail($nuevacita->paciente_id);
+                // $paciente->citas()->attach($nuevacita);
+                return redirect()->back()
+                    ->with('mensaje','La cita fue creado exitosamente');
+    
+            }else{
+                //Retornar con un mensaje de error
+            } 
         } 
 }
 
         public function vistamensual(){
-          return view('vistamensual');
-
+            if(Gate::denies('isAdmin') || Gate::denies('isSecretaria') || Gate::denies('isOdontologo')){
+               
+                return view('vistamensual');
+             }
+          
           } 
-          public function vistaprueba(){
-            return view('vistaprueba');
 
-    } 
-
-
- //funcion para ver cita individual
- public function verCitaIndividual($id){
-    $pacientes = Paciente::findOrFail($id);
-    return view('citaIndividual',compact('pacientes'));
+          
+     //funcion para ver cita individual
+     //acceso para el admin , odontologo
+     public function verCitaIndividual($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
+            $pacientes = Paciente::findOrFail($id);
+            return view('citaIndividual',compact('pacientes'));
+         }
     
-}
- //funcion para eliminar
+        }
+
+
+    //funcion para eliminar
     // recibe el id del que se va eliminar
+    //acceso solo el admin podra borrar la cita
     public function destroyCita($id){
-        Cita::destroy($id);
-        //rediccionar a la pagina index
-        return redirect()->back()->with('mensaje','Cita borrada satisfactoriamente');
+
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
+
+            Cita::destroy($id);
+            //rediccionar a la pagina index
+            return redirect()->back()->with('mensaje','Cita borrada satisfactoriamente');
+            
     }
 
-    //controlador vista diaria
+    //controlador vista diaria accseso admin, secretaria,odontologo
     public function vistadiaria(Request $request){
-        $query=trim($request->get('/darcita'));
-         $citas=Cita::get('id');
-        return view('VistaDiaria');
+        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria') || Gate::denies('isOdontologo')){
+            $query=trim($request->get('/darcita'));
+            $citas=Cita::get('id');
+           return view('VistaDiaria');   
+         }
+
+        
+       
 
     }
 

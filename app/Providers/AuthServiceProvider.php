@@ -32,7 +32,7 @@ class AuthServiceProvider extends ServiceProvider
 
 
 //Gate
-        Gate::define('issecretaria', function ($user) {
+        Gate::define('isSecretaria', function ($user) {
             return $user->roles->first()->slug == 'secretaria';
         });
 

@@ -42,19 +42,9 @@ trait HasRolesAndPermissions
      */
     public function hasRole($role)
     {        
-        if( strpos($role, ',') !== false ){//check if this is an list of roles
+        if($this->roles->contains('slug', $role)){
 
-            $listOfRoles = explode(',',$role);
-
-            foreach ($listOfRoles as $role) {                    
-                if ($this->roles->contains('slug', $role)) {
-                    return true;
-                }
-            }
-        }else{                
-            if ($this->roles->contains('slug', $role)) {
-                return true;
-            }
+            return true;
         }
 
         return false;
