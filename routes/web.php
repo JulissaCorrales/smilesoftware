@@ -143,8 +143,8 @@ Route::prefix('pantallainicio/calendario')->group( function(){
               
               Route::get('{id}/evoluciones','EvolucionesController@EvolucionesPaciente')->where('id','[0-9]+')->name('paciente.evoluciones');
 
-              Route::get('{id}/evolucion/nueva','EvolucionesController@nuevaevolucion')->name('evolucion.nueva') -> where('id' ,'[0-9]+');
-              Route::post('{id}/evolucion/nueva','EvolucionesController@GuardarEvolucion')->name('evolucion.guardar') -> where('id' ,'[0-9]+');
+              Route::get('{id}/evolucion/nueva','EvolucionesController@nuevaevolucion')->name('evolucion.nueva') -> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
+              Route::post('{id}/evolucion/nueva','EvolucionesController@GuardarEvolucion')->name('evolucion.guardar') -> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
              });
 
               // *********RUTA PARA EL BUSCADOR********//
@@ -265,12 +265,12 @@ Route::post('/tratamiento/{id}/producto/Nuevo','ProductosController@guardar');
 Route::delete('tratamiento/{id}/producto/borrar','ProductosController@destroy') ->name('producto.borrar')->where('id','[0-9]+');
 
 
-Route::get('pantallainicio/{id}/especialidades','EspecialidadController@VistaEspecial')->where('id','[0-9]+')->name('especialidades');
-Route::get('{id}/evoluciones','EvolucionesController@EvolucionesPaciente')->where('id','[0-9]+')->name('paciente.evoluciones');
-Route::get('especialidad/nueva','EspecialidadOdontologosController@especialidadOdontologo');
-Route::post('especialidad/nueva','EspecialidadOdontologosController@GuardarNuevo');
+Route::get('pantallainicio/{id}/especialidades','EspecialidadController@VistaEspecial')->where('id','[0-9]+')->name('especialidades')->middleware('role:admin,secretaria');
+Route::get('{id}/evoluciones','EvolucionesController@EvolucionesPaciente')->where('id','[0-9]+')->name('paciente.evoluciones')->middleware('role:admin,odontologo');
+Route::get('especialidad/nueva','EspecialidadOdontologosController@especialidadOdontologo')->middleware('role:admin,secretaria');
+Route::post('especialidad/nueva','EspecialidadOdontologosController@GuardarNuevo')->middleware('role:admin,secretaria');
 
-Route::get('pantallainicio/odontologo/{id}','EspecialidadOdontologosController@EspecialidadesOdontologo')->where('id','[0-9]+')->name('odontologo.especialidad');
+Route::get('pantallainicio/odontologo/{id}','EspecialidadOdontologosController@EspecialidadesOdontologo')->where('id','[0-9]+')->name('odontologo.especialidad')->middleware('role:admin,secretaria');
 
 
 //**************Rutas de  inventarios******************/

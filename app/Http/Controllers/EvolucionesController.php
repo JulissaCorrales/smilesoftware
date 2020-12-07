@@ -6,6 +6,7 @@ use App\Evoluciones;
 use App\Tratamiento;
 use App\Paciente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 
 class EvolucionesController extends Controller
@@ -15,18 +16,19 @@ class EvolucionesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
-
+   
     public function nuevaevolucion($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
         $pacientes = Paciente::findOrFail($id);
           return view('nuevaEvolucion')->with('pacientes',$pacientes);
+        }else{
+            abort(403);
+        }
     }
     
 
     public function GuardarEvolucion(Request $request,$id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
         $paciente=Paciente::findOrFail($id);
 
         $nuevoevaluacion = new  Evoluciones();
@@ -41,6 +43,9 @@ class EvolucionesController extends Controller
 
            //return redirect()('/comentarios/{id}');
         } 
+    }else{
+       abort(404);
+    }
     }
     
 
@@ -51,53 +56,19 @@ class EvolucionesController extends Controller
 
 
     public function EvolucionesPaciente($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
         $evoluciones=Evoluciones::all();
         $tratamientos= Tratamiento::all();
 
         $pacientes = Paciente::findOrFail($id);
        return view('Evoluciones')->with ('evoluciones',$evoluciones)->with('tratamientos',$tratamientos)->with('pacientes',$pacientes);
+       }else{
+           abort(404);
        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Evoluciones  $evoluciones
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Evoluciones $evoluciones)
-    {
-        //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Evoluciones  $evoluciones
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Evoluciones $evoluciones)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Evoluciones  $evoluciones
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Evoluciones $evoluciones)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Evoluciones  $evoluciones
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy(Evoluciones $evoluciones)
     {
         //

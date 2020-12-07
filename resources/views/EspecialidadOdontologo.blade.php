@@ -1,7 +1,7 @@
 @extends('Plantilla.Plantilla')
 @section('titulo','Especialidad Odontologo')
 @section('contenido')
-
+@canany(['isAdmin','isSecretaria'])
 
 
 <style>
@@ -85,5 +85,5 @@
   
 
 <body>
-
+@endcanany
 @endsection

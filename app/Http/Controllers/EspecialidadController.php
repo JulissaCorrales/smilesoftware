@@ -14,7 +14,6 @@ class EspecialidadController extends Controller
      //Vista Principal acceso al admin y al odontologo
     public function vistaespecialidad(){
         if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
-            
         $odontologos= Odontologo::All();
         $especialidads=Especialidad::All();
         return view('Especialidades')->with ('especialidads',$especialidads)->with('odontologos',$odontologos);
