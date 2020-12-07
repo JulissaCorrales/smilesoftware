@@ -153,10 +153,10 @@
         <!-- Para boton borrar -->
         
         <td>
-       
+       @canany(['isAdmin','isSecretaria'])
                 @forelse ($pacientes->citas as $tag) 
             
-               
+                @canany(['isAdmin','isSecretaria'])
                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$tag->id}}">
                  Eliminar
                  </button>
@@ -185,12 +185,13 @@
                         </div>
                     </div>
                 </div>
+                @endcanany
                  <hr>
                 
                 @empty
                 No tiene 
                 @endforelse
-                
+                @endcanany
                 </td>
               
      

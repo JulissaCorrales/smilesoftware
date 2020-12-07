@@ -1,5 +1,5 @@
 @extends('Plantilla.Plantilla')
-
+@canany(['isAdmin','isSecretaria','isOdontologo'])
 <!DOCTYPE html>
 <html lang="en">
 @section('Titulo','Paciente')
@@ -118,6 +118,7 @@ text-align: center;
 </style>
 
 </head>
+
 @section('contenido')
 <body id="bo">
 @if(session('mensaje'))
@@ -181,7 +182,9 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   <tbody>
   <tr>
       @forelse($pacientes as $paciente)
-     <td><a  class="btn btn-outline-info"  href="/pantallainicio/vista/paciente/{{ $paciente->id}}/paciente"  id="lista">{{$paciente->id}}</a></td>
+     <td>@canany(['isAdmin','isOdontologo'])
+     <a  class="btn btn-outline-info"  href="/pantallainicio/vista/paciente/{{ $paciente->id}}/paciente"  id="lista">@endcanany{{$paciente->id}}
+     </a></td>
      <td>{{$paciente->nombres}}</td>
      <td>{{$paciente->apellidos}}</td>
      <td>{{$paciente->identidad}}</td>
@@ -257,3 +260,5 @@ $(document).ready( function () {
 @endsection
 
 </html>
+
+@endcanany

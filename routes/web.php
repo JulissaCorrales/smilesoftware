@@ -14,37 +14,42 @@ use App\Logotipo;
 | contains the "web" middleware group. Now create something great!
 |
 */
+            //ruta de logotipo
+             Route::get('/', function () {
+             $logotipos=Logotipo::where('id','=',1)->get();
+             return view('welcome')->with('logotipos',$logotipos);
+             });
 
-Route::get('/', function () {
-  $logotipos=Logotipo::where('id','=',1)->get();
-    return view('welcome')->with('logotipos',$logotipos);
-});
                     // *********RUTA PARA DAR CITA********//
                      //ruta para darcita(cita nueva)
             Route::get('/darcita','CitaController@crear')->middleware('role:admin,secretaria');
                       //Ruta para guardar cita
             Route::post('/darcita','CitaController@guardar')->middleware('role:admin,secretaria');
+             //borrar cita individual
+            Route::delete('{id}/borrar','CitaController@destroyCita') ->name('cita.borrar')->where('id','[0-9]+')->middleware('role:admin,secretaria');
 
-            Route::delete('paciente/{id}/borrar','PacienteController@destroy') ->name('paciente.borrar')->where('id','[0-9]+')->middleware('role:admin');
+
+            //************RUTA PARA BORRAR PACIENTE */
+             
+            Route::delete('paciente/{id}/borrar','PacienteController@destroy') ->name('paciente.borrar')->where('id','[0-9]+')->middleware('role:admin,secretaria');
             
-            //borrar cita individual
-            Route::delete('{id}/borrar','CitaController@destroyCita') ->name('cita.borrar')->where('id','[0-9]+')->middleware('role:admin');
+                //***** RUTA PARA ELIMINAR ESPECIALIDAD */
 
-
-            Route::delete('{id}/borrar/especialidad','EspecialidadController@destroy') ->name('especialidad.borrar')->where('id','[0-9]+')->middleware('role:admin');
+            Route::delete('{id}/borrar/especialidad','EspecialidadController@destroy') ->name('especialidad.borrar')->where('id','[0-9]+')->middleware('role:admin,secretaria');
 
                 // *********RUTAS PARA EL MENU PRINCIPAL********//
 //grupo de rutas se ingresa con pantallainicio/calendario y luego a ruta que desea ingresar
 
          Route::prefix('pantallainicio')->group( function(){
              //ruta de agenda
-                Route::get('calendario','CitaController@calendario');
+                Route::get('calendario','CitaController@calendario')->middleware('role:admin,secretaria,odontologo');
                 //ruta de vista paciente
-                Route::get('vista','PacienteController@vistapaciente')->name ('paciente.vista');
-                Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+                Route::get('vista','PacienteController@vistapaciente')->name ('paciente.vista')->middleware('role:admin,secretaria,odontologo');
+                Route::get('buscar','PacienteController@index')->name ('paciente.buscar')->middleware('role:admin,secretaria,odontologo');
     
-
            });
+
+
 
                            // *********RUTAS PARA EL MENU DE AGENDA********//
 //grupo de ruta para agenda
@@ -87,7 +92,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
 
  //grupo de ruta de paciente
     Route::prefix('pantallainicio/vista')->group( function(){
-        Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+        Route::get('buscar','PacienteController@index')->name ('paciente.buscar')->middleware('role:admin,secretaria,odontologo');
         //ruta de crear un nuevo paciente
         Route::get('pacienteNuevo','PacienteController@Nuevo')->name('paciente.nuevo');
         //ruta de guardar nuevo paciente
@@ -98,9 +103,9 @@ Route::prefix('pantallainicio/calendario')->group( function(){
                         // *********RUTAS PARA las rutas con ID********//
     //Agrupamiento de rutas por ID
     Route::prefix('pantallainicio/vista/paciente')->group( function(){
-             Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+             Route::get('buscar','PacienteController@index')->name ('paciente.buscar')->middleware('role:admin,secretaria,odontologo');
              //ruta de ver paciente
-             Route::get('{id}/paciente','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+');
+             Route::get('{id}/paciente','PacienteController@datosVer')->name('paciente.datos')->where('id', '[0-9]+')->middleware('role:admin,odontologo');
              //ruta de borrar paciente
              //Route::delete('{id}/borrar','PacienteController@destroy') ->name('paciente.borrar')->where('id','[0-9]+');
              //ruta de editar paciente

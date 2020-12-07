@@ -94,7 +94,7 @@
 </nav>
 
 </div>  -->
-
+@canany(['isAdmin','isSecretaria','isOdontologo'])
 
   <div id="app" class="wrapper">
     <div class="comp-full-calendar " id="calendar"> 
@@ -240,3 +240,5 @@ new Vue({
 @endsection
 
 </body>
+
+@endcanany

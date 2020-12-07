@@ -6,6 +6,7 @@ use App\Paciente;
 use App\Plantratamiento;
 use App\Cita;
 use App\Comentario;
+use Illuminate\Support\Facades\Gate;
 
 use Illuminate\Http\Request;
 
@@ -16,15 +17,18 @@ class PacienteController extends Controller
     }
 
     public function vistaprincipal(){
+        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria') || Gate::denies('isOdontologo')){
         $pacientes = Paciente::findOrFail();
-        return view('Plantilla.Plantilla')->with('pacientes',$pacientes);;
+        return view('Plantilla.Plantilla')->with('pacientes',$pacientes);
+        }
     }
 
 
     public function datosVer($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo') ){
         $pacientes = Paciente::findOrFail($id);
         return view('datospersonales')->with('pacientes',$pacientes);
-
+        }
     }
 
 
@@ -204,12 +208,15 @@ class PacienteController extends Controller
 
 // Configuracion del Buscador Principal
      public function index(Request $request){
+        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria') || Gate::denies('isOdontologo')){
+        
         if($request){
             $query= trim($request->get('buscarpor'));
             $pacientes =Paciente::where('nombres','LIKE','%'. $query .'%')->orderBy('id','asc')->get();
             return view('Buscarpaciente',['pacientes' => $pacientes ,' buscarpor '=> $query] );
 
         }
+    }
         
         }
 

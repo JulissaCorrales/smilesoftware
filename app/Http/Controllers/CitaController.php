@@ -31,11 +31,13 @@ class CitaController extends Controller
     }
 
 
-
+    //Controlador de ver Calendario acceso al admin, odontologo,secretario
        public function calendario(Request $request){
+        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria') || Gate::denies('isOdontologo')){
          $query=trim($request->get('/darcita'));
          $citas=Cita::get('id');
         return view('Calendario',['citas'=>$citas,'/darcita'=>$query]);
+       }
     }
 
 
@@ -94,13 +96,7 @@ class CitaController extends Controller
         } 
 }
 
-        public function vistamensual(){
-            if(Gate::denies('isAdmin') || Gate::denies('isSecretaria') || Gate::denies('isOdontologo')){
-               
-                return view('vistamensual');
-             }
-          
-          } 
+        
 
           
      //funcion para ver cita individual
@@ -119,13 +115,14 @@ class CitaController extends Controller
     //acceso solo el admin podra borrar la cita
     public function destroyCita($id){
 
-        if(Gate::denies('isAdmin')){
-            abort(403);
+        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+            Cita::destroy($id);
+            return redirect()->back()->with('mensaje','Cita borrada satisfactoriamente');
+            
          }
 
-            Cita::destroy($id);
             //rediccionar a la pagina index
-            return redirect()->back()->with('mensaje','Cita borrada satisfactoriamente');
+            
             
     }
 

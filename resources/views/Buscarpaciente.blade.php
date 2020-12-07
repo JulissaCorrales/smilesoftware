@@ -1,5 +1,5 @@
 @extends('Plantilla.Plantilla')
-
+@canany(['isAdmin','isSecretaria','isOdontologo'])
 <!DOCTYPE html>
 <html lang="en">
 @section('Titulo','Paciente')
@@ -145,7 +145,8 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 <!-- escript de datatable con el id de la tabla este muy importante en este caso la tabla es id="datatable"-->
 </div>
 </div><!-- fin del DIV contenedor de la buscador!!!  -->
-
+@endcanany
 @endsection
 
 </html>
+
