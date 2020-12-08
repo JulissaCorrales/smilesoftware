@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Paciente;
 use App\Archivo; 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Gate;
 
 
 use Illuminate\Http\Request;
@@ -11,18 +12,32 @@ use Illuminate\Http\Request;
 class ArchivoController extends Controller
 {
     public function ver($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
+
         $pacientes = Paciente::findOrFail($id);
         return view('imagenesYarchivos',compact('pacientes'));
+        
+        }else{
+            abort(403);
+        }
     }
 
     public function nuevo($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
+
         $pacientes = Paciente::findOrFail($id);
         return view('formularioImagenesYarchivos',compact('pacientes'));
+    }else{
+        abort(403);
+    }
+
     }
 
     
 
     public function guardar(Request $request,$id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
+
         
         if($request->hasFile('imagen')){
             $file = $request->file('imagen');
@@ -43,10 +58,27 @@ class ArchivoController extends Controller
           //return redirect()('/comentarios/{id}');
        } 
 
+    }else{
+        abort(403);
+    }
+
 
     }
+
+
+
+
     public function borrar($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
+        
         Archivo::destroy($id);
         return redirect()->back()->with('mensaje','archivo borrado satisfactoriamente');
+
+    }else{
+        abort(403);
     }
+    }
+
+
+
 }
