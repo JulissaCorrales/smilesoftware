@@ -159,15 +159,15 @@ Route::prefix('pantallainicio/calendario')->group( function(){
             Route::prefix('pantallainicio')->group( function(){
                 Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
                 //ruta para ver los gastos de la clinica
-                Route::get('gastos','GastoController@ver')->name('gastos.ver');
+                Route::get('gastos','GastoController@ver')->name('gastos.ver')->middleware('role:admin,secretaria');
                 //    Ruta para guardar el gasto creado
-                Route::post('gastos/nuevo','GastoController@guardargasto')->name('gastos.guardar');
+                Route::post('gastos/nuevo','GastoController@guardargasto')->name('gastos.guardar')->middleware('role:admin,secretaria');
                 //    Ruta para eliminar el gasto creado
-                Route::delete('{id}/borrar','GastoController@borrargasto') ->name('gasto.borrar')->where('id','[0-9]+');
+                Route::delete('{id}/borrar','GastoController@borrargasto') ->name('gasto.borrar')->where('id','[0-9]+')->middleware('role:admin');
                     /* Ruta para editar gasto */
-                Route::get('{id}/editar','GastoController@editar') ->name('gasto.editar') -> where('id' ,'[0-9]+');
+                Route::get('{id}/editar','GastoController@editar') ->name('gasto.editar') -> where('id' ,'[0-9]+')->middleware('role:admin');
                 /* Ruta para guardar la edicion del gasto */
-                Route::put('{id}/editar','GastoController@update')->name('gasto.update') -> where('id' ,'[0-9]+');
+                Route::put('{id}/editar','GastoController@update')->name('gasto.update') -> where('id' ,'[0-9]+')->middleware('role:admin');
 
                 Route::get('odontologo','OdontologoController@vistaodontologo');
               

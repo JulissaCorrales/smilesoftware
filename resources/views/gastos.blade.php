@@ -1,6 +1,7 @@
 @extends('Plantilla.Plantilla')
 @section('titulo','Gastos')
 @section('contenido')
+@canany(['isAdmin','isSecretaria'])
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -184,4 +185,5 @@ $(document).ready( function () {
 </div><!-- fin del DIV contenedor de la buscador!!!  -->
 </html>
 @include('nuevogasto')<!-- esta seccion hace que funcione modal nuevo gasto -->
+@endcanany
 @endsection
