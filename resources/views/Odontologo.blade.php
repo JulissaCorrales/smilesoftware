@@ -377,6 +377,9 @@
 
 </head>
 @section('contenido')
+
+@canany(['isAdmin','isSecretaria'])
+
 <body >
 @if($errors->any())
 <div class="alert alert-danger">
@@ -715,8 +718,9 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
 </html>
 
+
 @include('nuevoDoctor')
 
-
+@endcanany
 
 @endsection 

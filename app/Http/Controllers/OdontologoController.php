@@ -14,23 +14,32 @@ class OdontologoController extends Controller
 
     public function vistaodontologo(){
         //return "texto de contacto desde el controlador ";
+        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
 
-       
-        
         $odontologos=Odontologo::paginate(4);
         $especialidad_odontologos= EspecialidadOdontologos::all();
         return view('Odontologo')->with ('odontologos',$odontologos);
+
+        }else{
+            abort(403);
+        }
      } 
 
 
      public function nuevoodontologo(){
         //return "texto de contacto desde el controlador ";
+        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+
         return view('nuevoDoctor');
+
+        }else{
+            abort(403);
+        }
      }
     
 
      public function GuardarNuevo(Request $request){
-        
+        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
        
 
 
@@ -83,19 +92,31 @@ class OdontologoController extends Controller
         }else{
             //retornar con un msj de error
         } 
+
+
+        }else{
+            abort(403);
+        }
     }
 
 
 
 
     public function editarodontologo($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+
         $odontologos = Odontologo::findOrFail($id);
         return view('FormularioOdontologo')->with('odontologos',$odontologos);
+
+        }else{
+            abort(403);
+        }
 
     }
 
     public function updateodontologo(Request $_request,$id){
         
+        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
         
         $odontologos = Odontologo::findOrFail($id);
 
@@ -149,14 +170,21 @@ class OdontologoController extends Controller
 
         ]);
 
-
-
+        }else{
+            abort(403);
+        }
 
     }
+
     public function destroy($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+            
         Odontologo::destroy($id);
         return redirect('/pantallainicio/odontologo')->with('mensaje','Odontologo borrado satisfactoriamente');
-
+        
+        }else{
+            abort(403);
+        }
 
        
     }
