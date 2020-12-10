@@ -1,6 +1,7 @@
 @extends('Plantilla.Plantilla')
 @section('titulo','Roles de Usuario')
 @section('contenido')
+@can('isAdmin')
 
 
 
@@ -186,5 +187,5 @@
   
 
 <body>
-
+@endcan
 @endsection

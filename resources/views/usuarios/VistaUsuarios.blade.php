@@ -130,6 +130,7 @@
 
 </head>
 @section('contenido')
+@can('isAdmin')
 <body id="bo">
 
     <div class="container">
@@ -325,7 +326,7 @@ $(document).ready( function () {
 <!-- escript de datatable con el id de la tabla este muy importante en este caso la tabla es id="datatable"-->
 </div>
 </div><!-- fin del DIV contenedor de la buscador!!!  -->
-
+@endcan
 @endsection
 
 </html>

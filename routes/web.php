@@ -192,30 +192,15 @@ Route::prefix('pantallainicio/calendario')->group( function(){
         });
 
         //**************Rutas de  usuarios******************/
-
-        //rutas para ver todos los usuarios(Todos,Administrativos y clínicos)
         Route::prefix('pantallainicio/')->group( function(){
           Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
-          Route::get('usuarios/ver','UsuarioController@ver')->name('usuarios.indice')->middleware('role:admin');;
-          Route::get('usuarios/nuevo','UsuarioController@nuevo')->name('usuario.nuevo')->middleware('role:admin');;
-          Route::post('usuarios/guardar','UsuarioController@guardar')->name('usuario.guardar')->middleware('role:admin');;
-
-          Route::get('{id}/verusuario','UsuarioController@verusuario')->name('usuario.verusuario') -> where('id' ,'[0-9]+')->middleware('role:admin');;
-          Route::get('usuarios/{id}/editar','UsuarioController@editar') ->name('usuario.editar') -> where('id' ,'[0-9]+')->middleware('role:admin');;
-          Route::put('usuarios/{id}/editar','UsuarioController@actualizar') ->name('usuario.actualizar') -> where('id' ,'[0-9]+')->middleware('role:admin');;
-          Route::delete('usuarios/{id}/borrar','UsuarioController@borrar') ->name('usuario.borrar')->where('id','[0-9]+')->middleware('role:admin');;
-           //*****************rutas para usuarios administrativos********************/
-          Route::get('usuariosAdministrativos','AdministrativoController@ver')
-          ->name('administrativo.indice');
-          Route::get('usuariosAdministrativos/nuevo','AdministrativoController@nuevo');
-          Route::get('/{id}/editar/administrativo','AdministrativoController@editar')
-          ->name('administrativo.editar') -> where('id' ,'[0-9]+');
-          // Rutas Para Usuarios Clinicos:
-          Route::get('usuariosClinicos','UsuarioClinicoController@ver')
-          ->name('clinico.indice');
-            Route::get('usuariosClinicos/nuevo','UsuarioClinicoController@nuevo')->name('clinico.nuevo');
-            Route::get('/{id}/editar/clinico','UsuarioClinicoController@editar')
-            ->name('clinico.editar') -> where('id' ,'[0-9]+');
+          Route::get('usuarios/ver','UsuarioController@ver')->name('usuarios.indice')->middleware('role:admin');
+          Route::get('usuarios/nuevo','UsuarioController@nuevo')->name('usuario.nuevo')->middleware('role:admin');
+          Route::post('usuarios/guardar','UsuarioController@guardar')->name('usuario.guardar')->middleware('role:admin');
+          Route::get('{id}/verusuario','UsuarioController@verusuario')->name('usuario.verusuario') -> where('id' ,'[0-9]+')->middleware('role:admin');
+          Route::get('usuarios/{id}/editar','UsuarioController@editar') ->name('usuario.editar') -> where('id' ,'[0-9]+')->middleware('role:admin');
+          Route::put('usuarios/{id}/editar','UsuarioController@actualizar') ->name('usuario.actualizar') -> where('id' ,'[0-9]+')->middleware('role:admin');
+          Route::delete('usuarios/{id}/borrar','UsuarioController@borrar') ->name('usuario.borrar')->where('id','[0-9]+')->middleware('role:admin');
 
         });
        

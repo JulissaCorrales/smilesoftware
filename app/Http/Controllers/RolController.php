@@ -5,11 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Role;
 use App\Permiso;
+use Illuminate\Support\Facades\Gate;
 class RolController extends Controller
 {
 
 
     public function Roles(){
+        
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
         $rols = Role::All();
         return view('usuarios.VistaRol')->with ('rols',$rols);
         
@@ -17,15 +22,24 @@ class RolController extends Controller
     }
 
     public function verRoles($id){
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
         $roles =Role::findOrFail($id);
         return view('usuarios.VerRol')->with ('roles',$roles);
     }
 
     public function nuevoRol(){
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
         return view('usuarios.CrearRol');
      }
 
      public function guardarRol(Request $request){
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
         
         $nuevo = new Role();
 
@@ -60,11 +74,17 @@ class RolController extends Controller
         } 
     }
     public function editarRol($id){
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
         $roles = Role::findOrFail($id);
         return view('usuarios.editarRol')->with('roles',$roles);
 
     }
     public function update(Request $request,$id){
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
         $request->validate([
             'rol'                     =>  'required',
             'slug'           =>  'required',
@@ -96,6 +116,9 @@ class RolController extends Controller
     
     }
     public function borrar($id){
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
         $roles=Role::findOrFail($id);
         $roles->permisos()->delete();
         $roles->delete();
