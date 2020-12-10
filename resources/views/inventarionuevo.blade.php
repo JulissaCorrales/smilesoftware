@@ -1,102 +1,27 @@
 @extends('Plantilla.Plantilla')
+@section('titulo','Edicion del Inventario')
+@section('contenido')
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventario Nuevo</title>
-    <style>
 
-#table{
-}
-
-td{
- border: 1px solid #00cccc;
- text-align: left;
- padding: 20px;
- text-align: left;
- background-color: #ccffff
- 
-} 
-
-
-btn{
-text-align: center;
-}
-
-
-
-#lista{
-}
-
-#lista:hover{
-  border: 1px solid #FF4500;
-  color: hotpink;
-}
-
-#can{
- background-color: #ffad33;
-}
-
-#cue{
- border: #00cccc  2px solid;
-}
-
-#na{
- width: 600px;
- height: 60px;
-   border-radius: 12px;
-   background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff); 
-   position: absolute;
-   top:250px;
-   left:150px;
- 
-}
-
-#dd{
- position: absolute;
-   top:400px;
-   left:150px;
-}
-
-
-#b1{
- position: absolute;
-   top:300px;
-   left:780px;
-}
-
-#b2{
- position: absolute;
-   top:300px;
-   left:1030px;
-}
-
-#b3{
- position: absolute;
-   top:300px;
-   left:1140px;
-}
-
-#dire{
- color: #ff9933;
- text-shadow: -1px 0 #009999, 0 1px #009999, 1px 0 #009999, 0 -1px #009999;
- font-family: serif;
- position: absolute;
-           font-size:30px;
-           top: 2px;
-           left:30px;
-}
-
-#bo{
- background-color: #ccffff;
+<style>
+#padre{
+    width:auto;
+    font:1em Tahoma;
+    margin: 5rem;
+    padding: 2rem;
+    border: 2px solid #ccc;
+}   #titulo{
+    text-align:center;
 }
 </style>
 </head>
-@section('contenido')
-
-<body id="bii">
-@if ($errors->any())
+<body>
+    
+    <div  class="container" id="padre">
+    <h3 id="titulo">Ingreso de Inventario</h3>
+    @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -105,10 +30,13 @@ text-align: center;
             </ul>
         </div>
     @endif
-    
-  <div id="mo" >
-<div class="content" id="n">
-<form method="post" action="/inventarioNuevo">
+    @if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif
+
+    <form method="post" action="/inventarioNuevo">
                       @csrf
                       
                       <div class="form-group">
@@ -135,22 +63,10 @@ text-align: center;
                     <button type="submit" class="btn btn-primary" >Guardar Inventario</button>
                  </div>
               </form>
-
-
-</div>
-
-  </div>
+    
+    
+    
+    </div><!-- fin div padre -->
 </body>
-
-</div>
-
-@if(session('mensaje'))
-<div class="alert alert-success">
-{{session('mensaje')}}
-</div>
-@endif
-
-</body>
-
-@endsection
 </html>
+@endsection
