@@ -1,19 +1,26 @@
 @extends('Plantilla.Plantilla')
+@section('titulo','Ingreso del Medio de Pago')
+@section('contenido')
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medio de pago nuevo</title>
-    <style>
-
-
+<style>
+#padre{
+    width:auto;
+    font:1em Tahoma;
+    margin: 5rem;
+    padding: 2rem;
+    border: 2px solid #ccc;
+}   #titulo{
+    text-align:center;
+}
 </style>
 </head>
-@section('contenido')
-
-<body id="bii">
-@if ($errors->any())
+<body>
+    
+    <div  class="container" id="padre">
+    <h3 id="titulo">Ingreso del Medio de Pago</h3>
+    @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -22,21 +29,20 @@
             </ul>
         </div>
     @endif
+    @if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif
     
-  <div id="mo" >
-<div class="content" id="n">
-<form method="post" action="/mediopagoNuevo">
+    <form method="post" action="/mediopagoNuevo">
                       @csrf
                       
                       <div class="form-group">
                           <label for="nombre">Medio de Pago:</label>
                           <input type="text" class="form-control-file" name="nombre" id="nombre" placeholder="ingresar nombre del medio de pago">
                       </div>
-                      
-                      
-                      
-
-                      
+                              
                   <div class="modal-footer">
                     <button type="button" onclick="location.href='/pantallainicio/mediopago'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
                     <input type="reset" class="btn btn-danger">
@@ -45,20 +51,9 @@
               </form>
 
 
-</div>
 
-  </div>
+
+    </div><!-- fin div padre -->
 </body>
-
-</div>
-
-@if(session('mensaje'))
-<div class="alert alert-success">
-{{session('mensaje')}}
-</div>
-@endif
-
-</body>
-
-@endsection
 </html>
+@endsection
