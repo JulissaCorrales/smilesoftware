@@ -1,6 +1,7 @@
 @extends('Plantilla.Plantilla')
 @section('titulo','Nuevo Logotipo')
 @section('contenido')
+@canany(['isAdmin','isSecretaria'])
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +32,11 @@
         <hr>
         <div>
              <h5 style="text-align:center" for="">Logo Actual:</h5>
+             @if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif
     
                 <div id="verlogoactual" align="center">
                     @forelse($logotipos as $tag)
@@ -39,6 +45,7 @@
                         </div>
                        
                         <!-- Borrar logo -->
+    @can('isAdmin')                
     <td>
            <!-- boton eliminar -->
            <br>
@@ -76,7 +83,7 @@
                 </div>
             </td>
     <!-- Fin de eliminar -->
-
+ 
 
                             <!-- actualizar logo -->
    <div style=" padding-top: 30px;
@@ -94,22 +101,25 @@
     </form>
     
 </div>
+@endcan
             
                     @empty
-                    No ha Asignado un logo. ¡¡Por favor Suba Uno!!
-                 <br>
-
+                    <img class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" > 
+                 <br>  <br>
+                
                 <!--  -->
+                @can('isAdmin')
                 <button  type="button" class="btn btn-danger" data-toggle="modal" data-target="#crear">
-                Crear
+                Crear otro
                  </button>
+                 @endcan
                  @endforelse
                 </div>
 
         </div>
 
     </div>
-
+@endcanany
 <!-- crear -->
 <div >
    <!-- Modal -->
@@ -214,4 +224,5 @@
    
 </body>
 </html>
+
 @endsection

@@ -181,14 +181,14 @@ Route::prefix('pantallainicio/calendario')->group( function(){
                 Route::prefix('pantallainicio/logotipo')->group( function(){
                 Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
                 ///////////////////logotipo///////////////////
-                Route::get('ver','LogotipoController@ver')->name('logotipo.ver');
+                Route::get('ver','LogotipoController@ver')->name('logotipo.ver')->middleware('role:admin,secretaria');
                 /* Ruta para crear logotipo */
-                Route::post('logotipo','LogotipoController@subirArchivo')->name('logotipo.guardar');
-                Route::get('/editar','LogotipoController@editar') ->name('logotipo.editar') -> where('id' ,'[0-9]+');
+                Route::post('logotipo','LogotipoController@subirArchivo')->name('logotipo.guardar')->middleware('role:admin');
+                Route::get('/editar','LogotipoController@editar') ->name('logotipo.editar') -> where('id' ,'[0-9]+')->middleware('role:admin');
                 /* Ruta para guardar la edicionlogo */
-                Route::put('{/editar','LogotipoController@update')->name('logotipo.update') -> where('id' ,'[0-9]+');
+                Route::put('{/editar','LogotipoController@update')->name('logotipo.update') -> where('id' ,'[0-9]+')->middleware('role:admin');
                 /* Ruta para borrar logotipo */
-                Route::delete('{id}/borrar','LogotipoController@borrarlogotipo') ->name('logotipo.borrar')->where('id','[0-9]+');
+                Route::delete('{id}/borrar','LogotipoController@borrarlogotipo') ->name('logotipo.borrar')->where('id','[0-9]+')->middleware('role:admin');
         });
 
         //**************Rutas de  usuarios******************/

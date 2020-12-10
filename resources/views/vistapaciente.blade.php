@@ -187,7 +187,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   <tr>
       @forelse($pacientes as $paciente)
      <td>@canany(['isAdmin','isOdontologo','isSecretaria'])
-     <a  class="btn btn-outline-info"  href="/pantallainicio/vista/paciente/{{ $paciente->id}}/paciente"  id="lista">@endcanany{{$paciente->id}}
+     <a  class="btn btn-outline-info"  href="/pantallainicio/vista/paciente/{{$paciente->id}}/editar"   id="lista">@endcanany{{$paciente->id}}
      </a></td>
      <td>{{$paciente->nombres}}</td>
      <td>{{$paciente->apellidos}}</td>
