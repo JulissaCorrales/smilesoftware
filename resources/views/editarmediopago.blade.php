@@ -41,46 +41,19 @@
      <!-- Producto-->
                 
      <div class="form-group" id="divcate">
-                    <label for="producto" class="control-label">Nombre del Inventario:</label>
-                    <input type="text"  class="form-control-file" placeholder="Ingrese nombre del inventario" name="producto" id="producto"   value="{{$mediopagos->producto}}"> 
+                    <label for="nombre" class="control-label">Nombre del Medio de Pago:</label>
+                    <input type="text"  class="form-control-file" placeholder="Ingrese nombre del inventario" name="nombre" id="nombre"   value="{{$mediopagos->nombre}}"> 
                     </div>
-                   
-                    <!-- stockseguridad-->
-                    <div class="form-group" id="div2">
-                    <label for="detalle" class="control-label">Stock de Seguridad:</label>
-                    <input type="text"  class="form-control-file" name="stockseguridad" id="stockseguridad" placeholder="Ingrese inventario" value="{{$mediopagos->stockseguridad}}">
-                    </div>
-                 
-                   <!-- stockactual-->
-                   <div class="form-group" id="div2">
-                    <label for="detalle" class="control-label">Stock de Actual:</label>
-                    <input type="text"  class="form-control-file" name="stockactual" id="stockactual" placeholder="Ingrese inventario" value="{{$mediopagos->stockactual}}">
-                    </div>
-                   
-                 <!-- monto-->
-                 <div class="form-group" id="div2">
-                    <label for="detalle" class="control-label">Precio:</label>
-                    <input type="text"  class="form-control-file" name="monto" id="monto" placeholder="Ingrese valor" value="{{$mediopagos->monto}}">
-                    </div>
-                   
                     
-                   
                     <div class="form-group" id="div6">
-                    <button style="background-color:purple"type="button" onclick="location.href='/mediopago'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+                    <button style="background-color:purple"type="button" onclick="location.href='/pantallainicio/mediopago'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
                     <input type="reset" class="btn btn-danger">
                     <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
                         Actualizar
                     </button>
-                    
-                   
-                    </div>
-
-    
-    
+                            
+                    </div> 
     </form>
-
-    
-    
     
     </div><!-- fin div padre -->
 </body>

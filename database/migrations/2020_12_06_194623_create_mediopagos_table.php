@@ -15,10 +15,7 @@ class CreateMediopagosTable extends Migration
     {
         Schema::create('mediopagos', function (Blueprint $table) {
             $table->id();
-            $table->string('producto');
-            $table->bigInteger('stockseguridad'); 
-            $table->bigInteger('stockactual');
-            $table->decimal('monto', 20, 2);
+            $table->string('nombre');
             $table->timestamps();
         });
     }

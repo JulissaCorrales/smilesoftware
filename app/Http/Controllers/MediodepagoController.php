@@ -28,18 +28,13 @@ public function nuevo(){
 public function guardar(Request $request){
             
     $request->validate([
-        'producto'         =>  'required',
-        'stockseguridad'   =>  'required',
-        'stockactual'      =>  'required',
-        'monto'      =>  'required',
+        'nombre'         =>  'required',
     ]);
 
     // formulario
     $nuevo = new Mediopago();
-    $nuevo->producto=           $request->input('producto');
-    $nuevo->stockseguridad=     $request->input('stockseguridad');
-    $nuevo->stockactual=        $request->input('stockactual');
-    $nuevo->monto=              $request->input('monto');
+    $nuevo->nombre=           $request->input('nombre');
+
 
     $creado = $nuevo->save();
     //Asegurarse que fue creado
@@ -58,18 +53,14 @@ public function editar($id){
 
 public function update(Request $request,$id){
     $request->validate([
-        'producto'        =>'required',
-        'stockseguridad'  =>'required',
-        'stockactual'     =>'required',
-        'monto'           =>'required',
+        'nombre'        =>'required',
+       
     ]);
 
     $inventarios=Mediopago::findOrFail($id);
     //formulario
-    $inventarios->producto=       $request->input('producto');
-    $inventarios->stockseguridad= $request->input('stockseguridad');
-    $inventarios->stockactual=    $request->input('stockactual');
-    $inventarios->monto=           $request->input('monto');
+    $inventarios->nombre=       $request->input('nombre');
+   
 
     $actualizado = $inventarios->save();
     //Asegurarse que fue creado

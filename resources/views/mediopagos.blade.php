@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medios de pagos</title>
     <style>
-#table{
+#table{width: 100%;
+   text-align:center;
 }
-
 td{
  border: 1px solid #00cccc;
  text-align: left;
@@ -17,13 +17,9 @@ td{
  background-color: #ccffff
 } 
 
-
-
 btn{
 text-align: center;
 }
-
-
 
 #lista{
 }
@@ -57,7 +53,6 @@ text-align: center;
    left:150px;
 }
 
-
 #b1{
  position: absolute;
    top:300px;
@@ -85,58 +80,66 @@ text-align: center;
            top: 2px;
            left:30px;
 }
-
 #bo{
  background-color: #ccffff;
-
 }
+#padre{
+    width:auto;
+    margin: 5rem;
+    padding: 2rem;
+    border: 2px solid #ccc;
+}
+#divhijo1{
+        position: relative;
+    } 
+
+
+
+
+
 </style>
 </head>
 @section('contenido')
 <body>
-    
+ 
+@if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif
 
-
-
-
-<div class="container" id="dd">
-
-      
+    <div  class="container" id="dd">
+ <div class="list-group">
+ 
 
 <button type="button" class="btn btn-success" onclick="window.location.href='/mediopagonuevo'">
   Ingresar Medio de pago
 </button>
 
 
- <div class="list-group">
-
-
 <table id="datatable" class="table">
  <thead class="table table-striped table-bordered">
   <tr id="can">
-     <th>Inventario</th>
-     <th>Stock de Seguridad</th>
-     <th>Stock de Actual</th>
-     <th>Precio</th>
-     <th>Accion</th>
+     <th>Medio de Pago</th>
+     <th>Editar</th>
+     <th>Eliminar</th>
   </tr>
   </thead>
   <tbody> 
        <tr>
        @forelse($mediopagos as $mediopago)
-           <td>{{$mediopago->producto}}</td>
-           <td>{{$mediopago->stockseguridad}}</td>
-           <td>{{$mediopago->stockactual}}</td>
-           <td>{{$mediopago->monto}}</td>
+           <td>{{$mediopago->nombre}}</td>
+           
            <td>
-
            <a class="btn btn-warning " href="{{route('mediopago.editar',['id'=>$mediopago->id])}}">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
             </svg>
             Editar</a>
-             
+            </td>
+
+             <td>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$mediopago->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
             </svg>
@@ -156,7 +159,7 @@ text-align: center;
                   </button>
               </div>
               <div class="modal-body">
-                  ¿Desea realmente eliminar el inventario {{$mediopago->producto}}?
+                  ¿Desea realmente eliminar el medio de pago {{$mediopago->nombre}}?
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -170,10 +173,7 @@ text-align: center;
           </div>
       </div>
   </div>
-
-
            </td>
-
 </tr>
 @empty
      <h1>No hay Medios de pagos  Existentes</h1>
@@ -186,13 +186,8 @@ text-align: center;
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 <!-- script de datatable para que funcione el buscado de nombre-->
 
-
   </div>
   </div>
-
-
-
-  
 
 </body>
 

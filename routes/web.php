@@ -282,7 +282,7 @@ Route::get('inventario/{id}/editar','InventarioController@editar') ->name('inven
 Route::put('inventario/{id}/editar','InventarioController@update')->name('inventario.update') -> where('id' ,'[0-9]+');
 
 //**************Rutas de  medios de pago******************/
-Route::get('mediopago','MediodepagoController@vistaprincipal');
+Route::get('/pantallainicio/mediopago','MediodepagoController@vistaprincipal');
 Route::delete('mediopago/{id}/borrar','MediodepagoController@destroy') ->name('mediopago.borrar')->where('id','[0-9]+');
 Route::post('mediopagoNuevo','MediodepagoController@guardar');
 Route::get('mediopagonuevo','MediodepagoController@nuevo');
