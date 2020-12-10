@@ -1,5 +1,5 @@
 @extends('Plantilla.Plantilla')
-@section('titulo','Edicion del Inventario')
+@section('titulo','Ingreso del Inventario')
 @section('contenido')
 <!DOCTYPE html>
 <html lang="en">
