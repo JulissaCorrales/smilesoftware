@@ -69,6 +69,7 @@
 <body>
 
 @section('cuerpo')
+@canany(['isAdmin','isOdontologo'])
 @if(session('mensaje'))
         <div class="alert alert-success">
             {{session('mensaje')}}
@@ -215,4 +216,5 @@
 </div>
 </body>
 </html>
+@endcanany
 @endsection

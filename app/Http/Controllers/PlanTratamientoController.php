@@ -8,23 +8,38 @@ use App\Paciente;
 use App\Tratamiento;
 use App\Producto;
 use DB;
+use Illuminate\Support\Facades\Gate;
+
 
 class PlanTratamientoController extends Controller
 {
 
 
     public function ver($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
+
         $pacientes = Paciente::findOrFail($id);
         return view('plandetratamiento',compact('pacientes'));
+
+        }else{
+            abort(403);
+        }
     }
 
     public function nuevo($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
+
         $pacientes = Paciente::findOrFail($id);
         $tratamientos=Tratamiento::All();
-          return view('nuevoPlandeTratamiento')->with('pacientes',$pacientes)->with('tratamientos',$tratamientos); 
+          return view('nuevoPlandeTratamiento')->with('pacientes',$pacientes)->with('tratamientos',$tratamientos);
+          
+        }else{
+            abort(403);
+        }
     }
 //guardar plan de trtamiento
 public function guardar(Request $request,$id){
+    if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
     
     $request->validate([
         'tratamiento_id'=>'required',
@@ -50,24 +65,41 @@ public function guardar(Request $request,$id){
     }else{
         //retornar con un msj de error
     }  
+
+    }else{
+        abort(403);
+    }
    
 }
 
   //funcion para eliminar
     // recibe el id del que se va eliminar
     public function destroy($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
+
         Plantratamiento::destroy($id);
         //rediccionar a la pagina index
         return redirect()->back()->with('mensaje','Plan de Tratamiento borrado satisfactoriamente');
+        
+        }else{
+                abort(403);
+            }
     }
 
     //Funcion para ver la factura
     public function factura($id,$idplantratamiento){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
+
         $pacientes = Paciente::findOrFail($id);
         $plantratamientos=Plantratamiento::findOrFail($idplantratamiento);
         $totalpagar= $plantratamientos->tratamiento->productos->sum('monto'); 
 
         return view('facturaPlantratamiento',compact('pacientes','plantratamientos','totalpagar'));
+
+    }else{
+        abort(403);
+    }
+
     }
 
 

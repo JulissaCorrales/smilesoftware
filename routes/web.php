@@ -123,16 +123,17 @@ Route::prefix('pantallainicio/calendario')->group( function(){
              Route::get('{id}/comentarios','PacienteController@comentarios') ->name('comentarios.crear')->middleware('role:admin,secretaria');
              //ruta pra guardar comentarios
              Route::post('{id}/comentarios','PacienteController@GuardarComentario')->name('comentario.guardar')->middleware('role:admin,secretaria');
+              
              //ruta de plandetratamiento ver
-             Route::get('{id}/plandetratamiento','PlanTratamientoController@ver')->name('tratamiento.ver');
-             //ruta de plande tratamiento nuevo
-             Route::get('{id}/tratamientonuevo','PlanTratamientoController@Nuevo')->name('tratamiento.nuevo');
-             //ruta de guardar tratamiento
-             Route::post('{id}/tratamientonuevo','PlanTratamientoController@guardar')->name('tratamiento.guardar');
-             //ruta de borrar tratamiento
-             Route::delete('{id}/borrar','PlanTratamientoController@destroy') ->name('plandetratamiento.borrar')->where('id','[0-9]+');
-             //Rutas para la factura de plan de tratamiento
-             Route::get('{id}/plandetratamiento/{idplantratamiento}/factura','PlanTratamientoController@factura')->name('factura.ver')->where('id','[0-9]+');
+              Route::get('{id}/plandetratamiento','PlanTratamientoController@ver')->name('tratamiento.ver')->middleware('role:admin,odontologo');
+              //ruta de plande tratamiento nuevo
+              Route::get('{id}/tratamientonuevo','PlanTratamientoController@Nuevo')->name('tratamiento.nuevo')->middleware('role:admin,odontologo');
+              //ruta de guardar tratamiento
+              Route::post('{id}/tratamientonuevo','PlanTratamientoController@guardar')->name('tratamiento.guardar')->middleware('role:admin,odontologo');
+              //ruta de borrar tratamiento
+              Route::delete('{id}/borrar','PlanTratamientoController@destroy') ->name('plandetratamiento.borrar')->where('id','[0-9]+')->middleware('role:admin,odontologo');
+              //Rutas para la factura de plan de tratamiento
+              Route::get('{id}/plandetratamiento/{idplantratamiento}/factura','PlanTratamientoController@factura')->name('factura.ver')->where('id','[0-9]+')->middleware('role:admin,odontologo');
 
 
              //rutas para documentos clinicos 
