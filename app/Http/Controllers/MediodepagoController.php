@@ -4,13 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mediopago;
+use Illuminate\Support\Facades\Gate;
 
 class MediodepagoController extends Controller
 {
     
     public function vistaprincipal(){
+        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
         $mediopagos=Mediopago::All();
-        return view('mediopagos')->with ('mediopagos',$mediopagos);      
+        return view('mediopagos')->with ('mediopagos',$mediopagos);
+    }else{
+        abort(403);
+    }
+        
 }
 
 public function destroy($id){
