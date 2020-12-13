@@ -64,10 +64,12 @@ public function guardar(Request $request,$id){
 
 
     public function editar($id){
-     
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
         $productos=Producto::findOrFail($id);
         return view('editarproducto')->with('productos',$productos);
-    
+    }else{
+        abort(403);
+    }
     }
 
     public function update(Request $request,$id){
