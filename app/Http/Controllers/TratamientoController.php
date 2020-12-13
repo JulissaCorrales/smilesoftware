@@ -9,17 +9,23 @@ use App\Tratamiento;
 class TratamientoController extends Controller
 {
     public function vistaprincipal(){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
         $tratamientos=Tratamiento::All();
         return view('tratamientos')->with ('tratamientos',$tratamientos);
-        
+    }else{
+        abort(403);
+    }
 }
 
 //funcion para eliminar
     // recibe el id del que se va eliminar
     public function destroy($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
         Tratamiento::destroy($id);
-       // Cita::where('paciente_id','=',$id)->delete();
         return redirect()->back()->with('mensaje','Tratamiento borrado satisfactoriamente messi');
+    }else{
+        abort(403);
+    }
     }
 
 
@@ -30,7 +36,7 @@ public function nuevo(){
 }
 
 public function guardar(Request $request){
-            
+    if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){      
     $request->validate([
         'categoria'     =>  'required',
         'tipo'          =>  'required',
@@ -48,17 +54,23 @@ public function guardar(Request $request){
         return redirect()->back()->with('mensaje','El nuevo Tratamiento fue creado exitosamente');
     }else{ 
     }
+}else{
+    abort(403);
+}
 }
 
 /* funcion para poder editar un gasto */
 public function editar($id){
-     
+    if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){  
     $tratamientos=Tratamiento::findOrFail($id);
     return view('editartratamiento')->with('tratamientos',$tratamientos);
-
+}else{
+    abort(403);
+}
 }
 
 public function update(Request $request,$id){
+    if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){ 
     $request->validate([
         'categoria'     =>  'required',
         'tipo'           =>  'required',
@@ -77,6 +89,9 @@ public function update(Request $request,$id){
         return redirect()->back()->with('mensaje','¡¡El Tratamiento Fué Modificado Exitosamente!!');
     }else{ 
     }
+}else{
+    abort(403);
+}
 
 }
 
