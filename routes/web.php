@@ -248,7 +248,7 @@ Route::get('tratamiento/{id}/producto/editar','ProductosController@editar') ->na
 Route::put('tratamiento/{id}/producto/editar','ProductosController@update')->name('producto.update') -> where('id' ,'[0-9]+');
 Route::get('/tratamiento/{id}/producto/nuevo','ProductosController@nuevo')->name('producto.nuevo') -> where('id' ,'[0-9]+');
 Route::post('/tratamiento/{id}/producto/Nuevo','ProductosController@guardar');
-Route::delete('tratamiento/{id}/producto/borrar','ProductosController@destroy') ->name('producto.borrar')->where('id','[0-9]+');
+Route::delete('tratamiento/{id}/producto/borrar','ProductosController@destroy') ->name('producto.borrar')->where('id','[0-9]+')->middleware('role:admin,odontologo');
 
 
 Route::get('pantallainicio/{id}/especialidades','EspecialidadController@VistaEspecial')->where('id','[0-9]+')->name('especialidades')->middleware('role:admin,secretaria');

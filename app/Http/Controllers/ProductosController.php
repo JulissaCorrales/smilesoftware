@@ -54,9 +54,12 @@ public function guardar(Request $request,$id){
 //funcion para eliminar
     // recibe el id del que se va eliminar
     public function destroy($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
         Producto::destroy($id);
-       // Cita::where('paciente_id','=',$id)->delete();
         return redirect()->back()->with('mensaje','Producto borrado satisfactoriamente');
+    }else{
+        abort(403);
+    }
     }
 
 
