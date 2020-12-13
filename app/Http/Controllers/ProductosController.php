@@ -30,7 +30,7 @@ public function nuevo($id){
 
 
 public function guardar(Request $request,$id){
-            
+    if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){ 
     $request->validate([
         'nombre'                    =>  'required',
         'permitedescuento'          =>  'required',
@@ -50,6 +50,11 @@ public function guardar(Request $request,$id){
         return redirect()->back()->with('mensaje','El nuevo Producto fue creado exitosamente');
     }else{ 
     }
+}else{
+    abort(403);
+}
+
+
 }
 //funcion para eliminar
     // recibe el id del que se va eliminar
