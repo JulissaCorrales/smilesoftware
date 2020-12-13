@@ -6,6 +6,7 @@ use App\Documento;
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class DocumentosClinicosController extends Controller
 {
