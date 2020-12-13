@@ -14,50 +14,64 @@ class TratamientosTableSeeder extends Seeder
     public function run()
     {
         $tratamiento=new Tratamiento;
-        $tratamiento->categoria="ACCIONES DE CARACTER GENERAL";
+        $tratamiento->categoria="Acciones Generales";
         $tratamiento->tipo="Accion Clinica";
         $tratamiento->save(); 
 
         $tratamiento=new Tratamiento;
-        $tratamiento->categoria="ACCIONES DE CIRUGIA BUCAL Y MAXILOFACIAL";
+        $tratamiento->categoria="Aparatos Fijos";
         $tratamiento->tipo="Accion Clinica";
         $tratamiento->save(); 
      
         $tratamiento=new Tratamiento;
-        $tratamiento->categoria="ACCIONES DE ENDODONCIA O TRATAMIENTO DE CONDUCTO";
+        $tratamiento->categoria="Aparatos Removibles";
         $tratamiento->tipo="Accion Clinica";
         $tratamiento->save(); 
 
         $tratamiento=new Tratamiento;
-        $tratamiento->categoria="ACCIONES DE ODONTOPEDIATRIA";
+        $tratamiento->categoria="Ciruguia";
         $tratamiento->tipo="Accion Clinica";
         $tratamiento->save(); 
 
         $tratamiento=new Tratamiento;
-        $tratamiento->categoria="ACCIONES DE OPERATORIA DENTAL";
+        $tratamiento->categoria="Endodoncia";
         $tratamiento->tipo="Accion Clinica";
         $tratamiento->save();
         
         $tratamiento=new Tratamiento;
-        $tratamiento->categoria="ACCIONES DE ORTODONCIA";
+        $tratamiento->categoria="Odontopetria";
         $tratamiento->tipo="Accion Clinica";
         $tratamiento->save(); 
 
 
         $tratamiento=new Tratamiento;
-        $tratamiento->categoria="ACCIONES DE PATOLOGIA BUCO MAXILO FACIAL";
+        $tratamiento->categoria="Ortodoncia";
         $tratamiento->tipo="Accion Clinica";
         $tratamiento->save(); 
 
         $tratamiento=new Tratamiento;
-        $tratamiento->categoria="ACCIONES DE PERIODONCIA";
+        $tratamiento->categoria="Ortopedia";
         $tratamiento->tipo="Accion Clinica";
         $tratamiento->save(); 
 
         $tratamiento=new Tratamiento;
-        $tratamiento->categoria="ACCIONES DE PREVENCIONAL INTERCEPCION E HIGIENE";
+        $tratamiento->categoria="Periodoncia";
         $tratamiento->tipo="Accion Clinica";
         $tratamiento->save(); 
 
+        $tratamiento=new Tratamiento;
+        $tratamiento->categoria="Promociones";
+        $tratamiento->tipo="Accion Clinica";
+        $tratamiento->save(); 
+
+        $tratamiento=new Tratamiento;
+        $tratamiento->categoria="Protesis";
+        $tratamiento->tipo="Accion Clinica";
+        $tratamiento->save(); 
+
+        $tratamiento=new Tratamiento;
+        $tratamiento->categoria="Tratamientos";
+        $tratamiento->tipo="Accion Clinica";
+        $tratamiento->save(); 
     }
 }
