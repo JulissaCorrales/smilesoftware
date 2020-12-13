@@ -269,11 +269,11 @@ Route::put('inventario/{id}/editar','InventarioController@update')->name('invent
 
 //**************Rutas de  medios de pago******************/
 Route::get('/pantallainicio/mediopago','MediodepagoController@vistaprincipal')->middleware('role:admin,secretaria');
-Route::delete('mediopago/{id}/borrar','MediodepagoController@destroy') ->name('mediopago.borrar')->where('id','[0-9]+');
-Route::post('mediopagoNuevo','MediodepagoController@guardar');
+Route::delete('mediopago/{id}/borrar','MediodepagoController@destroy') ->name('mediopago.borrar')->where('id','[0-9]+')->middleware('role:secretaria,admin');
+Route::post('mediopagoNuevo','MediodepagoController@guardar')->middleware('role:admin,secretaria');
 Route::get('mediopagonuevo','MediodepagoController@nuevo');
-Route::get('mediopago/{id}/editar','MediodepagoController@editar') ->name('mediopago.editar') -> where('id' ,'[0-9]+');
-Route::put('mediopago/{id}/editar','MediodepagoController@update')->name('mediopago.update') -> where('id' ,'[0-9]+');
+Route::get('mediopago/{id}/editar','MediodepagoController@editar') ->name('mediopago.editar') -> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
+Route::put('mediopago/{id}/editar','MediodepagoController@update')->name('mediopago.update') -> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
 
 
 

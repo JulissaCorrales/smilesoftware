@@ -20,19 +20,24 @@ class MediodepagoController extends Controller
 }
 
 public function destroy($id){
+    if(Gate::denies('isSecretaria')){ 
     Mediopago::destroy($id);
     return redirect()->back()->with('mensaje','Medio de pago borrado satisfactoriamente');
+}else{
+    abort(403);
+}
 }
 
 
 
 public function nuevo(){
-       
+    
     return view('mediopagonuevo');
+
 }
 
 public function guardar(Request $request){
-            
+    if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){      
     $request->validate([
         'nombre'         =>  'required',
     ]);
@@ -48,16 +53,25 @@ public function guardar(Request $request){
         return redirect()->back()->with('mensaje','El nuevo Medio de pago fue creado exitosamente');
     }else{ 
     }
+}else{
+    abort(403);
+}
+
 }
 
 
-public function editar($id){   
+public function editar($id){  
+    if(Gate::denies('isSecretaria')){ 
     $mediopagos=Mediopago::findOrFail($id);
     return view('editarmediopago')->with('mediopagos',$mediopagos);
+}else{
+    abort(403);
+}
 }
 
 
 public function update(Request $request,$id){
+    if(Gate::denies('isSecretaria')){ 
     $request->validate([
         'nombre'        =>'required',
        
@@ -74,6 +88,9 @@ public function update(Request $request,$id){
         return redirect()->back()->with('mensaje','¡¡El Medio de pago Fué Modificado Exitosamente!!');
     }else{ 
     }
+}else{
+    abort(403);
+}
 
 }
 
