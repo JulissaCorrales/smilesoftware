@@ -9,12 +9,20 @@ use App\Inventario;
 class InventarioController extends Controller
 {  
     public function vistaprincipal(){
+        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
         $inventarios=Inventario::All();
-        return view('inventarios')->with ('inventarios',$inventarios);      
+        return view('inventarios')->with ('inventarios',$inventarios);  
+    }else{
+        abort(403);
+    }
 }
 public function destroy($id){
+    if(Gate::denies('isSecretaria')){ 
     Inventario::destroy($id);
     return redirect()->back()->with('mensaje','Inventario borrado satisfactoriamente');
+}else{
+    abort(403);
+}
 }
 
 public function nuevo(){
@@ -25,7 +33,7 @@ public function nuevo(){
 
 
 public function guardar(Request $request){
-            
+    if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){        
     $request->validate([
         'producto'         =>  'required',
         'stockseguridad'   =>  'required',
@@ -46,14 +54,23 @@ public function guardar(Request $request){
         return redirect()->back()->with('mensaje','El nuevo Inventario fue creado exitosamente');
     }else{ 
     }
+}else{
+    abort(403);
+}
+
 }
 
 public function editar($id){   
+    if(Gate::denies('isSecretaria')){ 
     $inventarios=Inventario::findOrFail($id);
     return view('editarinventario')->with('inventarios',$inventarios);
+}else{
+    abort(403);
+}
 }
 
 public function update(Request $request,$id){
+    if(Gate::denies('isSecretaria')){ 
     $request->validate([
         'producto'        =>'required',
         'stockseguridad'  =>'required',
@@ -74,6 +91,9 @@ public function update(Request $request,$id){
         return redirect()->back()->with('mensaje','¡¡El Inventario Fué Modificado Exitosamente!!');
     }else{ 
     }
+}else{
+    abort(403);
+}
 
 }
 

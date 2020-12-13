@@ -1,4 +1,5 @@
 @extends('Plantilla.Plantilla')
+@canany(['isAdmin','isSecretaria'])
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -255,6 +256,6 @@ $(document).ready( function () {
 
 
 
-
+@endcanany
 @endsection
 </html>
