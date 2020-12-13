@@ -73,6 +73,7 @@ public function guardar(Request $request,$id){
     }
 
     public function update(Request $request,$id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
         $request->validate([
             'nombre'                     =>  'required',
             'permitedescuento'           =>  'required',
@@ -91,7 +92,9 @@ public function guardar(Request $request,$id){
             return redirect()->back()->with('mensaje','¡¡El Producto Fué Modificado Exitosamente!!');
         }else{ 
         }
-    
+    }else{
+        abort(403);
+    }
     }
 
 
