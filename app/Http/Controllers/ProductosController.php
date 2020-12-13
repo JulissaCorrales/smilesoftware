@@ -11,22 +11,15 @@ use App\Producto;
 class ProductosController extends Controller
 {
     public function datos($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
        $productos=Producto::all();
        $tratamientos=Tratamiento::findorfail($id);
       return view('productos')->with ('productos',$productos)->with('tratamientos',$tratamientos);
+    }else{
+        abort(403);
+    }
       }
-      //public function datos($id){
-      //  $productos = Producto::findOrFail($id);
-      //  return view('productos',compact('productos'));
-   // }
-
-
-
-
-//public function nuevo(){
-       
-  //  return view('productosnuevo');
-//}
+     
 
 public function nuevo($id){
    $tratamientos = Tratamiento::findOrFail($id);

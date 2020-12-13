@@ -242,8 +242,8 @@ Route::get('{id}/editar','TratamientoController@editar') ->name('tratamiento.edi
 Route::put('{id}/editar','TratamientoController@update')->name('tratamiento.update') -> where('id' ,'[0-9]+');
 
 
-//**************Rutas de  tratamientos******************/
-Route::get('/tratamiento/{id}/producto','ProductosController@datos')->name('productos.datos')->where('id', '[0-9]+');
+//**************Rutas de  Productos******************/
+Route::get('/tratamiento/{id}/producto','ProductosController@datos')->name('productos.datos')->where('id', '[0-9]+')->middleware('role:admin,odontologo');
 Route::get('tratamiento/{id}/producto/editar','ProductosController@editar') ->name('producto.editar') -> where('id' ,'[0-9]+');
 Route::put('tratamiento/{id}/producto/editar','ProductosController@update')->name('producto.update') -> where('id' ,'[0-9]+');
 Route::get('/tratamiento/{id}/producto/nuevo','ProductosController@nuevo')->name('producto.nuevo') -> where('id' ,'[0-9]+');
