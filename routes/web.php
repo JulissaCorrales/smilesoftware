@@ -58,7 +58,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
     //Route::get('{id}','citaController@citaodontologo')->name('cita.odontolo');
     Route::get('citadiaria','PantallaInicioController@PantallaInicio')->name('cita.diaria');
     Route::get('semanal','CitaController@calendar')->middleware('role:admin,secretaria,odontologo');
-    Route::get('vistamensual','CitaController@vistamensual');
+    Route::get('vistamensual','CitaController@vistamensual')->middleware('role:admin,secretaria,odontologo');
     Route::get('diaria','CitaController@vistadiaria')->middleware('role:admin,secretaria,odontologo');
     });
 
@@ -66,13 +66,13 @@ Route::prefix('pantallainicio/calendario')->group( function(){
 
     Route::prefix('pantallainicio/calendario')->group( function(){
       //  Route::get('{id}/odontologo','CitaController@datosver');
-          Route::get('{id}/doctor','CitaController@citaodontologo');
+          Route::get('{id}/doctor','CitaController@citaodontologo')->middleware('role:admin,secretaria,odontologo');
         
         });
 
         Route::prefix('pantallainicio/calendario/semanal')->group( function(){
-            Route::get('{id}/odontologo','CitaController@datosver');
-              Route::get('{id}/doctor','CitaController@citaodontologo');
+            Route::get('{id}/odontologo','CitaController@datosver')->middleware('role:admin,secretaria,odontologo');
+              Route::get('{id}/doctor','CitaController@citaodontologo')->middleware('role:admin,secretaria,odontologo');
             
             });
 
@@ -152,13 +152,13 @@ Route::prefix('pantallainicio/calendario')->group( function(){
              //agrupamiento para que funcione el buscador 
 
     Route::prefix('pantallainicio/vista/paciente/{id}')->group( function(){
-            Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+            Route::get('buscar','PacienteController@index')->name ('paciente.buscar')->middleware('role:admin,secretaria,odontologo');
                 
                      
             });
             //********* Rutas para administracion(gastos,etc)*********//
             Route::prefix('pantallainicio')->group( function(){
-                Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+                Route::get('buscar','PacienteController@index')->name ('paciente.buscar')->middleware('role:admin,secretaria,odontologo');
                 //ruta para ver los gastos de la clinica
                 Route::get('gastos','GastoController@ver')->name('gastos.ver')->middleware('role:admin,secretaria');
                 //    Ruta para guardar el gasto creado
@@ -180,7 +180,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
 
                 //********* Rutas para Logotipo*********//
                 Route::prefix('pantallainicio/logotipo')->group( function(){
-                Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+                Route::get('buscar','PacienteController@index')->name ('paciente.buscar')->middleware('role:admin,secretaria');
                 ///////////////////logotipo///////////////////
                 Route::get('ver','LogotipoController@ver')->name('logotipo.ver')->middleware('role:admin,secretaria');
                 /* Ruta para crear logotipo */
