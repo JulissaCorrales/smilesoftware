@@ -68,6 +68,7 @@ class OdontologoController extends Controller
         
         }
         
+        
         $request->validate(['nombres'=>'required',
         'apellidos'=>'required|alpha',
         

@@ -85,7 +85,7 @@
   </div>
   <div id="mo" >
 <div class="content" id="n">
-<form method="post" action="">
+<form method="post" action="/pantallainicio/vista/pacienteNuevo" file="true" enctype="multipart/form-data">
                       @csrf
                       <div class="form-group">
                           <label for="nombres">Nombres:</label>
@@ -175,6 +175,12 @@
                     <label for="observaciones">observaciones:</label>
                     <input type="text" class="form-control-file" name="observaciones" id="observaciones" placeholder="Alguna observacion?">
                   </div>
+
+                  <div class="form-group">
+                    <input type="file" class="form-control-file" name="file" id="imagen" placeholder="Seleccione una Imagen">
+                  </div>
+
+                          </div>
 
                   <div class="modal-footer">
                   <button type="button" onclick="location.href='/pantallainicio/vista'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>

@@ -75,6 +75,15 @@ class PacienteController extends Controller
         $pacientes->profesion=$_request->input('profesion');
         $pacientes->empresa=$_request->input('empresa');
         $pacientes->observaciones=$_request->input('observaciones');
+        if ($_request->hasFile('file')) {
+            $file = $_request->file('file');
+            //obtenemos el nombre del archivo
+            $image =  time()." ".$file->getClientOriginalName();
+            //indicamos que queremos guardar un nuevo archivo en el disco local
+            $file->move(\public_path().'/Imagenes/',$image);
+            $pacientes->imagen= $image;
+        
+        }
 
         $create = $pacientes->save();
         if($create){
@@ -139,6 +148,17 @@ class PacienteController extends Controller
         $nuevoPaciente->profesion = $request->input('profesion');
         $nuevoPaciente->empresa = $request -> input('empresa');
         $nuevoPaciente->observaciones = $request->input('observaciones');
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            //obtenemos el nombre del archivo
+            $image =  time()." ".$file->getClientOriginalName();
+            //indicamos que queremos guardar un nuevo archivo en el disco local
+            $file->move(\public_path().'/Imagenes/',$image);
+            $nuevoPaciente->imagen= $image;
+        
+        }
+
     
        $creado = $nuevoPaciente->save();
 

@@ -21,9 +21,8 @@
 
  td{
   border: 1px solid #00cccc;
-  text-align: left;
-  padding: 20px;
-  text-align: left;
+
+  text-align: center;
   background-color: #ccffff
   
 } 
@@ -41,6 +40,14 @@ text-align: center;
  
   
 
+}
+
+#datosme{
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 70%;
+  position: relative;
+  bottom: 5px;
 }
 
  #lista:hover{
@@ -187,7 +194,8 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   <tr>
       @forelse($pacientes as $paciente)
      <td>@canany(['isAdmin','isOdontologo','isSecretaria'])
-     <a  class="btn btn-outline-info"  href="/pantallainicio/vista/paciente/{{$paciente->id}}/editar"   id="lista">@endcanany{{$paciente->id}}
+
+     <a  class="btn btn-outline-info"  href="/pantallainicio/vista/paciente/{{$paciente->id}}/editar"   id="lista">@endcanany<img src='/Imagenes/{{$paciente->imagen}}' width="70px" height="70px" id="datosme">
      </a></td>
      <td>{{$paciente->nombres}}</td>
      <td>{{$paciente->apellidos}}</td>

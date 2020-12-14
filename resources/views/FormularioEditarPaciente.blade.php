@@ -27,7 +27,7 @@
 <div id="padre"> 
 <h3 id="titulo">Edición de datos del paciente</h3>
   
-                    <form method="post" action="{{route('paciente.update',['id'=> $pacientes-> id])}} ">
+                    <form method="post" action="{{route('paciente.update',['id'=> $pacientes-> id])}} " file="true" enctype="multipart/form-data">
                       @csrf
                       @method('put')
                       <div class="form-group">
@@ -121,6 +121,13 @@
                     <input type="text" class="form-control form-control-sm" name="observaciones" id="observaciones" placeholder="Alguna observacion?"  value="{{ $pacientes->observaciones }}">
                   </div>
                   </div>
+
+                  <div class="form-group">
+                    <input type="file" class="form-control-file" name="file" id="imagen" placeholder="Seleccione una Imagen">
+                  </div>
+
+                          </div>
+
                   @canany(['isAdmin','isSecretaria'])
                   <div class="modal-footer">
                 <button type="button" onclick="location.href='/pantallainicio/vista'" class="btn btn-secondary" data-dismiss="modal">Atrás</button>

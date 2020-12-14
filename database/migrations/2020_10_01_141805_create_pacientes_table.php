@@ -28,6 +28,8 @@ class CreatePacientesTable extends Migration
             $table->string('profesion');
             $table->string('empresa');
             $table->string('observaciones');
+            $table->string('imagen')->default('Icono.jpg');
+
            // $table->unsignedInteger('cita_id');//relacion con cita
             $table->timestamps();
             

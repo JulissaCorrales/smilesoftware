@@ -86,7 +86,7 @@
 <body>
 <div class="card" style="width: 20rem;" id="ventana">
   <div id="im">
-  <img src="{{ asset('Imagenes/foto1.jpg') }}" class="btn btn-light" width="100px" id="datos">
+  <td id="td1"><img src='/Imagenes/{{$pacientes->imagen}}' width="70px" height="70px"id="datos"></td>
 </div>
 
       <div id="mostrar">
