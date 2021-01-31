@@ -291,3 +291,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 //ruta para editar Horario Odontologo
 Route::get('editarHorario','OdontologoController@editarHorario')->name('editar.horario');
 
+//ruta para pdf 
+route::get('/pdf','PDFController@PDF')->name('descargarPDF');
+route::get('/pdfpacientes','PDFController@PDFPacientes')->name('descargarPDFPacientes');
