@@ -9,23 +9,27 @@
  
   font-family: serif;
   position: absolute;
-            left: 200px;
-            top: 300px;
+            left: 250px;
+            top: 320px;
             font-size:20px;
+            background-color: #c1f0f0;
 }
 
 #ho1{
   position: absolute;
             left: 150px;
-            top: 200px;
+            top: 250px;
             font-size:20px;
-            height:400px;
+            
+            
+            background-color: #c1f0f0;
            
  
 }
 
 #nav1{
   height:400px;
+  
 }
 
 #ho2{
@@ -43,6 +47,7 @@
             left: 40px;
             top: 30px;
             font-size:20px;
+           
            
 
 }
