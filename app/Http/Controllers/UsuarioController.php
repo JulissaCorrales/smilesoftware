@@ -38,12 +38,9 @@ class UsuarioController extends Controller
         if($request->ajax()){
             $roles = Role::where('id', $request->role_id)->first();
             $permissions = $roles->permisos;
-
             return $permissions;
         }
-
         $roles=Role::all();
-        
         return view('usuarios.NuevoUsuario')->with ('roles',$roles);;
      }
 
@@ -54,25 +51,28 @@ class UsuarioController extends Controller
             abort(403);
          }
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            
+            'name' => ['required', 'string', 'max:15'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed']
           
            
         ]);
-        
-
         $nuevo = new User();
-
-        //formulario
         $nuevo->name = $request->input('name');
-        
         $nuevo->email = $request->input('email');
         $nuevo->password = bcrypt($request->password);
-      
-   
 
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            //obtenemos el nombre del archivo
+            $image =  time()." ".$file->getClientOriginalName();
+            //indicamos que queremos guardar un nuevo archivo en el disco local
+            $file->move(\public_path().'/Imagenes/',$image);
+            $nuevo->imagen= $image;
+        
+        }
+        
+        
        $creado = $nuevo->save();
 
        if($request->role != null){
@@ -137,6 +137,15 @@ class UsuarioController extends Controller
         $user = User::findOrFail($id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            //obtenemos el nombre del archivo
+            $image =  time()." ".$file->getClientOriginalName();
+            //indicamos que queremos guardar un nuevo archivo en el disco local
+            $file->move(\public_path().'/Imagenes/',$image);
+            $user->imagen= $image;
+        
+        }
         if($request->password != null){
             $user->password = Hash::make($request->password);
         }

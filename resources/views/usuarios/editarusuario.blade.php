@@ -14,12 +14,28 @@
 }   #titulo{
     text-align:center;
 }
+
+#imagen4{
+
+    text-align: right;
+    margin-right:2em;
+
+}
+#imagen{
+    margin-left:15em;
+}
 </style>
 </head>
 <body>
  
     <div  class="container" id="padre">
-        <h3 id="titulo">Edición de  datos del Usuario: {{$user->name}}</h3>
+        <h3 id="titulo">Edición de  datos del Usuario: {{$user->name}}
+        <div id="imagen4">
+                      <img style="  border-radius: 70%;"src='/Imagenes/{{$user->imagen}}' width=" 100px" height="100px"id="datos6">
+                      </div>
+        
+        </h3>
+    
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -35,7 +51,7 @@
             </div>
         @endif
 
-        <form method="post" action="{{route('usuario.actualizar',$user->id)}} ">
+        <form method="post" action="{{route('usuario.actualizar',$user->id)}} " enctype="multipart/form-data">
 
         @csrf
         @method('put')
@@ -121,6 +137,10 @@
     @endif
               
 
+            </div>
+            <label for="permiso" class="col-md-4 col-form-label text-md-right">{{ __('Fotografia de usuario:') }}</label>
+            <div align=center  class="form-group" id="imagen">       
+                    <input accept="image/*" type="file" class="form-control-file" name="file" id="file" value="{{$user->imagen}}">
             </div>
             <br>
                 

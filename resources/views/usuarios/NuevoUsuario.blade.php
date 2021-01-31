@@ -61,10 +61,10 @@
                         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
                         $mysqli->set_charset("utf8");
                     ?>
-                     <form method="post" action="{{route('usuario.guardar')}} ">
+                     <form method="post" action="{{route('usuario.guardar')}} " enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre de usuario') }}</label>
 
                             <div class="col-md-6">
                               
@@ -136,18 +136,11 @@
 
                             <div class="col-md-6" id="permissions_ckeckbox_list"> </div>
                         </div>
-
-                    
-      
-                        <!-- esDentista -->
-                        
-                        <!--  -->
-                        <!-- Roles -->
-                        
-    
-                        <!--  -->
-
                    
+        <div class="form-group">
+        <label for="permiso" class="col-md-4 col-form-label text-md-right">{{ __('Fotografia de usuario:') }}</label>
+                    <input type="file" style="margin-left:500px"accept="image/*" class="form-control-file" name="file" id="file" placeholder="Seleccione una Imagen">
+                  </div>
                     <div class="form-group" align=center id="div6">
                     <button style="background-color:purple"type="button" onclick="location.href='{{route('usuarios.indice')}}'" class="btn btn-secondary" data-dismiss="modal" id="atras">Atrás</button>
                     <input type="reset" class="btn btn-danger" id="reset">
