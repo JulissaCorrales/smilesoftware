@@ -331,7 +331,7 @@
             </a>
           </div>
         <!-- Foto de perfil del usuario -->
-        <a  href="{{route('usuario.actualizar',Auth::user()->id)}}"><img style="border-radius: 70%;margin-left:2em;" src='/Imagenes/{{Auth::user()->imagen}}'   width=" 70px" height="70px"></a>
+        <a  href="{{route('usuario.actualizar',Auth::user()->id)}}"><img class="logo" style="border-radius: 70%;margin-left:3em;bottom:0.3em;  position: absolute;" src='/Imagenes/{{Auth::user()->imagen}}'   width=" 70px" height="70px"></a>
         </nav>
       </div>
   </div>
