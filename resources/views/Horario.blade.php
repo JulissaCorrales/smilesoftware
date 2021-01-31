@@ -2,17 +2,72 @@
 
 @section('contenido')
 
+<style>
 
-<div  class="container">
-<nav class="navbar navbar-light bg-light">
+#horario{
+  color: #007399;
+ 
+  font-family: serif;
+  position: absolute;
+            left: 200px;
+            top: 300px;
+            font-size:20px;
+}
+
+#ho1{
+  position: absolute;
+            left: 150px;
+            top: 200px;
+            font-size:20px;
+            height:400px;
+           
+ 
+}
+
+#nav1{
+  height:400px;
+}
+
+#ho2{
+  position: absolute;
+            left: 150px;
+            top: 600px;
+            font-size:20px;
+}
+
+#texto4{
+  color: #007399;
+ 
+  font-family: serif;
+  position: absolute;
+            left: 40px;
+            top: 30px;
+            font-size:20px;
+           
+
+}
+
+
+#td1{
+
+  position: absolute;
+            left: 180px;
+            
+
+}
+
+</style>
+
+<div  class="container"id="ho1">
+<nav class="navbar navbar-light bg-light" id="nav1">
   <div class="container">
-   <h4>Horarios Odontologo</h4>
+   <h4 id="texto4">Horarios Odontologo</h4>
   </div>
 </nav>
 </div>
 
 
-
+<div id="horario">
 <table  class="container">
   <thead>
   
@@ -237,8 +292,10 @@
                   </td>
     </tr>
     <tr>
-      <th scope="row">Hora de Descanso</th>
-      <td > Si  <input type="checkbox" id="vehicle1"  value="Bike">
+      <th scope="row">Hora de Descanso </th>
+
+
+        <td  id="td1"> Si  <input type="checkbox" id="vehicle1"  value="Bike">
                   </td>
       <td>  Si  <input type="checkbox" id="vehicle1"  value="Bike">
                   </td>
@@ -260,6 +317,17 @@
     </tr>
   </tbody>
 </table>
+
+</div>
+
+<div  class="container" id="ho2">
+<nav class="navbar navbar-light bg-light">
+  <div class="container">
+  <a type="button" class="btn btn-info" href="{{route('odontologo.vista')}}">Atras</a>
+  </div>
+</nav>
+</div>
+
 
 
 @endsection

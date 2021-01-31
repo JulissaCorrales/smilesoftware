@@ -170,7 +170,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
                 /* Ruta para guardar la edicion del gasto */
                 Route::put('{id}/editar','GastoController@update')->name('gasto.update') -> where('id' ,'[0-9]+')->middleware('role:admin');
 
-                Route::get('odontologo','OdontologoController@vistaodontologo')->middleware('role:admin,secretaria');
+                Route::get('odontologo','OdontologoController@vistaodontologo')->middleware('role:admin,secretaria')->name('odontologo.vista');
               
                 Route::get('especialidad','EspecialidadController@vistaespecialidad')->middleware('role:admin,secretaria');
                 Route::get('nueva/especialidad','EspecialidadController@nuevaespecialidad')->middleware('role:admin,secretaria');
