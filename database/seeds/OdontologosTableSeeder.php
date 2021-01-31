@@ -9,6 +9,7 @@ use App\Paciente;
 use App\PlanTratamiento;
 use App\Tratamiento;
 use App\Producto;
+use App\Dias;
 
 class OdontologosTableSeeder extends Seeder
 {
@@ -26,6 +27,20 @@ class OdontologosTableSeeder extends Seeder
         $especialidad = new Especialidad();
         $especialidad->Especialidad="Ortodoncia";
         $especialidad->save();
+
+
+        //seeder para los dias de Semana
+        $dias = new Dias();
+        $dias->primerdia="Lunes";  
+        $dias->segundodia="Martes";   
+        $dias->tercerdia="Miercoles"; 
+        $dias->cuartodia="Jueves"; 
+        $dias->quintodia="Viernes"; 
+        $dias->sextodia="Sabado";    
+        $dias->septimodia="Domingo";     
+        $dias->save();
+
+        
 
         /*
         $odontologo=new Odontologo;

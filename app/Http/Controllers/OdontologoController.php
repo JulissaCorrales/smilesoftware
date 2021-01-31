@@ -8,6 +8,8 @@ use App\EspecialidadOdontologos;
 use DispatchesJobs, ValidatesRequests;
 use Illuminate\Support\Facades\Gate;
 
+use App\Dias;
+
 class OdontologoController extends Controller
 {
     
@@ -189,6 +191,15 @@ class OdontologoController extends Controller
 
        
     }
+
+
+    //Funcion para mostrar editar Horario de Odontologo
+    public function editarHorario(){
+        $dias = Dias::All();
+    
+        return view('Horario')->with('dias',$dias);
+     } 
+
 
 
 }

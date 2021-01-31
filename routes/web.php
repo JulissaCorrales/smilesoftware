@@ -288,3 +288,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+//ruta para editar Horario Odontologo
+Route::get('editarHorario','OdontologoController@editarHorario')->name('editar.horario');
+
