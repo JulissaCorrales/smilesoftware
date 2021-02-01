@@ -14,54 +14,42 @@ class PacienteController extends Controller
 {
    //Paciente vista solo acceso admin,secretario,odontologo
     public function vistapaciente(){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria') || Gate::denies('isOdontologo')){
+        $this->authorize('view', Paciente::class);
         $pacientes=Paciente::All();
         return view('vistapaciente')->with ('pacientes',$pacientes);
-        }
-     } 
-
-
-    //Nuevo Paciente acceso el admin y la secretaria
-    public function nuevo(){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
-        return view('nuevopaciente');
-            }
     }
-     //Vista de Paciente acceso admin ,odontologo,secretaria
-     /*
-    public function vistaprincipal(){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria') || Gate::denies('isOdontologo')){
-        $pacientes = Paciente::findOrFail();
-        return view('Plantilla.Plantilla')->with('pacientes',$pacientes);
-        }
-    } */
+
+    //Nuevo Paciente acceso el admin o si la secretaria o odontologo tiene el permiso
+    public function nuevo(){
+        $this->authorize('create', Paciente::class);
+        return view('nuevopaciente');
+    }
 
 
     //Fichero Paciente acceso admin,secretaria,odontologo
     public function datosVer($id){
-        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo') || Gate::denies('isSecretaria')){
+        $this->authorize('view', Paciente::class);
         $pacientes = Paciente::findOrFail($id);
         return view('datospersonales')->with('pacientes',$pacientes);
         }
-    }
 
     //Editar el paciente acceso solo el admin y secretaria
 
     public function editar($id){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
         $pacientes = Paciente::findOrFail($id);
+        $this->authorize('update',$pacientes);
         return view('FormularioEditarPaciente')->with('pacientes',$pacientes);
         }
-    }
 
 
     //actualizar Paciente acceso  solo el admin y secretaria
 
     public function update(Request $_request,$id){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
-        
+        // if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
         $pacientes = Paciente::findOrFail($id);
 
+        $this->authorize('update',$pacientes);
+        
         $pacientes->nombres=$_request->input('nombres');
         $pacientes->apellidos=$_request->input('apellidos');
         $pacientes->identidad=$_request->input('identidad');
@@ -92,7 +80,7 @@ class PacienteController extends Controller
 
         }
            
-        }
+       // }
     
         //validar
         $_request->validate([     'nombres'=>'required',
@@ -115,7 +103,7 @@ class PacienteController extends Controller
 
    //Guardar Paciente solo el admin y secretaria
     public function guardar(Request $request){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+        $this->authorize('view', Paciente::class);
         $request->validate([
             'nombres'=>'required',
             'apellidos'=>'required',
@@ -163,72 +151,25 @@ class PacienteController extends Controller
        $creado = $nuevoPaciente->save();
 
          if ($creado){
-            return redirect('/pantallainicio/vista')->with('mensaje', 'el paciente fue creado exitosamente!');
+            return redirect('/pantallainicio/vista')->with('mensaje', 'El paciente fue creado exitosamente!');
         }else{
             //retornar con un msj de error
         } 
-    }
     }
 
     //funcion para eliminar
     // recibe el id del que se va eliminar
     public function destroy($id){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+        $pacientes = Paciente::findOrFail($id);
+        $this->authorize('delete',$pacientes);
+        
         Paciente::destroy($id);
         Cita::where('paciente_id','=',$id)->delete();
         return redirect()->back()->with('mensaje','Paciente borrado satisfactoriamente');
 
-        }
+        
        
     }
-
-
-    /*
-    public function GuardarNuevo(Request $request){
-        $request->validate([
-            'nombres'=>'required',
-            'apellidos'=>'required',
-            'identidad'=>'required|unique:pacientes,identidad',
-            'sexo'=>'required',
-            'fechaNacimiento'=>'required',
-            'departamento'=>'required',
-            'ciudad'=>'required',
-            'direccion'=>'required',
-            'telefonoFijo'=>'required',
-            'telefonoCelular'=>'required',
-            'profesion'=>'required',
-            'empresa'=>'required',
-            'observaciones'=>'required'
-        ]);
-
-        $nuevoPaciente = new Paciente();
-
-        //formulario
-        $nuevoPaciente->nombres = $request->input('nombres');
-        $nuevoPaciente->apellidos = $request->input('apellidos');
-        $nuevoPaciente->identidad = $request->input('identidad');
-        $nuevoPaciente->sexo = $request->input('sexo');
-        $nuevoPaciente->fechaNacimiento = $request -> input('fechaNacimiento');
-        $nuevoPaciente->departamento = $request->input('departamento');
-        $nuevoPaciente->ciudad = $request->input('ciudad');
-        $nuevoPaciente->direccion = $request -> input('direccion');
-        $nuevoPaciente->telefonoFijo = $request->input('telefonoFijo');
-        $nuevoPaciente->telefonoCelular = $request->input('telefonoCelular');
-        $nuevoPaciente->profesion = $request->input('profesion');
-        $nuevoPaciente->empresa = $request -> input('empresa');
-        $nuevoPaciente->observaciones = $request->input('observaciones');
-        
-
-       $creado = $nuevoPaciente->save();
-
-         if ($creado){
-            return redirect('/pantallainicio/vista')->with('mensaje', 'el paciente fue creado exitosamente!');
-        }else{
-            //retornar con un msj de error
-        } 
-    }
-    */
-
     
         // Configuracion del Buscador Principal acceso al admin.secretaria,odontologo
                 public function index(Request $request){

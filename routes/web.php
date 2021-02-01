@@ -31,7 +31,7 @@ use App\Logotipo;
 
             //************RUTA PARA BORRAR PACIENTE */
              
-            Route::delete('paciente/{id}/borrar','PacienteController@destroy') ->name('paciente.borrar')->where('id','[0-9]+')->middleware('role:admin,secretaria');
+            Route::delete('paciente/{id}/borrar','PacienteController@destroy') ->name('paciente.borrar')->where('id','[0-9]+')->middleware('role:admin,secretaria,odontologo');
             
                 //***** RUTA PARA ELIMINAR ESPECIALIDAD */
 
