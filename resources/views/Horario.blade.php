@@ -61,6 +61,51 @@
 
 }
 
+#select1{
+  position: absolute;
+            left: 160px;
+            top: 150px;
+            font-size:20px;
+            font-family: serif;
+            color: #007399;
+           
+           
+}
+
+#select2{
+  position: absolute;
+            left: 160px;
+            top: 180px;
+            font-size:20px;
+            font-family: serif;
+            color: #007399;
+           
+           
+}
+
+
+#select3{
+  position: absolute;
+            left: 280px;
+            top: 150px;
+            font-size:20px;
+            font-family: serif;
+            color: #007399;
+           
+           
+}
+
+#select4{
+  position: absolute;
+            left: 280px;
+            top: 180px;
+            font-size:20px;
+            font-family: serif;
+            color: #007399;
+           
+           
+}
+
 </style>
 
 <div  class="container"id="ho1">
@@ -208,8 +253,7 @@
                     <option >4:00 p.m</option>
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
-                  
-        </select>
+                
  
         </td>
       <td> <select name="martesfin" class="form-control" value="">
@@ -283,46 +327,232 @@
                   </td>
 
                   <td> <select name="domingofin" class="form-control" value="">
-                  <option >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
+                  <option id="ocho" value="8:00 a.m">8:00 a.m</option>
+                    <option id="nueve" value="9:00 a.m">9:00 a.m</option>
+                    <option id="diez" value="10:00 a.m">10:00 a.m</option>
+                    <option id="once" value="11:00.am">11:00 a.m</option>
+                    <option id="doce" value="12:00 p.m">12:00 p.m</option>
+                    <option id="una" value="1:00 p.m">1:00 p.m</option>
+                    <option id="do" value="2:00 p.m" >2:00 p.m</option>
+                    <option id="tre" value="3:00 p.m" >3:00 p.m</option>
+                    <option  id="cua" value="4:00 p.m" >4:00 p.m</option>
+                    <option id="cin"  value="5:00 p.m" >5:00 p.m</option>
+                    <option id="seis" value="6:00 p.m"  >6:00 p.m</option>
                   </td>
     </tr>
     <tr>
       <th scope="row">Hora de Descanso </th>
 
 
-        <td  id="td1"> Si  <input type="checkbox" id="vehicle1"  value="Bike">
+        <td  id="td1"> Si  <input type="checkbox" id="siprimero"  onclick="mostrartabla()">
                   </td>
-      <td>  Si  <input type="checkbox" id="vehicle1"  value="Bike">
-                  </td>
-
-                  <td>  Si  <input type="checkbox" id="vehicle1"  value="Bike">
+      <td>  Si  <input type="checkbox" id="simartes" onclick="mostrartabla1()">
                   </td>
 
-                  <td>  Si  <input type="checkbox" id="vehicle1"  value="Bike">
+                  <td>  Si  <input type="checkbox" id="simiercoles"  onclick="mostrartabla2()">
                   </td>
 
-                  <td> Si  <input type="checkbox" id="vehicle1"  value="Bike">
+                  <td>  Si  <input type="checkbox" id="sijueves"  onclick="mostrartabla()">
                   </td>
 
-                  <td> Si  <input type="checkbox" id="vehicle1"  value="Bike">
+                  <td> Si  <input type="checkbox" id="siviernes"  onclick="mostrartabla()">
                   </td>
 
-                  <td>  Si  <input type="checkbox" id="vehicle1"  value="Bike">
+                  <td> Si  <input type="checkbox"id="sisabado"  onclick="mostrartabla()">
+                  </td>
+
+                  <td>  Si  <input type="checkbox" id="sidomingo"  onclick="mostrartabla()">
                   </td>
     </tr>
   </tbody>
-</table>
+</table> 
 
+ <div id="table2">
+ </div>
+
+ <div id="table3">
+ </div>
+
+
+
+<script>
+function mostrartabla(){
+
+var segundo = document.getElementById("ocho");
+var tercero= document.getElementById("nueve");
+var cuarto= document.getElementById("diez");
+var quinto= document.getElementById("once");
+var sexto= document.getElementById("doce");
+var septimo= document.getElementById("una");
+var octavo= document.getElementById("do");
+var noveno= document.getElementById("tre");
+var decimo= document.getElementById("cua");
+var onceavo= document.getElementById("cin");
+var doceavo= document.getElementById("seis");
+
+
+var salida= document.getElementById("table2");
+var salida2= document.getElementById("table3");
+
+
+if(document.getElementById("siprimero").checked){
+salida.innerHTML= "<h4>Hora de Inicio</h4>" +
+       "<select id='select1'>" + "<option>" + segundo.value +"</option>"
++ "<option>" + tercero.value +"</option>" +
+"<option>" + cuarto.value +"</option>" +
+"<option>" + quinto.value +"</option>" +
+"<option>" + sexto.value +"</option>" +
+"<option>" + septimo.value +"</option>" +
+"<option>" + octavo.value + "</option>" +
+"<option>" + noveno.value +"</option>" +
+"<option>" +  decimo.value +"</option>" +
+"<option>" + onceavo.value +"</option>" +
+"<option>" + doceavo.value +"</option>" ;
+
+salida2.innerHTML="<h4>Hora de Final</h4>" +
+       "<select id='select2'>" + "<option>" + segundo.value +"</option>"
++ "<option>" + tercero.value +"</option>" +
+"<option>" + cuarto.value +"</option>" +
+"<option>" + quinto.value +"</option>" +
+"<option>" + sexto.value +"</option>" +
+"<option>" + septimo.value +"</option>" +
+"<option>" + octavo.value + "</option>" +
+"<option>" + noveno.value +"</option>" +
+"<option>" +  decimo.value +"</option>" +
+"<option>" + onceavo.value +"</option>" +
+"<option>" + doceavo.value +"</option>";
+
+}else{
+  salida.innerHTML= " ";
+  salida2.innerHTML="";
+}
+
+
+
+
+
+}
+</script>
+
+
+
+<script>
+function mostrartabla1(){
+
+var segundo = document.getElementById("ocho");
+var tercero= document.getElementById("nueve");
+var cuarto= document.getElementById("diez");
+var quinto= document.getElementById("once");
+var sexto= document.getElementById("doce");
+var septimo= document.getElementById("una");
+var octavo= document.getElementById("do");
+var noveno= document.getElementById("tre");
+var decimo= document.getElementById("cua");
+var onceavo= document.getElementById("cin");
+var doceavo= document.getElementById("seis");
+
+
+var salida= document.getElementById("table2");
+var salida2= document.getElementById("table3");
+
+
+if(document.getElementById("simartes").checked){
+salida.innerHTML= "<h4>Hora de Inicio</h4>" +
+       "<select id='select3'>" + "<option>" + segundo.value +"</option>"
++ "<option>" + tercero.value +"</option>" +
+"<option>" + cuarto.value +"</option>" +
+"<option>" + quinto.value +"</option>" +
+"<option>" + sexto.value +"</option>" +
+"<option>" + septimo.value +"</option>" +
+"<option>" + octavo.value + "</option>" +
+"<option>" + noveno.value +"</option>" +
+"<option>" +  decimo.value +"</option>" +
+"<option>" + onceavo.value +"</option>" +
+"<option>" + doceavo.value +"</option>" ;
+
+salida2.innerHTML="<h4>Hora de Final</h4>" +
+       "<select id='select4'>" + "<option>" + segundo.value +"</option>"
++ "<option>" + tercero.value +"</option>" +
+"<option>" + cuarto.value +"</option>" +
+"<option>" + quinto.value +"</option>" +
+"<option>" + sexto.value +"</option>" +
+"<option>" + septimo.value +"</option>" +
+"<option>" + octavo.value + "</option>" +
+"<option>" + noveno.value +"</option>" +
+"<option>" +  decimo.value +"</option>" +
+"<option>" + onceavo.value +"</option>" +
+"<option>" + doceavo.value +"</option>";
+
+}else{
+  salida.innerHTML= " ";
+  salida2.innerHTML="";
+}
+
+
+
+
+
+}
+</script>
+
+<script>
+function mostrartabla2(){
+
+var segundo = document.getElementById("ocho");
+var tercero= document.getElementById("nueve");
+var cuarto= document.getElementById("diez");
+var quinto= document.getElementById("once");
+var sexto= document.getElementById("doce");
+var septimo= document.getElementById("una");
+var octavo= document.getElementById("do");
+var noveno= document.getElementById("tre");
+var decimo= document.getElementById("cua");
+var onceavo= document.getElementById("cin");
+var doceavo= document.getElementById("seis");
+
+
+var salida= document.getElementById("table2");
+var salida2= document.getElementById("table3");
+
+
+if(document.getElementById("simiercoles").checked){
+salida.innerHTML= "<h4>Hora de Inicio</h4>" +
+       "<select id='select3'>" + "<option>" + segundo.value +"</option>"
++ "<option>" + tercero.value +"</option>" +
+"<option>" + cuarto.value +"</option>" +
+"<option>" + quinto.value +"</option>" +
+"<option>" + sexto.value +"</option>" +
+"<option>" + septimo.value +"</option>" +
+"<option>" + octavo.value + "</option>" +
+"<option>" + noveno.value +"</option>" +
+"<option>" +  decimo.value +"</option>" +
+"<option>" + onceavo.value +"</option>" +
+"<option>" + doceavo.value +"</option>" ;
+
+salida2.innerHTML="<h4>Hora de Final</h4>" +
+       "<select id='select4'>" + "<option>" + segundo.value +"</option>"
++ "<option>" + tercero.value +"</option>" +
+"<option>" + cuarto.value +"</option>" +
+"<option>" + quinto.value +"</option>" +
+"<option>" + sexto.value +"</option>" +
+"<option>" + septimo.value +"</option>" +
+"<option>" + octavo.value + "</option>" +
+"<option>" + noveno.value +"</option>" +
+"<option>" +  decimo.value +"</option>" +
+"<option>" + onceavo.value +"</option>" +
+"<option>" + doceavo.value +"</option>";
+
+}else{
+  salida.innerHTML= " ";
+  salida2.innerHTML="";
+}
+
+
+
+
+
+}
+</script>
 </div>
 
 <div  class="container" id="ho2">
