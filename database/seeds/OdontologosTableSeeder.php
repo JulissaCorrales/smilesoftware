@@ -31,15 +31,43 @@ class OdontologosTableSeeder extends Seeder
 
         //seeder para los dias de Semana
         $dias = new Dias();
-        $dias->primerdia="Lunes";  
-        $dias->segundodia="Martes";   
-        $dias->tercerdia="Miercoles"; 
-        $dias->cuartodia="Jueves"; 
-        $dias->quintodia="Viernes"; 
-        $dias->sextodia="Sabado";    
-        $dias->septimodia="Domingo";     
+        $dias->dias="lunes";
+          
         $dias->save();
 
+
+        $dias = new Dias();
+        $dias->dias="Martes";
+          
+        $dias->save();
+
+        $dias = new Dias();
+        $dias->dias="Miercoles";
+          
+        $dias->save();
+
+
+        $dias = new Dias();
+        $dias->dias="Jueves";
+          
+        $dias->save();
+
+
+        $dias = new Dias();
+        $dias->dias="Viernes";
+          
+        $dias->save();
+
+
+        $dias = new Dias();
+        $dias->dias="Sabado";
+          
+        $dias->save();
+
+        $dias = new Dias();
+        $dias->dias="Domingo";
+          
+        $dias->save();
         
 
         /*

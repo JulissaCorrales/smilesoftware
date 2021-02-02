@@ -289,7 +289,20 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //ruta para editar Horario Odontologo
-Route::get('editarHorario','OdontologoController@editarHorario')->name('editar.horario');
+//Route::get('editarHorario','OdontologoController@editarHorario')->name('editar.horario');
+Route::get('create/{id}/nuevo','HorarioController@create')-> where('id' ,'[0-9]+');
+Route::post('create/{id}/nuevo','HorarioController@store')-> where('id' ,'[0-9]+');
+
+
+Route::post('odontologo/nuevo','OdontologoController@GuardarNuevo')->middleware('role:admin,secretaria');
+Route::get('horario/{id}/editar','OdontologoController@editarHorario') ->name('horario.editar') -> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
+Route::put('horario/{id}/editar','OdontologoController@editarHorario')->name('horario.update') -> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
+
+
+
+
+
+
 
 //ruta para pdf 
 route::get('/pdf','PDFController@PDF')->name('descargarPDF');

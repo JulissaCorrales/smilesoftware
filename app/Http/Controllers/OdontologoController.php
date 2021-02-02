@@ -9,6 +9,7 @@ use DispatchesJobs, ValidatesRequests;
 use Illuminate\Support\Facades\Gate;
 
 use App\Dias;
+use App\Horario;
 
 class OdontologoController extends Controller
 {
@@ -193,12 +194,57 @@ class OdontologoController extends Controller
     }
 
 
-    //Funcion para mostrar editar Horario de Odontologo
-    public function editarHorario(){
+
+    //crear Horario
+
+    public function nuevoHorario(){
+        //return "texto de contacto desde el controlador ";
         $dias = Dias::All();
+        $odontologos = Odontologo::findOrFail($id);
+        return view('Horario')->with('dias',$dias)->with('odontologos',$odontologos);
+     }
+
     
-        return view('Horario')->with('dias',$dias);
+
+    //Funcion para mostrar editar Horario de Odontologo
+    public function editarHorario($id){
+        $dias = Dias::All();
+        $odontologos = Odontologo::findOrFail($id);
+        return view('CrearHorario')->with('dias',$dias)->with('odontologos',$odontologos);
      } 
+
+
+
+
+     
+    public function updateHorario(Request $_request,$id){
+        
+        
+        
+        $horario = Horario::All();
+        $odontologos = Odontologo::findOrFail($id);
+
+        $horario->dia_id = $_request->input('hoini');
+        $horario->odontologo_id= $id;
+        $horario->HoraInicio= $_request->input('hoini');
+        $horario->HoraFinal= $_request->input('hofin');
+        $horario->Descanso= $_request->input('descanso');
+        $horario->DescansoInicial= $_request->input('descaini');
+        $horario->DescansoFinal= $_request->input('descfin');
+
+        $create = $horario->save();
+
+        
+        if($create){
+            return redirect('/pantallainicio/odontologo')->with('mensaje','El Odontologo ha sido modifcado exitosamente');
+        }else{
+          
+          
+            //error
+        }
+        
+        
+    }
 
 
 

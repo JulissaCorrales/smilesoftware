@@ -165,33 +165,134 @@
 </nav>
 </div>
 
-<form method="post" action="{{route('horario.update',['id'=> $odontologos-> id])}} " file="true" enctype="multipart/form-data">
-                      @csrf
-                      @method('put')
+<form method="post" action="\create\{{$odontologos->id}}\nuevo " file="true" enctype="multipart/form-data">
+@csrf
+                      
+                    
 <div id="horario">
 <table  class="container">
   <thead>
   
     <tr>
-    @foreach($dias as $dia)
-    <th scope="col"></th>
-      <th scope="col" name="lunes">{{$dia->primerdia}}</th>
-      <th scope="col" name="martes">{{$dia->segundodia}}</th>
-      <th scope="col" name="miercoles">{{$dia->tercerdia}}</th>
-      <th scope="col" name="jueves">{{$dia->cuartodia}}</th>
-      <th scope="col" name="viernes">{{$dia->quintodia}}</th>
-      <th scope="col" name="sabado">{{$dia->sextodia}}</th>
-      <th scope="col" name="domingo">{{$dia->septimodia}}</th>
+    <?php 
+
+try
+{
+  $mbd = new PDO('mysql:host=127.0.0.1;dbname=smilesoftware', "root", "");
+  $sth= $mbd->query('select dias from dias where id= 1');
+
+  $sth1= $mbd->query('select dias from dias where id= 2');
+  $sth2= $mbd->query('select dias from dias where id= 3');
+
+  $sth3= $mbd->query('select dias from dias where id= 4');
+  $sth4= $mbd->query('select dias from dias where id= 5');
+  $sth5= $mbd->query('select dias from dias where id= 6');
+  $sth6= $mbd->query('select dias from dias where id= 7');
+  
+  //foreach($sth as $fila){
+     // echo $fila["nombres"];
+   // echo "<br>";
+   //}
+
+
+
+
+
+
+  
+}
+catch(Exception $e)
+{
+        echo "no conectado";
+}
+
+ ?>
+
+                
+<th scope="col" name="miercoles"></th>         
+<?php 
+      
+    
+      foreach($sth as $fila){
+
+?>
+    <th scope="col"><h4><?php  echo  $fila["dias"];  ?></h4></th>
+    <?php
+      }
+      ?>
+
+     <?php 
+      
+    
+      foreach($sth1 as $fila){
+
+?>
+    <th scope="col"><h4><?php  echo  $fila["dias"];  ?></h4></th>
+    <?php
+      }
+      ?>
+      <?php 
+      
+    
+      foreach($sth2 as $fila){
+
+?>
+    <th scope="col"><h4><?php  echo  $fila["dias"];  ?></h4></th>
+    <?php
+      }
+      ?>
+     <?php 
+      
+    
+      foreach($sth3 as $fila){
+
+?>
+    <th scope="col"><h4><?php  echo  $fila["dias"];  ?></h4></th>
+    <?php
+      }
+      ?>
+     <?php 
+      
+    
+      foreach($sth4 as $fila){
+
+?>
+    <th scope="col"><h4><?php  echo  $fila["dias"];  ?></h4></th>
+    <?php
+      }
+      ?>
+     <?php 
+      
+    
+      foreach($sth5 as $fila){
+
+?>
+    <th scope="col"><h4><?php  echo  $fila["dias"];  ?></h4></th>
+    <?php
+      }
+      ?>
+      <?php 
+      
+    
+      foreach($sth6 as $fila){
+
+?>
+    <th scope="col"><h4><?php  echo  $fila["dias"];  ?></h4></th>
+    <?php
+      }
+      ?>
+     
+
+
      
       </tr>
-      @endforeach
+      
   </thead>
   <tbody>
     <tr>
       <th scope="row">Hora de Inicio</th>
-      <td> <select name="lunes1" class="form-control" value="">
-          
-                    <option >8:00 a.m</option>
+      <td> <select name="hoinii" class="form-control" value="1">
+                    <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
                     <option >11:00 a.m</option>
@@ -204,7 +305,7 @@
                     <option >6:00 p.m</option>
                     
                   </td>
-      <td> <select name="martes" class="form-control" value="">
+      <td> <select name="hoini" class="form-control" value="2">
           
           <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
@@ -218,7 +319,7 @@
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
                   </td>
-      <td> <select name="miercoles" class="form-control" value="">
+      <td> <select name="hoini" class="form-control" value="3">
       <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -232,7 +333,7 @@
                     <option >6:00 p.m</option>
                   </td>
 
-                  <td> <select name="jueves" class="form-control" value="">
+                  <td> <select name="hoini" class="form-control" value="4">
                   <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -246,7 +347,7 @@
                     <option >6:00 p.m</option>
                   </td>
 
-                  <td> <select name="viernes" class="form-control" value="">
+                  <td> <select name="hoini" class="form-control" value="5">
                   <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -260,7 +361,7 @@
                     <option >6:00 p.m</option>
                   </td>
 
-                  <td> <select name="Sabado" class="form-control" value="">
+                  <td> <select name="hoini" class="form-control" value="6">
                   <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -273,7 +374,7 @@
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
                   </td>
-                  <td> <select name="domingo" class="form-control" value="">
+                  <td> <select name="hoini" class="form-control" value="7">
                   <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -292,7 +393,7 @@
     <tr>
       <th scope="row">Hora Final</th>
       <td>  
-                <select name="lunesfin" class="form-control" value="">
+                <select name="hofin" class="form-control" value="1">
                 <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -307,7 +408,7 @@
                 
  
         </td>
-      <td> <select name="martesfin" class="form-control" value="">
+      <td> <select name="hofin" class="form-control" value="2">
       <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -320,7 +421,7 @@
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
                   </td>
-      <td> <select name="miercolesfin" class="form-control" value="">
+      <td> <select name="hofin" class="form-control" value="3">
       <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -334,7 +435,7 @@
                     <option >6:00 p.m</option>
                   </td>
 
-                  <td> <select name="juevesfin" class="form-control" value="">
+                  <td> <select name="hofin" class="form-control" value="4">
                   <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -349,7 +450,7 @@
                   
                   </td>
 
-                  <td> <select name="viernesfin" class="form-control" value="">
+                  <td> <select name="hofin" class="form-control" value="5">
                   <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -363,7 +464,7 @@
                     <option >6:00 p.m</option>
                   </td>
 
-                  <td> <select name="sabadofin" class="form-control" value="">
+                  <td> <select name="hofin" class="form-control" value="6">
                   <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -377,7 +478,7 @@
                     <option >6:00 p.m</option>
                   </td>
 
-                  <td> <select name="domingofin" class="form-control" value="">
+                  <td> <select name="hofin" class="form-control" value="7">
                   <option id="ocho" value="8:00 a.m">8:00 a.m</option>
                     <option id="nueve" value="9:00 a.m">9:00 a.m</option>
                     <option id="diez" value="10:00 a.m">10:00 a.m</option>
@@ -400,19 +501,19 @@
       <td>  Si  <input type="checkbox" id="simartes" onclick="mostrartabla1()">
                   </td>
 
-                  <td>  Si  <input type="checkbox" id="simiercoles"  onclick="mostrartabla2()">
+                  <td>  Si  <input type="checkbox" id="simiercoles" name="descanso"  onclick="mostrartabla2()">
                   </td>
 
-                  <td>  Si  <input type="checkbox" id="sijueves"  onclick="mostrartabla()">
+                  <td>  Si  <input type="checkbox" id="sijueves" name="descanso"   onclick="mostrartabla()">
                   </td>
 
-                  <td> Si  <input type="checkbox" id="siviernes"  onclick="mostrartabla()">
+                  <td> Si  <input type="checkbox" id="siviernes" name="descanso"   onclick="mostrartabla()">
                   </td>
 
-                  <td> Si  <input type="checkbox"id="sisabado"  onclick="mostrartabla()">
+                  <td> Si  <input type="checkbox"id="sisabado" name="descanso"   onclick="mostrartabla()">
                   </td>
 
-                  <td>  Si  <input type="checkbox" id="sidomingo"  onclick="mostrartabla()">
+                  <td>  Si  <input type="checkbox" id="sidomingo"  name="descanso"  onclick="mostrartabla()">
                   </td>
     </tr>
   </tbody>
@@ -430,7 +531,7 @@
   <tbody>
     <tr>
       <th scope="row">Hora de Inicio</th>
-      <td> <select name="lunes" class="form-control" value="">
+      <td> <select name="descaini" class="form-control" value="1">
           
                     <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
@@ -445,7 +546,7 @@
                     <option >6:00 p.m</option>
                     
                   </td>
-      <td> <select name="martes" class="form-control" value="">
+      <td> <select name="descaini" class="form-control" value="2">
           
           <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
@@ -459,7 +560,7 @@
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
                   </td>
-      <td> <select name="miercoles" class="form-control" value="">
+      <td> <select name="descaini" class="form-control" value="3">
       <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -473,7 +574,7 @@
                     <option >6:00 p.m</option>
                   </td>
 
-                  <td> <select name="jueves" class="form-control" value="">
+                  <td> <select name="descaini" class="form-control" value="4">
                   <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -487,7 +588,7 @@
                     <option >6:00 p.m</option>
                   </td>
 
-                  <td> <select name="viernes" class="form-control" value="">
+                  <td> <select name="descaini" class="form-control" value="5">
                   <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -501,7 +602,7 @@
                     <option >6:00 p.m</option>
                   </td>
 
-                  <td> <select name="Sabado" class="form-control" value="">
+                  <td> <select name="descaini" class="form-control" value="6">
                   <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -514,7 +615,7 @@
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
                   </td>
-                  <td> <select name="domingo" class="form-control" value="">
+                  <td> <select name="descaini" class="form-control" value="7">
                   <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -533,7 +634,7 @@
     <tr>
       <th scope="row">Hora Final</th>
       <td>  
-                <select name="lunesfin" class="form-control" value="">
+                <select name="descfin" class="form-control" value="1">
                 <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -548,7 +649,7 @@
                 
  
         </td>
-      <td> <select name="martesfin" class="form-control" value="">
+      <td> <select name="descfin" class="form-control" value="2">
       <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -561,7 +662,7 @@
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
                   </td>
-      <td> <select name="miercolesfin" class="form-control" value="">
+      <td> <select name="descfin" class="form-control" value="3">
       <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -575,7 +676,7 @@
                     <option >6:00 p.m</option>
                   </td>
 
-                  <td> <select name="juevesfin" class="form-control" value="">
+                  <td> <select name="descfin" class="form-control" value="4">
                   <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -590,7 +691,7 @@
                   
                   </td>
 
-                  <td> <select name="viernesfin" class="form-control" value="">
+                  <td> <select name="descfin" class="form-control" value="5">
                   <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -604,7 +705,7 @@
                     <option >6:00 p.m</option>
                   </td>
 
-                  <td> <select name="sabadofin" class="form-control" value="">
+                  <td> <select name="descfin" class="form-control" value="6">
                   <option >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -618,7 +719,7 @@
                     <option >6:00 p.m</option>
                   </td>
 
-                  <td> <select name="domingofin" class="form-control" value="">
+                  <td> <select name="descfin" class="form-control" value="7">
                   <option id="ocho" value="8:00 a.m">8:00 a.m</option>
                     <option id="nueve" value="9:00 a.m">9:00 a.m</option>
                     <option id="diez" value="10:00 a.m">10:00 a.m</option>
@@ -636,7 +737,6 @@
   </tbody>
 </table> 
 
-</form>
 
 
 
@@ -645,190 +745,7 @@
 
  </div>
 
- <div id="table3">
- </div>
-
-<!--
-<script>
-function mostrartabla(){
-
-var segundo = document.getElementById("ocho");
-var tercero= document.getElementById("nueve");
-var cuarto= document.getElementById("diez");
-var quinto= document.getElementById("once");
-var sexto= document.getElementById("doce");
-var septimo= document.getElementById("una");
-var octavo= document.getElementById("do");
-var noveno= document.getElementById("tre");
-var decimo= document.getElementById("cua");
-var onceavo= document.getElementById("cin");
-var doceavo= document.getElementById("seis");
-
-
-var salida= document.getElementById("table2");
-var salida2= document.getElementById("table3");
-
-
-if(document.getElementById("siprimero").checked){
-salida.innerHTML= "<h4>Hora de Inicio</h4>" +
-       "<select id='select1'>" + "<option>" + segundo.value +"</option>"
-+ "<option>" + tercero.value +"</option>" +
-"<option>" + cuarto.value +"</option>" +
-"<option>" + quinto.value +"</option>" +
-"<option>" + sexto.value +"</option>" +
-"<option>" + septimo.value +"</option>" +
-"<option>" + octavo.value + "</option>" +
-"<option>" + noveno.value +"</option>" +
-"<option>" +  decimo.value +"</option>" +
-"<option>" + onceavo.value +"</option>" +
-"<option>" + doceavo.value +"</option>" ;
-
-salida2.innerHTML="<h4>Hora de Final</h4>" +
-       "<select id='select2'>" + "<option>" + segundo.value +"</option>"
-+ "<option>" + tercero.value +"</option>" +
-"<option>" + cuarto.value +"</option>" +
-"<option>" + quinto.value +"</option>" +
-"<option>" + sexto.value +"</option>" +
-"<option>" + septimo.value +"</option>" +
-"<option>" + octavo.value + "</option>" +
-"<option>" + noveno.value +"</option>" +
-"<option>" +  decimo.value +"</option>" +
-"<option>" + onceavo.value +"</option>" +
-"<option>" + doceavo.value +"</option>";
-
-}else{
-  salida.innerHTML= " ";
-  salida2.innerHTML="";
-}
-
-
-
-
-
-}
-</script>
-
-
-
-<script>
-function mostrartabla1(){
-
-var segundo = document.getElementById("ocho");
-var tercero= document.getElementById("nueve");
-var cuarto= document.getElementById("diez");
-var quinto= document.getElementById("once");
-var sexto= document.getElementById("doce");
-var septimo= document.getElementById("una");
-var octavo= document.getElementById("do");
-var noveno= document.getElementById("tre");
-var decimo= document.getElementById("cua");
-var onceavo= document.getElementById("cin");
-var doceavo= document.getElementById("seis");
-
-
-var salida= document.getElementById("table2");
-var salida2= document.getElementById("table3");
-
-
-if(document.getElementById("simartes").checked){
-salida.innerHTML= "<h4>Hora de Inicio</h4>" +
-       "<select id='select3'>" + "<option>" + segundo.value +"</option>"
-+ "<option>" + tercero.value +"</option>" +
-"<option>" + cuarto.value +"</option>" +
-"<option>" + quinto.value +"</option>" +
-"<option>" + sexto.value +"</option>" +
-"<option>" + septimo.value +"</option>" +
-"<option>" + octavo.value + "</option>" +
-"<option>" + noveno.value +"</option>" +
-"<option>" +  decimo.value +"</option>" +
-"<option>" + onceavo.value +"</option>" +
-"<option>" + doceavo.value +"</option>" ;
-
-salida2.innerHTML="<h4>Hora de Final</h4>" +
-       "<select id='select4'>" + "<option>" + segundo.value +"</option>"
-+ "<option>" + tercero.value +"</option>" +
-"<option>" + cuarto.value +"</option>" +
-"<option>" + quinto.value +"</option>" +
-"<option>" + sexto.value +"</option>" +
-"<option>" + septimo.value +"</option>" +
-"<option>" + octavo.value + "</option>" +
-"<option>" + noveno.value +"</option>" +
-"<option>" +  decimo.value +"</option>" +
-"<option>" + onceavo.value +"</option>" +
-"<option>" + doceavo.value +"</option>";
-
-}else{
-  salida.innerHTML= " ";
-  salida2.innerHTML="";
-}
-
-
-
-
-
-}
-</script>
-
-<script>
-function mostrartabla2(){
-
-var segundo = document.getElementById("ocho");
-var tercero= document.getElementById("nueve");
-var cuarto= document.getElementById("diez");
-var quinto= document.getElementById("once");
-var sexto= document.getElementById("doce");
-var septimo= document.getElementById("una");
-var octavo= document.getElementById("do");
-var noveno= document.getElementById("tre");
-var decimo= document.getElementById("cua");
-var onceavo= document.getElementById("cin");
-var doceavo= document.getElementById("seis");
-
-
-var salida= document.getElementById("table2");
-var salida2= document.getElementById("table3");
-
-
-if(document.getElementById("simiercoles").checked){
-salida.innerHTML= "<h4>Hora de Inicio</h4>" +
-       "<select id='select3'>" + "<option>" + segundo.value +"</option>"
-+ "<option>" + tercero.value +"</option>" +
-"<option>" + cuarto.value +"</option>" +
-"<option>" + quinto.value +"</option>" +
-"<option>" + sexto.value +"</option>" +
-"<option>" + septimo.value +"</option>" +
-"<option>" + octavo.value + "</option>" +
-"<option>" + noveno.value +"</option>" +
-"<option>" +  decimo.value +"</option>" +
-"<option>" + onceavo.value +"</option>" +
-"<option>" + doceavo.value +"</option>" ;
-
-salida2.innerHTML="<h4>Hora de Final</h4>" +
-       "<select id='select4'>" + "<option>" + segundo.value +"</option>"
-+ "<option>" + tercero.value +"</option>" +
-"<option>" + cuarto.value +"</option>" +
-"<option>" + quinto.value +"</option>" +
-"<option>" + sexto.value +"</option>" +
-"<option>" + septimo.value +"</option>" +
-"<option>" + octavo.value + "</option>" +
-"<option>" + noveno.value +"</option>" +
-"<option>" +  decimo.value +"</option>" +
-"<option>" + onceavo.value +"</option>" +
-"<option>" + doceavo.value +"</option>";
-
-}else{
-  salida.innerHTML= " ";
-  salida2.innerHTML="";
-}
-
-
-
-
-
-}
-</script>
-
-!-->
+ 
 </div>
 
 <div  class="container" id="ho2">
@@ -836,7 +753,8 @@ salida2.innerHTML="<h4>Hora de Final</h4>" +
   <div class="container">
   <a type="button" class="btn btn-info" href="{{route('odontologo.vista')}}">Atras</a>
 
-  <button type="submit" class="btn btn-primary" >Guardar Pacientes</button>
+  <button type="submit" class="btn btn-primary" >Guardar</button>
+  </form>
   </div>
 </nav>
 </div>
