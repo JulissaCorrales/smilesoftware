@@ -13,21 +13,21 @@ class CitaController extends Controller
 {
 
 
-       //vista Crear Cita Acceso a admin y secretaria
+       //vista Crear Cita Acceso a admin y secretaria(si se le da el permiso,si no se le da no tendra dicho acceso)
         public function crear(){
-            if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+            $this->authorize('create', Cita::class);//si tiene el permiso de ver:
             return view('darcita');
-        }
+        
     }
 
 
       //Vista Semanal acceso a admin,secretaria, odontologo
         public function calendar(Request $request){
-            if(Gate::denies('isAdmin') || Gate::denies('isSecretaria') || Gate::denies('isOdontologo')){
+            $this->authorize('view3', Cita::class);//si tiene el permiso de ver:
             $query=trim($request->get('/darcita'));
             $citas=Cita::get('id');
              return view('VistaSemanal');
-         }
+         
     }
 
 
@@ -128,11 +128,11 @@ class CitaController extends Controller
 
     //controlador vista diaria accseso admin, secretaria,odontologo
     public function vistadiaria(Request $request){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria') || Gate::denies('isOdontologo')){
+        $this->authorize('view2', Cita::class);//si tiene el permiso de ver:
             $query=trim($request->get('/darcita'));
             $citas=Cita::get('id');
            return view('VistaDiaria');   
-         }
+         
 
         
        

@@ -21,7 +21,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/pantallainicio/calendario/citadiaria';
+    public const HOME = '/pantallainicio/calendario/';
 
     /**
      * Define your route model bindings, pattern filters, etc.
