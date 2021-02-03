@@ -8,9 +8,7 @@
 
     <style>
  form{padding:30px;}
- #div1{background-color: #AED6F1}
- button{float:right;}
-    
+ #div1{background-color: #AED6F1}    
     </style>
 </head>
 <body>

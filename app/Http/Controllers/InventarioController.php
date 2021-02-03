@@ -9,31 +9,30 @@ use App\Inventario;
 class InventarioController extends Controller
 {  
     public function vistaprincipal(){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+        $this->authorize('view', Inventario::class);//si tiene el permiso de ver:
         $inventarios=Inventario::All();
         return view('inventarios')->with ('inventarios',$inventarios);  
-    }else{
-        abort(403);
-    }
+   
 }
 public function destroy($id){
-    if(Gate::denies('isSecretaria')){ 
+    //permisos
+    $inventarios=Inventario::findOrFail($id);
+    $this->authorize('delete', $inventarios);//si tiene el permiso de actualizar:
+    
     Inventario::destroy($id);
     return redirect()->back()->with('mensaje','Inventario borrado satisfactoriamente');
-}else{
-    abort(403);
-}
+
 }
 
 public function nuevo(){
-       
+    $this->authorize('create', Inventario::class); //si tiene el permiso de crear:   
     return view('inventarionuevo');
 }
 
 
 
 public function guardar(Request $request){
-    if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){        
+    $this->authorize('create', Inventario::class); //si tiene el permiso de crear sera guardado:        
     $request->validate([
         'producto'         =>  'required',
         'stockseguridad'   =>  'required',
@@ -52,25 +51,18 @@ public function guardar(Request $request){
     //Asegurarse que fue creado
     if ($creado){
         return redirect()->back()->with('mensaje','El nuevo Inventario fue creado exitosamente');
-    }else{ 
     }
-}else{
-    abort(403);
-}
-
 }
 
 public function editar($id){   
-    if(Gate::denies('isSecretaria')){ 
     $inventarios=Inventario::findOrFail($id);
+    $this->authorize('update', $inventarios);//si tiene el permiso de actualizar:
+
     return view('editarinventario')->with('inventarios',$inventarios);
-}else{
-    abort(403);
-}
+
 }
 
 public function update(Request $request,$id){
-    if(Gate::denies('isSecretaria')){ 
     $request->validate([
         'producto'        =>'required',
         'stockseguridad'  =>'required',
@@ -79,6 +71,8 @@ public function update(Request $request,$id){
     ]);
 
     $inventarios=Inventario::findOrFail($id);
+    $this->authorize('update', $inventarios);//si tiene el permiso de actualizar:
+
     //formulario
     $inventarios->producto=       $request->input('producto');
     $inventarios->stockseguridad= $request->input('stockseguridad');
@@ -91,9 +85,6 @@ public function update(Request $request,$id){
         return redirect()->back()->with('mensaje','¡¡El Inventario Fué Modificado Exitosamente!!');
     }else{ 
     }
-}else{
-    abort(403);
-}
 
 }
 

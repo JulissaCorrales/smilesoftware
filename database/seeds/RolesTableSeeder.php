@@ -191,6 +191,22 @@ class RolesTableSeeder extends Seeder
         $permisos_secretaria[]= $permiso->id;
         $rolesecretaria->permisos()->sync($permisos_secretaria);
 
+        $permiso= Permiso::create([
+            'Permiso'=> 'Borrar Gastos',
+            'Slug'=> 'Gastos.Borrar',
+
+        ]);
+        $permisos_secretaria[]= $permiso->id;
+        $rolesecretaria->permisos()->sync($permisos_secretaria);
+
+        $permiso= Permiso::create([
+            'Permiso'=> 'Editar Gastos',
+            'Slug'=> 'Gastos.Editar',
+
+        ]);
+        $permisos_secretaria[]= $permiso->id;
+        $rolesecretaria->permisos()->sync($permisos_secretaria);
+
 
         $permiso= Permiso::create([
             'Permiso'=> 'Crear Odontologo',
@@ -239,6 +255,24 @@ class RolesTableSeeder extends Seeder
         $permiso= Permiso::create([
             'Permiso'=> 'Agregar Inventario',
             'Slug'=> 'inventario.agregar',
+
+        ]);
+
+        $permisos_secretaria[]= $permiso->id;
+        $rolesecretaria->permisos()->sync($permisos_secretaria);
+
+        $permiso= Permiso::create([
+            'Permiso'=> 'Editar Inventario',
+            'Slug'=> 'inventario.editar',
+
+        ]);
+
+        $permisos_secretaria[]= $permiso->id;
+        $rolesecretaria->permisos()->sync($permisos_secretaria);
+
+        $permiso= Permiso::create([
+            'Permiso'=> 'Borrar Inventario',
+            'Slug'=> 'inventario.borrar',
 
         ]);
 

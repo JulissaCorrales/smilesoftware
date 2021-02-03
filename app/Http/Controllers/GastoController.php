@@ -9,21 +9,15 @@ use Illuminate\Support\Facades\Gate;
 class GastoController extends Controller
 {
     public function ver(){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+        $this->authorize('view', Gasto::class);//si tiene el permiso de ver:
             $gastos=Gasto::Paginate(15);
             $monto =Gasto::sum('monto');
             return view('gastos')->with('gastos',$gastos)->with('monto',$monto);
-        }else{
-            abort(403);
-        }
+       
     }
-    //  public function creargasto(){
-    //     return view('nuevogasto');
-    // } 
-    
     public function guardargasto(Request $request){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
-                    
+        
+        $this->authorize('create', Gasto::class); //si tiene el permiso de crear sera guardado:  
                 $request->validate([
                     'categoria'     =>  'required',
                     'detalle'       =>  'required',
@@ -43,34 +37,25 @@ class GastoController extends Controller
                 $creado = $nuevogasto->save();
                 //Asegurarse que fue creado
                 if ($creado){
-                    return redirect()->back()->with('mensaje','El nuevo Gasto fue creado exitosamente');
+                    return redirect()->back()->with('mensaje','El nuevo Gasto fué creado exitosamente');
                 }else{ 
                 }
-            }else{
-                abort(403);
-            }
+           
     }
     public function borrargasto($id){
-        if(Gate::denies('isAdmin')){
-            abort(403);
-        }
+        $gastos = Gasto::findOrFail($id);
+        $this->authorize('delete',$gastos);//si tiene el permiso de borrar:
         Gasto::destroy($id);
         return redirect()->back()->with('mensaje','Gasto borrado satisfactoriamente');
     }
 
     /* funcion para poder editar un gasto */
     public function editar($id){
-        if(Gate::denies('isAdmin')){
-            abort(403);
-        }
         $gastos=Gasto::findOrFail($id);
+        $this->authorize('update', $gastos);//si tiene el permiso de actualizar:
         return view('editargasto')->with('gastos',$gastos);
     }
     public function update(Request $request,$id){
-        if(Gate::denies('isAdmin')){
-            abort(403);
-         }
-       
         $request->validate([
             'categoria'     =>  'required',
             'detalle'       =>  'required',
@@ -80,6 +65,7 @@ class GastoController extends Controller
         ]);
 
         $gastos=Gasto::findOrFail($id);
+        $this->authorize('update', $gastos);//si tiene el permiso de actualizar:
         //formulario
         $gastos->categoria=    $request->input('categoria');
         $gastos->detalle=      $request->input('detalle');
