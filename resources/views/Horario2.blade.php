@@ -451,11 +451,11 @@ top:450px;
 
 }
 
-#hofinal{
+#hoinicio{
     position: absolute;
             left: 300px;
             
-            top: 290px;
+            top: 400px;
 
 
 }
@@ -465,6 +465,25 @@ top:450px;
             left: -200px;
             
             top: 60px;
+
+
+}
+
+#hofin{
+    position: absolute;
+            left: 300px;
+            
+            top: 290px;
+
+
+}
+
+
+#hoofinal{
+    position: absolute;
+            left: 300px;
+            
+            top: 460px;
 
 
 }
@@ -749,7 +768,15 @@ catch(Exception $e)
 
   <br> <br>
 
- <select name="horafin" class="form-control" value="1" id="selecinicio">
+  <div class="container">
+
+  <table>
+<tbody>
+ <tr>
+
+<th id="hofin">Hora Final</th>
+
+ <td><select name="horafin" class="form-control" value="1" id="selecinicio">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -762,9 +789,9 @@ catch(Exception $e)
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
 
-                    </select>
+                    </select></td>
 
-                    <select name="horafin" class="form-control" value="1" id="selecinicio1">
+                <td>    <select name="horafin" class="form-control" value="1" id="selecinicio1">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -777,9 +804,9 @@ catch(Exception $e)
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
 
-                    </select>
+                    </select> </td>
 
-                    <select name="horafin" class="form-control" value="1" id="selecinicio2">
+                 <td>   <select name="horafin" class="form-control" value="1" id="selecinicio2">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -792,10 +819,10 @@ catch(Exception $e)
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
 
-                    </select>
+                    </select> </td>
 
 
-                    <select name="horafin" class="form-control" value="1" id="selecinicio3">
+                 <td>   <select name="horafin" class="form-control" value="1" id="selecinicio3">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -808,10 +835,10 @@ catch(Exception $e)
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
 
-                    </select>
+                    </select></td>
 
 
-                    <select name="horafin" class="form-control" value="1" id="selecinicio4">
+                   <td> <select name="horafin" class="form-control" value="1" id="selecinicio4">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -824,9 +851,9 @@ catch(Exception $e)
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
 
-                    </select>
+                    </select></td>
 
-                    <select name="horafin" class="form-control" value="1" id="selecinicio5">
+                   <td> <select name="horafin" class="form-control" value="1" id="selecinicio5">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -839,9 +866,9 @@ catch(Exception $e)
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
 
-                    </select>
+                    </select></td>
 
-                    <select name="horafin" class="form-control" value="1" id="selecinicio6">
+                  <td>  <select name="horafin" class="form-control" value="1" id="selecinicio6">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -854,10 +881,14 @@ catch(Exception $e)
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
 
-                    </select>
+                    </select> </td>
 <?php
 }
     ?> 
+    </tr>
+<tbody>
+</table>
+    </div>
       
 
       <div id="">
@@ -905,7 +936,7 @@ catch(Exception $e)
   <table>
   <tbody>
   <tr>
-  <th id="hofinal">Hora Final</th>
+  <th id="hoinicio">Hora Inicio</th>
 
 <td> <select name="horadescansoini" class="form-control" value="1" id="selecinicio20">
                     <option disabled selected >8:00 a.m</option>
@@ -1026,8 +1057,14 @@ catch(Exception $e)
  for($i=1; $i <= 1; $i++) {?>
 
   <br> <br>
+  <div class="container">
+  <table>
+  <tbody>
+  
+  <tr>
+  <th id="hoofinal">Hora Final</th>
 
- <select name="horadescansofin" class="form-control" value="1" id="selecinicio27">
+ <td><select name="horadescansofin" class="form-control" value="1" id="selecinicio27">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -1040,10 +1077,10 @@ catch(Exception $e)
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
 
-                    </select>
+                    </select></td>
 
 
-                    <select name="horadescansofin" class="form-control" value="1" id="selecinicio28">
+                 <td>   <select name="horadescansofin" class="form-control" value="1" id="selecinicio28">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -1056,10 +1093,10 @@ catch(Exception $e)
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
 
-                    </select>
+                    </select></td>
 
 
-                    <select name="horadescansofin" class="form-control" value="1" id="selecinicio29">
+                   <td> <select name="horadescansofin" class="form-control" value="1" id="selecinicio29">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -1072,9 +1109,9 @@ catch(Exception $e)
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
 
-                    </select>
+                    </select></td>
 
-                    <select name="horadescansofin" class="form-control" value="1" id="selecinicio30">
+                   <td> <select name="horadescansofin" class="form-control" value="1" id="selecinicio30">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -1087,10 +1124,10 @@ catch(Exception $e)
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
 
-                    </select>
+                    </select> </td>
 
 
-                    <select name="horadescansofin" class="form-control" value="1" id="selecinicio31">
+                   <td> <select name="horadescansofin" class="form-control" value="1" id="selecinicio31">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -1103,10 +1140,10 @@ catch(Exception $e)
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
 
-                    </select>
+                    </select></td>
 
 
-                    <select name="horadescansofin" class="form-control" value="1" id="selecinicio32">
+                  <td>  <select name="horadescansofin" class="form-control" value="1" id="selecinicio32">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -1119,9 +1156,9 @@ catch(Exception $e)
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
 
-                    </select>
+                    </select> </td>
 
-                    <select name="horadescansofin" class="form-control" value="1" id="selecinicio33">
+                  <td>  <select name="horadescansofin" class="form-control" value="1" id="selecinicio33">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -1134,11 +1171,14 @@ catch(Exception $e)
                     <option >5:00 p.m</option>
                     <option >6:00 p.m</option>
 
-                    </select>
+                    </select></td>
 <?php
 }
     ?> 
-
+</tr>
+</tbody>
+</table>
+</div>
 
  
 </div>
