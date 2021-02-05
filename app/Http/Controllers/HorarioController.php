@@ -29,7 +29,7 @@ class HorarioController extends Controller
     {
            $dias= Dias::All(); 
         $odontologos = Odontologo::findOrFail($id);
-        return view('CrearHorario')->with('odontologos',$odontologos)->with('dias',$dias);
+        return view('Horario2')->with('odontologos',$odontologos)->with('dias',$dias);
      
          
     }
@@ -48,12 +48,12 @@ class HorarioController extends Controller
         //formulario
        
         $horario->odontologo_id= $id;
-        $horario->HoraInicio= $request->input('hoinii');
+        $horario->HoraInicio= $request->input('horainicio');
         //$horario->HoraInicio= $request->input('hoini');
-        $horario->HoraFinal= $request->input('hofin');
+        $horario->HoraFinal= $request->input('horafin');
         $horario->Descanso= $request->input('descanso');
-        $horario->DescansoInicial= $request->input('descaini');
-        $horario->DescansoFinal= $request->input('descfin');
+        $horario->DescansoInicial= $request->input('horadescansoini');
+        $horario->DescansoFinal= $request->input('horadescansofin');
 
         $create = $horario->save();
        
