@@ -408,7 +408,7 @@
     <nav class="navbar navbar-light bg-light" id="nae">
   <h1 id="dire"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-people-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
-</svg>Gestion de Odontologos</h1>
+</svg>Gestión de Odontologos</h1>
 
 
   <!--Menu desplegable  -->
@@ -422,12 +422,12 @@
 </svg> Especialidades </a>
 
 
-
+@can('create',App\Odontologo::class)
   <button id ="n1" type="button" data-toggle="modal" data-target="#create">
   <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
 </svg>Nuevo odontologo </button> 
-
+@endcan
   
 
  <!--fin de menu desplegable  -->
@@ -445,7 +445,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 <table id="datatable" class="container">
 <thead class="table table-striped table-bordered">
   <tr id="can">
-    <th id="th1" colspan="6">Informacion de los Odontologos</th>
+    <th id="th1" colspan="6">Información de los Odontologos</th>
 
   </tr>
   </thead> 
@@ -466,13 +466,14 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 </svg>Editar Horarios
     
   </a></td>
-
+  @can('update',$odontologo)
   <td id="td4">
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$odontologo->id}}" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
 </svg>
     Editar Datos
   </button></td>
+  @endcan
 
   <div class="modal fade" id="modal-{{$odontologo->id}}" >
   
@@ -636,16 +637,15 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 <body>
 
 </html>
-
+@can('isAdmin')
      <td id="td5">
-    
      <buttton  id="butoneliminar" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalll-{{$odontologo->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
 </svg>
       Eliminar
   </button>
-
   </td>
+@endcan
  
   
   </div>
@@ -691,7 +691,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
      </tr> 
      @empty
-     <h1 id="odon">No hay Odontologo Registrados</h1>
+    <td><h3 align="center">¡¡No hay Odontologos Registrados!!</h3></td> 
      @endforelse
      </tbody>
 </table>

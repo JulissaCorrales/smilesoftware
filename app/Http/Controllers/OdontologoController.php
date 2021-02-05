@@ -30,22 +30,13 @@ class OdontologoController extends Controller
 
 
      public function nuevoodontologo(){
-        //return "texto de contacto desde el controlador ";
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
-
-        return view('nuevoDoctor');
-
-        }else{
-            abort(403);
-        }
+        $this->authorize('create', Odontologo::class); //si tiene el permiso de crear: 
+        return view('nuevoDoctor');  
      }
     
 
      public function GuardarNuevo(Request $request){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
-       
-
-
+        $this->authorize('create', Odontologo::class); //si tiene el permiso de crear: 
         $nuevo = new Odontologo();
 
         //formulario
@@ -79,50 +70,29 @@ class OdontologoController extends Controller
         'departamento'=>'required',
         'ciudad'=>'required',
         'telefonoCelular'=>'required|numeric',
-        
         'direccion'=>'required|',
-
-        
-
         ]);
-        
-
-        
-    
        $creado = $nuevo->save();
 
          if ($creado){
-            return redirect('/pantallainicio/odontologo')->with('mensaje', 'El Odontologo fue creado exitosamente!');
+            return redirect('/pantallainicio/odontologo')->with('mensaje', 'El Odontologo fué creado exitosamente!');
         }else{
             //retornar con un msj de error
         } 
-
-
-        }else{
-            abort(403);
-        }
     }
 
 
 
 
     public function editarodontologo($id){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
-
         $odontologos = Odontologo::findOrFail($id);
+        $this->authorize('update',$odontologos); //si tiene el permiso de editar: 
         return view('FormularioOdontologo')->with('odontologos',$odontologos);
-
-        }else{
-            abort(403);
-        }
-
     }
 
     public function updateodontologo(Request $_request,$id){
-        
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
-        
         $odontologos = Odontologo::findOrFail($id);
+        $this->authorize('update',$odontologos); //si tiene el permiso de editar:
 
         $odontologos->nombres = $_request->input('nombres');
         $odontologos->apellidos = $_request->input('apellidos');
@@ -152,45 +122,26 @@ class OdontologoController extends Controller
         if($create){
             return redirect('/pantallainicio/odontologo')->with('mensaje','El Odontologo ha sido modifcado exitosamente');
         }else{
-          
-          
             //error
         }
-        
-
         //validar
         $_request->validate(['nombres'=>'required|alpha',
         'apellidos'=>'required|alpha',
-        
         'identidad'=>'required|unique:odontologos,identidad',
         'departamento'=>'required|alpha',
         'ciudad'=>'required',
         'telefonoCelular'=>'required|numeric',
-        
         'direccion'=>'required|',
-
-        
-        
-
         ]);
-
-        }else{
-            abort(403);
-        }
-
     }
 
     public function destroy($id){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
-            
+
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
         Odontologo::destroy($id);
         return redirect('/pantallainicio/odontologo')->with('mensaje','Odontologo borrado satisfactoriamente');
-        
-        }else{
-            abort(403);
-        }
-
-       
     }
 
 

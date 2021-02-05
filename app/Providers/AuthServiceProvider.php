@@ -18,6 +18,9 @@ class AuthServiceProvider extends ServiceProvider
         'App\Cita' => 'App\Policies\CitaPolicy',
         'App\Gasto' => 'App\Policies\GastoPolicy',
         'App\Inventario' => 'App\Policies\InventarioPolicy',
+        'App\Odontologo' => 'App\Policies\OdontologoPolicy',
+        'App\Logotipo' => 'App\Policies\LogotipoPolicy',
+        'App\Archivo' => 'App\Policies\ArchivoPolicy',
     ];
 
     /**

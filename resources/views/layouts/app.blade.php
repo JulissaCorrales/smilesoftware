@@ -35,9 +35,9 @@ body{
                      class="navbar-brand" href="{{ url('/') }}">
                      Smile Software <?php $logotipos=App\Logotipo::where('id','=',1)->get();?>
                         @forelse($logotipos  as $tag)
-                    <img  class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="80px" high="100px" id="dos">
+                    <img  style="  border-radius: 70%;"class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="80px" high="100px" id="dos">
                     @empty
-                    <img class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" width="80px" id="dos"> 
+                    <img  style="  border-radius: 70%;" class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" width="80px" id="dos"> 
                     @endforelse
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

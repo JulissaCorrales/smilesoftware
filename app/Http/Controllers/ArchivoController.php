@@ -23,22 +23,15 @@ class ArchivoController extends Controller
     }
 
     public function nuevo($id){
-        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
-
+        $this->authorize('create', Archivo::class);
         $pacientes = Paciente::findOrFail($id);
         return view('formularioImagenesYarchivos',compact('pacientes'));
-    }else{
-        abort(403);
-    }
-
     }
 
     
 
     public function guardar(Request $request,$id){
-        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
-
-        
+        $this->authorize('create', Archivo::class);
         if($request->hasFile('imagen')){
             $file = $request->file('imagen');
             $name = time().$file->getClientOriginalName();
@@ -57,12 +50,6 @@ class ArchivoController extends Controller
 
           //return redirect()('/comentarios/{id}');
        } 
-
-    }else{
-        abort(403);
-    }
-
-
     }
 
 

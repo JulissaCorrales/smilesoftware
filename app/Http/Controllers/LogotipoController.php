@@ -8,12 +8,10 @@ use Illuminate\Support\Facades\Gate;
 class LogotipoController extends Controller
 {
     public function ver(){
-      if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+      $this->authorize('view',Logotipo::class);
         $logotipos=Logotipo::where('id','=',1)->get();
         return view('verlogos') ->with('logotipos',$logotipos);
-        }else{
-          abort(403);
-      }
+        
     }
     public function subirArchivo(Request $request)
     {

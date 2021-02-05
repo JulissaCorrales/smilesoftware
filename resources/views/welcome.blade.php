@@ -25,9 +25,9 @@
                 <a class="navbar-brand js-scroll-trigger" href="#page-top">
                
                 @forelse($logotipos  as $tag)
-                    <img class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" id="dos">
+                    <img  style="  border-radius: 70%;" class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" id="dos">
                     @empty
-                    <img class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3"   id="dos"> 
+                    <img   style="  border-radius: 70%;" class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3"   id="dos"> 
                 @endforelse
                 
                 </a>

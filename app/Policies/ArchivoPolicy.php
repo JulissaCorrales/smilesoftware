@@ -2,14 +2,16 @@
 
 namespace App\Policies;
 
-use App\Paciente;
+use App\Archivo;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PacientePolicy
+class ArchivoPolicy
 {
     use HandlesAuthorization;
-    /**
+
+
+        /**
      * Undocumented function
      *
      * @param [type] $user
@@ -38,17 +40,12 @@ class PacientePolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Paciente  $paciente
+     * @param  \App\Archivo  $archivo
      * @return mixed
      */
-    public function view(User $user)
+    public function view(User $user, Archivo $archivo)
     {
-        if($user->permisos->contains('slug', 'Paciente.ver')) {
-            return true;
-        }elseif($user->permisos->contains('slug', 'ver.Paciente')) {
-            return true;
-        } 
-        return false;
+        //
     }
 
     /**
@@ -59,67 +56,44 @@ class PacientePolicy
      */
     public function create(User $user)
     {
-        if($user->permisos->contains('slug', 'Paciente.crear')) {
-            return true;
-        } 
-        return false;
-    }
-
-     
-    public function edit(User $user,Paciente $paciente)
-    {
-        if($user->permisos->contains('slug', 'Paciente.editar')) {
-            return true;
-        }elseif($user->permisos->contains('slug', 'Editar.Paciente')) {
-            return true;
-        } 
-        return false;
-    }
-
-
-    /**
-     * Determine whether the user can update the model.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Paciente  $paciente
-     * @return mixed
-     */
-    public function update(User $user, Paciente $paciente)
-    {
-      if($user->permisos->contains('slug','Paciente.editar')){
-            return true;
-        }elseif($user->permisos->contains('slug', 'Editar.Paciente')) {
-            return true;
-        } 
-        return false;
-
-    }
-
-    /**
-     * Determine whether the user can delete the model.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Paciente  $paciente
-     * @return mixed
-     */
-    public function delete(User $user, Paciente $paciente)
-    {
-        if($user->permisos->contains('slug','Paciente.borrar')){
-            return true;
-        }elseif($user->permisos->contains('slug','borrar.Paciente')){
+        if($user->permisos->contains('slug', 'Imagen.Paciente')) {
             return true;
         }
         return false;
     }
 
     /**
+     * Determine whether the user can update the model.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Archivo  $archivo
+     * @return mixed
+     */
+    public function update(User $user, Archivo $archivo)
+    {
+        //
+    }
+
+    /**
+     * Determine whether the user can delete the model.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Archivo  $archivo
+     * @return mixed
+     */
+    public function delete(User $user, Archivo $archivo)
+    {
+        //
+    }
+
+    /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Paciente  $paciente
+     * @param  \App\Archivo  $archivo
      * @return mixed
      */
-    public function restore(User $user, Paciente $paciente)
+    public function restore(User $user, Archivo $archivo)
     {
         //
     }
@@ -128,10 +102,10 @@ class PacientePolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Paciente  $paciente
+     * @param  \App\Archivo  $archivo
      * @return mixed
      */
-    public function forceDelete(User $user, Paciente $paciente)
+    public function forceDelete(User $user, Archivo $archivo)
     {
         //
     }

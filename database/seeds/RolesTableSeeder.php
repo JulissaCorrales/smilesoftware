@@ -323,6 +323,15 @@ class RolesTableSeeder extends Seeder
 
     ]);
     $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo)
+    ;
+    $permiso= Permiso::create([
+        'Permiso'=> 'Editar Paciente ',
+        'Slug'=> 'Editar.Paciente',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
     $roleodontologo->permisos()->sync($permisos_odontologo);
 
     $permiso= Permiso::create([
