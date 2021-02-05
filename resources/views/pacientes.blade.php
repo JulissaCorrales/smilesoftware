@@ -23,6 +23,11 @@
 <th scope="col">Nombres</th>
 <th scope="col">Apellidos </th>
 <th scope="col">Identidad </th>
+<th scope="col">Sexo </th>
+<th scope="col">Fecha de Nacimiento </th>
+<th scope="col">Departamento </th>
+<th scope="col">Ciudad </th>
+<th scope="col">Telefono Celular </th>
 </tr>
 </thead>
 
@@ -33,6 +38,11 @@
 <th scope="row">{{$paciente->nombres}}</th>
 <th scope="row">{{$paciente->apellidos}}</th>
 <th scope="row">{{$paciente->identidad}}</th>
+<th scope="row">{{$paciente->sexo}}</th>
+<th scope="row">{{$paciente->fechaNacimiento}}</th>
+<th scope="row">{{$paciente->departamento}}</th>
+<th scope="row">{{$paciente->ciudad}}</th>
+<th scope="row">{{$paciente->telefonoCelular}}</th>
 </tr>
 @endforeach
   </tbody>
