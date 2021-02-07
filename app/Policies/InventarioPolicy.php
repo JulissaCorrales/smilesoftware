@@ -49,6 +49,8 @@ class InventarioPolicy
             return true;
         }elseif($user->permisos->contains('slug', 'ver.inventario')) {
             return true;
+        }elseif($user->permisos->contains('slug', 'inventario.agregar')) {
+            return true;
         }
         return false;
     }

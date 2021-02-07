@@ -85,23 +85,14 @@
 </textarea>
 
 <div id="disv4">
-
-        <select name="tratamiento_id" class="form-control" id="disv3">
+        <select name="tratamiento_id" id="disv3">
         <option disabled selected>Seleccione un Plan de Tratamiento</option>
-        <?php
-        $getDoctor =$mysqli->query("select * from tratamientos order by id");
-        while($f=$getDoctor->fetch_object()) {
-          echo $f->id;
-          echo $f->categoria;
-        
-
-          ?>
-          
-         
-          <option value="<?php echo $f->id; ?>"><?php echo $f->categoria;?></option>
-          <?php
-        } 
-        ?>
+        @forelse ($pacientes->planestratamientos as $tag) 
+        <option value={{$tag->id}} >{{$tag->tratamiento->categoria}}</option>
+        @empty
+        <option disabled selected>¡¡Todavia no tiene un plan de tratamiento!! Asignele uno por favor.</option>
+        todavia no tiene una evolucion de algun plan de tratamiento.
+        @endforelse
         </select>
 
        

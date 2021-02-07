@@ -21,6 +21,10 @@ class AuthServiceProvider extends ServiceProvider
         'App\Odontologo' => 'App\Policies\OdontologoPolicy',
         'App\Logotipo' => 'App\Policies\LogotipoPolicy',
         'App\Archivo' => 'App\Policies\ArchivoPolicy',
+        'App\Comentario' => 'App\Policies\ComentarioPolicy',
+        'App\Plantratamiento' => 'App\Policies\PlanTratamientoPolicy',
+        'App\Evoluciones' => 'App\Policies\EvolucionesPolicy',
+        'App\Documento' => 'App\Policies\DocumentoPolicy',
     ];
 
     /**

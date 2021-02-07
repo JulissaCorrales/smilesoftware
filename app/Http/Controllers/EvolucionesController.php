@@ -18,17 +18,15 @@ class EvolucionesController extends Controller
      */
    
     public function nuevaevolucion($id){
-        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
+        $this->authorize('create', Evoluciones::class);//si tiene el permiso de crear
         $pacientes = Paciente::findOrFail($id);
           return view('nuevaEvolucion')->with('pacientes',$pacientes);
-        }else{
-            abort(403);
-        }
+      
     }
     
 
     public function GuardarEvolucion(Request $request,$id){
-        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
+        $this->authorize('create', Evoluciones::class);//si tiene el permiso de crear
         $paciente=Paciente::findOrFail($id);
 
         $nuevoevaluacion = new  Evoluciones();
@@ -43,9 +41,6 @@ class EvolucionesController extends Controller
 
            //return redirect()('/comentarios/{id}');
         } 
-    }else{
-       abort(404);
-    }
     }
     
 
@@ -56,15 +51,14 @@ class EvolucionesController extends Controller
 
 
     public function EvolucionesPaciente($id){
-        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
+        $this->authorize('view', Evoluciones::class);//si tiene el permiso de ver
+
         $evoluciones=Evoluciones::all();
         $tratamientos= Tratamiento::all();
 
         $pacientes = Paciente::findOrFail($id);
        return view('Evoluciones')->with ('evoluciones',$evoluciones)->with('tratamientos',$tratamientos)->with('pacientes',$pacientes);
-       }else{
-           abort(404);
-       }
+      
 
     }
 

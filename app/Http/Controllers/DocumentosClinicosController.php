@@ -11,15 +11,26 @@ use Illuminate\Support\Facades\Gate;
 class DocumentosClinicosController extends Controller
 {
     public function ver($id){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
         $pacientes = Paciente::findOrFail($id);
         return view('documentosclinicos',compact('pacientes'));
+    }else{
+        abort(404);
+    }
     }
     public function nuevo($id){
+        $this->authorize('create', Documento::class);
         $pacientes = Paciente::findOrFail($id);
         return view('formularioDocumentos',compact('pacientes'));
     }
     public function guardar(Request $request,$id){
-        
+        $this->authorize('create', Documento::class);
+
+        $request->validate([
+            'odontologo_id'=>'required',
+            'observaciones'=>'required',
+            'imagen1'=>'required',]);
+            
         if($request->hasFile('imagen1')){
             $file = $request->file('imagen1');
             $name = time().$file->getClientOriginalName();

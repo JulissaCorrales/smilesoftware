@@ -47,6 +47,10 @@ class PacientePolicy
             return true;
         }elseif($user->permisos->contains('slug', 'ver.Paciente')) {
             return true;
+        }elseif($user->permisos->contains('slug', 'Paciente.editar')) {
+            return true;
+        }elseif($user->permisos->contains('slug', 'Editar.Paciente')) {
+            return true;
         } 
         return false;
     }

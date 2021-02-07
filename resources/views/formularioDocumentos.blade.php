@@ -21,12 +21,23 @@
 @section('cuerpo')
 <body>
 <div id="todo" class="container">
+
+    
+<h2>Creación de un Nuevo Documento del Paciente:</h2>
 @if(session('mensaje'))
         <div class="alert alert-success">
             {{session('mensaje')}}
         </div>
     @endif
-<h2>Creación de un Nuevo Documento del Paciente:</h2>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
                     <?php
                     $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
@@ -55,14 +66,14 @@
         </select>
         <hr>
 
-              <label for="identidad">Documento a subir:</label>
-              <input type="file" class="form-control-file" name="imagen1" id="imagen1">
+              <label for="identidad" >Documento a subir  (Seleccione un archivo a subir pdf, word, excel, etc.. "):</label>
+              <input type="file" class="form-control-file" name="imagen1" id="imagen1"placeholder="Seleccione un archivo a subir dpf, word, excel, etc.. ">
                     
             
 
               <div class="form-group">
                 <label for="observaciones">observaciones:</label>
-                <input type="text" class="form-control-file" name="observaciones" id="observaciones" accept="application/pdf" placeholder="Seleccione un archivo a subir dpf, word, excel, etc.. ">
+                <input type="text" class="form-control-file" name="observaciones" id="observaciones" accept="application/pdf" >
               </div>
               
 

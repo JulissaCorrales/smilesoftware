@@ -2,15 +2,15 @@
 
 namespace App\Policies;
 
-use App\Gasto;
+use App\Plantratamiento;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class GastoPolicy
+class PlanTratamientoPolicy
 {
     use HandlesAuthorization;
 
-    /**
+       /**
      * Undocumented function
      *
      * @param [type] $user
@@ -39,16 +39,14 @@ class GastoPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Gasto  $gasto
+     * @param  \App\Plantratamiento  $plantratamiento
      * @return mixed
      */
     public function view(User $user)
     {
-        if($user->permisos->contains('slug', 'Gastos.ver')) {
+        if($user->permisos->contains('slug', 'ver.plandetratamiento')) {
             return true;
-        }elseif($user->permisos->contains('slug', 'Gastos.Agregar')) {
-            return true;
-        } 
+        }
         return false;
     }
 
@@ -60,9 +58,9 @@ class GastoPolicy
      */
     public function create(User $user)
     {
-        if($user->permisos->contains('slug', 'Gastos.Agregar')) {
+        if($user->permisos->contains('slug', 'crear.plandetratamiento')) {
             return true;
-        } 
+        }
         return false;
     }
 
@@ -70,27 +68,24 @@ class GastoPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Gasto  $gasto
+     * @param  \App\Plantratamiento  $plantratamiento
      * @return mixed
      */
-    public function update(User $user, Gasto $gasto)
+    public function update(User $user, Plantratamiento $plantratamiento)
     {
-        if($user->permisos->contains('slug', 'Gastos.Editar')) {
-            return true;
-        } 
-        return false;
+        //
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Gasto  $gasto
+     * @param  \App\Plantratamiento  $plantratamiento
      * @return mixed
      */
-    public function delete(User $user, Gasto $gasto)
+    public function delete(User $user, Plantratamiento $plantratamiento)
     {
-        if($user->permisos->contains('slug','Gastos.Borrar')){
+        if($user->permisos->contains('slug', 'borrar.plandetratamiento')) {
             return true;
         }
         return false;
@@ -100,10 +95,10 @@ class GastoPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Gasto  $gasto
+     * @param  \App\Plantratamiento  $plantratamiento
      * @return mixed
      */
-    public function restore(User $user, Gasto $gasto)
+    public function restore(User $user, Plantratamiento $plantratamiento)
     {
         //
     }
@@ -112,10 +107,10 @@ class GastoPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Gasto  $gasto
+     * @param  \App\Plantratamiento  $plantratamiento
      * @return mixed
      */
-    public function forceDelete(User $user, Gasto $gasto)
+    public function forceDelete(User $user, Plantratamiento $plantratamiento)
     {
         //
     }

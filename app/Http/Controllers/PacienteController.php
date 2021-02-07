@@ -103,7 +103,7 @@ class PacienteController extends Controller
 
    //Guardar Paciente solo el admin y secretaria
     public function guardar(Request $request){
-        $this->authorize('view', Paciente::class);
+        $this->authorize('create', Paciente::class);
         $request->validate([
             'nombres'=>'required',
             'apellidos'=>'required',
@@ -187,20 +187,16 @@ class PacienteController extends Controller
 
       // Crear comentario acceso al admin y al secretario
         public function comentarios($id){
-            if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
-            //$comentarios= Comentarios::All();
+            $this->authorize('create',Comentario::class);
             //return "texto de contacto desde el controlador ";
             $pacientes = Paciente::findOrFail($id);
             return view('comentarios')->with('pacientes',$pacientes);
-         }
-
         }  
     
          //Guardar Comentario acceso al admin y a la secretaria
          public function GuardarComentario(Request $request,$id){
-            if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+            $this->authorize('create',Comentario::class);
             $paciente=Paciente::findOrFail($id);
-
             $nuevocomentario = new Comentario();
             $nuevocomentario->paciente_id= $id;
             $nuevocomentario->comentarios= $request->input('caja');
@@ -211,8 +207,6 @@ class PacienteController extends Controller
     
                //return redirect()('/comentarios/{id}');
             } 
-
-        }
         }
         
        

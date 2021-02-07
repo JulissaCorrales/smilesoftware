@@ -69,6 +69,13 @@ class CitaPolicy
         return false;
     }
 
+    public function viewIndividual(User $user)
+    {
+        if($user->permisos->contains('slug', 'cita.individual')) {
+            return true;
+        }
+        return false;
+    }
     /**
      * Determine whether the user can create models.
      *

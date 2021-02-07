@@ -2,6 +2,7 @@
 @section('cuerpo')
 <!DOCTYPE html>
 <html lang="en">
+@section('titulo','Cita Indivual del Paciente')
 <head>
     <meta charset="UTF-8">
      
@@ -188,6 +189,7 @@
                     </div>
                 </div>
                 @endcanany
+                
                  <hr>
                 
                 @empty

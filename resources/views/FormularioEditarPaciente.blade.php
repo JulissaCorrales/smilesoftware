@@ -1,5 +1,6 @@
 @extends('datospersonales')
-@section('cuerpo')   
+@section('cuerpo') 
+@section('titulo','Editar Paciente')  
 @canany(['isAdmin','isSecretaria','isOdontologo'])
 <!DOCTYPE html>
 <html lang="en">

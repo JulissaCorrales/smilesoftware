@@ -382,6 +382,44 @@ class RolesTableSeeder extends Seeder
     $roleodontologo->permisos()->sync($permisos_odontologo);
 
     $permiso= Permiso::create([
+        'Permiso'=> 'Crear plan de tratamiento ',
+        'Slug'=> 'crear.plandetratamiento',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Borrar plan de tratamiento ',
+        'Slug'=> 'borrar.plandetratamiento',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Ver Evolucion ',
+        'Slug'=> 'ver.evolucion',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    
+    $permiso= Permiso::create([
+        'Permiso'=> 'Nueva Evolucion ',
+        'Slug'=> 'crear.evolucion',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+
+    $permiso= Permiso::create([
         'Permiso'=> 'Agregar Tratamiento',
         'Slug'=> 'agregar.tratamiento',
 

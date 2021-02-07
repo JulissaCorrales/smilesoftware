@@ -120,9 +120,9 @@ Route::prefix('pantallainicio/calendario')->group( function(){
              //ruta de borrar cita individual
            // Route::delete('{id}/borrar','CitaController@destroyCita') ->name('cita.borrar')->where('id','[0-9]+');
              //ruta para crear comentarios
-             Route::get('{id}/comentarios','PacienteController@comentarios') ->name('comentarios.crear')->middleware('role:admin,secretaria');
+             Route::get('{id}/comentarios','PacienteController@comentarios') ->name('comentarios.crear')->middleware('role:admin,secretaria,odontologo');
              //ruta pra guardar comentarios
-             Route::post('{id}/comentarios','PacienteController@GuardarComentario')->name('comentario.guardar')->middleware('role:admin,secretaria');
+             Route::post('{id}/comentarios','PacienteController@GuardarComentario')->name('comentario.guardar')->middleware('role:admin,secretaria,odontologo');
               
              //ruta de plandetratamiento ver
               Route::get('{id}/plandetratamiento','PlanTratamientoController@ver')->name('tratamiento.ver')->middleware('role:admin,odontologo');

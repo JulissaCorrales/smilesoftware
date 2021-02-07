@@ -1,7 +1,10 @@
 @extends('datospersonales')
 
+@section('titulo','Comentarios Administrativos')
 @section('cuerpo')
-@canany(['isAdmin','isSecretaria'])
+@can('create',App\Comentario::class)
+
+
 
 <head>
 
@@ -89,8 +92,8 @@
 
 
 </body>
+@endcan
 
-@endcanany
 
 
 @endsection
