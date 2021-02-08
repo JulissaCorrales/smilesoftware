@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Paciente;
 use App\Logotipo;
+use App\Mail\Contactanos;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -285,6 +287,12 @@ Route::get('evolucion/nueva/{id}','EvolucionesController@nuevaevolucion')->name(
 
 //Rutas para el login(Autenticación)
 Auth::routes();
+
+
+
+
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 
@@ -311,3 +319,24 @@ route::get('/pdfpacientes','PDFController@PDFPacientes')->name('descargarPDFPaci
 //ruta para la vista recaudaciones
 
 route::get('/pantallainicio/vista/paciente/{id}/VistaRecaudacionesD','RecaudacionesController@VistaRecaudacionesD');
+
+/*Route::get('/contactos',function(){
+
+
+  $correo= new Contactanos;
+  Mail::to('geopaomarmor1325@gmail.com')->send($correo);
+
+  return "mensaje Enviado";
+
+}); */
+
+Route::get('/contactos','OdontologoController@enviar');
+
+
+//Password Reset Routes...
+
+
+/* Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->devuelve la vista email;
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset'); */

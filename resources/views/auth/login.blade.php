@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+<!--Es la vista del Login -->
+
 <div class="container-fluid">
   <div class="row no-gutter">
     <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">

@@ -7,6 +7,9 @@ use App\Odontologo;
 use App\EspecialidadOdontologos;
 use DispatchesJobs, ValidatesRequests;
 use Illuminate\Support\Facades\Gate;
+use App\Mail\Contactanos;
+use Illuminate\Support\Facades\Mail;
+
 
 use App\Dias;
 use App\Horario;
@@ -195,6 +198,16 @@ class OdontologoController extends Controller
         }
         
         
+    }
+
+    public function enviar(){
+        $correo= new Contactanos;
+        
+        Mail::to('geopaomarmor1325@gmail.com')->send($correo);
+
+        return "mensaje Enviado";
+
+
     }
 
 

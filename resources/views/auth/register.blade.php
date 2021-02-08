@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+
+<!-- Registrar Uusuario -->
 @section('content')
 <div class="container-fluid">
   <div class="row no-gutter">
