@@ -44,12 +44,6 @@ class User extends Authenticatable
     ];
 
 
-   public function setPasswordAttribute($valor){
-       if(!empty($valor)){
-           $this->atributes['password']=\Hash::make($valor);
-       }
-
-   }
 
 
 }
