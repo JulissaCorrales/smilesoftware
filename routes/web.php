@@ -236,7 +236,7 @@ Route::delete('{id}/borrar/odontologo','OdontologoController@destroy') ->name('o
 
         
 //**************Rutas de  tratamientos******************************************************************/
-Route::get('tratamiento','TratamientoController@vistaprincipal')->name('tratamiento.vista')->middleware('role:admin,odontologo');
+Route::get('tratamiento','TratamientoController@vistaprincipal')->name('tratamiento.vista')->middleware('role:admin,odontologo,secretaria');
 Route::get('tratamientonuevo','TratamientoController@nuevo');
 Route::post('tratamientoNuevo','TratamientoController@guardar')->middleware('role:admin,odontologo');
 Route::delete('tratamiento/{id}/borrar','TratamientoController@destroy') ->name('tratamiento.borrar')->where('id','[0-9]+')->middleware('role:admin,odontologo');
@@ -262,7 +262,7 @@ Route::get('pantallainicio/odontologo/{id}','EspecialidadOdontologosController@E
 
 
 //**************Rutas de  inventarios******************/
-Route::get('inventario','InventarioController@vistaprincipal')->middleware('role:admin,secretaria');
+Route::get('inventario','InventarioController@vistaprincipal')->middleware('role:admin,secretaria,odontologo');
 Route::delete('inventario/{id}/borrar','InventarioController@destroy') ->name('inventario.borrar')->where('id','[0-9]+')->middleware('role:secretaria,admin');
 Route::post('inventarioNuevo','InventarioController@guardar')->middleware('role:admin,secretaria');
 Route::get('inventarionuevo','InventarioController@nuevo');

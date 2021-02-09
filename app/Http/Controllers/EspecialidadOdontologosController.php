@@ -11,12 +11,10 @@ use Illuminate\Support\Facades\Gate;
 class EspecialidadOdontologosController extends Controller
 {
     public function especialidadOdontologo(){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
-      
+   
+        $this->authorize('create', EspecialidadOdontologos::class); //si tiene el permiso de crear:
         return view('NuevaEspecialidadOdontologo');
-        }else{
-            abort(404);
-        }
+      
      }
 
      
@@ -36,7 +34,7 @@ class EspecialidadOdontologosController extends Controller
 
 
     public function GuardarNuevo(Request $request){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+        $this->authorize('create', EspecialidadOdontologos::class); //si tiene el permiso de crear:
         
 
         $nuevo = new EspecialidadOdontologos();
@@ -52,8 +50,5 @@ class EspecialidadOdontologosController extends Controller
         }else{
             //retornar con un msj de error
         } 
-    }else{
-        abort(404);
-    }
 }
 }

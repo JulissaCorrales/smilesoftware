@@ -25,16 +25,16 @@ class EspecialidadController extends Controller
 
      //Funcion para crear una nueva especialidad acceso al admin y secretaria
      public function nuevaespecialidad(){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+        $this->authorize('create', Especialidad::class); //si tiene el permiso de crear:
         //return "texto de contacto desde el controlador ";
         return view('nuevaEspecialidad');
-        }else
-        abort(403);
+     
       }
 
 
 
      public function GuardarNuevo(Request $request){
+        $this->authorize('create', Especialidad::class); //si tiene el permiso de crear:
         if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
         $nuevo = new Especialidad();
         //formulario
@@ -53,13 +53,14 @@ class EspecialidadController extends Controller
 
   
     public function destroy($id){
-        if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+        
+        $especialidades=Especialidad::findOrFail($id);
+        $this->authorize('delete', $especialidades); //si tiene el permiso de eliminar:
+
         Especialidad::destroy($id);
         return redirect()->back()->with('mensaje','Especialidad borrada satisfactoriamente');
 
-        }else{
-            abort(403);
-        }
+    
        
     }
 

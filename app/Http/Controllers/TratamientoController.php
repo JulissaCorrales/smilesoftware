@@ -20,23 +20,22 @@ class TratamientoController extends Controller
 //funcion para eliminar
     // recibe el id del que se va eliminar
     public function destroy($id){
-        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
+        $tratamientos=Tratamiento::findOrFail($id);
+        $this->authorize('delete',$tratamientos );/* si tiene permiso de borrar */
         Tratamiento::destroy($id);
-        return redirect()->back()->with('mensaje','Tratamiento borrado satisfactoriamente messi');
-    }else{
-        abort(403);
-    }
+        return redirect()->back()->with('mensaje','Tratamiento borrado satisfactoriamente');
+   
     }
 
 
 
 public function nuevo(){
-       
+    $this->authorize('create', Tratamiento::class); //si tiene el permiso de crear:   
     return view('tratamientosnuevo');
 }
 
 public function guardar(Request $request){
-    if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){      
+    $this->authorize('create', Tratamiento::class); //si tiene el permiso de crear:        
     $request->validate([
         'categoria'     =>  'required',
         'tipo'          =>  'required',
@@ -54,19 +53,15 @@ public function guardar(Request $request){
         return redirect()->back()->with('mensaje','El nuevo Tratamiento fue creado exitosamente');
     }else{ 
     }
-}else{
-    abort(403);
-}
+
 }
 
 /* funcion para poder editar un gasto */
 public function editar($id){
-    if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){  
     $tratamientos=Tratamiento::findOrFail($id);
+    $this->authorize('update',$tratamientos );/* si tiene permiso de editar */ 
     return view('editartratamiento')->with('tratamientos',$tratamientos);
-}else{
-    abort(403);
-}
+
 }
 
 public function update(Request $request,$id){
@@ -78,6 +73,7 @@ public function update(Request $request,$id){
     ]);
 
     $tratamientos=Tratamiento::findOrFail($id);
+    $this->authorize('update',$tratamientos );/* si tiene permiso de editar */
     //formulario
     $tratamientos->categoria=    $request->input('categoria');
     $tratamientos->tipo=          $request->input('tipo');

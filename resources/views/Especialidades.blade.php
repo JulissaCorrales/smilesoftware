@@ -305,11 +305,12 @@ td{
 
 
   <div id="especialidad" >
+@can('create',App\EspecialidadOdontologos::class)
     <a  id="especia" type="button"  class="btn btn-outline-info" data-toggle="modal" data-target="#nespecialidad"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
   <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
 </svg>   Nueva Especialidad Odontologo</a>
-    
+@endcan
   </div>
 </nav>
 </div>
@@ -342,10 +343,15 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
     <th id="thh1" colspan="1" >
       Especialidades</th>
 
-      <th  id="thh2" colspan="2"><a id="a3" class="btn btn-outline-info" type="button" data-toggle="modal" data-target="#modall"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <th  id="thh2" colspan="2">
+      
+      @can('create',App\Especialidad::class)
+      <a id="a3" class="btn btn-outline-info" type="button" data-toggle="modal" data-target="#modall"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
   <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-</svg>Especialidad</a></th>
+</svg>Especialidad</a>
+@endcan
+</th>
       </div>
 
 <div class="modal fade" id="modall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -399,11 +405,13 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   
    <td colspan="2"> {{$tag->Especialidad}} </td>
    <td>
+   @can('delete',$tag)
    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalll-{{$tag->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
 </svg>
       Eliminar
   </button>
+  @endcan
    </td>
   
 

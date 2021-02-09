@@ -20,24 +20,25 @@ class MediodepagoController extends Controller
 }
 
 public function destroy($id){
-    if(Gate::denies('isSecretaria')){ 
+
+    $mediopagos=Mediopago::findOrFail($id);
+    $this->authorize('delete', $mediopagos); //si tiene el permiso de eliminar:
+
     Mediopago::destroy($id);
     return redirect()->back()->with('mensaje','Medio de pago borrado satisfactoriamente');
-}else{
-    abort(403);
-}
+
 }
 
 
 
 public function nuevo(){
-    
+    $this->authorize('create', Mediopago::class); //si tiene el permiso de crear:
     return view('mediopagonuevo');
 
 }
 
 public function guardar(Request $request){
-    if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){      
+    $this->authorize('create', Mediopago::class); //si tiene el permiso de crear:     
     $request->validate([
         'nombre'         =>  'required',
     ]);
@@ -53,44 +54,41 @@ public function guardar(Request $request){
         return redirect()->back()->with('mensaje','El nuevo Medio de pago fue creado exitosamente');
     }else{ 
     }
-}else{
-    abort(403);
-}
+
 
 }
 
 
 public function editar($id){  
-    if(Gate::denies('isSecretaria')){ 
+   
     $mediopagos=Mediopago::findOrFail($id);
+    $this->authorize('update', $mediopagos); //si tiene el permiso de editar:
     return view('editarmediopago')->with('mediopagos',$mediopagos);
-}else{
-    abort(403);
-}
+
 }
 
 
 public function update(Request $request,$id){
-    if(Gate::denies('isSecretaria')){ 
+ 
+
     $request->validate([
         'nombre'        =>'required',
        
     ]);
 
-    $inventarios=Mediopago::findOrFail($id);
+    $mediopagos=Mediopago::findOrFail($id);
+    $this->authorize('update', $mediopagos); //si tiene el permiso de editar:
     //formulario
-    $inventarios->nombre=       $request->input('nombre');
+    $mediopagos->nombre=       $request->input('nombre');
    
 
-    $actualizado = $inventarios->save();
+    $actualizado = $mediopagos->save();
     //Asegurarse que fue creado
     if ($actualizado){
         return redirect()->back()->with('mensaje','¡¡El Medio de pago Fué Modificado Exitosamente!!');
     }else{ 
     }
-}else{
-    abort(403);
-}
+
 
 }
 

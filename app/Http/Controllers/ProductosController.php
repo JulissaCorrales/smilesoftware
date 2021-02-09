@@ -22,6 +22,7 @@ class ProductosController extends Controller
      
 
 public function nuevo($id){
+    $this->authorize('create', Producto::class); //si tiene el permiso de crear:
    $tratamientos = Tratamiento::findOrFail($id);
       return view('productosnuevo')->with('tratamientos',$tratamientos); 
 }
@@ -30,6 +31,7 @@ public function nuevo($id){
 
 
 public function guardar(Request $request,$id){
+    $this->authorize('create', Producto::class); //si tiene el permiso de crear:
     if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){ 
     $request->validate([
         'nombre'                    =>  'required',
@@ -59,18 +61,19 @@ public function guardar(Request $request,$id){
 //funcion para eliminar
     // recibe el id del que se va eliminar
     public function destroy($id){
-        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
+        $productos=Producto::findOrFail($id);
+        $this->authorize('delete', $productos); //si tiene el permiso de editar:
+        
         Producto::destroy($id);
         return redirect()->back()->with('mensaje','Producto borrado satisfactoriamente');
-    }else{
-        abort(403);
-    }
+  
     }
 
 
     public function editar($id){
         if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
         $productos=Producto::findOrFail($id);
+        $this->authorize('update', $productos); //si tiene el permiso de editar:
         return view('editarproducto')->with('productos',$productos);
     }else{
         abort(403);
@@ -86,6 +89,7 @@ public function guardar(Request $request,$id){
         ]);
     
         $productos=Producto::findOrFail($id);
+        $this->authorize('update', $productos); //si tiene el permiso de editar:
         //formulario
         $productos->nombre=           $request->input('nombre');
         $productos->permitedescuento= $request->input('permitedescuento');
