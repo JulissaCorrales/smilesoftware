@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 use Illuminate\Http\Request;
+use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Password;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use App\Redirect;
  
@@ -27,16 +31,6 @@ class ForgotPasswordController extends Controller
 
 
 
-    //esta funcion retorna la vista de email.blade.php
-    public function sendResetLinkEmail(Request $request)
-    {
-        $this->validate($request, ['email' => 'required|email']);
- 
-        $response = $this->broker()->sendResetLink(
-            $request->only('email')
-        );
-  
-        
-        
-    }
+    
+
 }

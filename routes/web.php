@@ -336,7 +336,8 @@ Route::get('/contactos','OdontologoController@enviar');
 //Password Reset Routes...
 
 
-/* Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->devuelve la vista email;
-Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
-Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
-Route::post('password/reset', 'Auth\ResetPasswordController@reset'); */
+/*Route::get('passwords/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+Route::post('passwords/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('passwords.emails');
+
+Route::get('passwords/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('passwords.reset');
+Route::post('passwords/reset', 'Auth\ResetPasswordController@reset')->name('passwords.sed');  */

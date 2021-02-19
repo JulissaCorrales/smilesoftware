@@ -7,6 +7,16 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 use App\Redirect;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Mail\Message;
+
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
+
 class ResetPasswordController extends Controller
 {
     /*
@@ -22,6 +32,8 @@ class ResetPasswordController extends Controller
 
     use ResetsPasswords;
 
+    protected $redirectTo='/home';
+
 
     public function __construct( )
     {
@@ -33,23 +45,23 @@ class ResetPasswordController extends Controller
     
 
 
-    public function reset(Request $request)
+   /* public function reset(Request $request)
     {
-        
-    }
-     
-    protected $redirec='login';
 
-    protected function resetPassword($user, $password)
-    {
-        $user->forceFill([
-            'password' => $password,
-            'remember_token' => str_random(60),
-        ])->save();
- 
-        // GENERAR TOKEN PARA SATELLIZER AQUI ??
-        // $this->guard()->login($user);
-    }
+        $request->validate($this->rules(), $this->validationErrorMessages());
+
+        $response = $this->broker()->reset(
+            $this->credentials($request), function ($user, $password) {
+            $this->resetPassword($user, $password);
+        }
+    );
+
+        return view('home');
+    } */
+     
+    
+
+    
 
     
     //protected $redirectTo = RouteServiceProvider::HOME;

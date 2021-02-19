@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+<meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="row justify-content-center" >
         <div class="col-md-8">
             <div class="card" >
