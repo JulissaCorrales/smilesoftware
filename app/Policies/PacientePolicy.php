@@ -116,6 +116,18 @@ class PacientePolicy
         return false;
     }
 
+
+    public function descargarPacientes(User $user)
+    {
+      if($user->permisos->contains('slug','Paciente.descargar')){
+            return true;
+        }elseif($user->permisos->contains('slug', 'descargar.Paciente')) {
+            return true;
+        } 
+        return false;
+
+    }
+
     /**
      * Determine whether the user can restore the model.
      *

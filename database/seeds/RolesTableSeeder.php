@@ -174,6 +174,14 @@ class RolesTableSeeder extends Seeder
         $permisos_secretaria[]= $permiso->id;
         $rolesecretaria->permisos()->sync($permisos_secretaria);
 
+        $permiso= Permiso::create([
+            'Permiso'=> 'Descargar Pacientes',
+            'Slug'=> 'Paciente.descargar',
+
+        ]);
+        $permisos_secretaria[]= $permiso->id;
+        $rolesecretaria->permisos()->sync($permisos_secretaria);
+
 
         $permiso= Permiso::create([
             'Permiso'=> 'ver Gastos',
@@ -383,6 +391,15 @@ class RolesTableSeeder extends Seeder
     $permiso= Permiso::create([
         'Permiso'=> 'Borrar Paciente ',
         'Slug'=> 'borrar.Paciente',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Descargar Paciente ',
+        'Slug'=> 'descargar.Paciente',
 
     ]);
 

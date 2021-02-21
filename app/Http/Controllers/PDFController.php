@@ -15,6 +15,7 @@ return $pdf->stream('prueba.pdf');
 }
 
 public function PDFPacientes(){
+    $this->authorize('descargarPacientes', Paciente::class);
     $pacientes = Paciente::all();
     $pdf = PDF::loadView('pacientes',compact('pacientes'));
     return $pdf->download('pacientes.pdf');
