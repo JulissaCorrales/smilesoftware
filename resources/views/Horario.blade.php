@@ -852,33 +852,38 @@ catch(Exception $e)
       
 
       <div id="">
+ <?php 
+for($i=1; $i <= 1; $i++) {?>
 
-      <table class="container" id="table4">
+<table class="container" id="table4">
 
-      <tbody>
-     
-      <tr>
-      <th ><h3 id="hodescanso">Hora descanso</h3></th>
-      <td>Si  <input type="checkbox" id="" name="descanso">
-      </td>
+<tbody>
 
-      <td>Si  <input type="checkbox" id="" name="descanso" >
-      </td>
+<tr>
+<th ><h3 id="hodescanso">Hora descanso</h3></th>
+<td>Si  <input type="checkbox" id="" name="descanso">
+</td>
 
-      <td>Si  <input type="checkbox" id="" name="descanso"  >
-      </td>
+<td>Si  <input type="checkbox" id="" name="descanso" >
+</td>
 
-      <td>Si  <input type="checkbox" id="" name="descanso"  >
-      </td>
+<td>Si  <input type="checkbox" id="" name="descanso"  >
+</td>
 
-      <td>Si  <input type="checkbox" id="" name="descanso"  >
-      </td>
-      <td>Si  <input type="checkbox" id="" name="descanso"  >
-      </td>
-      <td>Si  <input type="checkbox" id="" name="descanso" >
-      </td>
-      
-      
+<td>Si  <input type="checkbox" id="" name="descanso"  >
+</td>
+
+<td>Si  <input type="checkbox" id="" name="descanso"  >
+</td>
+<td>Si  <input type="checkbox" id="" name="descanso"  >
+</td>
+<td>Si  <input type="checkbox" id="" name="descanso" >
+</td>
+
+<?php
+}
+?>
+    
       </tr>
       
       </tbody>

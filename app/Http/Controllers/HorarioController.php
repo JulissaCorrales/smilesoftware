@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Horario;
+use App\horarios;
 use App\Dias;
 use App\Odontologo;
 use Illuminate\Http\Request;
@@ -42,7 +42,7 @@ class HorarioController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $horario = new Horario();
+        $horario = new horarios();
         $odontologo=Odontologo::findOrFail($id);
 
         //formulario
