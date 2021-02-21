@@ -27,9 +27,11 @@ class ResetPassword extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('You are receiving this email because we received a password reset request for your account.')
-            ->action('Reset Password', $this->actionUrl)
-            ->line('If you did not request a password reset, no further action is required.');
+        ->line('Hola Bienvenido a SmileSoftware')
+
+            ->line('Esta recibiendo este correo electrónico porque hemos recibido una solicitud de restablecimiento de contraseña para su cuenta.')
+            ->action('Restablecer Contraseña', $this->actionUrl)
+            ->line('Si no solicitó un restablecimiento de contraseña, no se requiere ninguna otra acción..');
     }
  
     public function toArray($notifiable)
