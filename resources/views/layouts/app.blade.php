@@ -1,3 +1,13 @@
+<style>
+#enlace2{
+    position: absolute;
+            left: 150px;
+            
+            font-size:20px;
+}
+
+</style>
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -46,12 +56,10 @@ body{
 </head>
 <body>
     <div id="app" >
-        <nav style="    background-image: linear-gradient(to bottom, #33d6ff ,#e6ffff );" 
-        class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container" >
+        
                 <a style="    color: #0099cc;
-                     text-shadow: 2px 0 #ffcc66, 0 2px #ffcc66, 2px 0 #ffcc66, 0 2px #ffcc66;font-family: serif;left: 80px;top: 60px;font-size: 40px"
-                     class="navbar-brand" href="{{ url('/') }}">
+                     text-shadow: 2px 0 #ffcc66, 0 2px #ffcc66, 2px 0 #ffcc66, 0 2px #ffcc66;font-family: serif;left: 150px; top: 60px;font-size: 40px"
+                     class="navbar-brand" href="{{ url('/') }}" id="enlace2">
                      Smile Software <?php $logotipos=App\Logotipo::where('id','=',1)->get();?>
                         @forelse($logotipos  as $tag)
                     <img  style="  border-radius: 70%;"class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="80px" high="100px" id="dos">
@@ -99,7 +107,7 @@ body{
                     </ul>
                 </div>
             </div>
-        </nav>
+        
 
         <main class="py-4">
             @yield('content')

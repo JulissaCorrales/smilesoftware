@@ -2,7 +2,7 @@
 
 <style>
 html,body{
-background-image: url('../assets/img/fondo8.jpg');
+background-image: url('../assets/img/fondo34.jpg');
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
@@ -19,7 +19,7 @@ height: 370px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
-background-color: #adebeb  !important;
+background-color: #e6ffff !important;
 }
 
 .social_icon span{
@@ -58,7 +58,7 @@ box-shadow: 0 0 0 0 !important;
 }
 
 .remember{
-color: white;
+color:#00091a;
 }
 
 .remember input
@@ -73,6 +73,7 @@ margin-right: 5px;
 color: black;
 background-color: #00cccc;
 width: 100px;
+
 }
 
 .login_btn:hover{
@@ -103,8 +104,11 @@ margin-left: 4px;
   position: absolute;
   left: 150px;
   top:250px;
-  width: 80px;
+  width: 100px;
   background-color: #00cccc;
+  height:35px;
+  font-size:15px;
+  color: #00091a;
 
 }
 
