@@ -1,8 +1,6 @@
-@extends('layouts.app')
-
 <style>
 html,body{
-background-image: url('../assets/img/fondo8.jpg');
+background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
@@ -19,7 +17,7 @@ height: 370px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
-background-color: #adebeb  !important;
+background-color: rgba(0,0,0,0.5) !important;
 }
 
 .social_icon span{
@@ -34,8 +32,7 @@ cursor: pointer;
 }
 
 .card-header h3{
-  color: #0099cc;
-  text-shadow: 2px 0 #ffcc66, 0 2px #ffcc66, 2px 0 #ffcc66, 0 2px #ffcc66;
+color: white;
 }
 
 .social_icon{
@@ -71,14 +68,13 @@ margin-right: 5px;
 
 .login_btn{
 color: black;
-background-color: #00cccc;
+background-color: #FFC312;
 width: 100px;
 }
 
 .login_btn:hover{
 color: black;
-background-color: #00cccc;
-width: 100px;
+background-color: white;
 }
 
 .links{
@@ -89,27 +85,8 @@ color: white;
 margin-left: 4px;
 }
 
-#doss{
-  border-radius: 50%;
-  position: absolute;
-  left: 330px;
-  top:-30px;
-  width: 80px;
-  border-color: #33ccff , 2px;
-}
-
-
-#butr{
-  position: absolute;
-  left: 150px;
-  top:250px;
-  width: 80px;
-  background-color: #00cccc;
-
-}
-
 </style>
-@section('content')
+
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -136,53 +113,46 @@ margin-left: 4px;
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
-				<h3>Iniciar Sesion</h3>
-        
+				<h3>Sign In</h3>
+				<div class="d-flex justify-content-end social_icon">
+					<span><i class="fab fa-facebook-square"></i></span>
+					<span><i class="fab fa-google-plus-square"></i></span>
+					<span><i class="fab fa-twitter-square"></i></span>
+				</div>
 			</div>
 			<div class="card-body">
-			<form method="POST" action="{{ route('login') }}">
-              @csrf
+				<form>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-            <input type="name" id="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Nombre de usuario" required autocomplete="name" autofocus>
-            @error('name')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                  @enderror
+						<input type="text" class="form-control" placeholder="username">
+						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-            <input type="password" id="inputPassword" class="form-control @error('password') is-invalid @enderror" placeholder="Ingrese su contraseña" name="password" required autocomplete="current-password">
-            @error('password')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                  @enderror
+						<input type="password" class="form-control" placeholder="password">
 					</div>
 					<div class="row align-items-center remember">
-						<input type="checkbox">Recordar Contraseña
+						<input type="checkbox">Remember Me
 					</div>
 					<div class="form-group">
-          <button class="btn btn-lg btn-primary " type="submit" id="butr">Entrar</button>
+						<input type="submit" value="Login" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>
 			<div class="card-footer">
-      
-      <div class="text-center">
-                  @if (Route::has('password.request'))
-                      <a class="small" href="{{ route('password.request') }}">'¿Olvidaste tu contraseña?</a></div>
-                  @endif
+				<div class="d-flex justify-content-center links">
+					Don't have an account?<a href="#">Sign Up</a>
+				</div>
+				<div class="d-flex justify-content-center">
+					<a href="#">Forgot your password?</a>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 </body>
 </html>
-
-@endsection

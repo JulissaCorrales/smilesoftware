@@ -330,7 +330,8 @@ route::get('/pantallainicio/vista/paciente/{id}/VistaRecaudacionesD','Recaudacio
 
 }); */
 
-Route::get('/contactos','OdontologoController@enviar');
+
+Route::get('/iniciar','OdontologoController@login');
 
 
 //Password Reset Routes...

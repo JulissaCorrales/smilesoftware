@@ -211,5 +211,12 @@ class OdontologoController extends Controller
     }
 
 
+    public function login(){
+        return View('auth.passwords.iniciar');
+
+
+    }
+
+
 
 }

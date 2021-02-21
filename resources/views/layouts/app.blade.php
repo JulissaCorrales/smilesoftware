@@ -76,11 +76,7 @@ body{
                             <li class="nav-item">
                                 <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Entrar') }}</a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a style=" margin-left:7px;background-color:purple"class="btn btn-secondary" href="{{ route('register') }}">{{ __('Registrar Nuevo Usuario') }}</a>
-                                </li>
-                            @endif
+                            
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
