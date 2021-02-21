@@ -29,7 +29,7 @@ class HorarioController extends Controller
     {
            $dias= Dias::All(); 
         $odontologos = Odontologo::findOrFail($id);
-        return view('Horario2')->with('odontologos',$odontologos)->with('dias',$dias);
+        return view('horario')->with('odontologos',$odontologos)->with('dias',$dias);
      
          
     }

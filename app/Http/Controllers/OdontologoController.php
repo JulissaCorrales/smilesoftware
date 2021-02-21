@@ -149,28 +149,10 @@ class OdontologoController extends Controller
 
 
 
-    //crear Horario
-
-    public function nuevoHorario(){
-        //return "texto de contacto desde el controlador ";
-        $dias = Dias::All();
-        $odontologos = Odontologo::findOrFail($id);
-        return view('Horario')->with('dias',$dias)->with('odontologos',$odontologos);
-     }
+    
 
     
 
-    //Funcion para mostrar editar Horario de Odontologo
-    public function editarHorario($id){
-        $dias = Dias::All();
-        $odontologos = Odontologo::findOrFail($id);
-        return view('CrearHorario')->with('dias',$dias)->with('odontologos',$odontologos);
-     } 
-
-
-
-
-     
     public function updateHorario(Request $_request,$id){
         
         
