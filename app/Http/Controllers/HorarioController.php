@@ -27,7 +27,8 @@ class HorarioController extends Controller
      */
     public function create($id)
     {
-           $dias= Dias::All(); 
+        $this->authorize('crearHorario', Odontologo::class); //si tiene el permiso de crear 
+        $dias= Dias::All(); 
         $odontologos = Odontologo::findOrFail($id);
         return view('horario')->with('odontologos',$odontologos)->with('dias',$dias);
      
@@ -42,6 +43,7 @@ class HorarioController extends Controller
      */
     public function store(Request $request, $id)
     {
+        $this->authorize('crearHorario', Odontologo::class); //si tiene el permiso de crear 
         $horario = new horarios();
         $odontologo=Odontologo::findOrFail($id);
 

@@ -232,6 +232,14 @@ class RolesTableSeeder extends Seeder
         $permisos_secretaria[]= $permiso->id;
         $rolesecretaria->permisos()->sync($permisos_secretaria);
 
+        $permiso= Permiso::create([
+            'Permiso'=> 'Crear Horario Odontologo',
+            'Slug'=> 'Horario.crear',
+
+        ]);
+        $permisos_secretaria[]= $permiso->id;
+        $rolesecretaria->permisos()->sync($permisos_secretaria);
+
 
         $permiso= Permiso::create([
             'Permiso'=> 'Agregar Especialidad',

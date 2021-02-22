@@ -298,8 +298,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //ruta para editar Horario Odontologo
 //Route::get('editarHorario','OdontologoController@editarHorario')->name('editar.horario');
-Route::get('create/{id}/nuevo','HorarioController@create')-> where('id' ,'[0-9]+');
-Route::post('create/{id}/nuevo','HorarioController@store')-> where('id' ,'[0-9]+');
+Route::get('create/{id}/nuevo','HorarioController@create')-> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
+Route::post('create/{id}/nuevo','HorarioController@store')-> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
 
 
 Route::post('odontologo/nuevo','OdontologoController@GuardarNuevo')->middleware('role:admin,secretaria');

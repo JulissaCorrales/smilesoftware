@@ -89,6 +89,15 @@ class OdontologoPolicy
         //
     }
 
+
+    public function crearHorario(User $user)
+    {
+        if($user->permisos->contains('slug', 'Horario.crear')) {
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Determine whether the user can restore the model.
      *

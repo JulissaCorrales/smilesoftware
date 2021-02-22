@@ -12,4 +12,4 @@ class HorarioSeeder extends Seeder
     public function run()
     {
         
-}
+}}
