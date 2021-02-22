@@ -131,7 +131,7 @@ margin-left: 4px;
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-<div class="container">
+
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
@@ -196,7 +196,7 @@ margin-left: 4px;
 			</div>
 			
 	</div>
-</div>
+
 </body>
 </html>
 

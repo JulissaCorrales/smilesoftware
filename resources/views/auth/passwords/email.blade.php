@@ -116,7 +116,7 @@ margin-left: 4px;
 <!------ Include the above in your HEAD tag ---------->
 
 <!DOCTYPE html >
-<html id="html">
+<html >
 <head>
 	<title>Restablecer Contraseña</title>
    <!--Made with love by Mutiullah Samim -->

@@ -200,5 +200,12 @@ class OdontologoController extends Controller
     }
 
 
+    public function nu(){
+        return View('auth.passwords.georgina');
+
+
+    }
+
+
 
 }

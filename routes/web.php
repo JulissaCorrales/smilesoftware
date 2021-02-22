@@ -302,6 +302,8 @@ Route::get('create/{id}/nuevo','HorarioController@create')-> where('id' ,'[0-9]+
 Route::post('create/{id}/nuevo','HorarioController@store')-> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
 
 
+
+
 Route::post('odontologo/nuevo','OdontologoController@GuardarNuevo')->middleware('role:admin,secretaria');
 Route::get('horario/{id}/editar','OdontologoController@editarHorario') ->name('horario.editar') -> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
 Route::put('horario/{id}/editar','OdontologoController@editarHorario')->name('horario.update') -> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
@@ -331,7 +333,6 @@ route::get('/pantallainicio/vista/paciente/{id}/VistaRecaudacionesD','Recaudacio
 }); */
 
 
-Route::get('/iniciar','OdontologoController@login');
 
 
 //Password Reset Routes...
