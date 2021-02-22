@@ -6,6 +6,30 @@
             font-size:20px;
 }
 
+#enlace3{
+    position: absolute;
+            left: 1000px;
+            top:  80px;
+            font-size:25px;
+            color:#ffcc00;
+}
+
+#enlace3.hover{
+    color:#ffcc00;
+
+}
+
+#enlace4{
+    position: absolute;
+            left: 1100px;
+            top:  80px;
+            font-size:25px;
+            color:#ffcc00;
+}
+
+
+
+
 </style>
 
 <!doctype html>
@@ -67,6 +91,15 @@ body{
                     <img  style="  border-radius: 70%;" class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" width="80px" id="dos"> 
                     @endforelse
                 </a>
+
+              
+
+                <a  class="navbar-brand" href="{{ url('/') }}" id="enlace3">Home</a>
+                <a  class="navbar-brand" href="{{ url('/login') }}" id="enlace4">Login</a>
+
+
+
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
