@@ -7,6 +7,7 @@ use App\Plantratamiento;
 use App\Paciente;
 use App\Tratamiento;
 use App\Producto;
+use App\Recaudacion;
 use DB;
 use Illuminate\Support\Facades\Gate;
 
@@ -45,6 +46,16 @@ public function guardar(Request $request,$id){
     $nuevotraTamiento->cita_id = $request->input('cita_id');
     $creado = $nuevotraTamiento->save();
     if ($creado){
+       
+        $nuevorecaudacion = new Recaudacion();
+        $pacientes = Paciente::findOrFail($id);
+    
+        $nuevorecaudacion->paciente_id = $id;
+        $nuevorecaudacion->plantratamiento_id =  $nuevotraTamiento->id;
+        $nuevorecaudacion->preciototal =$nuevotraTamiento->tratamiento->productos->sum('monto');
+        $nuevorecaudacion->totalpagar =$nuevotraTamiento->tratamiento->productos->sum('monto'); 
+        $creado = $nuevorecaudacion->save();
+          
           return redirect("/pantallainicio/vista/paciente/$id/plandetratamiento")->with('mensaje', 'El Plan de tratamiento fue creado exitosamente!');
     }else{
         //retornar con un msj de error

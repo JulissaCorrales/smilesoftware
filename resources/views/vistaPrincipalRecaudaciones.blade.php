@@ -22,7 +22,7 @@ body {
 
 .container {
   position: absolute;
-  top: 60%;
+  top: 80%;
   left: 70%;
   transform: translate(-50%, -50%);
 }
@@ -152,20 +152,47 @@ tbody td:hover:before {
             <thead>
                 <tr>
                     <th>Prestacion</th>
-                    <th>Precio</th>
-                    <th>Abonado</th>
-                    <th>Estado</th>
-                    <th>Por pagar</th>
+                    <th>Productos</th>
+                    <th>Total Presupuesto</th>
+                    <th>Total a pagar</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Corona Metalica <br>Perfomada en Metalico</td>
-                    <td>4700</td>
-                    <td>2000</td>
-                    <td>pendiente</td>
-                    <td>2700</td>
-                </tr> 
+            <!-- prestacion -->
+            @forelse($pacientes->planestratamientos as $planes)
+              <tr>
+                <td>{{$planes->tratamiento->categoria}}</td>
+                 <!-- productos -->
+                <td> 
+                @forelse($planes->tratamiento->productos as $producto)
+                  <p> {{$producto->nombre}}</p>
+                @empty
+                vacio
+                @endforelse
+                </td>
+              <!-- Total presupuestos -->
+                <td>
+                @forelse($planes->recaudacion as $recaudaciones)
+                         <p>{{$recaudaciones->preciototal}} </p>    
+                           
+                          
+                          @empty
+                          No tiene 
+                          @endforelse
+                
+                </td>
+                <td>
+               @forelse($planes->recaudacion as $recaudaciones)
+                           {{ $recaudaciones->totalpagar}}
+                          @empty
+                          No tiene
+                          @endforelse
+            </td> 
+            @empty
+            vacio
+            @endforelse
+              </tr>
+           
             </tbody>
         </table>
         <button class="button type2">
@@ -173,7 +200,7 @@ tbody td:hover:before {
           </button>
     </div>
 
-    <div class="container2">
+    <!-- <div class="container2">
         <h3>Por cuotas de finaciamiento</h3>
         <table>
             <thead>
@@ -199,7 +226,7 @@ tbody td:hover:before {
             pagar
           </button>
     </div>
- 
+  -->
     
 </body>
 </html>

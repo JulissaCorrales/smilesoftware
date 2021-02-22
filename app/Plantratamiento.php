@@ -27,6 +27,13 @@ class Plantratamiento extends Model
         return $this->hasMany(Evoluciones::class,'plantratamiento_id'); //Pertenece a un tratamiento.
     }
 
+    
+    public function recaudacion(){ 
+        return $this->hasMany(Recaudacion::class); //Pertenece a un tratamiento.
+    }
+
+
+
 
    
 

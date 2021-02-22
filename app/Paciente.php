@@ -55,4 +55,9 @@ public function documentos()
    return $this->hasMany(Documento::class,'paciente_id','id');/*un paciente tiene muchos documentos */
 }
 
+public function recaudaciones()
+{
+   return $this->hasMany(Recaudacion::class,'paciente_id','id');/*un paciente tiene muchos recaudaciones */
+}
+
 }
