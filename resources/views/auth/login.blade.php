@@ -172,9 +172,7 @@ margin-left: 4px;
 			box-shadow: none !important;
 			outline: 0px !important;
 		}
-		.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-			background-color: #c0392b !important;
-		}
+		
 
 </style>
 @section('content')
@@ -229,14 +227,16 @@ margin-left: 4px;
                   @enderror
 					</div>
 
-						<div class="form-group">
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input" id="customControlInline">
-								<label class="custom-control-label" for="customControlInline">Recordar contraseña</label>
-							</div>
-						</div>
+						
 						
               <div class="form-group">
+			  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>
           <button class="btn btn-lg btn-primary " type="submit" id="butr">Entrar</button>
 					
 					
