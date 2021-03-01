@@ -106,6 +106,18 @@ margin-left: 4px;
   font-size:15px;
   color: #00091a;
 }
+
+#enlace11{
+  position: absolute;
+  left: 110px;
+  top:250px;
+  width: 190px;
+  background-color: #00cccc;
+  height:35px;
+  font-size:15px;
+  color: #00091a;
+
+}
 </style>
 
 <!-- Vista del Formulario para Enviar El mensaje  Password email-->
@@ -163,7 +175,13 @@ margin-left: 4px;
 					
 					
 					<div class="form-group">
-                    <button type="submit" class="btn btn-primary" id="buton1">Restablecer Contraseña</button>
+                    <button type="submit" class="btn btn-primary" id="buton1">Enviar Correo Electronico</button>
+                    
+                    <a  class="btn btn-lg btn-primary" href="{{ url('/login') }}" id="enlace11">Iniciar Sesion</a>
+
+
+                    
+
 					</div>
 				</form>
 			</div>

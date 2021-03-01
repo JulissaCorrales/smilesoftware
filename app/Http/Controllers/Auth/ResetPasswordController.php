@@ -32,7 +32,7 @@ class ResetPasswordController extends Controller
 
     use ResetsPasswords;
 
-    protected $redirectTo='/home';
+    protected $redirectTo='/home/home';
 
 
     public function __construct( )

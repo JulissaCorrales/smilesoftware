@@ -93,13 +93,6 @@ body{
                 </a>
 
               
-
-                <a  class="navbar-brand" href="{{ url('/') }}" id="enlace3">Home</a>
-                <a  class="navbar-brand" href="{{ url('/login') }}" id="enlace4">Login</a>
-
-
-
-
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
