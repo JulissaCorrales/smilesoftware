@@ -73,6 +73,8 @@ class CitaPolicy
     {
         if($user->permisos->contains('slug', 'cita.individual')) {
             return true;
+        }elseif($user->permisos->contains('slug', 'ver.citaIndividual')) {
+            return true;
         }
         return false;
     }
@@ -97,9 +99,12 @@ class CitaPolicy
      * @param  \App\Cita  $cita
      * @return mixed
      */
-    public function update(User $user, Cita $cita)
+    public function updateCitaIndividual(User $user, Cita $cita)
     {
-        //
+        if($user->permisos->contains('slug', 'editar.citaIndividual')) {
+            return true;
+        }
+        return false;
     }
 
     /**

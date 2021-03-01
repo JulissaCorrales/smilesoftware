@@ -118,7 +118,10 @@ Route::prefix('pantallainicio/calendario')->group( function(){
             Route::get('{id}/nuevoarchivo','ArchivoController@nuevo')-> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
             Route::post('{id}/nuevoarchivo','ArchivoController@guardar')-> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
              //ruta de cita individual
-             Route::get('{id}/citaindividual','CitaController@verCitaIndividual')->where('id','[0-9]+')->name('citaIndividual')->middleware('role:admin,odontologo');
+             Route::get('{id}/citaindividual','CitaController@verCitaIndividual')->where('id','[0-9]+')->name('citaIndividual')->middleware('role:admin,odontologo,secretaria');
+             /* Editar cita individual */
+              Route::get('{id}/editarcitaindividual/{citaid}','CitaController@editarCitaIndividual') ->name('citaindividual.editar') -> where('id' ,'[0-9]+')->middleware('role:admin,secretaria,odontologo');
+              Route::put('{id}/editarcitaindividual/{citaid}','CitaController@updatecitaindividual') ->name('citaindividual.update') -> where('id' ,'[0-9]+')->middleware('role:admin,secretaria,odontologo');
              //ruta de borrar cita individual
            // Route::delete('{id}/borrar','CitaController@destroyCita') ->name('cita.borrar')->where('id','[0-9]+');
              //ruta para crear comentarios

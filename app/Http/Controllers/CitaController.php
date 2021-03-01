@@ -138,6 +138,39 @@ class CitaController extends Controller
        
 
     }
+    /* Edicion de cita individual */
+    public function editarCitaIndividual($id,$citaid){
+        $pacientes = Paciente::findOrFail($id);
+        $citas=Cita::FindOrFail($citaid);
+        $this->authorize('updateCitaIndividual', $citas);//si tiene el permiso de editar:
+        return view('editarcitaindividual',compact('pacientes','citas'));
+    }
+    public function updatecitaindividual(Request $request,$id){
+        $request->validate([
+            'odontologo_id'=>'required',
+            'duracionCita'=>'required',
+            'comentarios'=>'required',
+            'stard' =>'required|date']);
+
+        $citas=Cita::findOrFail($id);
+        $this->authorize('updateCitaIndividual', $citas);//si tiene el permiso de editar:
+        //formulario
+        $citas->odontologo_id=    $request->input('odontologo_id');
+        $citas->duracionCita=$request->input('duracionCita');
+        $citas->paciente_id=$id;
+        $citas->stard=$request->input('stard');
+        $citas->comentarios=$request->input('comentarios');  
+
+        $actualizado = $citas->save();
+        //Asegurarse que fue creado
+        if ($actualizado){
+            return redirect()->back()->with('mensaje','¡¡La cita Fué Modificado Exitosamente!!');
+        }else{ 
+        }
+    
+
+    }
+    
 
 
 }

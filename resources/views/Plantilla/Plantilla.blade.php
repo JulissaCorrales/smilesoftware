@@ -190,7 +190,7 @@
     <h1 id="uno" >Smile </h1><br><h1 id="tres">Software</h1>
   <div class="media" >
     @forelse($logotipos  as $tag)
-    <img style="margin-left:210px; " class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="80px" high="100px" id="dos">
+    <img style="margin-left:210px; border-radius: 70%; " class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="80px" high="100px" id="dos">
     @empty
     <h1 id="uno" >Smile </h1><br>
       <h1 id="tres">Software</h1>

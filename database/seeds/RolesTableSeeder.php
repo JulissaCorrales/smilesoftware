@@ -116,6 +116,24 @@ class RolesTableSeeder extends Seeder
         $permisos_secretaria[]= $permiso->id;
         $rolesecretaria->permisos()->sync($permisos_secretaria);
 
+        $permiso= Permiso::create([
+            'Permiso'=> 'ver cita Individual',
+            'Slug'=> 'ver.citaIndividual',
+
+        ]);
+
+        $permisos_secretaria[]= $permiso->id;
+        $rolesecretaria->permisos()->sync($permisos_secretaria);
+
+        $permiso= Permiso::create([
+            'Permiso'=> 'Editar cita Individual',
+            'Slug'=> 'editar.citaIndividual',
+
+        ]);
+
+        $permisos_secretaria[]= $permiso->id;
+        $rolesecretaria->permisos()->sync($permisos_secretaria);
+
 
 
         $permiso= Permiso::create([
@@ -435,8 +453,17 @@ class RolesTableSeeder extends Seeder
     $roleodontologo->permisos()->sync($permisos_odontologo);
 
     $permiso= Permiso::create([
-        'Permiso'=> 'Cita Individual ',
+        'Permiso'=> 'ver Cita Individual ',
         'Slug'=> 'cita.individual',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Editar Cita Individual ',
+        'Slug'=> 'editar.citaIndividual',
 
     ]);
 
