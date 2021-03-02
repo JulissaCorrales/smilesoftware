@@ -349,6 +349,11 @@ Route::post('passwords/email', 'Auth\ForgotPasswordController@sendResetLinkEmail
 Route::get('passwords/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('passwords.reset');
 Route::post('passwords/reset', 'Auth\ResetPasswordController@reset')->name('passwords.sed');  */
 
+/*************************rutas de laboratorio*************************************/
+
 Route::get('/pantallainicio/laboratorios','LaboratorioController@VistaLaboratorio');
 Route::get('/laboratorioNuevo','LaboratorioController@nuevo');
 Route::post('laboratorioNuevo','LaboratorioController@guardar');
+Route::get('laboratorioEditar/{id}/editar','LaboratorioController@editar')-> where('id' ,'[0-9]+')->name('laboratorio.editar');
+Route::put('laboratorioEditar/{id}/editar','LaboratorioController@actualizar') -> where('id' ,'[0-9]+')->name('laboratorio.actualizar');
+Route::delete('/laboratorio/{id}/borrar','LaboratorioController@destroy') ->name('laboratorio.borrar')->where('id','[0-9]+');

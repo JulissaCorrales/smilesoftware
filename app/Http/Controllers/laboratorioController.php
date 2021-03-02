@@ -37,4 +37,45 @@ class laboratorioController extends Controller
     }
     
     }
+
+    public function editar($id){  
+   
+        $labs=Laboratorio::findOrFail($id);
+        return view('EditarLaboratorio')->with('labs',$labs);
+    
+    }
+
+
+    public function actualizar(Request $request,$id){
+ 
+
+        $request->validate([
+            'nombreLaboratorio'        =>'required',
+            'detalle'        =>'required',
+            'porPagar'        =>'required',
+           
+        ]);
+    
+        $labs=Laboratorio::findOrFail($id);
+        $labs->nombreLaboratorio = $request->input('nombreLaboratorio');
+        $labs->detalle = $request->input('detalle');
+        $labs->porPagar = $request->input('porPagar');
+       
+    
+        $actualizado = $labs->save();
+        //Asegurarse que fue creado
+        if ($actualizado){
+            return redirect()->back()->with('mensaje','¡¡los datos del laboratorio se modificaron Exitosamente!!');
+        }else{ 
+        }
+    
+    
+    }
+
+    public function destroy($id){
+        Laboratorio::destroy($id);
+        return redirect()->back()->with('mensaje','laboratorio borrado satisfactoriamente');
+    
+    }
+    
 }
