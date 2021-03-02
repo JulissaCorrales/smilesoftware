@@ -93,6 +93,76 @@ text-align: center;
         position: relative;
     } 
 
+    * {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn:hover {
+  text-decoration: none;
+}
+
+/*btn_background*/
+.effect04 {
+  --uismLinkDisplay: var(--smLinkDisplay, inline-flex);
+  display: var(--uismLinkDisplay);
+  color: #000;
+  outline: solid 2px #000;
+  position: relative;
+  transition-duration: 0.4s;
+  overflow: hidden;
+}
+
+.effect04::before,
+.effect04 span {
+  margin: 0 auto;
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  transition-duration: 0.4s;
+}
+
+/* 文字1を上に */
+.effect04:hover {
+  background-color: #000;
+}
+
+/* HOVERしたら文字1を上に */
+.effect04:hover span {
+  -webkit-transform: translateY(-400%) scale(-0.1, 20);
+  transform: translateY(-400%) scale(-0.1, 20);
+}
+
+/*文字2*/
+.effect04::before {
+  content: attr(data-sm-link-text);
+  color: #fff;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  -webkit-transform: translateY(500%) scale(-0.1, 20);
+  transform: translateY(500%) scale(-0.1, 20);
+}
+
+/* HOVERしたら文字2を上に */
+.effect04:hover::before {
+  letter-spacing: 0.05em;
+  -webkit-transform: translateY(0) scale(1, 1);
+  transform: translateY(0) scale(1, 1);
+}
+
 
 
 
@@ -112,9 +182,12 @@ text-align: center;
  <div class="list-group">
  
 
-<button type="button" class="btn btn-success" onclick="">
-  Ingresar Laboratorio
-</button>
+    <div class="buttons">
+        <div class="container">
+            <a href="/laboratorioNuevo" class="btn effect04" data-sm-link-text="Agregar" target="_blank"><span>Nuevo Laboratorio</span></a>
+        </div>
+      </div>
+      
 
 
 
@@ -128,17 +201,17 @@ text-align: center;
   </tr>
   </thead>
   <tbody> 
+    @forelse ($laboratorios as $lab)
        <tr>
-       
-           <td></td>
+        
+      <td>{{$lab->nombreLaboratorio}}</td>
            
-           <td>
-           
-            
-            </td>
+      <td>{{$lab->detalle}}</td>
 
-             <td>
-           </td>
+      <td>{{$lab->porPagar}}</td>
+      
+           
+
            <td>
             
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -176,8 +249,11 @@ text-align: center;
           </div>
       </div>
            </td>
+           
 </tr>
-
+@empty
+          No hay laboratorios disponibles!
+      @endforelse 
  <tbody>
   </table>
 

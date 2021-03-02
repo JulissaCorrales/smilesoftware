@@ -350,3 +350,5 @@ Route::get('passwords/reset/{token}', 'Auth\ResetPasswordController@showResetFor
 Route::post('passwords/reset', 'Auth\ResetPasswordController@reset')->name('passwords.sed');  */
 
 Route::get('/pantallainicio/laboratorios','LaboratorioController@VistaLaboratorio');
+Route::get('/laboratorioNuevo','LaboratorioController@nuevo');
+Route::post('laboratorioNuevo','LaboratorioController@guardar');
