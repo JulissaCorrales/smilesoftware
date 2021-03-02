@@ -348,3 +348,5 @@ Route::post('passwords/email', 'Auth\ForgotPasswordController@sendResetLinkEmail
 
 Route::get('passwords/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('passwords.reset');
 Route::post('passwords/reset', 'Auth\ResetPasswordController@reset')->name('passwords.sed');  */
+
+Route::get('/pantallainicio/laboratorios','LaboratorioController@VistaLaboratorio');
