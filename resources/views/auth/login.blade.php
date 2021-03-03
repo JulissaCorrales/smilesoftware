@@ -237,7 +237,7 @@ margin-left: 4px;
 						
               <div class="form-group">
 			  <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <input  type="checkbox" name="remember" class="form-check-input ios-switch-control-input" value="1" id="remember">
 
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
