@@ -357,3 +357,30 @@ Route::post('laboratorioNuevo','LaboratorioController@guardar');
 Route::get('laboratorioEditar/{id}/editar','LaboratorioController@editar')-> where('id' ,'[0-9]+')->name('laboratorio.editar');
 Route::put('laboratorioEditar/{id}/editar','LaboratorioController@actualizar') -> where('id' ,'[0-9]+')->name('laboratorio.actualizar');
 Route::delete('/laboratorio/{id}/borrar','LaboratorioController@destroy') ->name('laboratorio.borrar')->where('id','[0-9]+');
+
+/*************************rutas de alertas del paciente*************************** */ 
+Route::prefix('pantallainicio/{id}')->group( function(){
+  Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+  Route::get('veralertas','AlertaController@ver')->name('alertas.ver')->where('id','[0-9]+');
+  //ruta para crear alertas
+  Route::get('alertas','AlertaController@crear') ->name('alertas.crear')->where('id','[0-9]+');
+  //ruta pra guardar alertas
+  Route::post('alertas','AlertaController@Guardar')->name('alertas.guardar')->where('id','[0-9]+');
+  /* ruta de borrar alertas */
+  Route::delete('/alertas/{id2}/borrar','AlertaController@destroy') ->name('alertas.borrar')->where('id','[0-9]+');
+  /* Ruta para editar alertas */
+  Route::get('{id2}/editar','AlertaController@editar') ->name('alertas.editar') -> where('id' ,'[0-9]+')->middleware('role:admin');
+  /* Ruta para guardar la edicion de alertas */
+  Route::put('{id2}/editar','AlertaController@update')->name('alertas.update') -> where('id' ,'[0-9]+')->middleware('role:admin');
+});
+
+/*************************rutas de alertas predeterminadas*************************** */ 
+Route::prefix('pantallainicio')->group( function(){
+  Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
+    //ruta para crear alertas predeterminadas
+    Route::get('alertaspredeterminadas','AlertaController@crearalertapredeterminada') ->name('alertaspredeterminada.crear')->where('id','[0-9]+');
+    //ruta pra guardar alertas predeterminadas
+    Route::post('alertaspredeterminadas','AlertaController@Guardaralertapredeterminada')->name('alertaspredeterminada.guardar')->where('id','[0-9]+');
+    Route::delete('/alertaspredeterminadas/{id}/borrar','AlertaController@destroypredeterminada') ->name('alertaspredeterminadas.borrar')->where('id','[0-9]+');
+ 
+});

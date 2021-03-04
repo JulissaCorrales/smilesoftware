@@ -363,7 +363,7 @@
             </a>
           </div>
         <!-- Foto de perfil del usuario -->
-        <a  href="{{route('usuario.actualizar',Auth::user()->id)}}"><img class="logo" style="border-radius: 70%;margin-left:5em;bottom:0.3em;  position: absolute;" src='/Imagenes/{{Auth::user()->imagen}}'   width=" 70px" height="70px"></a>
+       @can('isAdmin') <a  href="{{route('usuario.actualizar',Auth::user()->id)}}">@endcan<img class="logo" style="border-radius: 70%;margin-left:5em;bottom:0.3em;  position: absolute;" src='/Imagenes/{{Auth::user()->imagen}}'   width=" 70px" height="70px"></a>
         </nav>
       </div>
   </div>

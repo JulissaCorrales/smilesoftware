@@ -60,4 +60,9 @@ public function recaudaciones()
    return $this->hasMany(Recaudacion::class,'paciente_id','id');/*un paciente tiene muchos recaudaciones */
 }
 
+
+public function alertas()
+{
+   return $this->hasMany(Alerta::class,'paciente_id','id');/*un paciente tiene muchas alertas */
+}
 }
