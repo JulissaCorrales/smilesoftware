@@ -289,7 +289,7 @@ Route::get('evolucion/nueva/{id}','EvolucionesController@nuevaevolucion')->name(
 
 
 //Rutas para el login(Autenticación)
-Auth::routes();
+Auth::routes(["register"=>false]);
 
 
 
