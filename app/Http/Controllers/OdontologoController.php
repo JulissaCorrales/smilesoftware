@@ -77,7 +77,11 @@ class OdontologoController extends Controller
         ]);
        $creado = $nuevo->save();
 
-         if ($creado){
+
+
+
+
+       if ($creado){
             return redirect('/pantallainicio/odontologo')->with('mensaje', 'El Odontologo fué creado exitosamente!');
         }else{
             //retornar con un msj de error

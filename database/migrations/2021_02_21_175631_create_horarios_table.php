@@ -23,6 +23,7 @@ class CreateHorariosTable extends Migration
             $table->string('DescansoFinal')->nullable();
            
             $table->foreign('odontologo_id')->references('id')->on('odontologos')->onDelete('cascade');
+          
             $table->timestamps();
         });
     }

@@ -58,7 +58,22 @@ class HorarioController extends Controller
         $horario->DescansoFinal= $request->input('horadescansofin');
 
         $create = $horario->save();
-       
+
+        $lista = explode(',',  $request->dias_horarios); //crear matriz a partir de permisos separados/coma
+        
+         
+        foreach ($lista as  $dias) {
+            $dias= new Dias();
+            $dias->dias=$request->input('dias');
+            $dias->save();
+
+             $horario->dias()->attach($dias->id);
+             $horario->save();
+        }    
+
+
+    
+    
 
          if ($create){
             return redirect('/pantallainicio/odontologo')->with('mensaje', 'El Odontologo fue creado exitosamente!');

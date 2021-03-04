@@ -456,7 +456,8 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
      <td id="td1"><img src='/Imagenes/{{$odontologo->imagen}}' width="70px" height="70px"id="datos"></td>
      <td id="td2">Nombre: {{ $odontologo->nombres }}  {{$odontologo->apellidos}} <br>Telefono Celular:  {{$odontologo->telefonoCelular}} 
      <br>Correo Electronico: {{$odontologo->email}} 
-     <br>Especialidad:  {{$odontologo->especialidad->Especialidad}}</td>
+     <br>Especialidad:  {{$odontologo->especialidad->Especialidad}}
+     <br>Hora de Atencion:{{$odontologo->especialidad->Especialidad}}</td>
   
    <td id="td3">
    @can('crearHorario',App\Odontologo::class)

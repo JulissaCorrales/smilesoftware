@@ -31,8 +31,8 @@ position: absolute;
 
 #table1{
     position: absolute;
-            left: 150px;
-            top: 250px;
+            left: 300px;
+            top: 260px;
             font-size:15px;
             width:900px;
             
@@ -41,7 +41,7 @@ position: absolute;
 
 #table2{
     position: absolute;
-            left: 150px;
+            left: 300px;
             top: 300px;
             font-size:15px;
             width:900px;
@@ -50,17 +50,16 @@ position: absolute;
 
 #table3{
     position: absolute;
-            left: 350px;
+            left: 450px;
             top: 230px;
             font-size:15px;
-            width:900px;
             
 }
 
 
 #table4{
     position: absolute;
-            left: 350px;
+            left: 500px;
             top: 350px;
             font-size:15px;
             width:800px;
@@ -71,7 +70,7 @@ position: absolute;
 
 #table5{
     position: absolute;
-            left: 150px;
+            left: 300px;
             top: 400px;
             font-size:15px;
             width:900px;
@@ -81,7 +80,7 @@ position: absolute;
 
 #table6{
     position: absolute;
-            left: 150px;
+            left: 300px;
             top: 450px;
             font-size:15px;
             width:900px;
@@ -90,7 +89,7 @@ position: absolute;
 #lunes{
 
 position: absolute;
-    left: 10px;
+    left: 50px;
     top:-5px;
     font-size:15px;
 
@@ -99,7 +98,7 @@ position: absolute;
 
 #martes{
 position: absolute;
-left: 100px;
+left: 150px;
     top:-5px;
     font-size:15px;
     width:105px; 
@@ -107,7 +106,7 @@ left: 100px;
 
 #miercoles{
 position: absolute;
-left: 210px;
+left: 250px;
     top:-5px;
     font-size:15px;
     width:105px; 
@@ -117,7 +116,7 @@ left: 210px;
 
 #jueves{
 position: absolute;
-left: 330px;
+left: 370px;
     top:-5px;
     font-size:15px;
     width:105px; 
@@ -126,7 +125,7 @@ left: 330px;
 
 #viernes{
     position: absolute;
-    left: 430px;
+    left: 480px;
     top:-5px;
     font-size:15px;
   
@@ -135,7 +134,7 @@ left: 330px;
 
 #sabado{
 position: absolute;
-left: 550px;
+left: 590px;
     top:-5px;
    
     font-size:15px;
@@ -146,8 +145,8 @@ left: 550px;
 #domingo{
 
 position: absolute;
-    left: 650px;
-   
+    left: 690px;
+    top:-5px;
     font-size:15px;
     width:105px; 
 } 
@@ -473,7 +472,7 @@ position: absolute;
 
 </style>
 
-<div  class="container"id="h">
+<div  class="container">
 <nav class="navbar navbar-light bg-light" id="na">
   <div class="container">
    <h4 id="texto4">Horarios Odontologo</h4>
@@ -484,104 +483,41 @@ position: absolute;
 <form method="post" action="\create\{{$odontologos->id}}\nuevo " file="true" enctype="multipart/form-data">
 @csrf
 
-            <table class="container" id="table3">
-
-            <?php 
-
-try
-{
-  $mbd = new PDO('mysql:host=127.0.0.1;dbname=smilesoftware', "root", "");
-  $sth= $mbd->query('select dias from dias where id= 1');
-
-  $sth1= $mbd->query('select dias from dias where id= 2');
-  $sth2= $mbd->query('select dias from dias where id= 3');
-
-  $sth3= $mbd->query('select dias from dias where id= 4');
-  $sth4= $mbd->query('select dias from dias where id= 5');
-  $sth5= $mbd->query('select dias from dias where id= 6');
-  $sth6= $mbd->query('select dias from dias where id= 7');
-  
-}
-catch(Exception $e)
-{
-        echo "no conectado";
-}
-
- ?>              
-<th scope="col" name="miercoles"></th>         
 <?php 
-      
-      foreach($sth as $fila){
+for($i=1; $i <= 1; $i++) {?>
 
+<table class="container" id="table3">
+
+<tbody>
+
+<tr>
+<td id="lunes">Lunes<input type="radio" name="dias" value="Lunes" >
+</td>
+
+<td id="martes">Martes<input type="radio" name="dias" value="Martes">
+</td>
+
+<td id="miercoles">Miercoles<input type="radio" name="dias" value="Miercoles">
+</td>
+
+<td id="jueves">Jueves<input type="radio" name="dias" value="Jueves">
+</td>
+
+<td id="viernes">Viernes<input type="radio" name="dias" value="Viernes">
+</td>
+<td id="sabado">Sabado<input type="radio" name="dias" value="Sabado">
+</td>
+<td id="domingo">Domingo<input type="radio" name="dias" value="Domingo">
+</td>
+
+<?php
+}
 ?>
-    <th scope="col"><h6 id="lunes"><?php  echo  $fila["dias"];  ?></h6></th>
-    <?php
-      }
-      ?>
-
-     <?php 
-      
     
-      foreach($sth1 as $fila){
-
-?>
-    <th scope="col"><h6 id="martes"><?php  echo  $fila["dias"];  ?></h6></th>
-    <?php
-      }
-      ?>
-      <?php 
+      </tr>
       
-    
-      foreach($sth2 as $fila){
-
-?>
-    <th scope="col" ><h6 id="miercoles" ><?php  echo  $fila["dias"];  ?></h6></th>
-    <?php
-      }
-      ?>
-     <?php 
-      
-    
-      foreach($sth3 as $fila){
-
-?>
-    <th scope="col"><h6 id="jueves"><?php  echo  $fila["dias"];  ?></h6></th>
-    <?php
-      }
-      ?>
-     <?php 
-      
-    
-      foreach($sth4 as $fila){
-
-?>
-    <th scope="col"><h6 id="viernes"><?php  echo  $fila["dias"];  ?></h6></th>
-    <?php
-      }
-      ?>
-     <?php 
-      
-    
-      foreach($sth5 as $fila){
-
-?>
-    <th scope="col"><h6 id="sabado"><?php  echo  $fila["dias"];  ?></h6></th>
-    <?php
-      }
-      ?>
-      <?php 
-      
-    
-      foreach($sth6 as $fila){
-
-?>
-    <th scope="col" ><h6 id="domingo"><?php  echo  $fila["dias"];  ?></h6></th>
-    <?php
-      }
-      ?>
-     </tr>
-      </thead>
-  </table>
+      </tbody>
+      </table>
   
                     
 
@@ -597,7 +533,7 @@ catch(Exception $e)
   <tr id="tr1">
   <th id="horaini">Hora Inicio</th>
 
- <td><select name="horainicio" class="form-control" value="1" id="selecinicio">
+ <td><select name="horainicio" class="form-control" value="Lunes" id="selecinicio">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -613,7 +549,7 @@ catch(Exception $e)
                     </select> </td>
 
 
-                  <td>  <select name="horainicio" class="form-control" value="1" id="selecinicio1">
+                  <td>  <select name="horainicio" class="form-control" value="Martes" id="selecinicio1">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -629,7 +565,7 @@ catch(Exception $e)
                     </select> </td>
 
 
-                 <td>   <select name="horainicio" class="form-control" value="1" id="selecinicio2">
+                 <td>   <select name="horainicio" class="form-control" value="Miercoles" id="selecinicio2">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -645,7 +581,7 @@ catch(Exception $e)
                     </select></td>
 
 
-                  <td>  <select name="horainicio" class="form-control" value="1" id="selecinicio3">
+                  <td>  <select name="horainicio" class="form-control" value="Jueves" id="selecinicio3">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -660,7 +596,7 @@ catch(Exception $e)
 
                     </select></td>
 
-                 <td>   <select name="horainicio" class="form-control" value="1" id="selecinicio4">
+                 <td>   <select name="horainicio" class="form-control" value="Viernes" id="selecinicio4">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -675,7 +611,7 @@ catch(Exception $e)
 
                     </select> </td>
 
-               <td>     <select name="horainicio" class="form-control" value="1" id="selecinicio5">
+               <td>     <select name="horainicio" class="form-control" value="Sabado" id="selecinicio5">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -691,7 +627,7 @@ catch(Exception $e)
                     </select> </td>
 
 
-                  <td>  <select name="horainicio" class="form-control" value="1" id="selecinicio6">
+                  <td>  <select name="horainicio" class="form-control" value="Domingo" id="selecinicio6">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -736,7 +672,7 @@ catch(Exception $e)
 
 <th id="hofin">Hora Final</th>
 
- <td><select name="horafin" class="form-control" value="1" id="selecinicio7">
+ <td><select name="horafin" class="form-control" value="Lunes" id="selecinicio7">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -751,7 +687,7 @@ catch(Exception $e)
 
                     </select></td>
 
-                <td>    <select name="horafin" class="form-control" value="1" id="selecinicio8">
+                <td>    <select name="horafin" class="form-control" value="Martes" id="selecinicio8">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -766,7 +702,7 @@ catch(Exception $e)
 
                     </select> </td>
 
-                 <td>   <select name="horafin" class="form-control" value="1" id="selecinicio9">
+                 <td>   <select name="horafin" class="form-control" value="Miercoles" id="selecinicio9">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -782,7 +718,7 @@ catch(Exception $e)
                     </select> </td>
 
 
-                 <td>   <select name="horafin" class="form-control" value="1" id="selecinicio10">
+                 <td>   <select name="horafin" class="form-control" value="Jueves" id="selecinicio10">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -798,7 +734,7 @@ catch(Exception $e)
                     </select></td>
 
 
-                   <td> <select name="horafin" class="form-control" value="1" id="selecinicio11" >
+                   <td> <select name="horafin" class="form-control" value="Viernes" id="selecinicio11" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -813,7 +749,7 @@ catch(Exception $e)
 
                     </select></td>
 
-                   <td> <select name="horafin" class="form-control" value="1" id="selecinicio12" >
+                   <td> <select name="horafin" class="form-control" value="Sabado" id="selecinicio12" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -828,7 +764,7 @@ catch(Exception $e)
 
                     </select></td>
 
-                  <td>  <select name="horafin" class="form-control" value="1" id="selecinicio13">
+                  <td>  <select name="horafin" class="form-control" value="Domingo" id="selecinicio13">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -903,7 +839,7 @@ for($i=1; $i <= 1; $i++) {?>
   <tr>
   <th id="hoinicio">Hora Inicio</th>
 
-<td> <select name="horadescansoini" class="form-control" value="1" id="selecinicio14">
+<td> <select name="horadescansoini" class="form-control" value="Lunes" id="selecinicio14">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -919,7 +855,7 @@ for($i=1; $i <= 1; $i++) {?>
                     </select>
 </td>
 
-              <td>      <select name="horadescansoini" class="form-control" value="1" id="selecinicio15">
+              <td>      <select name="horadescansoini" class="form-control" value="Martes" id="selecinicio15">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -935,7 +871,7 @@ for($i=1; $i <= 1; $i++) {?>
                     </select></td>
 
 
-                <td>    <select name="horadescansoini" class="form-control" value="1" id="selecinicio16">
+                <td>    <select name="horadescansoini" class="form-control" value="Miercoles" id="selecinicio16">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -950,7 +886,7 @@ for($i=1; $i <= 1; $i++) {?>
 
                     </select></td>
 
-                <td>    <select name="horadescansoini" class="form-control" value="1" id="selecinicio17">
+                <td>    <select name="horadescansoini" class="form-control" value="Jueves" id="selecinicio17">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -965,7 +901,7 @@ for($i=1; $i <= 1; $i++) {?>
 
                     </select></td>
 
-                  <td>  <select name="horadescansoini" class="form-control" value="1" id="selecinicio18">
+                  <td>  <select name="horadescansoini" class="form-control" value="Viernes" id="selecinicio18">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -980,7 +916,7 @@ for($i=1; $i <= 1; $i++) {?>
 
                     </select> </td>
 
-                  <td>  <select name="horadescansoini" class="form-control" value="1" id="selecinicio19">
+                  <td>  <select name="horadescansoini" class="form-control" value="Sabado" id="selecinicio19">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -995,7 +931,7 @@ for($i=1; $i <= 1; $i++) {?>
 
                     </select> </td>
 
-                 <td>   <select name="horadescansoini" class="form-control" value="1" id="selecinicio20">
+                 <td>   <select name="horadescansoini" class="form-control" value="Domingo" id="selecinicio20">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -1029,7 +965,7 @@ for($i=1; $i <= 1; $i++) {?>
   <tr>
   <th id="hoofinal">Hora Final</th>
 
- <td><select name="horadescansofin" class="form-control" value="1" id="selecinicio21">
+ <td><select name="horadescansofin" class="form-control" value="Lunes" id="selecinicio21">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -1045,7 +981,7 @@ for($i=1; $i <= 1; $i++) {?>
                     </select></td>
 
 
-                 <td>   <select name="horadescansofin" class="form-control" value="1" id="selecinicio22">
+                 <td>   <select name="horadescansofin" class="form-control" value="Martes" id="selecinicio22">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -1061,7 +997,7 @@ for($i=1; $i <= 1; $i++) {?>
                     </select></td>
 
 
-                   <td> <select name="horadescansofin" class="form-control" value="1" id="selecinicio23">
+                   <td> <select name="horadescansofin" class="form-control" value="Miercoles" id="selecinicio23">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -1076,7 +1012,7 @@ for($i=1; $i <= 1; $i++) {?>
 
                     </select></td>
 
-                   <td> <select name="horadescansofin" class="form-control" value="1" id="selecinicio24">
+                   <td> <select name="horadescansofin" class="form-control" value="Jueves" id="selecinicio24">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -1092,7 +1028,7 @@ for($i=1; $i <= 1; $i++) {?>
                     </select> </td>
 
 
-                   <td> <select name="horadescansofin" class="form-control" value="1" id="selecinicio25">
+                   <td> <select name="horadescansofin" class="form-control" value="Viernes" id="selecinicio25">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -1108,7 +1044,7 @@ for($i=1; $i <= 1; $i++) {?>
                     </select></td>
 
 
-                  <td>  <select name="horadescansofin" class="form-control" value="1" id="selecinicio26">
+                  <td>  <select name="horadescansofin" class="form-control" value="Sabado" id="selecinicio26">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -1123,7 +1059,7 @@ for($i=1; $i <= 1; $i++) {?>
 
                     </select> </td>
 
-                  <td>  <select name="horadescansofin" class="form-control" value="1" id="selecinicio27">
+                  <td>  <select name="horadescansofin" class="form-control" value="Domingo" id="selecinicio27">
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>

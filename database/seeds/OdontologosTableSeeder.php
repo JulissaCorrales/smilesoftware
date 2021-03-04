@@ -30,52 +30,14 @@ class OdontologosTableSeeder extends Seeder
 
 
         //seeder para los dias de Semana
-        $dias = new Dias();
-        $dias->dias="lunes";
-          
-        $dias->save();
-
-
-        $dias = new Dias();
-        $dias->dias="Martes";
-          
-        $dias->save();
-
-        $dias = new Dias();
-        $dias->dias="Miercoles";
-          
-        $dias->save();
-
-
-        $dias = new Dias();
-        $dias->dias="Jueves";
-          
-        $dias->save();
-
-
-        $dias = new Dias();
-        $dias->dias="Viernes";
-          
-        $dias->save();
-
-
-        $dias = new Dias();
-        $dias->dias="Sabado";
-          
-        $dias->save();
-
-        $dias = new Dias();
-        $dias->dias="Domingo";
-          
-        $dias->save();
         
-
         /*
         $odontologo=new Odontologo;
         $odontologo->nombres="Juan Jose";
         $odontologo->apellidos="Perez Pereira";
         $odontologo->identidad="0703-1998-15123";
         $odontologo->telefonoCelular="95652356";
+        
         $odontologo->telefonoFijo="2763-8826";
         $odontologo->email="juanperez@gmail.com";
         $odontologo->departamento="El paraiso";
