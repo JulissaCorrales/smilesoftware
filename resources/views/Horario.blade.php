@@ -4,9 +4,12 @@
 <style>
 #ho2{
   position: absolute;
-            left: 150px;
+            left: 750px;
             top: 500px;
             font-size:20px;
+            width:500px;
+
+            background-color: #00cccc;
 }
 
 #texto4{
@@ -50,10 +53,10 @@ position: absolute;
 
 #table3{
     position: absolute;
-            left: 450px;
+            left:450px;
             top: 230px;
             font-size:15px;
-            
+            width:900px;
 }
 
 
@@ -451,10 +454,54 @@ position: absolute;
 
 #butongua{
     position: absolute;
-            left: 100px;
+            left: 350px;
 }
 
 
+
+
+
+
+#datos{
+position: absolute;
+    left: 50px;
+   top: 270px;
+    font-size:15px;
+   
+    background-color: #00cccc;
+} 
+
+
+#image{
+    margin-left: auto;
+  margin-right: auto;
+
+  border-radius: 70%;
+  position: relative;
+  top: 5px;
+  left:-5px;
+  border: 4px solid  #00ccff;
+
+  width: 100px;
+
+}
+
+
+
+#dat2{
+position: relative;
+  top: -70px;
+  left:20px;
+  width: 250px;
+}
+
+
+#dat3{
+position: relative;
+  top: -30px;
+  left:20px;
+  width: 250px;
+}
 
 
 
@@ -472,6 +519,9 @@ position: absolute;
 
 </style>
 
+
+
+
 <div  class="container">
 <nav class="navbar navbar-light bg-light" id="na">
   <div class="container">
@@ -479,6 +529,35 @@ position: absolute;
   </div>
 </nav>
 </div>
+
+<div class="card"  id="datos">
+  <img src='/Imagenes/{{$odontologos->imagen}}' class="card-img-top" id="image" >
+  <div class="card-body">
+    <h5 class="card-title">{{$odontologos->nombres}} {{$odontologos->apellidos}}</h5>
+
+    
+    Hora de Atencion
+    <p class="card-text"><br>
+    @forelse ($horario as $tag) 
+    
+    <h6 id="dat3">{{$tag->HoraInicio}}-{{$tag->HoraFinal}}</h6>
+
+    
+    @if($tag->dias !=null)
+                                @foreach ($tag->dias as $permission )
+                                <h6  id="dat2" >
+                                        {{ $permission->dias }} </h2>
+                                @endforeach
+                            @endif
+                            @endforeach
+
+
+
+  </p>
+   
+  </div>
+</div>
+
 
 <form method="post" action="\create\{{$odontologos->id}}\nuevo " file="true" enctype="multipart/form-data">
 @csrf
@@ -1087,8 +1166,7 @@ for($i=1; $i <= 1; $i++) {?>
 <div  class="container" id="ho2">
 <nav class="navbar navbar-light bg-light">
   <div class="container">
-  <a type="button" class="btn btn-info" href="{{route('odontologo.vista')}}">Atras</a>
-
+  <a type="button" class="btn btn-info" href="{{route('odontologo.vista')}}" id="buton2">Atras</a>
   <button type="submit" class="btn btn-primary" id="butongua" >Guardar</button>
   </form>
   </div>

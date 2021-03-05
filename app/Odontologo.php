@@ -26,6 +26,11 @@ class Odontologo extends Model
     }
 
 
+    public function horarios(){
+        return $this->belongsToMany(horarios::class,'odontologo_id','id');
+    }
+
+
     
 
     
