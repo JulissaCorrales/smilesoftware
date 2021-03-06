@@ -63,7 +63,7 @@ class AlertaController extends Controller
     }
     public function update(Request $request,$id,$id2){
         $request->validate([
-            'alerta'=>'required|unique:App\Models\Alerta,alertas',
+            'alerta'=>'required|unique:alertas,alertas',
         ]);
 
         $alerta=Alerta::findOrFail($id2);
