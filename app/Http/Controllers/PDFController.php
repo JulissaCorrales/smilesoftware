@@ -25,7 +25,7 @@ public function PDFPacientes(){
 public function PDFInventarios(){
     //$this->authorize('descargarPacientes', Paciente::class);
     $inventarios = Inventario::all();
-    $pdf = PDF::loadView('inventarios_pdf',compact('inventarios_pdf'));
+    $pdf = PDF::loadView('inventarios_pdf',compact('inventarios'));
     return $pdf->download('inventarios_pdf.pdf');
 }
 
