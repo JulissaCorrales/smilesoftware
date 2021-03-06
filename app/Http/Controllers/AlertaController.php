@@ -6,16 +6,18 @@ use Illuminate\Http\Request;
 use App\Alerta;
 use App\Alertapredeterminada;
 use App\Paciente;
+use Illuminate\Support\Facades\Gate;
 
 class AlertaController extends Controller
 {
     public function ver($id){
+        $this->authorize('create', Alerta::class);
         $pacientes = Paciente::findOrFail($id);
         return view('vistaalertas',compact('pacientes'));
     }
     /* Crear alerta */
     public function crear($id){
-      
+        $this->authorize('create', Alerta::class);
         //return "texto de contacto desde el controlador ";
         $pacientes = Paciente::findOrFail($id);
         return view('vistaalertas',compact('pacientes'));
@@ -23,8 +25,9 @@ class AlertaController extends Controller
 
      //Guardar Alerta 
      public function Guardar(Request $request,$id){
+        $this->authorize('create', Alerta::class);
         $request->validate([
-            'alerta'=>'required',
+            'alerta'=>'required|unique:alertas,alertas',
         
         ]);
         $paciente=Paciente::findOrFail($id);
@@ -41,6 +44,9 @@ class AlertaController extends Controller
     }
     /* elimiar alerta del paciente */
     public function destroy($id,$id2){
+        $alertas = Alerta::findOrFail($id2);
+        $this->authorize('delete',$alertas);
+
         Alerta::destroy($id2);
         return redirect()->back()->with('mensaje','¡¡Alerta borrada satisfactoriamente!!');
 
@@ -50,15 +56,19 @@ class AlertaController extends Controller
      /* funcion para poder editar un gasto */
      public function editar($id,$id2){
         $alertas=Alerta::findOrFail($id2);
+        $this->authorize('update',$alertas);
+
         $pacientes=Paciente::findOrFail($id);
         return view('editaralerta')->with('alertas',$alertas)->with('pacientes',$pacientes);
     }
     public function update(Request $request,$id,$id2){
         $request->validate([
-            'alerta'=>'required',
+            'alerta'=>'required|unique:App\Models\Alerta,alertas',
         ]);
 
         $alerta=Alerta::findOrFail($id2);
+        $this->authorize('update',$alerta);
+
         $alerta->paciente_id= $id;
         $alerta->alertas= $request->input('alerta');
 
@@ -78,13 +88,18 @@ class AlertaController extends Controller
 
      /* Crear alerta predeterminada */
      public function crearalertapredeterminada($id){
-        //return "texto de contacto desde el controlador ";
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
         $pacientes = Paciente::findOrFail($id);
         return view('vistaalertas',compact('pacientes'));
     }  
 
      //Guardar Alerta predeterminada
      public function Guardaralertapredeterminada(Request $request){
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
         $request->validate([
             'alertapredeterminada'=>'required',
         
@@ -100,6 +115,9 @@ class AlertaController extends Controller
         } 
     }
     public function destroypredeterminada($id){
+        if(Gate::denies('isAdmin')){
+            abort(403);
+         }
         Alertapredeterminada::destroy($id);
         return redirect()->back()->with('mensaje','¡¡Alerta predeterminada borrada satisfactoriamente!!');
 

@@ -363,26 +363,26 @@ Route::delete('/laboratorio/{id}/borrar','LaboratorioController@destroy') ->name
 /*************************rutas de alertas del paciente*************************** */ 
 Route::prefix('pantallainicio/{id}')->group( function(){
   Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
-  Route::get('veralertas','AlertaController@ver')->name('alertas.ver')->where('id','[0-9]+');
+  Route::get('veralertas','AlertaController@ver')->name('alertas.ver')->where('id','[0-9]+')->middleware('role:admin,odontologo,secretaria');
   //ruta para crear alertas
-  Route::get('alertas','AlertaController@crear') ->name('alertas.crear')->where('id','[0-9]+');
+  Route::get('alertas','AlertaController@crear') ->name('alertas.crear')->where('id','[0-9]+')->middleware('role:admin,odontologo,secretaria');
   //ruta pra guardar alertas
-  Route::post('alertas','AlertaController@Guardar')->name('alertas.guardar')->where('id','[0-9]+');
+  Route::post('alertas','AlertaController@Guardar')->name('alertas.guardar')->where('id','[0-9]+')->middleware('role:admin,odontologo,secretaria');
   /* ruta de borrar alertas */
-  Route::delete('/alertas/{id2}/borrar','AlertaController@destroy') ->name('alertas.borrar')->where('id','[0-9]+');
+  Route::delete('/alertas/{id2}/borrar','AlertaController@destroy') ->name('alertas.borrar')->where('id','[0-9]+')->middleware('role:admin,odontologo,secretaria');
   /* Ruta para editar alertas */
-  Route::get('{id2}/editar','AlertaController@editar') ->name('alertas.editar') -> where('id' ,'[0-9]+')->middleware('role:admin');
+  Route::get('{id2}/editar','AlertaController@editar') ->name('alertas.editar') -> where('id' ,'[0-9]+')->middleware('role:admin,odontologo,secretaria');
   /* Ruta para guardar la edicion de alertas */
-  Route::put('{id2}/editar','AlertaController@update')->name('alertas.update') -> where('id' ,'[0-9]+')->middleware('role:admin');
+  Route::put('{id2}/editar','AlertaController@update')->name('alertas.update') -> where('id' ,'[0-9]+')->middleware('role:admin,odontologo,secretaria');
 });
 
 /*************************rutas de alertas predeterminadas*************************** */ 
 Route::prefix('pantallainicio')->group( function(){
   Route::get('buscar','PacienteController@index')->name ('paciente.buscar');
     //ruta para crear alertas predeterminadas
-    Route::get('alertaspredeterminadas','AlertaController@crearalertapredeterminada') ->name('alertaspredeterminada.crear')->where('id','[0-9]+');
+    Route::get('alertaspredeterminadas','AlertaController@crearalertapredeterminada') ->name('alertaspredeterminada.crear')->where('id','[0-9]+')->middleware('role:admin');
     //ruta pra guardar alertas predeterminadas
-    Route::post('alertaspredeterminadas','AlertaController@Guardaralertapredeterminada')->name('alertaspredeterminada.guardar')->where('id','[0-9]+');
-    Route::delete('/alertaspredeterminadas/{id}/borrar','AlertaController@destroypredeterminada') ->name('alertaspredeterminadas.borrar')->where('id','[0-9]+');
+    Route::post('alertaspredeterminadas','AlertaController@Guardaralertapredeterminada')->name('alertaspredeterminada.guardar')->where('id','[0-9]+')->middleware('role:admin');;
+    Route::delete('/alertaspredeterminadas/{id}/borrar','AlertaController@destroypredeterminada') ->name('alertaspredeterminadas.borrar')->where('id','[0-9]+')->middleware('role:admin');;
  
 });

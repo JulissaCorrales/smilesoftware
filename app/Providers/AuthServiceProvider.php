@@ -30,6 +30,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\Mediopago' => 'App\Policies\MediosdepagoPolicy',
         'App\Especialidad' => 'App\Policies\EspecialidadPolicy',
         'App\EspecialidadOdontologos' => 'App\Policies\EspecialidadOdontologoPolicy',
+        'App\Alerta' => 'App\Policies\AlertaPolicy',
     ];
 
     /**
