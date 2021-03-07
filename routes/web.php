@@ -323,7 +323,7 @@ Route::put('horario/{id}/editar','OdontologoController@editarHorario')->name('ho
 route::get('/pdf','PDFController@PDF')->name('descargarPDF');
 route::get('/pdfpacientes','PDFController@PDFPacientes')->name('descargarPDFPacientes');
 route::get('/pdfinventarios','PDFController@PDFInventarios')->name('descargarPDFInventarios');
-
+route::get('/pdfcitasimpresion','PDFController@PDFCitas')->name('descargarPDFCitas');
 
 //ruta para la vista recaudaciones
 
