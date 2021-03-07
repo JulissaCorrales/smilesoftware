@@ -1,13 +1,27 @@
 @extends('Plantilla.Plantilla')
 @section('titulo','Ver Usuarios')
 @section('contenido')
+<style>
+#padre{
 
-<div class="container">
+  margin:4em;
+  font-family: georgia;
+  text-align:center;  
+ 
+}
+#dd{
+  background-image: linear-gradient(to left,  #AFEEEE,#00FF99);
+}
+h4{
+  text-align:center;
+}
+
+</style>
+<div id="padre"class="container">
 <div class="card">
-<div class="card-header">
-
-<h3>Name: {{$usuarios->name}}</h1>
-<h3>Correo Electronico:{{$usuarios->email}}</h1>
+<div id="dd" class="card-header">
+<h4>Nombre de Usuario: {{$usuarios->name}}</h1>
+<h4>Correo Electronico:{{$usuarios->email}}</h1>
 
 
 </div>
@@ -30,25 +44,30 @@
 
 
 
-<h5 class="card-title">Permisos</h5>
-<p class="card-text">
-@if($usuarios->roles->isNotEmpty())
-                                    @foreach ($usuarios->roles as $role )
-                                    <span class="badge badge-secondary" >
-                                        {{ $role->Nombre }}                                    
-                                    </span>
-                                   
-                                    @endforeach
-                                    @endif
+      <h5 class="card-title">Permisos</h5>
+      <p class="card-text">
+      @if($usuarios->permisos->isNotEmpty())
+      @foreach ($usuarios->permisos as $permisos )
+      <span class="badge badge-secondary" >
+      {{ $permisos->Permiso}}                                
+      </span>
 
+      @endforeach
+      @endif
+
+</p>
+<h5 class="card-title"> Odontologo Asignado a este Usuario</h5>
+<p class="badge badge-secondary">
+
+{{$usuarios->odontologo->nombres}} {{$usuarios->odontologo->apellidos}}
 </p>
 
 
 
 </div>
 <div class="card-footer">
-<a type="button" class="btn btn-danger"  href="/pantallainicio/usuarios/ver"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+<a type="button" class="btn btn-primary"  href="/pantallainicio/usuarios/ver"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-skip-backward" viewBox="0 0 16 16">
+  <path d="M.5 3.5A.5.5 0 0 1 1 4v3.248l6.267-3.636c.52-.302 1.233.043 1.233.696v2.94l6.267-3.636c.52-.302 1.233.043 1.233.696v7.384c0 .653-.713.998-1.233.696L8.5 8.752v2.94c0 .653-.713.998-1.233.696L1 8.752V12a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm7 1.133L1.696 8 7.5 11.367V4.633zm7.5 0L9.196 8 15 11.367V4.633z"/>
 </svg>
       Atras
   </a>

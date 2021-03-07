@@ -167,6 +167,7 @@
 
                   
         </select> 
+     
         
 
         <label for="intervalo" class="control-label">Intervalo</label>
@@ -179,11 +180,32 @@
         <option value="40">40 minutos</option>
         <option value="50m">50 minutos</option>
         </select>
+           <!-- usuario -->
+           <label for="user_id" class="control-label">Usuario:</label>
+                <select name="user_id" class="form-control">
+          <option disabled selected>Seleccione un usuario</option>
+         
+                    <?php
+        $getUsuario =$mysqli->query("select * from users order by id");
+        while($f=$getUsuario->fetch_object()) {
+          echo $f->id;
+          echo $f->name;
 
-<br>
+          ?>
+          <option value="<?php echo $f->id; ?>"><?php echo $f->name ?></option>
+          <?php
+        } 
+        ?>
+
+
+                  
+        </select>
+        <!-- fin usuario -->
+
+<br><br><hr>
         <div class="form-group">
-                    <input type="file" class="form-control-file" name="file" id="direccion" placeholder="Seleccione una Imagen">
-                  </div>
+        <input type="file" class="form-control-file" name="file" id="direccion" placeholder="Seleccione una Imagen">
+      </div>
 
 
         </div>

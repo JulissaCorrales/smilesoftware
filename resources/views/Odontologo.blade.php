@@ -87,7 +87,7 @@
 }
 
 #bot{
-        position: absolute;
+  
     top:1125px;
     left:30px;
     width: 450px;
@@ -598,7 +598,27 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                   
         </select>
  -->
-        
+         <!-- usuario -->
+         <div class="form-group">
+                    <label for="user_id" class="control-label">Usuario:</label>
+                    <select name="user_id" class="form-control">
+                    <option value="{{$odontologo->user->id}}" selected>Usuario Actual: {{$odontologo->user->name}}</option>
+
+                    <?php
+                    $getUsuario =$mysqli->query("select * from users order by id");
+                    while($f=$getUsuario->fetch_object()) {
+                    echo $f->id;
+                    echo $f->name;
+
+                    ?>
+                    <option value="<?php echo $f->id; ?>"><?php echo $f->name ?></option>
+                    <?php
+                    } 
+                    ?>
+
+                    </select>
+                    </div>
+                    <!-- fin usuario -->
 
                   <div class="form-group">
                     <label for="intervalo" class="col-sm-2 col-form-label col-form-label-lg">Intervalo:</label>

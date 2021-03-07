@@ -54,6 +54,8 @@ class OdontologoController extends Controller
         $nuevo->direccion = $request -> input('direccion');
         $nuevo->especialidad_id = $request->input('especialidad');
         $nuevo->intervalos = $request->input('intervalo');
+        $nuevo->user_id = $request->input('user_id');
+
 
         if ($request->hasFile('file')) {
             $file = $request->file('file');
@@ -74,6 +76,7 @@ class OdontologoController extends Controller
         'ciudad'=>'required',
         'telefonoCelular'=>'required|numeric',
         'direccion'=>'required|',
+        'user_id'=>'required|',
         ]);
        $creado = $nuevo->save();
 
@@ -112,6 +115,8 @@ class OdontologoController extends Controller
         $odontologos->direccion = $_request -> input('direccion');
         $odontologos->especialidad_id= $_request->input('especialidad');
         $odontologos->intervalos = $_request->input('intervalo');
+        $odontologos->user_id = $_request->input('user_id');
+
         
         if ($_request->hasFile('file')) {
             $file = $_request->file('file');
@@ -139,6 +144,7 @@ class OdontologoController extends Controller
         'ciudad'=>'required',
         'telefonoCelular'=>'required|numeric',
         'direccion'=>'required|',
+        'user_id'=>'required|',
         ]);
     }
 

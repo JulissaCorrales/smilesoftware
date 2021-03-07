@@ -51,6 +51,11 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPassword($token));
     }
+    /* relacion de 1 a 1 con odontologo */
+    public function odontologo()
+    {
+        return $this->hasOne('App\Odontologo');/* un usuario pertenece a un odontologo */
+    }
 
 
 
