@@ -6,7 +6,7 @@
   position: absolute;
             left: 750px;
             top: 500px;
-            font-size:20px;
+            font-size:40px;
             width:500px;
 
             background-color: #00cccc;
@@ -17,9 +17,9 @@
  
   font-family: serif;
   position: absolute;
-            left: 40px;
-            top: 30px;
-            font-size:20px;
+            left: -650px;
+            top: -280px;
+            font-size:25px;
         
 }
 
@@ -34,7 +34,7 @@ position: absolute;
 
 #table1{
     position: absolute;
-            left: 300px;
+            left: 400px;
             top: 260px;
             font-size:15px;
             width:900px;
@@ -44,7 +44,7 @@ position: absolute;
 
 #table2{
     position: absolute;
-            left: 300px;
+            left: 400px;
             top: 300px;
             font-size:15px;
             width:900px;
@@ -53,19 +53,19 @@ position: absolute;
 
 #table3{
     position: absolute;
-            left:450px;
+            left:550px;
             top: 230px;
             font-size:15px;
-            width:900px;
+            width:600px;
 }
 
 
 #table4{
     position: absolute;
-            left: 500px;
+            left: 600px;
             top: 350px;
             font-size:15px;
-            width:800px;
+            width:780px;
             
 }
 
@@ -73,7 +73,7 @@ position: absolute;
 
 #table5{
     position: absolute;
-            left: 300px;
+            left: 400px;
             top: 400px;
             font-size:15px;
             width:900px;
@@ -83,7 +83,7 @@ position: absolute;
 
 #table6{
     position: absolute;
-            left: 300px;
+            left: 400px;
             top: 450px;
             font-size:15px;
             width:900px;
@@ -454,8 +454,26 @@ position: absolute;
 
 #butongua{
     position: absolute;
-            left: 350px;
+            left: 500px;
+            top:10px;
 }
+
+
+#buton2{
+    position: absolute;
+            left: 420px;
+            top:10px;
+}
+
+
+#buton3{
+
+    position: absolute;
+            left: 200px;
+            top: 205px;
+
+}
+
 
 
 
@@ -466,9 +484,11 @@ position: absolute;
 position: absolute;
     left: 50px;
    top: 270px;
-    font-size:15px;
-   
-    background-color: #00cccc;
+    font-size:12px;
+    width: 380px;
+    border-collapse: collapse;
+    background-color: #f2f2f2;
+
 } 
 
 
@@ -479,7 +499,7 @@ position: absolute;
   border-radius: 70%;
   position: relative;
   top: 5px;
-  left:-5px;
+  left:150px;
   border: 4px solid  #00ccff;
 
   width: 100px;
@@ -488,9 +508,11 @@ position: absolute;
 
 
 
+
+
 #dat2{
 position: relative;
-  top: -70px;
+  top: -100px;
   left:20px;
   width: 250px;
 }
@@ -498,7 +520,23 @@ position: relative;
 
 #dat3{
 position: relative;
-  top: -30px;
+  top: -5px;
+  left:20px;
+  width: 250px;
+}
+
+
+#dat4{
+position: relative;
+  top: -20px;
+  left:20px;
+  width: 250px;
+}
+
+
+#dat5{
+position: relative;
+  top: -13px;
   left:20px;
   width: 250px;
 }
@@ -520,43 +558,96 @@ position: relative;
 </style>
 
 
-
-
-<div  class="container">
-<nav class="navbar navbar-light bg-light" id="na">
-  <div class="container">
-   <h4 id="texto4">Horarios Odontologo</h4>
-  </div>
-</nav>
+<div class="container">
+@if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif
 </div>
 
-<div class="card"  id="datos">
-  <img src='/Imagenes/{{$odontologos->imagen}}' class="card-img-top" id="image" >
-  <div class="card-body">
-    <h5 class="card-title">{{$odontologos->nombres}} {{$odontologos->apellidos}}</h5>
+<table class="container" id="datos">
 
-    
-    Hora de Atencion
-    <p class="card-text"><br>
+  <tbody>
+    <tr>
+      
+      <td><img src='/Imagenes/{{$odontologos->imagen}}' class="card-img-top" id="image" ></td>
+      
+    </tr>
+    <tr>
+      <th>Odontologo:</th>
+      <td>{{$odontologos->nombres}} {{$odontologos->apellidos}}</td>
+    </tr>
     @forelse ($horario as $tag) 
-    
-    <h6 id="dat3">{{$tag->HoraInicio}}-{{$tag->HoraFinal}}</h6>
 
-    
+
+    <tr>
     @if($tag->dias !=null)
-                                @foreach ($tag->dias as $permission )
-                                <h6  id="dat2" >
-                                        {{ $permission->dias }} </h2>
+                                @foreach ($tag->dias as $dia )
+                                <th >
+                                        {{ $dia->dias }} </th>
                                 @endforeach
                             @endif
-                            @endforeach
+      
+      <td colspan="2">Hora de Atencion:{{$tag->HoraInicio}}-{{$tag->HoraFinal}} <br>
+      Descanso:{{$tag->Descanso }} <br>
+      {{$tag->DescansoInicial}}-{{$tag->DescansoFinal}}</td>
 
-
-
-  </p>
+      <td> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalll3-{{$tag->id}}" id="buton"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+</svg>
    
+  </button></td>
+
+
+  
+  <div class="modal fade" id="modalll3-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+</svg> Eliminar Horario de Atencion</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <!--<span aria-hidden="true">&times;</span>-->
+                  </button>
+              </div>
+              <div class="modal-body">
+                  ¿Desea realmente eliminar el Horario de atencion {{$tag->HoraInicio}}-{{$tag->HoraFinal}}?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <form method="post" action="{{route('horario.borrar',['id'=>$tag->id])}}">
+
+                      @csrf
+                      @method('delete')
+                      <input type="submit" value="Eliminar" class="btn btn-danger">
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
+
+  
+
+
+
+
+     
+      
+      @endforeach
+    </tr>
+
+  </tbody>
+</table>
+
+<div  class="container" id="ho2">
+
+   <h4 id="texto4">Horarios Odontologo</h4>
   </div>
-</div>
+
+
+
 
 
 <form method="post" action="\create\{{$odontologos->id}}\nuevo " file="true" enctype="multipart/form-data">
@@ -876,23 +967,23 @@ for($i=1; $i <= 1; $i++) {?>
 
 <tr>
 <th ><h3 id="hodescanso">Hora descanso</h3></th>
-<td>Si  <input type="checkbox" id="" name="descanso">
+<td>Si  <input type="checkbox" id="" value="si" name="descanso">
 </td>
 
-<td>Si  <input type="checkbox" id="" name="descanso" >
+<td>Si  <input type="checkbox" id="" value="si" name="descanso" >
 </td>
 
-<td>Si  <input type="checkbox" id="" name="descanso"  >
+<td>Si  <input type="checkbox" id=""  value="si" name="descanso"  >
 </td>
 
-<td>Si  <input type="checkbox" id="" name="descanso"  >
+<td>Si  <input type="checkbox" id="" value="si" name="descanso"  >
 </td>
 
-<td>Si  <input type="checkbox" id="" name="descanso"  >
+<td>Si  <input type="checkbox" id="" value="si" name="descanso"  >
 </td>
-<td>Si  <input type="checkbox" id="" name="descanso"  >
+<td>Si  <input type="checkbox" id="" value="si" name="descanso"  >
 </td>
-<td>Si  <input type="checkbox" id="" name="descanso" >
+<td>Si  <input type="checkbox" id=""  value="si" name="descanso" >
 </td>
 
 <?php
@@ -1164,13 +1255,12 @@ for($i=1; $i <= 1; $i++) {?>
 </div>
 
 <div  class="container" id="ho2">
-<nav class="navbar navbar-light bg-light">
-  <div class="container">
-  <a type="button" class="btn btn-info" href="{{route('odontologo.vista')}}" id="buton2">Atras</a>
+
+  
   <button type="submit" class="btn btn-primary" id="butongua" >Guardar</button>
   </form>
-  </div>
-</nav>
+
+  <a type="button" class="btn btn-info" href="{{route('odontologo.vista')}}" id="buton2">Atras</a>
 </div>
 
 

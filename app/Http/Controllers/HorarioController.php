@@ -25,6 +25,8 @@ class HorarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+/*Crear un Horario */
+     //
     public function create($id)
     {
         $this->authorize('crearHorario', Odontologo::class); //si tiene el permiso de crear 
@@ -42,6 +44,7 @@ class HorarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    /*Guardar un Horario */
     public function store(Request $request, $id)
     {
         $this->authorize('crearHorario', Odontologo::class); //si tiene el permiso de crear 
@@ -60,7 +63,7 @@ class HorarioController extends Controller
 
         $create = $horario->save();
 
-        $lista = explode(',',  $request->dias_horarios); //crear matriz a partir de permisos separados/coma
+        $lista = explode(',',  $request->dias_horarios); 
         
          
         foreach ($lista as  $dias) {
@@ -72,12 +75,8 @@ class HorarioController extends Controller
              $horario->save();
         }    
 
-
-    
-    
-
          if ($create){
-            return redirect('/pantallainicio/odontologo')->with('mensaje', 'El Odontologo fue creado exitosamente!');
+            return redirect("create/$id/nuevo")->with('mensaje', 'El Horario fue guardado correctamente!');
         }else{
             //retornar con un msj de error
         } 
@@ -85,39 +84,11 @@ class HorarioController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Horario  $horario
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Horario $horario)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Horario  $horario
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Horario $horario)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Horario  $horario
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Horario $horario)
-    {
-        //
-    }
+    /*Borrar un horario*/
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -125,8 +96,15 @@ class HorarioController extends Controller
      * @param  \App\Horario  $horario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Horario $horario)
+    public function destroy($id)
     {
-        //
+        $horarios=horarios::findOrFail($id);
+        $horarios->dias()->delete();
+        $horarios->delete();
+        $horarios->dias()->detach();
+
+        
+        return redirect()->back()->with('mensaje','Horario  borrado satisfactoriamente');
+
     }
 }

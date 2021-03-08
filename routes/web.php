@@ -305,6 +305,7 @@ Route::get('/home/home', 'HomeController@index1')->name('home.home');
 //Route::get('editarHorario','OdontologoController@editarHorario')->name('editar.horario');
 Route::get('create/{id}/nuevo','HorarioController@create')-> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
 Route::post('create/{id}/nuevo','HorarioController@store')-> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
+Route::delete('{id}/horario/borrar','HorarioController@destroy') ->name('horario.borrar')->where('id','[0-9]+')->middleware('role:admin');
 
 
 
@@ -329,27 +330,6 @@ route::get('/pdfcitasimpresion','PDFController@PDFCitas')->name('descargarPDFCit
 
 route::get('/pantallainicio/vista/paciente/{id}/VistaRecaudacionesD','RecaudacionesController@VistaRecaudacionesD');
 
-/*Route::get('/contactos',function(){
-
-
-  $correo= new Contactanos;
-  Mail::to('geopaomarmor1325@gmail.com')->send($correo);
-
-  return "mensaje Enviado";
-
-}); */
-
-
-
-
-//Password Reset Routes...
-
-
-/*Route::get('passwords/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
-Route::post('passwords/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('passwords.emails');
-
-Route::get('passwords/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('passwords.reset');
-Route::post('passwords/reset', 'Auth\ResetPasswordController@reset')->name('passwords.sed');  */
 
 /*************************rutas de laboratorio*************************************/
 
