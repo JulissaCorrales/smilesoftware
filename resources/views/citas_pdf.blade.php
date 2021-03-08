@@ -18,6 +18,7 @@
 <table class="table">
         <thead class="table table-striped table-bordered">
             <tr>
+                 <th scope="col">id</th>
                 <th scope="col">Paciente</th>
                 <th scope="col">Doctor</th>
                 <th scope="col">Fecha y Hora</th>
@@ -29,6 +30,8 @@
                 <td>     
                         @forelse($citas as $cita)
                             <tr>
+                                <!-- Id -->
+                                <td> {{$cita->id}}</td>   
                                 <!-- Paciente -->
                                 <td> {{$cita->paciente->nombres}} <br>{{$cita->paciente->apellidos}}<br>{{$cita->paciente->telefonoFijo}}<br>{{$cita->paciente->telefonoCelular}} </td>
                                 <!-- Odontologo -->
