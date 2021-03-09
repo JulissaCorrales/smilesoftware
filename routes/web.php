@@ -326,6 +326,7 @@ route::get('/pdfpacientes','PDFController@PDFPacientes')->name('descargarPDFPaci
 route::get('/pdfinventarios','PDFController@PDFInventarios')->name('descargarPDFInventarios');
 route::get('/pdfcitasimpresion','PDFController@PDFCitas')->name('descargarPDFCitas');
 route::get('{id}/pdffacturaplantratamiento/{id2}','PDFController@PDFfacturaplantratamiento')->name('descargarPDFfacturaplan');
+route::get('{id}/pdfcitasindividualesimpresion','PDFController@PDFCitaindividual')->name('descargarPDFCitasindividuales');
 
 
 

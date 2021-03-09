@@ -44,6 +44,12 @@ public function PDFfacturaplantratamiento($id,$id2){
     $pdf = PDF::loadView('facturaplantratamiento_pdf',compact('pacientes','plantratamientos','totalpagar'));
     return $pdf->download('facturaplantratamiento_pdf.pdf');
     }
+/* Citas individuales */
+public function PDFCitaindividual($id){
+    $pacientes = Paciente::findOrFail($id);
+    $pdf = PDF::loadView('citaindividual_pdf',compact('pacientes','citas'));
+    return $pdf->download('citaindividual_pdf.pdf');
+}
 
 
 
