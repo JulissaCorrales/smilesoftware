@@ -7,6 +7,8 @@ use PDF;
 use App\Paciente;
 use App\Inventario;
 use App\Cita;
+use App\Plantratamiento;
+
 
 class PDFController extends Controller
 {
@@ -33,6 +35,20 @@ public function PDFCitas(){
     $pdf = PDF::loadView('citas_pdf',compact('citas'));
     return $pdf->download('citas_pdf.pdf');
     }
+
+/* Factura */
+public function PDFfacturaplantratamiento($id,$id2){
+    $pacientes = Paciente::findOrFail($id);
+    $plantratamientos = Plantratamiento::findOrFail($id2);
+    $totalpagar= $plantratamientos->tratamiento->productos->sum('monto'); 
+    $pdf = PDF::loadView('facturaplantratamiento_pdf',compact('pacientes','plantratamientos','totalpagar'));
+    return $pdf->download('facturaplantratamiento_pdf.pdf');
+    }
+
+
+
+
+
 
 }
 
