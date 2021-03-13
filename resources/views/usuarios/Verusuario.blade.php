@@ -56,11 +56,14 @@ h4{
       @endif
 
 </p>
-<h5 class="card-title"> Odontologo Asignado a este Usuario</h5>
-<p class="badge badge-secondary">
 
+@isset($usuarios->odontologo)
+<h5 class="card-title"> Odontologo Asignado a este Usuario</h5>
 {{$usuarios->odontologo->nombres}} {{$usuarios->odontologo->apellidos}}
-</p>
+@endisset
+
+
+
 
 
 

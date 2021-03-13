@@ -9,6 +9,7 @@ use DispatchesJobs, ValidatesRequests;
 use Illuminate\Support\Facades\Gate;
 use App\Mail\Contactanos;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\Rule;
 
 
 use App\Dias;
@@ -76,7 +77,7 @@ class OdontologoController extends Controller
         'ciudad'=>'required',
         'telefonoCelular'=>'required|numeric',
         'direccion'=>'required|',
-        'user_id'=>'required|',
+        'user_id'=>'required|unique:App\Odontologo'
         ]);
        $creado = $nuevo->save();
 
@@ -127,7 +128,16 @@ class OdontologoController extends Controller
             $odontologos->imagen= $image;
         
         }
-
+    //validar
+    $_request->validate(['nombres'=>'required',
+    'apellidos'=>'required',
+    'identidad' => ['required', Rule::unique('odontologos')->ignore($odontologos->id)],
+    'departamento'=>'required',
+    'ciudad'=>'required',
+    'telefonoCelular'=>'required|numeric',
+    'direccion'=>'required|',
+    'user_id' => ['required', Rule::unique('odontologos')->ignore($odontologos->id)]
+    ]);
         $create = $odontologos->save();
 
         
@@ -136,16 +146,7 @@ class OdontologoController extends Controller
         }else{
             //error
         }
-        //validar
-        $_request->validate(['nombres'=>'required|alpha',
-        'apellidos'=>'required|alpha',
-        'identidad'=>'required|unique:odontologos,identidad',
-        'departamento'=>'required|alpha',
-        'ciudad'=>'required',
-        'telefonoCelular'=>'required|numeric',
-        'direccion'=>'required|',
-        'user_id'=>'required|',
-        ]);
+    
     }
 
     public function destroy($id){

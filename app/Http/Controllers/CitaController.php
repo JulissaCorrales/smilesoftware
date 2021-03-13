@@ -145,14 +145,14 @@ class CitaController extends Controller
         $this->authorize('updateCitaIndividual', $citas);//si tiene el permiso de editar:
         return view('editarcitaindividual',compact('pacientes','citas'));
     }
-    public function updatecitaindividual(Request $request,$id){
+    public function updatecitaindividual(Request $request,$id,$citaid){
         $request->validate([
             'odontologo_id'=>'required',
             'duracionCita'=>'required',
             'comentarios'=>'required',
             'stard' =>'required|date']);
 
-        $citas=Cita::findOrFail($id);
+        $citas=Cita::findOrFail($citaid);
         $this->authorize('updateCitaIndividual', $citas);//si tiene el permiso de editar:
         //formulario
         $citas->odontologo_id=    $request->input('odontologo_id');
