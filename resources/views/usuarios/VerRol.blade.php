@@ -1,4 +1,4 @@
-@extends('Plantilla.Plantilla')
+@extends('Plantilla.Plantilla2')
 @section('titulo','Ver Rol')
 @section('contenido')
 <!DOCTYPE html>
