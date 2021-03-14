@@ -87,7 +87,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
            
             
 
-
+            Route::get('nuevo','PacienteController@nuevoo');
 
         
                           // *********RUTAS PARA PACIENTE********//

@@ -1,13 +1,13 @@
 @extends('datospersonales')
+@section('titulo','EditarPaciente')
 @section('cuerpo') 
-@section('titulo','Editar Paciente')  
+
 @canany(['isAdmin','isSecretaria','isOdontologo'])
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Datos Personales Editables</title>
   <style>
 #titulo{
   text-align: center;

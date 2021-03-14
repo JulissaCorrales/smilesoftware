@@ -48,7 +48,7 @@
 <div class="modal fade" id="create" >
   
 	<div class="modal-dialog" role="document">
-		<div class="modal-content" >
+		<div class="modal-content" style="background-color:#b3f0ff; color:#666699; ">
 			<div id="divv9"class="modal-header">
 	
 				<h4  class="modal-title" id="myModalLabel">
@@ -78,12 +78,13 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="identidad">identidad:</label>
+                        <label for="identidad">Identidad:</label>
                         <input type="text" class="form-control-file" name="identidad" id="identidad" placeholder="ingresar identidad del paciente">
                     </div>
                     <div class="form-group">
+
                         <label for="sexo">Sexo :</label>
-                        <select  name="sexo" id="sexo">
+                        <select  name="sexo" id="">
                         <option disabled selected>Seleccione el sexo</option>
                           <option>Masculino</option>
                           <option>Femenino</option>
@@ -91,8 +92,10 @@
                         </select>
                     </div>
 
+                    
+
                     <div class="form-group">
-                      <label for="fechaNacimiento">fecha de nacimiento:</label>
+                      <label for="fechaNacimiento">Fecha de nacimiento:</label>
                       <input type="date" class="form-control-file" name="fechaNacimiento" id="fechaNacimiento" placeholder="ingresar fecha de nacimiento del paciente">
                   </div>
 
@@ -123,7 +126,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="ciudad">ciudad:</label>
+                    <label for="ciudad">Ciudad:</label>
                     <input type="text" class="form-control-file" name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente">
                   
                   </div><div class="form-group">
@@ -152,7 +155,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="observaciones">observaciones:</label>
+                    <label for="observaciones">Observaciones:</label>
                     <input type="text" class="form-control-file" name="observaciones" id="observaciones" placeholder="Alguna observacion?">
                    
                   </div>
