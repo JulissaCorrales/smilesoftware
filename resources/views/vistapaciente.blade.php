@@ -124,8 +124,15 @@ position: absolute;top: 10px;left: 510px;" >
 @endcan
 
 
-
-
+<div>@can('create', App\Paciente::class)
+    <button type="button"style="background-color:#ffdb4d; color:#666699;  position: absolute; 
+  left: 790px;
+  top:  125px;   " class="btn btn-danger"  data-toggle="modal" data-target="#create"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+  <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+</svg>
+ </button> @endcan
+</div>
 
 
 
@@ -152,31 +159,27 @@ height= "60px" style="border-radius:50%;">
 <td>{{$paciente->identidad}}</td>
      
     <td>
-    @can('create', App\Paciente::class)
-    <a type="button"style="background-color:#ffdb4d; color:#666699; " class="btn btn-danger" href="{{route('paciente.nuevo')}}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
-  <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-  <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-</svg>
- </a> @endcan
+    
 
     <a type="button"style="background-color:#70db70; color:#666699;" class="btn btn-danger" href="/pantallainicio/vista/paciente/{{$paciente->id}}/editar"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
   <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
   <path d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z"/>
 </svg>
           </a>
-
+          @canany(['isAdmin'])
+        
       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$paciente->id}}"><svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
         </svg>
           
-         </button>
+       @endcanany  </button> 
     </td>
 
 
-  <div class="modal fade" id="modal-{{$paciente->id}}" style=" color:#666699; position: absolute;
-  left: -50px;
-  top:  -50px;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+  <div class="modal fade" id="modal-{{$paciente->id}}"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document" style="background-color:#f2e6ff;  position: absolute;
+  left: 480px;
+  top:  190px; ">
           <div class="modal-content">
               <div class="modal-header" style="background-color:#b3f0ff; color:#666699; ">
                   <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -186,16 +189,22 @@ height= "60px" style="border-radius:50%;">
                  
                   </button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body"  style="background-color:#e6faff;">
                   ¿Desea realmente eliminar el paciente {{$paciente->nombres}} {{$paciente->apellidos}}?
               </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <div class="modal-footer" style="background-color:#b3f0ff; width: 500px;
+  height: 80px;">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal"  style="background-color:#ff704d;  position: absolute;
+  left: 300px;
+  top:  160px;">Cerrar</button>
                   <form method="post" action="{{route('paciente.borrar',['id'=>$paciente->id])}}">
-
                       @csrf
                       @method('delete')
-                      <input type="submit" value="Eliminar" class="btn btn-danger">
+                      <input type="submit" value="Eliminar" class="btn btn-danger"  style="background-color:#d580ff;  position: absolute;
+  left: 380px;
+  top:  160px;">
+ 
+          
                   </form>
               </div>
           </div>
@@ -276,7 +285,7 @@ $(document).ready( function () {
 <!-- escript de datatable con el id de la tabla este muy importante en este caso la tabla es id="datatable"-->
 </div>
 </div><!-- fin del DIV contenedor de la buscador!!!  -->
-
+@include('Crearpaciente')
 @endsection
 
 </html>
