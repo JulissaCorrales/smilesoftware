@@ -416,34 +416,12 @@
 
             
             <!-- End Navbar -->
-
-            @yield('contenido')
-
-            <div id="nu">
-            
-            <footer class="footer" id="footer1">
-                <div class="container-fluid">
-                    <nav id="num8">
-                        <ul class="footer-menu">
-                        <li>
-                                <a href="#">
-                                    Home
-                                </a>
-                            </li>
-                        </ul>
-                        <p class="copyright text-center">
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script>
-                            <a href="/">Smile Software</a>, made with love for a better web
-                        </p>
-                    </nav>
-                </div>
-            </footer>
-        </div>
+<div>
+@yield('contenido')
 </div>
-    </div>
+          
+
+          
 
     
    

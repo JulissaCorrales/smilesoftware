@@ -2,14 +2,12 @@
 @canany(['isAdmin','isSecretaria','isOdontologo'])
 <!DOCTYPE html>
 <html lang="en">
-@section('Titulo','Paciente')
+@section('titulo','Paciente')
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    
     <style>
 
 #tablaprincipal{
@@ -27,6 +25,22 @@
   width: 50px;
   height: 50px;
 }
+
+/* CSS DEL navas de Abajo */
+#footer1{
+       position: absolute;
+  left:0px;
+  top: 300px;
+  width: 1120px;
+ 
+    } 
+
+    #num8{
+        position: absolute;
+  left: 100px;
+  top: 0px;
+    }
+
 
 
 
@@ -90,12 +104,12 @@ position: absolute;top: 10px;left: 510px;" >
 
 
 
-<h1 style="background-color:#f2e6f;  position: absolute;
+<a href="/pantallainicio/vista"><h1 style="background-color:#f2e6ff;  position: absolute;
   left: 50px;
   top:  120px;  width: 1000px; height: 50px; color: #4d4d4d;
-  text-shadow: 2px 0 #ff9966, 0 2px #ff9966, 2px 0 #ff9966, 0 2px #ff9966; font-family: Times New Roman, Times, serif; "><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+  text-shadow: 1px 0 #ff9966, 0 1px #ff9966, 1px 0 #ff9966, 0 1px #ff9966; font-family: Times New Roman, Times, serif; "><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
   <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
-</svg>         Pacientes</h1>
+</svg>         Pacientes</h1> </a>
 
 @can('descargarPacientes', App\Paciente::class)
 <div>
@@ -159,10 +173,12 @@ height= "60px" style="border-radius:50%;">
     </td>
 
 
-  <div class="modal fade" id="modal-{{$paciente->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modal-{{$paciente->id}}" style=" color:#666699; position: absolute;
+  left: -50px;
+  top:  -50px;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
           <div class="modal-content">
-              <div class="modal-header">
+              <div class="modal-header" style="background-color:#b3f0ff; color:#666699; ">
                   <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
 </svg> Eliminar Paciente</h5>
@@ -199,6 +215,32 @@ height= "60px" style="border-radius:50%;">
 </table>
 </div>
 
+
+<div id="nu">
+            
+            <footer class="footer" id="footer1">
+                <div class="container-fluid">
+                    <nav id="num8">
+                        <ul class="footer-menu">
+                        <li>
+                                <a href="#">
+                                    Home
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="copyright text-center">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            <a href="/">Smile Software</a>, made with love for a better web
+                        </p>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+</div>
+    </div>
  
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
