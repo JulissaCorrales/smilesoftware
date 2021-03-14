@@ -12,122 +12,38 @@
     
     <style>
 
- #table{
-
-
-
-
- }
-
- td{
-  border: 1px solid #00cccc;
-
-  text-align: center;
-  background-color: #ccffff
-  
-} 
-
-
-
-btn{
-text-align: center;
-
-}
-
-
-
-#lista{
- 
-  
-
-}
-
-#datosme{
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 70%;
-  position: relative;
-  bottom: 5px;
-}
-
- #lista:hover{
-   border: 1px solid #FF4500;
-   color: hotpink;
- 
-
- }
-
- #can{
-  background-color: #ffad33;
-
- }
-
- #cue{
-  border: #00cccc  2px solid;
- }
-
- #na{
-  width: 600px;
-  height: 60px;
-    border-radius: 12px;
-    background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff); 
-    position: absolute;
-    top:250px;
-    left:150px;
-  
-    
-    
- }
-
-#dd{
+#tablaprincipal{
   position: absolute;
-    top:400px;
-    left:150px;
-
-
+  left: 50px;
+  top:  190px;
+  width: 1000px;
 }
 
-
-#b1{
+#imagen{
+  border-radius: 50%;
   position: absolute;
-    top:300px;
-    left:780px;
-
+  left: -5px;
+  top:  35px;
+  width: 50px;
+  height: 50px;
 }
 
-#b2{
-  position: absolute;
-    top:300px;
-    left:1030px;
-}
 
-#b3{
-  position: absolute;
-    top:300px;
-    left:1140px;
 
-}
 
-#dire{
-  color: #ff9933;
-  text-shadow: -1px 0 #009999, 0 1px #009999, 1px 0 #009999, 0 -1px #009999;
-  font-family: serif;
-  position: absolute;
-            font-size:30px;
-            top: 2px;
-            left:30px;
-}
-
-#bo{
-  background-color: #ccffff;
-
-}
 </style>
 
 </head>
 
 @section('contenido')
-<body id="bo">
+<body>
+
+<table class="table table-striped table-hover">
+
+</table>
+
+
+
 @if(session('mensaje'))
         <div class="alert alert-success">
             {{session('mensaje')}}
@@ -136,12 +52,11 @@ text-align: center;
 
     <div class="container">
 
-    <nav class="navbar navbar-light bg-light" id="na">
+   <!-- <nav class="navbar navbar-light bg-light" id="na">
   <h1 style="    color: #ff9933;
   text-shadow: -1px 0 #009999, 0 1px #009999, 1px 0 #009999, 0 -1px #009999;
   font-family: serif;position: absolute;font-size:35px;top: 2px;left:90px;;"id="dire">Directorio de Paciente</h1>
-  <!--Menu desplegable  -->
-  @canany(['isAdmin','isSecretaria','isOdontologo'])
+    @canany(['isAdmin','isSecretaria','isOdontologo'])
  <div class="dropdown" style="  background-color: #00ccff;border-radius: 12px;
 position: absolute;top: 10px;left: 510px;" >
 
@@ -155,17 +70,7 @@ position: absolute;top: 10px;left: 510px;" >
 </svg>  Nuevo Paciente </a></li>
 @endcan
 
- <!-- <li><a class="dropdown-item"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-tools" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M0 1l1-1 3.081 2.2a1 1 0 0 1 .419.815v.07a1 1 0 0 0 .293.708L10.5 9.5l.914-.305a1 1 0 0 1 1.023.242l3.356 3.356a1 1 0 0 1 0 1.414l-1.586 1.586a1 1 0 0 1-1.414 0l-3.356-3.356a1 1 0 0 1-.242-1.023L9.5 10.5 3.793 4.793a1 1 0 0 0-.707-.293h-.071a1 1 0 0 1-.814-.419L0 1zm11.354 9.646a.5.5 0 0 0-.708.708l3 3a.5.5 0 0 0 .708-.708l-3-3z"/>
-  <path fill-rule="evenodd" d="M15.898 2.223a3.003 3.003 0 0 1-3.679 3.674L5.878 12.15a3 3 0 1 1-2.027-2.027l6.252-6.341A3 3 0 0 1 13.778.1l-2.142 2.142L12 4l1.757.364 2.141-2.141zm-13.37 9.019L3.001 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
-</svg>  Configuraciones de Pacientes</a></li> -->
-@can('descargarPacientes', App\Paciente::class)
- <li><a href="{{route('descargarPDFPacientes')}}" class="dropdown-item"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/>
-  <path fill-rule="evenodd" d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-</svg>  Descargar</a></li>
-@endcan
-
+ 
 
 
 
@@ -173,52 +78,87 @@ position: absolute;top: 10px;left: 510px;" >
  </ul>
  </div>
  @endcanany
- <!--fin de menu desplegable  -->
-</nav>
+
+</nav>-->
+</div> 
+
+
+
+<div class="" id="dd">
+
 </div>
 
 
 
+<h1 style="background-color:#f2e6f;  position: absolute;
+  left: 50px;
+  top:  120px;  width: 1000px; height: 50px; color: #4d4d4d;
+  text-shadow: 2px 0 #ff9966, 0 2px #ff9966, 2px 0 #ff9966, 0 2px #ff9966; font-family: Times New Roman, Times, serif; "><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+  <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+</svg>         Pacientes</h1>
+
+@can('descargarPacientes', App\Paciente::class)
+<div>
+<a type="button"style="background-color:#70db70; color:#666699; position: absolute;
+  left: 850px;
+  top:  125px;"  class="btn btn-danger" href="{{route('descargarPDFPacientes')}}"><svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-cloud-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/>
+  <path fill-rule="evenodd" d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
+</svg> 
+         Descargar Paciente </a>
+</div>
+@endcan
 
 
-<div  class="container" id="dd"><!-- es necesario para que funcione el boton de buscar por nombre
-y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflicto la pantilla de extencion
- ademas se debe incluir la liberia de boostrap y la libreria de datatable en la vista 
- ademas de al final de la pagina el scritp de java y despues el scritp de date table
- para que funcione correctamente-->
- <div class="list-group">
- 
-<table id="datatable" class="table">
-<thead class="table table-striped table-bordered">
-  <tr id="can">
-    <th >Nº</th>
-    <th>Nombre</th>
-    <th>Apellidos</th>
-    <th>Identidad</th>
-    <th>Accion</th>
-  </tr>
+
+
+
+
+
+
+<div class="container" id="tablaprincipal">
+
+<table  class="table table-hover" id="datatable1" >
+  <thead style="background-color:#b3f0ff;">
+    <tr>
+      <th  scope="col" >Nombre</th>
+      <th  scope="col">Identidad</th>
+      <th scope="col">Accion</th>
+    </tr>
   </thead>
   <tbody>
-  <tr>
-      @forelse($pacientes as $paciente)
+  @forelse($pacientes as $paciente)
+    <tr>
      <td>@canany(['isAdmin','isOdontologo','isSecretaria'])
 
-     <a  class="btn btn-outline-info"  href="/pantallainicio/vista/paciente/{{$paciente->id}}/editar"   id="lista">@endcanany<img src='/Imagenes/{{$paciente->imagen}}' width="70px" height="70px" id="datosme">
-     </a></td>
-     <td>{{$paciente->nombres}}</td>
-     <td>{{$paciente->apellidos}}</td>
-     <td>{{$paciente->identidad}}</td>
-     @can('delete', $paciente)
+<a  href="/pantallainicio/vista/paciente/{{$paciente->id}}/editar" >@endcanany<img class="logo" src='/Imagenes/{{$paciente->imagen}}'  width="60px"
+height= "60px" style="border-radius:50%;">
+</a>  {{$paciente->nombres}} {{$paciente->apellidos}} </td>
+
+<td>{{$paciente->identidad}}</td>
+     
     <td>
-      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$paciente->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    @can('create', App\Paciente::class)
+    <a type="button"style="background-color:#ffdb4d; color:#666699; " class="btn btn-danger" href="{{route('paciente.nuevo')}}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+  <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+</svg>
+ </a> @endcan
+
+    <a type="button"style="background-color:#70db70; color:#666699;" class="btn btn-danger" href="/pantallainicio/vista/paciente/{{$paciente->id}}/editar"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
+  <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+  <path d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z"/>
+</svg>
+          </a>
+
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$paciente->id}}"><svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
         </svg>
-          Eliminar
-      </button>
+          
+         </button>
     </td>
-  @endcan
 
-  <!-- Modal -->
+
   <div class="modal fade" id="modal-{{$paciente->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -227,7 +167,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
 </svg> Eliminar Paciente</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <!--<span aria-hidden="true">&times;</span>-->
+                 
                   </button>
               </div>
               <div class="modal-body">
@@ -246,13 +186,20 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
       </div>
   </div>
 
-
-     </tr> 
-     @empty
+  @empty
      <td colspan="5"><h3>¡¡No hay Pacientes Existentes!!</h3></td>
-     @endforelse
-     </tbody>
+  
+    </tr>
+    @endforelse
+    
+
+  
+
+  </tbody>
 </table>
+</div>
+
+ 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <!-- script de jquery para que funcione el buscador de nombre-->
@@ -264,8 +211,19 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 </body>
 
 <script type="text/javascript">
-$(document).ready( function () {
+/*$(document).ready( function () {
     $('#datatable').DataTable( {
+    language: {
+        search: "Busqueda por nombre o identidad:"
+    }
+});
+} ); */
+
+
+
+
+$(document).ready( function () {
+    $('#datatable1').DataTable( {
     language: {
         search: "Busqueda por nombre o identidad:"
     }

@@ -411,7 +411,7 @@
                     </div>
                 </div>
 
-                @can('isAdmin') <a  href="{{route('usuario.actualizar',Auth::user()->id)}}">@endcan<img class="logo1" id="perfil" src='/Imagenes/{{Auth::user()->imagen}}'></a>
+                @can('isAdmin') <a  href="{{route('usuario.actualizar',Auth::user()->id)}}">@endcan<img class="logo" id="perfil" src='/Imagenes/{{Auth::user()->imagen}}'></a>
             </nav>
 
             
