@@ -1,4 +1,4 @@
-@extends('Plantilla.Plantilla')
+@extends('Plantilla.Plantilla2')
 <head>
 @section('Titulo','Datos')
 <style>

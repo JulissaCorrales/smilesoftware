@@ -2,56 +2,101 @@
 
 <style>
 
-    #num1{
-        position: absolute;
-  left: 250px;
-  top: 600px;
-    }
+/* CSS DEL TEXTO H4 DE SMILE*/
+#letrasoftwareh4{
+   
+  
+  font-size: 30px;
+  position: absolute;
+  font-family: "Lucida Handwriting", Cursive;
+  left: 30px;
+  top: 10px;
+ 
+}
+
+/* CSS DEL TEXTO H4 DE SOFTWARE*/
+#letrasoftwareh5{
+   font-size: 30px;
+   position: absolute;
+   left: 70px;
+   top: 55px;
+   font-family: "Lucida Handwriting", Cursive; 
+ }
+
+/* CSS DEL TEXTO H4 DE MEDIA-BODY DEL CARD*/
+#media{
+    height: 100px;
+    text-decoration: overline;
+    color: #cc00cc;
+  text-shadow: 3px 0 #33cccc, 0 3px #33cccc, 3px 0 #33cccc, 0 3px #33cccc;
+  
+}
+
+/* CSS DEL TEXTO H4 DE LOGO DE MEDIA/BODY*/
+#logo1{
+    border-radius: 50%;
+  position: absolute;
+  left: -5px;
+  top:  40px;
+  width: 90px;
+  height: 80px;
+}
 
 
-    
-    #num2{
-        position: absolute;
-  left: 250px;
-  top: 300px;
-    }
 
-    #dos{
+
+#logo4{
+    border-radius: 50%;
+  position: absolute;
+  left: -5px;
+  top:  35px;
+  width: 90px;
+  height: 80px;
+}
+
+/* CSS DEL TEXTO H4 DE LOGO DEl Buscador*/
+#logo2{
   border-radius: 50%;
   position: absolute;
-  left: 50px;
-  top: 0px;
-  width: 50px;
+  left: 110px;
+  top: 5px;
+  width: 40px;
   border-color: #33ccff , 2px;
 }
 
-#num3{
+
+#logo3{
   border-radius: 50%;
- 
- 
-  width: 50px;
+  position: absolute;
+  left: 110px;
+  top: 5px;
+  width: 40px;
+  height: 40px;
   border-color: #33ccff , 2px;
 }
 
-
-#num4{
-    position: absolute;
-  left: 650px;
-  top: -10px;
- 
+/* CSS DEL cuerpo de body*/
+#wrapper1{
+    background-image: linear-gradient(to top, #ffe6ff ,#99e6ff );
 }
 
-#num5{
-    position: absolute;
-  left: 850px;
-  top: -10px;
+/* CSS DE LOS ENLASCE A*/
+#lista1{
+    color: #cc00cc;
 }
 
+/* CSS DEL BOTON DE ADMINISTRACION*/
+#administracion{
+    position: absolute;
+  left: 700px;
+  top: -15px;
+}
 
-#num6{
+/* CSS DEL BOTON DEL PERFIL*/
+#perfil{
   border-radius: 50%;
   position: absolute;
-  left: 1000px;
+  left: 910px;
   top: 1px;
   width: 45px;
   height: 45px;
@@ -59,6 +104,40 @@
 }
 
 
+/* CSS DEL Buscador tama;o*/
+#texto{
+    width: 350px;
+ 
+}
+
+/* CSS DEL navas de Abajo */
+   #footer1{
+       position: absolute;
+  left:0px;
+  top: 700px;
+  width: 1120px;
+ 
+    } 
+
+/* CSS DEL boton de admin-admin */
+    #cerrar{
+    position: absolute;
+  left: 950px;
+  top: -10px;
+}
+
+    #num8{
+        position: absolute;
+  left: 250px;
+  top: 0px;
+    }
+
+
+#num3{
+  border-radius: 50%;
+  width: 50px;
+  border-color: #33ccff , 2px;
+}
 
 
 #buscador{
@@ -69,17 +148,6 @@
   
 }
   
-  
-#texto{
-    width: 350px;
- 
-}
-
-
-
-
-
-
 </style>
 <html lang="en">
 
@@ -156,23 +224,24 @@
 
         Tip 2: you can also add an image using data-image tag
     -->
-         <div class="sidebar-wrapper">
-         
-
-               
+         <div class="sidebar-wrapper"  id="wrapper1">
          <div class="logo">
          <div class="media" >
+    <div class="media-body" id="media">
+    <h4 id="letrasoftwareh4">Smile</h4>
+    <h4 id="letrasoftwareh5">Software</h4>
+    @forelse($logotipos  as $tag)
+    <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" >
+    @empty
 
-    <div class="media-body">
+    <img class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" id="logo1"> 
+    @endforelse 
     </div>
   </div>
-                    <a href="/home" class="simple-text">
-                        Smile Software
-                    </a>
-                </div>
-                <ul class="nav">
+    </div>
+                <ul class="nav" >
                     <li class="nav-item active">
-                        <a class="nav-link" href="/pantallainicio/calendario">
+                        <a class="nav-link" href="/pantallainicio/calendario" id="lista1">
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
             </svg> 
@@ -180,7 +249,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="/pantallainicio/vista">
+                        <a class="nav-link" href="/pantallainicio/vista" id="lista1">
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
         </svg>
@@ -190,16 +259,20 @@
 
 
                     <li>
-                        <a class="nav-link" href="{{route('usuarios.indice')}}">
-                            <i class="nc-icon nc-circle-09"></i>
+                        <a class="nav-link" href="{{route('usuarios.indice')}}" id="lista1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+  <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+</svg>
                             <p>Usuarios</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a class="nav-link" href="{{route('roles.ver')}}">
-                            <i class="nc-icon nc-circle-09"></i>
+                        <a class="nav-link" href="{{route('roles.ver')}}" id="lista1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+  <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+</svg>
                             <p>Roles</p>
                         </a>
                     </li>
@@ -215,10 +288,10 @@
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class="container-fluid">
                 @forelse($logotipos  as $tag)
-    <img style="margin-left:210px; border-radius: 70%; " class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="80px" high="100px" id="dos">
+    <img class="logo" id="logo3" src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image">
     @empty
 
-    <img class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" width="80px" id="dos"> 
+    <img class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" id="logo2"> 
     @endforelse
     <div class="collapse navbar-collapse" id="buscador">
     <form class="form-inline my-2 my-lg-0" id="buscar1"  action="buscar">
@@ -232,17 +305,9 @@
     </form>
   </div> 
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <ul class="nav navbar-nav mr-auto">
-                           
-                            </li>
-                           
-                            <li class="nav-item" id="num4">
-                            
-                            </li>
-                        </ul>
                         <ul class="navbar-nav ml-auto">
                            
-                            <li class="nav-item dropdown" id="num4">
+                            <li class="nav-item dropdown" id="administracion">
                                 <a class="nav-link dropdown-toggle" href="" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Administracion
                                 </a>
@@ -317,7 +382,7 @@
             </li>
           @endif
           @else
-          <li class="nav-item dropdown" id="num5">
+          <li class="nav-item dropdown" id="cerrar">
             <a style="margin-left:7px;background: #43A047;" id="navbarDropdown" class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }} - {{ Auth::user()->roles->isNotEmpty() ? Auth::user()->roles->first()->Nombre : "" }} <span class="caret"></span>
             </a>
@@ -346,7 +411,7 @@
                     </div>
                 </div>
 
-                @can('isAdmin') <a  href="{{route('usuario.actualizar',Auth::user()->id)}}">@endcan<img class="logo1" id="num6" src='/Imagenes/{{Auth::user()->imagen}}'></a>
+                @can('isAdmin') <a  href="{{route('usuario.actualizar',Auth::user()->id)}}">@endcan<img class="logo1" id="perfil" src='/Imagenes/{{Auth::user()->imagen}}'></a>
             </nav>
 
             
@@ -354,30 +419,15 @@
 
             @yield('contenido')
 
-            <div id="num1">
+            <div id="nu">
             
-            <footer class="footer">
+            <footer class="footer" id="footer1">
                 <div class="container-fluid">
-                    <nav>
+                    <nav id="num8">
                         <ul class="footer-menu">
-                            <li>
+                        <li>
                                 <a href="#">
                                     Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Company
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Portfolio
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Blog
                                 </a>
                             </li>
                         </ul>
@@ -386,7 +436,7 @@
                             <script>
                                 document.write(new Date().getFullYear())
                             </script>
-                            <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                            <a href="/">Smile Software</a>, made with love for a better web
                         </p>
                     </nav>
                 </div>
@@ -396,85 +446,7 @@
     </div>
 
     
-    <!--   -->
-    <!-- <div class="fixed-plugin">
-    <div class="dropdown show-dropdown">
-        <a href="#" data-toggle="dropdown">
-            <i class="fa fa-cog fa-2x"> </i>
-        </a>
-
-        <ul class="dropdown-menu">
-			<li class="header-title"> Sidebar Style</li>
-            <li class="adjustments-line">
-                <a href="javascript:void(0)" class="switch-trigger">
-                    <p>Background Image</p>
-                    <label class="switch">
-                        <input type="checkbox" data-toggle="switch" checked="" data-on-color="primary" data-off-color="primary"><span class="toggle"></span>
-                    </label>
-                    <div class="clearfix"></div>
-                </a>
-            </li>
-            <li class="adjustments-line">
-                <a href="javascript:void(0)" class="switch-trigger background-color">
-                    <p>Filters</p>
-                    <div class="pull-right">
-                        <span class="badge filter badge-black" data-color="black"></span>
-                        <span class="badge filter badge-azure" data-color="azure"></span>
-                        <span class="badge filter badge-green" data-color="green"></span>
-                        <span class="badge filter badge-orange" data-color="orange"></span>
-                        <span class="badge filter badge-red" data-color="red"></span>
-                        <span class="badge filter badge-purple active" data-color="purple"></span>
-                    </div>
-                    <div class="clearfix"></div>
-                </a>
-            </li>
-            <li class="header-title">Sidebar Images</li>
-
-            <li class="active">
-                <a class="img-holder switch-trigger" href="javascript:void(0)">
-                    <img src="../assets/img/sidebar-1.jpg" alt="" />
-                </a>
-            </li>
-            <li>
-                <a class="img-holder switch-trigger" href="javascript:void(0)">
-                    <img src="../assets/img/sidebar-3.jpg" alt="" />
-                </a>
-            </li>
-            <li>
-                <a class="img-holder switch-trigger" href="javascript:void(0)">
-                    <img src="..//assets/img/sidebar-4.jpg" alt="" />
-                </a>
-            </li>
-            <li>
-                <a class="img-holder switch-trigger" href="javascript:void(0)">
-                    <img src="../assets/img/sidebar-5.jpg" alt="" />
-                </a>
-            </li>
-
-            <li class="button-container">
-                <div class="">
-                    <a href="http://www.creative-tim.com/product/light-bootstrap-dashboard" target="_blank" class="btn btn-info btn-block btn-fill">Download, it's free!</a>
-                </div>
-            </li>
-
-            <li class="header-title pro-title text-center">Want more components?</li>
-
-            <li class="button-container">
-                <div class="">
-                    <a href="http://www.creative-tim.com/product/light-bootstrap-dashboard-pro" target="_blank" class="btn btn-warning btn-block btn-fill">Get The PRO Version!</a>
-                </div>
-            </li>
-
-            <li class="header-title" id="sharrreTitle">Thank you for sharing!</li>
-
-            <li class="button-container">
-				<button id="twitter" class="btn btn-social btn-outline btn-twitter btn-round sharrre"><i class="fa fa-twitter"></i> · 256</button>
-                <button id="facebook" class="btn btn-social btn-outline btn-facebook btn-round sharrre"><i class="fa fa-facebook-square"></i> · 426</button>
-            </li>
-        </ul>
-    </div>
-</div>
- -->
+   
 </body>
 <!--   Core JS Files   -->
 <script src="../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>

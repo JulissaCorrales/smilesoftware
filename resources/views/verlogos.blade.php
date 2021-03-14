@@ -1,4 +1,4 @@
-@extends('Plantilla.Plantilla')
+@extends('Plantilla.Plantilla2')
 @section('titulo','Nuevo Logotipo')
 @section('contenido')
 @canany(['isAdmin','isSecretaria'])

@@ -1,6 +1,6 @@
 
 
-@extends('Plantilla.Plantilla')
+@extends('Plantilla.Plantilla2')
 @canany(['isAdmin','isSecretaria'])
 <!DOCTYPE html>
 <html lang="en">

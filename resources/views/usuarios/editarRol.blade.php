@@ -1,4 +1,4 @@
-@extends('Plantilla.Plantilla')
+@extends('Plantilla.Plantilla2')
 @section('titulo','Editar Rol de Usuario')
 @section('contenido')
 <!DOCTYPE html>

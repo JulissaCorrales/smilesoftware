@@ -1,6 +1,6 @@
-@extends('Plantilla.Plantilla')
+@extends('Plantilla.Plantilla2')
 @section('titulo','MenuAgenda')
-@section('contenido')
+
 <head>
 
 <style>
@@ -148,8 +148,8 @@
 
 
 </head>
-
-<body id="body">
+@section('contenido')
+<body >
   
 <div class="container"  id="conte" >
 <nav class="navbar navbar-light bg-light"  id="navas" >
@@ -219,7 +219,6 @@
 <div >
 @yield('cuerpo')
 </div>
-
 <!-- ---------------------------------------------- -->
      
 @include('darcita')<!-- esta seccion hace que funcione modal dar cita -->

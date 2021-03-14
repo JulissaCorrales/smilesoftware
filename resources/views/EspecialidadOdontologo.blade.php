@@ -1,4 +1,4 @@
-@extends('Plantilla.Plantilla')
+@extends('Plantilla.Plantilla2')
 @section('titulo','Especialidad Odontologo')
 @section('contenido')
 @canany(['isAdmin','isSecretaria'])
