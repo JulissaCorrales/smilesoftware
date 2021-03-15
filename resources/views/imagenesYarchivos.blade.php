@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Imagenes y archivos</title>
+    @section('titulo','Imagenes y Archivos')
   
     
     <style>
@@ -15,9 +15,14 @@
     font:1em Tahoma;
     margin: 5rem;
     padding: 2rem;
-    border: 2px solid #ccc;
-    background-color: #F5EEF8;
-    border-style: groove;}
+    background-color: #007599;
+    position: absolute;
+  left: 330px;
+  
+  width: 900px;
+  top: 60px;
+   height:500px;
+    }
 
     .vPrincipal{
       border-style: groove;
@@ -25,6 +30,7 @@
   padding: 10px;
   border: 5px solid gray;
   margin: 0;
+  
     }
 
     #upload{
@@ -165,26 +171,36 @@ h1 {
 </head>
 <body>
     @section('cuerpo')
+    <div>
+    <h3 style="text-align: center;
+  padding: 1rem;
+  font-size:30px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff;
+  color:#009ccc; position: absolute;
+  top:60px; width: 900px; left:405px;
+  
+  ">Imagenes y Archivos del Paciente</h3>
+    
+    </div>
  
     <div class="container" id="vPrincipal" class="vPrincipal">
 
         <div div id="titulo" class="card-body d-flex justify-content-between align-items-center">
-          <div class="vPrincipal" style="background-color:#CCFFFF;">
-            <h2>Historial del paciente: {{$pacientes->nombres}}<br>  {{$pacientes->apellidos}}</h2>
+          <div class="vPrincipal" style=" background-color: #e6f9ff;font-size:18px; font-family: Times New Roman, Times, serif;">
+            <h2>Expediente de Imagenes  del Paciente: {{$pacientes->nombres}} {{$pacientes->apellidos}}</h2>
 
             @canany(['isAdmin','isOdontologo'])
-            <button id="upload" onclick="location.href='/pantallainicio/vista/paciente/{{$pacientes->id}}/nuevoarchivo'">
+            <button id="upload" onclick="location.href='/pantallainicio/vista/paciente/{{$pacientes->id}}/nuevoarchivo'" style=" background-color: #c2efc2;font-size:18px; font-family: Times New Roman, Times, serif;">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
                   </svg>
-                subir archivos</button>
+                Subir Archivos</button>
                 @endcanany
                 
               </div>
 
         </div>
-        <div id="content" class="content" style="background-color:#CCFFFF;">
-          <h3>imagenes de radiografias y tomografias y otros</h3>
+        <div id="content" class="content" style=" background-color: #e6f9ff; font-size:18px; font-family: Times New Roman, Times, serif;">
+          <h3>Imagenes de Radiografias,Tomografias y otros</h3>
           
           <ul class="timeline">
             @forelse ($pacientes->archivos as $tag)
@@ -196,7 +212,7 @@ h1 {
               </div>
             </li>
             @empty
-            <p> no hay archivos de historial disponible</p>
+            <p> No hay Archivo en el expendiente</p>
         
             @endforelse
                  
@@ -204,12 +220,36 @@ h1 {
          
         </div>
         
-        
-        
         </div>
-
-
     </div>
+
+    <div class="modal-footer" style="position: absolute;
+  left: 320px;
+  width: 1070px;
+  top: 750px; height:50px;
+  background-color: #e6f9ff;">
+                
+                
+              <a style="position: absolute;
+  left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
+
+              @forelse($logotipos  as $tag)
+    <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%;
+  position: absolute;
+  left: 1005px;
+  top: 0px;
+  width: 40px;
+  border-color: #33ccff , 2px;" >
+    @empty
+
+    <img class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3"  style="border-radius: 50%;
+  position: absolute;
+  left: 1005px;
+  top: 0px;
+  width: 40px;
+  border-color: #33ccff , 2px;"  > 
+    @endforelse 
+              </div>
 
     <script>
 
