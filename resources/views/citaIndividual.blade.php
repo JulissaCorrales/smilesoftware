@@ -1,10 +1,9 @@
 @extends('datosPersonales')
 @section('cuerpo')
 <!DOCTYPE html>
-<html lang="en">
 @section('titulo','Cita Indivual del Paciente')
 <head>
-    <meta charset="UTF-8">
+
      
     
     <style>
