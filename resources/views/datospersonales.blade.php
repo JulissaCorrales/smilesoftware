@@ -29,7 +29,7 @@
   position: static;
   left: 100px;
   top:0px;
-  background-color: #007599;
+  background-color: #c1f0f0;
   
   float:left;
   margin: 0px;
@@ -60,10 +60,11 @@
 }
 #nombre{
   
-  color: #ccf3ff;
+  color: #476b6b;
   text-align: center;
-  font-family:  serif;
+   font-family: "Times New Roman", Times, serif;
   font-size: 35px;
+
 }
 #apellido{
   color: #008B8B;
@@ -143,7 +144,7 @@
 <title>@yield('titulo')</title>
 
 
-<body>
+<body style=" background-color: #e6f9ff;">
 <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
@@ -223,7 +224,7 @@
     <img class="logo" id="logo3" src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image">
     @empty
 
-    <img class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" id="logo2"> 
+    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3" id="logo2"> 
     @endforelse
   <form class="form-inline my-2 my-lg-0" id="buscar1"  action="buscar">
       <input  name="buscarpor"  class="form-control" type="search" placeholder="Buscar Paciente" aria-label="Search"  style="
@@ -240,7 +241,7 @@
     <div class="card"  style="width: 20rem;" id="ventana">
     <img src='/Imagenes/{{$pacientes->imagen}}' width="70px" height="70px"id="datos">
     <div id="">
-      <h2 id="nombre">{{ $pacientes->nombres}} {{ $pacientes->apellidos}}</h2>
+      <h2 id="nombre">{{ $pacientes->nombres}} <br>{{ $pacientes->apellidos}}</h2>
       
       @forelse($pacientes->alertas as $ver)
       <span style="color:red">  <svg xmlns="http://www.w3.org/2000/svg" color="red" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
@@ -256,14 +257,14 @@
     <div class="list-group" style="width: 20rem;">
 
     @canany(['isAdmin','isOdontologo','isSecretaria'])
-  <a  href="/pantallainicio/vista/paciente/{{$pacientes->id}}/editar"class="list-group-item list-group-item-action active" style="background-color:#c2d6d6; font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <a  href="/pantallainicio/vista/paciente/{{$pacientes->id}}/editar"class="list-group-item list-group-item-action active" style="background-color:#32cdcd; font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
             </svg>   Datos Personales</a>
 
             @endcanany
 
             @can('create',App\Archivo::class)
-  <a href="/pantallainicio/vista/paciente/{{ $pacientes->id}}/imagenesArchivos" style="background-color: #e6f9ff;font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;"class="list-group-item list-group-item-action"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-camera-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <a href="/pantallainicio/vista/paciente/{{ $pacientes->id}}/imagenesArchivos" style=" background-color: #e6f9ff;font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;"class="list-group-item list-group-item-action"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-camera-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
               <path fill-rule="evenodd" d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"/>
               </svg>     Imagenes y archivos</a>
@@ -279,14 +280,16 @@
               </svg> Citas</a>
               @endcan
 
-              @canany(['isAdmin','isOdontologo'])
-  <a href="/pantallainicio/vista/paciente/{{ $pacientes->id}}/comentarios" style="background-color: #e6f9ff;font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;"class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          
+              @canany(['isOdontologo','isAdmin'])
+  <a href="/pantallainicio/vista/paciente/{{ $pacientes->id}}/comentarios" style="background-color: #e6f9ff;font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;" class="list-group-item list-group-item-action"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
-              </svg>   Comentarios Administrativos</a>
-              @endcanany
-
+              </svg> Comentarios Administrativos</a>
+              @endcan
+      
+            
               @canany(['isAdmin','isOdontologo'])
-              <a  href=""class="list-group-item list-group-item-action active"  style="background-color: #c2d6d6;font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;
+              <a  href=""class="list-group-item list-group-item-action active"  style="background-color: #32cdcd; font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;
   
   "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
   <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>

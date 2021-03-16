@@ -7,7 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">  
     <style>
     #divtitulo{
-        position: relative;
+        text-align: center;
+  padding: 1rem;
+  font-size:15px; 
+  font-family: Times New Roman, Times, serif; 
+   background-color: #98e6e6;
+  color: #476b6b; 
        
     } 
     #btnuevot{
@@ -30,7 +35,10 @@
     padding: 2rem;
     margin-top: 5rem;
     border: 2px solid #ccc;
-    background-color: #F5EEF8;
+    background-color: #c2efef;
+    position: absolute;
+  left: 360px;
+  top:  60px;
     
     }
     table {

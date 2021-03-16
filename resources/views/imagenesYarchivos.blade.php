@@ -12,10 +12,11 @@
 
 #vPrincipal{
     width:auto;
-    font:1em Tahoma;
+    font-size:15px;
     margin: 5rem;
     padding: 2rem;
-    background-color: #007599;
+    background-color: #c1f0f0;
+  
     position: absolute;
   left: 330px;
   
@@ -30,6 +31,7 @@
   padding: 10px;
   border: 5px solid gray;
   margin: 0;
+  font-size:15px;
   
     }
 
@@ -174,18 +176,21 @@ h1 {
     <div>
     <h3 style="text-align: center;
   padding: 1rem;
-  font-size:30px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff;
-  color:#009ccc; position: absolute;
+  font-size:30px; font-family: Times New Roman, Times, serif;  background-color: #98e6e6;
+  color: #476b6b; position: absolute;
   top:60px; width: 900px; left:405px;
   
-  ">Imagenes y Archivos del Paciente</h3>
+  "><svg width="30" height="30" viewBox="0 0 16 16" class="bi bi-camera-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+              <path fill-rule="evenodd" d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"/>
+              </svg> Imagenes y Archivos del Paciente</h3>
     
     </div>
  
-    <div class="container" id="vPrincipal" class="vPrincipal">
+    <div class="container" id="vPrincipal" class="vPrincipa">
 
         <div div id="titulo" class="card-body d-flex justify-content-between align-items-center">
-          <div class="vPrincipal" style=" background-color: #e6f9ff;font-size:18px; font-family: Times New Roman, Times, serif;">
+          <div class="vPrincipal" style=" background-color: #e6f9ff;font-size:15px; font-family: Times New Roman, Times, serif;">
             <h2>Expediente de Imagenes  del Paciente: {{$pacientes->nombres}} {{$pacientes->apellidos}}</h2>
 
             @canany(['isAdmin','isOdontologo'])
@@ -242,7 +247,7 @@ h1 {
   border-color: #33ccff , 2px;" >
     @empty
 
-    <img class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3"  style="border-radius: 50%;
+    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;
   position: absolute;
   left: 1005px;
   top: 0px;

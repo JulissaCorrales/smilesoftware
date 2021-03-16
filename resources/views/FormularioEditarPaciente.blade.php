@@ -12,16 +12,17 @@
 #titulo{
   text-align: center;
   padding: 1rem;
-  font-size:30px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff;
-  color:#009ccc;
+  font-size:30px; font-family: Times New Roman, Times, serif;  background-color: #98e6e6;
+  color: #476b6b;
 }
 #padre {
   width: 900px; position: absolute;
   left: 400px; 
   top: 50px;
   height:700px;
-  background-color: #007599;
-  border: 2px solid #ccc;
+  background-color: #c1f0f0;
+  
+ 
  
   
 }
@@ -39,7 +40,9 @@
 <body>
   
 <div id="padre"> 
-<h3 id="titulo">Editar Datos Personales</h3>
+<h3 id="titulo"><svg width="30" height="30" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+            </svg> Editar Datos Personales</h3>
   
                     <form method="post" action="{{route('paciente.update',['id'=> $pacientes-> id])}} " file="true" enctype="multipart/form-data"  style="
   
@@ -163,7 +166,7 @@
   border-color: #33ccff , 2px;" >
     @empty
 
-    <img class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3"  style="border-radius: 50%;
+    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;
   position: absolute;
   left: 220px;
   top: 0px;
