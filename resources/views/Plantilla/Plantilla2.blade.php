@@ -440,6 +440,7 @@
               Medios de Pagos 
             </a>
             @endcanany
+            @can('view',App\Laboratorio::class)
             <a class="dropdown-item" href="/pantallainicio/laboratorios">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet-fill" viewBox="0 0 16 16">
                 <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2h-13z"/>
@@ -447,6 +448,7 @@
               </svg>
               laboratorios
             </a>
+            @endcan
            
                             
                             </li>

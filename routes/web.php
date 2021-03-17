@@ -332,7 +332,7 @@ route::get('{id}/pdfcitasindividualesimpresion','PDFController@PDFCitaindividual
 
 //ruta para la vista recaudaciones
 
-route::get('/pantallainicio/vista/paciente/{id}/VistaRecaudacionesD','RecaudacionesController@VistaRecaudacionesD');
+route::get('/pantallainicio/vista/paciente/{id}/VistaRecaudaciones','RecaudacionesController@VistaRecaudacionesD');
 
 
 /*************************rutas de laboratorio*************************************/

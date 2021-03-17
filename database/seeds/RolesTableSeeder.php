@@ -186,6 +186,24 @@ class RolesTableSeeder extends Seeder
         $rolesecretaria->permisos()->sync($permisos_secretaria);
 
         $permiso= Permiso::create([
+            'Permiso'=> 'Descargar Citas',
+            'Slug'=> 'citas.descargar',
+
+        ]);
+
+        $permisos_secretaria[]= $permiso->id;
+        $rolesecretaria->permisos()->sync($permisos_secretaria);
+
+        $permiso= Permiso::create([
+            'Permiso'=> 'Descargar Citas por paciente',
+            'Slug'=> 'citaindividual.descargar',
+
+        ]);
+
+        $permisos_secretaria[]= $permiso->id;
+        $rolesecretaria->permisos()->sync($permisos_secretaria);
+
+        $permiso= Permiso::create([
             'Permiso'=> 'Ver Paciente',
             'Slug'=> 'Paciente.ver',
 
@@ -361,6 +379,16 @@ class RolesTableSeeder extends Seeder
         $permisos_secretaria[]= $permiso->id;
         $rolesecretaria->permisos()->sync($permisos_secretaria);
 
+        
+        $permiso= Permiso::create([
+            'Permiso'=> 'Descargar Inventario',
+            'Slug'=> 'inventario.descargar',
+
+        ]);
+
+        $permisos_secretaria[]= $permiso->id;
+        $rolesecretaria->permisos()->sync($permisos_secretaria);
+
         $permiso= Permiso::create([
             'Permiso'=> 'Crear MediosdePago',
             'Slug'=> 'crear.mediosdepago',
@@ -384,6 +412,42 @@ class RolesTableSeeder extends Seeder
         $permiso= Permiso::create([
             'Permiso'=> 'Eliminar MediosdePago',
             'Slug'=> 'eliminar.mediosdepago',
+
+        ]);
+
+        $permisos_secretaria[]= $permiso->id;
+        $rolesecretaria->permisos()->sync($permisos_secretaria);
+
+        $permiso= Permiso::create([
+            'Permiso'=> 'Ver Laboratorios',
+            'Slug'=> 'ver.laboratorios',
+
+        ]);
+
+        $permisos_secretaria[]= $permiso->id;
+        $rolesecretaria->permisos()->sync($permisos_secretaria);
+
+        $permiso= Permiso::create([
+            'Permiso'=> 'Crear Laboratorios',
+            'Slug'=> 'crear.laboratorios',
+
+        ]);
+
+        $permisos_secretaria[]= $permiso->id;
+        $rolesecretaria->permisos()->sync($permisos_secretaria);
+
+        $permiso= Permiso::create([
+            'Permiso'=> 'Editar Laboratorios',
+            'Slug'=> 'editar.laboratorios',
+
+        ]);
+
+        $permisos_secretaria[]= $permiso->id;
+        $rolesecretaria->permisos()->sync($permisos_secretaria);
+
+        $permiso= Permiso::create([
+            'Permiso'=> 'Eliminar Laboratorios',
+            'Slug'=> 'eliminar.laboratorios',
 
         ]);
 
@@ -502,6 +566,24 @@ class RolesTableSeeder extends Seeder
     $roleodontologo->permisos()->sync($permisos_odontologo);
 
     $permiso= Permiso::create([
+        'Permiso'=> 'Descargar citas ',
+        'Slug'=> 'citas.descargar',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Descargar citas por paciente',
+        'Slug'=> 'citaindividual.descargar',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
         'Permiso'=> 'Ver plan de tratamiento ',
         'Slug'=> 'ver.plandetratamiento',
 
@@ -522,6 +604,15 @@ class RolesTableSeeder extends Seeder
     $permiso= Permiso::create([
         'Permiso'=> 'Borrar plan de tratamiento ',
         'Slug'=> 'borrar.plandetratamiento',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Descargar Factura plan tratamiento',
+        'Slug'=> 'descargar.facturaplan',
 
     ]);
 
@@ -641,8 +732,54 @@ class RolesTableSeeder extends Seeder
     $roleodontologo->permisos()->sync($permisos_odontologo);
 
     $permiso= Permiso::create([
+        'Permiso'=> 'Descargar Inventario ',
+        'Slug'=> 'descargar.inventario',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
         'Permiso'=> 'subir documentos clinicos ',
         'Slug'=> 'subir.documentos',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    
+    $permiso= Permiso::create([
+        'Permiso'=> 'Ver Laboratorios',
+        'Slug'=> 'ver.laboratorios',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Crear Laboratorios',
+        'Slug'=> 'crear.laboratorios',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Editar Laboratorios',
+        'Slug'=> 'editar.laboratorios',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Eliminar Laboratorios',
+        'Slug'=> 'eliminar.laboratorios',
 
     ]);
 

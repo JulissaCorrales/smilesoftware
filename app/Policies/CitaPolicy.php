@@ -107,6 +107,22 @@ class CitaPolicy
         return false;
     }
 
+    public function DescargarCitas(User $user)
+    {
+        if($user->permisos->contains('slug', 'citas.descargar')) {
+            return true;
+        }
+        return false;
+    }
+
+    public function DescargarCitasPorPaciente(User $user)
+    {
+        if($user->permisos->contains('slug', 'citaindividual.descargar')) {
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Determine whether the user can delete the model.
      *
