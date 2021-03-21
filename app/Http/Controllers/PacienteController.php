@@ -190,7 +190,9 @@ class PacienteController extends Controller
             $this->authorize('create',Comentario::class);
             //return "texto de contacto desde el controlador ";
             $pacientes = Paciente::findOrFail($id);
-            return view('comentarios')->with('pacientes',$pacientes);
+            $comentarios=Comentario::all();
+            
+            return view('comentarios')->with('pacientes',$pacientes)->with('comentarios',$comentarios);
         }  
     
          //Guardar Comentario acceso al admin y a la secretaria
@@ -208,6 +210,41 @@ class PacienteController extends Controller
                //return redirect()('/comentarios/{id}');
             } 
         }
+
+
+        //borrar comentario administrativo
+
+        public function destroycomentario($id){
+            $comentarios = Comentario::findOrFail($id);
+        
+            Comentario::destroy($id);
+            return redirect()->back()->with('mensaje','Comentario Administrativo  borrado satisfactoriamente');
+          
+        }
+
+        //funcion para editar comentario
+
+        public function editarcomentario($id){
+            $pacientes = Paciente::findOrFail($id);
+            return view('comentarios')->with('pacientes',$pacientes);
+            }
+
+
+//update comentario administrativo
+            public function updateComentario(Request $_request,$id){
+                $paciente=Paciente::findOrFail($id);
+                $comentario =Comentario::findOrFail($id);
+                $comentario->paciente_id= $id;
+                $comentario->comentarios= $_request->input('caja');
+                $creado= $comentario->save();
+                 if ($creado){
+                    
+                  return redirect()->back()->with('mensaje','Comentario Administrativo ha sido modificado exitosamente');
+        
+                   //return redirect()('/comentarios/{id}');
+                } 
+            }
+
         
        
     

@@ -102,12 +102,14 @@ class CitaController extends Controller
      //funcion para ver cita individual
      //acceso para el admin , odontologo
      public function verCitaIndividual($id){
+       
         $this->authorize('viewIndividual', Cita::class);//si tiene el permiso de ver
             $pacientes = Paciente::findOrFail($id);
             return view('citaIndividual',compact('pacientes'));
          
     
-        }
+        
+    }
 
 
     //funcion para eliminar

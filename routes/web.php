@@ -128,7 +128,13 @@ Route::prefix('pantallainicio/calendario')->group( function(){
              Route::get('{id}/comentarios','PacienteController@comentarios') ->name('comentarios.crear')->middleware('role:admin,secretaria,odontologo');
              //ruta pra guardar comentarios
              Route::post('{id}/comentarios','PacienteController@GuardarComentario')->name('comentario.guardar')->middleware('role:admin,secretaria,odontologo');
+              //editar un comentario
+
+              Route::get('{id}/comentarios/editar','PacienteController@editarcomentario')->name('comentario.editar')->where('id','[0-9]+')->middleware('role:admin,odontologo');
+              Route::put('{id}/comentarios/editar','PacienteController@updatecomentario')->name('comentario.update')->where('id','[0-9]+')->middleware('role:admin,odontologo');
               
+             //ruta para borrar comentario 
+             Route::delete('{id}/borrar/comentario','PacienteController@destroycomentario') ->name('comentario.borrar')->where('id','[0-9]+')->middleware('role:admin,odontologo');
              //ruta de plandetratamiento ver
               Route::get('{id}/plandetratamiento','PlanTratamientoController@ver')->name('tratamiento.ver')->middleware('role:admin,odontologo');
               //ruta de plande tratamiento nuevo
