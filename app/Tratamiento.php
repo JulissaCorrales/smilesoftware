@@ -12,7 +12,7 @@ class Tratamiento extends Model
 }
 public function plantratamientos()
 {
-   return $this->hasMany(Plantratamientos::class,'tratamiento_id','id');/*un tratamiento tiene muchos planes de tratamientos */
+   return $this->hasMany(Plantratamiento::class,'tratamiento_id','id');/*un tratamiento tiene muchos planes de tratamientos */
 }
 
 

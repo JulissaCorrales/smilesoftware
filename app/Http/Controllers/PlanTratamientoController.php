@@ -94,5 +94,54 @@ public function guardar(Request $request,$id){
     }
 
 
+    public function editar($id,$idplantratamiento){
+        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
+
+        $pacientes = Paciente::findOrFail($id);
+        $plantratamientos=Plantratamiento::findOrFail($idplantratamiento);
+        $tratamientos=Tratamiento::All();
+        return view('EditarPlandetratamiento',compact('pacientes','plantratamientos','tratamientos'));
+
+    }else{
+        abort(403);
+    }
+
+    }
+
+
+    public function update(Request $_request,$id , $idplantratamiento){
+        $this->authorize('create', Plantratamiento::class);
+        $_request->validate([
+            'tratamiento_id'=>'required',
+            'estado'=>'required',
+            // 'odontologo_id'=>'required'
+        ]);
+        $plantratamientos=Plantratamiento::findOrFail($idplantratamiento);
+        //formulario
+        $plantratamientos->tratamiento_id = $_request->input('tratamiento_id');
+        $plantratamientos->estado = $_request->input('estado');
+        $plantratamientos->paciente_id = $id;
+        $plantratamientos->cita_id = $_request->input('cita_id');
+        $creado = $plantratamientos->save();
+        if ($creado){
+           
+            $nuevorecaudacion = new Recaudacion();
+            $pacientes = Paciente::findOrFail($id);
+        
+            $nuevorecaudacion->paciente_id = $id;
+            $nuevorecaudacion->plantratamiento_id =  $plantratamientos->id;
+            $nuevorecaudacion->preciototal =$plantratamientos->tratamiento->productos->sum('monto');
+            $nuevorecaudacion->totalpagar =$plantratamientos->tratamiento->productos->sum('monto'); 
+            $creado = $nuevorecaudacion->save();
+              
+              return redirect("/pantallainicio/vista/paciente/$id/plandetratamiento")->with('mensaje', 'El Plan de Tratamiento se ha modificado correctamente!');
+        }else{
+            //retornar con un msj de error
+        }  
+    
+       
+    }
+
+
 
 }

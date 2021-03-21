@@ -135,6 +135,10 @@ Route::prefix('pantallainicio/calendario')->group( function(){
               Route::get('{id}/tratamientonuevo','PlanTratamientoController@Nuevo')->name('tratamiento.nuevo')->middleware('role:admin,odontologo');
               //ruta de guardar tratamiento
               Route::post('{id}/tratamientonuevo','PlanTratamientoController@guardar')->name('tratamiento.guardar')->middleware('role:admin,odontologo');
+              //ruta de editar Plande tratamiento
+              Route::get('{id}/plandetratamiento/{idplantratamiento}/editar','PlanTratamientoController@editar')->name('plantratamiento.editar')->where('id','[0-9]+')->middleware('role:admin,odontologo');
+              Route::put('{id}/plandetratamiento/{idplantratamiento}/editar','PlanTratamientoController@update')->name('plantratamiento.update')->where('id','[0-9]+')->middleware('role:admin,odontologo');
+              
               //ruta de borrar tratamiento
               Route::delete('{id}/borrar','PlanTratamientoController@destroy') ->name('plandetratamiento.borrar')->where('id','[0-9]+')->middleware('role:admin,odontologo');
               //Rutas para la factura de plan de tratamiento
