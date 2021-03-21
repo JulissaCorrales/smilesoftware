@@ -249,7 +249,6 @@ header: {
 left:   'prev,next today',
 center: 'title',
 right:  '',
-locale: 'es',
 //initialView: 'basicWeek'
 
 },
