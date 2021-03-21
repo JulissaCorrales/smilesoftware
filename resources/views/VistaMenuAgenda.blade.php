@@ -86,9 +86,8 @@
     height: 70px;
     border-radius: 12px;
     background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff); 
-    position: absolute;
-    top:250px;
-    left: 380px;
+    left: 280px;
+    top:20px;
     
     
     
@@ -110,12 +109,11 @@
   }
 
   #control{
-    width: 100px;
-    height: 40px;
+    width: auto;
+    height: auto;
     border-radius: 12px;
      /*background-image: linear-gradient(to bottom,  #ccffff ,#ff9933); */
     position: absolute;
-    top: 10px;
     left: 480px;
     
 
@@ -218,7 +216,7 @@
 </div>
 
 <div style="position:static;"  id='hijo'>
-<div >
+<div class="container">
 @yield('cuerpo')
 </div>
 <!-- ---------------------------------------------- -->
