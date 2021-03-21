@@ -99,6 +99,16 @@ class InventarioPolicy
         return false;
     }
 
+    public function descargarinventarios(User $user)
+    {
+        if($user->permisos->contains('slug', 'descargar.inventario')) {
+            return true;
+        }elseif($user->permisos->contains('slug', 'inventario.descargar')) {
+            return true;
+        } 
+        return false;
+    }
+
     /**
      * Determine whether the user can restore the model.
      *

@@ -25,12 +25,13 @@ public function PDFPacientes(){
     return $pdf->download('pacientes.pdf');
 }
 public function PDFInventarios(){
-    //$this->authorize('descargarPacientes', Paciente::class);
+    $this->authorize('descargarinventarios', Inventario::class);
     $inventarios = Inventario::all();
     $pdf = PDF::loadView('inventarios_pdf',compact('inventarios'));
     return $pdf->download('inventarios_pdf.pdf');
 }
 public function PDFCitas(){
+    $this->authorize('DescargarCitas', Cita::class);
     $citas = Cita::all();
     $pdf = PDF::loadView('citas_pdf',compact('citas'));
     return $pdf->download('citas_pdf.pdf');
@@ -38,6 +39,8 @@ public function PDFCitas(){
 
 /* Factura */
 public function PDFfacturaplantratamiento($id,$id2){
+    $this->authorize('descargarfacturaplantratamiento', Plantratamiento::class);
+
     $pacientes = Paciente::findOrFail($id);
     $plantratamientos = Plantratamiento::findOrFail($id2);
     $totalpagar= $plantratamientos->tratamiento->productos->sum('monto'); 
@@ -46,6 +49,7 @@ public function PDFfacturaplantratamiento($id,$id2){
     }
 /* Citas individuales */
 public function PDFCitaindividual($id){
+    $this->authorize('DescargarCitasPorPaciente', Cita::class);
     $pacientes = Paciente::findOrFail($id);
     $pdf = PDF::loadView('citaindividual_pdf',compact('pacientes','citas'));
     return $pdf->download('citaindividual_pdf.pdf');

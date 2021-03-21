@@ -8,16 +8,18 @@ use Illuminate\Http\Request;
 class laboratorioController extends Controller
 {
     public function VistaLaboratorio(){
-        
+        $this->authorize('view',Laboratorio::class);
         $laboratorios=Laboratorio::All();
         return view('VistaLaboratorio')->with ('laboratorios',$laboratorios);
     }
 
     public function nuevo(){
+        $this->authorize('create',Laboratorio::class);
         return view('LaboratorioNuevo');
     }
 
     public function guardar(Request $request){
+        $this->authorize('create',Laboratorio::class);
         $request->validate([
             'nombreLaboratorio'         =>  'required',
             'detalle'         =>  'required',
@@ -41,6 +43,7 @@ class laboratorioController extends Controller
     public function editar($id){  
    
         $labs=Laboratorio::findOrFail($id);
+        $this->authorize('update', $labs);/* si tiene el permiso de editar */
         return view('EditarLaboratorio')->with('labs',$labs);
     
     }
@@ -57,6 +60,7 @@ class laboratorioController extends Controller
         ]);
     
         $labs=Laboratorio::findOrFail($id);
+        $this->authorize('update', $labs);/* si tiene el permiso de editar: */
         $labs->nombreLaboratorio = $request->input('nombreLaboratorio');
         $labs->detalle = $request->input('detalle');
         $labs->porPagar = $request->input('porPagar');
@@ -73,7 +77,10 @@ class laboratorioController extends Controller
     }
 
     public function destroy($id){
+        $labs=Laboratorio::findOrFail($id);
+        $this->authorize('delete', $labs);/* si tiene el permiso de eliminar */
         Laboratorio::destroy($id);
+       
         return redirect()->back()->with('mensaje','laboratorio borrado satisfactoriamente');
     
     }

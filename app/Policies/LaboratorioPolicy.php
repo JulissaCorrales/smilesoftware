@@ -2,15 +2,16 @@
 
 namespace App\Policies;
 
-use App\Plantratamiento;
+use App\Laboratorio;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PlanTratamientoPolicy
+class LaboratorioPolicy
 {
     use HandlesAuthorization;
 
-       /**
+    
+    /**
      * Undocumented function
      *
      * @param [type] $user
@@ -39,14 +40,16 @@ class PlanTratamientoPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Plantratamiento  $plantratamiento
+     * @param  \App\Laboratorio  $laboratorio
      * @return mixed
      */
     public function view(User $user)
     {
-        if($user->permisos->contains('slug', 'ver.plandetratamiento')) {
+        if($user->permisos->contains('slug', 'ver.laboratorios')) {
             return true;
-        }
+        }elseif($user->permisos->contains('slug', 'crear.laboratorios')) {
+            return true;
+        } 
         return false;
     }
 
@@ -58,7 +61,7 @@ class PlanTratamientoPolicy
      */
     public function create(User $user)
     {
-        if($user->permisos->contains('slug', 'crear.plandetratamiento')) {
+        if($user->permisos->contains('slug', 'crear.laboratorios')) {
             return true;
         }
         return false;
@@ -68,47 +71,40 @@ class PlanTratamientoPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Plantratamiento  $plantratamiento
+     * @param  \App\Laboratorio  $laboratorio
      * @return mixed
      */
-    public function update(User $user, Plantratamiento $plantratamiento)
+    public function update(User $user, Laboratorio $laboratorio)
     {
-        //
+        if($user->permisos->contains('slug', 'editar.laboratorios')) {
+            return true;
+        }
+        return false;
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Plantratamiento  $plantratamiento
+     * @param  \App\Laboratorio  $laboratorio
      * @return mixed
      */
-    public function delete(User $user, Plantratamiento $plantratamiento)
+    public function delete(User $user, Laboratorio $laboratorio)
     {
-        if($user->permisos->contains('slug', 'borrar.plandetratamiento')) {
+        if($user->permisos->contains('slug', 'eliminar.laboratorios')) {
             return true;
         }
         return false;
     }
-
-
-    public function descargarfacturaplantratamiento(User $user)
-    {
-        if($user->permisos->contains('slug', 'descargar.facturaplan')) {
-            return true;
-        }
-        return false;
-    }
-
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Plantratamiento  $plantratamiento
+     * @param  \App\Laboratorio  $laboratorio
      * @return mixed
      */
-    public function restore(User $user, Plantratamiento $plantratamiento)
+    public function restore(User $user, Laboratorio $laboratorio)
     {
         //
     }
@@ -117,10 +113,10 @@ class PlanTratamientoPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Plantratamiento  $plantratamiento
+     * @param  \App\Laboratorio  $laboratorio
      * @return mixed
      */
-    public function forceDelete(User $user, Plantratamiento $plantratamiento)
+    public function forceDelete(User $user, Laboratorio $laboratorio)
     {
         //
     }
