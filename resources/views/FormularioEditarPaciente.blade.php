@@ -158,20 +158,21 @@
   left: 50px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
 
               @forelse($logotipos  as $tag)
-    <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%;
+    <img  class="logo" src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%;
   position: absolute;
   left: 220px;
-  top: 0px;
+  top: 5px;
   width: 40px;
-  border-color: #33ccff , 2px;" >
+  height: 40px;
+  border-color: #33ccff;" >
     @empty
 
     <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;
   position: absolute;
   left: 220px;
-  top: 0px;
+  top: 5px;
   width: 40px;
-  border-color: #33ccff , 2px;"  > 
+  border-color: #33ccff ,   height: 40px;" > 
     @endforelse 
                 <button  style="position: absolute;
   left: 630px; font-size:18px; font-family: Times New Roman, Times, serif; "type="button" onclick="location.href='/pantallainicio/vista'" class="btn btn-secondary" data-dismiss="modal" >Atrás</button>

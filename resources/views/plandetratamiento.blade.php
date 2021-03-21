@@ -11,14 +11,14 @@
   padding: 1rem;
   font-size:15px; 
   font-family: Times New Roman, Times, serif; 
-   background-color: #98e6e6;
   color: #476b6b; 
+  background-color:#aeeaea;
        
     } 
     #btnuevot{
        
         font: 700 1em Tahoma, Arial, Verdana, sans-serif;
-        color: black; background-color: #58D68D ;
+        color: black; background-color: #00cc00;
         border: 1px solid #0074a5;
         border-top: 1px solid #004370;
         border-left: 1px solid #004370;
@@ -29,13 +29,13 @@
         
     }
     #padre{
-    width:auto;
+    width:900px;
     font:1em Tahoma;
     margin: 2rem;
     padding: 2rem;
     margin-top: 5rem;
-    border: 2px solid #ccc;
-    background-color: #c2efef;
+    
+    
     position: absolute;
   left: 360px;
   top:  60px;
@@ -43,8 +43,11 @@
     }
     table {
     margin:-15px;
-    width:auto;
-     height:20px;
+    width:900px;;
+     height:100px;
+     position: absolute;
+  left: 20px;
+  top:  200px;
 
     }
     table, th, td {
@@ -63,7 +66,7 @@
     background-color: #fff;
     }
     #t01 th {
-    background-color:  #85C1E9;
+    background-color: #4acfcf;
     color: black;
     text-align:center;
     }
@@ -107,7 +110,7 @@
                               <th>Dentista</th>
                               <th>Estado</th>
                               <!-- <th>Paciente</th> -->
-                              <th>Fecha y Hora de Cita</th>
+                              <th>Fecha/ Hora de Cita</th>
                               <th colspan="2">Acción</th>
                               
                                 
@@ -223,6 +226,33 @@
             </tbody>
             </table>             
 </div>
+<div class="modal-footer" style="position: absolute;
+  left: 320px;
+  width: 1070px;
+  top: 750px; height:50px;
+  background-color: #e6f9ff;">
+                
+                
+              <a style="position: absolute;
+  left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
+
+              @forelse($logotipos  as $tag)
+    <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%;
+  position: absolute;
+  left: 1005px;
+  top: 5px;
+  width: 40px;
+  border-color: #33ccff , 2px;   height: 40px;" >
+    @empty
+
+    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;
+  position: absolute;
+  left: 1005px;
+  top: 5px;
+  width: 40px;
+  border-color: #33ccff , 2px;   height: 40px;"  > 
+    @endforelse 
+              </div>
 </div>
 </body>
 </html>

@@ -67,14 +67,14 @@ body {
   font-size: 16px;
 }
 strong {
-  font-weight: 600;
+  font-weight: 500;
 }
 h1 {
   font-family: "Oswald", sans-serif;
   letter-spacing: 1.5px;
   color: #333333;
   font-weight: 100;
-  font-size: 2.4em;
+  font-size: 20px;
 }
 #content {
   margin-top: 50px;
@@ -189,9 +189,9 @@ h1 {
  
     <div class="container" id="vPrincipal" class="vPrincipa">
 
-        <div div id="titulo" class="card-body d-flex justify-content-between align-items-center">
+        <div  id="titulo" class="card-body d-flex justify-content-between align-items-center" style="font-size:15px;">
           <div class="vPrincipal" style=" background-color: #e6f9ff;font-size:15px; font-family: Times New Roman, Times, serif;">
-            <h2>Expediente de Imagenes  del Paciente: {{$pacientes->nombres}} {{$pacientes->apellidos}}</h2>
+            <h2 style="font-size:20px;">Expediente de Imagenes  del Paciente: {{$pacientes->nombres}} {{$pacientes->apellidos}}</h2>
 
             @canany(['isAdmin','isOdontologo'])
             <button id="upload" onclick="location.href='/pantallainicio/vista/paciente/{{$pacientes->id}}/nuevoarchivo'" style=" background-color: #c2efc2;font-size:18px; font-family: Times New Roman, Times, serif;">
@@ -242,17 +242,17 @@ h1 {
     <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%;
   position: absolute;
   left: 1005px;
-  top: 0px;
+  top: 5px;
   width: 40px;
-  border-color: #33ccff , 2px;" >
+  border-color: #33ccff;height: 40px;" >
     @empty
 
     <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;
   position: absolute;
   left: 1005px;
-  top: 0px;
+  top: 5px;
   width: 40px;
-  border-color: #33ccff , 2px;"  > 
+  border-color: #33ccff; height: 40px;"  > 
     @endforelse 
               </div>
 

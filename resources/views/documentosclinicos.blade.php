@@ -1,11 +1,12 @@
 @extends('datospersonales')
+@section('titulo','Documentos Clinicos')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Documentos clinicos</title>
+    
   
     
     <style>
@@ -16,7 +17,13 @@
     margin: 5rem;
     padding: 2rem;
     border: 2px solid #ccc;
-    background-color: #F5EEF8;}
+    background-color: #F5EEF8;
+
+    position: absolute;
+  top:60px; width: 900px; left:405px;
+    
+    
+    }
 
     table {
     width:auto;

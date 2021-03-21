@@ -6,25 +6,16 @@
 
 <style>
 #datatable2{
-  width: 900px;
+  width: 700px;
   height: 60px;
   
   position: absolute;
-    left:450px;
-    top: 500px;
+    left:500px;
+    top: 250px;
 
  }
 
 
- #datatable3{
-  width: 500px;
-  height: 60px;
-  
-  position: absolute;
-    left:900px;
-    top: 500px;
-
- }
 
  td{
    
@@ -46,31 +37,7 @@
   
  }
 
- #dis1{
 
-  width: 940px;
-  height: 50px;
-    border-radius: 12px;
-    background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff);
-    position: absolute;
-    top:20px;
-    left:0px;
-  
-
- }
-
- #dis2{
-  width: 940px;
-  height: 50px;
-    border-radius: 12px;
-    background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff);
-    position: absolute;
-    top:80px;
-    left:0px;
-
-
-
- }
 
  #evolucion{
 
@@ -79,8 +46,8 @@
     border-radius: 12px;
     background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff);
     position: absolute;
-    top:1px;
-    left:350px;
+    top: 190px;
+    left:990px;
 
  }
 
@@ -99,21 +66,22 @@
     @endif
 <div class="container">
 
-    <nav class="navbar navbar-light bg-light" id="na2a2">
-    <div id="dis1">
-  <h1 id="dire1"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-receipt-cutoff" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v13h-1V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51L2 2.118V15H1V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zM0 15.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
-  <path fill-rule="evenodd" d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-8a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z"/>
-</svg>Evoluciones</h1>
-
-
-</div>
-
-
+  
   <!--Menu desplegable  -->
 
 
-  <div id="dis2" >
+  <div id="" >
+  <h3 style="text-align: center;
+  padding: 1rem;
+  font-size:30px; font-family: Times New Roman, Times, serif;  background-color: #98e6e6;
+  color: #476b6b; position: absolute;
+  top:60px; width: 700px; left:500px;
+  
+  "><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-clockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+               </svg> 
+               Evoluciones Medicas del Paciente</h3>
   @can('create',App\Evoluciones::class)
     <button  id="evolucion" type="button"  class="btn btn-outline-info" onclick="location.href='/pantallainicio/vista/paciente/{{ $pacientes->id}}/evolucion/nueva'"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -121,38 +89,25 @@
 </svg> Nueva Evolucion </button>
    @endcan 
   </div>
-</nav>
-</div>
 
-<table id="datatable2">
-            <thead>
-            <tr>
-                            
-                             
-                                                    
-            </tr>
-            </thead>
+
+
+<table id="datatable2" class="table table-hover">
+          <thead>
+
+          <th>Evoluciones Medicas</th>
+          <th>Accion</th>
+          </thead>
             <tbody>               
             <tr>
-             <!--  <td>
-                   @forelse ($pacientes->planestratamientos as $tag) 
-                    <p>{{ $tag->id}}</p>
-                    Plan de tratamiento: {{ $tag->tratamiento->categoria}}
-                  
-                    <hr>      
-                    @empty
-                    vacio
-                    @endforelse 
-
-                  
-                </td> -->
-
-               
+         
                 <td>  
                 @forelse ($pacientes->evoluciones as $tag)
-                PlanTratamiento: {{ $tag->planestratamiento->tratamiento->categoria}} <br>
+                
+               <h1> PlanTratamiento: {{ $tag->planestratamiento->tratamiento->categoria}} <br>
                 Paciente:{{$pacientes->nombres}}  {{$pacientes->apellidos}} <br>
-               {{ $tag->evolucion}}
+               {{ $tag->evolucion}} 
+               </h1>
               
           
 
@@ -162,23 +117,47 @@
                  No tiene ninguna Evolucion
                  @endforelse
                  
-
-               
-                  
                     
                 </td>
 
-  
- 
-  
+                <td>
+                </td>
 
   
+ </tr>
     
-  </div>
-
-     
      </tbody>
 </table>
+
+<div class="modal-footer" style="position: absolute;
+  left: 320px;
+  width: 1070px;
+  top: 750px; height:50px;
+  background-color: #e6f9ff;">
+                
+                
+              <a style="position: absolute;
+  left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
+
+              @forelse($logotipos  as $tag)
+    <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%;
+  position: absolute;
+  left: 1005px;
+  top: 0px;
+  width: 40px;
+  border-color: #33ccff , 2px;   height: 40px;" >
+    @empty
+
+    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;
+  position: absolute;
+  left: 1005px;
+  top: 0px;
+  width: 40px;
+  border-color: #33ccff , 2px;   height: 40px;"  > 
+    @endforelse 
+              </div>
+
+</div>
 
 
 

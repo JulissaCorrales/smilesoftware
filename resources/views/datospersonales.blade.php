@@ -144,12 +144,13 @@
 <title>@yield('titulo')</title>
 
 
-<body style=" background-color: #e6f9ff;">
+<head>
 <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     <meta name="generator" content="Jekyll v4.0.1">
     <title>@yield('titulo')</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -208,33 +209,86 @@
     <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
     <meta name="theme-color" content="#563d7c">
 
+    </head>
+    
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoftBy2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 
+<body style=" background-color: #e6f9ff;">
     <nav class="navbar navbar-light bg-light" style="position: absolute;
   left: 320px;
   top: 0px;
   width: 1070px; height: 50px; background-color: #e6f9ff; " >
+
+
+  <div class="navbar" style="position: absolute;
+  
+  left: 700px;
+  top: 5px;">
+           <div class="navbar-inner">
+               <div class="container">
+                   <ul class="nav">
+                       <li class="dropdown" >
+                           <a class="dropdown-toggle" data-toggle="dropdown" href="#">MenuPrincipal<b class="caret"></b></a>
+                           <ul class="dropdown-menu">
+                               <li><a href="#">Agenda</a></li>
+                              
+                               <li><a href="#">Paciente</a></li>
+                               <li><a href="#">Roles</a></li>
+                               <li><a href="#">Usuarios</a></li>
+                              
+                           </ul>
+                       </li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+</div>
+<script type="text/javascript" src="js/jquery-latest.js"></script>
+       <script type="text/javascript" src="js/bootstrap.js"></script>
+       <script type="text/javascript">
+           $(document).ready(function () {
+               $('.dropdown-toggle').dropdown();
+           });
+      </script>
+
+
+
+
+
   <div class="container-fluid" >
   
                 @forelse($logotipos  as $tag)
-    <img class="logo" id="logo3" src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image">
+    <img class="logo" src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%;
+  position: absolute;
+  left: 150px;
+  top: 5px;
+  width: 40px;
+  border-color: #33ccff , 2px;   height: 40px;" >
     @empty
 
-    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3" id="logo2"> 
+    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3" style="border-radius: 50%;
+  position: absolute;
+  left: 150px;
+  top: 5px;
+  width: 40px;
+  border-color: #33ccff , 2px;   height: 40px;" > 
     @endforelse
   <form class="form-inline my-2 my-lg-0" id="buscar1"  action="buscar">
       <input  name="buscarpor"  class="form-control" type="search" placeholder="Buscar Paciente" aria-label="Search"  style="
   
   width: 400px; position: absolute;
-  left: 600px; top: 5px; "  >
+  left: 190px; top: 5px; "  >
 
       
     </form>
   </div>
+
+ 
 </nav>
 
 
@@ -351,6 +405,7 @@
 
 
 </div>
+
 
 
 

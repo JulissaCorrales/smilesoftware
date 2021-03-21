@@ -96,17 +96,17 @@
     <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%;
   position: absolute;
   left: 1005px;
-  top: 0px;
+  top: 5px;
   width: 40px;
-  border-color: #33ccff , 2px;" >
+  border-color: #33ccff;  height: 40px;" >
     @empty
 
     <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;
   position: absolute;
   left: 1005px;
-  top: 0px;
+  top: 5px;
   width: 40px;
-  border-color: #33ccff , 2px;"  > 
+  border-color: #33ccff;   height: 40px;"  > 
     @endforelse 
               </div>
 </div>
