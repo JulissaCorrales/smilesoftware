@@ -20,7 +20,11 @@
     background-color: #32cdcd;
 
     position: absolute;
+<<<<<<< HEAD
   top:50px; width: 920px; left:340px;
+=======
+  /* top:60px; width: 900px; left:405px; */
+>>>>>>> 320de69ca809e8dfad738635c0c607b50d7a5e23
     
     
     }
@@ -204,7 +208,7 @@
 
                 <a target="_blank" href="/documento/{{$tag->imagen1}}" >Vista para PDF o descargar archivo word, excel</a>
                 
-                <button onclick="location.href=''" style="border-style: solid;
+                <button onclick="location.href='{{route('documento.editar',['id'=>$pacientes->id,'iddocumento'=>$tag->id])}}'"  style="border-style: solid;
                   border-color:#00cc99; background-color:white; color:#00cc99;
                     " class="btn btn-secondary">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
@@ -235,7 +239,7 @@
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <form method="post" action="">
+              <form method="post" action="{{route('documento.borrar',['id'=>$tag->id])}}">
 
                   @csrf
                   @method('delete')
