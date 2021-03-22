@@ -701,7 +701,7 @@ for($i=1; $i <= 1; $i++) {?>
 
   <tbody>
   <tr id="tr1">
-  <th id="horaini">Hora Inicio</th>
+  <th id="horaini">Hora de Inicio</th>
 
  <td><select name="horainicio" class="form-control" value="Lunes" id="selecinicio">
                     <option >8:00 a.m</option>
