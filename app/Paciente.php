@@ -38,6 +38,7 @@ public function citas(){
 }
 
 
+
 public function evoluciones(){
    return $this->hasMany(Evoluciones::class,'paciente_id','id'); //*un paciente tiene muchas citas */
 }
