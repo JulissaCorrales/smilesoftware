@@ -43,9 +43,8 @@ class ComentarioPolicy
      * @param  \App\Comentario  $comentario
      * @return mixed
      */
-    public function view(User $user, Comentario $comentario)
+    public function view(User $user)
     {
-        //
     }
 
     /**
@@ -71,7 +70,10 @@ class ComentarioPolicy
      */
     public function update(User $user, Comentario $comentario)
     {
-        //
+        if($user->permisos->contains('slug', 'comentarios.editar')) {
+            return true;
+        } 
+        return false;
     }
 
     /**
@@ -83,7 +85,10 @@ class ComentarioPolicy
      */
     public function delete(User $user, Comentario $comentario)
     {
-        //
+        if($user->permisos->contains('slug', 'comentarios.eliminar')) {
+            return true;
+        } 
+        return false;
     }
 
     /**

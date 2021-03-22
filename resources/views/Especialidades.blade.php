@@ -64,22 +64,22 @@ text-align: center;
  }
 
  #na2{
-  width: 1300px;
+  width: auto;
   height: 900px;
     border-radius: 12px;
     background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff);
-    position: absolute;
-    top:220px;
-    left:40px;
+    position: relative;
+    top:2em;
+    /* left:40px; */
   
     
     
  }
 
 #dd{
-  position: absolute;
-    top:400px;
-    left:150px;
+  position: relative;
+    /* top:400px;
+    left:150px; */
 
 
 }
@@ -206,10 +206,11 @@ td{
   font-family: "Times New Roman";
   text-align: center;
   font-size: 15px;
-  width: 200px;
-  height: 50px;
+  width: auto;
+  height: auto;
   background-color: #d6f5d6;
   color:#cc6600;
+ 
   
 
   
@@ -239,9 +240,9 @@ td{
   font-family: "Times New Roman";
   text-align: center;
   font-size: 30px;
-  position: absolute;
-            top: 20px;
-            left:900px;
+  position: relative;
+  top: -0.4em;
+            left:790px;
             width: 200px;
 }
 
@@ -251,9 +252,9 @@ td{
   font-family: "Times New Roman";
   text-align: center;
   font-size: 30px;
-  position: absolute;
-            top: 240px;
-            left: 700px;
+  position: relative;
+            top: -0.8em;
+            left: 600px;
             width: 300px;
 
 }
@@ -272,11 +273,11 @@ td{
 
 #a3{
  
-            width: 100px;
-            background-color: #47d147;
-            font-family: "Times New Roman";
-  text-align: center;
-  font-size: 15px;
+width: auto;
+background-color: #47d147;
+font-family: "Times New Roman";
+text-align: center;
+font-size: 15px;
 
 }
 
@@ -346,10 +347,10 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
       <th  id="thh2" colspan="2">
       
       @can('create',App\Especialidad::class)
-      <a id="a3" class="btn btn-outline-info" type="button" data-toggle="modal" data-target="#modall"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <button id="a3" class="btn btn-outline-info" type="button" data-toggle="modal" data-target="#modall"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
   <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-</svg>Especialidad</a>
+</svg>Especialidad</button>
 @endcan
 </th>
       </div>

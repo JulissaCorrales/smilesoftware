@@ -14,7 +14,7 @@ class RecaudacionesController extends Controller
     }
 
     public function VistaRecaudacionesD($id){
-        
+        $this->authorize('view', Recaudacion::class);
         $pacientes = Paciente::findOrFail($id);
         return view('vistaPrincipalRecaudaciones',compact('pacientes'));
     }

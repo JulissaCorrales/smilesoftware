@@ -95,28 +95,27 @@ public function guardar(Request $request,$id){
 
 
     public function editar($id,$idplantratamiento){
-        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
-
+       
         $pacientes = Paciente::findOrFail($id);
         $plantratamientos=Plantratamiento::findOrFail($idplantratamiento);
+        $this->authorize('update',$plantratamientos);
+        
         $tratamientos=Tratamiento::All();
         return view('EditarPlandetratamiento',compact('pacientes','plantratamientos','tratamientos'));
 
-    }else{
-        abort(403);
-    }
-
+ 
     }
 
 
     public function update(Request $_request,$id , $idplantratamiento){
-        $this->authorize('create', Plantratamiento::class);
+        
         $_request->validate([
             'tratamiento_id'=>'required',
             'estado'=>'required',
             // 'odontologo_id'=>'required'
         ]);
         $plantratamientos=Plantratamiento::findOrFail($idplantratamiento);
+        $this->authorize('update',$plantratamientos);
         //formulario
         $plantratamientos->tratamiento_id = $_request->input('tratamiento_id');
         $plantratamientos->estado = $_request->input('estado');

@@ -56,19 +56,20 @@ class ArchivoController extends Controller
 
 
     public function borrar($id){
-        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
-        
+        $imagen=Archivo::findOrFail($id);
+        $this->authorize('delete',$imagen);
+
         Archivo::destroy($id);
         return redirect()->back()->with('mensaje','archivo borrado satisfactoriamente');
 
-    }else{
-        abort(403);
-    }
+
     }
 
     public function editar($id , $idarchivo){  
-         $pacientes=Paciente::findOrFail($id);
+        $pacientes=Paciente::findOrFail($id);
         $imagen=Archivo::findOrFail($idarchivo);
+        $this->authorize('update',$imagen);
+        
         return view('editararchivo')->with('imagen',$imagen)->with('pacientes',$pacientes);
     
     }
@@ -89,6 +90,7 @@ class ArchivoController extends Controller
 
         $pacientes=Paciente::findOrFail($id);
         $imagenes=Archivo::findOrFail($idarchivo);
+        $this->authorize('update',$imagenes);
         $imagenes->paciente_id=$id;
         $imagenes->fecha = Carbon::now();
         $imagenes->imagen= $image;

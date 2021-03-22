@@ -338,8 +338,8 @@
               @endcanany
 
           
-              @canany(['isOdontologo','isAdmin'])
-  <a href="/pantallainicio/vista/paciente/{{ $pacientes->id}}/comentarios" style="background-color: #e6f9ff;font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;" class="list-group-item list-group-item-action"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              @can('create',App\Comentario::class)
+             <a href="/pantallainicio/vista/paciente/{{ $pacientes->id}}/comentarios" style="background-color: #e6f9ff;font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;" class="list-group-item list-group-item-action"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
               </svg> Comentarios Administrativos</a>
               @endcan
@@ -372,12 +372,13 @@
               <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm7 2l.5-2.5 3 3L10 5a1 1 0 0 1-1-1zM7 6.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm-.861 1.542l1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V9.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V9s1.54-1.274 1.639-1.208zM5 11a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
               </svg>  Documentos Clinicos</a>
               @endcan
-              
+              @endcanany
+              @can('view',App\Recaudacion::class)
   <a href="/pantallainicio/vista/paciente/{{$pacientes->id}}/VistaRecaudaciones"  style="background-color: #e6f9ff;font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;"class="list-group-item list-group-item-action"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                 </svg>  Recaudacion</a>
-
-                @endcanany
+              @endcan
+               
 
                 @can('create',App\Alerta::class)
                 <a href="/pantallainicio/{{$pacientes->id}}/alertas" style="background-color: #e6f9ff;font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;" class="list-group-item list-group-item-action"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">

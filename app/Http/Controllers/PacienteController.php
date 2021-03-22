@@ -217,7 +217,7 @@ class PacienteController extends Controller
 
         public function destroycomentario($id){
             $comentarios = Comentario::findOrFail($id);
-        
+            $this->authorize('delete', $comentarios);
             Comentario::destroy($id);
             return redirect()->back()->with('mensaje','Comentario Administrativo  borrado satisfactoriamente');
           
@@ -225,16 +225,21 @@ class PacienteController extends Controller
 
         //funcion para editar comentario
 
-        public function editarcomentario($id){
+        public function editarcomentario($id,$id2){
             $pacientes = Paciente::findOrFail($id);
+            $comentario =Comentario::findOrFail($id2);
+            $this->authorize('update', $comentario);
+
             return view('comentarios')->with('pacientes',$pacientes);
             }
 
 
 //update comentario administrativo
-            public function updateComentario(Request $_request,$id){
+            public function updateComentario(Request $_request,$id,$id2){
                 $paciente=Paciente::findOrFail($id);
-                $comentario =Comentario::findOrFail($id);
+                $comentario =Comentario::findOrFail($id2);
+                $this->authorize('update', $comentario);
+                
                 $comentario->paciente_id= $id;
                 $comentario->comentarios= $_request->input('caja');
                 $creado= $comentario->save();

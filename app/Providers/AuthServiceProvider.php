@@ -32,6 +32,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\EspecialidadOdontologos' => 'App\Policies\EspecialidadOdontologoPolicy',
         'App\Alerta' => 'App\Policies\AlertaPolicy',
         'App\Laboratorio' => 'App\Policies\LaboratorioPolicy',
+        'App\Recaudacion' => 'App\Policies\RecaudacionPolicy',
     ];
 
     /**

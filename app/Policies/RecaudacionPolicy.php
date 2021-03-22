@@ -2,22 +2,14 @@
 
 namespace App\Policies;
 
-use App\Archivo;
+use App\Recaudacion;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ArchivoPolicy
+class RecaudacionPolicy
 {
     use HandlesAuthorization;
-
-
-        /**
-     * Undocumented function
-     *
-     * @param [type] $user
-     * @param [type] $ability
-     * @return void
-     */
+    //para que al admin tenga acceso a todo
     public function before($user, $ability)
     {
         if ($user->isAdmin()) {
@@ -40,12 +32,16 @@ class ArchivoPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Archivo  $archivo
+     * @param  \App\Recaudacion  $recaudacion
      * @return mixed
      */
-    public function view(User $user, Archivo $archivo)
+    public function view(User $user)
     {
         //
+        if($user->permisos->contains('slug', 'recaudacion.ver')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -56,50 +52,41 @@ class ArchivoPolicy
      */
     public function create(User $user)
     {
-        if($user->permisos->contains('slug', 'Imagen.Paciente')) {
-            return true;
-        }
-        return false;
+        //
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Archivo  $archivo
+     * @param  \App\Recaudacion  $recaudacion
      * @return mixed
      */
-    public function update(User $user, Archivo $archivo)
+    public function update(User $user, Recaudacion $recaudacion)
     {
-        if($user->permisos->contains('slug', 'Imagen.editar')) {
-            return true;
-        }
-        return false;
+        //
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Archivo  $archivo
+     * @param  \App\Recaudacion  $recaudacion
      * @return mixed
      */
-    public function delete(User $user, Archivo $archivo)
+    public function delete(User $user, Recaudacion $recaudacion)
     {
-        if($user->permisos->contains('slug', 'Imagen.eliminar')) {
-            return true;
-        }
-        return false;
+        //
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Archivo  $archivo
+     * @param  \App\Recaudacion  $recaudacion
      * @return mixed
      */
-    public function restore(User $user, Archivo $archivo)
+    public function restore(User $user, Recaudacion $recaudacion)
     {
         //
     }
@@ -108,10 +95,10 @@ class ArchivoPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Archivo  $archivo
+     * @param  \App\Recaudacion  $recaudacion
      * @return mixed
      */
-    public function forceDelete(User $user, Archivo $archivo)
+    public function forceDelete(User $user, Recaudacion $recaudacion)
     {
         //
     }

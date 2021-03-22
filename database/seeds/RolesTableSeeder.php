@@ -126,6 +126,14 @@ class RolesTableSeeder extends Seeder
         $rolesecretaria->permisos()->sync($permisos_secretaria);
 
     
+        $permiso= Permiso::create([
+            'Permiso'=> 'ver Recaudacion',
+            'Slug'=> 'recaudacion.ver',
+
+        ]);
+
+        $permisos_secretaria[]= $permiso->id;
+        $rolesecretaria->permisos()->sync($permisos_secretaria);
 
         $permiso= Permiso::create([
             'Permiso'=> 'crear alertas',
@@ -529,7 +537,7 @@ class RolesTableSeeder extends Seeder
 
 
     $permiso= Permiso::create([
-        'Permiso'=> 'subir imagen al expediente paciente ',
+        'Permiso'=> 'subir imagen o archivo al expediente paciente ',
         'Slug'=> 'Imagen.Paciente',
 
     ]);
@@ -537,10 +545,47 @@ class RolesTableSeeder extends Seeder
     $permisos_odontologo[]= $permiso->id;
     $roleodontologo->permisos()->sync($permisos_odontologo);
 
+    $permiso= Permiso::create([
+        'Permiso'=> 'Editar imagen o archivo del expediente paciente ',
+        'Slug'=> 'Imagen.editar',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Eliminar imagen o archivo del expediente paciente ',
+        'Slug'=> 'Imagen.eliminar',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+
 
     $permiso= Permiso::create([
         'Permiso'=> 'Agregar Comentarios administrativos ',
         'Slug'=> 'comentarios.Paciente',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Editar Comentarios administrativos ',
+        'Slug'=> 'comentarios.editar',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Eliminar Comentarios administrativos ',
+        'Slug'=> 'comentarios.eliminar',
 
     ]);
 
@@ -595,6 +640,16 @@ class RolesTableSeeder extends Seeder
     $permiso= Permiso::create([
         'Permiso'=> 'Crear plan de tratamiento ',
         'Slug'=> 'crear.plandetratamiento',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Editar plan de tratamiento ',
+        'Slug'=> 'editar.plandetratamiento',
 
     ]);
 
@@ -780,6 +835,15 @@ class RolesTableSeeder extends Seeder
     $permiso= Permiso::create([
         'Permiso'=> 'Eliminar Laboratorios',
         'Slug'=> 'eliminar.laboratorios',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Ver Recaudacion',
+        'Slug'=> 'recaudacion.ver',
 
     ]);
 

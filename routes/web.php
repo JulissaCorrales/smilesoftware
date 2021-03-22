@@ -141,8 +141,8 @@ Route::prefix('pantallainicio/calendario')->group( function(){
              Route::post('{id}/comentarios','PacienteController@GuardarComentario')->name('comentario.guardar')->middleware('role:admin,secretaria,odontologo');
               //editar un comentario
 
-              Route::get('{id}/comentarios/editar','PacienteController@editarcomentario')->name('comentario.editar')->where('id','[0-9]+')->middleware('role:admin,odontologo');
-              Route::put('{id}/comentarios/editar','PacienteController@updatecomentario')->name('comentario.update')->where('id','[0-9]+')->middleware('role:admin,odontologo');
+              Route::get('{id}/comentarios/editar/{id2}','PacienteController@editarcomentario')->name('comentario.editar')->where('id','[0-9]+')->middleware('role:admin,odontologo');
+              Route::put('{id}/comentarios/editar/{id2}','PacienteController@updatecomentario')->name('comentario.update')->where('id','[0-9]+')->middleware('role:admin,odontologo');
               
              //ruta para borrar comentario 
              Route::delete('{id}/borrar/comentario','PacienteController@destroycomentario') ->name('comentario.borrar')->where('id','[0-9]+')->middleware('role:admin,odontologo');
@@ -166,8 +166,9 @@ Route::prefix('pantallainicio/calendario')->group( function(){
               Route::get('{id}/documentosClinicos','DocumentosClinicosController@ver')->name('documentos.ver');
               Route::get('{id}/nuevodocumento','DocumentosClinicosController@nuevo')-> where('id' ,'[0-9]+');
               Route::post('{id}/nuevodocumento','DocumentosClinicosController@guardar')-> where('id' ,'[0-9]+');
-
-              
+              Route::get('{id}/editarDocumento/{iddocumento}/editar','DocumentosClinicosController@editar')-> where('id' ,'[0-9]+')->name('documento.editar');
+              Route::post('{id}/editarDocumento/{iddocumento}/editar','DocumentosClinicosController@update')-> where('id' ,'[0-9]+')->name('documento.update');
+              Route::delete('{id}/borrarDocumento','DocumentosClinicosControlle@borrar')->name('documento.borrar')->where('id','[0-9]+');
               Route::get('{id}/evoluciones','EvolucionesController@EvolucionesPaciente')->where('id','[0-9]+')->name('paciente.evoluciones');
 
               Route::get('{id}/evolucion/nueva','EvolucionesController@nuevaevolucion')->name('evolucion.nueva') -> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
