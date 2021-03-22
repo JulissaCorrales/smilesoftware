@@ -47,7 +47,13 @@ class HorarioController extends Controller
     /*Guardar un Horario */
     public function store(Request $request, $id)
     {
-        $this->authorize('crearHorario', Odontologo::class); //si tiene el permiso de crear 
+
+        $request->validate([
+            'horainicio'=>'required',
+            'horafin'=>'required',
+            ]);
+
+        $this->authorize('crearHorario', Odontologo::class); //si tiene el permiso de crear    
         $horario = new horarios();
         $odontologo=Odontologo::findOrFail($id);
 
