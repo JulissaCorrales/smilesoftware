@@ -73,7 +73,10 @@ class PlanTratamientoPolicy
      */
     public function update(User $user, Plantratamiento $plantratamiento)
     {
-        //
+        if($user->permisos->contains('slug', 'editar.plandetratamiento')) {
+            return true;
+        }
+        return false;
     }
 
     /**
