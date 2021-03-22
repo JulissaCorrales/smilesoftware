@@ -28,7 +28,10 @@
   <!-- Fecha -->
   <!-- fecha -->
 <script src='{{asset("vendor/moment.min.js")}}'></script>
+  <!-- idioma -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/es.min.js"></script>
   <!--  -->
+
   <?php 
 
   try
@@ -249,15 +252,16 @@ header: {
 left:   'prev,next today',
 center: 'title',
 right:  '',
+
 //initialView: 'basicWeek'
 
 },
+
 defaultView:'month',
 height: "auto",
 allDaySlot: false,
 slotEventOverlap: false,
 timeFormat: 'HH:mm',
-
 events: self.events,
 
 dayClick: function(date)
@@ -339,6 +343,8 @@ console.log(date);
 }
 }
 })
+
+
 </script>
 
 

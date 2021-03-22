@@ -109,10 +109,9 @@
   width: 1000px;
   height: 90px;
   border-collapse: collapse;
-  position: absolute;
-    left:50px;
-    background-color: #e6ffff;
-    top: 100px;
+  position: relative;
+  background-color: #e6ffff;
+    
   
   
  }
@@ -144,17 +143,18 @@
     border-radius: 12px;
     background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff); 
     position: absolute;
-    top:260px;
-    left: 190px;
+    margin-top:2em;
+    margin-left: 2em;
+    
   
     
     
  }
 
 #dd{
-  position: absolute;
-    top:300px;
-    left:150px;
+  position: relative;
+    top:150px;
+  
 
 
 }
@@ -200,25 +200,25 @@
 
 
 #d2{
-    background-color: #ccffff;
-  position: absolute;
-            font-size:30px;
-            top: 2px;
-            left:10px;
+background-color: #ccffff;
+position: absolute;
+font-size:30px;
+top: 2px;
+left:10px;
 
 }
 
 #n1{
-    background-color: #e6ffff;
-  position: absolute;
-  width: 170px;
-  height: 45px;
-  font-size:17px;
-            top: 50px;
-            left:800px;
-            font-family: "Times New Roman";
-  text-align: center;
-  border: 1px solid #FF4500;
+background-color: #e6ffff;
+position: absolute;
+width: 160px;
+height: 45px;
+font-size:17px;
+margin-top:-0.1px;
+left:820px;
+font-family: "Times New Roman";
+text-align: center;
+border: 1px solid #FF4500;
   color:#cc6600
   
 
@@ -235,38 +235,33 @@
 #but3{
 
   background-color: #e6ffff;
-  position: absolute;
+  position: relative;
   width: 170px;
   height: 45px;
   font-size:17px;
-  
-            top: 50px;
-            left:620px;
-            font-family: "Times New Roman";
+  margin-top: -0.1em;
+  left:620px;
+  font-family: "Times New Roman";
   text-align: center;
   border: 1px solid #FF4500;
   color:#cc6600
-  
-
   }
 
   #butoneliminar{
-    width: 100px;
-  height: 55px;
+    /* width: 100px;
+  height: 55px; */
     
   }
 
   #verespecialidad{
    
-  width: 120px;
-  height: 55px;
+  /* width: 120px;
+  height: 55px; */
   font-size:17px;
-  
-            
-            font-family: "Times New Roman";
+  font-family: "Times New Roman";
   text-align: center;
   background-color: #84e184;
-  color:#00001a;
+  /* color:#00001a; */
   
 
   }
@@ -368,10 +363,6 @@
 #but8{
   background-color: #47d147;
 }
-  
-
-
-
 </style>
 
 </head>
@@ -461,7 +452,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   
    <td id="td3">
    @can('crearHorario',App\Odontologo::class)
-    <a type="button" class="btn btn-danger" href="/create/{{$odontologo->id}}/nuevo" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <a type="button" class="btn btn-warning" href="/create/{{$odontologo->id}}/nuevo" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
   <path fill-rule="evenodd" d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
 </svg>Editar Horarios
@@ -469,7 +460,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   </a>@endcan</td>
   @can('update',$odontologo)
   <td id="td4">
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$odontologo->id}}" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-{{$odontologo->id}}" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
 </svg>
     Editar Datos
@@ -700,7 +691,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
   <td id="td6">
     
-    <a id="verespecialidad" class="btn btn-danger" type="button"  href="{{route('odontologo.especialidad',['id'=>$odontologo->id])}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-heading" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <a id="verespecialidad" class="btn " type="button"  href="{{route('odontologo.especialidad',['id'=>$odontologo->id])}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-heading" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
   <path fill-rule="evenodd" d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
   <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z"/>
