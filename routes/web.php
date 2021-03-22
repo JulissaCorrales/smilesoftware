@@ -119,10 +119,13 @@ Route::prefix('pantallainicio/calendario')->group( function(){
             Route::get('{id}/imagenesArchivos','ArchivoController@ver')->name('imagenesYarchivos.ver')->middleware('role:admin,odontologo');
             Route::get('{id}/nuevoarchivo','ArchivoController@nuevo')-> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
             Route::post('{id}/nuevoarchivo','ArchivoController@guardar')-> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
-            Route::delete('{id}/borrararchivo','ArchivoController@borrar')->name('imagenesyarchivos.borrar')->where('id','[0-9]+');
-            Route::get('{id}/editararchivo','ArchivoController@editar')->name('archivo.editar')->where('id','[0-9]+');
             
+          Route::delete('{id}/borrararchivo','ArchivoController@borrar')->name('imagenesyarchivos.borrar')->where('id','[0-9]+');
+          //ruta de editar Archivo
+          Route::get('{id}/imagenesArchivos/{idarchivo}/editar','ArchivoController@editar')->name('archivo.editar')->where('id','[0-9]+');
+           Route::put('{id}/imagenesArchivos/{idarchivo}/editar','ArchivoController@update')->name('archivo.update')->where('id','[0-9]+');
             
+           
             
             
             //ruta de cita individual

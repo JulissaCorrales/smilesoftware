@@ -7,14 +7,14 @@
 
         
         
-    background-image: linear-gradient(to top, #33d6ff ,#e6ffff );
+        background-color:#33cccc;
     height: 100px;
   }
 
   #myModalLabel{
-    text-shadow: -1px 0 #ccfff5, 0 1px #ccfff5, 1px 0 #009999, 0 -1px #009999;
+    
   font-family: "Times New Roman";
-            font-size: 20px;
+            font-size: 25px;
             border-bottom: 5px solid #00cccc;
   }
 
@@ -60,44 +60,29 @@ overflow-y:scroll;
 <div class="modal fade" id="create" >
   
 	<div class="modal-dialog" role="document">
-		<div class="modal-content" style=" position: absolute;
-   
-   width: 500px;
- height: 400px;">
+		<div class="modal-content" style=" position: absolute;width: 500px;height: 400px;  background-color:#c1f0f0; ">
 			<div id="divv9"class="modal-header">
 	
 				<h6  class="modal-title" id="myModalLabel">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-</svg>
-        Crear Comentario Administrativo</h6>
+        <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
+              </svg> Crear Comentario Administrativo</h6>
         	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<div class="modal-body"  style=" position: absolute;
+			<div class="modal-body"  style=" position: absolute;top:90px; width: 100px;height: 100px;  " >
 
-      top:90px;
-   
-   width: 100px;
- height: 100px;" >
-
-    <form method="POST" action="">
-@csrf
+     <form method="POST" action="">
+           @csrf
 <div>
-
 
 <textarea id="w3review" name="caja" value="text" rows="4" cols="50" placeholder="ingresar nombre del paciente" >
 
 </textarea>
 
 
-
-<button type="submit" class="btn btn-primary" style=" position: absolute;
-
-top:170px;
-left: 400px;
-" >Guardar </button>
+<button type="submit" class="btn btn-primary" style=" position: absolute;top:170px;left: 400px;" >Guardar </button>
 </div>
 </form>
   

@@ -189,6 +189,7 @@ class PacienteController extends Controller
         public function comentarios($id){
             $this->authorize('create',Comentario::class);
             //return "texto de contacto desde el controlador ";
+           
             $pacientes = Paciente::findOrFail($id);
             $comentarios=Comentario::all();
             

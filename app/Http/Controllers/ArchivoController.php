@@ -66,38 +66,48 @@ class ArchivoController extends Controller
     }
     }
 
-    public function editar($id){  
-   
-        $imagen=Archivo::findOrFail($id);
-        //$this->authorize('update', $mediopagos); si tiene el permiso de editar:
-        return view('editararchivo')->with('editararchivo',$imagen);
+    public function editar($id , $idarchivo){  
+         $pacientes=Paciente::findOrFail($id);
+        $imagen=Archivo::findOrFail($idarchivo);
+        return view('editararchivo')->with('imagen',$imagen)->with('pacientes',$pacientes);
     
     }
 
-    public function update(Request $request,$id){
- 
+    public function update(Request $_request,$id, $idarchivo){
 
-        $request->validate([
-            'imagen'        =>'required',
-            'observaciones'        =>'required',
-            'fecha'        =>'required',
-            'odontologo_id'        =>'required',
+        if ($_request->hasFile('imagen')) {
+            $file = $_request->file('imagen');
+            //obtenemos el nombre del archivo
+            $image =  time()." ".$file->getClientOriginalName();
+            //indicamos que queremos guardar un nuevo archivo en el disco local
+            $file->move(\public_path().'/images/',$image);
+
+
+          
+        
+        }
+
+        $pacientes=Paciente::findOrFail($id);
+        $imagenes=Archivo::findOrFail($idarchivo);
+        $imagenes->paciente_id=$id;
+        $imagenes->fecha = Carbon::now();
+        $imagenes->imagen= $image;
+        $imagenes->observaciones=$_request->input('observaciones');
+        $imagenes->odontologo_id=$_request->input('odontologo_id');
+        
+
+
+    
+
+        $creado= $imagenes->save();
+        if ($creado){
            
-        ]);
-    
-        $imagen=Imagen::findOrFail($id);
-        //$this->authorize('update', $mediopagos); //si tiene el permiso de editar:
-        //formulario
-        $imagen->imagen=       $request->input('imagen');
-        $imagen->observacion=       $request->input('observacion');
-        $imagen->fecha=       $request->input('fecha');
-        $imagen->odontologo_id=       $request->input('odontologo_id');
-    
-        $actualizado = $imagen->save();
-        //Asegurarse que fue creado
-        if ($actualizado){
-            return redirect()->back()->with('mensaje','¡¡El archivo Fué Modificado Exitosamente!!');
-        }else{ 
+         return redirect()->back()->with('mensaje','Archivo guardado exitosamente');
+
+          //return redirect()('/comentarios/{id}');
+       } 
+
+
         }
     
     
@@ -106,5 +116,3 @@ class ArchivoController extends Controller
 
 
 
-
-}
