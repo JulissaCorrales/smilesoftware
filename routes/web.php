@@ -141,8 +141,8 @@ Route::prefix('pantallainicio/calendario')->group( function(){
              Route::post('{id}/comentarios','PacienteController@GuardarComentario')->name('comentario.guardar')->middleware('role:admin,secretaria,odontologo');
               //editar un comentario
 
-              Route::get('{id}/comentarios/editar','PacienteController@editarcomentario')->name('comentario.editar')->where('id','[0-9]+')->middleware('role:admin,odontologo');
-              Route::put('{id}/comentarios/editar','PacienteController@updatecomentario')->name('comentario.update')->where('id','[0-9]+')->middleware('role:admin,odontologo');
+              Route::get('{id}/comentarios/editar/{id2}','PacienteController@editarcomentario')->name('comentario.editar')->where('id','[0-9]+')->middleware('role:admin,odontologo');
+              Route::put('{id}/comentarios/editar/{id2}','PacienteController@updatecomentario')->name('comentario.update')->where('id','[0-9]+')->middleware('role:admin,odontologo');
               
              //ruta para borrar comentario 
              Route::delete('{id}/borrar/comentario','PacienteController@destroycomentario') ->name('comentario.borrar')->where('id','[0-9]+')->middleware('role:admin,odontologo');

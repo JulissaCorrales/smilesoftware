@@ -546,9 +546,28 @@ class RolesTableSeeder extends Seeder
     $roleodontologo->permisos()->sync($permisos_odontologo);
 
 
+
     $permiso= Permiso::create([
         'Permiso'=> 'Agregar Comentarios administrativos ',
         'Slug'=> 'comentarios.Paciente',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Editar Comentarios administrativos ',
+        'Slug'=> 'comentarios.editar',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Eliminar Comentarios administrativos ',
+        'Slug'=> 'comentarios.eliminar',
 
     ]);
 
