@@ -12,22 +12,24 @@
     <style>
     #padre{
         margin:4em;
+      
 
     }
     #areadetexto{
         color:red;
     }
     table, th, td {
-  border: 1px solid  #00FF99;
+  border: 1px solid #e7b3ff;
   border-collapse: collapse;
 
 }
 
 th{
-    background-image: linear-gradient(to left,  #AFEEEE,#00FF99);
+    background-image: linear-gradient(to left,  #f7e6ff,#e7b3ff);
 }
 #tabla{
 align:center;
+
 }
     
     </style>
@@ -145,7 +147,7 @@ align:center;
     @endcan
     </tr>
     @empty
-   <td colspan=""> No tiene alertas</td>
+   <td colspan="2"> No tiene alertas</td>
     @endforelse
     </tbody>
     </table>
@@ -225,7 +227,25 @@ align:center;
             </div>
         </div> 
     </div> 
+
 </div>
+
+<div class="modal-footer" style="position: absolute; left: 320px; width: 1070px; top: 750px; height:50px; background-color: #e6f9ff;">
+                  
+                  <a style="position: absolute;left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
+    
+                  @forelse($logotipos  as $tag)
+        <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%; position: absolute;left: 1005px;top: 5px;width: 40px;border-color: #33ccff;  height: 40px;" >
+        @empty
+    
+        <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;position: absolute;left: 1005px;top: 5px;width: 40px; border-color: #33ccff;   height: 40px;"  > 
+        @endforelse 
+        </div>
+    
+        </div>
+    
+    </div>
+    </div>
 </body>
 </html>
 @endsection

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Recaudaciones</title>
+    <title>@section('titulo','Recaudaciones')</title>
 
     <style>
 
@@ -14,42 +14,37 @@ body {
 }
 body {
   margin: 0;
-  background: linear-gradient(90deg, #33F4FF, #FFFFFF);
+  
   font-family: sans-serif;
   font-weight: 100;
 }
 
 
-.container {
-  position: absolute;
-  top: 80%;
-  left: 70%;
-  transform: translate(-50%, -50%);
-}
 
-.container2 {
-  position: absolute;
-  top: 100%;
-  left: 60%;
-  transform: translate(-50%, -50%);
-}
+
 table {
-  width: 800px;
+  width: 700px;
   border-collapse: collapse;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: absolute;  
+  left: 470px;
+  top: 200px;
+  background-color:#c2f0f0;
+  
 }
 th,
 td {
   padding: 15px;
-  background-color: rgba(255, 255, 255, 0.2);
+
   color: #000;
 }
 th {
   text-align: left;
+  
 }
 thead th {
-  background-color: #55608f;
+  background-color:#33cccc;
 }
 tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.3);
@@ -183,21 +178,36 @@ tbody td:hover:before {
                 </td>
                 <td>
                @forelse($planes->recaudacion as $recaudaciones)
+               <br>
                            {{ $recaudaciones->totalpagar}}
                           @empty
                           No tiene
                           @endforelse
             </td> 
             @empty
-            vacio
+          <td>Vacio</td>
             @endforelse
               </tr>
-           
             </tbody>
         </table>
-        <button class="button type2">
-            pagar
-          </button>
+      
+    </div>
+
+    <div class="modal-footer" style="position: absolute; left: 320px; width: 1070px; top: 750px; height:50px; background-color: #e6f9ff;">
+                  
+                  <a style="position: absolute;left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
+    
+                  @forelse($logotipos  as $tag)
+        <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%; position: absolute;left: 1005px;top: 5px;width: 40px;border-color: #33ccff;  height: 40px;" >
+        @empty
+    
+        <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;position: absolute;left: 1005px;top: 5px;width: 40px; border-color: #33ccff;   height: 40px;"  > 
+        @endforelse 
+        </div>
+    
+        </div>
+    
+    </div>
     </div>
 
     <!-- <div class="container2">

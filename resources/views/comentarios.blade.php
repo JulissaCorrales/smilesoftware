@@ -68,7 +68,7 @@
 
           <table class="table table-hover" style=" position: absolute;  left: 100px; top:60px;  width: 600px;" >
            <thead >
-               <tr style="background-color:#df99ff; width: 600px; font-size:20px; font-family: Times New Roman, Times, serif; border-color:#000000;"">
+               <tr style="background-color:#df99ff; width: 600px; font-size:20px; font-family: Times New Roman, Times, serif; border-color:#000000;">
 
                  <th >#</th>
                  <th style=" position: absolute; background-color:#df99ff; left: 100px; width: 350px; ">Comentarios Administrativos</th>

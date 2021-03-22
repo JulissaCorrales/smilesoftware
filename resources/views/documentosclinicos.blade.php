@@ -17,10 +17,10 @@
     margin: 5rem;
     padding: 2rem;
     border: 2px solid #ccc;
-    background-color: #F5EEF8;
+    background-color: #32cdcd;
 
     position: absolute;
-  top:60px; width: 900px; left:405px;
+  top:50px; width: 920px; left:340px;
     
     
     }
@@ -32,8 +32,8 @@
 
     #upload{
        
-       font: 700 1em Tahoma, Arial, Verdana, sans-serif;
-       color: black; background-color: #58D68D ;
+      font-size:20px; font-family: Times New Roman, Times, serif;
+       color: black; background-color: #adebeb ;
        border: 1px solid #0074a5;
        border-top: 1px solid #004370;
        border-left: 1px solid #004370;
@@ -68,9 +68,10 @@
 .timeline ul li div {
   position: relative;
   bottom: 0;
-  width: 400px;
+  width: 350px;
+  font-size:20px; font-family: Times New Roman, Times, serif;
   padding: 15px;
-  background: #F45B69;
+  background: #adebeb;
 }
  
 .timeline ul li div::before {
@@ -176,7 +177,7 @@
     @endif
 
         <div div id="titulo" class="card-body d-flex justify-content-between align-items-center">
-            <h3>Documentos Clínicos del Paciente:<br> {{$pacientes->nombres}} {{$pacientes->apellidos}}</h3>
+            <h3 style="font-size:27px; font-family: Times New Roman, Times, serif; color:#666633;">Documentos Clínicos del Paciente:<br> {{$pacientes->nombres}} {{$pacientes->apellidos}}</h3>
 
             @can('create',App\Documento::class)
             <button id="upload" onclick="location.href='/pantallainicio/vista/paciente/{{$pacientes->id}}/nuevodocumento'">
@@ -193,14 +194,13 @@
           <ul>
             <li>
               <div>
-                <time>{{$tag->fecha}}</time>
+                <time>Fecha:{{$tag->fecha}}</time>
                 <br>
                 <br>
-              <p>{{$tag->odontologo->nombres}} {{$tag->odontologo->apellidos}}</p>
-                <br>
+              <p>Odontologo:{{$tag->odontologo->nombres}} {{$tag->odontologo->apellidos}}</p>
                 <br>
 
-                <p>{{$tag->observaciones}}</p>
+                <p>Observaciones:{{$tag->observaciones}}</p>
 
                 <a target="_blank" href="/documento/{{$tag->imagen1}}" >Vista para PDF o descargar archivo word, excel</a>
                 
@@ -224,6 +224,25 @@
 
 
     </div>
+
+    <div class="modal-footer" style="position: absolute; left: 330px; width: 1070px; top: 750px; height:50px; background-color: #e6f9ff;">
+                  
+              <a style="position: absolute;left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
+
+              @forelse($logotipos  as $tag)
+    <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%; position: absolute;left: 1005px;top: 5px;width: 40px;border-color: #33ccff;  height: 40px;" >
+    @empty
+
+    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;position: absolute;left: 1005px;top: 5px;width: 40px; border-color: #33ccff;   height: 40px;"  > 
+    @endforelse 
+    </div>
+
+    </div>
+
+</div>
+</div>
+
+<div>
 
     <script>
 
