@@ -183,10 +183,6 @@ background-repeat: no-repeat;
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--  -->
 
 
@@ -504,7 +500,7 @@ background-repeat: no-repeat;
 
             
             <!-- End Navbar -->
-<div class="container">
+<div>
 @yield('contenido')
 </div>
           
@@ -526,7 +522,6 @@ background-repeat: no-repeat;
 <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
 <script src="../assets/js/demo.js"></script>
 <script type="text/javascript">
-
     $(document).ready(function() {
         // Javascript method's body can be found in assets/js/demos.js
         demo.initDashboardPageCharts();
@@ -541,6 +536,3 @@ background-repeat: no-repeat;
 </body>
 
 </html>
-
-
-

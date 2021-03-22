@@ -1,6 +1,7 @@
 @extends('VistaMenuAgenda')
 @section('Titulo','Agenda')
 @section('cuerpo')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,11 +51,12 @@
 <style>
 #calendar {
 
-width: 900px;
+width: 700px;
 padding: 25px 25px 25px 25px;
 margin-top:1em;
 background: url("/imagenes/fondodecalendario.png");
 background-repeat: no-repeat;
+background-color: #eafafa; 
 background-position: center center;
   background-size: cover;
 }
@@ -86,9 +88,6 @@ color: #ff4d4d;
 border-color: #b3ffff;
 margin-top:6em;
 
-
-
-
 }
 
 </style>
@@ -96,6 +95,8 @@ margin-top:6em;
 
 </head>
 <body>
+
+
 
 @canany(['isAdmin','isSecretaria','isOdontologo'])
 

@@ -1,4 +1,4 @@
-@extends('VistaMenuAgenda')
+@extends('Plantilla.PlantillaMenuAgenda')
 
 @section('cuerpo')
 
@@ -10,8 +10,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <!-- CSS Just for demo purpose, don't include it in your project -->
+   <link href="../assets/css/demo.css" rel="stylesheet" />
+
+<link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sticky-footer-navbar/">
+
+
     <style>
         #padre {
         overflow: hidden;
