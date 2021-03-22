@@ -66,6 +66,45 @@ class ArchivoController extends Controller
     }
     }
 
+    public function editar($id){  
+   
+        $imagen=Archivo::findOrFail($id);
+        //$this->authorize('update', $mediopagos); si tiene el permiso de editar:
+        return view('editararchivo')->with('editararchivo',$imagen);
+    
+    }
+
+    public function update(Request $request,$id){
+ 
+
+        $request->validate([
+            'imagen'        =>'required',
+            'observaciones'        =>'required',
+            'fecha'        =>'required',
+            'odontologo_id'        =>'required',
+           
+        ]);
+    
+        $imagen=Imagen::findOrFail($id);
+        //$this->authorize('update', $mediopagos); //si tiene el permiso de editar:
+        //formulario
+        $imagen->imagen=       $request->input('imagen');
+        $imagen->observacion=       $request->input('observacion');
+        $imagen->fecha=       $request->input('fecha');
+        $imagen->odontologo_id=       $request->input('odontologo_id');
+    
+        $actualizado = $imagen->save();
+        //Asegurarse que fue creado
+        if ($actualizado){
+            return redirect()->back()->with('mensaje','¡¡El archivo Fué Modificado Exitosamente!!');
+        }else{ 
+        }
+    
+    
+    }
+
+
+
 
 
 }

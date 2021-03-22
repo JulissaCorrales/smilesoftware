@@ -113,11 +113,19 @@ Route::prefix('pantallainicio/calendario')->group( function(){
              //ruta de editar paciente
              Route::get('{id}/editar','PacienteController@editar') ->name('paciente.editar') -> where('id' ,'[0-9]+')->middleware('role:admin,secretaria,odontologo');
              Route::put('{id}/editar','PacienteController@update')->name('paciente.update') -> where('id' ,'[0-9]+')->middleware('role:admin,secretaria,odontologo');
-            //ruta de Imagenes y Archivos
+            
+            
+             //ruta de Imagenes y Archivos
             Route::get('{id}/imagenesArchivos','ArchivoController@ver')->name('imagenesYarchivos.ver')->middleware('role:admin,odontologo');
             Route::get('{id}/nuevoarchivo','ArchivoController@nuevo')-> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
             Route::post('{id}/nuevoarchivo','ArchivoController@guardar')-> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
-             //ruta de cita individual
+            Route::delete('{id}/borrararchivo','ArchivoController@borrar')->name('imagenesyarchivos.borrar')->where('id','[0-9]+');
+            Route::get('{id}/editararchivo','ArchivoController@editar')->name('archivo.editar')->where('id','[0-9]+');
+            
+            
+            
+            
+            //ruta de cita individual
              Route::get('{id}/citaindividual','CitaController@verCitaIndividual')->where('id','[0-9]+')->name('citaIndividual')->middleware('role:admin,odontologo,secretaria');
              /* Editar cita individual */
               Route::get('{id}/editarcitaindividual/{citaid}','CitaController@editarCitaIndividual') ->name('citaindividual.editar') -> where('id' ,'[0-9]+')->middleware('role:admin,secretaria,odontologo');
