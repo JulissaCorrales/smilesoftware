@@ -20,7 +20,7 @@
     background-color: #F5EEF8;
 
     position: absolute;
-  top:60px; width: 900px; left:405px;
+  /* top:60px; width: 900px; left:405px; */
     
     
     }
@@ -204,7 +204,7 @@
 
                 <a target="_blank" href="/documento/{{$tag->imagen1}}" >Vista para PDF o descargar archivo word, excel</a>
                 
-                <button onclick="location.href=''" style="border-style: solid;
+                <button onclick="location.href='{{route('documento.editar',['id'=>$pacientes->id,'iddocumento'=>$tag->id])}}'"  style="border-style: solid;
                   border-color:#00cc99; background-color:white; color:#00cc99;
                     " class="btn btn-secondary">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">

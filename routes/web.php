@@ -167,7 +167,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
               Route::get('{id}/nuevodocumento','DocumentosClinicosController@nuevo')-> where('id' ,'[0-9]+');
               Route::post('{id}/nuevodocumento','DocumentosClinicosController@guardar')-> where('id' ,'[0-9]+');
               Route::get('{id}/editarDocumento/{iddocumento}/editar','DocumentosClinicosController@editar')-> where('id' ,'[0-9]+')->name('documento.editar');
-              Route::post('{id}/editarDocumento/{iddocumento}/editar','DocumentosClinicosController@update')-> where('id' ,'[0-9]+')->name('documento.update');
+              Route::put('{id}/editarDocumento/{iddocumento}/editar','DocumentosClinicosController@update')-> where('id' ,'[0-9]+')->name('documento.update');
               Route::delete('{id}/borrarDocumento','DocumentosClinicosControlle@borrar')->name('documento.borrar')->where('id','[0-9]+');
               Route::get('{id}/evoluciones','EvolucionesController@EvolucionesPaciente')->where('id','[0-9]+')->name('paciente.evoluciones');
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo registro</title>
+    <title>Editar Documento</title>
     <style>
     #todo{
       margin:4em;
@@ -26,23 +26,22 @@
             {{session('mensaje')}}
         </div>
     @endif
-<h2>Creación de un Nuevo Archivo del Paciente</h2>
+<h2>Edicion del Archivo</h2>
 
                     <?php
                     $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
                      $mysqli->set_charset("utf8");
                     ?>
 
-        <form method="post" action="{{route('documento.update',['id'=>$pacientes->id,'iddocumento'=>$imagen->id])}}" enctype="multipart/form-data">
+        <form method="POST" action="{{route('documento.update',['id'=>$pacientes->id,'iddocumento'=>$imagen->id])}}" enctype="multipart/form-data">
         @csrf
-                      @method('put')
+      @method('put')
                   <hr>
         <!-- Doctor -->
-        @forelse ($pacientes->archivos as $tag)
-        
+    
         <div class="form-group">
                 <label for="observaciones">Doctor:</label>
-                <input type="text" class="form-control-file" name="odontologo_id" id="observaciones" value="{{$tag->odontologo->id}}">
+                <input type="text" class="form-control-file" name="odontologo_id" id="observaciones" value="{{$imagen->odontologo->id}}">
               </div>
         <hr>
               <div class="form-group">
@@ -54,19 +53,19 @@
 
               <div class="form-group">
                 <label for="observaciones">Observaciones:</label>
-                <input type="text" class="form-control-file" name="observaciones" id="observaciones" value="{{$tag->observaciones}}">
+                <input type="text" class="form-control-file" name="observaciones" id="observaciones" value="{{$imagen->observaciones}}">
               </div>
-              
+           
 
               <div class="modal-footer">
               <button type="button" onclick="location.href='{{route('documentos.ver',['id'=>$pacientes->id])}}'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
               <input type="reset" class="btn btn-danger">
-            <button type="submit" class="btn btn-primary" >Guardar Paciente</button>
+            <button type="submit" class="btn btn-primary" >Guardar Cambios</button>
           </div>
-        
+       
               </form>
 
-              @endforeach
+          
 
 </div>
 </body>

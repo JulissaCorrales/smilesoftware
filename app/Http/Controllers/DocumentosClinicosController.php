@@ -78,7 +78,7 @@ class DocumentosClinicosController extends Controller
     $imagenes=Documento::findOrFail($iddocumento);
     $imagenes->paciente_id=$id;
     $imagenes->fecha = Carbon::now();
-    $imagenes->imagen= $image;
+    $imagenes->imagen1= $image;
     $imagenes->observaciones=$_request->input('observaciones');
     $imagenes->odontologo_id=$_request->input('odontologo_id');
     
