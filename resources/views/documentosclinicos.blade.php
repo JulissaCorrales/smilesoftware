@@ -235,7 +235,7 @@
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <form method="post" action="">
+              <form method="post" action="{{route('documento.borrar',['id'=>$tag->id])}}">
 
                   @csrf
                   @method('delete')
