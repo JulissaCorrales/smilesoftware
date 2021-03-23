@@ -537,8 +537,26 @@ class RolesTableSeeder extends Seeder
 
 
     $permiso= Permiso::create([
-        'Permiso'=> 'subir imagen al expediente paciente ',
+        'Permiso'=> 'subir imagen o archivo al expediente paciente ',
         'Slug'=> 'Imagen.Paciente',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Editar imagen o archivo del expediente paciente ',
+        'Slug'=> 'Imagen.editar',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+        'Permiso'=> 'Eliminar imagen o archivo del expediente paciente ',
+        'Slug'=> 'Imagen.eliminar',
 
     ]);
 

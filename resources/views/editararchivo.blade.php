@@ -41,10 +41,33 @@
         @forelse ($pacientes->archivos as $tag)
         
         <div class="form-group">
+        <?php
+                    $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
+                     $mysqli->set_charset("utf8");
+                    ?>
                 <label for="observaciones">Doctor:</label>
-                <input type="text" class="form-control-file" name="odontologo_id" id="observaciones" value="{{$tag->odontologo->id}}">
+                
+                    <select name="odontologo_id" class="form-control">
+                    <option value="{{$tag->odontologo->id}}" selected >Odontologo Actual: {{$tag->odontologo->nombres}}  {{$tag->odontologo->apellidos}}</option>
+            <?php
+            $getDoctor =$mysqli->query("select * from odontologos order by id");
+            while($f=$getDoctor->fetch_object()) {
+              echo $f->nombres;
+              echo $f->apellidos;
+
+              ?>
+              
+              <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos;?></option>
+              <?php
+            } 
+            ?>
+            </select>
               </div>
         <hr>
+              <div class="form-group">
+              <label for="imagen">Imagen Actual</label>
+              <img src="/images/{{$tag->imagen}}" width="150" name="imagen" id="imagen" alt="imagen">
+              </div>
               <div class="form-group">
               <label for="identidad">Imagen a subir:</label>
               <input type="file" class="form-control-file" name="imagen" id="imagen">

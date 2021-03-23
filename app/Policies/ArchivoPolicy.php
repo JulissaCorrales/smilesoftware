@@ -71,7 +71,10 @@ class ArchivoPolicy
      */
     public function update(User $user, Archivo $archivo)
     {
-        //
+        if($user->permisos->contains('slug', 'Imagen.editar')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -83,7 +86,10 @@ class ArchivoPolicy
      */
     public function delete(User $user, Archivo $archivo)
     {
-        //
+        if($user->permisos->contains('slug', 'Imagen.eliminar')) {
+            return true;
+        }
+        return false;
     }
 
     /**
