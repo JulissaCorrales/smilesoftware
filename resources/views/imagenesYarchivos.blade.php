@@ -250,7 +250,7 @@ h1 {
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <form method="post" action="{{route('imagenesyarchivos.borrar',['id'=>$tag->id])}}">
+                  <form method="post" action="">
 
                       @csrf
                       @method('delete')

@@ -52,5 +52,59 @@ class DocumentosClinicosController extends Controller
 
 
     }
+
+    public function editar($id , $iddocumento){  
+        $pacientes=Paciente::findOrFail($id);
+       $imagen=Documento::findOrFail($iddocumento);
+       return view('editarDocumento')->with('imagen',$imagen)->with('pacientes',$pacientes);
+   
+   }
+
+   public function update(Request $_request,$id, $iddocumento){
+
+    if ($_request->hasFile('imagen')) {
+        $file = $_request->file('imagen');
+        //obtenemos el nombre del archivo
+        $image =  time()." ".$file->getClientOriginalName();
+        //indicamos que queremos guardar un nuevo archivo en el disco local
+        $file->move(\public_path().'/documento/',$image);
+
+
+      
+    
+    }
+
+    $pacientes=Paciente::findOrFail($id);
+    $imagenes=Documento::findOrFail($iddocumento);
+    $imagenes->paciente_id=$id;
+    $imagenes->fecha = Carbon::now();
+    $imagenes->imagen= $image;
+    $imagenes->observaciones=$_request->input('observaciones');
+    $imagenes->odontologo_id=$_request->input('odontologo_id');
+    
+
+
+
+
+    $creado= $imagenes->save();
+    if ($creado){
+       
+     return redirect()->back()->with('mensaje','Archivo clinico guardado exitosamente');
+
+      //return redirect()('/comentarios/{id}');
+   } 
+
+
+    }
+
+    public function borrar($id){
+        $imagen=Documento::findOrFail($id);
+        $this->authorize('delete',$imagen);
+
+        Documento::destroy($id);
+        return redirect()->back()->with('mensaje','archivo borrado satisfactoriamente');
+
+
+    }
 }
 
