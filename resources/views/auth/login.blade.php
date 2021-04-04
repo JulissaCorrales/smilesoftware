@@ -221,8 +221,8 @@ margin-left: 4px;
   background-position: center;
   background-size: cover;
   width: calc(100% - 520px);
-  position: relative;
-  z-index: 1;"> 
+  z-index: 1;">   position: relative;
+
 
 
 <?php $logotipos=App\Logotipo::where('id','=',1)->get();?>
