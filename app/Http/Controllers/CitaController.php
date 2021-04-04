@@ -7,6 +7,7 @@ use App\Cita;
 use App\Paciente;
 use App\PlanTratamiento;
 use Illuminate\Support\Facades\Gate;
+use App\Logotipo;
 
 
 class CitaController extends Controller
@@ -25,6 +26,7 @@ class CitaController extends Controller
         public function calendar(Request $request){
             $this->authorize('view3', Cita::class);//si tiene el permiso de ver:
             $query=trim($request->get('/darcita'));
+            $logotipos = Logotipo::all();
             $citas=Cita::get('id');
              return view('VistaSemanal');
          

@@ -79,7 +79,7 @@
 
 /* CSS DEL cuerpo de body*/
 #wrapper1{
-  background-image: url('../assets/img/fondo12.jpg');
+  background-image: url('../assets/img/fondoagenda22.jpg');
 background-size: 1500px;
 background-repeat: no-repeat;
 

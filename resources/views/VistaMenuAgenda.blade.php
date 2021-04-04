@@ -7,7 +7,7 @@
 
 html,body{
 
-  background-image: url('../assets/img/fondo12.jpg');
+  background-image:url('../assets/img/fondo6.jpg');
 background-repeat: no-repeat;
 background-size: cover;
 width: 1400px;

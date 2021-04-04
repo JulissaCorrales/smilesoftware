@@ -392,3 +392,15 @@ Route::prefix('pantallainicio')->group( function(){
     Route::delete('/alertaspredeterminadas/{id}/borrar','AlertaController@destroypredeterminada') ->name('alertaspredeterminadas.borrar')->where('id','[0-9]+')->middleware('role:admin');;
  
 });
+
+
+// Nos mostrará el formulario de login.
+
+// Nos indica que las rutas que están dentro de él sólo serán mostradas si antes el usuario se ha autenticado.
+
+
+
+
+
+    // Esta ruta nos servirá para cerrar sesión.
+   
