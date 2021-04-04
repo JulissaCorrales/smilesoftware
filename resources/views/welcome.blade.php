@@ -81,7 +81,7 @@
             
         </nav>
         <!-- Masthead-->
-        <header  style=" background-image: url('../assets/img/fondo.jpg')"class="masthead">
+        <header  style=" background-image: url('../assets/img/fondo3.jpg')"class="masthead">
             <div class="container">
                 <br><br><br><br>
                 <div style="background-color:#2471A3  ;" class="masthead-subheading"><p>¡Clínica Odontologica!</p></div>
@@ -90,7 +90,7 @@
             </div>
         </header>
         <!-- Services-->
-        <section class="page-section" id="services">
+        <section class="page-section" id="services"  style="background-image: linear-gradient(to top, #ffeecc ,#e6ffff );" >
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Servicios</h2>
@@ -150,7 +150,7 @@
         </section>
        
         <!-- About-->
-        <section class="page-section" id="about">
+        <section class="page-section" id="about"  style="background-image: linear-gradient(to top, #ffeecc ,#e6ffff );">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">A cerca de</h2>
@@ -211,7 +211,7 @@
                 </ul>
             </div>
         </section> 
-        <section class="page-section" id="contact">
+        <section class="page-section" id="contact"  style="background-image: linear-gradient(to top, #ffeecc ,#e6ffff );">
             <div class="container">
                 <!-- Contact Section Heading-->
                 <div class="text-center">
@@ -235,7 +235,7 @@
                     <div class="col-lg-4">
                         <div class="d-flex flex-column align-items-center">
                             <div class="icon-contact mb-3"><i class="far fa-envelope"></i></div>
-                            <p style="color:orange;">Correo Electronico:</p><a style="color:orange;"href="mailto:name@example.com">name@example.com</a>
+                            <p style="color:orange;">Correo Electronico:</p><a style="color:orange;"href="mailto:name@example.com">smileSoftware.gmail</a>
                         </div>
                     </div>
                 </div>
@@ -251,8 +251,7 @@
                     <!-- Footer Location-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="mb-4">UBICACIÓN</h4>
-                        <p class="pre-wrap lead mb-0">2215 John Daniel Drive
-Clark, MO 65243</p>
+                        <p class="pre-wrap lead mb-0">Honduras, Dept. El Paraiso, Danli</p>
                     </div>
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">

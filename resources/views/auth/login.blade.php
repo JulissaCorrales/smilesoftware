@@ -217,12 +217,39 @@ margin-left: 4px;
 	
 	<div class="limiter">
 		<div class="container-login100" style="position:absolute; top:-3px;">
-			<div class="login100-more" style="background-image: url('../assets/img/fondo34.jpg');"></div>
+			<div class="" style="background-image: url('../assets/img/fondo21.jpg'); background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: calc(100% - 520px);
+  position: relative;
+  z-index: 1;"> 
 
-			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
+
+<?php $logotipos=App\Logotipo::where('id','=',1)->get();?>
+                        @forelse($logotipos  as $tag)
+                    <img  style="  border-radius: 70%; position:absolute; left: 400px;"class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="80px" high="100px" id="dos">
+                    @empty
+                    <img  style="  border-radius: 90%;  position:absolute; left: 400px; top: 230px;" class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  width="100px"> 
+                    @endforelse
+            
+<div style=" position:absolute; top: 250px; left:250px;">
+				<h3 style="color: #d6f5f5; position:absolute; 
+                     text-shadow: 4px 0 #ffb31a, 0 4px #ffb31a, 4px 0 #ffb31a, 0 4px #ffb31a;font-family: Cursive ;left: 80px; top: -120px;font-size: 80px;">Smile</h3>
+				<h3 style="color: #d6f5f5; position:absolute;
+                     text-shadow: 4px 0 #ffb31a, 0 4px #ffb31a, 4px 0 #ffb31a, 0 4px #ffb31a;font-family: cursive ;left: 30px; top: 70px;font-size: 70px;">Software</h3>
+
+	</div>
+
+ 
+  </div>
+
+  
+
+
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50" style=" background-image: linear-gradient(to bottom, #ffeecc ,#e6ffff );">
 				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
 				@csrf
-					<span class="login100-form-title p-b-59">
+					<span class="login100-form-title p-b-59" style="text-shadow: 2px 0 #ffb31a, 0 2px #ffb31a, 2px 0 #ffb31a, 0 2px #ffb31a;">
 						Iniciar Sesion 
 					</span>
 
@@ -241,10 +268,10 @@ margin-left: 4px;
 
 					<div class="flex-m w-full p-b-33">
 					<div class="form-group">
-			  <div class="form-check" style="position:absolute; top: 410px; left:50px;">
+			  <div class="form-check" style="position:absolute; top: 340px; left:50px;">
                                     <input  type="checkbox" name="remember" class="form-check-input ios-switch-control-input" value="1" id="remember">
 
-                                    <label class="form-check-label" for="remember">
+                                    <label class="form-check-label" for="remember" style="font-family: FontAwesome;">
                                         {{ __('Remember Me') }}
                                     </label>						
 	</div>
@@ -253,17 +280,18 @@ margin-left: 4px;
 				
 				<div class="container" >
 			  @if (Route::has('password.request'))
-				  <a class="small" href="{{ route('password.request') }}" style="position:absolute; top: 410px; left:250px;">¿Olvidaste tu contraseña?</a></div>
+				  <a class="small" href="{{ route('password.request') }}" style="position:absolute; top: 340px; left:250px; font-family: FontAwesome;
+  font-size: 13px;">¿Olvidaste tu contraseña?</a></div>
 			  @endif
 		</div>
 					</div>
 
 	
-
-
-
-			<button class="btn btn-lg btn-primary " type="submit" id="butr" style="position:absolute; top: 500px; left:150px;">Entrar</button>
-					</div>
+			<button class="btn btn-lg btn-primary " type="submit" id="butr" style="position:absolute; width: 350px; top: 380px; left:90px;">Entrar
+	</button>		
+			<img class="logo" src="assets/img/muela.png" class="mr-3" id="logo1" style="position:absolute;  left: 160px; top: 420px; width: 350px;
+  height: 220px; ">  
+		</div>
 				</form>
 			</div>
 		</div>

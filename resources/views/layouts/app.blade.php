@@ -81,16 +81,7 @@ body{
 <body>
     <div id="app" >
         
-                <a style="    color: #0099cc;
-                     text-shadow: 2px 0 #ffcc66, 0 2px #ffcc66, 2px 0 #ffcc66, 0 2px #ffcc66;font-family: serif;left: 150px; top: 60px;font-size: 40px"
-                     class="navbar-brand" href="{{ url('/') }}" id="enlace2">
-                     Smile Software <?php $logotipos=App\Logotipo::where('id','=',1)->get();?>
-                        @forelse($logotipos  as $tag)
-                    <img  style="  border-radius: 70%;"class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="80px" high="100px" id="dos">
-                    @empty
-                    <img  style="  border-radius: 70%;" class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" width="80px" id="dos"> 
-                    @endforelse
-                </a>
+              
 
               
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
