@@ -253,6 +253,10 @@ margin-left: 4px;
 						Iniciar Sesion 
 					</span>
 
+					<span class="login100-form-title p-b-59" style="text-shadow: 2px 0 #ffb31a, 0 2px #ffb31a, 2px 0 #ffb31a, 0 2px #ffb31a;">
+						Iniciar Sesion 
+					</span>
+
 					
 
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
