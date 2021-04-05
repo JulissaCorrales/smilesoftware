@@ -10,7 +10,7 @@ class TratamientoController extends Controller
 {
     public function vistaprincipal(){
         if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
-        $tratamientos=Tratamiento::All();
+        $tratamientos=Tratamiento::Paginate(10);
         return view('tratamientos')->with ('tratamientos',$tratamientos);
     }else{
         abort(403);
