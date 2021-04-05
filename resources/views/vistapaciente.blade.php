@@ -52,9 +52,7 @@
 @section('contenido')
 <body>
 
-<table class="table table-striped table-hover">
 
-</table>
 
 
 
@@ -139,17 +137,17 @@ position: absolute;top: 10px;left: 510px;" >
 
 <div class="container" id="tablaprincipal">
 
-<table  class="table table-hover" id="datatable1" >
-  <thead style="background-color:#71dada; font-size:18px; font-family: Times New Roman, Times, serif;">
+<table   class="table table-striped table-info" id="datatable1" >
+  <thead  class="thead-dark" style="background-color:#595959; font-size:18px; font-family: Times New Roman, Times, serif;">
     <tr>
-      <th  style=" font-size:15px; font-family: Times New Roman, Times, serif; color:#293d3d;">Nombre</th>
-      <th  style=" font-size:15px; font-family: Times New Roman, Times, serif; color:#293d3d;">Identidad</th>
-      <th  style=" font-size:15px; font-family: Times New Roman, Times, serif; color:#293d3d;">Accion</th>
+      <th  style=" font-size:15px; font-family: Times New Roman, Times, serif; color:white;">Nombre</th>
+      <th  style=" font-size:15px; font-family: Times New Roman, Times, serif; color:white;">Identidad</th>
+      <th  style=" font-size:15px; font-family: Times New Roman, Times, serif; color:white;">Accion</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody style="background-color:#e6e6e6;">
   @forelse($pacientes as $paciente)
-    <tr>
+    <tr style="background-color:#e6e6e6;">
      <td>@canany(['isAdmin','isOdontologo','isSecretaria'])
 
 <a  href="/pantallainicio/vista/paciente/{{$paciente->id}}/editar" >@endcanany<img class="logo" src='/Imagenes/{{$paciente->imagen}}'  width="60px"
