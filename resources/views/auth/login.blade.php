@@ -259,10 +259,7 @@ margin-left: 4px;
   </span>
 
 
-<span class="login100-form-title p-b-59" style="text-shadow: 2px 0 #ffb31a, 0 2px #ffb31a, 2px 0 #ffb31a, 0 2px #ffb31a;">
-						Iniciar Sesion 
-					
-  </span>
+
 
 @if (session('status'))
                         <div class="alert alert-success" role="alert" >
