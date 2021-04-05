@@ -53,7 +53,9 @@ public function guardar(Request $request,$id){
         $nuevorecaudacion->paciente_id = $id;
         $nuevorecaudacion->plantratamiento_id =  $nuevotraTamiento->id;
         $nuevorecaudacion->preciototal =$nuevotraTamiento->tratamiento->productos->sum('monto');
-        $nuevorecaudacion->totalpagar =$nuevotraTamiento->tratamiento->productos->sum('monto'); 
+$total = $nuevotraTamiento->tratamiento->productos->sum('monto'); 
+        $nuevorecaudacion->totalpagar = $total;
+
         $creado = $nuevorecaudacion->save();
           
           return redirect("/pantallainicio/vista/paciente/$id/plandetratamiento")->with('mensaje', 'El Plan de tratamiento fue creado exitosamente!');

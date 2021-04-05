@@ -158,7 +158,6 @@ tbody td:hover:before {
                     <th>Prestacion</th>
                     <th>Productos</th>
                     <th>Total Presupuesto</th>
-                    <th>Total a pagar</th>
                 </tr>
             </thead>
             <tbody>
@@ -176,7 +175,7 @@ tbody td:hover:before {
                 </td>
               <!-- Total presupuestos -->
                 <td>
-                @forelse($planes->recaudacion as $recaudaciones)
+                @forelse($planes->recaudaciones as $recaudaciones)
                          <p>{{$recaudaciones->preciototal}} </p>    
                            
                           
@@ -185,18 +184,53 @@ tbody td:hover:before {
                           @endforelse
                 
                 </td>
-                <td>
-               @forelse($planes->recaudacion as $recaudaciones)
-               <br>
-                           {{ $recaudaciones->totalpagar}}
-                          @empty
-                          No tiene
-                          @endforelse
-            </td> 
+                
             @empty
           <td>Vacio</td>
-            @endforelse
+            @endforelse 
               </tr>
+    
+ <tr>
+<td> 
+<?php 
+
+try
+{
+  $mbd = new PDO('mysql:host=127.0.0.1;dbname=smilesoftware', "root", "");
+ 
+
+ $mos= $mbd->query('select totalpagar, SUM(totalpagar) as cita
+  from recaudacions 
+  group by  totalpagar');
+  
+//foreach($mos as $fila){
+  //  echo  $fila["cita"];
+  //  echo "<br>";
+   // }
+
+}
+catch(Exception $e)
+{
+        echo "no conectado";
+}
+
+ ?>
+
+
+<?php foreach($mos as $fila){
+
+   echo "<h4 style='position:absolute; top:;'> Total a Pagar </h4>". "<h4 style='position:absolute; left:200px;'>". $fila["cita"] ."</h4>";
+    echo "<br>";
+  ?>  <?php 
+
+
+} 
+?>
+</td>
+
+</tr>
+
+
             </tbody>
         </table>
       

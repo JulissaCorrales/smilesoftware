@@ -28,8 +28,8 @@ class Plantratamiento extends Model
     }
 
     
-    public function recaudacion(){ 
-        return $this->hasMany(Recaudacion::class); //Pertenece a un tratamiento.
+    public function recaudaciones(){ 
+        return $this->hasMany(Recaudacion::class, 'plantratamiento_id','id'); //Pertenece a un tratamiento.
     }
 
 

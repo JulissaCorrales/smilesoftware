@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Recaudacion;
 use App\Paciente;
+use App\Plantratamiento;
+use Illuminate\Support\Facades\DB;
 
 class RecaudacionesController extends Controller
 {
@@ -16,6 +18,9 @@ class RecaudacionesController extends Controller
     public function VistaRecaudacionesD($id){
         $this->authorize('view', Recaudacion::class);
         $pacientes = Paciente::findOrFail($id);
-        return view('vistaPrincipalRecaudaciones',compact('pacientes'));
+ 
+    
+
+        return view('vistaPrincipalRecaudaciones',compact('pacientes','totalpagar'));
     }
 }
