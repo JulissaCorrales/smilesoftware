@@ -293,17 +293,6 @@ margin-left: 4px;
 					</div>
 
 
-
-					<div class="flex-m w-full p-b-33">
-					<div class="form-group">
-			  <div class="form-check" style="position:absolute; top: 380px; left:50px;">
-                                    <input  type="checkbox" name="remember" class="form-check-input ios-switch-control-input" value="1" id="remember">
-
-                                    <label class="form-check-label" for="remember" style="font-family: FontAwesome;">
-                                        {{ __('Remember Me') }}
-                                    </label>						
-	</div>
-
 	<div class="mt-4">
 				
 				<div class="container" >
