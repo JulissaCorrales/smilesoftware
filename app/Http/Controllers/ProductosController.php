@@ -12,7 +12,7 @@ class ProductosController extends Controller
 {
     public function datos($id){
         if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
-       $productos=Producto::all();
+       $productos=Producto::All();
        $tratamientos=Tratamiento::findorfail($id);
       return view('productos')->with ('productos',$productos)->with('tratamientos',$tratamientos);
     }else{
@@ -21,11 +21,11 @@ class ProductosController extends Controller
       }
      
 
-public function nuevo($id){
-    $this->authorize('create', Producto::class); //si tiene el permiso de crear:
-   $tratamientos = Tratamiento::findOrFail($id);
-      return view('productosnuevo')->with('tratamientos',$tratamientos); 
-}
+// public function nuevo($id){
+//     $this->authorize('create', Producto::class); //si tiene el permiso de crear:
+//    $tratamientos = Tratamiento::findOrFail($id);
+//       return view('productosnuevo')->with('tratamientos',$tratamientos); 
+// }
 
 
 
@@ -36,7 +36,7 @@ public function guardar(Request $request,$id){
     $request->validate([
         'nombre'                    =>  'required',
         'permitedescuento'          =>  'required',
-        'monto'                     =>  'required',
+        'monto'                     =>  'required|numeric',
        
     ]);
 
@@ -70,22 +70,22 @@ public function guardar(Request $request,$id){
     }
 
 
-    public function editar($id){
-        if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
-        $productos=Producto::findOrFail($id);
-        $this->authorize('update', $productos); //si tiene el permiso de editar:
-        return view('editarproducto')->with('productos',$productos);
-    }else{
-        abort(403);
-    }
-    }
+    // public function editar($id){
+    //     if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
+    //     $productos=Producto::findOrFail($id);
+    //     $this->authorize('update', $productos); //si tiene el permiso de editar:
+    //     return view('editarproducto')->with('productos',$productos);
+    // }else{
+    //     abort(403);
+    // }
+    // }
 
     public function update(Request $request,$id){
         if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
         $request->validate([
             'nombre'                     =>  'required',
             'permitedescuento'           =>  'required',
-            'monto'                      =>  'required',
+            'monto'                      =>  'required|numeric',
         ]);
     
         $productos=Producto::findOrFail($id);

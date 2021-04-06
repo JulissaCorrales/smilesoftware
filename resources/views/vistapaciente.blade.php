@@ -274,7 +274,24 @@ height= "60px" style="border-radius:50%;">
 $(document).ready( function () {
     $('#datatable1').DataTable( {
     language: {
-        search: "Busqueda por nombre o identidad:"
+        search: "Busqueda por nombre o identidad:",
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Pacientes",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Pacientes",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Pacientes",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
     }
 });
 } );

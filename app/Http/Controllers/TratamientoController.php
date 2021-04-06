@@ -29,10 +29,10 @@ class TratamientoController extends Controller
 
 
 
-public function nuevo(){
-    $this->authorize('create', Tratamiento::class); //si tiene el permiso de crear:   
-    return view('tratamientosnuevo');
-}
+// public function nuevo(){
+//     $this->authorize('create', Tratamiento::class); //si tiene el permiso de crear:   
+//     return view('tratamientosnuevo');
+// }
 
 public function guardar(Request $request){
     $this->authorize('create', Tratamiento::class); //si tiene el permiso de crear:        
@@ -56,13 +56,13 @@ public function guardar(Request $request){
 
 }
 
-/* funcion para poder editar un gasto */
-public function editar($id){
-    $tratamientos=Tratamiento::findOrFail($id);
-    $this->authorize('update',$tratamientos );/* si tiene permiso de editar */ 
-    return view('editartratamiento')->with('tratamientos',$tratamientos);
+// /* funcion para poder editar un gasto */
+// public function editar($id){
+//     $tratamientos=Tratamiento::findOrFail($id);
+//     $this->authorize('update',$tratamientos );/* si tiene permiso de editar */ 
+//     return view('editartratamiento')->with('tratamientos',$tratamientos);
 
-}
+// }
 
 public function update(Request $request,$id){
     if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){ 
