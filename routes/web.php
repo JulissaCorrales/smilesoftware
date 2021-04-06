@@ -262,10 +262,10 @@ Route::delete('{id}/borrar/odontologo','OdontologoController@destroy') ->name('o
         
 //**************Rutas de  tratamientos******************************************************************/
 Route::get('tratamiento','TratamientoController@vistaprincipal')->name('tratamiento.vista')->middleware('role:admin,odontologo,secretaria');
-Route::get('tratamientonuevo','TratamientoController@nuevo');
+// Route::get('tratamientonuevo','TratamientoController@nuevo');
 Route::post('tratamientoNuevo','TratamientoController@guardar')->middleware('role:admin,odontologo');
 Route::delete('tratamiento/{id}/borrar','TratamientoController@destroy') ->name('tratamiento.borrar')->where('id','[0-9]+')->middleware('role:admin,odontologo');
-Route::get('{id}/editar','TratamientoController@editar') ->name('tratamiento.editar') -> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
+// Route::get('{id}/editar','TratamientoController@editar') ->name('tratamiento.editar') -> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
 Route::put('{id}/editar','TratamientoController@update')->name('tratamiento.update') -> where('id' ,'[0-9]+');
 
 
