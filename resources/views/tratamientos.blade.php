@@ -153,8 +153,12 @@
 
           <!-- Tipo-->
           <div class="form-group" id="div2">
-          <label for="detalle" class="control-label">Tipo:</label>
-          <input type="text"  style="background-color:#FFFDE7"  class="form-control-file" name="tipo" id="tipo" placeholder="Ingrese el tipo de gasto" value="{{ $tratamiento->tipo }}">
+          <label for="tipo" class="control-label">Tipo:</label>
+          <select  name="tipo" id="tipo" class="form-control-file" style="padding:1em;">
+          <option disabled selected>Actual:{{ $tratamiento->tipo }}</option>
+            <option>Accion Clinica</option>
+            <option>Accion de Laboratorio</option>
+          </select>
           </div>
 
           <div class="form-group" id="div6" align="center">
