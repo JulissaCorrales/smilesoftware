@@ -290,8 +290,8 @@ Route::get('pantallainicio/odontologo/{id}','EspecialidadOdontologosController@E
 Route::get('inventario','InventarioController@vistaprincipal')->middleware('role:admin,secretaria,odontologo');
 Route::delete('inventario/{id}/borrar','InventarioController@destroy') ->name('inventario.borrar')->where('id','[0-9]+')->middleware('role:secretaria,admin');
 Route::post('inventarioNuevo','InventarioController@guardar')->middleware('role:admin,secretaria');
-Route::get('inventarionuevo','InventarioController@nuevo');
-Route::get('inventario/{id}/editar','InventarioController@editar') ->name('inventario.editar') -> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
+// Route::get('inventarionuevo','InventarioController@nuevo');
+// Route::get('inventario/{id}/editar','InventarioController@editar') ->name('inventario.editar') -> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
 Route::put('inventario/{id}/editar','InventarioController@update')->name('inventario.update') -> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
 
 //**************Rutas de  medios de pago******************/

@@ -44,7 +44,7 @@ margin:1em;
 @endcan
 <!-- Modal para nuevo producto -->
 <div class="modal fade" id="nuevoproducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
+<div class="modal-dialog modal-dialog-centered" role="document">
 <div class="modal-content">
 <div class="modal-header" style="background-color:#26A69A;color:white">
 <h5 class="modal-title" align="center" id="exampleModalLabel">
@@ -147,7 +147,7 @@ Nuevo producto</h5>
 
     <!-- Modal -->
     <div class="modal fade" id="modaleditar-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header" style="background-image: linear-gradient(to left,  #F7DC6F,#F9E79F);" >
             <h5 class="modal-title" id="exampleModalScrollableTitle">
@@ -212,7 +212,7 @@ Nuevo producto</h5>
 
     <!-- Modal para eliminar -->
     <div class="modal fade" id="modal-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
     <div class="modal-header" style="background-image: linear-gradient(to left,  #E6B0AA,#F9E79F);">
     <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

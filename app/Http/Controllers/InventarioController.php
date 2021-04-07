@@ -24,10 +24,10 @@ public function destroy($id){
 
 }
 
-public function nuevo(){
-    $this->authorize('create', Inventario::class); //si tiene el permiso de crear:   
-    return view('inventarionuevo');
-}
+// public function nuevo(){
+//     $this->authorize('create', Inventario::class); //si tiene el permiso de crear:   
+//     return view('inventarionuevo');
+// }
 
 
 
@@ -35,9 +35,9 @@ public function guardar(Request $request){
     $this->authorize('create', Inventario::class); //si tiene el permiso de crear sera guardado:        
     $request->validate([
         'producto'         =>  'required',
-        'stockseguridad'   =>  'required',
-        'stockactual'      =>  'required',
-        'monto'      =>  'required',
+        'stockseguridad'   =>  'required|numeric',
+        'stockactual'      =>  'required|numeric',
+        'monto'      =>  'required|numeric',
     ]);
 
     // formulario
@@ -54,20 +54,20 @@ public function guardar(Request $request){
     }
 }
 
-public function editar($id){   
-    $inventarios=Inventario::findOrFail($id);
-    $this->authorize('update', $inventarios);//si tiene el permiso de actualizar:
+// public function editar($id){   
+//     $inventarios=Inventario::findOrFail($id);
+//     $this->authorize('update', $inventarios);//si tiene el permiso de actualizar:
 
-    return view('editarinventario')->with('inventarios',$inventarios);
+//     return view('editarinventario')->with('inventarios',$inventarios);
 
-}
+// }
 
 public function update(Request $request,$id){
     $request->validate([
         'producto'        =>'required',
-        'stockseguridad'  =>'required',
-        'stockactual'     =>'required',
-        'monto'           =>'required',
+        'stockseguridad'  =>'required|numeric',
+        'stockactual'     =>'required|numeric',
+        'monto'           =>'required|numeric',
     ]);
 
     $inventarios=Inventario::findOrFail($id);
