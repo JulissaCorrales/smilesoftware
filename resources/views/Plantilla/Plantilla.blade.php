@@ -55,7 +55,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
       <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
       <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-css/1.4.6/select2-bootstrap.min.css" rel="stylesheet" />
-      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+
+     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css"> -->
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
     <script src="/js/bootstrap-tagsinput.js"></script>
     @yield('css_role')
     @yield('js_role')
@@ -84,8 +87,11 @@
   font-size:40px;
 }
 #cuatro{
-  height: 120px;
-  background-image: linear-gradient(to bottom, #33d6ff ,#e6ffff );
+  width: 1330px;
+ position: absolute;
+left: 50px;
+top:-20px;
+   background-image: linear-gradient(to top, #476b6b ,#e6ffff );
 }
 
 #dos{
@@ -132,22 +138,24 @@
 #administracion{
     border-radius: 5px;
     width: 190px;
-    background-color: #b3f0ff;
+   
     font-size: 16px;
-    border-color: #e67300;
+    border-color: #ccffff;
     left: 930px;
-    color: #ff8000;
+    color: #ccffff;
 }     
 #buscar{
-  width: 100px;
-  left: 830px;
-  background-color: #ffad33;
+  width: 50px;
+  left: 700px;
+ background-color: #00e6e6;
   font-size: 14px;
   border-color: #00e6e6;
   position: absolute;
-  top: 53px;
-  color: #ccffff;
-  border-radius: 12px;
+  top: 50px;
+height: 40px;
+  color:#ffad33;
+ 
+  border-radius: 5px;
 }
 
 #administrador{
@@ -160,7 +168,7 @@
 #administrador1{
   border-radius: 12px;
     width: 100px;
-    left: 1000px;
+    left: px;
     background-color: #00e6e6;
     font-size: 14px;
     border-color: #00BFFF;
@@ -168,77 +176,93 @@
     top: 50px;
 }
 #buscar1{
-  left: 750px;
+  left: 500px;
 
 }
 
 #texto{
-  border-radius: 12px;
-  width: 500px;
-  background-color: #ccffff;
+  border-radius: 10px;
+  width: 400px;
+  /*background-color: #ccffff; */
   font-size: 16px;
   position: absolute;
-  left: 320px;
+  left: 350px;
   top: 50px;
   border-color: #33cccc;
 }
 #nav{
-  background-image: linear-gradient(to top, #33d6ff ,#e6ffff );
+  background-image: linear-gradient(to top, #00cccc ,#e6ffff );
+ width: 280px;
+height: 900px;
 }
+
+#logo1{
+    border-radius: 50%;
+  position: absolute;
+  left: 150px;
+  top:  20px;
+  width: 80px;
+  height: 80px;
+}
+
+
+
+
+#logo4{
+    border-radius: 50%;
+  position: absolute;
+  position: absolute;
+  left: 180px;
+  top:  25px;
+  width: 80px;
+  height: 80px;
+}
+
+
+#letrasoftwareh4{
+   
+  
+  position: absolute;
+  font-size:40px; font-family:"Times New Roman", Times, serif;
+  left: 20px;
+  top: 5px;
+ 
+}
+
+/* CSS DEL TEXTO H4 DE SOFTWARE*/
+#letrasoftwareh5{
+  
+   position: absolute;
+   left: 40px;
+   top: 40px;
+   font-size: 30px; font-family:"Times New Roman", Times, serif;
+   color:#001a1a;
+ }
 </style>
     <!-- Custom styles for this template -->
     <link href="sticky-footer-navbar.css" rel="stylesheet">
 
-    <title> @yield('titulo')</title>
+    <title> @yield('Titulo')</title>
 </head>
   <body >
 
-  <header> 
-    <!-- Fixed navbar -->
+<header> 
+
     <nav class="navbar navbar-expand-lg"   id="cuatro">
-    <h1 id="uno" >Smile </h1><br><h1 id="tres">Software</h1>
-  <div class="media" >
-    @forelse($logotipos  as $tag)
-    <img style="margin-left:210px; border-radius: 70%; " class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="80px" high="100px" id="dos">
-    @empty
-    <h1 id="uno" >Smile </h1><br>
-      <h1 id="tres">Software</h1>
-    <img class="logo" src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" width="80px" id="dos"> 
-    @endforelse
-    <div class="media-body">
-    </div>
-  </div>
 
-
-  <div class="collapse navbar-collapse" width="80px" id="buscador">
+  <div class="collapse navbar-collapse" id="buscador" >
     <form class="form-inline my-2 my-lg-0" id="buscar1"  action="buscar">
-      <input  name="buscarpor"  class="form-control" type="search" placeholder="Buscar Paciente" aria-label="Search" width="500px" id="texto"  >
+      <input  name="buscarpor"  class="form-control" type="search" placeholder="Buscar Paciente" aria-label="Search"  id="texto"  >
 
-      <button class= "btn btn-outline-success my-2 my-sm-0" id="buscar" type='submit'><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <button class= "btn btn-outline-success my-2 my-sm-0" id="buscar" type='submit'><svg width="1em" height="50px;" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
       <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
       </svg></button>
     
     </form>
   </div> 
-  <br><br>
-  @can('isAdmin')
-    <div class="btn-group" id="administrador1">
-
-      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"   aria-haspopup="true" aria-expanded="false" id="Administrador">
-      Administrador 
-      </button>
-  @endcan
-      <div class="dropdown-menu">
-        @can('isAdmin')
-        <a class="dropdown-item" href="{{route('usuarios.indice')}}">Usuarios</a>
-        @endcan
-        @can('isAdmin')
-        <a class="dropdown-item" href="{{route('roles.ver')}}">Roles</a>
-        @endcan
-      </div>
       <!--Autenticación  -->
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto" >
           <!-- Authentication Links -->
           @guest
           <li class="nav-item">
@@ -251,7 +275,7 @@
           @endif
           @else
           <li class="nav-item dropdown">
-            <a style="margin-left:7px;background: #43A047;" id="navbarDropdown" class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            <a style="margin-left:-230px; margin-top:45px; background: #43A047;" id="navbarDropdown" class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }} - {{ Auth::user()->roles->isNotEmpty() ? Auth::user()->roles->first()->Nombre : "" }} <span class="caret"></span>
             </a>
 
@@ -278,30 +302,76 @@
       </ul>
       <!-- fin de autenticación -->
     </nav>
-    <div class="nav-scroller bg-white shadow-sm" id="cinco">
+    <div class="nav-scroller bg-white shadow-sm" id="cinco" sytle=" background-image: url('../assets/img/fondo21.jpg');
+background-size: 100px;
+background-repeat: no-repeat;">
       <nav class="navbar navbar-expand-lg navbar-light bg-light"  id="nav">
-          <div class="btn-group btn-group-lg" id="agenda1" >
-            <a id ="agenda" type="button" class="btn btn-outline-info" href="/pantallainicio/calendario">
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-            </svg>  Agenda</a>
 
-      <!-- Esta parte se da acceso a la ruta de la vista de paciente -->
-      <div div class="btn-group btn-group-lg" id="paciente1">
-        <a type="button" class="btn btn-outline-info" id="paciente" href="/pantallainicio/vista">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+ <div  class="media-body" >
+
+
+ <h4 id="letrasoftwareh4">Smile</h4>
+    <h4 id="letrasoftwareh5">Software</h4>
+
+ @forelse($logotipos  as $tag)
+    <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" >
+    @empty
+
+    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3" id="logo1"> 
+    @endforelse 
+
+  <ul class="nav" >
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/pantallainicio/calendario" id="lista1" style="font-size:20px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff; color:#009999;  width: 220px;
+  height: 40px; position:absolute; top: 200px;">
+                        <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+            </svg> 
+                            Agenda
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/pantallainicio/vista" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff; color:#009999;  width: 220px;
+  height: 40px; position:absolute; top: 250px;">
+                        <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-        </svg>  Paciente</a>
-      </div>
-      <!--  -->
-      <div class="btn-group btn-group-lg" id="recaudacion1">
-        <button type="button" class="btn btn-outline-info" id="recaudacion"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-        </svg>  Recaudacion</button>
-      </div>
+        </svg>
+                          Paciente
+                        </a>
+                    </li>
+
+
+                    <li>
+                    @can('isAdmin')
+                        <a class="nav-link" href="{{route('usuarios.indice')}}" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff; color:#009999;  width: 220px;
+  height: 40px; position:absolute; top: 300px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+  <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+</svg>
+                            Usuarios
+                        </a>
+
+                        @endcan
+                    </li>
+
+
+                    <li>
+                    @can('isAdmin')
+                        <a class="nav-link" href="{{route('roles.ver')}}" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff; color:#009999;  width: 220px;
+  height: 40px; position:absolute; top: 350px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+  <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+</svg>
+                            Roles
+                        </a>  @endcan
+                    </li>
+                
+                </ul>
+
+</div>
 
       <!-- Esto es para la parte de administración -->
-      <div class="dropdown" style="top:2px;left: 930px;"  id="administracion1">
+      <div class="dropdown" style="top:-400px;left:850px;">
         <button type="button" class="btn btn-outline-info" id= "administracion"     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clipboard-data" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
         <path fill-rule="evenodd" d="M9.5 1h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
@@ -372,7 +442,7 @@
             </a>
           </div>
         <!-- Foto de perfil del usuario -->
-       @can('isAdmin') <a  href="{{route('usuario.actualizar',Auth::user()->id)}}">@endcan<img class="logo" style="border-radius: 70%;margin-left:5em;bottom:0.3em;  position: absolute;" src='/Imagenes/{{Auth::user()->imagen}}'   width=" 70px" height="70px"></a>
+       @can('isAdmin') <a  href="{{route('usuario.actualizar',Auth::user()->id)}}">@endcan<img class="logo" style="border-radius: 70%;left: 370px;bottom:0.3em;  position:absolute; top: -5px;" src='/Imagenes/{{Auth::user()->imagen}}'   width="50px" height="50px"></a>
         </nav>
       </div>
   </div>
@@ -382,6 +452,19 @@
   <div>
   @yield('contenido')
   </div>
+
+ <div class="modal-footer" style="position: absolute; left: 280px; width: 1100px; top: 850px; height:50px; background-color: #e0ebeb;">
+                  
+              <a style="position: absolute;left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
+
+              @forelse($logotipos  as $tag)
+    <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%; position: absolute;left: 1005px;top: 5px;width: 40px;border-color: #33ccff;  height: 40px;" >
+    @empty
+
+    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;position: absolute;left: 1005px;top: 5px;width: 40px; border-color: #33ccff;   height: 40px;"  > 
+    @endforelse 
+    </div>
+
 <!-- link para configurar el buscador -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>

@@ -17,8 +17,7 @@ class UsuarioController extends Controller
         if(Gate::denies('isAdmin')){
             abort(403);
          }
-
-        $usuarios = User::orderBy('id', 'desc')->get();
+         $usuarios=User::Paginate(2);
         return view('usuarios.VistaUsuarios')->with ('usuarios',$usuarios);
     }
 

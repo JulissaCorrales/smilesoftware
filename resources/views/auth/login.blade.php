@@ -300,12 +300,19 @@ margin-left: 4px;
 				  <a class="small" href="{{ route('password.request') }}" style="position:absolute; top: 380px; left:250px; font-family: FontAwesome;
   font-size: 13px;">¿Olvidaste tu contraseña?</a></div>
 			  @endif
+
+ <button class="btn btn-lg btn-primary " type="submit" id="butr" style="position:absolute; width: 350px; top:400px; left:90px;">Entrar
+	</button>
+
+	
+			<img class="logo" src="assets/img/muela.png" class="mr-3" id="logo1" style="position:absolute;  left: 160px; top: 460px; width: 350px;
+  height: 220px; "> 
 		</div>
 					</div>
 
-	
-			<button class="btn btn-lg btn-primary " type="submit" id="butr" style="position:absolute; width: 350px; top: 420px; left:90px;">Entrar
-	</button>		
+ <div>
+
+				
 			<img class="logo" src="assets/img/muela.png" class="mr-3" id="logo1" style="position:absolute;  left: 160px; top: 460px; width: 350px;
   height: 220px; ">  
 		</div>
