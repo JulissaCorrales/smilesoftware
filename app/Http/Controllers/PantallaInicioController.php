@@ -10,7 +10,7 @@ class PantallaInicioController extends Controller
     public function PantallaInicio()
     {
         $this->authorize('view', Cita::class);//si tiene el permiso de ver:
-        $citas=Cita::Paginate(10);
+        $citas=Cita::Paginate(3);
         return view('PantallaInicio')->with('citas',$citas);
 }
 

@@ -1,4 +1,4 @@
-@extends('Plantilla.Plantilla2')
+@extends('Plantilla.Plantilla')
 @section('titulo','Ver Usuarios')
 @section('contenido')
 <style>
@@ -6,11 +6,17 @@
 
   margin:4em;
   font-family: georgia;
-  text-align:center;  
+  text-align:center;
+position: absolute;
+top: 100px;
+left: 280px;  
+
+width: 1000px;
  
 }
 #dd{
-  background-image: linear-gradient(to left,  #AFEEEE,#00FF99);
+  background-color:  #293d3d;
+color: white;
 }
 h4{
   text-align:center;

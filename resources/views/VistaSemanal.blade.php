@@ -1,6 +1,6 @@
 
-@extends('VistaMenuAgenda')
-@section('Titulo','AgendaSemanal')
+@extends('Plantilla.PlantillaMenuAgenda')
+@section('titulo','AgendaSemanal')
 
 @section('cuerpo')
 <?php 
@@ -75,17 +75,17 @@ catch(Exception $e)
        background: #cceeff;
        width: 940px;
        color: #ff4d4d;
-       height: 1200px; 
+       height: 300px; 
        background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff);
 
-       padding: 25px 25px 25px 25px;
+      /* padding: 25px 25px 25px 25px; */
      
       
      }
 
      #app{
       position:absolute;
-            top: 390px;
+            top: 100px;
             color: #ff4d4d;
             left: 400px;
 
@@ -108,8 +108,7 @@ catch(Exception $e)
             color: #ff4d4d;
             left: 50px;
             border-color: #00BFFF;
-            width: 320px; 
-            height: 70px;
+         
             background-color: #ccffff;
 
      }
@@ -121,8 +120,7 @@ catch(Exception $e)
             color: #ff4d4d;
             left: 50px;
             border-color: #00BFFF;
-            width: 320px; 
-            height: 100px;
+           
             background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff);
 
      }
@@ -161,8 +159,7 @@ catch(Exception $e)
     border-top-color: #000066;
     
     font-size: 1em; /* normalize cross-browser */
-    width: 900px; 
-            height: 1100px;
+    
   }
 
   .fc th {
@@ -173,7 +170,8 @@ catch(Exception $e)
   .fc td {
     vertical-align: top;
     border-color: #000066;
-    padding: 2px;
+    
+height: 100px;
     
   }
 

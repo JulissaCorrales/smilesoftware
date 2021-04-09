@@ -27,10 +27,9 @@
         font-family: georgia; 
         }
         #hijo1 {
-          
-            margin: 10px;
+        
             position: absolute;
-            top: 235px;
+            top: -235px;
             
             }
         #hijo2{
@@ -58,18 +57,14 @@
         
     </style>
 </head>
-<body id="body">
-<div class="container" id="padre">
-<div  id="hijo1">
-</div>
-
-<div  id="hijo2">
+<body >
+<div class="container" >
 @if(session('mensaje'))
-        <div class="alert alert-success">
+        <div class="alert alert-success" style="position:absolute; top:200px; left:450px; width:800px;">
             {{session('mensaje')}}
         </div>
     @endif
-<table class="table">
+<table class="table" style="position:absolute; left:450px; top: 250px; width:800px; height:200px;">
         <thead class="table table-striped table-bordered">
             <tr id="encabezado">
                 <th scope="col">Numero</th>
@@ -140,28 +135,20 @@
          
                     {{$citas->links()}}
 
-
-            
             </td>
-            
-            <tr>
-        
+    </tr>
             
         </tbody>
 
     </table>
     </div>
 
-   
-    
 </div>
 
 
-</body>
-
-
-
-</html>
 
 @include('darcita')<!-- esta seccion hace que funcione modal dar cita -->
 @endsection
+</body>
+
+</html>
