@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Productos</title>
+ <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.material.min.css">
 <style>
 #padre{
 
@@ -282,7 +283,7 @@ $(document).ready( function () {
         search: "Buscador de Productos:",
       "decimal": "",
         "emptyTable": "No hay información",
-        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "info": "",
         "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
         "infoFiltered": "(Filtrado de _MAX_ total entradas)",
         "infoPostFix": "",
@@ -294,8 +295,8 @@ $(document).ready( function () {
         "paginate": {
             "first": "Primero",
             "last": "Ultimo",
-            "next": "Siguiente",
-            "previous": "Anterior"
+            "next": " <html><button>Siguiente</button></html>  ",
+            "previous": " <html><button>Anterior </button></html>  "
         }
 
     }
