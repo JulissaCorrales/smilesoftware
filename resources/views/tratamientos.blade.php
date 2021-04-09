@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tratamientos</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <style>
 
 #padre{
@@ -222,15 +223,16 @@
 @empty
      <h1>No hay Tratamientos Existentes</h1>
      @endforelse
-    <tr>
-    <td  colspan="5"> 
-         <p id="paginacion">{{$tratamientos->links()}}</p> 
-    </td>
 
-    </tr>
 <tbody>
 
 </table>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<!-- script de jquery para que funcione el buscador de nombre-->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+<!-- script de datatable para que funcione el buscado de nombre-->
+
+
 </div>
 <!-- footer -->
 <div class="modal-footer" style="position: relative;
@@ -264,6 +266,33 @@ border-color: #33ccff , 2px;"  >
 </div>
 <!--fin footer  -->
 </body>
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#datatable').DataTable( {
+    language: {
+        search: "Buscador de tratamientos:",
+      "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "",
+        "infoEmpty": "Mostrando 0 to 0 of 0 tratamientos",
+        "infoFiltered": "(Filtrado de _MAX_ total tratamientos)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ tratamientos",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+          "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
+
+    }
+});
+} );
+</script>
 @endcanany
 @endsection
 </html>

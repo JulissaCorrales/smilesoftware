@@ -44,7 +44,7 @@ public function PDFfacturaplantratamiento($id,$id2){
     $pacientes = Paciente::findOrFail($id);
     $plantratamientos = Plantratamiento::findOrFail($id2);
     $totalpagar= $plantratamientos->tratamiento->productos->sum('monto'); 
-    $pdf = PDF::loadView('facturaplantratamiento_pdf',compact('pacientes','plantratamientos','totalpagar'));
+    $pdf = PDF::loadView('facturaplantratamiento_pdf',compact('pacientes','plantratamientos','totalpagar'))->setPaper('a4');
     return $pdf->download('facturaplantratamiento_pdf.pdf');
     }
 /* Citas individuales */
