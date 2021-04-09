@@ -8,17 +8,25 @@
 <title>Productos</title>
 <style>
 #padre{
-margin:1em;
-padding:1em;
-font-family: arial;
-position:relative;
-margin-left:7em;
-}
 
+    width: 70%;
+    height: 600px;
+    position: absolute;
+    top:80px;
+    left: 320px;
+    margin-bottom:7em;
+}
+table {
+width:100%;
+}
 #btn{
 float:right;
 margin-top:2em;
 
+}
+#dd{
+margin-bottom:2em;
+position: absolute; width: 900px;height:10%;
 }
 #titulo{
 color: #4d4d4d;
@@ -32,8 +40,15 @@ margin:1em;
 <body>
 
 
-<div class="container" id="padre">
+<div class="container" id="padre" >
 <nav>
+<button onclick="location.href='{{route('tratamiento.vista')}}'"
+style="background-color:#45B39D;float:left;margin-top:3em; "  class="btn btn-secondary">
+<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-90deg-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z"/>
+</svg>
+Atrás
+</button>
 @can('create',App\Producto::class)
 <a id="btn"type="button" type="button"class="btn btn-outline-info" data-toggle="modal" data-target="#nuevoproducto">Nuevo Producto
 <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -102,7 +117,7 @@ Nuevo producto</h5>
 {{session('mensaje')}}
 </div>
 @endif
-<div  class="container" id="dd"><!-- para que funcione paginacion con buscador -->
+<div  class="container"  id="dd"><!-- para que funcione paginacion con buscador -->
 <table id="datatable" class="table table-striped table-warning">
 <thead class="thead-dark">
 <tr id="can">
@@ -249,19 +264,14 @@ Nuevo producto</h5>
     @endforelse
 <tbody>
 </table>
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <!-- script de jquery para que funcione el buscador de nombre-->
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 <!-- script de datatable para que funcione el buscado de nombre-->
 
 
-<button onclick="location.href='{{route('tratamiento.vista')}}'"
-style="background-color:#45B39D;float:right; "  class="btn btn-secondary">
-<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-90deg-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z"/>
-</svg>
-Atrás
-</button>
+
 </div>
 </body>
 

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!--<link rel="stylesheet" href="/css/bootstrap.min.css"> -->
-    <!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.material.min.css">
     
     <style>
 
@@ -49,15 +49,17 @@ color: white;
     top:150px;
     left:400px;
  
-  
+
     
     
  }
 
 #dd{
   position: absolute;
-    top:400px;
-    left:150px;
+  top:230px;
+  position: absolute; top: 230px; left: 400px; width: 900px;
+
+  
 
 
 }
@@ -158,8 +160,9 @@ color: #334d4d;
         </div>
     @endif
   
-
-<table style="position: absolute; top: 230px; left: 400px; width: 900px;" class="table">
+<div class="container" id="dd">
+ <div class="list-group">
+<table id="datatable"  class="table">
 <thead class="table table-striped table-bordered">
 
   <tr id="can" >
@@ -178,32 +181,32 @@ color: #334d4d;
   <tr id="" {{ Auth::user()->id == $usuario->id  ?  'bgcolor=#c2d6d6' : ''}} >
 
     
-    
+
      <td><img style="border-radius: 70%;" src='/Imagenes/{{$usuario->imagen}}' width="70px" height="70px" id="datosme">
      
     {{$usuario->name}}</td>
      <td>{{$usuario->email}}</td>
-     
-     <td> 
-                                    @if($usuario->roles->isNotEmpty())
-                                    @foreach ($usuario->roles as $role )
-                                    <span class="badge badge-secondary" >
-                                        {{ $role->Nombre }}                                    
-                                    </span>
-                                   
-                                    @endforeach
-                                    @endif
-                               </td>
 
-     <td> 
-     @if($usuario->permisos->isNotEmpty())
-                                    @foreach ($usuario->permisos as $permiso )
-                                    <span class="badge badge-secondary" >
-                                        {{ $permiso->Permiso }}                                    
-                                    </span><br>
-                                   
-                                    @endforeach
-                                    @endif</td>
+    <td> 
+      @if($usuario->roles->isNotEmpty())
+      @foreach ($usuario->roles as $role )
+      <span class="badge badge-secondary" >
+      {{ $role->Nombre }}                                    
+      </span>
+
+      @endforeach
+      @endif
+    </td>
+
+    <td> 
+    @if($usuario->permisos->isNotEmpty())
+    @foreach ($usuario->permisos as $permiso )
+    <span class="badge badge-secondary" >
+    {{ $permiso->Permiso }}                                    
+    </span><br>
+
+    @endforeach
+    @endif</td>
 
 
      
@@ -217,13 +220,13 @@ color: #334d4d;
   <a type="button" class="btn btn-success"  href="{{route('usuario.actualizar',$usuario->id)}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
 </svg>
-    
+
   </a>
 
      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$usuario->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
 </svg>
-      
+
   </button>
 
   </td>
@@ -257,7 +260,7 @@ color: #334d4d;
   </div>
 
   </td>
-  
+
   </div>
 
      </tr> 
@@ -265,12 +268,6 @@ color: #334d4d;
      <h1>No hay usuarios disponibles</h1>
      @endforelse
 
-<tr style="heigth:20px;">
-    <td  colspan="5" style=" background-color:#f0f5f5;"> 
-         <p id="paginacion">{{$usuarios->links()}}</p> 
-    </td>
-
-    </tr>
      </tbody>
 </table>
 
@@ -280,18 +277,36 @@ color: #334d4d;
 <!-- script de jquery para que funcione el buscador de nombre-->
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 <!-- script de datatable para que funcione el buscado de nombre-->
-     <!--   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css"> -->
- <script type="text/javascript">
+
+<script type="text/javascript">
 $(document).ready( function () {
     $('#datatable').DataTable( {
     language: {
-        search: "Busqueda por nombre o identidad:"
+        search: "Busqueda por nombre o correo:",
+ "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "",
+        "infoEmpty": "",
+        "infoFiltered": "(Filtrado de _MAX_ total usuarios)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ usuarios",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": " <html><button>Siguiente</button></html>  ",
+            "previous": " <html><button>Anterior </button></html>  "
+        }
     }
 });
 } );
 </script>
 
-
+</div>
+</div>
 </body>
 @endcan
 @endsection
