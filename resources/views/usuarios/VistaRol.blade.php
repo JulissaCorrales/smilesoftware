@@ -34,6 +34,10 @@
    
  }
 
+.datatable1 {border-style: solid;}
+
+
+
 
 </style>
 <body>
@@ -51,15 +55,16 @@
             {{session('mensaje')}}
         </div>
     @endif</p></div><br><br>
-<div class="container">
+<h3>Roles y usuarios</h3>
+<div class="container" id="allBody">
 
 <div>
-<button id="boton" type="button"class="btn btn-outline-info" data-toggle="modal" data-target="#nuevotratamiento" >crear rol <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-node-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<button id="boton" type="button"class="btn btn-outline-info" data-toggle="modal" data-target="#nuevorol" >crear rol <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-node-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M11 13a5 5 0 1 0-4.975-5.5H4A1.5 1.5 0 0 0 2.5 6h-1A1.5 1.5 0 0 0 0 7.5v1A1.5 1.5 0 0 0 1.5 10h1A1.5 1.5 0 0 0 4 8.5h2.025A5 5 0 0 0 11 13zm.5-7.5a.5.5 0 0 0-1 0v2h-2a.5.5 0 0 0 0 1h2v2a.5.5 0 0 0 1 0v-2h2a.5.5 0 0 0 0-1h-2v-2z"/>
         </svg></button>
 
 <!-- modal para crear nuevo tratamiento -->
-<div class="modal fade" id="nuevotratamiento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="nuevorol" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header"  style="background-color:#26A69A;color:white">
@@ -124,8 +129,8 @@
 <!--  -->
 
 <div>
-<table id="datatable1" >
-<thead class="table table-striped table-bordered">
+<table id="datatable1" border="dashed" >
+<thead class="table table-striped table-bordered" >
   <tr id="can">
    
       <th id="thh2"  >Id</th>
