@@ -5,14 +5,6 @@
 
 <style>
 
-html,body{
-
-  background-image:url('../assets/img/fondo6.jpg');
-background-repeat: no-repeat;
-background-size: cover;
-width: 1400px;
-font-family: 'Numans', sans-serif;
-}
 
 #diaria{
     border-radius: 5px;
@@ -114,16 +106,11 @@ font-family: 'Numans', sans-serif;
   position: absolute;
           
             top: 2px;
-            left:30px;
+            left: 70px;
   }
 
   #control{
-    width: auto;
-    height: auto;
-    border-radius: 12px;
-     /*background-image: linear-gradient(to bottom,  #ccffff ,#ff9933); */
-    position: absolute;
-    left: 700px;
+   
     
 
 
@@ -147,6 +134,7 @@ font-family: 'Numans', sans-serif;
 
   }
 
+
   
 
 
@@ -157,7 +145,7 @@ font-family: 'Numans', sans-serif;
 </head>
 @section('contenido')
 <body >
-
+<div>
 @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -172,8 +160,6 @@ font-family: 'Numans', sans-serif;
   
 <div class="container"  id="conte" >
 <nav class="navbar navbar-light bg-light"  id="navas" >
-<div class="media">
-  </div>
 
   <h5 id="age">Agenda</h5>
 
@@ -188,7 +174,6 @@ font-family: 'Numans', sans-serif;
 </svg>Citas</a>
 
 @endcan
-
 
 
 
@@ -223,6 +208,8 @@ font-family: 'Numans', sans-serif;
 <div style="position:static;"  id='hijo'>
 <div class="container">
 @yield('cuerpo')
+</div>
+
 </div>
 <!-- ---------------------------------------------- -->
      

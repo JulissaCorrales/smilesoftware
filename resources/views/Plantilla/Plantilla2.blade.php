@@ -5,12 +5,12 @@
 /* CSS DEL TEXTO H4 DE SMILE*/
 #letrasoftwareh4{
    
-  
   position: absolute;
-  font-size:40px; font-family:"Times New Roman", Times, serif;
+  font-size: 40px; font-family:"Times New Roman", Times, serif;
   left: 20px;
   top: 5px;
- 
+  color:#001a1a;
+text-shadow: 2px 0 #00b3b3, 0 2px #b38f00, 2px 0 #ffb31a, 0 2px #ffb31a;
 }
 
 /* CSS DEL TEXTO H4 DE SOFTWARE*/
@@ -18,17 +18,17 @@
   
    position: absolute;
    left: 40px;
-   top: 40px;
-   font-size: 30px; font-family:"Times New Roman", Times, serif;
+   top: 60px;
+   font-size: 35px; font-family:"Times New Roman", Times, serif;
    color:#001a1a;
+ text-shadow: 2px 0 #00b3b3, 0 2px #b38f00, 3px 0 #ffb31a, 0 2px #ffb31a;
  }
 
 /* CSS DEL TEXTO H4 DE MEDIA-BODY DEL CARD*/
 #media{
     height: 100px;
    
-    color:#001a1a;
-    background-color: white;
+  
   
   
 }
@@ -38,7 +38,7 @@
     border-radius: 50%;
   position: absolute;
   left: 140px;
-  top:  20px;
+  top:  10px;
   width: 100px;
   height: 90px;
 }
@@ -50,9 +50,9 @@
     border-radius: 50%;
   position: absolute;
   position: absolute;
-  left: 160px;
-  top:  25px;
-  width: 90px;
+  left: 140px;
+  top:  10px;
+  width: 100px;
   height: 80px;
 }
 
@@ -79,9 +79,7 @@
 
 /* CSS DEL cuerpo de body*/
 #wrapper1{
-  background-image: url('../assets/img/fondo21.jpg');
-background-size: 1500px;
-background-repeat: no-repeat;
+  background-image: linear-gradient(to bottom, #476b6b ,#e6ffff );
 
   
   /*background-image: linear-gradient(to left, #00cccc,#00cccc); */
@@ -371,7 +369,7 @@ background-repeat: no-repeat;
         
         <div class="main-panel">
             <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+            <nav class="navbar navbar-expand-lg " style="background-color: #c2d6d6; ">
                 <div class="container-fluid">
                 @forelse($logotipos  as $tag)
     <img class="logo" id="logo3" src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image">

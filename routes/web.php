@@ -44,7 +44,7 @@ use Illuminate\Support\Facades\Mail;
 
          Route::prefix('pantallainicio')->group( function(){
              //ruta de agenda
-                Route::get('calendario','CitaController@calendario')->middleware('role:admin,secretaria,odontologo');
+                Route::get('calendario','CitaController@calendario')->middleware('role:admin,secretaria,odontologo')->name('calendario.agenda');
                 //ruta de vista paciente
                 Route::get('vista','PacienteController@vistapaciente')->name ('paciente.vista')->middleware('role:admin,secretaria,odontologo');
                 Route::get('buscar','PacienteController@index')->name ('paciente.buscar')->middleware('role:admin,secretaria,odontologo');

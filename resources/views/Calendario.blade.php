@@ -51,20 +51,25 @@
 <style>
 #calendar {
 
-width: 700px;
+width: 1000px;
 padding: 25px 25px 25px 25px;
-margin-top:1em;
-background: url("/imagenes/fondodecalendario.png");
+
+position:absolute;
+top: 150px;
+left: 70px;
+background: url("/imagenes/fond.jpg");
 background-repeat: no-repeat;
-background-color: #eafafa; 
+background-image: linear-gradient(to top, #00cccc ,#e6ffff );
 background-position: center center;
   background-size: cover;
+
 }
 
 .fc table {
-border-collapse: collapse;
+
 border-spacing: 0;
 font-size: 1em; /* normalize cross-browser */
+  border: #00cccc  2px solid;
 }
 .fc th {
 text-align: center;
@@ -75,12 +80,13 @@ font-size: 1.2em;
 .fc td {
 vertical-align: top;
 padding: 0;
+border: #00cccc  2px solid;
 }
 
 #app{
 color: #ABEBC6;
-position:relative;  
-margin:2em;
+  
+
 
 }
 #cal{
@@ -101,7 +107,6 @@ margin-top:6em;
 @canany(['isAdmin','isSecretaria','isOdontologo'])
 
 <div class=row id="app">
-  <div class="col"></div>
   <div>
     <div   id="calendar"> 
         <calendar  :events="events" :editable="true" id="cal"></calendar>

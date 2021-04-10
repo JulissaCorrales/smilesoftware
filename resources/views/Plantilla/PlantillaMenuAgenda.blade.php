@@ -79,8 +79,8 @@
     height: 70px;
     border-radius: 12px;
     background-image: linear-gradient(to bottom, #00cccc ,#00e6e6); 
-    left: 300px;
-    top: -600px;
+    left: 310px;
+    top: 100px;
     
     
   

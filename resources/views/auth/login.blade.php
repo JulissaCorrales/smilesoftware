@@ -231,9 +231,9 @@ margin-left: 4px;
 
 <?php $logotipos=App\Logotipo::where('id','=',1)->get();?>
                         @forelse($logotipos  as $tag)
-                    <img  style="   border-radius: 90%;  position:absolute; left: 400px; top: 230px;"class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="100px">
+                    <img  style="   border-radius: 90%;  position:absolute; left: 400px; top: 230px;"class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="100px" height="70px">
                     @empty
-                    <img  style="  border-radius: 90%;  position:absolute; left: 400px; top: 230px;" class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  width="100px"> 
+                    <img  style="  border-radius: 90%;  position:absolute; left: 400px; top: 230px;" class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  width="100px" height="100px"> 
                     @endforelse
             
 <div style=" position:absolute; top: 250px; left:250px;">

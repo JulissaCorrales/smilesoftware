@@ -129,8 +129,8 @@
 <!--  -->
 
 <div>
-<table id="datatable1" border="dashed" >
-<thead class="table table-striped table-bordered" >
+<table id="" border="dashed"  >
+<thead class="table table-striped table-bordered" style=" background-color: #e6ffff;" >
   <tr id="can">
    
       <th id="thh2"  >Id</th>

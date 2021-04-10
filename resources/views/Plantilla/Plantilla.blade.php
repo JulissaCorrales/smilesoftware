@@ -196,38 +196,52 @@ height: 38px;
   border-color: #33cccc;
 }
 #nav{
-  background-image: linear-gradient(to top, #00cccc ,#e6ffff );
+  background-image: linear-gradient(to bottom, #95b7b7 ,#e6ffff );
  width: 280px;
 height: 1400px;
+  position:absolute;
+top: -15px;
+left:-15px;
+  padding: 10px;
+
+  margin: 15;
 }
 
 #logo1{
     border-radius: 50%;
   position: absolute;
-  left: 150px;
+  left: 160px;
   top:  20px;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
 }
-
-
 
 
 #logo4{
     border-radius: 50%;
   position: absolute;
   position: absolute;
-  left: 180px;
-  top:  25px;
-  width: 80px;
-  height: 80px;
+  left: 160px;
+  top:  20px;
+  width: 70px;
+  height: 70px;
 }
 
 
 #cinco{
- background-image: linear-gradient(to top, #00cccc ,#e6ffff );
- width: 280px;
-height:700px;
+ 
+ 
+
+}
+
+.button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
 }
 
 
@@ -238,7 +252,8 @@ height:700px;
   font-size:40px; font-family:"Times New Roman", Times, serif;
   left: 20px;
   top: 5px;
- 
+  color:#001a1a;
+text-shadow: 4px 0 #00b3b3, 0 4px #b38f00, 4px 0 #ffb31a, 0 4px #ffb31a;
 }
 
 /* CSS DEL TEXTO H4 DE SOFTWARE*/
@@ -246,9 +261,10 @@ height:700px;
   
    position: absolute;
    left: 40px;
-   top: 40px;
-   font-size: 30px; font-family:"Times New Roman", Times, serif;
+   top: 60px;
+   font-size: 35px; font-family:"Times New Roman", Times, serif;
    color:#001a1a;
+ text-shadow: 4px 0 #00b3b3, 0 4px #b38f00, 4px 0 #ffb31a, 0 4px #ffb31a;
  }
 </style>
     <!-- Custom styles for this template -->
@@ -274,12 +290,12 @@ height:700px;
     </form>
   </div> 
       <!--Autenticación  -->
-<div style="position:absolute; left:996px; top:35px;">
+<div style="position:absolute; left:1100px; top:35px;">
       <ul class="navbar-nav ml-auto" >
           <!-- Authentication Links -->
           @guest
           <li class="nav-item">
-            <a  style=" margin-left:7px" class="btn btn-primary" class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+            <a style=" margin-left:7px" class="btn btn-primary" class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
           </li>
           @if (Route::has('register'))
             <li class="nav-item">
@@ -337,7 +353,7 @@ height:700px;
             @endcan
 
             @canany(['isAdmin','isSecretaria'])
-              <a class="dropdown-item" href="/pantallainicio/odontologo">
+              <a class="dropdown-item" href="/pantallainicio/odontologo" >
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-lines-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
                 </svg>
@@ -406,34 +422,34 @@ height:700px;
 
   <ul class="nav" >
                     <li class="nav-item active">
-                        <a class="nav-link" href="/pantallainicio/calendario" id="lista1" style="font-size:20px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff; color:#009999;  width: 220px;
-  height: 40px; position:absolute; top: 200px;">
-                        <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <button class="btn btn-outline-info" onclick="location.href='{{route('calendario.agenda')}}'"  style="font-size:20px; font-family: Times New Roman, Times, serif;  color:white;  width: 220px;
+  height: 60px; position:absolute; top: 200px; left:30px;" >
+               <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
             </svg> 
                             Agenda
-                        </a>
+                        </button>
                     </li>
                     <li>
-                        <a class="nav-link" href="/pantallainicio/vista" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff; color:#009999;  width: 220px;
-  height: 40px; position:absolute; top: 250px;">
+                        <button class="btn btn-outline-info" onclick="location.href='{{route('paciente.vista')}}'" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  color:white;  width: 220px;
+  height: 60px; position:absolute;  top: 270px; left:30px;">
                         <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
         </svg>
                           Paciente
-                        </a>
+                        </button>
                     </li>
 
 
                     <li>
                     @can('isAdmin')
-                        <a class="nav-link" href="{{route('usuarios.indice')}}" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff; color:#009999;  width: 220px;
-  height: 40px; position:absolute; top: 300px;">
+                        <button class="btn btn-outline-info" onclick="location.href='{{route('usuarios.indice')}}'" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  color:white;  width: 220px;
+  height: 60px; position:absolute;  top: 340px; left:30px;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
   <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
 </svg>
                             Usuarios
-                        </a>
+                        </button>
 
                         @endcan
                     </li>
@@ -441,13 +457,13 @@ height:700px;
 
                     <li>
                     @can('isAdmin')
-                        <a class="nav-link" href="{{route('roles.ver')}}" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff; color:#009999;  width: 220px;
-  height: 40px; position:absolute; top: 350px;">
+                        <button class="btn btn-outline-info"  onclick="location.href='{{route('roles.ver')}}'" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  color:white;  width: 220px;
+  height: 60px; position:absolute;  top: 410px; left:30px;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
   <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
 </svg>
                             Roles
-                        </a>  @endcan
+                        </button>  @endcan
                     </li>
                 
                 </ul>
@@ -462,7 +478,7 @@ height:700px;
  
 
 <div >
-       @can('isAdmin') <a  href="{{route('usuario.actualizar',Auth::user()->id)}}">@endcan<img class="logo" style="border-radius: 70%;left: 1205px;bottom:0.3em;  position:absolute; top: 5px;" src='/Imagenes/{{Auth::user()->imagen}}'   width="50px" height="50px"></a>
+       @can('isAdmin') <a  href="{{route('usuario.actualizar',Auth::user()->id)}}">@endcan<img class="logo" style="border-radius: 70%;left: 1100px;bottom:0.3em;  position:absolute; top: 5px;" src='/Imagenes/{{Auth::user()->imagen}}'   width="50px" height="50px"></a>
       </div>
 </header>
 <!-- Begin page content -->
@@ -471,7 +487,7 @@ height:700px;
   @yield('contenido')
   </div>
 
- <div class="modal-footer" style="position: absolute; left: 280px; width: 1100px; top: 1350px; height:50px; background-color: #e0ebeb;">
+ <div class="modal-footer" style="position: absolute; left: 265px; width: 1115px; top: 1350px; height:50px; background-color: #e0ebeb;">
                   
               <a style="position: absolute;left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
 
