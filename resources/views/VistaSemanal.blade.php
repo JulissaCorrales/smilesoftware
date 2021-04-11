@@ -1,8 +1,8 @@
 
-@extends('Plantilla.PlantillaMenuAgenda')
+@extends('Plantilla.Plantilla')
 @section('titulo','AgendaSemanal')
 
-@section('cuerpo')
+@section('contenido')
 <?php 
 
 try
@@ -72,12 +72,11 @@ catch(Exception $e)
  
      .comp-full-calendar {
 
-       background: #cceeff;
+   /*    background: #cceeff; */
        width: 940px;
        color: #ff4d4d;
-       height: 300px; 
-       background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff);
-
+      
+     
       /* padding: 25px 25px 25px 25px; */
      
       
@@ -97,18 +96,18 @@ catch(Exception $e)
 
      #cal{
       color: #ff4d4d;
-      border-color: #00BFFF;
-      
+    
 
      }
 
      #did{
       position:absolute;
-            top: 500px;
+            top: 100px;
             color: #ff4d4d;
-            left: 50px;
+            left: 700px;
             border-color: #00BFFF;
-         
+       
+
             background-color: #ccffff;
 
      }
@@ -116,30 +115,34 @@ catch(Exception $e)
      #can{
 
       position:absolute;
-            top: 400px;
+            top: 100px;
             color: #ff4d4d;
-            left: 50px;
+            left: 900px;
             border-color: #00BFFF;
-           
+            font-size:10px;
+
+width: 300px;
             background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff);
+
 
      }
 
      #te{
       color: #ff4d4d;
       position:absolute;
-      left: 50px;
-      font-size:29px;
-      top: 20;
+      left: -10px;
+      font-size: 20px;
+      top: 5px;
       text-shadow: -1px 0 #009999, 0 1px #009999, 1px 0 #009999, 0 -1px #009999;
      }
 
      #cantidad{
       color: #ff4d4d;
       position:absolute;
-      left: 150px;
-      font-size:29px;
-      top: 10;
+   
+      font-size: 25px;
+     
+left:480px;
       text-shadow: -1px 0 #009999, 0 1px #009999, 1px 0 #009999, 0 -1px #009999;
 
      }
@@ -156,20 +159,21 @@ catch(Exception $e)
     
 
      .fc table {
-    border-top-color: #000066;
+    
     
     font-size: 1em; /* normalize cross-browser */
+  border: #00cccc  2px solid;
     
   }
 
   .fc th {
     text-align: center;
-    border-color: #000066;
+    border: #00cccc  2px solid;
   }
   .fc th,
   .fc td {
-    vertical-align: top;
-    border-color: #000066;
+    vertical-align: center;
+     border: #00cccc  2px solid;
     
 height: 100px;
     
@@ -192,7 +196,8 @@ height: 100px;
 
 
 <div id="can">
-<h1 id="te">Cantidad de Citas</h1>
+
+<h1 id="te">Cantidad de Citas:</h1>
 
 </div>
 
@@ -215,33 +220,7 @@ height: 100px;
     <div>
 
 
-    <form action="" id="formul" name="formulario" >
-
-    <hr> 
-        <!-- Doctor -->
-      
-        <label for="state_id" class="control-label">Doctor:</label>
-        <select  id='doct' name="odontologo" class="form-control" onChange="vai()"  selected="selected" >
-        <option disabled selected>Seleccione un Doctor</option>
-        <?php
-        $getDoctor =$mysqli->query("select * from odontologos order by id");
-        while($f=$getDoctor->fetch_object()) {
-          echo $f->id;
-          echo $f->nombres;
-          echo $f->apellidos;
-
-          ?>
-         <!-- <option value="/pantallainicio/calendario/semanal"><?php echo $f->nombres." ".$f->apellidos;?> </option> -->
-         
-          <option   value="<?php echo $f->id; ?>" ><?php echo $f->nombres." ".$f->apellidos;?>  </option> 
-          <?php
-        } 
-        ?>
-        </select>
-        <hr>
-
-    </form>
-    </div>
+    
 
 
   <div id="app" class="wrapper">

@@ -79,7 +79,7 @@ text-shadow: 2px 0 #00b3b3, 0 2px #b38f00, 2px 0 #ffb31a, 0 2px #ffb31a;
 
 /* CSS DEL cuerpo de body*/
 #wrapper1{
-  background-image: linear-gradient(to bottom, #476b6b ,#e6ffff );
+  background-image: linear-gradient(to bottom, #00cccc ,#00cccc );
 
   
   /*background-image: linear-gradient(to left, #00cccc,#00cccc); */
@@ -321,31 +321,37 @@ text-shadow: 2px 0 #00b3b3, 0 2px #b38f00, 2px 0 #ffb31a, 0 2px #ffb31a;
     </div>
                 <ul class="nav" >
                     <li class="nav-item active">
-                        <a class="nav-link" href="/pantallainicio/calendario" id="lista1" style="font-size:20px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff; color:#009999; ">
-                        <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <button class="btn btn-outline-info" onclick="location.href='{{route('calendario.agenda')}}'"  style="font-size:20px; font-family: Times New Roman, Times, serif;  color:white;  width: 220px;
+  height: 60px; position:absolute; top: 50px; left:20px; border: 2px solid #4CAF50;
+}" >
+               <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
             </svg> 
-                            <p>Agenda</p>
-                        </a>
+                            Agenda
+                        </button>
                     </li>
                     <li>
-                        <a class="nav-link" href="/pantallainicio/vista" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff; color:#009999; ">
+                        <button class="btn btn-outline-info" onclick="location.href='{{route('paciente.vista')}}'" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  color:white;  width: 220px;
+  height: 60px; position:absolute;  top: 120px; left:20px; border: 2px solid #4CAF50; 
+}">
                         <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
         </svg>
-                            <p>Paciente</p>
-                        </a>
+                          Paciente
+                        </button>
                     </li>
 
 
                     <li>
                     @can('isAdmin')
-                        <a class="nav-link" href="{{route('usuarios.indice')}}" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff; color:#009999; ">
+                        <button class="btn btn-outline-info" onclick="location.href='{{route('usuarios.indice')}}'" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  color:white;  width: 220px;
+  height: 60px; position:absolute;  top: 190px; left:20px; border: 2px solid #4CAF50; /* Green */
+}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
   <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
 </svg>
-                            <p>Usuarios</p>
-                        </a>
+                            Usuarios
+                        </button>
 
                         @endcan
                     </li>
@@ -353,14 +359,15 @@ text-shadow: 2px 0 #00b3b3, 0 2px #b38f00, 2px 0 #ffb31a, 0 2px #ffb31a;
 
                     <li>
                     @can('isAdmin')
-                        <a class="nav-link" href="{{route('roles.ver')}}" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff; color:#009999; ">
+                        <button class="btn btn-outline-info"  onclick="location.href='{{route('roles.ver')}}'" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  color:white;  width: 220px;
+  height: 60px; position:absolute;  top: 260px; left:20px; border: 2px solid #4CAF50; /* Green */
+}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
   <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
 </svg>
-                            <p>Roles</p>
-                        </a>  @endcan
+                            Roles
+                        </button>  @endcan
                     </li>
-                
                 </ul>
             </div>
             

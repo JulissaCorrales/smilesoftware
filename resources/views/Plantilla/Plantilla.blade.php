@@ -196,9 +196,9 @@ height: 38px;
   border-color: #33cccc;
 }
 #nav{
-  background-image: linear-gradient(to bottom, #95b7b7 ,#e6ffff );
+  background-image: linear-gradient(to bottom, #00cccc ,#00cccc );
  width: 280px;
-height: 1400px;
+height: 1500px;
   position:absolute;
 top: -15px;
 left:-15px;
@@ -211,7 +211,7 @@ left:-15px;
     border-radius: 50%;
   position: absolute;
   left: 160px;
-  top:  20px;
+  top:  30px;
   width: 70px;
   height: 70px;
 }
@@ -222,7 +222,7 @@ left:-15px;
   position: absolute;
   position: absolute;
   left: 160px;
-  top:  20px;
+  top:  30px;
   width: 70px;
   height: 70px;
 }
@@ -250,21 +250,21 @@ left:-15px;
   
   position: absolute;
   font-size:40px; font-family:"Times New Roman", Times, serif;
-  left: 20px;
-  top: 5px;
+  left: 40px;
+  top: 30px;
   color:#001a1a;
-text-shadow: 4px 0 #00b3b3, 0 4px #b38f00, 4px 0 #ffb31a, 0 4px #ffb31a;
+text-shadow: 3px 0 #00b3b3, 0 3px #b38f00, 3px 0 #ffb31a, 0 3px #ffb31a;
 }
 
 /* CSS DEL TEXTO H4 DE SOFTWARE*/
 #letrasoftwareh5{
   
    position: absolute;
-   left: 40px;
-   top: 60px;
+   left: 60px;
+   top: 90px;
    font-size: 35px; font-family:"Times New Roman", Times, serif;
    color:#001a1a;
- text-shadow: 4px 0 #00b3b3, 0 4px #b38f00, 4px 0 #ffb31a, 0 4px #ffb31a;
+ text-shadow: 3px 0 #00b3b3, 0 3px #b38f00, 3px 0 #ffb31a, 0 3px #ffb31a;
  }
 </style>
     <!-- Custom styles for this template -->
@@ -423,7 +423,8 @@ text-shadow: 4px 0 #00b3b3, 0 4px #b38f00, 4px 0 #ffb31a, 0 4px #ffb31a;
   <ul class="nav" >
                     <li class="nav-item active">
                         <button class="btn btn-outline-info" onclick="location.href='{{route('calendario.agenda')}}'"  style="font-size:20px; font-family: Times New Roman, Times, serif;  color:white;  width: 220px;
-  height: 60px; position:absolute; top: 200px; left:30px;" >
+  height: 60px; position:absolute; top: 200px; left:30px; border: 2px solid #4CAF50;
+}" >
                <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
             </svg> 
@@ -432,7 +433,8 @@ text-shadow: 4px 0 #00b3b3, 0 4px #b38f00, 4px 0 #ffb31a, 0 4px #ffb31a;
                     </li>
                     <li>
                         <button class="btn btn-outline-info" onclick="location.href='{{route('paciente.vista')}}'" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  color:white;  width: 220px;
-  height: 60px; position:absolute;  top: 270px; left:30px;">
+  height: 60px; position:absolute;  top: 270px; left:30px; border: 2px solid #4CAF50; 
+}">
                         <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
         </svg>
@@ -444,7 +446,8 @@ text-shadow: 4px 0 #00b3b3, 0 4px #b38f00, 4px 0 #ffb31a, 0 4px #ffb31a;
                     <li>
                     @can('isAdmin')
                         <button class="btn btn-outline-info" onclick="location.href='{{route('usuarios.indice')}}'" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  color:white;  width: 220px;
-  height: 60px; position:absolute;  top: 340px; left:30px;">
+  height: 60px; position:absolute;  top: 340px; left:30px; border: 2px solid #4CAF50; /* Green */
+}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
   <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
 </svg>
@@ -458,7 +461,8 @@ text-shadow: 4px 0 #00b3b3, 0 4px #b38f00, 4px 0 #ffb31a, 0 4px #ffb31a;
                     <li>
                     @can('isAdmin')
                         <button class="btn btn-outline-info"  onclick="location.href='{{route('roles.ver')}}'" id="lista1"  style="font-size:20px; font-family: Times New Roman, Times, serif;  color:white;  width: 220px;
-  height: 60px; position:absolute;  top: 410px; left:30px;">
+  height: 60px; position:absolute;  top: 410px; left:30px; border: 2px solid #4CAF50; /* Green */
+}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
   <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
 </svg>
@@ -487,7 +491,7 @@ text-shadow: 4px 0 #00b3b3, 0 4px #b38f00, 4px 0 #ffb31a, 0 4px #ffb31a;
   @yield('contenido')
   </div>
 
- <div class="modal-footer" style="position: absolute; left: 265px; width: 1115px; top: 1350px; height:50px; background-color: #e0ebeb;">
+ <div class="modal-footer" style="position: absolute; left: 0px; width: 1380px; top: 1500px; height:50px; background-color: #e0ebeb;">
                   
               <a style="position: absolute;left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
 
