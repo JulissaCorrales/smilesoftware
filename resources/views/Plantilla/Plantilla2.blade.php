@@ -319,7 +319,7 @@ text-shadow: 2px 0 #00b3b3, 0 2px #b38f00, 2px 0 #ffb31a, 0 2px #ffb31a;
     </div>
   </div>
     </div>
-                <ul class="nav" >
+                <ul class="nav" style="position:absolute; top: 100px;" >
                     <li class="nav-item active">
                         <button class="btn btn-outline-info" onclick="location.href='{{route('calendario.agenda')}}'"  style="font-size:20px; font-family: Times New Roman, Times, serif;  color:white;  width: 220px;
   height: 60px; position:absolute; top: 50px; left:20px; border: 2px solid #4CAF50;

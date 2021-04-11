@@ -107,7 +107,7 @@
      /*background-image: linear-gradient(to bottom,  #ccffff ,#ff9933); */
     position: absolute;
     left: 700px;
-    
+  
 
 
   }
