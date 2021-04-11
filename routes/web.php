@@ -403,4 +403,7 @@ Route::prefix('pantallainicio')->group( function(){
 
 
     // Esta ruta nos servirá para cerrar sesión.
-   
+
+ // ruta para calendario en español
+   Route::get('Calendar/event/{mes}','ControllerCalendar@index_month');
+    Route::get('Calendar/event','ControllerCalendar@index');

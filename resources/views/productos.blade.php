@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Productos</title>
- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.material.min.css">
+ <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css" >
 <style>
 #padre{
 
@@ -293,10 +293,10 @@ $(document).ready( function () {
         "processing": "Procesando...",
         "zeroRecords": "Sin resultados encontrados",
         "paginate": {
-            "first": "Primero",
-            "last": "Ultimo",
-            "next": " <html><button>Siguiente</button></html>  ",
-            "previous": " <html><button>Anterior </button></html>  "
+            "first": "<button class=btn-info >Primero </button>",
+            "last": "<button class=btn-info Ultimo </button>",
+            "next": " <html><button class=btn-success>Siguiente</button></html>  ",
+            "previous": " <button class=btn-info >Anterior </button> "
         }
 
     }

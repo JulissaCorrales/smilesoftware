@@ -44,14 +44,15 @@
             </svg>  Factura</h2><br>
 
             <!--  -->
-            <h2 id="titempresa">Smile Software
-            @forelse($logotipos  as $tag)
-            <img style="margin-left:10px; " class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3"  width="80px" high="100px" >
+            <h1 id="titempresa"> @forelse($logotipos  as $tag)
+            <img style="margin-left:10px; border-radius: 50%;" class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3"  width="80px" high="100px" >
             @empty
-            <img class="logo" style="margin-left:10px; " src="{{ asset('Imagenes/Icono.jpg') }}" class="mr-3" width="80px"> 
-            @endforelse
+            <img class="logo" style="margin-left:10px;border-radius: 50%; " src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3" width="80px"> 
+            @endforelse 
+            Smile Software
+           
             
-            </h2>
+            </h1>
           
             <h6>FACTURAR A:</h6>
             <p><strong>Nombre:</strong>  {{$pacientes->nombres}} {{$pacientes->apellidos}}</p>
@@ -63,7 +64,7 @@
             <p id="identidad"><strong>Identificación del Cliente:</strong>  {{$pacientes->identidad}}</p> <br><br>
 
             <div id="divtabla">
-            <table >
+            <table style="width: 100%; border: 1px solid #ccc;">
             <thead>
             <tr>
                 <th>N°</th>
