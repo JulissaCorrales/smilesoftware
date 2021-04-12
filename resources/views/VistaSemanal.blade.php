@@ -3,6 +3,7 @@
 @section('titulo','AgendaSemanal')
 
 @section('contenido')
+
 <?php 
 
 try
@@ -84,9 +85,10 @@ catch(Exception $e)
 
      #app{
       position:absolute;
-            top: 100px;
+            top: 130px;
             color: #ff4d4d;
             left: 400px;
+          padding:1em;
 
            
 

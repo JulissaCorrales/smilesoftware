@@ -35,6 +35,11 @@ class EspecialidadOdontologosController extends Controller
 
     public function GuardarNuevo(Request $request){
         $this->authorize('create', EspecialidadOdontologos::class); //si tiene el permiso de crear:
+            $request->validate([
+                    'odontologo_id'     =>  'required',
+                    'especialidad_id'       =>  'required',
+                ]);
+
         
 
         $nuevo = new EspecialidadOdontologos();

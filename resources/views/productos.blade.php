@@ -74,20 +74,20 @@ Nuevo producto</h5>
 @csrf
 <div class="form-group">
 <label for="categoria">Nombre:</label>
-<input type="text" class="form-control-file" name="nombre" id="nombre" placeholder="Ingrese el nombre del producto">
+<input required type="text" class="form-control-file" name="nombre" id="nombre" placeholder="Ingrese el nombre del producto">
 </div>
 
 <div class="form-group">
 <label for="tipo">Permite Descuento :</label>
-<select  name="permitedescuento" id="permitedescuento" class="form-control-file" style="padding:0.4em;">
-<option disabled selected>Seleccione</option>
+<select required name="permitedescuento" id="permitedescuento" class="form-control-file" style="padding:0.4em;">
+<option value="" disabled selected>Seleccione</option>
 <option>Si</option>
 <option>No</option>
 </select>
 </div>
 <div class="form-group">
 <label for="monto">Precio:</label>
-<input  type="number"  step="any"  class="form-control-file" name="monto" id="monto" placeholder="Ingrese el precio del producto">
+<input  required type="number"  step="any"  class="form-control-file" name="monto" id="monto" placeholder="Ingrese el precio del producto">
 </div>
 <div class="modal-footer">
 <input type="reset" class="btn btn-danger">
@@ -185,14 +185,14 @@ Nuevo producto</h5>
 
             <div class="form-group" id="divcate">
             <label for="nombre" class="control-label">Nombre del Producto:</label>
-            <input type="text"  class="form-control-file" placeholder="Ingrese nombre producto" name="nombre" id="nombre"   value="{{ $tag->nombre }}"> 
+            <input type="text" required  class="form-control-file" placeholder="Ingrese nombre producto" name="nombre" id="nombre"   value="{{ $tag->nombre }}"> 
             </div>
 
             <!-- Permite Descuento-->
             <div class="form-group" id="div2">
             <label for="detalle" class="control-label">Permite Descuento:</label>
-            <select  name="permitedescuento" id="permitedescuento" class="form-control-file" style="padding:0.4em;">
-            <option disabled selected>Actual: {{ $tag->permitedescuento }}</option>
+            <select required name="permitedescuento" id="permitedescuento" class="form-control-file" style="padding:0.4em;">
+            <option value="{{ $tag->permitedescuento }}" selected>Actual: {{ $tag->permitedescuento }}</option>
             <option>Si</option>
             <option>No</option>
             </select>
@@ -201,7 +201,7 @@ Nuevo producto</h5>
             <!-- Precio Final-->
             <div class="form-group" id="div2">
             <label for="detalle" class="control-label">Precio Final:</label>
-            <input  type="number"  step="any"  class="form-control-file" name="monto" id="monto" placeholder="Ingrese valor "value="{{ $tag->monto}}">
+            <input  required type="number"  step="any"  class="form-control-file" name="monto" id="monto" placeholder="Ingrese valor "value="{{ $tag->monto}}">
             </div>
             <div class="form-group" align="center"id="div6">
             <input type="reset" class="btn btn-dark">

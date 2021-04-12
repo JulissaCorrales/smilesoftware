@@ -72,7 +72,7 @@ class OdontologoController extends Controller
         $request->validate(['nombres'=>'required',
         'apellidos'=>'required|alpha',
         
-        'identidad'=>'required|unique:odontologos,identidad',
+        'identidad'=>'required|unique:odontologos,identidad|numeric',
         'departamento'=>'required',
         'ciudad'=>'required',
         'telefonoCelular'=>'required|numeric',

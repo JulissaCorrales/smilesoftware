@@ -172,12 +172,12 @@
 
                     <div class="form-group" id="divcate">
                         <label for="producto" class="control-label">Nombre del Inventario:</label>
-                        <input type="text"  class="form-control-file" placeholder="Ingrese nombre del inventario" name="producto" id="producto"   value="{{ $inventario->producto}}"> 
+                        <input type="text" required class="form-control-file" placeholder="Ingrese nombre del inventario" name="producto" id="producto"   value="{{ $inventario->producto}}"> 
                         </div>
                         <div class="row">
                         <div class="col">
                             <label for="stockseguridad">Existencias de Seguridad:</label>
-                             <input type="number"  class="form-control-file" name="stockseguridad" required id="stockseguridad" placeholder="Ingrese inventario" value="{{$inventario->stockseguridad}}">
+                             <input required type="number"  class="form-control-file" name="stockseguridad" required id="stockseguridad" placeholder="Ingrese inventario" value="{{$inventario->stockseguridad}}">
                         </div>
                         <div class="col">
                             <label for="stockactual">Existencias  Actuales:</label>

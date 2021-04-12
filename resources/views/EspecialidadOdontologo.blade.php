@@ -1,4 +1,4 @@
-@extends('Plantilla.Plantilla2')
+@extends('Plantilla.Plantilla')
 @section('titulo','Especialidad Odontologo')
 @section('contenido')
 @canany(['isAdmin','isSecretaria'])
@@ -10,7 +10,7 @@
   height: 60px;
   
   position: absolute;
-    left:180px;
+    left:380px;
     top: 300px;
 
  }

@@ -287,11 +287,20 @@ font-size: 15px;
 @section('contenido')
 
   <body id="bo">
+@if ($errors->any())
+<div class="alert alert-danger">
+<ul>
+@foreach ($errors->all() as $error)
+<li>{{ $error }}</li>
+@endforeach
+</ul>
+</div>
+@endif
 @if(session('mensaje'))
-        <div class="alert alert-success">
-            {{session('mensaje')}}
-        </div>
-    @endif
+<div class="alert alert-success">
+{{session('mensaje')}}
+</div>
+@endif
 
     <div class="container">
 
@@ -356,7 +365,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
       </div>
 
 <div class="modal fade" id="modall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-receipt-cutoff" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -373,7 +382,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                       
                       <div class="form-group">
                           <label for="nombres">Nombre Especialidad:</label>
-                          <input type="text" class="form-control-file" name="nombres" id="nombres" placeholder="Ingresar el  nombre de la Especialidad">
+                          <input required type="text" class="form-control-file" name="nombres" id="nombres" placeholder="Ingresar el  nombre de la Especialidad">
                       </div>
 
 
@@ -419,7 +428,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
 
   <div class="modal fade" id="modalll-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
               <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -468,7 +477,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
 <!-- Modal 2 -->
         <div class="modal fade" id="nespecialidad">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title" id="modal1"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-receipt-cutoff" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -477,7 +486,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 </svg> Agregar Especialidad </h4>      
             </div>
               <!--Barra de desplazamiento-->
-              <div style="width: 450px; height: 550px; overflow-y: scroll;">
+              <div >
             <div class="modal-body"> 
 
 
@@ -488,8 +497,8 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
         $mysqli->set_charset("utf8");
       ?>
        <label for="state_id" class="control-label">Odontologo:</label>
-        <select name="odontologo_id" class="form-control">
-        <option disabled selected>Seleccione un odontologo</option>
+        <select required name="odontologo_id" class="form-control">
+        <option value="" disabled selected>Seleccione un odontologo</option>
         <?php
         $getDoctor =$mysqli->query("select * from odontologos order by id");
         while($f=$getDoctor->fetch_object()) {
@@ -508,8 +517,8 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
           
 
                       <label for="state_id" class="control-label">Especialidad:</label>
-        <select name="especialidad_id" class="form-control">
-        <option disabled selected>Seleccione una Especialidad</option>
+        <select required name="especialidad_id" class="form-control">
+        <option value="" disabled selected>Seleccione una Especialidad</option>
         <?php
         $getDoctor =$mysqli->query("select * from especialidads order by id");
         while($f=$getDoctor->fetch_object()) {

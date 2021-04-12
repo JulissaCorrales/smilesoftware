@@ -19,23 +19,23 @@
   }
 
 
-      #botonContinuar{
-        position: absolute;
-    top: 990px;
+    #botonContinuar{
+    position: relative;
+    bottom: 50px;
     left:100px;
     width: 100px;
-  height: 40px;
+    height: 40px;
 
-          
-          text-align: center;}
 
-          #bu1{
+    text-align: center;}
 
-            position: absolute;
-    top:990px;
+    #bu1{
+
+    position: relative;
+    bottom: 90px;
     left:220px;
     width: 200px;
-  height: 40px;
+    height: 40px;
 
             
 
@@ -74,38 +74,38 @@
                       @csrf
                       <div class="form-group">
                           <label for="nombres">Nombres:</label>
-                          <input type="text" class="form-control-file" name="nombres" id="nombres" placeholder="Ingrese el Nombre ">
+                          <input required type="text" class="form-control-file" name="nombres" id="nombres" placeholder="Ingrese el Nombre ">
                       </div>
 
                       <div class="form-group">
                           <label for="apellidos">Apellidos:</label>
-                          <input type="text" class="form-control-file" name="apellidos" id="apellidos" placeholder="Ingrese el Apellido">
+                          <input required type="text" class="form-control-file" name="apellidos" id="apellidos" placeholder="Ingrese el Apellido">
                       </div>
 
                       <div class="form-group">
                         <label for="identidad">Identidad:</label>
-                        <input type="text" class="form-control-file" name="identidad" id="identidad" placeholder="Ingrese la Identidad ">
+                        <input required type="number" class="form-control-file" name="identidad" id="identidad" placeholder="Ingrese la Identidad ">
                     </div>
 
                     <div class="form-group">
                     <label for="telefonoFijo">Telefono fijo:</label>
-                    <input type="text" class="form-control-file" name="telefonoFijo" id="telefonoFijo" placeholder="Ingrese el  Numero del Telefono Fijo">
+                    <input required type="number" class="form-control-file" name="telefonoFijo" id="telefonoFijo" placeholder="Ingrese el  Numero del Telefono Fijo">
                   </div>
 
                   <div class="form-group">
                     <label for="telefonoCelular">Telefono celular:</label>
-                    <input type="text" class="form-control-file" name="telefonoCelular" id="telefonoCelular" placeholder="Ingrese el Numero de Celular">
+                    <input required  type="number" class="form-control-file" name="telefonoCelular" id="telefonoCelular" placeholder="Ingrese el Numero de Celular">
                   </div>
 
                   <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control-file" name="email" id="email" placeholder="Ingrese el Correo Electronico">
+                    <input required type="email" class="form-control-file" name="email" id="email" placeholder="Ingrese el Correo Electronico">
                   </div>
 
                   <div class="form-group">
                     <label for="departamento">Departamento:</label>
-                    <select name="departamento" id="departamento" class="form-control">
-                    <option disabled selected>Seleccione un departamento</option>
+                    <select required name="departamento" id="departamento" class="form-control">
+                    <option value="" disabled selected>Seleccione un departamento</option>
                     <option >Atlántida</option>
                     <option >Choluteca</option>
                     <option>Colón</option>
@@ -130,11 +130,11 @@
 
                   <div class="form-group">
                     <label for="ciudad">Ciudad:</label>
-                    <input type="text" class="form-control-file" name="ciudad" id="ciudad" placeholder="Ingrese la ciudad  en que reside ">
+                    <input required type="text" class="form-control-file" name="ciudad" id="ciudad" placeholder="Ingrese la ciudad  en que reside ">
                   
                   </div><div class="form-group">
                     <label for="direccion">Direccion:</label>
-                    <input type="text" class="form-control-file" name="direccion" id="direccion" placeholder="Ingrese su direccion">
+                    <input required type="text" class="form-control-file" name="direccion" id="direccion" placeholder="Ingrese su direccion">
                   </div>
 
 
@@ -149,8 +149,8 @@
       ?>
 
             <label for="state_id" class="control-label">Especialidad:</label>
-                <select name="especialidad" class="form-control">
-          <option disabled selected>Seleccione una especialidad</option>
+                <select required name="especialidad" class="form-control">
+          <option value="" disabled selected>Seleccione una especialidad</option>
          
                     <?php
         $getDoctor =$mysqli->query("select * from especialidads order by id");
@@ -171,8 +171,8 @@
         
 
         <label for="intervalo" class="control-label">Intervalo</label>
-        <select name="intervalo" id="intervalo" class="form-control">
-        <option disabled selected>Seleccione la duracion de la cita</option>
+        <select required  name="intervalo" id="intervalo" class="form-control">
+        <option value="" disabled selected>Seleccione la duracion de la cita</option>
         <option value="10m">10 minutos</option>
         <option value="15m">15 minutos</option>
         <option value="20m">20 minutos</option>
@@ -182,8 +182,8 @@
         </select>
            <!-- usuario -->
            <label for="user_id" class="control-label">Usuario:</label>
-                <select name="user_id" class="form-control">
-          <option disabled selected>Seleccione un usuario</option>
+                <select required  name="user_id" class="form-control">
+          <option value="" disabled selected>Seleccione un usuario</option>
          
                     <?php
         $getUsuario =$mysqli->query("select * from users order by id");
@@ -201,9 +201,9 @@
                   
         </select>
         <!-- fin usuario -->
-
-<br><br><hr>
+<hr>
         <div class="form-group">
+        <label for="file" class="control-label">Fotografia del Odontologo:</label>
         <input type="file" class="form-control-file" name="file" id="direccion" placeholder="Seleccione una Imagen">
       </div>
 
@@ -251,7 +251,7 @@
       ?>
        <div class="form-group">
                           <label for="nombres">Nombre:</label>
-                          <input type="text" class="form-control-file" name="nombres" id="nombres" placeholder="ingresar nombre de la especialidad">
+                          <input required  type="text" class="form-control-file" name="nombres" id="nombres" placeholder="ingresar nombre de la especialidad">
                       </div>
 
                      

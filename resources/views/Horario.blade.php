@@ -1,4 +1,4 @@
-@extends('Plantilla.Plantilla2')
+@extends('Plantilla.Plantilla')
 
 @section('contenido')
 <style>
@@ -14,12 +14,12 @@
 
 #texto4{
   color: #007399;
- 
   font-family: serif;
   position: absolute;
-            left: -650px;
-            top: -280px;
+            align: center;
+            top: -400px;
             font-size:25px;
+
         
 }
 
@@ -32,9 +32,10 @@ position: absolute;
 
 }
 
+
 #table1{
     position: absolute;
-            left: 400px;
+            left: 350px;
             top: 260px;
             font-size:15px;
             width:900px;
@@ -44,7 +45,7 @@ position: absolute;
 
 #table2{
     position: absolute;
-            left: 400px;
+            left: 350px;
             top: 300px;
             font-size:15px;
             width:900px;
@@ -53,7 +54,7 @@ position: absolute;
 
 #table3{
     position: absolute;
-            left:550px;
+            left:500px;
             top: 230px;
             font-size:15px;
             width:600px;
@@ -62,7 +63,7 @@ position: absolute;
 
 #table4{
     position: absolute;
-            left: 600px;
+            left: 550px;
             top: 350px;
             font-size:15px;
             width:780px;
@@ -73,7 +74,7 @@ position: absolute;
 
 #table5{
     position: absolute;
-            left: 400px;
+            left: 350px;
             top: 400px;
             font-size:15px;
             width:900px;
@@ -83,7 +84,7 @@ position: absolute;
 
 #table6{
     position: absolute;
-            left: 400px;
+            left: 350px;
             top: 450px;
             font-size:15px;
             width:900px;
@@ -482,12 +483,13 @@ position: absolute;
 
 #datos{
 position: absolute;
-    left: 50px;
-   top: 270px;
-    font-size:12px;
+    left: 680px;
+   top: 560px;
+    font-size:16px;
     width: 380px;
     border-collapse: collapse;
     background-color: #f2f2f2;
+    
 
 } 
 

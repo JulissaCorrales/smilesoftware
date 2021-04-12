@@ -505,7 +505,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                     <div class="form-group">
                         <label for="nombres" class="col-sm-2 col-form-label col-form-label-lg" >Nombres:</label>
                         <div >
-                        <input type="text" class="form-control form-control-sm" name="nombres" id="nombres" placeholder="ingresar nombre del paciente"  value="{{ $odontologo->nombres }}" >
+                        <input required type="text" class="form-control form-control-sm" name="nombres" id="nombres" placeholder="ingresar nombre del paciente"  value="{{ $odontologo->nombres }}" >
                         </div>
                     </div>
 
@@ -513,35 +513,35 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                       <div class="form-group">
                           <label for="apellidos" class="col-sm-2 col-form-label col-form-label-lg" >Apellidos:</label>
                           <div >
-                          <input type="text" class="form-control form-control-sm" name="apellidos" id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $odontologo->apellidos }}">
+                          <input required type="text" class="form-control form-control-sm" name="apellidos" id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $odontologo->apellidos }}">
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label for="identidad"class="col-sm-2 col-form-label col-form-label-lg">Identidad:</label>
                         <div>
-                        <input type="text" class="form-control form-control-sm" name="identidad" id="identidad" placeholder="ingresar identidad del paciente"  value="{{ $odontologo->identidad }}">
+                        <input required type="number" class="form-control form-control-sm" name="identidad" id="identidad" placeholder="ingresar identidad del paciente"  value="{{ $odontologo->identidad }}">
                     </div>
                     </div>
 
                     <div class="form-group">
                     <label for="telefonoFijo" class="col-sm-2 col-form-label col-form-label-lg">Telefono fijo:</label>
                     <div >
-                    <input type="text" class="form-control form-control-sm" name="telefonoFijo" id="telefonoFijo" placeholder="ingresar telefono Fijo del paciente"  value="{{ $odontologo->telefonoFijo}}">
+                    <input type="number" required class="form-control form-control-sm" name="telefonoFijo" id="telefonoFijo" placeholder="ingresar telefono Fijo del paciente"  value="{{ $odontologo->telefonoFijo}}">
                   </div>
                   </div>
 
                   <div class="form-group">
                     <label for="telefonoCelular" class="col-sm-2 col-form-label col-form-label-lg">Telefono celular:</label>
                   <div >
-                    <input type="text" class="form-control form-control-sm" name="telefonoCelular" id="telefonoCelular" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->telefonoCelular }}">
+                    <input type="number" required  class="form-control form-control-sm" name="telefonoCelular" id="telefonoCelular" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->telefonoCelular }}">
                   </div>
                   </div>
 
                   <div class="form-group">
                     <label for="email" class="col-sm-2 col-form-label col-form-label-lg">Correo Electronico:</label>
                   <div >
-                    <input type="email" class="form-control form-control-sm" name="email" id="email" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->email }}">
+                    <input required type="email" class="form-control form-control-sm" name="email" id="email" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->email }}">
                   </div>
                   </div>
 
@@ -549,28 +549,50 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                   <div class="form-group">
                     <label for="departamento" class="col-sm-2 col-form-label col-form-label-lg">Departamento:</label>
                     <div >
-                    <input type="text" class="form-control form-control-sm" name="departamento" id="departamento" placeholder="ingresar departamento del paciente"  value="{{ $odontologo->departamento }}">
+                    <!--  -->
+                    <select name="departamento" id="departamento" class="form-control">
+                      <option selected value="{{ $odontologo->departamento }}">Departamento Actual: {{$odontologo->departamento}}</option>
+                         <option >Atlántida</option>
+                        <option >Choluteca</option>
+                        <option>Colón</option>
+                        <option >Comayagua</option>
+                        <option >Copán</option>
+                        <option >Cortés</option>
+                        <option >El Paraíso</option>
+                        <option >Francisco Morazán</option>
+                        <option >Gracias a Dios</option>
+                        <option >Intibucá</option>
+                        <option >Islas de la Bahía</option>
+                        <option >La Paz</option>
+                        <option >Lempira</option>
+                        <option >Ocotepeque</option>
+                        <option >Olancho</option>
+                        <option >Santa Bárbara</option>
+                        <option >Valle</option>
+                        <option >Yoro</option>
+                      </select>
+                    <!--  -->
                   </div>
                   </div>
 
                   <div class="form-group">
                     <label for="ciudad" class="col-sm-2 col-form-label col-form-label-lg">Ciudad:</label>
                   <div >
-                    <input type="text" class="form-control form-control-sm" name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $odontologo->ciudad }}">
+                    <input required type="text" class="form-control form-control-sm" name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $odontologo->ciudad }}">
                   </div>
                   </div>
                   
                   <div class="form-group">
                     <label for="direccion" class="col-sm-2 col-form-label col-form-label-lg">Direccion:</label>
                   <div >
-                    <input type="text" class="form-control form-control-sm" name="direccion" id="direccion" placeholder="ingresar direccion del paciente"  value="{{ $odontologo->direccion }}">
+                    <input required type="text" class="form-control form-control-sm" name="direccion" id="direccion" placeholder="ingresar direccion del paciente"  value="{{ $odontologo->direccion }}">
                   </div>
                   </div>
 
                    <div class="form-group">
                     <label for="especialidad" class="col-sm-2 col-form-label col-form-label-lg">Especialidad:</label>
                   <div >
-                    <input type="text" class="form-control form-control-sm" name="especialidad" id="especialidad" placeholder="ingresar la especialidad del Odontologo"  value="{{ $odontologo->especialidad_id }}">
+                    <input required type="text" class="form-control form-control-sm" name="especialidad" id="especialidad" placeholder="ingresar la especialidad del Odontologo"  value="{{ $odontologo->especialidad_id }}">
                   </div>
                   </div> 
 
@@ -614,7 +636,15 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                   <div class="form-group">
                     <label for="intervalo" class="col-sm-2 col-form-label col-form-label-lg">Intervalo:</label>
                   <div >
-                    <input type="text" class="form-control form-control-sm" name="intervalo" id="intervalo" placeholder="ingresar profesion del paciente"  value="{{ $odontologo->intervalos }}">
+                  <select name="intervalo" id="intervalo" class="form-control">
+                  <option value="{{ $odontologo->intervalos }}" disabled selected>Actual:{{ $odontologo->intervalos }}</option>
+                  <option value="10m">10 minutos</option>
+                  <option value="15m">15 minutos</option>
+                  <option value="20m">20 minutos</option>
+                  <option value="30m">30 minutos</option>
+                  <option value="40">40 minutos</option>
+                  <option value="50m">50 minutos</option>
+                  </select>
                   </div>
                   </div>
 
@@ -663,7 +693,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   </div>
 
   <div class="modal fade" id="modalll-{{$odontologo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
               <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

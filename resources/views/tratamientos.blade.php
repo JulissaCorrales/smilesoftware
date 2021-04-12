@@ -42,6 +42,21 @@
             {{session('mensaje')}}
         </div>
     @endif
+@if($errors->any())
+<div class="alert alert-danger">
+
+<ul>
+
+ @foreach($errors->all() as $error)
+
+ <li>{{$error}}</li>
+
+ @endforeach
+</ul>
+
+</div>
+
+@endif
     <h2 id="titulo" style="text-align:center">Tratamientos Disponibles en la Clínica</h2>
     <nav>
     @can('create',App\Tratamiento::class)
@@ -70,13 +85,13 @@
                       @csrf
                       <div class="form-group">
                           <label for="categoria">Tratamiento:</label>
-                          <input type="text" class="form-control-file" name="categoria" id="categoria" placeholder="Ingrese el nombre del tratamiento">
+                          <input required type="text" class="form-control-file" name="categoria" id="categoria" placeholder="Ingrese el nombre del tratamiento">
                       </div>
                      
                     <div class="form-group">
                         <label for="tipo">Tipo:</label>
-                        <select  name="tipo" id="tipo" class="form-control-file" style="padding:1em;">
-                        <option disabled selected>Seleccione el tipo</option>
+                        <select required  name="tipo" id="tipo" class="form-control-file" style="padding:1em;">
+                        <option value="" disabled selected>Seleccione el tipo</option>
                           <option>Accion Clinica</option>
                           <option>Accion de Laboratorio</option>
                         </select>
@@ -149,14 +164,14 @@
 
           <div class="form-group" id="divcate">
           <label for="categoria" class="control-label">Nombre del Tratamiento:</label>
-          <input  style="background-color:#FFFDE7" type="text"  class="form-control-file" placeholder="Ingrese la categoria del gasto" name="categoria" id="categoria  "   value="{{ $tratamiento->categoria }}"> 
+          <input  required style="background-color:#FFFDE7" type="text"  class="form-control-file" placeholder="Ingrese la categoria del gasto" name="categoria" id="categoria  "   value="{{ $tratamiento->categoria }}"> 
           </div>
 
           <!-- Tipo-->
           <div class="form-group" id="div2">
           <label for="tipo" class="control-label">Tipo:</label>
-          <select  name="tipo" id="tipo" class="form-control-file" style="padding:1em;">
-          <option disabled selected>Actual:{{ $tratamiento->tipo }}</option>
+          <select required  name="tipo" id="tipo" class="form-control-file" style="padding:1em;">
+          <option value=""  selected>Actual:{{ $tratamiento->tipo }}</option>
             <option>Accion Clinica</option>
             <option>Accion de Laboratorio</option>
           </select>

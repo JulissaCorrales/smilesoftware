@@ -85,14 +85,14 @@ class PacienteController extends Controller
         //validar
         $_request->validate([     'nombres'=>'required',
         'apellidos'=>'required',
-        'identidad'=>'required|unique:pacientes,identidad',
+        'identidad'=>'required|unique:pacientes,identidad|numeric',
         'sexo'=>'required',
         'fechaNacimiento'=>'required',
         'departamento'=>'required',
         'ciudad'=>'required',
         'direccion'=>'required',
-        'telefonoFijo'=>'required',
-        'telefonoCelular'=>'required',
+        'telefonoFijo'=>'required|numeric',
+        'telefonoCelular'=>'required|numeric',
         'profesion'=>'required',
         'empresa'=>'required',
         'observaciones'=>'required'
@@ -107,17 +107,18 @@ class PacienteController extends Controller
         $request->validate([
             'nombres'=>'required',
             'apellidos'=>'required',
-            'identidad'=>'required|unique:pacientes,identidad',
+            'identidad'=>'required|unique:pacientes,identidad|numeric',
             'sexo'=>'required',
             'fechaNacimiento'=>'required',
             'departamento'=>'required',
             'ciudad'=>'required',
             'direccion'=>'required',
-            'telefonoFijo'=>'required',
-            'telefonoCelular'=>'required',
+            'telefonoFijo'=>'required|numeric',
+            'telefonoCelular'=>'required|numeric',
             'profesion'=>'required',
             'empresa'=>'required',
-            'observaciones'=>'required'
+             'observaciones'=>'required'
+           
         ]);
 
         $nuevoPaciente = new Paciente();
