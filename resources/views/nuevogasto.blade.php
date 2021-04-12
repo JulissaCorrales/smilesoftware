@@ -39,35 +39,35 @@
                 
                     <div class="form-group" id="divcate">
                     <label for="categoria" class="control-label">Categoria:</label>
-                    <input type="text"  class="form-control-file" placeholder="Ingrese la categoria del gasto" name="categoria" id="categoria  "> 
+                    <input required type="text"  class="form-control-file" placeholder="Ingrese la categoria del gasto" name="categoria" id="categoria  "> 
                     </div>
                    
                     <!-- Detalle-->
                     <div class="form-group" id="div2">
                     <label for="detalle" class="control-label">Detalle:</label>
-                    <input type="text"  class="form-control-file" name="detalle" id="detalle" placeholder="Ingrese el detalle del gasto">
+                    <input required type="text"  class="form-control-file" name="detalle" id="detalle" placeholder="Ingrese el detalle del gasto">
                     </div>
                  
                     <!-- Monto-->
                     <div class="form-group" id="div3">
                     <label for="monto" class="control-label">Monto:</label>
-                    <input type="number"  step="any" class="form-control-file" name="monto" id="monto" placeholder="Ingrese el monto del gasto">
+                    <input required type="number"  step="any" class="form-control-file" name="monto" id="monto" placeholder="Ingrese el monto del gasto">
                     </div>
                  
                     <!-- Fecha de la factura-->
                     <div class="form-group" id="div4">
                     <label for="fechafactura" class="control-label">Fecha de la Factura:</label>
-                    <input type="date"  class="form-control-file" name="fechafactura" id="fechafactura" >
+                    <input required type="date"  class="form-control-file" name="fechafactura" id="fechafactura" >
                     </div>
                    
                     <!-- Fecha de la factura-->
                     <div class="form-group" id="div5">
                     <label for="fechapago" class="control-label">Fecha de Pago de la Factura:</label>
-                    <input type="date"  class="form-control-file"  name="fechapago" id="fechapago">
+                    <input required type="date"  class="form-control-file"  name="fechapago" id="fechapago">
                     </div>
                    
                     <div class="form-group" id="div6">
-                    <input type="reset" class="btn btn-danger">
+                    <input  type="reset" class="btn btn-danger">
                     <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
                         Continuar
                     </button>
