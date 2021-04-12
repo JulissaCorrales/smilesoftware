@@ -15,7 +15,7 @@
    
   text-align: left;
   font-family: "Times New Roman";
-  border-bottom: 5px solid #00cccc;
+  border-bottom: 5px solid #293d3d;
   height: 80px;
   
   
@@ -23,7 +23,7 @@
 } 
 
 #td1{
-  border-left: 5px solid #00cccc;
+  border-left: 5px solid #293d3d;
  /* border: 1px solid #00cccc; */
  width: 100px;
  height: 40px;
@@ -45,7 +45,7 @@
 }
 
 #td3{
-  border-left: 5px solid #00cccc; 
+  border-left: 5px solid #293d3d; 
   width: 100px;
   
 
@@ -58,7 +58,7 @@
 }
 
 #td6{
- border-right: 5px solid #00cccc; 
+ border-right: 5px solid #293d3d; 
  width: 100px;
 }
 
@@ -67,10 +67,12 @@
   font-family: "Times New Roman";
   text-align: center;
   font-size: 30px;
-  border-left: 5px solid #00cccc;
-  border-right: 5px solid #00cccc;
-  border-bottom: 5px solid #00cccc;
-  border-top: 5px solid #00cccc;
+  border-left: 5px solid #293d3d;
+  border-right: 5px solid #293d3d;
+  border-bottom: 5px solid#293d3d;
+  border-top: 5px solid #293d3d;
+background-color: #293d3d;
+
   
 }
 
@@ -79,10 +81,11 @@
   font-family: "Times New Roman";
   text-align: center;
   font-size: 30px;
-  border-left: 5px solid #00cccc;
-  border-bottom: 5px solid #00cccc;
-  border-top: 5px solid #00cccc;
+  border-left: 5px solid #e6ffff;
+  border-bottom: 5px solid #e6ffff;
+  border-top: 5px solid #e6ffff;
 
+background-color: #e6ffff;
 
 }
 
@@ -110,7 +113,7 @@
   height: 90px;
   border-collapse: collapse;
   position: relative;
-  background-color: #e6ffff;
+  
     
   
   
@@ -127,7 +130,7 @@
  }
 
  #can{
-  background-color: #e6ffff;
+  
   height: 80px;
  
 
@@ -141,7 +144,7 @@
   width: 1005px;
   height: 100px;
     border-radius: 12px;
-    background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff); 
+    background-image: linear-gradient(to bottom,  #008080 ,#5c8a8a); 
     position: absolute;
     margin-top:2em;
     margin-left: 2em;
@@ -183,14 +186,12 @@
 
 
 #dire{
-  
-  text-shadow: -1px 0 #ccfff5, 0 1px #ccfff5, 1px 0 #009999, 0 -1px #009999;
-  font-family: "Times New Roman";
-  position: absolute;
-            font-size: 40px;
-            top: 2px;
-            left:30px;
-            border-bottom: 5px solid #00cccc;
+ 
+    position: relative;
+    color: white;
+    text-shadow: 1px 0 #ff9966, 0 1px #ff9966, 1px 0 #ff9966, 0 1px #ff9966;
+    font-family: Times "New Roman", Times, serif;
+font-size :25px;
 }
 
 #bo{
@@ -209,7 +210,7 @@ left:10px;
 }
 
 #n1{
-background-color: #e6ffff;
+background-color: #c2d6d6;
 position: absolute;
 width: 160px;
 height: 45px;
@@ -218,8 +219,8 @@ margin-top:-0.1px;
 left:820px;
 font-family: "Times New Roman";
 text-align: center;
-border: 1px solid #FF4500;
-  color:#cc6600
+border: 1px solid #00e6e6;
+  color:#006666;
   
 
 }
@@ -234,17 +235,18 @@ border: 1px solid #FF4500;
 
 #but3{
 
-  background-color: #e6ffff;
-  position: relative;
+  background-color: #c2d6d6;
+  position: absolute;
   width: 170px;
   height: 45px;
   font-size:17px;
-  margin-top: -0.1em;
+  
   left:620px;
   font-family: "Times New Roman";
   text-align: center;
-  border: 1px solid #FF4500;
-  color:#cc6600
+  border: 1px solid #00e6e6;
+   color:#006666;
+  
   }
 
   #butoneliminar{
@@ -298,9 +300,9 @@ border: 1px solid #FF4500;
   #bodymodal{
     
   font-family: "Times New Roman";
-            font-size: 25px;
+            font-size: 30px;
             border-bottom: 5px solid #00cccc;
-            background-color: #e6ffff;
+        
 
   }
 
@@ -355,7 +357,7 @@ border: 1px solid #FF4500;
 
 
 #td6{
-  border-right: 5px solid #00cccc;
+  border-right: 5px solid #293d3d;
   
 
 }
@@ -434,7 +436,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
 <table id="datatable" class="container">
 <thead class="table table-striped table-bordered">
-  <tr id="can">
+  <tr id="can" style="background-color:; color:white;">
     <th id="th1" colspan="6">Información de los Odontologos</th>
 
   </tr>
@@ -470,8 +472,8 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   <div class="modal fade" id="modal-{{$odontologo->id}}" >
   
 	<div class="modal-dialog" role="document">
-		<div class="modal-content" >
-			<div id="div2"class="modal-header">
+		<div class="modal-content"  style="">
+			<div class="modal-header" style=" background-color:#293d3d; color:white;  height:130px;">
 	
 				<h4  class="modal-title" id="modal">
         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -505,7 +507,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                     <div class="form-group">
                         <label for="nombres" class="col-sm-2 col-form-label col-form-label-lg" >Nombres:</label>
                         <div >
-                        <input required type="text" class="form-control form-control-sm" name="nombres" id="nombres" placeholder="ingresar nombre del paciente"  value="{{ $odontologo->nombres }}" >
+                        <input required type="text" class="form-control form-control-sm" name="nombres" id="nombres" style="font-size: 20px;" placeholder="ingresar nombre del paciente"  value="{{ $odontologo->nombres }}" >
                         </div>
                     </div>
 
@@ -513,35 +515,35 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                       <div class="form-group">
                           <label for="apellidos" class="col-sm-2 col-form-label col-form-label-lg" >Apellidos:</label>
                           <div >
-                          <input required type="text" class="form-control form-control-sm" name="apellidos" id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $odontologo->apellidos }}">
+                          <input required type="text" class="form-control form-control-sm" name="apellidos" style="font-size: 20px;" id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $odontologo->apellidos }}">
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label for="identidad"class="col-sm-2 col-form-label col-form-label-lg">Identidad:</label>
                         <div>
-                        <input required type="number" class="form-control form-control-sm" name="identidad" id="identidad" placeholder="ingresar identidad del paciente"  value="{{ $odontologo->identidad }}">
+                        <input required type="number" class="form-control form-control-sm" name="identidad" id="identidad"  style="font-size: 20px;"placeholder="ingresar identidad del paciente"  value="{{ $odontologo->identidad }}">
                     </div>
                     </div>
 
                     <div class="form-group">
-                    <label for="telefonoFijo" class="col-sm-2 col-form-label col-form-label-lg">Telefono fijo:</label>
+                    <label for="telefonoFijo" class="col-sm-2 col-form-label col-form-label-lg">Tel.Fijo:</label>
                     <div >
-                    <input type="number" required class="form-control form-control-sm" name="telefonoFijo" id="telefonoFijo" placeholder="ingresar telefono Fijo del paciente"  value="{{ $odontologo->telefonoFijo}}">
+                    <input type="number" required class="form-control form-control-sm" name="telefonoFijo" id="telefonoFijo" style="font-size: 20px;" placeholder="ingresar telefono Fijo del paciente"  value="{{ $odontologo->telefonoFijo}}">
                   </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="telefonoCelular" class="col-sm-2 col-form-label col-form-label-lg">Telefono celular:</label>
+                    <label for="telefonoCelular" class="col-sm-2 col-form-label col-form-label-lg">Tel.Celular:</label>
                   <div >
-                    <input type="number" required  class="form-control form-control-sm" name="telefonoCelular" id="telefonoCelular" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->telefonoCelular }}">
+                    <input type="number" required  class="form-control form-control-sm" name="telefonoCelular"  style="font-size: 20px;"id="telefonoCelular" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->telefonoCelular }}">
                   </div>
                   </div>
 
                   <div class="form-group">
                     <label for="email" class="col-sm-2 col-form-label col-form-label-lg">Correo Electronico:</label>
                   <div >
-                    <input required type="email" class="form-control form-control-sm" name="email" id="email" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->email }}">
+                    <input required type="email" class="form-control form-control-sm" style="font-size: 20px;" name="email" id="email" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->email }}">
                   </div>
                   </div>
 
@@ -578,19 +580,19 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                   <div class="form-group">
                     <label for="ciudad" class="col-sm-2 col-form-label col-form-label-lg">Ciudad:</label>
                   <div >
-                    <input required type="text" class="form-control form-control-sm" name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $odontologo->ciudad }}">
+                    <input required type="text" class="form-control form-control-sm"  style="font-size: 20px;"name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $odontologo->ciudad }}">
                   </div>
                   </div>
                   
                   <div class="form-group">
                     <label for="direccion" class="col-sm-2 col-form-label col-form-label-lg">Direccion:</label>
                   <div >
-                    <input required type="text" class="form-control form-control-sm" name="direccion" id="direccion" placeholder="ingresar direccion del paciente"  value="{{ $odontologo->direccion }}">
+                    <input required type="text" class="form-control form-control-sm" style="font-size: 20px;" name="direccion" id="direccion" placeholder="ingresar direccion del paciente"  value="{{ $odontologo->direccion }}">
                   </div>
                   </div>
 
                    <div class="form-group">
-                    <label for="especialidad" class="col-sm-2 col-form-label col-form-label-lg">Especialidad:</label>
+                    <label for="especialidad" class="col-sm-2 col-form-label col-form-label-lg" style="font-size: 20px;">Especialidad:</label>
                   <div >
                     <input required type="text" class="form-control form-control-sm" name="especialidad" id="especialidad" placeholder="ingresar la especialidad del Odontologo"  value="{{ $odontologo->especialidad_id }}">
                   </div>
@@ -694,8 +696,8 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
   <div class="modal fade" id="modalll-{{$odontologo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
+          <div class="modal-content" style="position:absolute; top:100px;">
+              <div class="modal-header" style=" background-color:#293d3d; color:white;  height:100px;">
                   <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
 </svg> Eliminar Odontologo</h5>

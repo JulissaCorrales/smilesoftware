@@ -1,4 +1,4 @@
-@extends('Plantilla.Plantilla2')
+@extends('Plantilla.Plantilla')
 @section('titulo','Edicion del Gasto')
 @section('contenido')
 <!DOCTYPE html>
