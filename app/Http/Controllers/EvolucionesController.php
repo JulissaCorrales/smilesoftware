@@ -27,6 +27,11 @@ class EvolucionesController extends Controller
 
     public function GuardarEvolucion(Request $request,$id){
         $this->authorize('create', Evoluciones::class);//si tiene el permiso de crear
+         $request->validate([
+                    'tratamiento_id'=>'required',
+                    'caja'=>'required',
+        
+                ]);
         $paciente=Paciente::findOrFail($id);
 
         $nuevoevaluacion = new  Evoluciones();

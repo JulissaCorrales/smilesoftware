@@ -104,10 +104,10 @@
                 <td>  
                 @forelse ($pacientes->evoluciones as $tag)
                 
-               <h1> PlanTratamiento: {{ $tag->planestratamiento->tratamiento->categoria}} <br>
+               <h4> PlanTratamiento: {{ $tag->planestratamiento->tratamiento->categoria}} <br>
                 Paciente:{{$pacientes->nombres}}  {{$pacientes->apellidos}} <br>
                {{ $tag->evolucion}} 
-               </h1>
+               </h4>
               
           
 

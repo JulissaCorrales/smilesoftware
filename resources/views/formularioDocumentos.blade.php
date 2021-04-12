@@ -49,8 +49,8 @@
                   <hr>
         <!-- Doctor -->
         <label for="state_id" class="control-label">Doctor responsable del tratamiento:</label>
-        <select name="odontologo_id" class="form-control">
-        <option disabled selected>Seleccione un Doctor</option>
+        <select required name="odontologo_id" class="form-control">
+        <option value="" disabled selected>Seleccione un Doctor</option>
         <?php
         $getDoctor =$mysqli->query("select * from odontologos order by id");
         while($f=$getDoctor->fetch_object()) {
@@ -67,13 +67,13 @@
         <hr>
 
               <label for="identidad" >Documento a subir  (Seleccione un archivo a subir pdf, word, excel, etc.. "):</label>
-              <input type="file" class="form-control-file" name="imagen1" id="imagen1"placeholder="Seleccione un archivo a subir dpf, word, excel, etc.. ">
+              <input required type="file" class="form-control-file" name="imagen1" id="imagen1"placeholder="Seleccione un archivo a subir dpf, word, excel, etc.. ">
                     
             
 
               <div class="form-group">
                 <label for="observaciones">observaciones:</label>
-                <input type="text" class="form-control-file" name="observaciones" id="observaciones" accept="application/pdf" >
+                <input required type="text" class="form-control-file" name="observaciones" id="observaciones" accept="application/pdf" >
               </div>
               
 

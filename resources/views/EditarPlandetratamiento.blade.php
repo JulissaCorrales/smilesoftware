@@ -56,7 +56,7 @@
                       @csrf
                       @method('put')
                     <div class="form-group">
-                    <select name="tratamiento_id" class="form-control" onchange="mostrarValor(this.options[this.selectedIndex].innerHTML); mostrarValor(this.value);">
+                    <select required name="tratamiento_id" class="form-control" onchange="mostrarValor(this.options[this.selectedIndex].innerHTML); mostrarValor(this.value);">
                     <label for="nombreTratamiento">Nombre del Tratamiento:</label>
     
                     <option selected  value="{{$plantratamientos->tratamiento->id}}">@forelse ($pacientes->planestratamientos as $tag) 
@@ -76,7 +76,7 @@
                     </div>
                       <div class="form-group">
                             <label for="estado" class="control-label">Estado:</label>
-                <select name="estado" id="estado" class="form-control" onchange="mostrarValor2(this.options[this.selectedIndex].innerHTML); mostrarValor2(this.value);">
+                <select required name="estado" id="estado" class="form-control" onchange="mostrarValor2(this.options[this.selectedIndex].innerHTML); mostrarValor2(this.value);">
                 <option selected value="{{$plantratamientos->estado}}">Estado Actual:{{$plantratamientos->estado}}</option>
                 <option >Activo</option>
                 <option >Finalizado</option>
@@ -86,7 +86,7 @@
   <!-- paciente -->
         <!--cita -->
   <label for="state_id" class="control-label">Cita:</label>
-        <select name="cita_id" class="form-control" onchange="mostrarValor3(this.options[this.selectedIndex].innerHTML); mostrarValor3(this.value);">
+        <select required name="cita_id" class="form-control" onchange="mostrarValor3(this.options[this.selectedIndex].innerHTML); mostrarValor3(this.value);">
         
         <option  value="{{$plantratamientos->cita->id}}" selected>Cita Actual:{{$plantratamientos->paciente->nombres}} {{$plantratamientos->paciente->apellidos}}  
          @forelse ($pacientes->citas as $tag) 
@@ -116,7 +116,7 @@
 
 </div>
 
-<<script>
+<script>
     var mostrarValor = function(x){
             document.getElementById('input1').value=x;
             }

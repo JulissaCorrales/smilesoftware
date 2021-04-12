@@ -136,8 +136,8 @@ margin-top:6em;
         @csrf
         <!-- Doctor -->
         <label for="odontologo_id" class="control-label">Doctor y su especialidad:</label>
-        <select name="odontologo_id" id="odontologo_id" class="form-control">
-        <option disabled selected>Seleccione un Doctor</option>
+        <select required name="odontologo_id" id="odontologo_id" class="form-control">
+        <option value="" disabled selected>Seleccione un Doctor</option>
         <?php
         $getDoctor =$mysqli->query("select * from odontologos order by id");
         while($f=$getDoctor->fetch_object()) {
@@ -156,8 +156,8 @@ margin-top:6em;
         <hr>
        <!-- Duracion (en duda)-->
        <label for="duracionCita" class="control-label">Duracion de la cita:</label>
-        <select name="duracionCita" id="duracionCita" class="form-control">
-        <option disabled selected>Seleccione la duracion de la cita</option>
+        <select required name="duracionCita" id="duracionCita" class="form-control">
+        <option value="" disabled selected>Seleccione la duracion de la cita</option>
         <option value="10m">10 minutos</option>
         <option value="15m">15 minutos</option>
         <option value="20m">20 minutos</option>
@@ -167,15 +167,15 @@ margin-top:6em;
         </select>
         <br>
         <label for="hora" class="control-label">Fecha y Hora:</label>
-        <input type="date" name="stard" id="stard">
+        <input required type="date" name="stard" id="stard">
         
         <hr>
         <!-- Paciente_id -->
 
         <div class="form-group">
         <label for="state_id" class="control-label">Paciente:</label>
-        <select name="paciente_id" id="paciente_id" class="form-control">
-        <option disabled selected>Seleccione el paciente</option>
+        <select required name="paciente_id" id="paciente_id" class="form-control">
+        <option value="" disabled selected>Seleccione el paciente</option>
         <?php
         $getPaciente =$mysqli->query("select * from pacientes order by id");
         while($f=$getPaciente->fetch_object()) {
@@ -196,7 +196,7 @@ margin-top:6em;
          <label></label>
          <label for="comentarios" id="comentariolabel"class="control-label">Comentarios:</label>
          <br>
-         <input type="text" name="comentarios" id="comentarios"> 
+         <input required type="text" name="comentarios" id="comentarios"> 
          </div>
         <br>
         <div class="modal-footer">

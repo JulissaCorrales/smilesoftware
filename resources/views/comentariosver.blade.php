@@ -59,7 +59,7 @@ overflow-y:scroll;
   <!-- Este codigo es para la ventana modal darcita -->
 <div class="modal fade" id="create" >
   
-	<div class="modal-dialog" role="document">
+	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content" style=" position: absolute;width: 500px;height: 400px;  background-color:#c1f0f0; ">
 			<div id="divv9"class="modal-header">
 	
@@ -77,9 +77,7 @@ overflow-y:scroll;
            @csrf
 <div>
 
-<textarea id="w3review" name="caja" value="text" rows="4" cols="50" placeholder="ingresar nombre del paciente" >
-
-</textarea>
+<textarea required id="w3review" name="caja" value="" rows="4" cols="50" placeholder="ingresar comentario  del paciente" ></textarea>
 
 
 <button type="submit" class="btn btn-primary" style=" position: absolute;top:170px;left: 400px;" >Guardar </button>

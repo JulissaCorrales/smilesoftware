@@ -233,7 +233,7 @@ h1 {
 
  <!-- Modal -->
  <div class="modal fade" id="modal-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
               <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -244,7 +244,7 @@ h1 {
                   </button>
               </div>
               <div class="modal-body">
-                  ¿Desea realmente eliminar  {{$tag->id}}?
+                  ¿Desea realmente eliminar el archivo  {{$tag->id}}?
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

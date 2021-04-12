@@ -61,7 +61,7 @@
        
         <!-- Doctor -->
         <label for="state_id" class="control-label">Doctor y su especialidad:</label>
-        <select name="odontologo_id" class="form-control">
+        <select required name="odontologo_id" class="form-control">
        
         <option value="{{$citas->odontologo->id}}" selected >Odontologo Actual: {{$citas->odontologo->nombres}}  {{$citas->odontologo->apellidos}}</option>
     
@@ -84,7 +84,7 @@
         <hr>
        <!-- Duracion-->
        <label for="duracionCita" class="control-label">Duracion de la cita:</label>
-        <select name="duracionCita" id="duracionCita" class="form-control">
+        <select required name="duracionCita" id="duracionCita" class="form-control">
         <option selected value="{{$citas->duracionCita}}">Duracion Actual: {{$citas->duracionCita}}</option>
         <option value="10m">10 minutos</option>
         <option value="15m">15 minutos</option>
@@ -96,14 +96,14 @@
         <br>
         <label for="hora" class="control-label">Fecha y Hora:</label>
         <option   selected >Fecha y Hora Actual: {{$citas->stard}}</option>
-        <input  name="stard" id="hora" value="{{$citas->stard}}" >
+        <input  required name="stard" id="hora" value="{{$citas->stard}}" >
         <hr>
          <div>
          <!-- comentario -->
          <label for="comentarios" id="comentariolabel"class="control-label">Comentarios:</label>
          <br>
          <option  disabled selected >Comentario Actual: {{$citas->comentarios}}</option>
-         <input value="{{$citas->comentarios}}" type="text" name="comentarios" id="comentarios" placeholder="Edita aquí"> 
+         <input required  value="{{$citas->comentarios}}" type="text" name="comentarios" id="comentarios" placeholder="Edita aquí"> 
          </div>
         <br>
         @can('viewIndividual',App\Cita::class)

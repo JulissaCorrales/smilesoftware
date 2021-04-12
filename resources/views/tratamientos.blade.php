@@ -171,7 +171,7 @@
           <div class="form-group" id="div2">
           <label for="tipo" class="control-label">Tipo:</label>
           <select required  name="tipo" id="tipo" class="form-control-file" style="padding:1em;">
-          <option value=""  selected>Actual:{{ $tratamiento->tipo }}</option>
+          <option value="{{ $tratamiento->tipo }}"  selected>Actual:{{ $tratamiento->tipo }}</option>
             <option>Accion Clinica</option>
             <option>Accion de Laboratorio</option>
           </select>

@@ -51,9 +51,10 @@
         <form method="post" action="">
                       @csrf
                     <div class="form-group">
-                    <select name="tratamiento_id" class="form-control">
                     <label for="nombreTratamiento">Nombre del Tratamiento:</label>
-                        <option disabled selected>Seleccione el Nombre del Tratamiento</option>
+                    <select required name="tratamiento_id" class="form-control">
+                    <label for="nombreTratamiento">Nombre del Tratamiento:</label>
+                        <option value="" disabled selected>Seleccione el Nombre del Tratamiento</option>
                         
                                 @forelse ($tratamientos as $tag) 
                                 <option value={{$tag->id}} >{{$tag->categoria}} </option>
@@ -71,8 +72,8 @@
 
                       <div class="form-group">
                             <label for="estado" class="control-label">Estado:</label>
-                <select name="estado" id="estado" class="form-control">
-                <option disabled selected>Seleccione el estado del tratamiento</option>
+                <select required name="estado" id="estado" class="form-control">
+                <option value="" disabled selected>Seleccione el estado del tratamiento</option>
                 <option >Activo</option>
                 <option >Finalizado</option>
                 </select>
@@ -81,8 +82,8 @@
   <!-- paciente -->
         <!--cita -->
   <label for="state_id" class="control-label">Cita:</label>
-        <select name="cita_id" class="form-control">
-        <option disabled selected>Seleccione la cita </option>
+        <select required name="cita_id" class="form-control">
+        <option value="" disabled selected>Seleccione la cita </option>
         @forelse ($pacientes->citas as $tag) 
         <option value={{$tag->id}} >{{$tag->stard}} Con el Doctor: {{$tag->odontologo->nombres}} {{$tag->odontologo->apellidos}}</option>
         @empty

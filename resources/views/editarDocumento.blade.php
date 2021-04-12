@@ -26,6 +26,15 @@
             {{session('mensaje')}}
         </div>
     @endif
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 <h2>Edicion del Archivo</h2>
 
                     <?php
@@ -41,19 +50,19 @@
     
         <div class="form-group">
                 <label for="observaciones">Doctor:</label>
-                <input type="text" class="form-control-file" name="odontologo_id" id="observaciones" value="{{$imagen->odontologo->id}}">
+                <input required type="text" class="form-control-file" name="odontologo_id" id="observaciones" value="{{$imagen->odontologo->id}}">
               </div>
         <hr>
               <div class="form-group">
               <label for="identidad">documento a subir:</label>
-              <input type="file" class="form-control-file" name="imagen" id="imagen">
+              <input required type="file" class="form-control-file" name="imagen" id="imagen">
               </div>
                     
             
 
               <div class="form-group">
                 <label for="observaciones">Observaciones:</label>
-                <input type="text" class="form-control-file" name="observaciones" id="observaciones" value="{{$imagen->observaciones}}">
+                <input required type="text" class="form-control-file" name="observaciones" id="observaciones" value="{{$imagen->observaciones}}">
               </div>
            
 

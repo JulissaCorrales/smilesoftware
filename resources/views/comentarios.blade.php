@@ -49,11 +49,20 @@
 
 </head>
 
-@if(session('mensaje'))
+  @if(session('mensaje'))
         <div class="alert alert-success">
             {{session('mensaje')}}
         </div>
     @endif
+@if($errors->any())
+<div class="alert alert-danger">
+<ul>
+ @foreach($errors->all() as $error)
+ <li>{{$error}}</li>
+ @endforeach
+</ul>
+</div>
+@endif
 <body>
 
 
@@ -96,7 +105,7 @@
 
     <!--modal de editar comentario Administrativo -->
   <div class="modal fade" id="modall-{{$ver->id}}"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document" style="background-color:#f2e6ff;  position: absolute; left: 480px; top:50px;">
+      <div class="modal-dialog modal-dialog-centered" role="document" >
           <div class="modal-content">
               <div class="modal-header" style="background-color:#b3f0ff; color:#666699; ">
                   <h5 class="modal-title" id="exampleModalLabel"> <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -111,7 +120,7 @@
                          @csrf
                          @method('put')
 
-               <input type="text"  class="form-control-file" name="caja"  value="{{ $ver->comentarios }}"  rows="4" cols="100">
+               <input required type="text"  class="form-control-file" name="caja"  value="{{ $ver->comentarios }}"  rows="4" cols="100">
 
                <div>
        <button type="submit" class="btn btn-primary" style="border-color:#00cc99; background-color:white; color:#00cc99;  position: absolute;

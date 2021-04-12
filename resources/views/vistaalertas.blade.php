@@ -55,8 +55,7 @@ align:center;
         <form method="POST" action="">
         
             @csrf
-            <textarea id="areadetexto" name="alerta" value="text" rows="4" cols="100" >
-            </textarea>
+            <textarea required id="areadetexto" name="alerta" value="text" rows="4" cols="100" placeholder="Escriba la alerta a tener en cuenta del paciente" ></textarea>
             <br>
             <?php
             $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
@@ -165,11 +164,10 @@ align:center;
             <div class="modal-body">
                 <form method="POST"  action="{{route('alertaspredeterminada.guardar',['id'=>$pacientes->id])}}">
                 @csrf
-                <textarea id="areadetexto" name="alertapredeterminada" value="text">
-                </textarea>
+                <textarea cols="60" required id="areadetexto" name="alertapredeterminada" placeholder="Escriba la alerta que aparecera disponible para ser seleccionada en todos los pacientes"></textarea>
                 <hr>
                 <div>
-                <button type="submit" class="btn btn-primary" id="agregar" >agregar </button>
+                <button type="submit" class="btn btn-primary" id="agregar" >Agregar </button>
                 </div>
                 </form>
 

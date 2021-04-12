@@ -56,11 +56,26 @@
 
 </head>
 
-@if(session('mensaje'))
+  @if(session('mensaje'))
         <div class="alert alert-success">
             {{session('mensaje')}}
         </div>
     @endif
+@if($errors->any())
+<div class="alert alert-danger">
+
+<ul>
+
+ @foreach($errors->all() as $error)
+
+ <li>{{$error}}</li>
+
+ @endforeach
+</ul>
+
+</div>
+
+@endif
 <body>
 
 
@@ -80,13 +95,11 @@
       ?>
 
 
-<textarea id="w3review" name="caja" value="text" rows="4" cols="100" >
-
-</textarea>
+<textarea required id="w3review" placeholder="Escriba la evolucion del plan de tratamiento" name="caja" value="text" rows="4" cols="100" ></textarea>
 
 <div id="disv4">
-        <select name="tratamiento_id" id="disv3">
-        <option disabled selected>Seleccione un Plan de Tratamiento</option>
+        <select required name="tratamiento_id" id="disv3">
+        <option value="" disabled selected>Seleccione un Plan de Tratamiento</option>
         @forelse ($pacientes->planestratamientos as $tag) 
         <option value={{$tag->id}} >{{$tag->tratamiento->categoria}}</option>
         @empty

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo registro</title>
+    <title>Edición Imagen y Archivo</title>
     <style>
     #todo{
       margin:4em;
@@ -21,12 +21,21 @@
 @section('cuerpo')
 <body>
 <div id="todo" class="container">
-@if(session('mensaje'))
+  @if(session('mensaje'))
         <div class="alert alert-success">
             {{session('mensaje')}}
         </div>
     @endif
-<h2>Creación de un Nuevo Archivo del Paciente</h2>
+@if($errors->any())
+  <div class="alert alert-danger">
+  <ul>
+    @foreach($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
+  </ul>
+  </div>
+@endif
+<h2>Edición Archivo del Paciente</h2>
 
                     <?php
                     $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
@@ -38,8 +47,7 @@
                       @method('put')
                   <hr>
         <!-- Doctor -->
-        @forelse ($pacientes->archivos as $tag)
-        
+      
         <div class="form-group">
         <?php
                     $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
@@ -47,8 +55,8 @@
                     ?>
                 <label for="observaciones">Doctor:</label>
                 
-                    <select name="odontologo_id" class="form-control">
-                    <option value="{{$tag->odontologo->id}}" selected >Odontologo Actual: {{$tag->odontologo->nombres}}  {{$tag->odontologo->apellidos}}</option>
+                    <select required name="odontologo_id" class="form-control">
+                    <option value="{{$imagen->odontologo->id}}" selected >Odontologo Actual: {{$imagen->odontologo->nombres}}  {{$imagen->odontologo->apellidos}}</option>
             <?php
             $getDoctor =$mysqli->query("select * from odontologos order by id");
             while($f=$getDoctor->fetch_object()) {
@@ -66,30 +74,30 @@
         <hr>
               <div class="form-group">
               <label for="imagen">Imagen Actual</label>
-              <img src="/images/{{$tag->imagen}}" width="150" name="imagen" id="imagen" alt="imagen">
+              <img src="/images/{{$imagen->imagen}}" value="{{$imagen->imagen}}" width="150" name="imagen" id="imagen" alt="imagen">
               </div>
               <div class="form-group">
               <label for="identidad">Imagen a subir:</label>
-              <input type="file" class="form-control-file" name="imagen" id="imagen">
+              <input required type="file" class="form-control-file" name="imagen" id="imagen">
               </div>
                     
             
 
               <div class="form-group">
                 <label for="observaciones">Observaciones:</label>
-                <input type="text" class="form-control-file" name="observaciones" id="observaciones" value="{{$tag->observaciones}}">
+                <input required type="text" class="form-control-file" name="observaciones" id="observaciones" value="{{$imagen->observaciones}}">
               </div>
               
 
               <div class="modal-footer">
               <button type="button" onclick="location.href='{{route('imagenesYarchivos.ver',['id'=>$pacientes->id])}}'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
               <input type="reset" class="btn btn-danger">
-            <button type="submit" class="btn btn-primary" >Guardar Paciente</button>
+            <button type="submit" class="btn btn-primary" >Guardar Archivo</button>
           </div>
         
               </form>
 
-              @endforeach
+       
 
 </div>
 </body>

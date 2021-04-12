@@ -199,6 +199,11 @@ class PacienteController extends Controller
     
          //Guardar Comentario acceso al admin y a la secretaria
          public function GuardarComentario(Request $request,$id){
+
+             $request->validate([
+            'caja'=>'required',
+        
+        ]);
             $this->authorize('create',Comentario::class);
             $paciente=Paciente::findOrFail($id);
             $nuevocomentario = new Comentario();
@@ -237,6 +242,10 @@ class PacienteController extends Controller
 
 //update comentario administrativo
             public function updateComentario(Request $_request,$id,$id2){
+                 $_request->validate([
+                    'caja'=>'required',
+        
+                ]);
                 $paciente=Paciente::findOrFail($id);
                 $comentario =Comentario::findOrFail($id2);
                 $this->authorize('update', $comentario);

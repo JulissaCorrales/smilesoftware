@@ -15,7 +15,7 @@ class RolController extends Controller
         if(Gate::denies('isAdmin')){
             abort(403);
          }
-        $rols = Role::All();
+        $rols = Role::Paginate(3);
         return view('usuarios.VistaRol')->with ('rols',$rols);
         
 
@@ -40,7 +40,11 @@ class RolController extends Controller
         if(Gate::denies('isAdmin')){
             abort(403);
          }
+           $request->validate([
+            'name'=>'required|unique:roles,Nombre',
+            'slug'=>'required',
         
+        ]);
         $nuevo = new Role();
 
         //formulario

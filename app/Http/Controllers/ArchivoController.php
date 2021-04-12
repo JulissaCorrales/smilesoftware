@@ -32,6 +32,12 @@ class ArchivoController extends Controller
 
     public function guardar(Request $request,$id){
         $this->authorize('create', Archivo::class);
+           $request->validate([
+            'imagen'=>'required',
+            'observaciones'=>'required',
+            'odontologo_id'=>'required',
+        
+        ]);
         if($request->hasFile('imagen')){
             $file = $request->file('imagen');
             $name = time().$file->getClientOriginalName();
@@ -75,7 +81,12 @@ class ArchivoController extends Controller
     }
 
     public function update(Request $_request,$id, $idarchivo){
-
+           $_request->validate([
+            'imagen'=>'required',
+            'observaciones'=>'required',
+            'odontologo_id'=>'required',
+        
+        ]);
         if ($_request->hasFile('imagen')) {
             $file = $_request->file('imagen');
             //obtenemos el nombre del archivo

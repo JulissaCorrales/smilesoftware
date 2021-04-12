@@ -88,7 +88,7 @@
 
             @can('create',App\Cita::class)
             <button   class="btn btn-outline-info" id="darcita" style="background-color:#00cc99; color:#c1f0f0; position: absolute;
-  left: 770px;
+  left: 740px;
   top:  40px; width:180px;"  data-toggle="modal" data-target="#create"class="btn btn-light" width="50px" id="datos">  
             <svg width="15" height="15" viewBox="0 0 16 16" class="bi bi-calendar2-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 3.5c0-.276.244-.5.545-.5h10.91c.3 0 .545.224.545.5v1c0 .276-.244.5-.546.5H2.545C2.245 5 2 4.776 2 4.5v-1zm6.5 5a.5.5 0 0 0-1 0V10H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V11H10a.5.5 0 0 0 0-1H8.5V8.5z"/>
@@ -206,9 +206,9 @@
                  
                  <!-- Modal -->
                 <div class="modal fade" id="modal-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
-                            <div class="modal-header">
+                            <div class="modal-header" style="background-image: linear-gradient(to left,  #EC7063,#F9E79F);">
                             <h5 class="modal-title" id="exampleModalLabel">Eliminar Cita Individual</h5>
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>

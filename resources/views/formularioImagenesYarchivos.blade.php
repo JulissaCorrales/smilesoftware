@@ -21,11 +21,26 @@
 @section('cuerpo')
 <body>
 <div id="todo" class="container">
-@if(session('mensaje'))
+  @if(session('mensaje'))
         <div class="alert alert-success">
             {{session('mensaje')}}
         </div>
     @endif
+@if($errors->any())
+<div class="alert alert-danger">
+
+<ul>
+
+ @foreach($errors->all() as $error)
+
+ <li>{{$error}}</li>
+
+ @endforeach
+</ul>
+
+</div>
+
+@endif
 <h2>Creación de un Nuevo Archivo del Paciente</h2>
 
                     <?php
@@ -38,8 +53,8 @@
                   <hr>
         <!-- Doctor -->
         <label for="state_id" class="control-label">Doctor responsable del tratamiento:</label>
-        <select name="odontologo_id" class="form-control">
-        <option disabled selected>Seleccione un Doctor</option>
+        <select required name="odontologo_id" class="form-control">
+        <option value="" disabled selected>Seleccione un Doctor</option>
         <?php
         $getDoctor =$mysqli->query("select * from odontologos order by id");
         while($f=$getDoctor->fetch_object()) {
@@ -56,21 +71,21 @@
         <hr>
               <div class="form-group">
               <label for="identidad">Imagen a subir:</label>
-              <input type="file" class="form-control-file" name="imagen" id="imagen">
+              <input required type="file" class="form-control-file" name="imagen" id="imagen">
               </div>
                     
             
 
               <div class="form-group">
                 <label for="observaciones">Observaciones:</label>
-                <input type="text" class="form-control-file" name="observaciones" id="observaciones" placeholder="Alguna observacion?">
+                <input required type="text" class="form-control-file" name="observaciones" id="observaciones" placeholder="Alguna observacion?">
               </div>
               
 
               <div class="modal-footer">
               <button type="button" onclick="location.href='{{route('imagenesYarchivos.ver',['id'=>$pacientes->id])}}'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
               <input type="reset" class="btn btn-danger">
-            <button type="submit" class="btn btn-primary" >Guardar Paciente</button>
+            <button type="submit" class="btn btn-primary" >Guardar Archivo</button>
           </div>
               </form>
 
