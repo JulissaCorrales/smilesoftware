@@ -49,7 +49,7 @@
   
 	<div class="modal-dialog" role="document">
 		<div class="modal-content" >
-			<div id="divv9"class="modal-header">
+			<div id=""class="modal-header" style=" background-color:#293d3d; color:white;  height:100px;">
 	
 				<h4  class="modal-title" id="myModalLabel">
         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
