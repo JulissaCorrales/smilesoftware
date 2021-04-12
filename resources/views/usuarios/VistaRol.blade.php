@@ -40,7 +40,7 @@
 
 
 </style>
-<body style="background-image: url('../assets/img/My Post.png');">
+<body style="background-image: url('../assets/img/backrol1.jpg');">
 <div><p>  @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -129,8 +129,8 @@
 <!--  -->
 
 <div>
-<table id="" border="dashed"  >
-<thead class="table table-striped table-bordered" style=" background-color: #e6ffff;" >
+<table id="" border="dashed"  style="background-image: url('../assets/img/fondotabla.jpg');" >
+<thead class="table table-striped table-bordered" >
   <tr id="can">
    
       <th id="thh2"  >Id</th>
