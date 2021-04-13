@@ -37,7 +37,7 @@
 .datatable1 {border-style: solid;}
 
 
-
+#boton{ margin: 1em}
 
 </style>
 <body style="background-image: url('../assets/img/backrol1.jpg');">
@@ -55,7 +55,7 @@
             {{session('mensaje')}}
         </div>
     @endif</p></div><br><br>
-<h3>Roles y usuarios</h3>
+<h3 style='text-align:center' >Roles y usuarios</h3>
 <div class="container" id="allBody" >
 
 <div >
@@ -129,8 +129,8 @@
 <!--  -->
 
 <div>
-<table id="" border="dashed"  style="background-image: url('../assets/img/fondotabla.jpg');" >
-<thead class="table table-striped table-bordered" >
+<table id="" border="dashed"  style="background-image: url('../assets/img/fondotabla.jpg');" class="table" >
+<thead class="thead-dark"  >
   <tr id="can">
    
       <th id="thh2"  >Id</th>
@@ -141,7 +141,7 @@
 
   </tr>
   </thead>
-  <tbody>
+  <tbody style="background-color: #D3D7D6">
   
         
         <tr>
