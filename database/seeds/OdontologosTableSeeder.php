@@ -28,6 +28,19 @@ class OdontologosTableSeeder extends Seeder
         $especialidad->Especialidad="Ortodoncia";
         $especialidad->save();
 
+ $especialidad = new Especialidad();
+        $especialidad->Especialidad="General";
+        $especialidad->save();
+
+ $especialidad = new Especialidad();
+        $especialidad->Especialidad="Prostodoncia";
+        $especialidad->save();
+
+ $especialidad = new Especialidad();
+        $especialidad->Especialidad="Patologías Bucales y Maxilofaciales";
+        $especialidad->save();
+
+
 
         //seeder para los dias de Semana
         

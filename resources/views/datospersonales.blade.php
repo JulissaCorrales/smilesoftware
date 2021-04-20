@@ -1,5 +1,5 @@
 
-
+@extends('Plantilla.Plantilla')
 <style>
 #datos{
     margin-left: auto;
@@ -26,9 +26,9 @@
 
 #ventana{  
   width: 900px; 
-  position: static;
-  left: 100px;
-  top:0px;
+  position: absolute;
+  left: 300px;
+  top: 100px;
   background-color: #c1f0f0;
   
   float:left;
@@ -219,77 +219,7 @@
 
 
 <body style=" background-color: #e6f9ff;">
-    <nav class="navbar navbar-light bg-light" style="position: absolute;
-  left: 320px;
-  top: 0px;
-  width: 1070px; height: 50px; background-color: #e6f9ff; " >
-
-
-  <div class="navbar" style="position: absolute;
-  
-  left: 700px;
-  top: 5px;">
-           <div class="navbar-inner">
-               <div class="container">
-                   <ul class="nav">
-                       <li class="dropdown" >
-                           <a class="dropdown-toggle" data-toggle="dropdown" href="#">MenuPrincipal<b class="caret"></b></a>
-                           <ul class="dropdown-menu">
-                               <li><a href="#">Agenda</a></li>
-                              
-                               <li><a href="#">Paciente</a></li>
-                               <li><a href="#">Roles</a></li>
-                               <li><a href="#">Usuarios</a></li>
-                              
-                           </ul>
-                       </li>
-                   </ul>
-               </div>
-           </div>
-       </div>
-</div>
-<script type="text/javascript" src="js/jquery-latest.js"></script>
-       <script type="text/javascript" src="js/bootstrap.js"></script>
-       <script type="text/javascript">
-           $(document).ready(function () {
-               $('.dropdown-toggle').dropdown();
-           });
-      </script>
-
-
-
-
-
-  <div class="container-fluid" >
-  
-                @forelse($logotipos  as $tag)
-    <img class="logo" src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%;
-  position: absolute;
-  left: 150px;
-  top: 5px;
-  width: 40px;
-  border-color: #33ccff , 2px;   height: 40px;" >
-    @empty
-
-    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3" style="border-radius: 50%;
-  position: absolute;
-  left: 150px;
-  top: 5px;
-  width: 40px;
-  border-color: #33ccff , 2px;   height: 40px;" > 
-    @endforelse
-  <form class="form-inline my-2 my-lg-0" id="buscar1"  action="buscar">
-      <input  name="buscarpor"  class="form-control" type="search" placeholder="Buscar Paciente" aria-label="Search"  style="
-  
-  width: 400px; position: absolute;
-  left: 190px; top: 5px; "  >
-
-      
-    </form>
-  </div>
-
- 
-</nav>
+   
 
 
     <div class="card"  style="width: 20rem;" id="ventana">
@@ -308,7 +238,7 @@
       
       <br><br>
       </div>
-    <div class="list-group" style="width: 20rem;">
+    <div class="list-group" style="width: 20rem; position:absolute; left:0px; top:200px;">
 
     @canany(['isAdmin','isOdontologo','isSecretaria'])
   <a  href="/pantallainicio/vista/paciente/{{$pacientes->id}}/editar"class="list-group-item list-group-item-action active" style="background-color:#32cdcd; font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

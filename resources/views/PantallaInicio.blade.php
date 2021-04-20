@@ -40,7 +40,8 @@
             left: 290px;
         }  
         #encabezado{
-            background-color: #ffad33;
+            background-color: #003333;
+             color:white;
 
         }
         #cuerpo{

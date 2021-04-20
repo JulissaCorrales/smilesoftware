@@ -16,9 +16,9 @@
   color: #476b6b;
 }
 #padre {
-  width: 900px; position: absolute;
-  left: 400px; 
-  top: 50px;
+  width: 700px; position: absolute;
+  left: 650px; 
+  top:100px;
   height:700px;
   background-color: #c1f0f0;
   
@@ -31,8 +31,8 @@
        
         height:600px;
         width:700px;
-        overflow-y:scroll;
-        overflow-x:hidden;
+        /*overflow-y:scroll;
+        overflow-x:hidden; */
     }
 
 </style>
@@ -47,7 +47,7 @@
                     <form method="post" action="{{route('paciente.update',['id'=> $pacientes-> id])}} " file="true" enctype="multipart/form-data"  style="
   
   width: 500px; position: absolute;
-  left: 210px; top: 80px;  background-color: #e6f9ff; " id="scroll" >
+  left: 100px; top: 80px;  background-color: #e6f9ff; " id="scroll" >
                       @csrf
                       @method('put')
                       <div class="form-group" >
@@ -149,40 +149,17 @@
                           </div>
 
                   @canany('update',$pacientes)
-                  <div class="modal-footer" style="position: absolute;
-  left: 320px;
-  width: 1070px;
-  top: 750px; height:50px;
-  background-color: #e6f9ff;">
-   <a style="position: absolute;
-  left: 50px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
-
-              @forelse($logotipos  as $tag)
-    <img  class="logo" src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%;
-  position: absolute;
-  left: 220px;
-  top: 5px;
-  width: 40px;
-  height: 40px;
-  border-color: #33ccff;" >
-    @empty
-
-    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;
-  position: absolute;
-  left: 220px;
-  top: 5px;
-  width: 40px;
-  border-color: #33ccff ,   height: 40px;" > 
-    @endforelse 
+                  
+   
                 <button  style="position: absolute;
-  left: 630px; font-size:18px; font-family: Times New Roman, Times, serif; "type="button" onclick="location.href='/pantallainicio/vista'" class="btn btn-secondary" data-dismiss="modal" >Atrás</button>
+  left: 630px;  top: 850px;font-size:18px; font-family: Times New Roman, Times, serif; "type="button" onclick="location.href='/pantallainicio/vista'" class="btn btn-secondary" data-dismiss="modal" >Atrás</button>
                 <input style="position: absolute;
   left: 700px;font-size:18px; font-family: Times New Roman, Times, serif; "type="reset" class="btn btn-danger">
                
                 <button type="submit" class="btn btn-primary" style="position: absolute;
   left: 820px; font-size:18px; font-family: Times New Roman, Times, serif; " >Guardar Paciente</button>
                 
-              </div>
+              
              @endcan
                   </form>
                   </div>

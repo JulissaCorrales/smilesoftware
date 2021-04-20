@@ -723,13 +723,85 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 
   <td id="td6">
     
-    <a id="verespecialidad" class="btn " type="button"  href="{{route('odontologo.especialidad',['id'=>$odontologo->id])}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-heading" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <button id="verespecialidad" class="btn " type="button"  href="{{route('odontologo.especialidad',['id'=>$odontologo->id])}}" data-toggle="modal" data-target="#modall2-{{$odontologo->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-heading" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
   <path fill-rule="evenodd" d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
   <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z"/>
 </svg>
      Ver Especialidad
- </a>
+ </button>
+
+<div class="modal fade" id="modall2-{{$odontologo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content" style="position:absolute; top:100px;">
+              <div class="modal-header" style=" background-color:#293d3d; color:white;  height:100px;">
+                  <h5 class="modal-title" id="exampleModalLabel">Especialidad Odontologo</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <!--<span aria-hidden="true">&times;</span>-->
+                  </button>
+              </div>
+              <div class="modal-body">
+                <table id="datatable1" class="container">
+<thead class="table table-striped table-bordered">
+  <tr id="can">
+   
+      <th id="thh2"  >
+      Odontologo</th>
+
+      <th id="thh2"  >
+      Especialidades</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  
+        
+        <tr>
+        
+
+        <td><h2>{{$odontologo->nombres}}  {{$odontologo->apellidos}}   </h2></td>
+
+        <td>
+        {{$odontologo->especialidad->Especialidad}} <br>
+        @forelse ($odontologo->especialidadOdontologos as $tag) 
+          
+                    {{ $tag->especialidad->Especialidad}}
+                    <hr>
+                    @empty
+                    vacio
+                    @endforelse
+        
+        </td>
+
+  
+    </tr>
+    
+  
+
+  
+ 
+  
+
+  
+    
+  </div>
+
+     
+     </tbody>
+</table>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                 
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+
+
 
  </td>
 
