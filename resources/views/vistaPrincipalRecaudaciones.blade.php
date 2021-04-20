@@ -20,15 +20,12 @@ body {
 }
 
 
-<<<<<<< HEAD
-=======
 .container {
   position: absolute;
   top: 45%;
   left: 70%;
   transform: translate(-50%, -50%);
 }
->>>>>>> 572767306e3c8ca066cec82754b9a0a3cc476b81
 
 
 table {

@@ -37,7 +37,7 @@ class EspecialidadController extends Controller
         $this->authorize('create', Especialidad::class); //si tiene el permiso de crear:
         if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
           $request->validate([
-                    'Especialidad'     =>  'required',
+                    'nombres'     =>  'required',
                 
                 ]);
 

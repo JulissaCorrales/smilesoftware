@@ -132,26 +132,29 @@ margin-top:6em;
         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
         $mysqli->set_charset("utf8");
       ?>
+      <?php $odontologos=App\Odontologo::all();?>
+
         <form method="post" action="/darcita">
         @csrf
         <!-- Doctor -->
         <label for="odontologo_id" class="control-label">Doctor y su especialidad:</label>
         <select required name="odontologo_id" id="odontologo_id" class="form-control">
         <option value="" disabled selected>Seleccione un Doctor</option>
-        <?php
-        $getDoctor =$mysqli->query("select * from odontologos order by id");
-        while($f=$getDoctor->fetch_object()) {
-          echo $f->id;
-          echo $f->nombres;
-          echo $f->apellidos;
-          echo $f->especialidad_id;
-
-          ?>
-         
-          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos." |  Especialidad:".$f->especialidad_id;?></option>
-          <?php
-        } 
-        ?>
+          
+           @forelse($odontologos as $odontologos)
+         <option value="{{$odontologos->id}}">
+         {{$odontologos->id}}--
+         {{$odontologos->nombres}}  {{$odontologos->apellidos}}
+          --|Especialidades:{{$odontologos->especialidad->Especialidad}},
+                   @forelse ($odontologos->especialidadOdontologos as $tag) 
+                    {{ $tag->especialidad->Especialidad}},
+                    <hr>
+                    @empty
+                    @endforelse
+          </option>
+              @empty
+          No hay odontologo.¡¡Cree uno por favor!!
+          @endforelse
         </select>
         <hr>
        <!-- Duracion (en duda)-->
