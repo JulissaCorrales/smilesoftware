@@ -45,7 +45,23 @@ class PacienteController extends Controller
     //actualizar Paciente acceso  solo el admin y secretaria
 
     public function update(Request $_request,$id){
-        // if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
+
+           //validar
+        $_request->validate([     'nombres'=>'required',
+        'apellidos'=>'required',
+        'identidad'=>'required|numeric',
+        'sexo'=>'required',
+        'fechaNacimiento'=>'required|date|before:today',
+        'departamento'=>'required',
+        'ciudad'=>'required',
+        'direccion'=>'required',
+        'telefonoFijo'=>'required|numeric',
+        'telefonoCelular'=>'required|numeric',
+        'profesion'=>'required',
+        'empresa'=>'required',
+        'observaciones'=>'required'
+
+        ]);
         $pacientes = Paciente::findOrFail($id);
 
         $this->authorize('update',$pacientes);
@@ -82,22 +98,7 @@ class PacienteController extends Controller
            
        // }
     
-        //validar
-        $_request->validate([     'nombres'=>'required',
-        'apellidos'=>'required',
-        'identidad'=>'required|unique:pacientes,identidad|numeric',
-        'sexo'=>'required',
-        'fechaNacimiento'=>'required',
-        'departamento'=>'required',
-        'ciudad'=>'required',
-        'direccion'=>'required',
-        'telefonoFijo'=>'required|numeric',
-        'telefonoCelular'=>'required|numeric',
-        'profesion'=>'required',
-        'empresa'=>'required',
-        'observaciones'=>'required'
-
-        ]);
+    
 
     }
 
@@ -109,7 +110,7 @@ class PacienteController extends Controller
             'apellidos'=>'required',
             'identidad'=>'required|unique:pacientes,identidad|numeric',
             'sexo'=>'required',
-            'fechaNacimiento'=>'required',
+            'fechaNacimiento'=>'required|date|before:today',
             'departamento'=>'required',
             'ciudad'=>'required',
             'direccion'=>'required',

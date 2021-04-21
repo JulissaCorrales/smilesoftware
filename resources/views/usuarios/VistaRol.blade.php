@@ -24,8 +24,6 @@
    width: 800px;
   height: 80px;
    
-   
-   
  } 
  #crear{
    margin:1em;
@@ -37,7 +35,7 @@
 .datatable1 {border-style: solid;}
 
 
-#boton{ margin: 1em}
+#boton{ margin: 1em; float:right;}
 
 </style>
 <body style="background-image: url('../assets/img/backrol1.jpg');">
@@ -55,7 +53,7 @@
             {{session('mensaje')}}
         </div>
     @endif</p></div><br><br>
-<h3 style='text-align:center' >Roles y usuarios</h3>
+<h1 style='text-align:center' >Roles y usuarios</h1>
 <div class="container" id="allBody" >
 
 <div >
@@ -63,7 +61,7 @@
         <path fill-rule="evenodd" d="M11 13a5 5 0 1 0-4.975-5.5H4A1.5 1.5 0 0 0 2.5 6h-1A1.5 1.5 0 0 0 0 7.5v1A1.5 1.5 0 0 0 1.5 10h1A1.5 1.5 0 0 0 4 8.5h2.025A5 5 0 0 0 11 13zm.5-7.5a.5.5 0 0 0-1 0v2h-2a.5.5 0 0 0 0 1h2v2a.5.5 0 0 0 1 0v-2h2a.5.5 0 0 0 0-1h-2v-2z"/>
         </svg></button>
 
-<!-- modal para crear nuevo tratamiento -->
+<!-- modal para crear nuevo rol -->
 <div class="modal fade" id="nuevorol" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -87,38 +85,25 @@
    
     <div class="form-group">
         <label for="name">Nombre del Rol</label>
-        <input type="text" class="form-control-file" name="name" id="name" placeholder="Ingrese el nombre del Rol">
+        <input required type="text" class="form-control-file" name="name" id="name" placeholder="Ingrese el nombre del Rol">
     </div>
 
     <div class="form-group">
         <label for="slug">Slug</label>
-        <input type="text" class="form-control-file" name="slug" id="slug" placeholder="Ingrese el slug" tag="slug">
+        <input required    type="text" class="form-control-file" name="slug" id="slug" placeholder="Ingrese el slug" tag="slug">
     </div>
 
     <div class="form-group">
         <label for="permisos">Permisos</label>
         <input type="text" value="" data-role="tagsinput" name="roles_permisos" >
     </div>
-
-    
-    
-
-   
-                    <div class="form-group" id="div6">
-                    <button style="background-color:purple"type="button" onclick="location.href='{{route('roles.ver')}}'" class="btn btn-secondary" data-dismiss="modal">Atrás</button>
-                    <input type="reset" class="btn btn-danger">
-                    <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
-                        Guardar
-                    </button>
-                    
-                   
-                    </div>
-
-    
-    
+    <div class="form-group" id="div6">
+    <input type="reset" class="btn btn-danger">
+    <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
+        Guardar
+    </button>
+    </div>
     </form>
-
-
       </div>
     </div>
   </div>
@@ -129,7 +114,7 @@
 <!--  -->
 
 <div>
-<table id="" border="dashed"  style="background-image: url('../assets/img/fondotabla.jpg');" class="table" >
+<table id="" class="table table-striped table-secondary" >
 <thead class="thead-dark"  >
   <tr id="can">
    
@@ -137,29 +122,29 @@
       <th id="thh2"  > Roles</th>
       <th id="thh2"  >Slug</th>
       <th id="thh2"  > Permisos</th>
-      <th id="thh2" colspan="3" > Tools</th>
+      <th id="thh2" colspan="3" >Opciones</th>
 
   </tr>
   </thead>
-  <tbody style="background-color: #D3D7D6">
+  <tbody>
   
         
         <tr>
         @forelse ($rols as $tag) 
      
-        <td><a  class="btn btn-outline-info"  href="{{route('rol.editar',$tag->id)}}"  id="lista">{{ $tag->id}}</a></td>
+        <td><a type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModalLong-{{$tag->id}}"  id="lista">{{ $tag->id}}</a></td>
         <td>{{ $tag->Nombre}} </td>
         <td>{{ $tag->slug}} </td>
         <td>
           @if($tag->permisos !=null)
                                     
-                                @foreach ($tag->permisos as $permission )
-                                <span class="badge badge-secondary" >
-                                    {{ $permission->Permiso }}                                  
-                                </span><br>
-                                @endforeach
-                            @endif
-                          
+            @foreach ($tag->permisos as $permission )
+            <span class="badge badge-secondary" >
+                {{ $permission->Permiso }}                                  
+            </span>
+            @endforeach
+          @endif
+      
                                 
                                
         </td>
@@ -193,8 +178,8 @@
 <div class="card" >
 <div class="card-header" style="background-color:#E8DAEF;font-family:Helvetica ">
 
-<h3>Nombre del Rol: {{$tag->Nombre}}</h1>
-<h3>Slug:{{$tag->slug}}</h1>
+<h5>Nombre del Rol: {{$tag->Nombre}}</h1>
+<h5>Slug:{{$tag->slug}}</h1>
 
 
 </div>
@@ -204,11 +189,8 @@
 <h5 class="card-title" style="text-align:center">Permisos</h5>
 <p class="card-text">
 @forelse ($tag->permisos as $permiso)
-          <span style="font-size: 20px; color: #F7DC6F;" class="badge badge-secondary">
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-diamond-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.482 1.482 0 0 1 0-2.098L6.95.435z"/>
-        </svg>
-          {{$permiso->Permiso}}</span> <br>
+          <span style=" color: #F7DC6F;" class="badge badge-secondary">
+          {{$permiso->Permiso}}</span>
           @empty
           Todavia no se le ha asignado permisos
         @endforelse
@@ -218,12 +200,6 @@
 
 </div>
 <div class="card-footer">
-<button style="background-color:#16A085"type="button" onclick="location.href='{{route('roles.ver')}}'" class="btn btn-secondary" data-dismiss="modal">
-<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-skip-backward" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M.5 3.5A.5.5 0 0 1 1 4v3.248l6.267-3.636c.52-.302 1.233.043 1.233.696v2.94l6.267-3.636c.52-.302 1.233.043 1.233.696v7.384c0 .653-.713.998-1.233.696L8.5 8.752v2.94c0 .653-.713.998-1.233.696L1 8.752V12a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm7 1.133L1.696 8 7.5 11.367V4.633zm7.5 0L9.196 8 15 11.367V4.633z"/>
-</svg>
-
-Atrás</button>
 
 </div>
 
@@ -291,16 +267,14 @@ Atrás</button>
     </div>
     <div class="form-group">
         <label for="roles_permisos">Permisos</label>
-        <input type="text" data-role="tagsinput"  class="form-control" id="roles_permisos" name="roles_permisos" value="@foreach ($tag->permisos as $permiso)
+        <input  type="text" data-role="tagsinput"  class="form-control" id="roles_permisos" name="roles_permisos" value="@foreach ($tag->permisos as $permiso)
             {{$permiso->Permiso. ','}}
-        @endforeach" 
-        >   
+        @endforeach">   
     </div>
     
 
    
                     <div class="form-group" id="div6">
-                    <button style="background-color:purple"type="button" onclick="location.href='{{route('roles.ver')}}'" class="btn btn-secondary" data-dismiss="modal">Atrás</button>
                     <input type="reset" class="btn btn-danger">
                     <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
                         Guardar
@@ -427,6 +401,7 @@ $(document).ready(function(){
      
      </tbody>
 </table>
+<p id="paginacion">{{$rols->links()}}</p> 
   </div>
 
 

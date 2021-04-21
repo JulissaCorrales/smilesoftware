@@ -73,7 +73,7 @@ class CitaController extends Controller
                 'duracionCita'=>'required',
                 'paciente_id'=>'required',
                 'comentarios'=>'required',
-                'stard' =>'required',]);
+                'stard' =>'required|after_or_equal:today',]);
 
             // formulario
             $nuevacita = new Cita();
@@ -154,7 +154,7 @@ class CitaController extends Controller
             'odontologo_id'=>'required',
             'duracionCita'=>'required',
             'comentarios'=>'required',
-            'stard' =>'required|date']);
+            'stard' =>'required|date|after_or_equal:today']);
 
         $citas=Cita::findOrFail($citaid);
         $this->authorize('updateCitaIndividual', $citas);//si tiene el permiso de editar:

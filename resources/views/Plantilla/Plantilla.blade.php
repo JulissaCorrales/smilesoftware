@@ -198,7 +198,7 @@ height: 38px;
 #nav{
   background-image: linear-gradient(to bottom, #00cccc ,#00cccc );
  width: 280px;
-height: 1500px;
+height: 1520px;
   position:absolute;
 top: -15px;
 left:-15px;
