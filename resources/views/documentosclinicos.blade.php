@@ -17,14 +17,10 @@
     margin: 5rem;
     padding: 2rem;
     border: 2px solid #ccc;
-    background-color: #32cdcd;
-
+    border: 5px solid gray;
+    
     position: absolute;
-<<<<<<< HEAD
   top:50px; width: 920px; left:340px;
-=======
-  /* top:60px; width: 900px; left:405px; */
->>>>>>> 320de69ca809e8dfad738635c0c607b50d7a5e23
     
     
     }
@@ -223,36 +219,7 @@
                   </button>
 
                   <!-- Modal -->
- <div class="modal fade" id="modal-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
-      </svg> Eliminar </h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <!--<span aria-hidden="true">&times;</span>-->
-              </button>
-          </div>
-          <div class="modal-body">
-              ¿Desea realmente eliminar  {{$tag->id}}?
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <form method="post" action="{{route('documento.borrar',['id'=>$tag->id])}}">
-
-                  @csrf
-                  @method('delete')
-                  <input type="submit" value="Eliminar" class="btn btn-danger">
-              </form>
-          </div>
-      </div>
-  </div>
-</div>
-
-
-                
-              </div>
+ 
 
 
             </li>
@@ -274,17 +241,7 @@
 
     </div>
 
-    <div class="modal-footer" style="position: absolute; left: 330px; width: 1070px; top: 750px; height:50px; background-color: #e6f9ff;">
-                  
-              <a style="position: absolute;left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
-
-              @forelse($logotipos  as $tag)
-    <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%; position: absolute;left: 1005px;top: 5px;width: 40px;border-color: #33ccff;  height: 40px;" >
-    @empty
-
-    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;position: absolute;left: 1005px;top: 5px;width: 40px; border-color: #33ccff;   height: 40px;"  > 
-    @endforelse 
-    </div>
+    
 
     </div>
 
@@ -292,6 +249,29 @@
 </div>
 
 <div>
+<div class="modal fade" id="modal-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content" style="position:absolute; left:50px; top:100px;">
+                            <div class="modal-header" style="background-color:#293d3d; color:white;  height:80px;">
+                            <h5 class="modal-title" id="exampleModalLabel">Eliminar Documentos Clinicos</h5>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                            ¿Desea realmente eliminar el Documento Clinico {{ $tag->imagen1}} ?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <form method="post" action="{{route('plandetratamiento.borrar',['id'=>$tag->id])}}">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" value="Eliminar" class="btn btn-danger">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
     <script>
 

@@ -11,18 +11,33 @@
         padding:2em;
         margin:1em;
         font-family: georgia; 
+
+position:absolute;
+left: 400px;
+top: 50px;
+width:900px;
+border: 5px solid gray;
+
+
+
     }
     #titulo{
         font-family: georgia;
         text-align:center;
+font-size:30px;
+background-color:#293d3d;
+color:white;
     }
     #nombrePaciente{
         font-family: georgia;
         text-align:center;
+font-size: 25px;
+color:#b33c00;
+background-color:#009999;
     }
     #formulario{
         padding:2em; 
-        background-image: linear-gradient(to left,  #AFEEEE,#00FF99); 
+        
         text-align:center;
     }
     #botonatras{
@@ -33,7 +48,7 @@
 <body>
     <div class="container" id="padre">
     <!--  ggg-->
-    <h3 id="titulo">Edición de la Cita del Paciente:</h3>
+    <h3 id="titulo">Edición de la Cita del Paciente</h3>
     <h2 id="nombrePaciente">{{$pacientes->nombres}} {{$pacientes->apellidos}}</h2>
     @if ($errors->any())
         <div class="alert alert-danger">

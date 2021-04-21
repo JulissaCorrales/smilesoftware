@@ -75,7 +75,7 @@ class PacienteController extends Controller
 
         $create = $pacientes->save();
         if($create){
-            return redirect('/pantallainicio/vista')->with('mensaje','El paciente ha sido modifcado exitosamente');
+            return redirect("/pantallainicio/vista/paciente/$id/editar")->with('mensaje','El paciente ha sido modifcado exitosamente');
         }else{
 
         }

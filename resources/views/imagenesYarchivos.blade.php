@@ -173,7 +173,7 @@ h1 {
 </head>
 <body>
     @section('cuerpo')
-    <div>
+    <div class="container">
     <h3 style="text-align: center;
   padding: 1rem;
   font-size:30px; font-family: Times New Roman, Times, serif;  background-color: #1f2e2e;
@@ -185,6 +185,20 @@ h1 {
               <path fill-rule="evenodd" d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"/>
               </svg> Imagenes y Archivos del Paciente</h3>
     
+@if ($errors->any())
+<div class="alert alert-danger">
+<ul>
+@foreach ($errors->all() as $error)
+<li>{{ $error }}</li>
+@endforeach
+</ul>
+</div>
+@endif
+@if(session('mensaje'))
+<div class="alert alert-success" style="position:absolute; top: 200px; left: 455px;">
+{{session('mensaje')}}
+</div>
+@endif
     </div>
  
     <div class="container" id="vPrincipal" class="vPrincipa">
@@ -234,8 +248,8 @@ h1 {
  <!-- Modal -->
  <div class="modal fade" id="modal-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
+          <div class="modal-content" style="position:absolute; left:50px; top:100px;">
+              <div class="modal-header" style="background-color:#293d3d; color:white;  height:80px;">
                   <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
           </svg> Eliminar </h5>
@@ -244,7 +258,7 @@ h1 {
                   </button>
               </div>
               <div class="modal-body">
-                  ¿Desea realmente eliminar el archivo  {{$tag->id}}?
+                  ¿Desea realmente eliminar el archivo  {{$tag->imagen}}?
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

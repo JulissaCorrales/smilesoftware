@@ -20,7 +20,7 @@
   width: 800px; position: absolute;
   left: 500px; 
   top:100px;
-  height:700px;
+  height:800px;
   /*background-color: #c1f0f0; */
  border: 5px solid gray;
   
@@ -42,14 +42,30 @@
 <body>
   
 <div id="padre"> 
+
 <h3 id="titulo"><svg width="30" height="30" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
             </svg> Editar Datos Personales</h3>
+@if ($errors->any())
+<div class="alert alert-danger">
+<ul>
+@foreach ($errors->all() as $error)
+<li>{{ $error }}</li>
+@endforeach
+</ul>
+</div>
+@endif
+@if(session('mensaje'))
+<div class="alert alert-success">
+{{session('mensaje')}}
+</div>
+@endif
+
   
                     <form method="post" action="{{route('paciente.update',['id'=> $pacientes-> id])}} " file="true" enctype="multipart/form-data"  style="
   
   width: 500px; position: absolute;
-  left: 150px; top: 80px;  background-color: #e6f9ff; " id="scroll" >
+  left: 150px; top: 130px;  background-color: #e6f9ff; " id="scroll" >
                       @csrf
                       @method('put')
                       <div class="form-group" >
@@ -154,12 +170,12 @@
                   
    
                 <button  style="position: absolute;
-  left: 500px;  top: 820px;font-size:18px; font-family: Times New Roman, Times, serif; "type="button" onclick="location.href='/pantallainicio/vista'" class="btn btn-secondary" data-dismiss="modal" >Atrás</button>
+  left: 800px;  top: 850px;font-size:18px; font-family: Times New Roman, Times, serif; "type="button" onclick="location.href='/pantallainicio/vista'" class="btn btn-secondary" data-dismiss="modal" >Atrás</button>
                 <input style="position: absolute;
-  left: 580px;font-size:18px; top:820px; font-family: Times New Roman, Times, serif; "type="reset" class="btn btn-danger">
+  left: 880px;font-size:18px; top:850px; font-family: Times New Roman, Times, serif; "type="reset" class="btn btn-danger">
                
                 <button type="submit" class="btn btn-primary" style="position: absolute;
-  left: 1100px;  top: 820px;font-size:18px; font-family: Times New Roman, Times, serif; " >Guardar Paciente</button>
+  left: 1000px;  top: 850px;font-size:18px; font-family: Times New Roman, Times, serif; " >Guardar Paciente</button>
                 
               
              @endcan

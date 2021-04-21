@@ -11,7 +11,7 @@
   
   position: absolute;
     left:500px;
-    top: 250px;
+    top: 300px;
 
  }
 
@@ -46,7 +46,7 @@
     border-radius: 12px;
     background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff);
     position: absolute;
-    top: 190px;
+    top: 220px;
     left:990px;
 
  }
@@ -73,9 +73,9 @@
   <div id="" >
   <h3 style="text-align: center;
   padding: 1rem;
-  font-size:30px; font-family: Times New Roman, Times, serif;  background-color: #98e6e6;
-  color: #476b6b; position: absolute;
-  top:60px; width: 700px; left:500px;
+  font-size:30px; font-family: Times New Roman, Times, serif;  background-color: #293d3d;
+  color: white; position: absolute;
+  top:100px; width: 700px; left:500px;
   
   "><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-clockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
@@ -88,12 +88,19 @@
   <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
 </svg> Nueva Evolucion </button>
    @endcan 
+
+
+
+
+
+
+
   </div>
 
 
 
 <table id="datatable2" class="table table-hover">
-          <thead>
+          <thead style=" background-color: #b3cccc;">
 
           <th>Evoluciones Medicas</th>
           <th>Accion</th>
@@ -129,33 +136,7 @@
      </tbody>
 </table>
 
-<div class="modal-footer" style="position: absolute;
-  left: 320px;
-  width: 1070px;
-  top: 750px; height:50px;
-  background-color: #e6f9ff;">
-                
-                
-              <a style="position: absolute;
-  left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
 
-              @forelse($logotipos  as $tag)
-    <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%;
-  position: absolute;
-  left: 1005px;
-  top: 0px;
-  width: 40px;
-  border-color: #33ccff , 2px;   height: 40px;" >
-    @empty
-
-    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;
-  position: absolute;
-  left: 1005px;
-  top: 0px;
-  width: 40px;
-  border-color: #33ccff , 2px;   height: 40px;"  > 
-    @endforelse 
-              </div>
 
 </div>
 

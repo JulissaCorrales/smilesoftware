@@ -11,7 +11,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script><!-- para que funcione boton desplegable -->
     <style>
     #padre{
-        margin:4em;
+        width: 800px; position: absolute;
+  left: 500px; 
+  top:100px;
+  height:800px;
+  /*background-color: #c1f0f0; */
+ border: 5px solid gray;
+  
       
 
     }
@@ -22,6 +28,7 @@
   border: 1px solid #e7b3ff;
   border-collapse: collapse;
 
+
 }
 
 th{
@@ -29,6 +36,13 @@ th{
 }
 #tabla{
 align:center;
+position: absolute;
+  left: 550px; 
+  top:500px;
+
+width: 700px;
+
+
 
 }
     
@@ -228,20 +242,7 @@ align:center;
 
 </div>
 
-<div class="modal-footer" style="position: absolute; left: 320px; width: 1070px; top: 750px; height:50px; background-color: #e6f9ff;">
-                  
-                  <a style="position: absolute;left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
-    
-                  @forelse($logotipos  as $tag)
-        <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%; position: absolute;left: 1005px;top: 5px;width: 40px;border-color: #33ccff;  height: 40px;" >
-        @empty
-    
-        <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;position: absolute;left: 1005px;top: 5px;width: 40px; border-color: #33ccff;   height: 40px;"  > 
-        @endforelse 
-        </div>
-    
-        </div>
-    
+
     </div>
     </div>
 </body>

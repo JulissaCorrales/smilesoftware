@@ -14,7 +14,11 @@
     margin: 5rem;
     padding: 2rem;
     border: 2px solid #ccc;
-    background-color:#F4ECF7;
+    
+position:absolute;
+left:400px;
+top:100px;
+border: 5px solid gray;
     }
     h2{
       text-align:center;

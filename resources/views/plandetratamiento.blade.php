@@ -11,14 +11,14 @@
   padding: 1rem;
   font-size:15px; 
   font-family: Times New Roman, Times, serif; 
-  color: #476b6b; 
-  background-color:#aeeaea;
+  color: white; 
+  background-color:#334d4d;
        
     } 
     #btnuevot{
        
         font: 700 1em Tahoma, Arial, Verdana, sans-serif;
-        color: black; background-color: #00cc00;
+        color: black; background-color: #00b3b3;
         border: 1px solid #0074a5;
         border-top: 1px solid #004370;
         border-left: 1px solid #004370;
@@ -82,7 +82,7 @@
 @section('cuerpo')
 @canany(['isAdmin','isOdontologo'])
 @if(session('mensaje'))
-        <div class="alert alert-success">
+        <div class="alert alert-success" style="position:absolute; top:270px; left:420px;">
             {{session('mensaje')}}
         </div>
     @endif
@@ -195,8 +195,8 @@
                  <!-- Modal -->
                 <div class="modal fade" id="modal-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
+                        <div class="modal-content" style="position:absolute; left:50px; top:100px;">
+                            <div class="modal-header" style="background-color:#293d3d; color:white;  height:80px;">
                             <h5 class="modal-title" id="exampleModalLabel">Eliminar Plan de Tratamiento</h5>
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -235,33 +235,7 @@
             </tbody>
             </table>             
 </div>
-<div class="modal-footer" style="position: absolute;
-  left: 320px;
-  width: 1070px;
-  top: 750px; height:50px;
-  background-color: #e6f9ff;">
-                
-                
-              <a style="position: absolute;
-  left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
 
-              @forelse($logotipos  as $tag)
-    <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%;
-  position: absolute;
-  left: 1005px;
-  top: 5px;
-  width: 40px;
-  border-color: #33ccff , 2px;   height: 40px;" >
-    @empty
-
-    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;
-  position: absolute;
-  left: 1005px;
-  top: 5px;
-  width: 40px;
-  border-color: #33ccff , 2px;   height: 40px;"  > 
-    @endforelse 
-              </div>
 </div>
 </body>
 </html>
