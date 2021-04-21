@@ -61,7 +61,7 @@
                         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
                         $mysqli->set_charset("utf8");
                     ?>
-                     <form method="post" action="{{route('usuario.guardar')}} " enctype="multipart/form-data">
+                     <form id="frmusuarios" method="post" action="{{route('usuario.guardar')}} " enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre de usuario') }}</label>
@@ -132,9 +132,10 @@
 
 
                         <div class="form-group row" id="permissions_box">
-                            <label for="permiso" class="col-md-4 col-form-label text-md-right">{{ __('Seccione Permiso') }}</label>
-
-                            <div class="col-md-6" id="permissions_ckeckbox_list"> </div>
+                            <label for="permiso" class="col-md-4 col-form-label text-md-right">{{ __('Seccione Permiso: ') }}</label>
+                            <br>
+                            <input type="checkbox" id="marcarTodas">Seleccionar todos los permisos</input> <br>
+                            <div class="col-md-4" id="permissions_ckeckbox_list"></div>
                         </div>
                    
         <div class="form-group">
@@ -154,7 +155,7 @@
     
     
     </form>
-
+<p id="resultado"></p>
     
     
     
@@ -203,7 +204,15 @@ console.log(data);
             });
         });
     </script>
-
+<!-- script para seleccionar todos los checkbox -->
+<script>
+$(document).ready(()=>{
+      $('#marcarTodas').click(function () {
+        $('input[type="checkbox"]').attr('checked', $('#marcarTodas').is(':checked'));
+    });
+});
+</script>
+<!--Fin script para seleccionar todos los checkbox -->
 @endsection
 </body>
 </html>
