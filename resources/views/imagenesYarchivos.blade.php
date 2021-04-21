@@ -15,14 +15,14 @@
     font-size:15px;
     margin: 5rem;
     padding: 2rem;
-    background-color: #c1f0f0;
-  
+    
     position: absolute;
   left: 330px;
   
   width: 900px;
-  top: 60px;
+  top: 150px;
    height:500px;
+
     }
 
     .vPrincipal{
@@ -176,9 +176,9 @@ h1 {
     <div>
     <h3 style="text-align: center;
   padding: 1rem;
-  font-size:30px; font-family: Times New Roman, Times, serif;  background-color: #98e6e6;
-  color: #476b6b; position: absolute;
-  top:60px; width: 900px; left:405px;
+  font-size:30px; font-family: Times New Roman, Times, serif;  background-color: #1f2e2e;
+  color: white; position: absolute;
+  top:100px; width: 900px; left:405px;
   
   "><svg width="30" height="30" viewBox="0 0 16 16" class="bi bi-camera-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
@@ -204,7 +204,7 @@ h1 {
               </div>
 
         </div>
-        <div id="content" class="content" style=" background-color: #e6f9ff; font-size:18px; font-family: Times New Roman, Times, serif;">
+        <div id="content" class="content" style=" background-color: #e6f9ff; font-size:18px; font-family: Times New Roman, Times, serif; border: 5px solid gray;">
           <h3>Imagenes de Radiografias,Tomografias y otros</h3>
           
           <ul class="timeline">
@@ -275,33 +275,7 @@ h1 {
         </div>
     </div>
 
-    <div class="modal-footer" style="position: absolute;
-  left: 320px;
-  width: 1070px;
-  top: 750px; height:50px;
-  background-color: #e6f9ff;">
-                
-                
-              <a style="position: absolute;
-  left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
-
-              @forelse($logotipos  as $tag)
-    <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%;
-  position: absolute;
-  left: 1005px;
-  top: 5px;
-  width: 40px;
-  border-color: #33ccff;height: 40px;" >
-    @empty
-
-    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;
-  position: absolute;
-  left: 1005px;
-  top: 5px;
-  width: 40px;
-  border-color: #33ccff; height: 40px;"  > 
-    @endforelse 
-              </div>
+    
 
     <script>
 

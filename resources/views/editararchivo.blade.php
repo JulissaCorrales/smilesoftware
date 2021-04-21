@@ -8,10 +8,13 @@
     <style>
     #todo{
       margin:4em;
-        width:auto;
-        border:solid 1px #A2D9CE;
+        width:800px;
+      border: 5px solid gray;
         padding:2em;
         font-family: arial; 
+position:absolute;
+left:400px;
+top: 100px;
     }
     h2{
       text-align:center;

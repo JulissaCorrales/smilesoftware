@@ -27,8 +27,8 @@
     border: 2px solid #ccc;
     width: 70%;
     height: 600px;
-    background-color: #c1f0f0;
-  
+    
+  border: 5px solid gray;
     position: absolute;
     top:100px;
     left: 350px;
@@ -81,8 +81,8 @@
     <div class="container" id="padre">
         <div id="divtitulo" class="card-body d-flex justify-content-between     align-items-center">
             <h2 style="
-  font-size:20px; font-family: Times New Roman, Times, serif;  background-color: #d6f5f5;
-  color: #476b6b;">Citas del Paciente: {{$pacientes->nombres}} {{$pacientes->apellidos}}</h2>
+  font-size:20px; font-family: Times New Roman, Times, serif;  background-color: #b3cbcb;
+  color: #293d3d;">Citas del Paciente: {{$pacientes->nombres}} {{$pacientes->apellidos}}</h2>
 
     
 
@@ -244,33 +244,7 @@
         </tbody>
         </table>
 
-        <div class="modal-footer" style="position: absolute;
-  left: -20px;
-  width: 1070px;
-  top: 650px; height:50px;
-  background-color: #e6f9ff;">
-                
-                
-              <a style="position: absolute;
-  left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
-
-              @forelse($logotipos  as $tag)
-    <img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%;
-  position: absolute;
-  left: 1005px;
-  top: 0px;
-  width: 40px;
-  border-color: #33ccff , 2px;" >
-    @empty
-
-    <img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;
-  position: absolute;
-  left: 1005px;
-  top: 0px;
-  width: 40px;
-  border-color: #33ccff , 2px;"  > 
-    @endforelse 
-              </div>
+       
     </div>
 
     

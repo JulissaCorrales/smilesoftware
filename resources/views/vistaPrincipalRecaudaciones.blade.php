@@ -20,15 +20,11 @@ body {
 }
 
 
-<<<<<<< HEAD
-=======
 .container {
   position: absolute;
-  top: 45%;
-  left: 70%;
-  transform: translate(-50%, -50%);
+  top: 20%;
+  left: 40%;
 }
->>>>>>> 572767306e3c8ca066cec82754b9a0a3cc476b81
 
 
 table {
@@ -37,8 +33,8 @@ table {
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   position: absolute;  
-  left: 470px;
-  top: 200px;
+
+  top: 100px;
   background-color:#c2f0f0;
   
 }
