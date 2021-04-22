@@ -12,13 +12,18 @@
     #padre{
         margin-top:6em;
         font-family: georgia;
+position:absolute;
+left: 400px;
+top: 50px;
+width: 900px;
+border: 5px solid gray;
     }
     #botonatras{
         background-color:#CC00FF;
     }
     #formulario{
         padding:1em; 
-        background-image: linear-gradient(to left,  #AFEEEE,#00FF99); 
+        background-image: linear-gradient(to left,  #a3c2c2,#a3c2c2); 
         text-align:center;
     }
 

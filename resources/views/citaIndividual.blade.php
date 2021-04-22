@@ -71,11 +71,14 @@
 </style>
 
 <body>
+<div class="container" style="position:absolute; top:200px; left: 350px; width:600px;">
 @if(session('mensaje'))
         <div class="alert alert-success">
             {{session('mensaje')}}
         </div>
     @endif
+
+</div>
 <!--  -->
 
     <div class="container" id="padre">
@@ -110,6 +113,7 @@
         <!--  -->
     <div id="ta">
         <hr>
+
         <table >
         <thead>
             <tr> 

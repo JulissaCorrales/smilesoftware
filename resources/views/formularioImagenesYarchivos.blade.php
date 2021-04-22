@@ -9,7 +9,7 @@
     #todo{
       margin:4em;
         width:800px;
-        border:solid 1px #A2D9CE;
+      
         padding:2em;
         font-family: arial; 
 position:absolute;
