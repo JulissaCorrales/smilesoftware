@@ -49,12 +49,6 @@ class EvolucionesController extends Controller
     }
     
 
-
-//guardar plan de trtamiento
-
-    
-
-
     public function EvolucionesPaciente($id){
         $this->authorize('view', Evoluciones::class);//si tiene el permiso de ver
 
@@ -68,8 +62,33 @@ class EvolucionesController extends Controller
     }
 
     
-    public function destroy(Evoluciones $evoluciones)
+     public function update(Request $request,$id,$id_evolucion){
+                 $request->validate([
+                    'tratamiento_id'=>'required',
+                    'caja'=>'required',
+        
+                ]);
+               
+                $evoluciones =Evoluciones::findOrFail($id_evolucion);
+                $pacientes = Paciente::findOrFail($id);
+                $evoluciones->paciente_id= $id;
+                $evoluciones->plantratamiento_id= $request->input('tratamiento_id');
+
+                $evoluciones->evolucion= $request->input('caja');
+                $creado= $evoluciones->save();
+                 if ($creado){
+                    
+                  return redirect()->back()->with('mensaje','Evolución ha sido modificado exitosamente');
+
+                } 
+            }
+
+        
+    public function borrarevolucion($id)
     {
-        //
+         $evoluciones = Evoluciones::findOrFail($id);
+        //rediccionar a la pagina index
+        Evoluciones::destroy($id);
+        return redirect()->back()->with('mensaje','Evolucion borrada satisfactoriamente');
     }
 }

@@ -170,9 +170,13 @@ Route::prefix('pantallainicio/calendario')->group( function(){
               Route::put('{id}/editarDocumento/{iddocumento}/editar','DocumentosClinicosController@update')-> where('id' ,'[0-9]+')->name('documento.update');
               Route::delete('{id}/borrarDocumento','DocumentosClinicosController@borrar')->name('documento.borrar')->where('id','[0-9]+');
               Route::get('{id}/evoluciones','EvolucionesController@EvolucionesPaciente')->where('id','[0-9]+')->name('paciente.evoluciones');
-
+              /* rutas para evolucion */
               Route::get('{id}/evolucion/nueva','EvolucionesController@nuevaevolucion')->name('evolucion.nueva') -> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
               Route::post('{id}/evolucion/nueva','EvolucionesController@GuardarEvolucion')->name('evolucion.guardar') -> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
+               //    Ruta para eliminar la evolucion creada
+                Route::delete('{id}/evolucion/borrar','EvolucionesController@borrarevolucion') ->name('evolucion.borrar')->where('id','[0-9]+');
+                /* Ruta para guardar la edicion del gasto */
+                Route::put('{id}/evolucion/editar/{id_evolucion}','EvolucionesController@update')->name('evolucion.update') -> where('id' ,'[0-9]+')->middleware('role:admin,odontologo,secretaria');
              });
 
               // *********RUTA PARA EL BUSCADOR********//
