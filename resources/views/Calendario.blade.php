@@ -215,7 +215,7 @@ margin-top:6em;
        
 <!--  -->
 
-
+<?php $pacientes=App\Paciente::all();?>
 
 <script type="text/javascript" id="ve">
 
@@ -295,7 +295,10 @@ eventColor: '#F7DC6F',
 eventClick: function(event)
 {
 self.$dispatch('event::clicked', event);
-  window.open("{{route('cita.diaria')}}");
+@forelse($pacientes as $pacientes)
+  window.open("{{route('citaIndividual',['id'=>$pacientes->id])}}");
+@empty
+@endforelse
 console.log(event)
 }
 }
