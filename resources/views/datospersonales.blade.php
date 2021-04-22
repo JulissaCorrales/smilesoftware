@@ -40,7 +40,7 @@ height: 80px;
   position: absolute;
   left: 0px;
   top: 0px;
-  background-color:#003333;
+  background-color:#476b6b;
   color:white;
   float:left;
   margin: 0px;
@@ -426,7 +426,7 @@ left :40px;
     <div class="list-group" style="width: 20rem; position:absolute; left:0px; top:200px;">
 
     @canany(['isAdmin','isOdontologo','isSecretaria'])
-  <a  href="/pantallainicio/vista/paciente/{{$pacientes->id}}/editar"class="list-group-item list-group-item-action active" style="background-color:#75a3a3; font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <a  href="/pantallainicio/vista/paciente/{{$pacientes->id}}/editar"class="list-group-item list-group-item-action active" style="background-color:#e0ebeb; font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
             </svg>   Datos Personales</a>
 
@@ -461,7 +461,7 @@ left :40px;
       
             
               @canany(['isAdmin','isOdontologo'])
-              <a  href=""class="list-group-item list-group-item-action active"  style="background-color: #75a3a3; font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;
+              <a  href=""class="list-group-item list-group-item-action active"  style="background-color: #e0ebeb; font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;
   
   "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
   <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
@@ -504,7 +504,7 @@ left :40px;
                 @endcan
 
 
-                <a href="/pantallainicio/vista" class="list-group-item list-group-item-action active" style="background-color:#75a3a3;font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;
+                <a href="/pantallainicio/vista" class="list-group-item list-group-item-action active" style="background-color:#e0ebeb;font-size:20px; font-family: Times New Roman, Times, serif;color:#007599;
   
   "> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>

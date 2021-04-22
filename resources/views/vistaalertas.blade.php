@@ -32,7 +32,8 @@
 }
 
 th{
-    background-image: linear-gradient(to left,  #f7e6ff,#e7b3ff);
+    background-color:#32cdcd  ;
+        font-size:18px; font-family: Times New Roman, Times, serif; color:#293d3d;
 }
 #tabla{
 align:center;

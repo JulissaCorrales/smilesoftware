@@ -14,6 +14,9 @@
         padding:2em;
         font-family: arial; 
         background-color:white ;
+position:absolute;
+left: 350px;
+top:50px;
         
     }
     #titulo{
