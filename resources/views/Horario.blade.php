@@ -17,8 +17,13 @@
   font-family: serif;
   position: absolute;
             align: center;
-            top: -400px;
+            top: -350px;
             font-size:25px;
+left:-350px;
+height: 450px;
+color: #1f2e2e;
+ background-image: linear-gradient(to bottom,  #ffc34d ,#c2d6d6);
+width:900px;
 
         
 }
@@ -455,14 +460,14 @@ position: absolute;
 
 #butongua{
     position: absolute;
-            left: 500px;
+            left: 450px;
             top:10px;
 }
 
 
 #buton2{
     position: absolute;
-            left: 420px;
+            left: 380px;
             top:10px;
 }
 
@@ -483,10 +488,10 @@ position: absolute;
 
 #datos{
 position: absolute;
-    left: 680px;
-   top: 560px;
+    left: 450px;
+   top: 700px;
     font-size:16px;
-    width: 380px;
+    width: 800px;
     border-collapse: collapse;
     background-color: #f2f2f2;
     
@@ -502,6 +507,21 @@ position: absolute;
   position: relative;
   top: 5px;
   left:150px;
+  border: 4px solid  #00ccff;
+
+  width: 100px;
+
+}
+
+
+#image1{
+    margin-left: auto;
+  margin-right: auto;
+
+  border-radius: 70%;
+  position: relative;
+  top: -5px;
+  left:180px;
   border: 4px solid  #00ccff;
 
   width: 100px;
@@ -562,12 +582,12 @@ position: relative;
 
 <div class="container">
 @if(session('mensaje'))
-        <div class="alert alert-success">
+        <div class="alert alert-success" style="position:absolute; left:400px; top:100px;">
             {{session('mensaje')}}
         </div>
     @endif
     @if ($errors->any())
-        <div class="alert alert-danger">
+        <div class="alert alert-danger" >
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -580,11 +600,7 @@ position: relative;
 <table class="container" id="datos">
 
   <tbody>
-    <tr>
-      
-      <td><img src='/Imagenes/{{$odontologos->imagen}}' class="card-img-top" id="image" ></td>
-      
-    </tr>
+  
     <tr>
       <th>Odontologo:</th>
       <td>{{$odontologos->nombres}} {{$odontologos->apellidos}}</td>
@@ -614,8 +630,8 @@ position: relative;
   
   <div class="modal fade" id="modalll3-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
+          <div class="modal-content" style="  position: absolute; left: 50px; top:100px; ">
+              <div class="modal-header" style="background-color:#ffaa00; height:100px; color:#664400;">
                   <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
 </svg> Eliminar Horario de Atencion</h5>
@@ -655,6 +671,11 @@ position: relative;
 <div  class="container" id="ho2">
 
    <h4 id="texto4">Horarios Odontologo</h4>
+ 
+ 
+                
+        
+
   </div>
 
 
