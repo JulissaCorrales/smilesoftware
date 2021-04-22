@@ -683,6 +683,33 @@ class RolesTableSeeder extends Seeder
     $permisos_odontologo[]= $permiso->id;
     $roleodontologo->permisos()->sync($permisos_odontologo);
 
+    $permiso= Permiso::create([
+        'Permiso'=> 'Nueva Evolucion ',
+        'Slug'=> 'crear.evolucion',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+    'Permiso'=> 'Editar Evolucion ',
+    'Slug'=> 'editar.evolucion',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
+    $permiso= Permiso::create([
+    'Permiso'=> 'Eliminar Evolucion ',
+    'Slug'=> 'eliminar.evolucion',
+
+    ]);
+
+    $permisos_odontologo[]= $permiso->id;
+    $roleodontologo->permisos()->sync($permisos_odontologo);
+
 
     $permiso= Permiso::create([
         'Permiso'=> 'Crear Alerta ',
@@ -705,16 +732,6 @@ class RolesTableSeeder extends Seeder
     $permiso= Permiso::create([
         'Permiso'=> 'Eliminar Alerta ',
         'Slug'=> 'eliminar.alerta',
-
-    ]);
-
-    $permisos_odontologo[]= $permiso->id;
-    $roleodontologo->permisos()->sync($permisos_odontologo);
-
-    
-    $permiso= Permiso::create([
-        'Permiso'=> 'Nueva Evolucion ',
-        'Slug'=> 'crear.evolucion',
 
     ]);
 

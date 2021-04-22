@@ -70,6 +70,7 @@ class EvolucionesController extends Controller
                 ]);
                
                 $evoluciones =Evoluciones::findOrFail($id_evolucion);
+                 $this->authorize('update',$evoluciones);//si tiene el permiso de editar
                 $pacientes = Paciente::findOrFail($id);
                 $evoluciones->paciente_id= $id;
                 $evoluciones->plantratamiento_id= $request->input('tratamiento_id');
@@ -87,6 +88,7 @@ class EvolucionesController extends Controller
     public function borrarevolucion($id)
     {
          $evoluciones = Evoluciones::findOrFail($id);
+          $this->authorize('delete',$evoluciones);//si tiene el permiso de eliminar
         //rediccionar a la pagina index
         Evoluciones::destroy($id);
         return redirect()->back()->with('mensaje','Evolucion borrada satisfactoriamente');

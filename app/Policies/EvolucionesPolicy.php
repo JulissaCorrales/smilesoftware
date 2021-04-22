@@ -75,7 +75,10 @@ class EvolucionesPolicy
      */
     public function update(User $user, Evoluciones $evoluciones)
     {
-        //
+         if($user->permisos->contains('slug', 'editar.evolucion')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -87,7 +90,10 @@ class EvolucionesPolicy
      */
     public function delete(User $user, Evoluciones $evoluciones)
     {
-        //
+           if($user->permisos->contains('slug', 'eliminar.evolucion')) {
+            return true;
+        }
+        return false;
     }
 
     /**
