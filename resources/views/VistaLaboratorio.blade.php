@@ -17,9 +17,7 @@ td{
  background-color: #ccffff
 } 
 
-btn{
-text-align: center;
-}
+
 
 #lista{
 }
@@ -106,67 +104,24 @@ text-align: center;
 
 
 
+#dd{
+ position: absolute;
+   top:110px;
+   left:90px;
 
-
-
-
-
-.btn:hover {
-  text-decoration: none;
 }
 
-/*btn_background*/
-.effect04 {
-  --uismLinkDisplay: var(--smLinkDisplay, inline-flex);
-  display: var(--uismLinkDisplay);
-  color: #000;
-  outline: solid 2px #000;
-  position: relative;
-  transition-duration: 0.4s;
-  overflow: hidden;
+#titulo{
+font-weight: bold; 
+  font-style: italic;
+border-style: outset;
+background-color: #57ECC7
 }
 
-.effect04::before,
-.effect04 span {
-  margin: 0 auto;
-  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
-  transition-duration: 0.4s;
+#botonN{ margin: 1em;
 }
 
-/* 文字1を上に */
-.effect04:hover {
-  background-color: #000;
-}
-
-/* HOVERしたら文字1を上に */
-.effect04:hover span {
-  -webkit-transform: translateY(-400%) scale(-0.1, 20);
-  transform: translateY(-400%) scale(-0.1, 20);
-}
-
-/*文字2*/
-.effect04::before {
-  content: attr(data-sm-link-text);
-  color: #fff;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  -webkit-transform: translateY(500%) scale(-0.1, 20);
-  transform: translateY(500%) scale(-0.1, 20);
-}
-
-/* HOVERしたら文字2を上に */
-.effect04:hover::before {
-  letter-spacing: 0.05em;
-  -webkit-transform: translateY(0) scale(1, 1);
-  transform: translateY(0) scale(1, 1);
-}
-
-
-
-
-
+#internoC{background-color:#57EC7F }
 </style>
 </head>
 @section('contenido')
@@ -177,15 +132,19 @@ text-align: center;
             {{session('mensaje')}}
         </div>
     @endif
-
+    
     <div  class="container" id="dd">
+<h3 style='text-align:center;' id="titulo" >Laboratorios</h3>
  <div class="list-group">
  
 
-    <div class="buttons">
+    <div class="buttons" id="botonN">
+
         <div class="container">
         @can('create',App\Laboratorio::class)
-            <a href="/laboratorioNuevo" class="btn effect04" data-sm-link-text="Agregar" ><span>Nuevo Laboratorio</span></a>
+            <a id="internoC" href="/laboratorioNuevo" class="btn effect04" data-sm-link-text="Agregar" ><span id="interno"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+</svg>Nuevo Laboratorio</span></a>
         @endcan
         </div>
       </div>
@@ -216,12 +175,70 @@ text-align: center;
 
       <td> 
         @can('update',$lab)
-        <a class="btn btn-warning " href="{{route('laboratorio.editar',['id'=>$lab->id])}}">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-        </svg>
-        Editar</a>
+        
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong-{{$lab->id}}" >
+            Editar laboratorio<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+            </svg>
+          </button>
+
+<!-- modal editar -->
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalLong-{{$lab->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+          <div class="modal-header" style="background-color:#26A69A;color:white">
+          <h5 class="modal-title"  id="exampleModalLongTitle">
+           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+            </svg>
+
+          Editar laboratorio
+               
+          </h5>
+          <button type="button"  style="color:white"class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+          <div class="modal-body">
+
+
+          <form method="post" action="{{route('laboratorio.actualizar',['id'=> $lab-> id])}} ">
+                      
+                      @csrf
+                        @method('put')
+                      
+                      <div class="form-group">
+                          <label for="nombre">Nombre del Laboratorio:</label>
+                          <input type="text" class="form-control-file" name="nombreLaboratorio" id="nombreLaboratorio" value="{{$lab->nombreLaboratorio}}">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="nombre">detalle:</label>
+                        <input type="text" class="form-control-file" name="detalle" id="detalle" value="{{$lab->detalle}}" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nombre">por Pagar:</label>
+                        <input type="text" class="form-control-file" name="porPagar" id="porPagar" value="{{$lab->porPagar}}">
+                    </div>
+                              
+                  <div class="modal-footer">
+                    <button type="button" onclick="location.href='/pantallainicio/laboratorios'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+                    <input type="reset" class="btn btn-danger">
+                    <button type="submit" class="btn btn-primary" >Guardar Laboratorio</button>
+                 </div>
+              </form>
+          
+
+
+          </div>
+          </div>
+          </div>
+          </div>
+
+
         @else
         No autorizado
         @endcan
