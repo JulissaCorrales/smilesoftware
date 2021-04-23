@@ -125,7 +125,7 @@ background-color: #57ECC7
 </style>
 </head>
 @section('contenido')
-<body>
+<body style="background-image: url('../assets/img/fondo lab.jpg');">
  
 @if(session('mensaje'))
         <div class="alert alert-success">
