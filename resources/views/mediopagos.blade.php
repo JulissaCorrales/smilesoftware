@@ -7,20 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medios de pagos</title>
     <style>
-#table{width: 100%;
+#table{width: 90%;
    text-align:center;
 }
 td{
- border: 1px solid #00cccc;
+ border: 1px solid #343535;
  text-align: left;
- padding: 20px;
+ padding: 5px;
  text-align: left;
- background-color: #ccffff
+ background-color: #cfcfcf
 } 
 
-btn{
-text-align: center;
-}
 
 #lista{
 }
@@ -39,19 +36,20 @@ text-align: center;
 }
 
 #na{
- width: 600px;
+ width: 400px;
  height: 60px;
    border-radius: 12px;
    background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff); 
    position: absolute;
-   top:250px;
+   top:150px;
    left:150px;  
 }
 
 #dd{
  position: absolute;
-   top:400px;
-   left:150px;
+   top:70px;
+   left:90px;
+
 }
 
 #b1{
@@ -78,8 +76,8 @@ text-align: center;
  font-family: serif;
  position: absolute;
            font-size:30px;
-           top: 2px;
-           left:30px;
+           top: 4px;
+           left:20px;
 }
 #bo{
  background-color: #ccffff;
@@ -92,16 +90,23 @@ text-align: center;
 }
 #divhijo1{
         position: relative;
-    } 
+    }
 
+#titulo{
+font-weight: bold; 
+  font-style: italic;
+border-style: outset;
+background-color: #57ECC7
+}
 
+#botonN{ margin: 1em;}
 
 
 
 </style>
 </head>
 @section('contenido')
-<body>
+<body style="background-image: url('../assets/img/fondoPagos.jpg');">
  
 @if(session('mensaje'))
         <div class="alert alert-success">
@@ -110,17 +115,26 @@ text-align: center;
     @endif
 
     <div  class="container" id="dd">
- <div class="list-group">
- 
+<h3 style='text-align:center;' id="titulo" >Medios de pago</h3>
+
 @can('create',App\Mediopago::class)
-<button type="button" class="btn btn-success" onclick="window.location.href='/mediopagonuevo'">
-  Ingresar Medio de pago
+<div>
+<button id="botonN" type="button" class="btn btn-success" onclick="window.location.href='/mediopagonuevo'">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet2" viewBox="0 0 16 16">
+  <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
+</svg>Ingresar Medio de pago
 </button>
+</div>
 @endcan
 
+ <div class="list-group">
 
-<table id="datatable" class="table">
- <thead class="table table-striped table-bordered">
+
+ 
+
+
+<table id="datatable" class="table table-striped table-secondary">
+ <thead class="thead-dark">
   <tr id="can">
      <th>Medio de Pago</th>
      <th>Editar</th>
@@ -128,7 +142,7 @@ text-align: center;
   </tr>
   </thead>
   <tbody> 
-       <tr>
+       <tr style="background-color: gray">
        @forelse($mediopagos as $mediopago)
            <td>{{$mediopago->nombre}}</td>
            
