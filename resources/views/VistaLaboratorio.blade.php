@@ -10,11 +10,11 @@
    text-align:center;
 }
 td{
- border: 1px solid #00cccc;
+ border: 1px solid #4c4d4d;
  text-align: left;
  padding: 20px;
  text-align: left;
- background-color: #ccffff
+ background-color: #bebebe
 } 
 
 
@@ -152,8 +152,8 @@ background-color: #57ECC7
 
 
 
-<table id="datatable" class="table">
- <thead class="table table-striped table-bordered">
+<table id="datatable" class="table table-striped table-bordered">
+ <thead class="thead-dark">
   <tr id="can">
      <th>laboratorio</th>
      <th>detalle</th>
