@@ -18,9 +18,7 @@ class RecaudacionesController extends Controller
     public function VistaRecaudacionesD($id){
         $this->authorize('view', Recaudacion::class);
         $pacientes = Paciente::findOrFail($id);
- 
-    
-
+        $totalpagar= $pacientes->recaudaciones->sum('totalpagar'); 
         return view('vistaPrincipalRecaudaciones',compact('pacientes','totalpagar'));
     }
 }

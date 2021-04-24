@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 @section('titulo','Cita Indivual del Paciente')
 <head>
-
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
      
     
     <style>
@@ -26,7 +26,7 @@
     
     border: 2px solid #ccc;
     width: 70%;
-    height: 600px;
+    height: auto;
     
   border: 5px solid gray;
     position: absolute;
@@ -35,35 +35,8 @@
     
 
     }
-    table {
-        width: 100%;
-    }
-    table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    }
-    th, td {
-    padding: 15px;
-    text-align: center;
-    }
-    th{
-        background-color:#32cdcd  ;
-        font-size:18px; font-family: Times New Roman, Times, serif; color:#293d3d;
-    }
-    td{
-        background-color:#eafafa;
-        font-size:18px; font-family: Times New Roman, Times, serif; color:#293d3d;
-    }
-    #t01 tr:nth-child(even) {
-    background-color: #eee;
-    }
-    #t01 tr:nth-child(odd) {
-    background-color: #fff;
-    }
-    #t01 th {
-    background-color:  #85C1E9;
-    color: black;
-    }
+
+
 
 
 
@@ -77,15 +50,18 @@
             {{session('mensaje')}}
         </div>
     @endif
+ @foreach($errors->all() as $error)
+
+ <li>{{$error}}</li>
+
+ @endforeach
 
 </div>
 <!--  -->
 
     <div class="container" id="padre">
         <div id="divtitulo" class="card-body d-flex justify-content-between     align-items-center">
-            <h2 style="
-  font-size:20px; font-family: Times New Roman, Times, serif;  background-color: #b3cbcb;
-  color: #293d3d;">Citas del Paciente: {{$pacientes->nombres}} {{$pacientes->apellidos}}</h2>
+            <h2 style="font-family: Times New Roman, Times, serif;color: #293d3d;">Citas del Paciente: {{$pacientes->nombres}} {{$pacientes->apellidos}}</h2>
 
     
 
@@ -114,8 +90,8 @@
     <div id="ta">
         <hr>
 
-        <table >
-        <thead>
+        <table id="datatable" class="table table-striped table-info">
+        <thead class="thead-dark">
             <tr> 
             <th scope="col">N. de cita</th>
             <th scope="col">Especialidad</th>
@@ -123,85 +99,29 @@
             <th scope="col">Duración</th>
             <th scope="col">Fecha/Hora</th>
             <th scope="col">Comentarios</th>
-            <th scope="col" colspan="2">Acción</th>
+            <th scope="col">Acción</th>
             </tr>
         </thead>
         <tbody>
-        <tr>
-        <td>
-        @forelse ($pacientes->citas as $tag) 
-         <p>{{ $tag->id}}</p>
-         <hr>
-        @empty
-         vacio
-        @endforelse
-        </td>
-        <td>
-        @forelse ($pacientes->citas as $tag) 
-         <p>{{ $tag->odontologo->especialidad_id}} 
-         
-           </p>
-         <hr>
-        @empty
-         vacio
-        @endforelse
-        </td>
-        <td>
-        @forelse ($pacientes->citas as $tag) 
-         <p>{{ $tag->odontologo->nombres}} {{ $tag->odontologo->apellidos}}</p>
-         <hr>
-        @empty
-         vacio
-        @endforelse
-        </td>
-        <td>
-        @forelse ($pacientes->citas as $tag) 
-         <p>{{ $tag->duracionCita}} minutos</p>
-         <hr>
-        @empty
-         vacio
-        @endforelse
-        </td>
-        <td>
-        @forelse ($pacientes->citas as $tag) 
-         <p>{{ $tag->stard}}</p>
-         <hr>
-        @empty
-         vacio
-        @endforelse
-        </td>
-        <td>
-        @forelse ($pacientes->citas as $tag) 
-         <p>{{ $tag->comentarios}}</p>
-         <hr>
-        @empty
-         vacio
-        @endforelse
-        </td>
+  @forelse ($pacientes->citas as $tag) 
+    <tr>
+        <td>{{ $tag->id}}</td>
+        <td>{{ $tag->odontologo->especialidad_id}}</td>
+        <td>{{ $tag->odontologo->nombres}} {{ $tag->odontologo->apellidos}}</td>
+        <td>{{ $tag->duracionCita}} minutos</td>
+        <td>{{ $tag->stard}}</td>
+        <td>{{ $tag->comentarios}}</td>
         <!-- editar -->
         <td>
-     
-        @forelse ($pacientes->citas as $tag) 
         @can('updateCitaIndividual',$tag)
-        <a style="background-color:green;" class="btn btn-secondary" href="{{route('citaindividual.editar',['id'=>$pacientes->id,'citaid'=>$tag->id])}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+        <a  style="background-color:green;margin:0.4em;" class="btn btn-secondary" href="{{route('citaindividual.editar',['id'=>$pacientes->id,'citaid'=>$tag->id])}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
         </svg></a>@else -- @endcan
-         <hr>
-        @empty
-         vacio
-        @endforelse
-        </td>
         
         <!-- Para boton borrar -->
-        </td>
-        @canany(['isAdmin','isSecretaria'])
-        <td>
-   
-                @forelse ($pacientes->citas as $tag) 
-            
                 @canany(['isAdmin','isSecretaria'])
-                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$tag->id}}">
+                 <button style="margin:0.4em" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$tag->id}}">
                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                 <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -233,27 +153,54 @@
                     </div>
                 </div>
                 @endcanany
-                
-                 <hr>
-                
-                @empty
-                No tiene 
-                @endforelse
-                @endcanany
-                </td>
-              
-     
-        </tr>
-        
-        </tbody>
-        </table>
+    </td>
+    </tr>
+    @empty
+    No tiene ninguna cita ¡¡Asignele una!!
+    @endforelse
 
+    </tbody>
+</table>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<!-- script de jquery para que funcione el buscador de nombre-->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+<!-- script de datatable para que funcione el buscado de nombre-->
        
     </div>
 
     
 </body>
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#datatable').DataTable( {
+    language: {
+        search: "Buscador de citas:",
+      "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "",
+        "infoEmpty": "Mostrando 0 to 0 of 0 citas",
+        "infoFiltered": "(Filtrado de _MAX_ total tratamientos)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ citas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+          "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
+
+    }
+});
+} );
+</script>
 @include('darcita')<!-- esta seccion hace que funcione modal dar cita -->
+
+
+
 </html>
 @endsection
 

@@ -12,42 +12,34 @@
     <style>
     #padre{
         width: 800px; position: absolute;
-  left: 500px; 
-  top:100px;
-  height:800px;
-  /*background-color: #c1f0f0; */
- border: 5px solid gray;
-  
-      
-
+        left: 500px; 
+        top:100px;
+          height: auto;;
+        /*background-color: #c1f0f0; */
+        border: 5px solid gray;
     }
     #areadetexto{
         color:red;
     }
     table, th, td {
-  border: 1px solid #e7b3ff;
-  border-collapse: collapse;
-
-
+    border: 1px solid #e7b3ff;
+    border-collapse: collapse;
 }
 
-th{
-    background-color:#32cdcd  ;
+    th{
+        background-color:#32cdcd  ;
         font-size:18px; font-family: Times New Roman, Times, serif; color:#293d3d;
-}
-#tabla{
-align:center;
-position: absolute;
-  left: 550px; 
-  top:500px;
-
-width: 700px;
-
-
-
-}
+    }
+    #divtabla{
+    height: auto;
+    align:center;
+    position: absolute;
+    left: 550px; 
+    top:400px;
+    width: 700px;
+    }
     
-    </style>
+</style>
 </head>
 <body>
     <div id="padre" class="container">
@@ -98,9 +90,9 @@ width: 700px;
     </div>
     <div id="padre2" class="container">
     <h4>Alertas Actuales del Paciente</h4>
-    
-    <table class="table" id="tabla">
-    <thead><tr><th>Alerta</th><th colspan="2">Acción</th></tr></thead>
+    <div id="divtabla">
+    <table class="table" id="datatable">
+    <thead><tr><th>Alerta</th><th>Acción</th></tr></thead>
     <tbody>
     @forelse($pacientes->alertas as $ver)
     <tr>
@@ -147,10 +139,10 @@ width: 700px;
         </div>
         </div>
         <!-- fin de modal de elinar alertas del paciente-->
-    </td>
+  
     @endcan
     @can('update',$ver)
-    <td>
+  
     <a class="btn btn-warning " href="{{route('alertas.editar',['id2'=>$ver->id,'id'=>$pacientes->id])}}">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
@@ -165,6 +157,40 @@ width: 700px;
     @endforelse
     </tbody>
     </table>
+</div>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<!-- script de jquery para que funcione el buscador de nombre-->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+<!-- script de datatable para que funcione el buscado de nombre-->
+
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#datatable').DataTable( {
+    language: {
+        search: "Buscar Alertas:",
+      "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Alertas",
+        "infoFiltered": "(Filtrado de _MAX_ total Alertas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Alertas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+          "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
+
+    }
+});
+} );
+</script>  
     </div>
    
 <!-- ************************************************************************************************************************************************************************************************ -->

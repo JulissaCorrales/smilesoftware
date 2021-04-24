@@ -247,7 +247,7 @@
 
 </div>
 </div>
-
+  @forelse ($pacientes->documentos as $tag)
 <div>
 <div class="modal fade" id="modal-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -263,7 +263,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <form method="post" action="{{route('plandetratamiento.borrar',['id'=>$tag->id])}}">
+                                <form method="post" action="{{route('documento.borrar',['id'=>$tag->id])}}">
                                 @csrf
                                 @method('delete')
                                 <input type="submit" value="Eliminar" class="btn btn-danger">
@@ -272,7 +272,11 @@
                         </div>
                     </div>
                 </div>
-
+                  
+  @empty
+  <p> No hay archivos de historial disponible</p>
+      
+  @endforelse
     <script>
 
 function isElementInViewport(el) {

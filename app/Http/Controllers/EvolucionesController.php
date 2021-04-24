@@ -17,12 +17,12 @@ class EvolucionesController extends Controller
      * @return \Illuminate\Http\Response
      */
    
-    public function nuevaevolucion($id){
-        $this->authorize('create', Evoluciones::class);//si tiene el permiso de crear
-        $pacientes = Paciente::findOrFail($id);
-          return view('nuevaEvolucion')->with('pacientes',$pacientes);
+    // public function nuevaevolucion($id){
+    //     $this->authorize('create', Evoluciones::class);//si tiene el permiso de crear
+    //     $pacientes = Paciente::findOrFail($id);
+    //       return view('nuevaEvolucion')->with('pacientes',$pacientes);
       
-    }
+    // }
     
 
     public function GuardarEvolucion(Request $request,$id){
