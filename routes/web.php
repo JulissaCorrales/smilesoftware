@@ -379,7 +379,7 @@ Route::prefix('pantallainicio/{id}')->group( function(){
   //ruta pra guardar alertas
   Route::post('alertas','AlertaController@Guardar')->name('alertas.guardar')->where('id','[0-9]+')->middleware('role:admin,odontologo,secretaria');
   /* ruta de borrar alertas */
-  Route::delete('/alertas/{id2}/borrar','AlertaController@destroy') ->name('alertas.borrar')->where('id','[0-9]+')->middleware('role:admin,odontologo,secretaria');
+  Route::delete('/alertas/{id2}/borrar','AlertaController@destroy') ->name('alertas.borrar')->where('id2','[0-9]+')->middleware('role:admin,odontologo,secretaria');
   /* Ruta para editar alertas */
   Route::get('{id2}/editar','AlertaController@editar') ->name('alertas.editar') -> where('id' ,'[0-9]+')->middleware('role:admin,odontologo,secretaria');
   /* Ruta para guardar la edicion de alertas */
@@ -393,7 +393,7 @@ Route::prefix('pantallainicio')->group( function(){
     Route::get('alertaspredeterminadas','AlertaController@crearalertapredeterminada') ->name('alertaspredeterminada.crear')->where('id','[0-9]+')->middleware('role:admin');
     //ruta pra guardar alertas predeterminadas
     Route::post('alertaspredeterminadas','AlertaController@Guardaralertapredeterminada')->name('alertaspredeterminada.guardar')->where('id','[0-9]+')->middleware('role:admin');;
-    Route::delete('/alertaspredeterminadas/{id}/borrar','AlertaController@destroypredeterminada') ->name('alertaspredeterminadas.borrar')->where('id','[0-9]+')->middleware('role:admin');;
+    Route::delete('/alertaspredeterminadas/{idpredeterminada}/borrar','AlertaController@destroypredeterminada') ->name('alertaspredeterminadas.borrar')->where('idpredeterminada','[0-9]+')->middleware('role:admin');;
  
 });
 

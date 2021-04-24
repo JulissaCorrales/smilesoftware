@@ -11,11 +11,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script><!-- para que funcione boton desplegable -->
     <style>
     #padre{
-        width: 800px; position: absolute;
-        left: 500px; 
-        top:100px;
-          height: auto;;
-        /*background-color: #c1f0f0; */
+        width: auto;
+        margin-left: 400px; 
+        margin-top: 6em; 
+        margin-right: 4em; 
+        height: auto;
         border: 5px solid gray;
     }
     #areadetexto{
@@ -31,14 +31,21 @@
         font-size:18px; font-family: Times New Roman, Times, serif; color:#293d3d;
     }
     #divtabla{
-    height: auto;
-    align:center;
-    position: absolute;
-    left: 550px; 
-    top:400px;
-    width: 700px;
+        text-align:center;
+          margin-left: 4em; 
     }
+        #padre2{
+    height: auto;
+    position: relative;
+    width: 800px;
+    margin-left: 400px; 
+    margin-top: 6em; 
+    margin-right: 4em; 
     
+    }
+    h4{text-align:center;
+    margin:2em;
+    }
 </style>
 </head>
 <body>
@@ -196,9 +203,9 @@ $(document).ready( function () {
 <!-- ************************************************************************************************************************************************************************************************ -->
 <!-- Seccion de agregar alertas predefinidas -->
 <div class="modal fade" id="configurar">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header" style="background-color:#293d3d; color:white;  height:80px; ">
+            <div class="modal-header" style="background-color:#293d3d; color:white;  height:100px; ">
               <h4 class="modal-title" id="myModalLabel">Agregar Alerta Predefinida</h4>      
             </div>
 
@@ -215,12 +222,12 @@ $(document).ready( function () {
             <div>
                 <?php 
                 $alertapredefinida= App\Alertapredeterminada::All();?>
-                @forelse($alertapredefinida as $alerta)
-                <label> {{$alerta->alertapredeterminada}}</label>
+                @forelse($alertapredefinida as $alertapredefinida2)
+                <label> {{$alertapredefinida2->alertapredeterminada}}</label>
                 <!-- seccion de eliminar alertas predefinidas -->
                 @can('isAdmin')
                 <td>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$alerta->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalalertapredefinida2-{{$alertapredefinida2->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
                     </svg>
                     Eliminar
@@ -229,7 +236,7 @@ $(document).ready( function () {
                 </td>
                 @endcan
                     <!-- Modal de eliminar -->
-                    <div class="modal fade" id="modal-{{$alerta->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="modalalertapredefinida2-{{$alertapredefinida2->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header" style="background-color:#a3c2c2; color:white;  height:80px; ">
@@ -245,7 +252,7 @@ $(document).ready( function () {
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <form method="post" action="{{route('alertaspredeterminadas.borrar',['id'=>$alerta->id])}}">
+                    <form method="post" action="{{route('alertaspredeterminadas.borrar',['idpredeterminada'=>$alertapredefinida2->id])}}">
 
                     @csrf
                     @method('delete')

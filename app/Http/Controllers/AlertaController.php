@@ -13,7 +13,8 @@ class AlertaController extends Controller
     public function ver($id){
         $this->authorize('create', Alerta::class);
         $pacientes = Paciente::findOrFail($id);
-        return view('vistaalertas',compact('pacientes'));
+        $alertapredefinida=Alertapredeterminada::all();
+        return view('vistaalertas',compact('pacientes,alertapredefinida'));
     }
     /* Crear alerta */
     public function crear($id){
@@ -27,7 +28,7 @@ class AlertaController extends Controller
      public function Guardar(Request $request,$id){
         $this->authorize('create', Alerta::class);
         $request->validate([
-            'alerta'=>'required|unique:alertas,alertas',
+            'alerta'=>'required',
         
         ]);
         $paciente=Paciente::findOrFail($id);
@@ -63,7 +64,7 @@ class AlertaController extends Controller
     }
     public function update(Request $request,$id,$id2){
         $request->validate([
-            'alerta'=>'required|unique:alertas,alertas',
+            'alerta'=>'required',
         ]);
 
         $alerta=Alerta::findOrFail($id2);
@@ -86,14 +87,14 @@ class AlertaController extends Controller
 
     /* ************************************************************************************ */
 
-     /* Crear alerta predeterminada */
-     public function crearalertapredeterminada($id){
-        if(Gate::denies('isAdmin')){
-            abort(403);
-         }
-        $pacientes = Paciente::findOrFail($id);
-        return view('vistaalertas',compact('pacientes'));
-    }  
+    //  /* Crear alerta predeterminada */
+    //  public function crearalertapredeterminada($id){
+    //     if(Gate::denies('isAdmin')){
+    //         abort(403);
+    //      }
+    //     $pacientes = Paciente::findOrFail($id);
+    //     return view('vistaalertas',compact('pacientes'));
+    // }  
 
      //Guardar Alerta predeterminada
      public function Guardaralertapredeterminada(Request $request){
@@ -114,11 +115,11 @@ class AlertaController extends Controller
           
         } 
     }
-    public function destroypredeterminada($id){
+    public function destroypredeterminada($idpredeterminada){
         if(Gate::denies('isAdmin')){
             abort(403);
          }
-        Alertapredeterminada::destroy($id);
+        Alertapredeterminada::destroy($idpredeterminada);
         return redirect()->back()->with('mensaje','¡¡Alerta predeterminada borrada satisfactoriamente!!');
 
     }
