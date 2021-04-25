@@ -305,17 +305,17 @@ margin-left: 4px;
 	</button>
 
 	
-			<img class="logo" src="assets/img/muela.png" class="mr-3" id="logo1" style="position:absolute;  left: 160px; top: 460px; width: 350px;
-  height: 220px; "> 
+			<img class="logo" src="assets/img/muela.png" class="mr-3" id="logo1" style="position:absolute;  left: 260px; top: 450px; width: 250px;
+  height: 170px; "> 
 		</div>
 					</div>
 
- <div>
+ <!-- <div>
 
 				
 			<img class="logo" src="assets/img/muela.png" class="mr-3" id="logo1" style="position:absolute;  left: 160px; top: 460px; width: 350px;
   height: 220px; ">  
-		</div>
+		</div> -->
 				</form>
 			</div>
 		</div>
