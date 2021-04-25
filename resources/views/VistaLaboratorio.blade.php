@@ -49,6 +49,7 @@ td{
  position: absolute;
    top:400px;
    left:150px;
+  width: 950px;
 }
 
 #b1{
@@ -126,12 +127,20 @@ background-color: #57ECC7
 </head>
 @section('contenido')
 <body style="background-image: url('../assets/img/fondo lab.jpg');">
- 
+@if ($errors->any())
+<div class="alert alert-danger">
+<ul>
+@foreach ($errors->all() as $error)
+<li>{{ $error }}</li>
+@endforeach
+</ul>
+</div>
+@endif
 @if(session('mensaje'))
-        <div class="alert alert-success">
-            {{session('mensaje')}}
-        </div>
-    @endif
+<div class="alert alert-success">
+{{session('mensaje')}}
+</div>
+@endif
     
     <div  class="container" id="dd">
 <h3 style='text-align:center;' id="titulo" >Laboratorios</h3>
@@ -173,17 +182,17 @@ background-color: #57ECC7
                       
                       <div class="form-group">
                           <label for="nombre">Nombre del Laboratorio:</label>
-                          <input type="text" class="form-control-file" name="nombreLaboratorio" id="nombreLaboratorio" placeholder="ingresar nombre del Laboratorio">
+                          <input required type="text" class="form-control-file" name="nombreLaboratorio" id="nombreLaboratorio" placeholder="ingresar nombre del Laboratorio">
                       </div>
 
                       <div class="form-group">
                         <label for="nombre">detalle:</label>
-                        <input type="text" class="form-control-file" name="detalle" id="detalle" placeholder="detalle del laboratorio">
+                        <input required type="text" class="form-control-file" name="detalle" id="detalle" placeholder="detalle del laboratorio">
                     </div>
 
                     <div class="form-group">
                         <label for="nombre">por Pagar:</label>
-                        <input type="text" class="form-control-file" name="porPagar" id="porPagar" placeholder="por pagar">
+                        <input required type="number" class="form-control-file" name="porPagar" id="porPagar" placeholder="por pagar">
                     </div>
                               
                   <div class="modal-footer">
@@ -268,17 +277,17 @@ background-color: #57ECC7
                       
                       <div class="form-group">
                           <label for="nombre">Nombre del Laboratorio:</label>
-                          <input type="text" class="form-control-file" name="nombreLaboratorio" id="nombreLaboratorio" value="{{$lab->nombreLaboratorio}}">
+                          <input required type="text" class="form-control-file" name="nombreLaboratorio" id="nombreLaboratorio" value="{{$lab->nombreLaboratorio}}">
                       </div>
 
                       <div class="form-group">
                         <label for="nombre">detalle:</label>
-                        <input type="text" class="form-control-file" name="detalle" id="detalle" value="{{$lab->detalle}}" >
+                        <input required type="text" class="form-control-file" name="detalle" id="detalle" value="{{$lab->detalle}}" >
                     </div>
 
                     <div class="form-group">
                         <label for="nombre">por Pagar:</label>
-                        <input type="text" class="form-control-file" name="porPagar" id="porPagar" value="{{$lab->porPagar}}">
+                        <input required type="number" class="form-control-file" name="porPagar" id="porPagar" value="{{$lab->porPagar}}">
                     </div>
                               
                   <div class="modal-footer">
@@ -368,8 +377,26 @@ background-color: #57ECC7
 $(document).ready( function () {
     $('#datatable').DataTable( {
     language: {
-        search: "Buscar laboratorio :"
-    }
+        search: "Buscar laboratorio :",
+  "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "",
+        "infoEmpty": "Mostrando 0 to 0 of 0 laboratorios",
+        "infoFiltered": "(Filtrado de _MAX_ total laboratorios)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ laboratorios",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+          "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        
+
+    }}
 });
 } );
 </script>

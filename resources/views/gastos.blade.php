@@ -272,7 +272,26 @@ color:white;
 $(document).ready( function () {
     $('#datatable').DataTable( {
     language: {
-        search: "Buscador de Gastos según categoria o monto:"
+        search: "Buscador de Gastos según categoria o monto:",
+          "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Gastos",
+        "infoFiltered": "(Filtrado de _MAX_ total Gastos)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Gastos",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+          "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        
+
+    }
     }
 });
 } );

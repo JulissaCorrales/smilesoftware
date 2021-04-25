@@ -48,7 +48,8 @@ td{
 #dd{
  position: absolute;
    top:70px;
-   left:90px;
+   left:50px;
+   width: 1000px;
 
 }
 
@@ -109,15 +110,23 @@ background-color:#57EC7F }
 @section('contenido')
 <body style="background-image: url('../assets/img/fondoPagos.jpg');">
  
-@if(session('mensaje'))
-        <div class="alert alert-success">
-            {{session('mensaje')}}
-        </div>
-    @endif
 
     <div  class="container" id="dd">
 <h3 style='text-align:center;' id="titulo" >Medios de pago</h3>
-
+@if ($errors->any())
+<div class="alert alert-danger">
+<ul>
+@foreach ($errors->all() as $error)
+<li>{{ $error }}</li>
+@endforeach
+</ul>
+</div>
+@endif
+@if(session('mensaje'))
+<div class="alert alert-success">
+{{session('mensaje')}}
+</div>
+@endif
 @can('create',App\Mediopago::class)
 <div>
 
@@ -152,7 +161,7 @@ background-color:#57EC7F }
                       
                       <div class="form-group">
                           <label for="nombre">Medio de Pago:</label>
-                          <input type="text" class="form-control-file" name="nombre" id="nombre" placeholder="ingresar nombre del medio de pago">
+                          <input required type="text" class="form-control-file" name="nombre" id="nombre" placeholder="ingresar nombre del medio de pago">
                       </div>
                               
                   <div class="modal-footer">
@@ -235,7 +244,7 @@ background-color:#57EC7F }
                 
      <div class="form-group" id="divcate">
                     <label for="nombre" class="control-label">Nombre del Medio de Pago:</label>
-                    <input type="text"  class="form-control-file" placeholder="Ingrese nombre del inventario" name="nombre" id="nombre"   value="{{$mediopago->nombre}}"> 
+                    <input required type="text"  class="form-control-file" placeholder="Ingrese nombre del inventario" name="nombre" id="nombre"   value="{{$mediopago->nombre}}"> 
                     </div>
                     
                     <div class="form-group" id="div6">
@@ -320,8 +329,24 @@ background-color:#57EC7F }
 $(document).ready( function () {
     $('#datatable').DataTable( {
     language: {
-        search: "Buscador de Medios de pagos :"
-    }
+        search: "Buscador de Medios de pagos :",
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Medios de pagos",
+        "infoFiltered": "(Filtrado de _MAX_ total Medios de pagos)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Medios de pagos",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+          "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+    }}
 });
 } );
 </script>
