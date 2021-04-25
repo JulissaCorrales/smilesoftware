@@ -1,12 +1,12 @@
-@extends('Plantilla.PlantillaBuscador')
+@extends('Plantilla.Plantilla2')
 @canany(['isAdmin','isSecretaria','isOdontologo'])
 <!DOCTYPE html>
 <html lang="en">
-@section('titulo','Paciente')
+@section('Titulo','Paciente')
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <title>Contacto</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     
@@ -14,31 +14,24 @@
 
  #datatable{
 position:absolute;
-left:350px;
-top:200px;
-width:900px;
+left:300px;
+
+
+
+
  }
 
-td {
-  border: 2px solid #ff8533;
+td, th {
+  border: 1px solid #dddddd;
   text-align: left;
   padding: 20px;
   text-align: left;
-  
+  background-color: #F0FFFF;
 }
 
- th{
-background-color:#669999;
-color:white;
- border: 4px solid #ff8533;
-  text-align: left;
-  padding: 20px;
-  text-align: left;
+tr:nth-child(even) {
+  background-color: #00CED1;
 }
-
-
-
-
 
 btn{
 text-align: center;
@@ -48,7 +41,7 @@ text-align: center;
 
 
 #lista{
-  background-color: ;
+  background-color: #F0FFFF;
   
 
 }
@@ -65,19 +58,17 @@ text-align: center;
 </head>
 @section('contenido')
 <body>
+
+    <div class="container">
 @if(session('mensaje'))
         <div class="alert alert-success">
             {{session('mensaje')}}
         </div>
     @endif
 
-    <div class="container">
 
-    <nav class="navbar navbar-light bg-light" style="position:absolute; top:100px; left:350px; font-size:25px; font-family: Times New Roman, Times, serif;
-  
-  color: white;
- background-image: linear-gradient(to bottom,  #3c5d5d ,#1f2e2e);">
-  <h4 syle="color:white;">Directorio de Pacientes</h4>
+    <nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">Directorio de Pacientes</span>
 </nav>
 
 <div  class="container"><!-- es necesario para que funcione el boton de buscar por nombre
@@ -85,24 +76,24 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
  ademas se debe incluir la liberia de boostrap y la libreria de datatable en la vista 
  ademas de al final de la pagina el scritp de java y despues el scritp de date table
  para que funcione correctamente-->
- <div class="list-group">
+ <div class="list-group" style="position:absolute; left:900px;">
  
-<table id="datatable">
+<table id="">
 <thead>
-  <tr style="">
-    <th >Nombre</th>
-    <th >Identidad</th>
-    <th>Accion</th>
+  <tr>
+    <th class="table-primary">Nº</th>
+    <th class="table-primary">Nombre</th>
+    <th class="table-primary">Apellidos</th>
+    <th class="table-primary">Identidad</th>
+    <th class="table-primary">Accion</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-      @forelse($pacientes as $paciente)
-     <td>@canany(['isAdmin','isOdontologo','isSecretaria'])
-
-<a  href="/pantallainicio/vista/paciente/{{$paciente->id}}/editar" >@endcanany<img class="logo" src='/Imagenes/{{$paciente->imagen}}'  width="60px"
-height= "60px" style="border-radius:50%;">
-</a>  {{$paciente->nombres}} {{$paciente->apellidos}} </td>
+      @foreach($pacientes as $paciente)
+     <td><a  class="btn btn-outline-info"  href="/pantallainicio/vista/paciente/{{ $paciente->id}}/paciente"  id="lista">{{$paciente->id}}</a></td>
+     <td>{{$paciente->nombres}}</td>
+     <td>{{$paciente->apellidos}}</td>
      <td>{{$paciente->identidad}}</td>
      <td>
 
@@ -137,13 +128,9 @@ height= "60px" style="border-radius:50%;">
           </div>
       </div>
   </div>
-@empty
-            <td colspan="5"> No Existe el Paciente</td>
-    
+     
      </tr> 
- 
-         
-     @endforelse
+     @endforeach
      </tbody>
 </table>
 

@@ -167,7 +167,7 @@ class PacienteController extends Controller
         
         Paciente::destroy($id);
         Cita::where('paciente_id','=',$id)->delete();
-        return redirect()->back()->with('mensaje','Paciente borrado satisfactoriamente');
+        return redirect('/pantallainicio/vista')->with('mensaje','Paciente borrado satisfactoriamente');
 
         
        
