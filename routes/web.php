@@ -234,23 +234,59 @@ Route::prefix('pantallainicio/calendario')->group( function(){
           Route::put('usuarios/{id}/editar','UsuarioController@actualizar') ->name('usuario.actualizar') -> where('id' ,'[0-9]+')->middleware('role:admin');
           Route::delete('usuarios/{id}/borrar','UsuarioController@borrar') ->name('usuario.borrar')->where('id','[0-9]+')->middleware('role:admin');
 
+
         });
+
+  
        
+ Route::prefix('create/{id}/')->group( function(){
+ Route::get('buscar','PacienteController@index')->name ('paciente.buscar')->middleware('role:admin,secretaria,odontologo');
 
 
-        //ruta para los roles
-        Route::get('roles/ver','RolController@Roles') ->name('roles.ver')->middleware('role:admin');
-          Route::get('{id}/verrol','RolController@verRoles')->name('rol.verroles') -> where('id' ,'[0-9]+')->middleware('role:admin');
+ });
+
+Route::get('create/{id}/nuevo','HorarioController@create')-> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
+Route::post('create/{id}/nuevo','HorarioController@store')-> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
+Route::delete('{id}/horario/borrar','HorarioController@destroy') ->name('horario.borrar')->where('id','[0-9]+')->middleware('role:admin');
+
+
+
+
+Route::prefix('/')->group( function(){
+
+Route::get('buscar','PacienteController@index')->name ('paciente.buscar')->middleware('role:admin,secretaria,odontologo');
+
+Route::get('create/{id}/nuevo','HorarioController@create')-> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
+Route::post('create/{id}/nuevo','HorarioController@store')-> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
+Route::delete('{id}/horario/borrar','HorarioController@destroy') ->name('horario.borrar')->where('id','[0-9]+')->middleware('role:admin');
+
+
+
+Route::get('roles','RolController@Roles') ->name('roles.ver')->middleware('role:admin');
+
+ Route::get('{id}/verrol','RolController@verRoles')->name('rol.verroles') -> where('id' ,'[0-9]+')->middleware('role:admin');
           Route::get('rol/nuevo','RolController@nuevoRol')->name('nuevo.rol')->middleware('role:admin');
           Route::post('rol/nuevo','RolController@guardarRol')->name('rol.guardar')->middleware('role:admin');
           Route::get('{id}/rol/editar','RolController@editarRol') ->name('rol.editar') -> where('id' ,'[0-9]+')->middleware('role:admin');
           Route::put('{id}/rol/editar','RolController@update')->name('rol.update') -> where('id' ,'[0-9]+')->middleware('role:admin');
           Route::delete('{id}/rol/borrar','RolController@borrar') ->name('rol.borrar')->where('id','[0-9]+')->middleware('role:admin');
 
+      
+       
+Route::get('tratamiento','TratamientoController@vistaprincipal')->name('tratamiento.vista')->middleware('role:admin,odontologo,secretaria');
+// Route::get('tratamientonuevo','TratamientoController@nuevo');
+Route::post('tratamientoNuevo','TratamientoController@guardar')->middleware('role:admin,odontologo');
+Route::delete('tratamiento/{id}/borrar','TratamientoController@destroy') ->name('tratamiento.borrar')->where('id','[0-9]+')->middleware('role:admin,odontologo');
+// Route::get('{id}/editar','TratamientoController@editar') ->name('tratamiento.editar') -> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
+Route::put('{id}/editar','TratamientoController@update')->name('tratamiento.update') -> where('id' ,'[0-9]+');
 
-   
-   
-  
+
+
+
+
+
+});
+
 
 
   
@@ -264,7 +300,12 @@ Route::delete('{id}/borrar/odontologo','OdontologoController@destroy') ->name('o
 
 
         
+
+
 //**************Rutas de  tratamientos******************************************************************/
+
+
+
 Route::get('tratamiento','TratamientoController@vistaprincipal')->name('tratamiento.vista')->middleware('role:admin,odontologo,secretaria');
 // Route::get('tratamientonuevo','TratamientoController@nuevo');
 Route::post('tratamientoNuevo','TratamientoController@guardar')->middleware('role:admin,odontologo');

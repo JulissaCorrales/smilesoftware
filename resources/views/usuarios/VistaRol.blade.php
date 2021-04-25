@@ -3,16 +3,22 @@
 @section('contenido')
 @can('isAdmin')
 
-
+<head>
+<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+</head>
 
 <style>
+
+
 #datatable1{
   width: 800px;
   height: 60px;
   
   position: absolute;
-    left:180px;
-    top: 300px;
+    left:200px;
+    top: 180px;
 
  }
 
@@ -21,7 +27,7 @@
    text-align: left;
    font-family: "Times New Roman";
    border-bottom: 5px solid #00cccc;
-   width: 800px;
+   width: 500px;
   height: 80px;
    
  } 
@@ -35,7 +41,10 @@
 .datatable1 {border-style: solid;}
 
 
-#boton{ margin: 1em; float:right;}
+#boton{ margin: 1em; float:right;
+position:absolute;
+top:100px;
+left:850px;}
 
 </style>
 <body style="background-image: url('../assets/img/backrol1.jpg');">
@@ -114,7 +123,7 @@
 <!--  -->
 
 <div>
-<table id="" class="table table-striped table-secondary" >
+<table id="datatable1" class="table table-striped table-secondary" >
 <thead class="thead-dark"  >
   <tr id="can">
    
@@ -150,7 +159,7 @@
         </td>
         <td>
 
-        <button id="boton" type="button"class="btn btn-outline-info" data-toggle="modal" data-target="#verRol{{$tag->id}}" >ver rol <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <button id="boto" type="button"class="btn btn-outline-info" data-toggle="modal" data-target="#verRol{{$tag->id}}" > <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"/>
   <path fill-rule="evenodd" d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
 </svg></button>
@@ -344,7 +353,7 @@
                   </button>
               </div>
               <div class="modal-body">
-                  ¿Desea realmente eliminar el rol {{$tag->nombreRol}}?
+                  ¿Desea realmente eliminar el rol {{$tag->Nombre}}?
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

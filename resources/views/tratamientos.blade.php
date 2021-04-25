@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tratamientos</title>
+    @section('titulo','Tratamiento')
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <style>
 
@@ -250,35 +250,7 @@
 
 </div>
 <!-- footer -->
-<div class="modal-footer" style="position: relative;
-left: -60px;
-width: 1200px;
-top: 200px; height:70px;
-background-color: #e6f9ff;">
 
-
-<a style="position: absolute;
-left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
-
-@forelse($logotipos  as $tag)
-<img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%;
-position: absolute;
-left: 1005px;
-top: 0px;
-height: 70px;
-width: 40px;
-border-color: #33ccff , 2px;" >
-@empty
-
-<img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;
-position: absolute;
-left: 1005px;
-top: 0px;
-width: 40px;
-border-color: #33ccff , 2px;"  > 
-@endforelse 
-</div>
-</div>
 <!--fin footer  -->
 </body>
 <script type="text/javascript">
