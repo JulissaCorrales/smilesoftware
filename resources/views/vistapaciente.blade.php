@@ -184,11 +184,11 @@ height= "60px" style="border-radius:50%;">
 
 
   <div class="modal fade" id="modal-{{$paciente->id}}"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document" style="background-color:#f2e6ff;  position: absolute;
+      <div class="modal-dialog" role="document" style="  position: absolute;
   left: 480px;
   top:  190px; ">
           <div class="modal-content">
-              <div class="modal-header" style="background-color:#b3f0ff; color:#666699; ">
+              <div class="modal-header" style="background-color:#293d3d; color:white;  height:60px;  ">
                   <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
 </svg> Eliminar Paciente</h5>
@@ -196,10 +196,10 @@ height= "60px" style="border-radius:50%;">
                  
                   </button>
               </div>
-              <div class="modal-body"  style="background-color:#e6faff;">
+              <div class="modal-body"  >
                   ¿Desea realmente eliminar el paciente {{$paciente->nombres}} {{$paciente->apellidos}}?
               </div>
-              <div class="modal-footer" style="background-color:#b3f0ff; width: 500px;
+              <div class="modal-footer" style=" width: 500px;
   height: 80px;">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal"  style="background-color:#ff704d;  position: absolute;
   left: 300px;

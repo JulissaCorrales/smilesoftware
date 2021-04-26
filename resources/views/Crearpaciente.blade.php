@@ -7,8 +7,7 @@
 
         
         
-    background-image: linear-gradient(to top, #33d6ff ,#e6ffff );
-    height: 100px;
+    background-color:#293d3d; color:white;  height:100px;
   }
 
   #myModalLabel{
@@ -48,7 +47,7 @@
 <div class="modal fade" id="create" data-keyboard="false" data-backdrop="static" >
   
 	<div class="modal-dialog" role="document">
-		<div class="modal-content" style="background-color:#b3f0ff; color:#666699; ">
+		<div class="modal-content" style=" color:#666699; ">
 			<div id="divv9"class="modal-header">
 	
 				<h4  class="modal-title" id="myModalLabel">
