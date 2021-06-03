@@ -162,7 +162,9 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class=" sidebar navbar-nav">
+    <ul class="  sidebar navbar-nav" style="
+    background-color: #1687A7;
+    ">
      
       
         <li class="nav-item">
