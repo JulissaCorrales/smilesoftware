@@ -295,10 +295,7 @@ eventColor: '#F7DC6F',
 eventClick: function(event)
 {
 self.$dispatch('event::clicked', event);
-@forelse($pacientes as $pacientes)
-  window.open("{{route('citaIndividual',['id'=>$pacientes->id])}}");
-@empty
-@endforelse
+window.open("{{route('cita.diaria')}}");
 console.log(event)
 }
 }

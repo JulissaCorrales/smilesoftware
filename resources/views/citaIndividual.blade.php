@@ -50,11 +50,15 @@
             {{session('mensaje')}}
         </div>
     @endif
- @foreach($errors->all() as $error)
-
- <li>{{$error}}</li>
-
- @endforeach
+ @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 </div>
 <!--  -->
@@ -156,7 +160,7 @@
     </td>
     </tr>
     @empty
-    No tiene ninguna cita ¡¡Asignele una!!
+    <!-- No tiene ninguna cita ¡¡Asignele una!! -->
     @endforelse
 
     </tbody>
@@ -176,7 +180,7 @@ $(document).ready( function () {
     language: {
         search: "Buscador de citas:",
       "decimal": "",
-        "emptyTable": "No hay información",
+        "emptyTable": "No Tiene Citas Asignadas ¡¡asignele por favor!!",
         "info": "",
         "infoEmpty": "Mostrando 0 to 0 of 0 citas",
         "infoFiltered": "(Filtrado de _MAX_ total tratamientos)",
