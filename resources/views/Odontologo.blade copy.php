@@ -1,0 +1,862 @@
+@extends('Plantilla.Plantilla2')
+
+<!DOCTYPE html>
+<html lang="en">
+@section('titulo','Gestion de Odontologos')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    
+    <style>
+
+ td{
+   
+  text-align: left;
+  font-family: "Times New Roman";
+  border-bottom: 5px solid #293d3d;
+  height: 80px;
+  
+  
+  
+} 
+
+#td1{
+  border-left: 5px solid #293d3d;
+ /* border: 1px solid #00cccc; */
+ width: 100px;
+ height: 40px;
+}
+
+#td2{
+ /* border-left: 5px solid #00cccc;*/
+ /* border: 1px solid #00cccc; */
+ width: 400px;
+ 
+
+}
+
+#td4{
+  
+  width: 100px;
+  
+
+}
+
+#td3{
+  border-left: 5px solid #293d3d; 
+  width: 100px;
+  
+
+}
+
+#td5{
+ 
+ width: 100px;
+
+}
+
+#td6{
+ border-right: 5px solid #293d3d; 
+ width: 100px;
+}
+
+
+#th1{
+  font-family: "Times New Roman";
+  text-align: center;
+  font-size: 30px;
+  border-left: 5px solid #293d3d;
+  border-right: 5px solid #293d3d;
+  border-bottom: 5px solid#293d3d;
+  border-top: 5px solid #293d3d;
+background-color: #293d3d;
+
+  
+}
+
+
+#th2{
+  font-family: "Times New Roman";
+  text-align: center;
+  font-size: 30px;
+  border-left: 5px solid #e6ffff;
+  border-bottom: 5px solid #e6ffff;
+  border-top: 5px solid #e6ffff;
+
+background-color: #e6ffff;
+
+}
+
+#bot{
+  
+    top:1125px;
+    left:30px;
+    width: 450px;
+  height: 40px;
+  background-color: #c1f0f0;
+  font-family: "Times New Roman";
+  text-align: center;
+  border: 1px solid #FF4500;
+  color:#ff9900;
+  font-size: 25px;
+}
+ 
+ 
+
+
+
+ #datatable{
+  /*border: 1px solid #FF4500;*/
+  width: 1000px;
+  height: 90px;
+  border-collapse: collapse;
+  position: relative;
+  
+    
+  
+  
+ }
+
+ l
+
+
+ #lista:hover{
+   border: 1px solid #FF4500;
+   color: hotpink;
+ 
+
+ }
+
+ #can{
+  
+  height: 80px;
+ 
+
+ }
+
+ #cue{
+  border: #00cccc  2px solid;
+ }
+
+ #nae{
+  width: 1005px;
+  height: 100px;
+    border-radius: 12px;
+    background-image: linear-gradient(to bottom,  #008080 ,#5c8a8a); 
+    position: absolute;
+    margin-top:2em;
+    margin-left: 2em;
+    
+  
+    
+    
+ }
+
+#dd{
+  position: relative;
+    top:150px;
+  
+
+
+}
+
+
+#b1{
+  position: absolute;
+    top:300px;
+    left:780px;
+
+}
+
+#b2{
+  position: absolute;
+    top:300px;
+    left:1030px;
+}
+
+#b3{
+  position: absolute;
+    top:300px;
+    left:1140px;
+
+}
+
+
+
+#dire{
+ 
+    position: relative;
+    color: white;
+    text-shadow: 1px 0 #ff9966, 0 1px #ff9966, 1px 0 #ff9966, 0 1px #ff9966;
+    font-family: Times "New Roman", Times, serif;
+font-size :25px;
+}
+
+#bo{
+  
+}
+
+
+
+#d2{
+background-color: #ccffff;
+position: absolute;
+font-size:30px;
+top: 2px;
+left:10px;
+
+}
+
+#n1{
+background-color: #c2d6d6;
+position: absolute;
+width: 160px;
+height: 45px;
+font-size:17px;
+margin-top:-0.1px;
+left:820px;
+font-family: "Times New Roman";
+text-align: center;
+border: 1px solid #00e6e6;
+  color:#006666;
+  
+
+}
+
+#control{
+    background-color: #ccffff;
+    position: absolute;
+            top: 8px;
+            left:700px;
+
+}
+
+#but3{
+
+  background-color: #c2d6d6;
+  position: absolute;
+  width: 170px;
+  height: 45px;
+  font-size:17px;
+  
+  left:620px;
+  font-family: "Times New Roman";
+  text-align: center;
+  border: 1px solid #00e6e6;
+   color:#006666;
+  
+  }
+
+  #butoneliminar{
+    /* width: 100px;
+  height: 55px; */
+    
+  }
+
+  #verespecialidad{
+   
+  /* width: 120px;
+  height: 55px; */
+  font-size:17px;
+  font-family: "Times New Roman";
+  text-align: center;
+  background-color: #84e184;
+  /* color:#00001a; */
+  
+
+  }
+
+
+
+  #odon{
+    font-family: "Times New Roman";
+  text-align: center;
+  font-size: 30px;
+  position: absolute;
+            top: 200px;
+  
+
+
+  }
+
+
+  #div2{
+    background-image: linear-gradient(to top, #33d6ff ,#e6ffff );
+    height: 150px;
+  }
+
+  #modal{
+    text-shadow: -1px 0 #ccfff5, 0 1px #ccfff5, 1px 0 #009999, 0 -1px #009999;
+  font-family: "Times New Roman";
+            font-size: 30px;
+            border-bottom: 5px solid #00cccc;
+          
+
+
+  }
+
+  #bodymodal{
+    
+  font-family: "Times New Roman";
+            font-size: 30px;
+            border-bottom: 5px solid #00cccc;
+        
+
+  }
+
+  #n{
+    width: 450px;
+    font-family: "Times New Roman";
+    font-size: 20px;
+
+    
+  }
+
+
+
+
+  #datos{
+    margin-left: auto;
+  margin-right: auto;
+  border-radius: 70%;
+  position: relative;
+  top: 5px;
+  left: 20px;
+  border: 4px solid  #00ccff;
+  }
+
+
+  #datos6{
+    margin-left: auto;
+  margin-right: auto;
+  border-radius: 70%;
+  position: absolute;
+  border: 4px solid  #00ccff;
+            
+            left: 300px;}
+
+            #imagen4{
+              position: absolute;
+            
+            left: 60px;
+           
+            }
+            
+
+  #hh2{
+    font-family: "Times New Roman";
+  text-align: center;
+  font-size: 20px;
+  position: absolute;
+            top: 550px;
+            left: 915px;
+            width: 50px;
+  }
+
+
+#td6{
+  border-right: 5px solid #293d3d;
+  
+
+}
+
+#but8{
+  background-color: #47d147;
+}
+</style>
+
+</head>
+@section('contenido')
+
+@canany(['isAdmin','isSecretaria'])
+
+<body >
+@if($errors->any())
+<div class="alert alert-danger">
+
+<ul>
+
+ @foreach($errors->all() as $error)
+
+ <li>{{$error}}</li>
+
+ @endforeach
+</ul>
+
+</div>
+
+@endif
+
+@if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif
+
+    <div class="container">
+
+    <nav class="navbar navbar-light bg-light" id="nae">
+  <h1 id="dire"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-people-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+</svg>Gestión de Odontologos</h1>
+
+
+  <!--Menu desplegable  -->
+
+
+  <a id ="but3" type="button" class="btn btn-outline-info"  href="/pantallainicio/especialidad">
+  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-heading" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+  <path fill-rule="evenodd" d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+  <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z"/>
+</svg> Especialidades </a>
+
+
+@can('create',App\Odontologo::class)
+  <button id ="n1" type="button" data-toggle="modal" data-target="#create">
+  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+</svg>Nuevo odontologo </button> 
+@endcan
+  
+
+ <!--fin de menu desplegable  -->
+</nav>
+
+</div>
+
+<div  class="container" id="dd"><!-- es necesario para que funcione el boton de buscar por nombre
+y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflicto la pantilla de extencion
+ ademas se debe incluir la liberia de boostrap y la libreria de datatable en la vista 
+ ademas de al final de la pagina el scritp de java y despues el scritp de date table
+ para que funcione correctamente-->
+ <div class="list-group">
+
+<table id="datatable" class="container">
+<thead class="table table-striped table-bordered">
+  <tr id="can" style="background-color:; color:white;">
+    <th id="th1" colspan="6">Información de los Odontologos</th>
+
+  </tr>
+  </thead> 
+  <tbody>
+  
+  <tr id="can">
+  @forelse($odontologos as $odontologo)
+     
+     <td id="td1"><img src='/Imagenes/{{$odontologo->imagen}}' width="70px" height="70px"id="datos"></td>
+     <td id="td2">Nombre: {{ $odontologo->nombres }}  {{$odontologo->apellidos}} <br>Telefono Celular:  {{$odontologo->telefonoCelular}} 
+     <br>Correo Electronico: {{$odontologo->email}} 
+     <br>Especialidad:  {{$odontologo->especialidad->Especialidad}}
+  
+  
+   <td id="td3">
+   @can('crearHorario',App\Odontologo::class)
+    <a type="button" class="btn btn-warning" href="/create/{{$odontologo->id}}/nuevo" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+  <path fill-rule="evenodd" d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+</svg>Editar Horarios
+    
+  </a>@endcan</td>
+  @can('update',$odontologo)
+  <td id="td4">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-{{$odontologo->id}}" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+</svg>
+    Editar Datos
+  </button></td>
+  @endcan
+
+  <div class="modal fade" id="modal-{{$odontologo->id}}" >
+  
+	<div class="modal-dialog" role="document">
+		<div class="modal-content"  style="">
+			<div class="modal-header" style=" background-color:#293d3d; color:white;  height:130px;">
+	
+				<h4  class="modal-title" id="modal">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+</svg>
+        Editar Odontologo</h4>
+        <div id="imagen4">
+                      <img src='/Imagenes/{{$odontologo->imagen}}' width=" 100px" height="100px"id="datos6">
+                      </div>
+
+        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+
+			</div>
+			<div class="modal-body" id="bodymodal">
+
+
+    <!-- Esta parte del codigo es para poder ir a traer informacion de la base de datos -->
+    <div class="content" id="n">
+   <!-- <form method="post"  action="{{route('odontologo.editar',['id'=> $odontologo-> id])}}"> -->
+    <form method="post"  action="{{route('odontologo.update',['id'=> $odontologo-> id])}} "file="true" enctype="multipart/form-data" id="form1">
+    <?php
+        $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
+        $mysqli->set_charset("utf8");
+      ?>
+                      @csrf
+                      @method('put')
+                      
+                    <div class="form-group">
+                        <label for="nombres" class="col-sm-2 col-form-label col-form-label-lg" >Nombres:</label>
+                        <div >
+                        <input required type="text" class="form-control form-control-sm" name="nombres" id="nombres" style="font-size: 20px;" placeholder="ingresar nombre del paciente"  value="{{ $odontologo->nombres }}" >
+                        </div>
+                    </div>
+
+              
+                      <div class="form-group">
+                          <label for="apellidos" class="col-sm-2 col-form-label col-form-label-lg" >Apellidos:</label>
+                          <div >
+                          <input required type="text" class="form-control form-control-sm" name="apellidos" style="font-size: 20px;" id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $odontologo->apellidos }}">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="identidad"class="col-sm-2 col-form-label col-form-label-lg">Identidad:</label>
+                        <div>
+                        <input required type="number" class="form-control form-control-sm" name="identidad" id="identidad"  style="font-size: 20px;"placeholder="ingresar identidad del paciente"  value="{{ $odontologo->identidad }}">
+                    </div>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="telefonoFijo" class="col-sm-2 col-form-label col-form-label-lg">Tel.Fijo:</label>
+                    <div >
+                    <input type="number" required class="form-control form-control-sm" name="telefonoFijo" id="telefonoFijo" style="font-size: 20px;" placeholder="ingresar telefono Fijo del paciente"  value="{{ $odontologo->telefonoFijo}}">
+                  </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="telefonoCelular" class="col-sm-2 col-form-label col-form-label-lg">Tel.Celular:</label>
+                  <div >
+                    <input type="number" required  class="form-control form-control-sm" name="telefonoCelular"  style="font-size: 20px;"id="telefonoCelular" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->telefonoCelular }}">
+                  </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email" class="col-sm-2 col-form-label col-form-label-lg">Correo Electronico:</label>
+                  <div >
+                    <input required type="email" class="form-control form-control-sm" style="font-size: 20px;" name="email" id="email" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->email }}">
+                  </div>
+                  </div>
+
+                    
+                  <div class="form-group">
+                    <label for="departamento" class="col-sm-2 col-form-label col-form-label-lg">Departamento:</label>
+                    <div >
+                    <!--  -->
+                    <select name="departamento" id="departamento" class="form-control">
+                      <option selected value="{{ $odontologo->departamento }}">Departamento Actual: {{$odontologo->departamento}}</option>
+                         <option >Atlántida</option>
+                        <option >Choluteca</option>
+                        <option>Colón</option>
+                        <option >Comayagua</option>
+                        <option >Copán</option>
+                        <option >Cortés</option>
+                        <option >El Paraíso</option>
+                        <option >Francisco Morazán</option>
+                        <option >Gracias a Dios</option>
+                        <option >Intibucá</option>
+                        <option >Islas de la Bahía</option>
+                        <option >La Paz</option>
+                        <option >Lempira</option>
+                        <option >Ocotepeque</option>
+                        <option >Olancho</option>
+                        <option >Santa Bárbara</option>
+                        <option >Valle</option>
+                        <option >Yoro</option>
+                      </select>
+                    <!--  -->
+                  </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="ciudad" class="col-sm-2 col-form-label col-form-label-lg">Ciudad:</label>
+                  <div >
+                    <input required type="text" class="form-control form-control-sm"  style="font-size: 20px;"name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $odontologo->ciudad }}">
+                  </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="direccion" class="col-sm-2 col-form-label col-form-label-lg">Direccion:</label>
+                  <div >
+                    <input required type="text" class="form-control form-control-sm" style="font-size: 20px;" name="direccion" id="direccion" placeholder="ingresar direccion del paciente"  value="{{ $odontologo->direccion }}">
+                  </div>
+                  </div>
+
+                  
+
+   <?php
+        $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
+        $mysqli->set_charset("utf8");
+      ?>
+
+            <label for="state_id" class="control-label">Especialidad:</label>
+                <select required name="especialidad" class="form-control">
+          <option value="{{  $odontologo->especialidad_id }}" selected>Especialidad Actual: {{$odontologo->especialidad->Especialidad}}</option>
+         
+                    <?php
+        $getDoctor =$mysqli->query("select * from especialidads order by id");
+        while($f=$getDoctor->fetch_object()) {
+          echo $f->id;
+          echo $f->Especialidad;
+
+          ?>
+          <option value="<?php echo $f->id; ?>"><?php echo $f->Especialidad ?></option>
+          <?php
+        } 
+        ?>
+
+
+                  
+        </select> 
+
+  
+              <!--    <label for="state_id" class="control-label">Especialidad:</label>
+                <select name="especialidad" class="form-control" value="{{$odontologo->especialidad}}">
+          <option disabled selected >{{$odontologo->especialidad}}</option>
+                    <option >General</option>
+                    <option >Cirugia y Maxilofacial</option>
+                    <option>Radiologia oral y maxilofacial</option>
+                    <option >Ortodoncia</option>
+                    <option >Endodoncia</option>
+                    <option >Prostodoncia</option>
+                    <option >Periodancia</option>
+                    <option >Patologogia oral y maxilofacial</option>
+                  
+        </select>
+ -->
+         <!-- usuario -->
+         <div class="form-group">
+                    <label for="user_id" class="control-label">Usuario:</label>
+                    <select name="user_id" class="form-control">
+                    <option value="{{$odontologo->user->id}}" selected>Usuario Actual: {{$odontologo->user->name}}</option>
+
+                    <?php
+                    $getUsuario =$mysqli->query("select * from users order by id");
+                    while($f=$getUsuario->fetch_object()) {
+                    echo $f->id;
+                    echo $f->name;
+
+                    ?>
+                    <option value="<?php echo $f->id; ?>"><?php echo $f->name ?></option>
+                    <?php
+                    } 
+                    ?>
+
+                    </select>
+                    </div>
+                    <!-- fin usuario -->
+
+                  <div class="form-group">
+                    <label for="intervalo" class="col-sm-2 col-form-label col-form-label-lg">Intervalo:</label>
+                  <div >
+                  <select name="intervalo" id="intervalo" class="form-control">
+                  <option value="{{ $odontologo->intervalos }}" selected>Actual:{{ $odontologo->intervalos }}</option>
+                  <option value="10m">10 minutos</option>
+                  <option value="15m">15 minutos</option>
+                  <option value="20m">20 minutos</option>
+                  <option value="30m">30 minutos</option>
+                  <option value="40">40 minutos</option>
+                  <option value="50m">50 minutos</option>
+                  </select>
+                  </div>
+                  </div>
+
+                 
+
+                  <div class="form-group">
+                    <input type="file" class="form-control-file" name="file" id="direccion" value="{{$odontologo->imagen}}">
+                  </div>
+
+               
+                  
+</div>
+<div>
+        <br>
+        
+        <button id="bot" type="submit"class="btn btn-primary" data-toggle="modal" >
+          Guardar
+        </button>
+
+        </form>
+    
+        <br>
+       
+                  </div>
+                  </div>
+      </div>
+      
+ 
+      
+</div>
+
+<body>
+
+</html>
+@can('isAdmin')
+     <td id="td5">
+     <buttton  id="butoneliminar" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalll-{{$odontologo->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+</svg>
+      Eliminar
+  </button>
+  </td>
+@endcan
+ 
+  
+  </div>
+
+  <div class="modal fade" id="modalll-{{$odontologo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content" style="position:absolute; top:100px;">
+              <div class="modal-header" style=" background-color:#293d3d; color:white;  height:100px;">
+                  <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+</svg> Eliminar Odontologo</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <!--<span aria-hidden="true">&times;</span>-->
+                  </button>
+              </div>
+              <div class="modal-body">
+                  ¿Desea realmente eliminar el Odontologo {{$odontologo->nombres}} {{$odontologo->apellidos}}?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <form method="post" action="{{route('odontologo.borrar',['id'=>$odontologo->id])}}">
+
+                      @csrf
+                      @method('delete')
+                      <input type="submit" value="Eliminar" class="btn btn-danger">
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <td id="td6">
+    
+    <button id="verespecialidad" class="btn " type="button"  href="{{route('odontologo.especialidad',['id'=>$odontologo->id])}}" data-toggle="modal" data-target="#modall2-{{$odontologo->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-heading" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+  <path fill-rule="evenodd" d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+  <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z"/>
+</svg>
+     Ver Especialidad
+ </button>
+
+<div class="modal fade" id="modall2-{{$odontologo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content" style="position:absolute; top:100px;">
+              <div class="modal-header" style=" background-color:#293d3d; color:white;  height:100px;">
+                  <h5 class="modal-title" id="exampleModalLabel">Especialidad Odontologo</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <!--<span aria-hidden="true">&times;</span>-->
+                  </button>
+              </div>
+              <div class="modal-body">
+                <table id="datatable1" class="container">
+<thead class="table table-striped table-bordered">
+  <tr id="can">
+   
+      <th id="thh2"  >
+      Odontologo</th>
+
+      <th id="thh2"  >
+      Especialidades</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  
+        
+        <tr>
+        
+
+        <td><h2>{{$odontologo->nombres}}  {{$odontologo->apellidos}}   </h2></td>
+
+        <td>
+        {{$odontologo->especialidad->Especialidad}} <br>
+        @forelse ($odontologo->especialidadOdontologos as $tag) 
+          
+                    {{ $tag->especialidad->Especialidad}}
+                    <hr>
+                    @empty
+                    vacio
+                    @endforelse
+        
+        </td>
+
+  
+    </tr>
+    
+  
+
+  
+ 
+  
+
+  
+    
+  </div>
+
+     
+     </tbody>
+</table>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                 
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+
+
+
+ </td>
+
+     </tr> 
+     @empty
+    <td><h3 align="center">¡¡No hay Odontologos Registrados!!</h3></td> 
+     @endforelse
+     </tbody>
+</table>
+
+<h3 id="hh2">{{ $odontologos->links() }}</h1>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<!-- script de jquery para que funcione el buscador de nombre-->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+<!-- script de datatable para que funcione el buscado de nombre-->
+
+
+
+</body>
+
+
+
+<!-- escript de datatable con el id de la tabla este muy importante en este caso la tabla es id="datatable"-->
+</div>
+</div><!-- fin del DIV contenedor de la buscador!!!  -->
+
+
+
+</html>
+
+
+@include('nuevoDoctor')
+
+@endcanany
+
+@endsection 

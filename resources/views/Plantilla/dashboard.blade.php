@@ -142,17 +142,25 @@
 </div>
 
     <!-- Navbar -->
-    <ul class="navbar-nav ml-auto ml-md-0" style="position:absolute; left:1150px;">
+    <ul class="navbar-nav ml-auto ml-md-0" style="position:absolute; left:1250px;">
       <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link " style="
+  font-size:15px;
+  line-height: 2;
+  background-color: #d3e0ea;
+ color:#1687a7;
+  border: 1px solid transparent;
+  border-radius: 0.25rem; width:250px;" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          
           @auth
           {{ Auth::user()->name }} - {{ Auth::user()->roles->isNotEmpty() ? Auth::user()->roles->first()->Nombre : "" }}
           @endauth
+<img class="logo" style="border-radius: 70%;left: 200px;bottom:0.3em;  position:absolute; top: px;" src='/Imagenes/{{Auth::user()->imagen}}'   width="40px" height="40px">
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Salir</a>
+          <a class="dropdown-item"  href="{{route('usuario.verusuario',Auth::user()->id)}}" data-toggle="modal1" data-target="#logoutModal">Perfil</a>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Salir</a>
         </div>
       </li>
     </ul>
@@ -245,10 +253,10 @@
 
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Cerrar Sesión?</h5>
+    <div class="modal-dialog" role="document" >
+      <div class="modal-content" style="position:absolute; top:40px; left:px;">
+        <div class="modal-header" style="background-color: #d3e0ea;">
+          <h5 class="modal-title" id="exampleModalLabel">Desea cerrar sesión?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
@@ -267,13 +275,13 @@
             @csrf
           </form>
 
-          {{-- <a class="btn btn-primary" href="login.html">Salir</a> --}}
+          {{-- <a class="btn btn-primary"  href="login.html">Salir</a> --}}
         </div>
       </div>
     </div>
   </div>
 
- @can('isAdmin') <a  href="{{route('usuario.actualizar',Auth::user()->id)}}">@endcan<img class="logo" style="border-radius: 70%;left: 1125px;bottom:0.3em;  position:absolute; top: 20px;" src='/Imagenes/{{Auth::user()->imagen}}'   width="30px" height="30px"></a>
+ 
   <!-- Bootstrap core JavaScript-->
   <script src="/vendor/jquery/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -299,4 +307,4 @@
   </body>
     
 </html>
-    
+  
