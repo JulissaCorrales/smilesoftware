@@ -106,7 +106,7 @@
 
 <body id="page-top">
 
-  <nav class="navbar navbar-expand  static-top" style="background-color:#D3E0EA;
+  <nav class="navbar navbar-expand  static-top" style="background-color:#276678;
 ">
 
   <H4 style="color: #D3E0EA;; text-shadow: 1px 0 #0061A8, 0 1px #1687A7, 1px 0 #ffb31a, 0 1px #1687A7;">Smile Software</H4>
