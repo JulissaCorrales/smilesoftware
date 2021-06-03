@@ -15,7 +15,8 @@ class RolController extends Controller
         if(Gate::denies('isAdmin')){
             abort(403);
          }
-        $rols = Role::Paginate(3);
+       // $rols = Role::Paginate(1);
+$rols=Role::all();
         return view('usuarios.VistaRol')->with ('rols',$rols);
         
 

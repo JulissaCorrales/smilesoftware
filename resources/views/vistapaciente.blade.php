@@ -1,61 +1,31 @@
-@extends('Plantilla.Plantilla2')
+@extends('Plantilla.dashboard')
 @canany(['isAdmin','isSecretaria','isOdontologo'])
+@section('content')
+
 <!DOCTYPE html>
-<html lang="en">
-@section('titulo','Paciente')
+
+<!--<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    <style>
 
-#tablaprincipal{
-  position: absolute;
-  left: 50px;
-  top:  190px;
-  width: 1000px;
-}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-#imagen{
-  border-radius: 50%;
-  position: absolute;
-  left: -5px;
-  top:  35px;
-  width: 50px;
-  height: 50px;
-}
+  <title>@section('titulo', 'DirectorioPaciente')</title>-->
 
-/* CSS DEL navas de Abajo */
-#footer1{
-       position: absolute;
-  left:0px;
-  top: 300px;
-  width: 1120px;
- 
-    } 
+  <!-- Custom fonts for this template-->
+ <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
 
-    #num8{
-        position: absolute;
-  left: 100px;
-  top: 0px;
-    }
+  <!-- Page level plugin CSS-->
+  <!--<link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">-->
 
+  <!-- Custom styles for this template-->
+  <!--<link href="css/sb-admin.css" rel="stylesheet">-->
 
-
-
-
-</style>
-
-</head>
-
-@section('contenido')
-<body>
-
-
-
-
-
+<!--</head> -->
 @if ($errors->any())
 <div class="alert alert-danger">
 <ul>
@@ -71,58 +41,21 @@
 </div>
 @endif
 
-    <div class="container">
+<body id="page-top">
 
-   <!-- <nav class="navbar navbar-light bg-light" id="na">
-  <h1 style="    color: #ff9933;
-  text-shadow: -1px 0 #009999, 0 1px #009999, 1px 0 #009999, 0 -1px #009999;
-  font-family: serif;position: absolute;font-size:35px;top: 2px;left:90px;;"id="dire">Directorio de Paciente</h1>
-    @canany(['isAdmin','isSecretaria','isOdontologo'])
- <div class="dropdown" style="  background-color: #00ccff;border-radius: 12px;
-position: absolute;top: 10px;left: 510px;" >
-
- <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-border-width" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
-</svg></button>
- <ul class="dropdown-menu">
- @can('create', App\Paciente::class)
- <li><a class="dropdown-item" href="{{route('paciente.nuevo')}}" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-</svg>  Nuevo Paciente </a></li>
-@endcan
-
- 
-
-
-
-
- </ul>
- </div>
- @endcanany
-
-</nav>-->
-</div> 
-
-
-
-<div class="" id="dd">
-
-</div>
-
-
-
-<a href="/pantallainicio/vista"><h1 style="background-color:#d6f5f5;  position: absolute;
-  left: 70px;
-  top:  110px;  width: 970px; height: 50px; color: #4d4d4d;
-  text-shadow: 1px 0 #ff9966, 0 1px #ff9966, 1px 0 #ff9966, 0 1px #ff9966; font-family: Times New Roman, Times, serif; "><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
-  <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
-</svg>         Pacientes</h1> </a>
-
+  
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+          <div class="card-header">
+           <h4><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge-fill" viewBox="0 0 16 16">
+  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
+</svg>Pacientes</h4>
+ <p>En esta ventana  muestra los pacientes que se han registrado  en la clínica, <br> en esta misma se podra crear un nuevo paciente, editar informacion, eliminar el paciente.</p>
 @can('descargarPacientes', App\Paciente::class)
 <div>
 <a type="button"style="background-color:#28a4a4; color:#c1f0f0; position: absolute;
-  left: 850px;
-  top:  125px;"  class="btn" href="{{route('descargarPDFPacientes')}}"><svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-cloud-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  left: 900px;
+  top:  40px;"  class="btn" href="{{route('descargarPDFPacientes')}}"><svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-cloud-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/>
   <path fill-rule="evenodd" d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
 </svg> 
@@ -133,30 +66,37 @@ position: absolute;top: 10px;left: 510px;" >
 
 <div>@can('create', App\Paciente::class)
     <button type="button"style="background-color:#ffdb4d; color:#666699;  position: absolute; 
-  left: 790px;
-  top:  125px;   " class="btn"  data-toggle="modal" data-target="#create"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+  left: 840px;
+  top:  40px;   " class="btn"  data-toggle="modal" data-target="#create"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
   <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
   <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
 </svg>
  </button> @endcan
 </div>
 
-
-
-
-<div class="container" id="tablaprincipal">
-
-<table   class="table table-striped table-info" id="datatable1" >
-  <thead  class="thead-dark" style="background-color:#595959; font-size:18px; font-family: Times New Roman, Times, serif;">
-    <tr>
-      <th  style=" font-size:15px; font-family: Times New Roman, Times, serif; color:white;">Nombre</th>
-      <th  style=" font-size:15px; font-family: Times New Roman, Times, serif; color:white;">Identidad</th>
-      <th  style=" font-size:15px; font-family: Times New Roman, Times, serif; color:white;">Accion</th>
-    </tr>
-  </thead>
-  <tbody style="background-color:#e6e6e6;">
-  @forelse($pacientes as $paciente)
-    <tr style="background-color:#e6e6e6;">
+            </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="datatable1" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Identidad</th>
+                    <th>Acción</th>
+                  
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Identidad</th>
+                    <th>Acción</th>
+                    
+                  </tr>
+                </tfoot>
+                <tbody>
+                @forelse($pacientes as $paciente)
+    <tr >
      <td>@canany(['isAdmin','isOdontologo','isSecretaria'])
 
 <a  href="/pantallainicio/vista/paciente/{{$paciente->id}}/editar" >@endcanany<img class="logo" src='/Imagenes/{{$paciente->imagen}}'  width="60px"
@@ -186,7 +126,7 @@ height= "60px" style="border-radius:50%;">
   <div class="modal fade" id="modal-{{$paciente->id}}"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document" style="  position: absolute;
   left: 480px;
-  top:  190px; ">
+  top:  50px; ">
           <div class="modal-content">
               <div class="modal-header" style="background-color:#293d3d; color:white;  height:60px;  ">
                   <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -207,7 +147,7 @@ height= "60px" style="border-radius:50%;">
                   <form method="post" action="{{route('paciente.borrar',['id'=>$paciente->id])}}">
                       @csrf
                       @method('delete')
-                      <input type="submit" value="Eliminar" class="btn btn-danger"  style="background-color:#d580ff;  position: absolute;
+                      <input type="submit" value="Eliminar" class="btn btn-danger"  style="background-color:#ff9999;  position: absolute;
   left: 380px;
   top:  160px;">
  
@@ -224,62 +164,19 @@ height= "60px" style="border-radius:50%;">
     </tr>
     @endforelse
     
-
+                
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        
   
 
-  </tbody>
-</table>
-</div>
+  </div>
+  <!-- /#wrapper -->
 
-
-<div id="nu">
-            
-            <footer class="footer" id="footer1">
-                <div class="container-fluid">
-                    <nav id="num8">
-                        <ul class="footer-menu">
-                        <li>
-                                <a href="#">
-                                    Home
-                                </a>
-                            </li>
-                        </ul>
-                        <p class="copyright text-center">
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script>
-                            <a href="/">Smile Software</a>, made with love for a better web
-                        </p>
-                    </nav>
-                </div>
-            </footer>
-        </div>
-</div>
-    </div>
- 
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<!-- script de jquery para que funcione el buscador de nombre-->
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
-<!-- script de datatable para que funcione el buscado de nombre-->
-
-
-
-</body>
-
-<script type="text/javascript">
-/*$(document).ready( function () {
-    $('#datatable').DataTable( {
-    language: {
-        search: "Busqueda por nombre o identidad:"
-    }
-});
-} ); */
-
-
-
-
+<script>
 $(document).ready( function () {
     $('#datatable1').DataTable( {
     language: {
@@ -304,14 +201,32 @@ $(document).ready( function () {
     }
 });
 } );
+
 </script>
 
-<!-- escript de datatable con el id de la tabla este muy importante en este caso la tabla es id="datatable"-->
-</div>
-</div><!-- fin del DIV contenedor de la buscador!!!  -->
-@include('Crearpaciente')
-@endsection
+  
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="js/demo/datatables-demo.js"></script>
+
+</body>
 
 </html>
+
+@endsection
 
 @endcanany

@@ -172,7 +172,7 @@
 
         <label for="intervalo" class="control-label">Intervalo</label>
         <select required  name="intervalo" id="intervalo" class="form-control">
-        <option value="" disabled selected>Seleccione la duracion de la cita</option>
+        <option value=""  disable selected>Seleccione la duracion de la cita</option>
         <option value="10m">10 minutos</option>
         <option value="15m">15 minutos</option>
         <option value="20m">20 minutos</option>

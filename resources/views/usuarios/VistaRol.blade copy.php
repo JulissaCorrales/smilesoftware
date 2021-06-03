@@ -6,44 +6,68 @@
 <head>
 <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
-
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 </head>
 
 <style>
 
-td{
 
-width:300px;
-}
+#datatable1{
+  width: 800px;
+  height: 60px;
+  
+  position: absolute;
+    left:200px;
+    top: 180px;
 
- 
+ }
+
+ td{
+   
+   text-align: left;
+   font-family: "Times New Roman";
+   border-bottom: 5px solid #00cccc;
+   width: 500px;
+  height: 80px;
    
  } 
- 
+ #crear{
+   margin:1em;
+   float:right;
+   margin-right:18em;
+   
+ }
+
+.datatable1 {border-style: solid;}
 
 
 #boton{ margin: 1em; float:right;
 position:absolute;
-top:-20px;
+top:100px;
 left:850px;}
 
 </style>
-<body id="page-top">
+<body style="background-image: url('../assets/img/backrol1.jpg');">
+<div><p>  @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif</p></div><br><br>
+<h1 style='text-align:center' >Roles y usuarios</h1>
+<div class="container" id="allBody" >
 
-  
-      
-  
-        <!-- DataTables Example -->
-        <div class="card mb-3">
-          <div class="card-header">
-           <h4><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge-fill" viewBox="0 0 16 16">
-  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
-</svg>Roles</h4>
- <p>En esta Sección muestra los roles con sus respectivos permisos, donde tambien se podra editar,crear y eliminar un Rol.</p>
+<div >
 
-<button id="boton" type="button"class="btn btn-outline-info" data-toggle="modal" data-target="#nuevorol" >Crear Rol <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-node-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<button id="boton" type="button"class="btn btn-outline-info" data-toggle="modal" data-target="#nuevorol" >crear rol <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-node-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M11 13a5 5 0 1 0-4.975-5.5H4A1.5 1.5 0 0 0 2.5 6h-1A1.5 1.5 0 0 0 0 7.5v1A1.5 1.5 0 0 0 1.5 10h1A1.5 1.5 0 0 0 4 8.5h2.025A5 5 0 0 0 11 13zm.5-7.5a.5.5 0 0 0-1 0v2h-2a.5.5 0 0 0 0 1h2v2a.5.5 0 0 0 1 0v-2h2a.5.5 0 0 0 0-1h-2v-2z"/>
         </svg></button>
 
@@ -97,35 +121,23 @@ left:850px;}
 <!--fin del modal-->
 </div>
 
+<!--  -->
 
-            </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="datatable1" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Id</th>
-                    <th>Roles</th>
-                    <th>Slug</th>
-                    <th>Permisos</th>
+<div>
+<table id="datatable1" class="table table-striped table-secondary" >
+<thead class="thead-dark"  >
+  <tr id="can">
    
-                    <th>Acciones</th>
-                  
-                  </tr>
-                </thead>
-                <tfoot>
-                  <tr>
-                   <th>Id</th>
-                    <th>Roles</th>
-                    <th>Slug</th>
-                    <th>Permisos</th>
-                    <th>Acciones</th>
-                    
-                  </tr>
-                </tfoot>
-                <tbody>
-               
+      <th id="thh2"  >Id</th>
+      <th id="thh2"  > Roles</th>
+      <th id="thh2"  >Slug</th>
+      <th id="thh2"  > Permisos</th>
+      <th id="thh2" colspan="3" >Opciones</th>
 
+  </tr>
+  </thead>
+  <tbody>
+  
         
         <tr>
         @forelse ($rols as $tag) 
@@ -217,9 +229,9 @@ left:850px;}
 
 <!-- fin modal ver  -->
 
-        
+        </td>
         <!-- editar -->
-        
+        <td>
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong-{{$tag->id}}" >
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
@@ -316,9 +328,9 @@ left:850px;}
 
           
       <!-- fin modal editar -->
-
+</td>
         <!-- Eliminar -->
-        
+        <td>
      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$tag->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
 </svg>
@@ -386,66 +398,30 @@ $(document).ready(function(){
     @endforelse
 
     
+  
+
+  
+ 
+  
+
+  
     
-                
-                  
-                </tbody>
-              </table>
-            </div>
-          </div>
-        
-  
-
   </div>
-  <!-- /#wrapper -->
 
-<script>
-$(document).ready( function () {
-    $('#datatable1').DataTable( {
-    language: {
-        search: "Busqueda por nombre",
-        "decimal": "",
-        "emptyTable": "No hay información",
-        "info": "Mostrando _START_ a _END_ de _TOTAL_ Roles",
-        "infoEmpty": "Mostrando 0 to 0 of 0 Roles",
-        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-        "infoPostFix": "",
-        "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ Roles",
-        "loadingRecords": "Cargando...",
-        "processing": "Procesando...",
-        "zeroRecords": "Sin resultados encontrados",
-        "paginate": {
-            "first": "Primero",
-            "last": "Ultimo",
-            "next": "Siguiente",
-            "previous": "Anterior"
-        }
-    }
-});
-} );
+     
+     </tbody>
+</table>
 
-</script>
+<p id="paginacion">{{$rols->links()}}</p> 
+  </div>
+
+
+</div>
+
+
 
   
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Page level plugin JavaScript-->
-  <script src="vendor/datatables/jquery.dataTables.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin.min.js"></script>
-
-  <!-- Demo scripts for this page-->
-  <script src="js/demo/datatables-demo.js"></script>
-
-</body>
+<body>
 @endcan
 @endsection

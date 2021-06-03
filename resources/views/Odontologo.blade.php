@@ -591,12 +591,32 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                   </div>
                   </div>
 
-                   <div class="form-group">
-                    <label for="especialidad" class="col-sm-2 col-form-label col-form-label-lg" style="font-size: 20px;">Especialidad:</label>
-                  <div >
-                    <input required type="text" class="form-control form-control-sm" name="especialidad" id="especialidad" placeholder="ingresar la especialidad del Odontologo"  value="{{ $odontologo->especialidad_id }}">
-                  </div>
-                  </div> 
+                  
+
+   <?php
+        $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
+        $mysqli->set_charset("utf8");
+      ?>
+
+            <label for="state_id" class="control-label">Especialidad:</label>
+                <select required name="especialidad" class="form-control">
+          <option value="{{  $odontologo->especialidad_id }}" selected>Especialidad Actual: {{$odontologo->especialidad->Especialidad}}</option>
+         
+                    <?php
+        $getDoctor =$mysqli->query("select * from especialidads order by id");
+        while($f=$getDoctor->fetch_object()) {
+          echo $f->id;
+          echo $f->Especialidad;
+
+          ?>
+          <option value="<?php echo $f->id; ?>"><?php echo $f->Especialidad ?></option>
+          <?php
+        } 
+        ?>
+
+
+                  
+        </select> 
 
   
               <!--    <label for="state_id" class="control-label">Especialidad:</label>
@@ -639,7 +659,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
                     <label for="intervalo" class="col-sm-2 col-form-label col-form-label-lg">Intervalo:</label>
                   <div >
                   <select name="intervalo" id="intervalo" class="form-control">
-                  <option value="{{ $odontologo->intervalos }}" disabled selected>Actual:{{ $odontologo->intervalos }}</option>
+                  <option value="{{ $odontologo->intervalos }}" selected>Actual:{{ $odontologo->intervalos }}</option>
                   <option value="10m">10 minutos</option>
                   <option value="15m">15 minutos</option>
                   <option value="20m">20 minutos</option>
