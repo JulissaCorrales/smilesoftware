@@ -106,7 +106,8 @@
 
 <body id="page-top">
 
-  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+  <nav class="navbar navbar-expand  static-top" style="background-color:#D3E0EA;
+">
 
   <H4 style="color:#008080; text-shadow: 1px 0 #00b3b3, 0 1px #b38f00, 1px 0 #ffb31a, 0 1px #ffb31a;">Smile Software</H4>
 
@@ -161,7 +162,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="sidebar navbar-nav">
+    <ul class=" sidebar navbar-nav">
      
       
         <li class="nav-item">

@@ -4344,6 +4344,7 @@ input[type=button].btn-block {
   display: block;
 }
 
+/*Este es la clase navbar*/
 .navbar {
   position: relative;
   display: flex;
@@ -4430,6 +4431,7 @@ input[type=button].btn-block {
   background-size: 100% 100%;
 }
 
+/*Este es la otra clase*/
 @media (max-width: 575.98px) {
   .navbar-expand-sm > .container,
   .navbar-expand-sm > .container-fluid {
@@ -4437,6 +4439,8 @@ input[type=button].btn-block {
     padding-left: 0;
   }
 }
+
+
 
 @media (min-width: 576px) {
   .navbar-expand-sm {
@@ -4637,7 +4641,7 @@ input[type=button].btn-block {
 }
 
 .navbar-light .navbar-brand {
-  color: rgba(0, 0, 0, 0.9);
+ color: rgba(0, 0, 0, 0.9);
 }
 
 .navbar-light .navbar-brand:hover,
@@ -4688,7 +4692,11 @@ input[type=button].btn-block {
 }
 
 .navbar-dark .navbar-brand {
-  color: #fff;
+  /*color: #fff; */
+color: rgba(0, 0, 0, 0.9);
+ background-color: #4d8c9c;
+
+
 }
 
 .navbar-dark .navbar-brand:hover,
@@ -10755,7 +10763,7 @@ body {
 
 .sidebar {
   width: 90px !important;
-  background-color: #212529;
+  background-color: #355b68;
   min-height: calc(100vh - 56px);
 }
 
