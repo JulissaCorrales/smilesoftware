@@ -10002,7 +10002,7 @@ body {
 .sidebar .nav-item .nav-link:active,
 .sidebar .nav-item .nav-link:focus,
 .sidebar .nav-item .nav-link:hover {
-    color: rgba(235, 229, 229, 0.979);
+    color: rgb(235, 229, 229);
 }
 
 .sidebar.toggled {
