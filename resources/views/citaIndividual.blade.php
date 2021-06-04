@@ -25,7 +25,7 @@
     #padre{
     
     border: 2px solid #ccc;
-    width: 70%;
+    width: auto;
     height: auto;
     
   border: 5px solid gray;
@@ -91,7 +91,7 @@
         </svg>Descargar</a>
         @endcan
         <!--  -->
-    <div id="ta">
+    <div id="ta" >
         <hr>
 
         <table id="datatable" class="table table-striped table-info">
@@ -110,11 +110,11 @@
   @forelse ($pacientes->citas as $tag) 
     <tr>
         <td>{{ $tag->id}}</td>
-        <td>{{ $tag->odontologo->especialidad_id}}</td>
+        <td>{{ $tag->odontologo->especialidad->Especialidad}}</td>
         <td>{{ $tag->odontologo->nombres}} {{ $tag->odontologo->apellidos}}</td>
         <td>{{ $tag->duracionCita}} minutos</td>
         <td>{{ $tag->stard}}</td>
-        <td>{{ $tag->comentarios}}</td>
+        <td><textarea  class="cajas-texto" disabled style="width:200px; border:0;resize: none;" type="text"  readonly>{{ $tag->comentarios}}</textarea></td>
         <!-- editar -->
         <td>
         @can('updateCitaIndividual',$tag)
@@ -201,6 +201,17 @@ $(document).ready( function () {
 });
 } );
 </script>
+<!-- scrip para textarea -->
+    <script>
+        let area = document.querySelectorAll(".cajas-texto")
+        
+        window.addEventListener("DOMContentLoaded", () => {
+          area.forEach((elemento) => {
+            elemento.style.height = `${elemento.scrollHeight}px`
+          })
+        })    
+    </script>
+<!--  -->
 @include('darcita')<!-- esta seccion hace que funcione modal dar cita -->
 
 

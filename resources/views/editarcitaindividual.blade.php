@@ -6,7 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <style>
-   
+   textarea{  
+        display:block;
+        box-sizing: padding-box;
+        overflow:hidden;
+        width:100%;
+        border-radius:6px; 
+      }
     #padre{
         padding:2em;
         margin:1em;
@@ -117,8 +123,8 @@ background-color:#009999;
          <!-- comentario -->
          <label for="comentarios" id="comentariolabel"class="control-label">Comentarios:</label>
          <br>
-         <option  disabled selected >Comentario Actual: {{$citas->comentarios}}</option>
-         <input required  value="{{$citas->comentarios}}" type="text" name="comentarios" id="comentarios" placeholder="Edita aquí"> 
+         <!-- <option  disabled selected >Comentario Actual: {{$citas->comentarios}}</option> -->
+         <textarea required  value="{{$citas->comentarios}}" type="text" name="comentarios" id="comentarios" class='autoExpand'  rows='3' data-min-rows='3'>{{$citas->comentarios}}</textarea>
          </div>
         <br>
         @can('viewIndividual',App\Cita::class)
@@ -136,6 +142,24 @@ background-color:#009999;
     <!-- ggg -->
     </div>
 </body>
+<!-- script para que textarea de cita se adecue al texto que se va ingresando -->
+<script>
+// Applied globally on all textareas with the "autoExpand" class
+$(document)
+    .one('focus.autoExpand', 'textarea.autoExpand', function(){
+        var savedValue = this.value;
+        this.value = '';
+        this.baseScrollHeight = this.scrollHeight;
+        this.value = savedValue;
+    })
+    .on('input.autoExpand', 'textarea.autoExpand', function(){
+        var minRows = this.getAttribute('data-min-rows')|0, rows;
+        this.rows = minRows;
+        rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 17);
+        this.rows = minRows + rows;
+    });
+</script>
+<!--  -->
 </html>
 @endsection
 
