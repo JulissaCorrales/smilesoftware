@@ -94,7 +94,7 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Servicios</h2>
-                    <h3 class="section-subheading text-muted">El software para gestionar tu clinica.</h3>
+                    <h3 class="section-subheading text-muted">El software para gestionar tu clínica.</h3>
                 </div>
                 <div class="row text-center">
                     <div class="col-md-4">
@@ -103,7 +103,7 @@
                             <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
                         </span>
                         <h4 class="my-3">Control de Gastos</h4>
-                        <p class="text-muted">Podrás llevar un buen control de los gastos de tu clinica y llevar el orden de tus compras de inventarios.</p>
+                        <p class="text-muted">Podrás llevar un buen control de los gastos de tu clínica y llevar el orden de tus compras de inventarios.</p>
                     </div>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
@@ -111,7 +111,7 @@
                             <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
                         </span>
                         <h4 class="my-3">Diseño Responsivo</h4>
-                        <p class="text-muted">Podrás observar las paginas del software de la manera mas eficiente ya sea que entrés desde tu telefono, tablet o computadora a la página web.</p>
+                        <p class="text-muted">Podrás observar las páginas del software de la manera mas eficiente ya sea que entrés desde tu teléfono, tablet o computadora a la página web.</p>
                     </div>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
@@ -194,7 +194,7 @@
                                
                                 <h4 class="subheading">Recuerda</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Nuestra Clinica nos brinda a toda la familia servicios odontológicos de calidad certificada, proveyendo una salud bucal integral.</p></div>
+                            <div class="timeline-body"><p class="text-muted">Nuestra Clínica nos brinda a toda la familia servicios odontológicos de calidad certificada, proveyendo una salud bucal integral.</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
@@ -228,14 +228,14 @@
                     <div class="col-lg-4">
                         <div class="d-flex flex-column align-items-center">
                             <div class="icon-contact mb-3"><i class="fas fa-mobile-alt"></i></div>
-                            <p style="color:orange;" >Telefonos:</p>
+                            <p style="color:orange;" >Teléfonos:</p>
                             <div style="color:orange;">+504-97099828</div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="d-flex flex-column align-items-center">
                             <div class="icon-contact mb-3"><i class="far fa-envelope"></i></div>
-                            <p style="color:orange;">Correo Electronico:</p><a style="color:orange;"href="mailto:name@example.com">smileSoftware.gmail</a>
+                            <p style="color:orange;">Correo Electrónico:</p><a style="color:orange;"href="mailto:name@example.com">smileSoftware.gmail</a>
                         </div>
                     </div>
                 </div>
@@ -251,7 +251,7 @@
                     <!-- Footer Location-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="mb-4">UBICACIÓN</h4>
-                        <p class="pre-wrap lead mb-0">Honduras, Dept. El Paraiso, Danli</p>
+                        <p class="pre-wrap lead mb-0">Honduras, Dept. El Paraíso, Danlí</p>
                     </div>
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">

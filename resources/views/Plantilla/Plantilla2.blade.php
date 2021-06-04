@@ -400,7 +400,7 @@ text-shadow: 2px 0 #00b3b3, 0 2px #b38f00, 2px 0 #ffb31a, 0 2px #ffb31a;
                            
                             <li class="nav-item dropdown" id="administracion">
                                 <a class="nav-link dropdown-toggle" href="" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Administracion
+                                Administración
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="">
                                 @can('view',App\Gasto::class)
@@ -417,7 +417,7 @@ text-shadow: 2px 0 #00b3b3, 0 2px #b38f00, 2px 0 #ffb31a, 0 2px #ffb31a;
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-lines-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
                 </svg>
-                Gestion de Odontologos 
+                Gestion de Odontólogos 
               </a>
             @endcanany
             @can('view',App\Logotipo::class)

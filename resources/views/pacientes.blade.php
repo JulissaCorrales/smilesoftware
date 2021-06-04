@@ -15,7 +15,7 @@
 </header>
 
     <div class="container">
-    <h5 style="text-align : center ">Tabla de Pacientes de la Clinica</h5>
+    <h5 style="text-align : center ">Tabla de Pacientes de la Clínica</h5>
     <table class="table table-striped" >
 <thead class="table-light">
 <tr>
@@ -27,7 +27,7 @@
 <th scope="col">Fecha de Nacimiento </th>
 <th scope="col">Departamento </th>
 <th scope="col">Ciudad </th>
-<th scope="col">Telefono Celular </th>
+<th scope="col">Teléfono Celular </th>
 </tr>
 </thead>
 
@@ -49,7 +49,7 @@
 </table>
 </div>
 <footer>
-<p> <strong> Clinica Odontologica Smile Software </strong> </p>
+<p> <strong> Clínica Odontologica Smile Software </strong> </p>
 </footer>
 
 

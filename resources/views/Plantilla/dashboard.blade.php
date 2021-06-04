@@ -108,7 +108,7 @@
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-  <H4 style="color:#008080; text-shadow: 1px 0 #00b3b3, 0 1px #b38f00, 1px 0 #ffb31a, 0 1px #ffb31a;">Smile Software</H4>
+  <H4 style="color: #D3E0EA;; text-shadow: 1px 0 #0061A8, 0 1px #1687A7, 1px 0 #ffb31a, 0 1px #1687A7;">Smile Software</H4>
 
 
  <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">@forelse($logotipos  as $tag)
@@ -190,8 +190,7 @@
           <span>Roles</span></a>
       </li>
 @endcan
-      
-@can('isAdmin')
+ @can('isAdmin')
       <li class="nav-item">
         <a class="nav-link" href="/pantallainicio/usuarios/ver">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
@@ -200,7 +199,8 @@
           <span>Usuarios</span></a>
       </li>
 
-@endcan
+@endcan     
+
       
    <li class="nav-item">
         <a class="nav-link" href="">

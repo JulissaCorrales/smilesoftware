@@ -80,14 +80,14 @@
                     </div>
 
                     <div class="form-group">
-                    <label for="telefonoFijo" class="col-sm-2 col-form-label col-form-label-lg">Telefono fijo:</label>
+                    <label for="telefonoFijo" class="col-sm-2 col-form-label col-form-label-lg">Teléfono fijo:</label>
                     <div >
                     <input type="text" class="form-control form-control-sm" name="telefonoFijo" id="telefonoFijo" placeholder="ingresar telefono Fijo del paciente"  value="{{ $odontologos->telefonoFijo}}">
                   </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="telefonoCelular" class="col-sm-2 col-form-label col-form-label-lg">Telefono celular:</label>
+                    <label for="telefonoCelular" class="col-sm-2 col-form-label col-form-label-lg">Teléfono celular:</label>
                   <div >
                     <input type="text" class="form-control form-control-sm" name="telefonoCelular" id="telefonoCelular" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologos->telefonoCelular }}">
                   </div>
@@ -116,7 +116,7 @@
                   </div>
                   
                   <div class="form-group">
-                    <label for="direccion" class="col-sm-2 col-form-label col-form-label-lg">Direccion:</label>
+                    <label for="direccion" class="col-sm-2 col-form-label col-form-label-lg">Dirección:</label>
                   <div >
                     <input type="text" class="form-control form-control-sm" name="direccion" id="direccion" placeholder="ingresar direccion del paciente"  value="{{ $odontologos->direccion }}">
                   </div>
