@@ -71,8 +71,9 @@ class OdontologoController extends Controller
         
         $request->validate(['nombres'=>'required',
         'apellidos'=>'required|alpha',
-        
-        'identidad'=>'required|unique:odontologos,identidad|numeric',
+          'email' => 'required|email|unique:odontologos,email',
+'identidad' => ['required',  Rule::unique('odontologos')->ignore($nuevo->id), 'max:13'],
+      
         'departamento'=>'required',
         'ciudad'=>'required',
         'telefonoCelular'=>'required|numeric',
@@ -86,7 +87,7 @@ class OdontologoController extends Controller
 
 
        if ($creado){
-            return redirect('/pantallainicio/odontologo')->with('mensaje', 'El Odontologo fué creado exitosamente!');
+            return redirect('/pantallainicio/odontologo')->with('mensaje', 'El Odontólogo fué creado exitosamente!');
         }else{
             //retornar con un msj de error
         } 
@@ -131,7 +132,8 @@ class OdontologoController extends Controller
     //validar
     $_request->validate(['nombres'=>'required',
     'apellidos'=>'required',
-    'identidad' => ['required', Rule::unique('odontologos')->ignore($odontologos->id)],
+ 'email' => 'required|email|unique:odontologos,email',
+    'identidad' => ['required|max:13', Rule::unique('odontologos')->ignore($odontologos->id)],
     'departamento'=>'required',
     'ciudad'=>'required',
     'telefonoCelular'=>'required|numeric',
@@ -142,7 +144,7 @@ class OdontologoController extends Controller
 
         
         if($create){
-            return redirect('/pantallainicio/odontologo')->with('mensaje','El Odontologo ha sido modifcado exitosamente');
+            return redirect('/pantallainicio/odontologo')->with('mensaje','El Odontólogo ha sido modifcado exitosamente');
         }else{
             //error
         }
@@ -155,7 +157,7 @@ class OdontologoController extends Controller
             abort(403);
          }
         Odontologo::destroy($id);
-        return redirect('/pantallainicio/odontologo')->with('mensaje','Odontologo borrado satisfactoriamente');
+        return redirect('/pantallainicio/odontologo')->with('mensaje','El Odontólogo ha sido  borrado exitosamente');
     }
 
 
