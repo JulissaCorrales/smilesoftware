@@ -20,4 +20,16 @@ class Controller extends BaseController
        ///Codigo para proteger todas las rutas
        $this->middleware('auth');
     }
+
+
+ public function administracion(){
+
+return view('administracion');
+
+}
+
+
+
+
+
 }

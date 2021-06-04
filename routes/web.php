@@ -48,7 +48,7 @@ use Illuminate\Support\Facades\Mail;
                 //ruta de vista paciente
                 Route::get('vista','PacienteController@vistapaciente')->name ('paciente.vista')->middleware('role:admin,secretaria,odontologo');
                 Route::get('buscar','PacienteController@index')->name ('paciente.buscar')->middleware('role:admin,secretaria,odontologo');
-    
+    Route::get('administracion','Controller@administracion')->name ('administracion.inicio')->middleware('role:admin,secretaria,odontologo');
            });
 
 
@@ -241,6 +241,8 @@ Route::prefix('pantallainicio/calendario')->group( function(){
        
  Route::prefix('create/{id}/')->group( function(){
  Route::get('buscar','PacienteController@index')->name ('paciente.buscar')->middleware('role:admin,secretaria,odontologo');
+
+
 
 
  });
