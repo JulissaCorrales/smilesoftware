@@ -9,10 +9,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- modal -->
-<!-- bootstrap -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
-<link  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" >
-  
   <!--  -->
   <!--Estos son  Importante -->
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -51,12 +47,13 @@
 <style>
 #calendar {
 
-width: 1000px;
-padding: 25px 25px 25px 25px;
+width: auto;
+margin-top:4em;
+margin-bottom:4em;
+margin-right:4em;
+margin-left:4em;
 
-position:absolute;
-top: 150px;
-left: 70px;
+padding: 25px 25px 25px 25px;
 background: url("/imagenes/fond.jpg");
 background-repeat: no-repeat;
 background-image: linear-gradient(to top, #00cccc ,#e6ffff );
@@ -92,9 +89,19 @@ color: #ABEBC6;
 #cal{
 color: #ff4d4d;
 border-color: #b3ffff;
-margin-top:6em;
+
 
 }
+   textarea{  
+        display:block;
+        box-sizing: padding-box;
+        overflow:hidden;
+        width:400;
+
+        border-radius:6px; 
+      }
+      #comentarios{margin-left:2em;
+      margin-right:2em;}
 
 </style>
 
@@ -105,7 +112,23 @@ margin-top:6em;
 
 
 @canany(['isAdmin','isSecretaria','isOdontologo'])
+<div class="container">
+@if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif
+ @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
+</div>
 <div class=row id="app">
   <div>
     <div   id="calendar"> 
@@ -195,11 +218,9 @@ margin-top:6em;
                         
         </div>
          <div>
-         <!-- comentario -->
-         <label></label>
-         <label for="comentarios" id="comentariolabel"class="control-label">Comentarios:</label>
-         <br>
-         <input required type="text" name="comentarios" id="comentarios"> 
+          <!-- comentario -->
+          <label for="comentarios" id="comentariolabel" class="control-label">Comentarios:</label>
+          <textarea class='autoExpand' rows='3' data-min-rows='3'class="form-control" required type="text" name="comentarios" id="comentarios" placeholder="Escriba el comentario sobre el paciente aquí"></textarea>
          </div>
         <br>
         <div class="modal-footer">
@@ -371,7 +392,24 @@ console.log(date);
 
 </div>
 @include('darcita')
-
+<!-- script para que textarea de cita se adecue al texto que se va ingresando -->
+<script>
+// Applied globally on all textareas with the "autoExpand" class
+$(document)
+    .one('focus.autoExpand', 'textarea.autoExpand', function(){
+        var savedValue = this.value;
+        this.value = '';
+        this.baseScrollHeight = this.scrollHeight;
+        this.value = savedValue;
+    })
+    .on('input.autoExpand', 'textarea.autoExpand', function(){
+        var minRows = this.getAttribute('data-min-rows')|0, rows;
+        this.rows = minRows;
+        rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 17);
+        this.rows = minRows + rows;
+    });
+</script>
+<!--  -->
 @endsection
 @endcanany
 </html>

@@ -72,7 +72,7 @@ class CitaController extends Controller
                 'odontologo_id'=>'required',
                 'duracionCita'=>'required',
                 'paciente_id'=>'required',
-                'comentarios'=>'required',
+                'comentarios'=>'required|max:255',
                 'stard' =>'required|after_or_equal:today',]);
 
             // formulario
@@ -153,7 +153,7 @@ class CitaController extends Controller
         $request->validate([
             'odontologo_id'=>'required',
             'duracionCita'=>'required',
-            'comentarios'=>'required',
+            'comentarios'=>'required|max:255',
             'stard' =>'required|date|after_or_equal:today']);
 
         $citas=Cita::findOrFail($citaid);
