@@ -142,7 +142,7 @@
 </div>
 
     <!-- Navbar -->
-    <ul class="navbar-nav ml-auto ml-md-0" style="position:absolute; left:1250px;">
+    <ul class="navbar-nav ml-auto ml-md-0" style="position:absolute; left:1090px;">
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link " style="
   font-size:15px;
