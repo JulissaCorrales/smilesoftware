@@ -139,7 +139,7 @@ background-color:#57EC7F }
 
  <!-- modal para crear nuevo rol -->
 <div class="modal fade" id="nuevoMedioPago" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header"  style="background-color:#26A69A;color:white">
         <h5 class="modal-title" id="exampleModalLabel">
@@ -161,11 +161,11 @@ background-color:#57EC7F }
                       
                       <div class="form-group">
                           <label for="nombre">Medio de Pago:</label>
-                          <input required type="text" class="form-control-file" name="nombre" id="nombre" placeholder="ingresar nombre del medio de pago">
+                          <input required type="text" class="form-control-file" name="nombre" id="nombre"  maxlength="60" placeholder="ingresar nombre del medio de pago">
                       </div>
                               
                   <div class="modal-footer">
-                    <button type="button" onclick="location.href='/pantallainicio/mediopago'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+                    <!-- <button type="button" onclick="location.href='/pantallainicio/mediopago'"class="btn btn-secondary" data-dismiss="modal">Atrás</button> -->
                     <input type="reset" class="btn btn-danger">
                     <button type="submit" class="btn btn-primary" >Guardar Medio de Pago</button>
                  </div>
@@ -244,11 +244,10 @@ background-color:#57EC7F }
                 
      <div class="form-group" id="divcate">
                     <label for="nombre" class="control-label">Nombre del Medio de Pago:</label>
-                    <input required type="text"  class="form-control-file" placeholder="Ingrese nombre del inventario" name="nombre" id="nombre"   value="{{$mediopago->nombre}}"> 
+                    <input required type="text" maxlength="60" class="form-control-file" placeholder="Ingrese nombre del inventario" name="nombre" id="nombre"   value="{{$mediopago->nombre}}"> 
                     </div>
                     
-                    <div class="form-group" id="div6">
-                    <button style="background-color:purple"type="button" onclick="location.href='/pantallainicio/mediopago'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+                    <div class="modal-footer" id="div6">
                     <input type="reset" class="btn btn-danger">
                     <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
                         Actualizar
@@ -282,7 +281,7 @@ background-color:#57EC7F }
             
  <!-- Modal -->
 <div class="modal fade" id="modal-{{$mediopago->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-dialog-centered " role="document">
           <div class="modal-content">
               <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -292,7 +291,7 @@ background-color:#57EC7F }
                   <!--<span aria-hidden="true">&times;</span>-->
                   </button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body" style="word-wrap: break-word;">
                   ¿Desea realmente eliminar el medio de pago {{$mediopago->nombre}}?
               </div>
               <div class="modal-footer">

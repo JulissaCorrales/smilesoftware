@@ -40,7 +40,7 @@ public function nuevo(){
 public function guardar(Request $request){
     $this->authorize('create', Mediopago::class); //si tiene el permiso de crear:     
     $request->validate([
-        'nombre'         =>  'required',
+        'nombre'         =>  'required|unique:mediopagos|alpha|max:60',
     ]);
 
     // formulario
@@ -72,7 +72,7 @@ public function update(Request $request,$id){
  
 
     $request->validate([
-        'nombre'        =>'required',
+        'nombre'         =>  'required|unique:mediopagos|alpha|max:60',
        
     ]);
 
