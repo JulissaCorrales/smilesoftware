@@ -64,7 +64,7 @@ h4{
 </p>
 
 @isset($usuarios->odontologo)
-<h5 class="card-title"> Odontologo Asignado a este Usuario</h5>
+<h5 class="card-title"> Odontólogo  Asignado a este Usuario</h5>
 {{$usuarios->odontologo->nombres}} {{$usuarios->odontologo->apellidos}}
 @endisset
 
