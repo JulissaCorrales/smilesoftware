@@ -231,7 +231,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
           Route::post('usuarios/guardar','UsuarioController@guardar')->name('usuario.guardar')->middleware('role:admin');
           Route::get('{id}/verusuario','UsuarioController@verusuario')->name('usuario.verusuario') -> where('id' ,'[0-9]+')->middleware('role:admin');
           Route::get('usuarios/{id}/editar','UsuarioController@editar') ->name('usuario.editar') -> where('id' ,'[0-9]+')->middleware('role:admin');
-          Route::put('usuarios/{id}/editar','UsuarioController@actualizar') ->name('usuario.actualizar') -> where('id' ,'[0-9]+')->middleware('role:admin');
+          Route::patch('usuarios/{id}/editar','UsuarioController@actualizar') ->name('usuario.actualizar') -> where('id' ,'[0-9]+')->middleware('role:admin');
           Route::delete('usuarios/{id}/borrar','UsuarioController@borrar') ->name('usuario.borrar')->where('id','[0-9]+')->middleware('role:admin');
 
 

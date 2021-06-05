@@ -3,6 +3,17 @@
 
 <head>
 
+
+<style>
+
+.reposivefont{
+
+
+
+}
+
+</style>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,7 +27,7 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
   <meta name="theme-color" content="#563d7c">
-
+  
 
 <!-- Titulo -->
   <title>@yield('titulo')</title>

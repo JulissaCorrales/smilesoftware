@@ -53,8 +53,8 @@
 
         <form method="post" action="{{route('usuario.actualizar',$user->id)}} " enctype="multipart/form-data">
 
-        @csrf
-        @method('put')
+       @method('PATCH')
+    @csrf()
    
             <div class="form-group row">
                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
