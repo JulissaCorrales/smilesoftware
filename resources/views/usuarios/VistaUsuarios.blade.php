@@ -20,7 +20,7 @@
            <h4><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge-fill" viewBox="0 0 16 16">
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
 </svg>Usuario</h4>
- <p>En esta Sección se muestra los Usuarios registrados y también se podra editar datos, crear un nuevo Usuario, borrar el Usuario registrado.</p>
+ <p>En esta Sección se muestra los Usuario registrados y también se podra editar datos, crear un nuevo Usuario, borrar el Usuario registrado, ver la especialidad del Usuario y la Identidad del mismo</p>
 </div>
 
           <div class="card-body">
@@ -116,43 +116,14 @@
                     @endforelse
                 </tbody>
 
-                 </table>
-            </div>
-        </div>
+                </table>
+</div>
+ </div>
  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
           <!-- script de jquery para que funcione el buscador de nombre-->
           <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
           <!-- script de datatable para que funcione el buscado de nombre-->
-<script type="text/javascript">
-$(document).ready( function () {
-    $('#datatable').DataTable( {
-    scrollY: "160vh",
-  "aoColumnDefs": [ { "sWidth": "10%", "aTargets": [ -1 ] } ]
-,
 
-    language: {
-        search: "Busqueda por nombre o correo:",
- "decimal": "",
-        "emptyTable": "No hay información",
-        "info": "",
-        "infoEmpty": "",
-        "infoFiltered": "(Filtrado de _MAX_ total usuarios)",
-        "infoPostFix": "",
-        "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ usuarios",
-        "loadingRecords": "Cargando...",
-        "processing": "Procesando...",
-        "zeroRecords": "Sin resultados encontrados",
-        "paginate": {
-            "first": "Primero",
-            "last": "Ultimo",
-            "next": " <html><button>Siguiente</button></html>  ",
-            "previous": " <html><button>Anterior </button></html>  "
-        }
-    }
-});
-} );
-</script>
 </body>
  </html>
  @endsection
