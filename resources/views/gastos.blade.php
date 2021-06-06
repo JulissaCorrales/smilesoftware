@@ -1,90 +1,46 @@
-@extends('Plantilla.Plantilla2')
+@extends('Plantilla.dashboard')
+@section('content')
 @section('titulo','Gastos')
-@section('contenido')
 @canany(['isAdmin','isSecretaria'])
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<style>
-table {
-   width: 100%;
-   text-align:center;
-}
-th, td {
-   width: 25%;
-   padding: 5px;
-   border: 3px solid #fff;
-}
-td{
-    background-color:#FEF5E7 ;
-}
-th{
-    text-align: center;
-    background-color:#293d3d ;
-color:white;
-}
-#padre{
-    width:auto;
-    margin: 5rem;
-    padding: 2rem;
-    border: 2px solid #ccc;
-}
-#btnAgregarGasto{ 
-    border-radius: 5px;
-    width: 160px;
-    background-color: #669999;
-    font-size: 14px;
-    position: absolute;
-    left: 700px;
-    top:1px;
-    border-color: #e67300;
-    color: white;       
-   }
-   #divhijo1{
-        position: relative;
-    } 
-</style>
-</head>
-<body>
-    <div class="container" id="padre"><!-- div1 padre-->
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    <div id="divhijo1"><!-- div hijo1 -->
-        <h1 style="color: #ff9933;text-align:center;
-        text-shadow: -1px 0 #009999, 0 1px #009999, 1px 0 #009999, 0 -1px #009999;
-        font-family: serif;"id="dire">Gastos de la Clinica</h1>
-        @can('Create', App\Gasto::class)
-        <a type="button" class="btn btn-outline-info" id="btnAgregarGasto"  data-toggle="modal" data-target="#creategasto">
-            <svg width="1.3em" height="2em" style="color:red"  viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-            <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-            </svg>
-            Agregar Gasto
-        </a>
-        @endcan
-    </div><!-- fin div hijo1 -->
-<div><!-- div hijo2 -->
-<hr>
-</div><!--fin div hijo2 -->
-@if(session('mensaje'))
-        <div class="alert alert-success">
-            {{session('mensaje')}}
-        </div>
-    @endif
 
-    <div  class="container" id="dd">
- <div class="list-group">
- 
-<table id="datatable">
-<thead>
-        <tr>
+
+    <body>
+                <div class="card mb-3">
+                <div class="card-header">
+                    <h4><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge-fill" viewBox="0 0 16 16">
+                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
+                        </svg>Gastos de la Clínica</h4>
+                        <p>En esta Sección se muestra los Gastos registrados y también se podra editar datos, crear un nuevo Gasto, borrar el Gasto registrado, ver el total de los Gastos la 
+                            fecha  de factura y la fecha de los pagos</p>
+                       
+                        <div id="divhijo1"><!-- div hijo1 -->
+                            @can('Create', App\Gasto::class)
+                            <a type="button" class="btn " id="btnAgregarGasto"  data-toggle="modal" data-target="#creategasto" style="background-color:#28a4a4; color:#c1f0f0; position: absolute;
+                            left: 1080px;
+                            top:  80px;">
+                                <svg width="1.3em" height="2em" style="color:white"  viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                </svg>
+                                Agregar Gasto
+                            </a>
+                            @endcan
+                        </div><!-- fin div hijo1 -->               
+                </div>
+                
+                </div>
+
+
+            <!--contenedor de tabla -->
+                <div  class="card-body">
+                  <div class="table-responsive">
+                    <!-- tabla -->
+
+                    <table class="table table-bordered" id="datatable1" width="100%" cellspacing="0">
+                        <thead>
+                           <tr>
             <th>Categoria</th>
             <th>Detalle</th>
             <th>Fecha de Factura</th>
