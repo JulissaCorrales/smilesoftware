@@ -117,7 +117,7 @@
 
 <body id="page-top">
 
-  <nav class="navbar navbar-expand  static-top" style="background-color:#276678;
+  <nav class="navbar navbar-expand-sm " style="background-color:#276678;
 ">
 
   <H4 style="color: #D3E0EA;; text-shadow: 1px 0 #0061A8, 0 1px #1687A7, 1px 0 #ffb31a, 0 1px #1687A7;">Smile Software</H4>
@@ -139,34 +139,32 @@
     <!-- Navbar Search -->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"    action="buscar">
       <div class="input-group">
-        <input type="text" class="form-control"   name="buscarpor"  style="position:absolute; left:100px; top:-25px; width:400px;"placeholder="Buscar Paciente..." aria-label="Search" aria-describedby="basic-addon2">
-      </div>
-  <div class="input-group-append"  style="position:absolute; left:740px; top:18px; width:300px;">
-          <button   class="btn btn-primary" type="button" style="width:50px; height:40px;"> <svg width="1em" height="50px;" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <input type="text" class="form-control"   name="buscarpor"  style="position:relative; width:400px;margin:1em;"placeholder="Buscar Paciente..." aria-label="Search" aria-describedby="basic-addon2">   <button   class="btn btn-primary" type="button" style="width:50px; height:40px;margin:1em;"> <svg width="1em" height="50px;" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
       <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
       </svg>
           </button>
-        </div>
+      </div>
     </form>
 
 </div>
 
     <!-- Navbar -->
-    <ul class="navbar-nav ml-auto ml-md-0" style="position:absolute; left:1250px;">
-      <li class="nav-item dropdown no-arrow">
-        <a class="nav-link " style="
+<div style="margin-left:auto; width: 15%;" class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+    <ul class="navbar-nav text-right" style="position:relative;margin:auto;">
+      <li class="nav-item active">
+        <a class="nav-link"   style="
   font-size:15px;
   line-height: 2;
   background-color: #d3e0ea;
  color:#1687a7;
   border: 1px solid transparent;
-  border-radius: 0.25rem; width:250px;" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  border-radius: 0.25rem; width:auto;text-align:center" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          
           @auth
           {{ Auth::user()->name }} - {{ Auth::user()->roles->isNotEmpty() ? Auth::user()->roles->first()->Nombre : "" }}
           @endauth
-<img class="logo" style="border-radius: 70%;left: 200px;bottom:0.3em;  position:absolute; top: px;" src='/Imagenes/{{Auth::user()->imagen}}'   width="40px" height="40px">
+<img class="logo" style="border-radius: 70%;margin-left:1em;;  position:relative; top: px;" src='/Imagenes/{{Auth::user()->imagen}}'   width="40px" height="40px">
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <div class="dropdown-divider"></div>
@@ -175,7 +173,7 @@
         </div>
       </li>
     </ul>
-
+</div>
   </nav>
 
   <div id="wrapper">
