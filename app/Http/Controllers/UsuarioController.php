@@ -136,6 +136,7 @@ class UsuarioController extends Controller
         $user = User::findOrFail($id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             //obtenemos el nombre del archivo
@@ -145,9 +146,12 @@ class UsuarioController extends Controller
             $user->imagen= $image;
         
         }
-        if($request->password != null){
+
+        if($request->password != $user->password){
             $user->password = Hash::make($request->password);
         }
+
+
         $creado =  $user->save();
 
         $user->roles()->detach();
