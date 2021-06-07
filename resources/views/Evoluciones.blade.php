@@ -41,21 +41,31 @@ color: white; position: absolute;top:100px; width: 820px; left:500px;"><svg widt
 <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
 </svg> 
 Evoluciones Medicas del Paciente</h3>
+<div class="container" style="margin-top:5em;margin-left:12em;width:600px">
 <div>@if(session('mensaje'))
     <div class="alert alert-success">
         {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
     </div>
 @endif
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
             @endforeach
+         
         </ul>
+        
     </div>
 @endif</div>
-
+</div>
 @can('create',App\Evoluciones::class)
     <button  id="evolucion" class="btn btn-outline-info"   class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>

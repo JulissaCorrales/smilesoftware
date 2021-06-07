@@ -69,14 +69,15 @@ class OdontologoController extends Controller
         }
         
         
-        $request->validate(['nombres'=>'required',
+        $request->validate(['nombres'=>'required|alpha',
         'apellidos'=>'required|alpha',
-          'email' => 'required|email|unique:odontologos,email',
-'identidad' => ['required',  Rule::unique('odontologos')->ignore($nuevo->id), 'max:13'],
-      
-        'departamento'=>'required',
-        'ciudad'=>'required',
-        'telefonoCelular'=>'required|numeric',
+        'email' => 'required|email|unique:odontologos,email',
+        'identidad' => ['required', 'numeric', Rule::unique('odontologos')->ignore($nuevo->id), 'digits:13'],
+
+        'departamento'=>'required|alpha',
+        'ciudad'=>'required|alpha',
+        'telefonoFijo'=>'required|numeric|digits:8',
+        'telefonoCelular'=>'required|numeric|digits:8',
         'direccion'=>'required|',
         'user_id'=>'required|unique:App\Odontologo'
         ]);
@@ -130,13 +131,14 @@ class OdontologoController extends Controller
         
         }
     //validar
-    $_request->validate(['nombres'=>'required',
-    'apellidos'=>'required',
- 'email' => 'required|email|unique:odontologos,email',
-    'identidad' => ['required|max:13', Rule::unique('odontologos')->ignore($odontologos->id)],
-    'departamento'=>'required',
-    'ciudad'=>'required',
-    'telefonoCelular'=>'required|numeric',
+    $_request->validate(['nombres'=>'required|alpha',
+    'apellidos'=>'required|alpha',
+    'email' => 'required|email|unique:odontologos,email',
+    'identidad' => ['required','digits:13','numeric', Rule::unique('odontologos')->ignore($odontologos->id)],
+    'departamento'=>'required|alpha',
+    'ciudad'=>'required|alpha',
+    'telefonoFijo'=>'required|numeric|digits:8',
+    'telefonoCelular'=>'required|numeric|digits:8',
     'direccion'=>'required|',
     'user_id' => ['required', Rule::unique('odontologos')->ignore($odontologos->id)]
     ]);
