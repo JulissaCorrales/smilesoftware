@@ -138,7 +138,7 @@
               
 
             </div>
-            <label for="permiso" class="col-md-4 col-form-label text-md-right">{{ __('Fotografia de usuario:') }}</label>
+            <label for="permiso" class="col-md-4 col-form-label text-md-right">{{ __('Fotografía de usuario:') }}</label>
             <div align=center  class="form-group" id="imagen">       
                     <input accept="image/*" type="file" class="form-control-file" name="file" id="file" value="{{$user->imagen}}">
             </div>
