@@ -50,7 +50,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
 
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, Minimum-scale=1.0, user-scalable=no, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
@@ -139,7 +139,7 @@
     <!-- Navbar Search -->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"    action="buscar">
       <div class="input-group">
-        <input type="text" class="form-control"   name="buscarpor"  style="position:relative; width:400px;margin-left:4em;"placeholder="Buscar Paciente..." aria-label="Search" aria-describedby="basic-addon2">  
+        <input type="text" class="form-control"   name="buscarpor"  style="position:relative; width:300px;margin-left:4em;"placeholder="Buscar Paciente..." aria-label="Search" aria-describedby="basic-addon2">  
  <button   class="btn btn-primary" type="button" style="width:50px; height:40px; float: left;"> <svg width="1em" height="50px;" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
       <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
@@ -152,7 +152,7 @@
 
     <!-- Navbar -->
 <div style="margin-left:auto; width: 15%;" class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
-    <ul class="navbar-nav text-right" style="position:relative;margin:auto;">
+    <ul class="navbar-nav text-right" style="position:static;margin:auto;">
       <li class="nav-item active">
         <a class="nav-link"   style="
   font-size:15px;
