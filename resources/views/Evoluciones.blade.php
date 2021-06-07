@@ -90,7 +90,7 @@ Evoluciones Medicas del Paciente</h3>
   $mysqli->set_charset("utf8");
   ?>
 <div class="col-md-6" style="margin:2em;">
-<textarea required id="w3review" placeholder="Escriba la evolucion del plan de tratamiento" name="caja" value="text" rows="4" cols="52" ></textarea>
+<textarea required id="w3review" maxlength="255" placeholder="Escriba la evolucion del plan de tratamiento" name="caja" value="text" rows="4" cols="52" ></textarea>
 </div>
 
 <div id="disv4"  style="margin:2em;margin-left:10%;">
@@ -130,6 +130,7 @@ Evoluciones Medicas del Paciente</h3>
         <h5> PlanTratamiento: {{ $tag->planestratamiento->tratamiento->categoria}} <br>
           Paciente:{{$pacientes->nombres}}  {{$pacientes->apellidos}} <br>
         Evolucion: {{ $tag->evolucion}} 
+
         </h5>
       </td>
   <!-- Eliminar evolucion -->
@@ -203,7 +204,7 @@ Evoluciones Medicas del Paciente</h3>
                 $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
                 $mysqli->set_charset("utf8");
                 ?>
-                <textarea required id="w3review" placeholder="Escriba la evolucion del plan de tratamiento" name="caja" value="text" rows="4" cols="52" >{{$tag->evolucion}}</textarea>
+                <textarea required id="w3review" maxlength="255" placeholder="Escriba la evolucion del plan de tratamiento" name="caja" value="text" rows="4" cols="52" >{{$tag->evolucion}}</textarea>
 
                 <div id="disv4">
                 <select class="form-control" required name="tratamiento_id" id="disv3">
