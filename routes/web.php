@@ -407,8 +407,8 @@ route::get('/pantallainicio/vista/paciente/{id}/VistaRecaudaciones','Recaudacion
 /*************************rutas de laboratorio*************************************/
 
 Route::get('/pantallainicio/laboratorios','LaboratorioController@VistaLaboratorio');
-Route::get('/laboratorioNuevo','LaboratorioController@nuevo');
-Route::post('laboratorioNuevo','LaboratorioController@guardar');
+Route::get('/laboratorioNuevo','LaboratorioController@nuevo')-> where('id' ,'[0-9]+');
+Route::post('laboratorioNuevo','LaboratorioController@guardar')-> where('id' ,'[0-9]+');
 Route::get('laboratorioEditar/{id}/editar','LaboratorioController@editar')-> where('id' ,'[0-9]+')->name('laboratorio.editar');
 Route::put('laboratorioEditar/{id}/editar','LaboratorioController@actualizar') -> where('id' ,'[0-9]+')->name('laboratorio.actualizar');
 Route::delete('/laboratorio/{id}/borrar','LaboratorioController@destroy') ->name('laboratorio.borrar')->where('id','[0-9]+');

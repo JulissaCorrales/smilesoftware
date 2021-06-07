@@ -182,7 +182,7 @@ Evoluciones Medicas del Paciente</h3>
 @endcan
     
 
-    <!--modal de editar comentario Administrativo -->
+    <!--modal de editar evoluciones -->
   <div class="modal fade" id="modaleditar-{{$tag->id}}"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document" >
           <div class="modal-content" style="position:absolute; left:50px; top:100px;">
@@ -203,7 +203,7 @@ Evoluciones Medicas del Paciente</h3>
                 $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
                 $mysqli->set_charset("utf8");
                 ?>
-                <input style="margin-bottom:1em;" class="form-control" type="text" required id="w3review" placeholder="Escriba la evolucion del plan de tratamiento" name="caja" value="{{$tag->evolucion}}"></input>
+                <textarea required id="w3review" placeholder="Escriba la evolucion del plan de tratamiento" name="caja" value="text" rows="4" cols="52" >{{$tag->evolucion}}</textarea>
 
                 <div id="disv4">
                 <select class="form-control" required name="tratamiento_id" id="disv3">

@@ -158,7 +158,7 @@ background-color: #57ECC7
 </svg>Nuevo Laboratorio</span>
         </button>
 
-        <!-- modal para crear nuevo rol -->
+        <!-- modal para crear nuevo laboratorio -->
 <div class="modal fade" id="nuevoLab" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -192,7 +192,7 @@ background-color: #57ECC7
 
                     <div class="form-group">
                         <label for="nombre">por Pagar:</label>
-                        <input required type="number" class="form-control-file" name="porPagar" id="porPagar" placeholder="por pagar">
+                        <input required type="number" class="form-control-file" pattern="^[0-9]+" name="porPagar" id="porPagar" placeholder="por pagar">
                     </div>
                               
                   <div class="modal-footer">
@@ -287,7 +287,7 @@ background-color: #57ECC7
 
                     <div class="form-group">
                         <label for="nombre">por Pagar:</label>
-                        <input required type="number" class="form-control-file" name="porPagar" id="porPagar" value="{{$lab->porPagar}}">
+                        <input required type="number" class="form-control-file" pattern="^[0-9]+" name="porPagar" id="porPagar" value="{{$lab->porPagar}}">
                     </div>
                               
                   <div class="modal-footer">
