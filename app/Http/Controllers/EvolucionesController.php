@@ -29,7 +29,7 @@ class EvolucionesController extends Controller
         $this->authorize('create', Evoluciones::class);//si tiene el permiso de crear
          $request->validate([
                     'tratamiento_id'=>'required',
-                    'caja'=>'required',
+                    'caja'=>'required|max:255',
         
                 ]);
         $paciente=Paciente::findOrFail($id);
@@ -65,7 +65,7 @@ class EvolucionesController extends Controller
      public function update(Request $request,$id,$id_evolucion){
                  $request->validate([
                     'tratamiento_id'=>'required',
-                    'caja'=>'required',
+                    'caja'=>'required|max:255',
         
                 ]);
                

@@ -139,7 +139,7 @@
                         </div>
                    
         <div class="form-group">
-        <label for="permiso" class="col-md-4 col-form-label text-md-right">{{ __('Fotografia de usuario:') }}</label>
+        <label for="permiso" class="col-md-4 col-form-label text-md-right">{{ __('Fotografía de usuario:') }}</label>
                     <input type="file" style="margin-left:500px"accept="image/*" class="form-control-file" name="file" id="file" placeholder="Seleccione una Imagen">
                   </div>
                     <div class="form-group" align=center id="div6">

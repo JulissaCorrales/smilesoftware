@@ -41,21 +41,31 @@ color: white; position: absolute;top:100px; width: 820px; left:500px;"><svg widt
 <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
 </svg> 
 Evoluciones Medicas del Paciente</h3>
+<div class="container" style="margin-top:5em;margin-left:12em;width:600px">
 <div>@if(session('mensaje'))
     <div class="alert alert-success">
         {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
     </div>
 @endif
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
             @endforeach
+         
         </ul>
+        
     </div>
 @endif</div>
-
+</div>
 @can('create',App\Evoluciones::class)
     <button  id="evolucion" class="btn btn-outline-info"   class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -90,7 +100,7 @@ Evoluciones Medicas del Paciente</h3>
   $mysqli->set_charset("utf8");
   ?>
 <div class="col-md-6" style="margin:2em;">
-<textarea required id="w3review" placeholder="Escriba la evolucion del plan de tratamiento" name="caja" value="text" rows="4" cols="52" ></textarea>
+<textarea required id="w3review" maxlength="255" placeholder="Escriba la evolucion del plan de tratamiento" name="caja" value="text" rows="4" cols="52" ></textarea>
 </div>
 
 <div id="disv4"  style="margin:2em;margin-left:10%;">
@@ -130,6 +140,7 @@ Evoluciones Medicas del Paciente</h3>
         <h5> PlanTratamiento: {{ $tag->planestratamiento->tratamiento->categoria}} <br>
           Paciente:{{$pacientes->nombres}}  {{$pacientes->apellidos}} <br>
         Evolucion: {{ $tag->evolucion}} 
+
         </h5>
       </td>
   <!-- Eliminar evolucion -->
@@ -182,7 +193,7 @@ Evoluciones Medicas del Paciente</h3>
 @endcan
     
 
-    <!--modal de editar comentario Administrativo -->
+    <!--modal de editar evoluciones -->
   <div class="modal fade" id="modaleditar-{{$tag->id}}"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document" >
           <div class="modal-content" style="position:absolute; left:50px; top:100px;">
@@ -203,7 +214,7 @@ Evoluciones Medicas del Paciente</h3>
                 $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
                 $mysqli->set_charset("utf8");
                 ?>
-                <input style="margin-bottom:1em;" class="form-control" type="text" required id="w3review" placeholder="Escriba la evolucion del plan de tratamiento" name="caja" value="{{$tag->evolucion}}"></input>
+                <textarea required id="w3review" maxlength="255" placeholder="Escriba la evolucion del plan de tratamiento" name="caja" value="text" rows="4" cols="52" >{{$tag->evolucion}}</textarea>
 
                 <div id="disv4">
                 <select class="form-control" required name="tratamiento_id" id="disv3">
