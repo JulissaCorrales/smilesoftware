@@ -17,7 +17,7 @@
 <body>
 <div class="container" id="padre" >
 <div class="card" >
-<div class="card-header" style="background-color:#E8DAEF;font-family:Helvetica ">
+<div class="card-header" style=" background-color:#276678; color:white;  height:100px;"">
 
 <h3>Nombre del Rol: {{$roles->Nombre}}</h1>
 <h3>Slug:{{$roles->slug}}</h1>
