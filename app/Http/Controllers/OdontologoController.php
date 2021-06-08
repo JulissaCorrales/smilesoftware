@@ -49,12 +49,10 @@ class OdontologoController extends Controller
         $nuevo->identidad = $request->input('identidad');
         $nuevo->telefonoCelular = $request->input('telefonoCelular');
         $nuevo->telefonoFijo = $request->input('telefonoFijo');
-        $nuevo->email = $request->input('email');
         $nuevo->departamento = $request->input('departamento');
         $nuevo->ciudad = $request->input('ciudad');
         $nuevo->direccion = $request -> input('direccion');
         $nuevo->especialidad_id = $request->input('especialidad');
-        $nuevo->intervalos = $request->input('intervalo');
         $nuevo->user_id = $request->input('user_id');
 
 
@@ -71,7 +69,6 @@ class OdontologoController extends Controller
         
         $request->validate(['nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
         'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
-        'email' => 'required|email|unique:odontologos,email',
         'identidad' => ['required', 'numeric', Rule::unique('odontologos')->ignore($nuevo->id), 'digits:13'],
 
         'departamento'=>'required||regex:/^[\pL\s\-]+$/u',
@@ -112,12 +109,10 @@ class OdontologoController extends Controller
         $odontologos->identidad = $_request->input('identidad');
         $odontologos->telefonoCelular = $_request->input('telefonoCelular');
         $odontologos->telefonoFijo = $_request->input('telefonoFijo');
-        $odontologos->email = $_request->input('email');
         $odontologos->departamento = $_request->input('departamento');
         $odontologos->ciudad = $_request->input('ciudad');
         $odontologos->direccion = $_request -> input('direccion');
         $odontologos->especialidad_id= $_request->input('especialidad');
-        $odontologos->intervalos = $_request->input('intervalo');
         $odontologos->user_id = $_request->input('user_id');
 
         
@@ -133,7 +128,6 @@ class OdontologoController extends Controller
     //validar
     $_request->validate(['nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
     'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
-     'email' => ['required', 'email', 'max:255', Rule::unique('odontologos')->ignore($odontologos->id)],
     'identidad' => ['required','digits:13','numeric', Rule::unique('odontologos')->ignore($odontologos->id)],
     'departamento'=>'required|regex:/^[\pL\s\-]+$/u',
     'ciudad'=>'required|regex:/^[\pL\s\-]+$/u',

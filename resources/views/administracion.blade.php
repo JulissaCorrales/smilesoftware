@@ -7,35 +7,84 @@
 
 <style>
 
+@media all and (max-width: 600px){
+    div.primerdiv1{
+        width:100%;
+        height:auto;
+        margin-left:10px;
 
+    }
+}
+
+
+
+
+
+@media all and (max-width: 520px) {
+    a.menu{
+        padding-left:30%;
+         margin:0px 4px;
+    }
+}
+
+
+
+
+@media all and (max-width: 520px) {
+    div.primerdiv1{
+        display: inline-block;
+        padding:2px 6px;
+        margin:0px 4px;
+    }
+}
+
+
+@media all and (max-width: 1200px) {
+    div.primerdiv1 {
+        display: inline-block;
+        padding:2px 6px;
+        margin:0px 4px;
+    }
+}
+
+
+
+@media all and (max-width: 1200px) {
+    div.segundodiv1 {
+        display: inline-block;
+        padding:0px 6px;
+        margin:0px 4px;
+    }
+}
+
+
+/*
 
 #primerdiv1{
 
 width:100%;
-max-width:1200px;
-min-width:500px;
-
-margin: 10px;
+max-width:120%;
+margin: 0.5%;
 
 
-}
+}*/
 
 
-
+/*
 #segundodiv1{
 
 width:100%;
-max-width:1200px;
+max-width:100%;
 
-margin-top: 50px;
+margin-top: 5%;
 
 
 
-}
+}  */
 
 
 #imagen{
-width:0 auto;
+width: 0 auto;
 height:0 auto;
 
 
@@ -62,10 +111,12 @@ height:0 auto;
                
 
  @canany(['isAdmin','isSecretaria'])
-              <a class="btn btn-outline-info" href="/pantallainicio/odontologo" style="border-style: solid;background-color:white; color:#009999; border-color:#009999; position:static;"  >
+              <a class="btn btn-outline-info" href="/pantallainicio/odontologo" style="background-color:white; color:#009999;border-color:white; position:static;"  >
 
-   <img  id="imagen" src="{{ asset('Imagenes/Doctor1.png')}}" alt="Avatar" class="three-columns" width="210" height="220" style="">
-      <br>      Odontólogos 
+   <img  id="imagen" src="{{ asset('Imagenes/Doctor1.png')}}" alt="Avatar" class="three-columns" width="200" height="220" style="">
+      <br>      Odontólogos  <br>  <p></p>
+
+              <br><p></p>
               </a>
             @endcanany
 
@@ -79,36 +130,43 @@ height:0 auto;
 
  
    @can('view',App\Inventario::class)
-            <a class="btn btn-outline-info"  href="/inventario/" style=" background-color:white; color:#009999;  border-style: solid; border-color:#009999;position:static;  ">
+            <a class="btn btn-outline-info"  href="/inventario/" style=" background-color:white; color:#009999;  border-style: solid; border-color:white;position:static;  ">
               
  
-          <img src="{{ asset('Imagenes/inventario.jpeg')}}" alt="Avatar" id="imagen" class="three-columns" width="210" height="220">
+          <img src="{{ asset('Imagenes/inventario.jpeg')}}" alt="Avatar" id="imagen" class="three-columns" width="200" height="220">
 <br>
-Inventarios </a>
+Inventarios <br>  <p></p>
+
+              <br><p></p>
+</a>
            @endcan
 
 
 
 
             @can('view',App\Gasto::class)
-              <a class="btn btn-outline-info" href="/pantallainicio/gastos" style=" background-color:white; color:#009999;  border-style: solid; border-color:#009999;position:static;  ">
+              <a class="btn btn-outline-info" href="/pantallainicio/gastos" style=" background-color:white; color:#009999;  border-style: solid; border-color:white;position:static;  ">
                
-              <img src="{{ asset('Imagenes/gastos.jpeg')}}" alt="Avatar" class="three-columns" width="210" height="220" > <br>
+              <img src="{{ asset('Imagenes/gastos.jpeg')}}" alt="Avatar" class="three-columns" width="200" height="220" > <br>
 
-Gastos
+Gastos<br>  <p></p>
+
+              <br><p></p>
               </a>
             @endcan
 
 
    @can('view',App\Logotipo::class)
-              <a class="btn btn-outline-info" href="{{route('logotipo.ver')}}" style=" background-color:white; border-style: solid; border-color:#009999; color:#009999;position:static; ">
+              <a class="btn btn-outline-info" href="{{route('logotipo.ver')}}" style=" background-color:white; border-style: solid; border-color:white; color:#009999;position:static; ">
   
                
 
-<img src="{{ asset('Imagenes/logotipo1.jpeg')}}" alt="Avatar"class="three-columns" id="imagen" width="210" height="220">
+<img src="{{ asset('Imagenes/logotipo1.jpeg')}}" alt="Avatar"class="three-columns" id="imagen" width="200" height="220">
 <br>
 
-Logotipo
+Logotipo <br>  <p></p>
+
+              <br><p></p>
              
               </a>
             @endcan
@@ -116,51 +174,52 @@ Logotipo
 
 
             @canany(['isAdmin','isSecretaria'])
-            <a class="btn btn-outline-info"href="/tratamiento/"  style=" background-color:white; border-style: solid; border-color:#009999; color:#009999; position:static;" >
+            <a class="btn btn-outline-info"href="/tratamiento/"  style=" background-color:white; border-style: solid; border-color:white; color:#009999; position:static;" >
                
-  <img src="{{ asset('Imagenes/tratamiento.jpeg')}}" alt="Avatar" class="three-columns "  width="210" height="220" id= "imagen" >
+  <img src="{{ asset('Imagenes/tratamiento.jpeg')}}" alt="Avatar" class="three-columns "  width="200" height="220" id= "imagen" >
 <br>
-Tratamientos
+Tratamientos <br>  <p></p>
+
+              <br><p></p>
             </a>
             @endcanany
 
 
-<div id="segundodiv1">
+
     
 
          
 
 
-
-
-
-
            @canany(['isAdmin','isSecretaria'])
-            <a class="btn btn-outline-info" href="/pantallainicio/mediopago" style=" background-color:white; border-style: solid; border-color:#009999; position:static;" >
+            <a class="btn btn-outline-info" href="/pantallainicio/mediopago" style=" background-color:white; border-style: solid; border-color:white; color:#009999; position:static;" >
             
-  <img src="{{ asset('Imagenes/pagos.jpeg')}}" alt="Avatar" class="two-columns " id="imagen" width="210" height="220"> <br>
+  <img src="{{ asset('Imagenes/pagos.jpeg')}}" alt="Avatar" class="two-columns " id="imagen" width="200" height="220"> <br>
 
-Medios de Pagos 
+Medios de Pagos  <br>  <p></p>
+
+              <br><p></p>
             </a>
             @endcanany
 
 
 
 
-             @canany(['isAdmin','isSecretaria'])
+             
  
-            <a class="btn btn-outline-info" href="/pantallainicio/laboratorios" style=" background-color:white; border-style: solid; border-color:#009999; position:static;">
+            <a class="btn btn-outline-info" href="/pantallainicio/laboratorios" style=" background-color:white;  border-style: solid; border-color:white; color:#009999; position:static;">
             
-              <img src="{{ asset('Imagenes/laboratorios1.jpeg')}}" alt="Avatar" class="two-columns " id="imagen" width="210" height="220">
+              <img src="{{ asset('Imagenes/laboratorios1.jpeg')}}" alt="Avatar" class="two-columns " id="imagen" width="200" height="220">
  <br>
-Laboratorios
+Laboratorios <br>  <p></p>
+
+              <br><p></p>
             </a>
 
-@endcanany
 
 
 
-      </div>
+      
 
 </div>
 

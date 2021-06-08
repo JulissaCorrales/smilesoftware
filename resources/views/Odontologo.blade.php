@@ -4,20 +4,31 @@
 @section('content')
 
 <!--</head> -->
+<div>
+<div>@if(session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+@endif
 @if ($errors->any())
-<div class="alert alert-danger">
-<ul>
-@foreach ($errors->all() as $error)
-<li>{{ $error }}</li>
-@endforeach
-</ul>
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
+            @endforeach
+         
+        </ul>
+        
+    </div>
+@endif</div>
 </div>
-@endif
-@if(session('mensaje'))
-<div class="alert alert-success">
-{{session('mensaje')}}
-</div>
-@endif
 
 <body id="page-top">
 
@@ -127,7 +138,7 @@
   <div class="modal fade" id="modalll-{{$odontologo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content" style="position:absolute; top:100px;">
-              <div class="modal-header" style=" background-color:#293d3d; color:white;  height:100px;">
+              <div class="modal-header" style=" background-color:#276678; color:white">
                   <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
 </svg> Eliminar Odontologo</h5>
@@ -154,92 +165,87 @@
 <!--Fin de modal eliminar -->
 
 </td> 
-
- <div class="modal fade" id="modal-{{$odontologo->id}}" >
+<!--Modal de Editar Datos -->
+ <div class="modal fade bd-example-modal-lg" id="modal-{{$odontologo->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+ 
   
-	<div class="modal-dialog" role="document">
+	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content"  style="">
-			<div class="modal-header" style=" background-color:#293d3d; color:white;  height:130px;">
-	
-				<h4  class="modal-title" id="modal">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-</svg>
-        Editar Odontologo</h4>
-        <div id="imagen4">
-                      <img src='/Imagenes/{{$odontologo->imagen}}' width=" 100px" height="100px"id="datos6">
-                      </div>
+			<div class="modal-header" style=" background-color:#276678; color:white;">
+            
+            
 
+				<h4  class="modal-title" id="modal" >
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+        </svg>
+        Editar Odontologo</h4>
+     
         	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
-				</button>
+          </button>
 
 			</div>
 			<div class="modal-body" id="bodymodal">
-
-
-    <!-- Esta parte del codigo es para poder ir a traer informacion de la base de datos -->
-    <div class="content" id="n">
-   <!-- <form method="post"  action="{{route('odontologo.editar',['id'=> $odontologo-> id])}}"> -->
-    <form method="post"  action="{{route('odontologo.update',['id'=> $odontologo-> id])}} "file="true" enctype="multipart/form-data" id="form1">
-    <?php
-        $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
-        $mysqli->set_charset("utf8");
+      <div class="row"> 
+        <div id="imagen4" class="col-md-12">
+          <img style=" border-radius: 50%;" src='/Imagenes/{{$odontologo->imagen}}' width=" 70px" height="70px"id="datos6" >
+          </div>
+      </div>
+      <hr style="color:#1687a7">
+      <!-- Esta parte del codigo es para poder ir a traer informacion de la base de datos -->
+      <div class="content" id="n">
+      <form method="post"  action="{{route('odontologo.update',['id'=> $odontologo-> id])}} "file="true" enctype="multipart/form-data" id="form1">
+      <?php
+      $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
+      $mysqli->set_charset("utf8");
       ?>
-                      @csrf
-                      @method('put')
-                      
-                    <div class="form-group">
-                        <label for="nombres" class="col-sm-2 col-form-label col-form-label-lg" >Nombres:</label>
-                        <div >
-                        <input required type="text" class="form-control form-control-sm" name="nombres" id="nombres" style="font-size: 20px;" placeholder="ingresar nombre del paciente"  value="{{ $odontologo->nombres }}" >
-                        </div>
-                    </div>
-
-              
-                      <div class="form-group">
-                          <label for="apellidos" class="col-sm-2 col-form-label col-form-label-lg" >Apellidos:</label>
-                          <div >
-                          <input required type="text" class="form-control form-control-sm" name="apellidos" style="font-size: 20px;" id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $odontologo->apellidos }}">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="identidad"class="col-sm-2 col-form-label col-form-label-lg">Identidad:</label>
-                        <div>
-                        <input required type="number" class="form-control form-control-sm" name="identidad" id="identidad"  style="font-size: 20px;"placeholder="ingresar identidad del paciente"  value="{{ $odontologo->identidad }}">
-                    </div>
-                    </div>
-
-                    <div class="form-group">
-                    <label for="telefonoFijo" class="col-sm-2 col-form-label col-form-label-lg">Tel.Fijo:</label>
-                    <div >
-                    <input type="number" required class="form-control form-control-sm" name="telefonoFijo" id="telefonoFijo" style="font-size: 20px;" placeholder="ingresar telefono Fijo del paciente"  value="{{ $odontologo->telefonoFijo}}">
-                  </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="telefonoCelular" class="col-sm-2 col-form-label col-form-label-lg">Tel.Celular:</label>
-                  <div >
-                    <input type="number" required  class="form-control form-control-sm" name="telefonoCelular"  style="font-size: 20px;"id="telefonoCelular" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->telefonoCelular }}">
-                  </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="email" class="col-sm-2 col-form-label col-form-label-lg">Correo Electronico:</label>
-                  <div >
-                    <input required type="email" class="form-control form-control-sm" style="font-size: 20px;" name="email" id="email" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->email }}">
-                  </div>
-                  </div>
-
-                    
-                  <div class="form-group">
-                    <label for="departamento" class="col-sm-2 col-form-label col-form-label-lg">Departamento:</label>
-                    <div >
-                    <!--  -->
+      @csrf
+      @method('put')
+      <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+              <label for="nombres" >Nombres:</label>
+              <div >
+              <input required type="text" class="form-control " name="nombres" id="nombres"  placeholder="ingresar nombre del paciente"  value="{{ $odontologo->nombres }}" >
+              </div>
+              </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="apellidos" >Apellidos:</label>
+                <div >
+                <input required type="text" class="form-control" name="apellidos"  id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $odontologo->apellidos }}">
+              </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="identidad">Identidad:</label>
+                <input required type="number" class="form-control" name="identidad" id="identidad"  placeholder="ingresar identidad del paciente"  value="{{ $odontologo->identidad }}">
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+             <div class="form-group">
+            <label for="telefonoFijo">Tel.Fijo:</label>
+            <input type="number" required class="form-control" name="telefonoFijo" id="telefonoFijo"  placeholder="ingresar telefono Fijo del paciente"  value="{{ $odontologo->telefonoFijo}}">
+                 
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+              <label for="telefonoCelular">Tel.Celular:</label>
+              <input type="number" required  class="form-control" name="telefonoCelular"  id="telefonoCelular" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->telefonoCelular }}">
+          </div>  
+        </div>
+        <div class="col-md-4">
+              <div class="form-group">
+                    <label for="departamento" >Departamento:</label>
                     <select name="departamento" id="departamento" class="form-control">
-                      <option selected value="{{ $odontologo->departamento }}">Departamento Actual: {{$odontologo->departamento}}</option>
+                      <option selected value="{{ $odontologo->departamento }}">Depto Actual: {{$odontologo->departamento}}</option>
                          <option >Atlántida</option>
                         <option >Choluteca</option>
                         <option>Colón</option>
@@ -259,369 +265,317 @@
                         <option >Valle</option>
                         <option >Yoro</option>
                       </select>
-                    <!--  -->
                   </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="ciudad" class="col-sm-2 col-form-label col-form-label-lg">Ciudad:</label>
-                  <div >
-                    <input required type="text" class="form-control form-control-sm"  style="font-size: 20px;"name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $odontologo->ciudad }}">
-                  </div>
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="direccion" class="col-sm-2 col-form-label col-form-label-lg">Direccion:</label>
-                  <div >
-                    <input required type="text" class="form-control form-control-sm" style="font-size: 20px;" name="direccion" id="direccion" placeholder="ingresar direccion del paciente"  value="{{ $odontologo->direccion }}">
-                  </div>
-                  </div>
-
-                  
-
-   <?php
-        $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
-        $mysqli->set_charset("utf8");
-      ?>
-
-            <label for="state_id" class="control-label">Especialidad:</label>
-                <select required name="especialidad" class="form-control">
-          <option value="{{  $odontologo->especialidad_id }}" selected>Especialidad Actual: {{$odontologo->especialidad->Especialidad}}</option>
-         
-                    <?php
-        $getDoctor =$mysqli->query("select * from especialidads order by id");
-        while($f=$getDoctor->fetch_object()) {
-          echo $f->id;
-          echo $f->Especialidad;
-
-          ?>
-          <option value="<?php echo $f->id; ?>"><?php echo $f->Especialidad ?></option>
-          <?php
-        } 
-        ?>     
-        </select> 
-
-
-         <!-- usuario -->
-         <div class="form-group">
-                    <label for="user_id" class="control-label">Usuario:</label>
-                    <select name="user_id" class="form-control">
-                    <option value="{{$odontologo->user->id}}" selected>Usuario Actual: {{$odontologo->user->name}}</option>
-
-                    <?php
-                    $getUsuario =$mysqli->query("select * from users order by id");
-                    while($f=$getUsuario->fetch_object()) {
-                    echo $f->id;
-                    echo $f->name;
-
-                    ?>
-                    <option value="<?php echo $f->id; ?>"><?php echo $f->name ?></option>
-                    <?php
-                    } 
-                    ?>
-
-                    </select>
-                    </div>
-                    <!-- fin usuario -->
-
-                  <div class="form-group">
-                    <label for="intervalo" class="col-sm-2 col-form-label col-form-label-lg">Intervalo:</label>
-                  <div >
-                  <select name="intervalo" id="intervalo" class="form-control">
-                  <option value="{{ $odontologo->intervalos }}" selected>Actual:{{ $odontologo->intervalos }}</option>
-                  <option value="10m">10 minutos</option>
-                  <option value="15m">15 minutos</option>
-                  <option value="20m">20 minutos</option>
-                  <option value="30m">30 minutos</option>
-                  <option value="40">40 minutos</option>
-                  <option value="50m">50 minutos</option>
-                  </select>
-                  </div>
-                  </div>
-                  <div class="form-group">
-                    <input type="file" class="form-control-file" name="file" id="direccion" value="{{$odontologo->imagen}}">
-                  </div>
-
-                     
-                </div>
-              <div>
-        <br>
-        
-        <button id="bot" type="submit"class="btn btn-primary" data-toggle="modal" >
-          Guardar
-        </button>
-
-        </form>
-
-                  </div>
-                  </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="ciudad">Ciudad:</label>
+          <input required type="text" class="form-control"  name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $odontologo->ciudad }}">
+        </div>
       </div>
-        
-
-     </tr> 
-     @empty
-
-<tr>
-    <td  colspan="4"><p align="center" ><b>No hay Odontólogos  registrados</b></p></td> 
-     @endforelse
-  </tr>
-
-
-<!--Modal de Editar Datos -->
- 
-</div>
-
-
-<!-- Fin del Modal de Editar Datos -->
-
-
-                
-  
-
-
-
-                </tbody>
-              </table>
-            </div>
-          </div>
-        
-  
-
-  </div>
-
-<div>
-
-<!-- modala de crear odontologo -->
-<!--
-@can('create',App\Odontologo::class)
-  <button  type="button" data-toggle="modal"  style="color:#006622; background-color: white; width:180px; position:absolute; top:170px; left:1270px;" class="btn btn-success" data-target="#create">
-  <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-</svg>Nuevo odontologo </button> 
-@endcan-->
-
-
-<div class="modal fade" id="create" >
-  
-	<div class="modal-dialog" role="document">
-		<div class="modal-content" >
-			<div id=""class="modal-header" style=" background-color:#293d3d; color:white;  height:100px;">
-	
-				<h4  class="modal-title" id="myModalLabel">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-</svg>
-        Crear Odontologo</h4>
-        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-
-
-    <!-- Esta parte del codigo es para poder ir a traer informacion de la base de datos -->
-    <div class="content" id="nuevodoctor">
-<form method="post" action="/odontologo/nuevo" file="true" enctype="multipart/form-data">
-<?php
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="direccion">Direccion:</label>
+          <input required type="text" class="form-control"  name="direccion" id="direccion" placeholder="ingresar direccion del paciente"  value="{{ $odontologo->direccion }}">
+        </div>
+      </div>
+      <?php
         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
         $mysqli->set_charset("utf8");
       ?>
-
-                      @csrf
-                      <div class="form-group">
-                          <label for="nombres">Nombres:</label>
-                          <input required type="text" class="form-control-file" name="nombres" id="nombres" placeholder="Ingrese el Nombre ">
-                      </div>
-
-                      <div class="form-group">
-                          <label for="apellidos">Apellidos:</label>
-                          <input required type="text" class="form-control-file" name="apellidos" id="apellidos" placeholder="Ingrese el Apellido">
-                      </div>
-
-                      <div class="form-group">
-                        <label for="identidad">Identidad:</label>
-                        <input required type="number" class="form-control-file" name="identidad" id="identidad" placeholder="Ingrese la Identidad ">
-                    </div>
-
-                    <div class="form-group">
-                    <label for="telefonoFijo">Telefono fijo:</label>
-                    <input required type="number" class="form-control-file" name="telefonoFijo" id="telefonoFijo" placeholder="Ingrese el  Numero del Telefono Fijo">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="telefonoCelular">Telefono celular:</label>
-                    <input required  type="number" class="form-control-file" name="telefonoCelular" id="telefonoCelular" placeholder="Ingrese el Numero de Celular">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input required type="email" class="form-control-file" name="email" id="email" placeholder="Ingrese el Correo Electronico">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="departamento">Departamento:</label>
-                    <select required name="departamento" id="departamento" class="form-control">
-                    <option value="" disabled selected>Seleccione un departamento</option>
-                    <option >Atlántida</option>
-                    <option >Choluteca</option>
-                    <option>Colón</option>
-                    <option >Comayagua</option>
-                    <option >Copán</option>
-                    <option >Cortés</option>
-                    <option >El Paraíso</option>
-                    <option >Francisco Morazán</option>
-                    <option >Gracias a Dios</option>
-                    <option >Intibucá</option>
-                    <option >Islas de la Bahía</option>
-                    <option >La Paz</option>
-                    <option >Lempira</option>
-                    <option >Ocotepeque</option>
-                    <option >Olancho</option>
-                    <option >Santa Bárbara</option>
-                    <option >Valle</option>
-                    <option >Yoro:</option>
-
-                </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="ciudad">Ciudad:</label>
-                    <input required type="text" class="form-control-file" name="ciudad" id="ciudad" placeholder="Ingrese la ciudad  en que reside ">
-                  
-                  </div><div class="form-group">
-                    <label for="direccion">Direccion:</label>
-                    <input required type="text" class="form-control-file" name="direccion" id="direccion" placeholder="Ingrese su direccion">
-                  </div>
-
-
-                 <!-- </div><div class="form-group">
-                    <label for="especialidad">Especialidad:</label>
-                    <input type="text" class="form-control-file" name="especialidad" id="especialidad" placeholder="Ingrese la Especialidad">
-                  </div>  -->
-
-                  <?php
-        $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
-        $mysqli->set_charset("utf8");
-      ?>
-
-            <label for="state_id" class="control-label">Especialidad:</label>
-                <select required name="especialidad" class="form-control">
-          <option value="" disabled selected>Seleccione una especialidad</option>
-         
-                    <?php
-        $getDoctor =$mysqli->query("select * from especialidads order by id");
-        while($f=$getDoctor->fetch_object()) {
-          echo $f->id;
-          echo $f->Especialidad;
-
-          ?>
+      <div class="col-md-4">
+        <label for="state_id">Especialidad:</label>
+        <select required name="especialidad" class="form-control">
+          <option value="{{  $odontologo->especialidad_id }}" selected>Actual: {{$odontologo->especialidad->Especialidad}}</option>
+            <?php
+            $getDoctor =$mysqli->query("select * from especialidads order by id");
+            while($f=$getDoctor->fetch_object()) {
+            echo $f->id;
+            echo $f->Especialidad;
+            ?>
           <option value="<?php echo $f->id; ?>"><?php echo $f->Especialidad ?></option>
-          <?php
-        } 
-        ?>
-
-
-                  
-        </select> 
-     
-        
-
-        <label for="intervalo" class="control-label">Intervalo</label>
-        <select required  name="intervalo" id="intervalo" class="form-control">
-        <option value=""  disable selected>Seleccione la duracion de la cita</option>
-        <option value="10m">10 minutos</option>
-        <option value="15m">15 minutos</option>
-        <option value="20m">20 minutos</option>
-        <option value="30m">30 minutos</option>
-        <option value="40">40 minutos</option>
-        <option value="50m">50 minutos</option>
+          <?php }?>     
         </select>
-           <!-- usuario -->
-           <label for="user_id" class="control-label">Usuario:</label>
-                <select required  name="user_id" class="form-control">
-          <option value="" disabled selected>Seleccione un usuario</option>
-         
-                    <?php
-        $getUsuario =$mysqli->query("select * from users order by id");
-        while($f=$getUsuario->fetch_object()) {
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <!-- usuario -->
+        <div class="form-group">
+          <label for="user_id" class="control-label">Usuario:</label>
+          <select name="user_id" class="form-control">
+          <option value="{{$odontologo->user->id}}" selected>Usuario Actual: {{$odontologo->user->name}}</option>
+
+          <?php
+          $getUsuario =$mysqli->query("select * from users order by id");
+          while($f=$getUsuario->fetch_object()) {
           echo $f->id;
           echo $f->name;
 
           ?>
           <option value="<?php echo $f->id; ?>"><?php echo $f->name ?></option>
           <?php
+          } 
+          ?>
+
+          </select>
+        </div>
+        <!-- fin usuario -->
+      </div>
+      <div class="col-md-4">
+          <div class="form-group">
+              <label for="file" class="control-label">Eliga la foto del odontologo:</label>
+            <input type="file" class="form-control-file" name="file" id="direccion" value="{{$odontologo->imagen}}">
+          </div>
+      </div>
+    </div>
+ 
+    </div>
+  <div class="modal-footer">
+  <br>
+  <button id="bot" type="submit"class="btn btn-secondary" style="background-color:#1687a7" data-toggle="modal" >
+  Guardar Cambios
+  </button>
+
+  </form>
+
+    </div>
+  </div>
+</div>
+</tr> 
+    @empty
+    <tr>
+    <td  colspan="4"><p align="center" ><b>No hay Odontólogos  registrados</b></p></td> 
+    @endforelse
+     </tr>
+
+</div>
+<!-- Fin del Modal de Editar Datos -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+  </div>
+<div>
+<!-- modala de crear odontologo -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="create" >
+  
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content" >
+			<div id=""class="modal-header" style=" background-color:#276678; color:white;  height:100px;">
+	
+				<h3  class="modal-title" id="myModalLabel">
+        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+        </svg>
+        Crear Odontologo</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+			</div>
+			<div class="modal-body">
+
+
+    <!-- Esta parte del codigo es para poder ir a traer informacion de la base de datos -->
+    <div class="content" id="nuevodoctor">
+    <form method="post" action="/odontologo/nuevo" file="true" enctype="multipart/form-data">
+    <?php
+      $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
+      $mysqli->set_charset("utf8");
+    ?>
+    @csrf
+    <div class="row"><!--  -->
+      <div class="col-md-4">
+         <div class="form-group">
+            <label for="nombres">Nombres:</label>
+            <input required type="text" class="form-control" name="nombres" id="nombres" placeholder="Ingrese el Nombre ">
+          </div>
+      </div>
+      <div class="col-md-4">
+         <div class="form-group">
+            <label for="apellidos">Apellidos:</label>
+            <input required type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingrese el Apellido">
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="form-group">
+            <label for="identidad">Identidad:</label>
+            <input required type="number" class="form-control" name="identidad" id="identidad" placeholder="Ingrese la Identidad ">
+          </div>
+      </div>
+    </div><!--  -->
+    <div class="row"><!--  -->
+      <div class="col-md-4">
+         <div class="form-group">
+            <label for="telefonoFijo">Teléfono fijo:</label>
+            <input required type="number" class="form-control" name="telefonoFijo" id="telefonoFijo" placeholder="Ingrese el  Numero del Telefono Fijo">
+          </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="telefonoCelular">Teléfono celular:</label>
+          <input required  type="number" class="form-control" name="telefonoCelular" id="telefonoCelular" placeholder="Ingrese el Numero de Celular">
+        </div>
+      </div>
+      <div class="col-md-4">
+          <div class="form-group">
+            <label for="departamento">Departamento:</label>
+            <select required name="departamento" id="departamento" class="form-control">
+            <option value="" disabled selected>Seleccione un departamento</option>
+            <option >Atlántida</option>
+            <option >Choluteca</option>
+            <option>Colón</option>
+            <option >Comayagua</option>
+            <option >Copán</option>
+            <option >Cortés</option>
+            <option >El Paraíso</option>
+            <option >Francisco Morazán</option>
+            <option >Gracias a Dios</option>
+            <option >Intibucá</option>
+            <option >Islas de la Bahía</option>
+            <option >La Paz</option>
+            <option >Lempira</option>
+            <option >Ocotepeque</option>
+            <option >Olancho</option>
+            <option >Santa Bárbara</option>
+            <option >Valle</option>
+            <option >Yoro:</option>
+
+            </select>
+          </div>
+      </div>
+    </div><!--  -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="ciudad">Ciudad:</label>
+          <input required type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Ingrese la ciudad  en que reside "> 
+        </div>
+      </div>
+      <div class="col-md-4">
+         <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            <input required type="text" class="form-control" name="direccion" id="direccion" placeholder="Ingrese su direccion">
+          </div>
+      </div>
+      <?php
+      $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
+      $mysqli->set_charset("utf8");
+      ?>
+      <div class="col-md-4">
+         <div class="form-group">
+          <label for="file" class="control-label">Fotografía del Odontólogo:</label>
+          <input type="file" class="form-control-file" name="file" id="direccion" placeholder="Seleccione una Imagen">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+          <!-- usuario -->
+           <label for="user_id" class="control-label">Usuario:</label>
+            <select required  name="user_id" class="form-control">
+              <option value="" disabled selected>Seleccione un usuario</option>
+         
+                <?php
+                $getUsuario =$mysqli->query("select * from users order by id");
+                while($f=$getUsuario->fetch_object()) {
+                echo $f->id;
+                echo $f->name;
+
+                ?>
+                <option value="<?php echo $f->id; ?>"><?php echo $f->name ?></option>
+                <?php
+                } 
+                ?>      
+            </select>
+        <!-- fin usuario -->
+      </div>
+      <div class="col-md-5">
+      <label for="state_id" class="control-label">Especialidad:</label>
+      <select required name="especialidad" class="form-control">
+        <option value="" disabled selected>Seleccione una especialidad</option>
+        <?php
+        $getDoctor =$mysqli->query("select * from especialidads order by id");
+        while($f=$getDoctor->fetch_object()) {
+          echo $f->id;
+          echo $f->Especialidad;
+        ?>
+          <option value="<?php echo $f->id; ?>"><?php echo $f->Especialidad ?></option>
+          <?php
         } 
         ?>
-
-
-                  
-        </select>
-        <!-- fin usuario -->
-<hr>
-        <div class="form-group">
-        <label for="file" class="control-label">Fotografia del Odontologo:</label>
-        <input type="file" class="form-control-file" name="file" id="direccion" placeholder="Seleccione una Imagen">
-      </div>
-
-
-        </div>
-        
-        
-</div>
- <br>
- <br>
-
-<div>
-        <br>
-        <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
-         Guardar
+      </select> </div>
+        <!-- Agregar especialidad -->
+        <div class="col-md-1">
+      
+           
+          <button  id="bu1" type="button" style="margin-top:2em;" class="btn btn-outline-info" data-toggle="modal" data-target="#especia">
+          <!-- Agregar Especialidad -->
+         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-dotted" viewBox="0 0 16 16">
+          <path d="M2.5 0c-.166 0-.33.016-.487.048l.194.98A1.51 1.51 0 0 1 2.5 1h.458V0H2.5zm2.292 0h-.917v1h.917V0zm1.833 0h-.917v1h.917V0zm1.833 0h-.916v1h.916V0zm1.834 0h-.917v1h.917V0zm1.833 0h-.917v1h.917V0zM13.5 0h-.458v1h.458c.1 0 .199.01.293.029l.194-.981A2.51 2.51 0 0 0 13.5 0zm2.079 1.11a2.511 2.511 0 0 0-.69-.689l-.556.831c.164.11.305.251.415.415l.83-.556zM1.11.421a2.511 2.511 0 0 0-.689.69l.831.556c.11-.164.251-.305.415-.415L1.11.422zM16 2.5c0-.166-.016-.33-.048-.487l-.98.194c.018.094.028.192.028.293v.458h1V2.5zM.048 2.013A2.51 2.51 0 0 0 0 2.5v.458h1V2.5c0-.1.01-.199.029-.293l-.981-.194zM0 3.875v.917h1v-.917H0zm16 .917v-.917h-1v.917h1zM0 5.708v.917h1v-.917H0zm16 .917v-.917h-1v.917h1zM0 7.542v.916h1v-.916H0zm15 .916h1v-.916h-1v.916zM0 9.375v.917h1v-.917H0zm16 .917v-.917h-1v.917h1zm-16 .916v.917h1v-.917H0zm16 .917v-.917h-1v.917h1zm-16 .917v.458c0 .166.016.33.048.487l.98-.194A1.51 1.51 0 0 1 1 13.5v-.458H0zm16 .458v-.458h-1v.458c0 .1-.01.199-.029.293l.981.194c.032-.158.048-.32.048-.487zM.421 14.89c.183.272.417.506.69.689l.556-.831a1.51 1.51 0 0 1-.415-.415l-.83.556zm14.469.689c.272-.183.506-.417.689-.69l-.831-.556c-.11.164-.251.305-.415.415l.556.83zm-12.877.373c.158.032.32.048.487.048h.458v-1H2.5c-.1 0-.199-.01-.293-.029l-.194.981zM13.5 16c.166 0 .33-.016.487-.048l-.194-.98A1.51 1.51 0 0 1 13.5 15h-.458v1h.458zm-9.625 0h.917v-1h-.917v1zm1.833 0h.917v-1h-.917v1zm1.834-1v1h.916v-1h-.916zm1.833 1h.917v-1h-.917v1zm1.833 0h.917v-1h-.917v1zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+        </svg>
         </button>
-    
-        <br>
-        <div>
-         
-        </form  action="">
-        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <button id="bu1" type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#especia">Agregar Especialidad</button>
-        </div>
-        </div>
-        </div>
+      
+          </div>
+        <!-- fin -->
+      </div>
+    </div>
+ 
+            
+</div>
+<div class="modal-footer">
+<button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
+  Guardar
+</button>
+</div>
 
-<!-- Modal 2 -->
+         
+</form>
+        
+     </div>
+    </div>
+  </div>
+</div>
+<!-- Modal 2_Crear Especialidad -->
         <div class="modal fade" id="especia">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">Agregar Especialidad Nueva</h4>      
+            <div class="modal-header" style=" background-color:#276678; color:white">
+              <h4 class="modal-title" id="myModalLabel">Agregar Especialidad Nueva</h4> 
+              	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					      <span aria-hidden="true">&times;</span>
+                </button>     
             </div>
-              <!--Barra de desplazamiento-->
+              <!-- Barra de desplazamiento
               <div style="width: 450px; height: 550px; overflow-y: scroll;">
-            <div class="modal-body"> 
+            <div class="modal-body">  -->
 
 
                     <form method="post" action="/pantallainicio/nueva/especialidad">
                       @csrf
                       <?php
-        $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
-        $mysqli->set_charset("utf8");
-      ?>
-       <div class="form-group">
-                          <label for="nombres">Nombre:</label>
-                          <input required  type="text" class="form-control-file" name="nombres" id="nombres" placeholder="ingresar nombre de la especialidad">
+                        $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
+                        $mysqli->set_charset("utf8");
+                      ?>
+                      <div class="container">
+                      <div class="form-group">
+                          <label for="nombres"  class="control-label">Nombre:</label>
+                          <input required  type="text" class="form-control" name="nombres" id="nombres" placeholder="Ingresar nombre de la especialidad">
                       </div>
-
+                      </div>
                      
                       
                   <div class="modal-footer">
-                  <button type="button" onclick="location.href='/pantallainicio/especialidad'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
                   <input type="reset" class="btn btn-danger">
-                <button type="submit" class="btn btn-primary" >Guardar </button>
-              </div>
+                  <button type="submit" class="btn btn-primary" >Guardar </button>
+                </div>
                   </form>
                     
                       
                  
-      </div>
+      </div></div>
       
 </div>
 </div>
