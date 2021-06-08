@@ -102,7 +102,7 @@
 <table id="datatable" class="table table-bordered" id="datatable1" width="100%" cellspacing="0">
 
      
-  <thead class="thead-dark">
+  <thead >
     <tr id="encabezado">
       <th>N°</th>
       <th >Categoria</th>
