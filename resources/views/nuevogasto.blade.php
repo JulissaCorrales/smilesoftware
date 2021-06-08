@@ -17,7 +17,7 @@
         <div class="modal fade" id="creategasto" >
             <div class="modal-dialog" role="document">
                 <div class="modal-content" >
-                <div id="div1"class="modal-header" style="background-color:#293d3d; color:white;  height:80px;">
+                <div id="div1"class="modal-header" style="background-color:#276678; color:white;  height:80px;">
                 
   
                     <h4  class="modal-title" id="myModalLabel">
