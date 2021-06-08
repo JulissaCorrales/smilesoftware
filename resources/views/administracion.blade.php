@@ -6,41 +6,40 @@
 @section('content')
 
 <style>
-.container {
-  position:relative;
- width:900px;
+
+
+
+#primerdiv1{
+
+width:100%;
+max-width:1200px;
+min-width:500px;
+
+margin: 10px;
+
 
 }
 
-.image {
-  opacity: 1;
-  display: block;
-  width: 50px;
-  height: 50px;
-  transition: .5s ease;
-  backface-visibility: hidden;
-border-style: solid;
-  border-color: #1687a7;
+
+
+#segundodiv1{
+
+width:100%;
+max-width:1200px;
+
+margin-top: 50px;
+
+
+
 }
 
-.middle {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%)
-}
 
-.container:hover .image {
-  opacity: 0.3;
-}
+#imagen{
+width:0 auto;
+height:0 auto;
 
-.container:hover .middle {
-  opacity: 1;
-}
 
+} 
 
 </style>
 
@@ -57,167 +56,113 @@ border-style: solid;
             </div>
           <div class="card-body">
 
-<div class="container">
-  <img src="{{ asset('Imagenes/Doctor1.png')}}" alt="Avatar" class="image" style="width:170px; height:170px; position:absolute; left:-160px;">
+           <div id="primerdiv1">
+            
 
-  <div class="middle">
-    <div class="text">
-
+               
 
  @canany(['isAdmin','isSecretaria'])
-              <a class="btn btn-outline-info" href="/pantallainicio/odontologo"  style=" background-color:#d3e0ea; color:#276678; position:absolute; left:-610px; top:70px; width:169px; height:40px;" >
-            Odontólogos 
+              <a class="btn btn-outline-info" href="/pantallainicio/odontologo" style="border-style: solid;background-color:white; color:#009999; border-color:#009999; position:static;"  >
+
+   <img  id="imagen" src="{{ asset('Imagenes/Doctor1.png')}}" alt="Avatar" class="three-columns" width="210" height="220" style="">
+      <br>      Odontólogos 
               </a>
             @endcanany
 
-   </div>
-  </div>
-</div>
-  
 
 
-<div class="container">
-  <img src="{{ asset('Imagenes/inventario.jpeg')}}" alt="Avatar" class="image" style="width:170px; height:170px;">
-  <div class="middle">
-    <div class="text">
 
 
+
+
+
+
+ 
    @can('view',App\Inventario::class)
-            <a class="btn btn-outline-info" href="/inventario/" style=" background-color:#d3e0ea; color:#276678; position:absolute; left:-435px; top:-10px; width:169px; height:40px;">
+            <a class="btn btn-outline-info"  href="/inventario/" style=" background-color:white; color:#009999;  border-style: solid; border-color:#009999;position:static;  ">
               
- Inventarios
-           </a>
+ 
+          <img src="{{ asset('Imagenes/inventario.jpeg')}}" alt="Avatar" id="imagen" class="three-columns" width="210" height="220">
+<br>
+Inventarios </a>
            @endcan
 
-   </div>
-  </div>
-</div>
-
-
-
-
-<div class="container">
-  <img src="{{ asset('Imagenes/gastos.jpeg')}}" alt="Avatar" class="image" style="width:170px; height:170px; position:absolute; top:-170px; left:190px;">
-  <div class="middle">
-    <div class="text">
 
 
 
             @can('view',App\Gasto::class)
-              <a class="btn btn-outline-info" href="/pantallainicio/gastos" style=" background-color:#d3e0ea; color:#276678; position:absolute; left:-260px; top:-100px; width:169px; height:40px;">
+              <a class="btn btn-outline-info" href="/pantallainicio/gastos" style=" background-color:white; color:#009999;  border-style: solid; border-color:#009999;position:static;  ">
                
-               Gastos
+              <img src="{{ asset('Imagenes/gastos.jpeg')}}" alt="Avatar" class="three-columns" width="210" height="220" > <br>
+
+Gastos
               </a>
             @endcan
 
-   </div>
-  </div>
-</div>
- 
 
-
-
-
-
-<div class="container">
-  <img src="{{ asset('Imagenes/logotipo.jpeg')}}" alt="Avatar" class="image" style="width:170px; height:170px; position:absolute; top:-170px; left:366px;">
-  <div class="middle">
-    <div class="text">
-
-
-            @can('view',App\Logotipo::class)
-              <a class="btn btn-outline-info" href="{{route('logotipo.ver')}}" style=" background-color:#d3e0ea; color:#276678; position:absolute; left:-84px; top:-100px; width:169px; height:40px;">
+   @can('view',App\Logotipo::class)
+              <a class="btn btn-outline-info" href="{{route('logotipo.ver')}}" style=" background-color:white; border-style: solid; border-color:#009999; color:#009999;position:static; ">
   
                
+
+<img src="{{ asset('Imagenes/logotipo1.jpeg')}}" alt="Avatar"class="three-columns" id="imagen" width="210" height="220">
+<br>
 
 Logotipo
              
               </a>
             @endcan
-   </div>
-  </div>
-</div>
 
- 
-<div class="container">
-  <img src="{{ asset('Imagenes/tratamiento.jpeg')}}" alt="Avatar" class="image" style="width:170px; height:170px; position:absolute; top:-170px; left:543px;">
-  <div class="middle">
-    <div class="text">
 
 
             @canany(['isAdmin','isSecretaria'])
-            <a class="btn btn-outline-info"href="/tratamiento/"  style=" background-color:#d3e0ea; color:#276678; position:absolute; left:95px; top:-100px; width:169px; height:40px;" >
+            <a class="btn btn-outline-info"href="/tratamiento/"  style=" background-color:white; border-style: solid; border-color:#009999; color:#009999; position:static;" >
                
- Tratamientos
-            </a>
-            @endcanany
-   </div>
-  </div>
-</div>
- 
-
-
-
- 
-<div class="container">
-  <img src="{{ asset('Imagenes/pagos.jpeg')}}" alt="Avatar" class="image" style="width:170px; height:170px; position:absolute; top:-170px; left:720px;">
-  <div class="middle">
-    <div class="text">
-
-           @canany(['isAdmin','isSecretaria'])
-            <a class="btn btn-outline-info" href="/pantallainicio/mediopago" style=" background-color:#d3e0ea; color:#276678; position:absolute; left:270px; top:-100px; width:169px; height:40px;" >
-            
- Medios de Pagos 
+  <img src="{{ asset('Imagenes/tratamiento.jpeg')}}" alt="Avatar" class="three-columns "  width="210" height="220" id= "imagen" >
+<br>
+Tratamientos
             </a>
             @endcanany
 
-            
-   </div>
-  </div>
-</div>
- 
 
-
-
- 
-<div class="container">
-  <img src="{{ asset('Imagenes/laboratorios.jpeg')}}" alt="Avatar" class="image" style="width:170px; height:170px; position:absolute; top:-170px; left:900px;">
-  <div class="middle">
-    <div class="text">
+<div id="segundodiv1">
+    
 
          
-            <a class="btn btn-outline-info" href="/pantallainicio/laboratorios" style=" background-color:#d3e0ea; color:#276678; position:absolute; left:450px; top:-100px; width:169px; height:40px;">
+
+
+
+
+
+
+           @canany(['isAdmin','isSecretaria'])
+            <a class="btn btn-outline-info" href="/pantallainicio/mediopago" style=" background-color:white; border-style: solid; border-color:#009999; position:static;" >
             
-              Laboratorios
+  <img src="{{ asset('Imagenes/pagos.jpeg')}}" alt="Avatar" class="two-columns " id="imagen" width="210" height="220"> <br>
+
+Medios de Pagos 
+            </a>
+            @endcanany
+
+
+
+
+             @canany(['isAdmin','isSecretaria'])
+ 
+            <a class="btn btn-outline-info" href="/pantallainicio/laboratorios" style=" background-color:white; border-style: solid; border-color:#009999; position:static;">
+            
+              <img src="{{ asset('Imagenes/laboratorios1.jpeg')}}" alt="Avatar" class="two-columns " id="imagen" width="210" height="220">
+ <br>
+Laboratorios
             </a>
 
-            
-   </div>
-  </div>
+@endcanany
+
+
+
+      </div>
+
 </div>
- 
-
-<p style="position:relative;"></p>
-
-<p style="position:absolute; left:50px; top:330px; color:#1687a7"> <b>
-  Odontólogos </b> </p>
-
-<p style="position:absolute; left:230px; top:330px; color:#1687a7"> <b> Inventarios </b></p>
-
-<p style="position:absolute; left:430px; top:330px; color:#1687a7"><b>Gastos</b></p>
-
-<p style="position:absolute; left:590px; top:330px; color:#1687a7"><b>Logotipos</b></p>
-
-<p style="position:absolute; left:760px; top:330px; color:#1687a7"><b>Tratamientos</b></p>
-
-<p style="position:absolute; left:930px; top:330px; color:#1687a7"><b>Medios Pagos</b></p>
-
-<p style="position:absolute; left:1120px; top:330px; color:#1687a7"><b>Laboratorios</b></p>
-
-
-<h1></h1>
-
-
 
 
 
