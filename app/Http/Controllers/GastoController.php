@@ -61,7 +61,7 @@ class GastoController extends Controller
             'detalle'       =>  'required',
             'monto'         =>  'required|numeric|min:0|max:100000000000000000',
             'fechafactura'  =>  'required|date',
-            'fechapago'     =>  'required|date',
+            'fechapago'     =>  'required|date|after_or_equal:fechafactura',
         ]);
 
         $gastos=Gasto::findOrFail($id);

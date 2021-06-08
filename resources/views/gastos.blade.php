@@ -17,9 +17,7 @@
                        
                         <div id="divhijo1"><!-- div hijo1 -->
                             @can('Create', App\Gasto::class)
-                            <a type="button" class="btn " id="btnAgregarGasto"  data-toggle="modal" data-target="#creategasto" style="background-color:#28a4a4; color:#c1f0f0; position: absolute;
-                            left: 1080px;
-                            top:  80px;">
+                            <a type="button" class="btn " id="btnAgregarGasto"  data-toggle="modal" data-target="#creategasto" style="background-color:#28a4a4; color:#c1f0f0; position: relative;float:right">
                                 <svg width="1.3em" height="2em" style="color:white"  viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                 <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -29,7 +27,31 @@
                             @endcan
                         </div><!-- fin div hijo1 -->               
                 </div>
-                
+                <div class="container" >
+<div>@if(session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
+            @endforeach
+         
+        </ul>
+        
+    </div>
+@endif</div>
+</div>
                 </div>
 
 
