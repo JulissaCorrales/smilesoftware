@@ -28,7 +28,7 @@
 </head>
 <body>
  
-    <div  class="container" id="padre" style="background-color: #d3e0ea">
+    <div  class="container" id="padre">
         <h3 id="titulo">Edición de  datos del Usuario: {{$user->name}}
         <div id="imagen4">
                       <img style="  border-radius: 70%;"src='/Imagenes/{{$user->imagen}}' width=" 100px" height="100px"id="datos6">

@@ -39,7 +39,7 @@
 </head>
 <body>
     
-    <div  class="container" id="padre" style="background-color: #FEF9E7;">
+    <div  class="container" id="padre" style="background-color: #d3e0ea" >
     <h3 id="titulo">Ingresar Datos del Usuario</h3>
     @if ($errors->any())
         <div class="alert alert-danger">
