@@ -69,8 +69,8 @@ class OdontologoController extends Controller
         }
         
         
-        $request->validate(['nombres'=>'required||regex:/^[\pL\s\-]+$/u',
-        'apellidos'=>'required||regex:/^[\pL\s\-]+$/u',
+        $request->validate(['nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+        'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
         'email' => 'required|email|unique:odontologos,email',
         'identidad' => ['required', 'numeric', Rule::unique('odontologos')->ignore($nuevo->id), 'digits:13'],
 
@@ -131,9 +131,9 @@ class OdontologoController extends Controller
         
         }
     //validar
-    $_request->validate(['nombres'=>'required||regex:/^[\pL\s\-]+$/u',
-    'apellidos'=>'required||regex:/^[\pL\s\-]+$/u',
-    'email' => 'required|email|unique:odontologos,email',
+    $_request->validate(['nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+    'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+     'email' => ['required', 'email', 'max:255', Rule::unique('odontologos')->ignore($odontologos->id)],
     'identidad' => ['required','digits:13','numeric', Rule::unique('odontologos')->ignore($odontologos->id)],
     'departamento'=>'required|regex:/^[\pL\s\-]+$/u',
     'ciudad'=>'required|regex:/^[\pL\s\-]+$/u',
