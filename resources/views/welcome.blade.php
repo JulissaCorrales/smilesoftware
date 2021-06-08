@@ -84,7 +84,7 @@
         <header  style=" background-image: url('../assets/img/fondo3.jpg')"class="masthead">
             <div class="container">
                 <br><br><br><br>
-                <div style="background-color:#2471A3  ;" class="masthead-subheading"><p>¡Clínica Odontologica!</p></div>
+                <div style="background-color:#2471A3  ;" class="masthead-subheading"><p>¡Clínica Odontólogica!</p></div>
                 <div class="masthead-heading text-uppercase">¡ Bienvenido !</div>
                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Dime Más</a>
             </div>
