@@ -66,16 +66,16 @@
                                     <div class="row">
                                       <div class="col">
                                           <label for="stockseguridad">Existencias de Seguridad:</label>
-                                          <input type="number" required class="form-control-file" name="stockseguridad" id="stockseguridad" placeholder="Ingresar valor">
+                                              <input type="number" min="1" pattern="^[0-9]+" class="form-control custom-select" name="stockseguridad" id="stockseguridad" placeholder="Ingrese Valor" formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)">
                                       </div>
                                       <div class="col">
                                           <label for="stockactual">Existencias  Actuales:</label>
-                                          <input type="number" required class="form-control-file" name="stockactual" id="stockactual" placeholder="Ingresar valor">
-                                      </div>
+                                       <input type="number" min="1" pattern="^[0-9]+" class="form-control custom-select" name="stockactual" id="stockactual" placeholder="Ingresar Valor" formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)">
+                                   </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="monto">Precio:</label>
-                                        <input type="number" required  step="any" class="form-control-file" name="monto" id="monto" placeholder="Ingresar precio">
+                                        <input type="number" min="1" pattern="^[0-9]+" class="form-control custom-select" name="monto" id="monto" placeholder="Ingresar Precio" formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)">
                                     </div>
                                 <div class="modal-footer">
                                   <input type="reset" class="btn btn-danger">
@@ -165,17 +165,17 @@
                                                   <div class="row">
                                                     <div class="col">
                                                           <label for="stockseguridad">Existencias de Seguridad:</label>
-                                                          <input required type="number"  class="form-control-file" name="stockseguridad" required id="stockseguridad" placeholder="Ingrese inventario" value="{{$inventario->stockseguridad}}">
+                                                              <input type="number" min="1" pattern="^[0-9]+" class="form-control custom-select" name="stockseguridad" id="stockseguridad" placeholder="Ingrese Valor" value="{{$inventario->stockseguridad}}" formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)">
                                                         </div>
                                                     <div class="col">
                                                       <label for="stockactual">Existencias  Actuales:</label>
-                                                      <input type="number" required class="form-control-file" name="stockactual" id="stockactual" placeholder="Ingrese inventario" value="{{$inventario->stockactual}}">
+                                                      <input type="number" min="1" pattern="^[0-9]+" class="form-control custom-select" name="stockactual" id="stockactual" placeholder="Ingresar Valor" value="{{$inventario->stockactual}}" formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)">
                                                   </div>
                                          </div>
                                         <!-- monto-->
                                         <div class="form-group" id="div2">
                                             <label for="detalle" class="control-label">Precio:</label>
-                                            <input type="number"  required  step="any" class="form-control-file" name="monto" id="monto" placeholder="Ingrese valor" value="{{$inventario->monto}}">
+                                            <input type="number" min="1" pattern="^[0-9]+" class="form-control custom-select" name="monto" id="monto" placeholder="Ingresar Precio" value="{{$inventario->monto}}" formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)">
                                           </div>
                                           <div class="form-group" id="div6" align="center">
                                               <input type="reset" class="btn btn-danger">
@@ -260,4 +260,3 @@
 </html>
 @endcanany
 @endsection
-    
