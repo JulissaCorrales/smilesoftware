@@ -28,6 +28,13 @@
   top: 110px;
   left:1100px;
  }
+
+textarea{
+overflow-y: scroll;
+height: 100px;
+resize: none
+}
+
 </style>
 </head>
 <body>
@@ -139,8 +146,8 @@ Evoluciones Medicas del Paciente</h3>
       <td>  
         <h5> PlanTratamiento: {{ $tag->planestratamiento->tratamiento->categoria}} <br>
           Paciente:{{$pacientes->nombres}}  {{$pacientes->apellidos}} <br>
-        Evolucion: {{ $tag->evolucion}} 
-
+        Evolucion:<br>
+         <textarea name="areaev" id="areaev" cols="30" rows="10" disabled={isDibabled}> {{ $tag->evolucion}} </textarea>  
         </h5>
       </td>
   <!-- Eliminar evolucion -->
