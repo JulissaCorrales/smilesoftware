@@ -180,7 +180,7 @@ height= "60px" style="border-radius:50%;">
 $(document).ready( function () {
     $('#datatable1').DataTable( {
     language: {
-        search: "Busqueda por nombre o identidad:",
+        search: "Búsqueda por nombre o identidad:",
         "decimal": "",
         "emptyTable": "No hay información",
         "info": "Mostrando _START_ a _END_ de _TOTAL_ Pacientes",
