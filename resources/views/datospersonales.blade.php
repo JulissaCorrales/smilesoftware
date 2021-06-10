@@ -1,10 +1,5 @@
-
-     
-
-
-<title>@yield('titulo')</title>
-
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,10 +14,10 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#563d7c">
-  
+    
 
-
-    <!-- favicon :icono de pestaña navegador -->
+  <title>@yield('titulo')</title>
+      <!-- favicon :icono de pestaña navegador -->
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -40,7 +35,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
 
-  
+
 <!--  -->
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -53,8 +48,11 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sticky-footer-navbar/">
 
-<!-- Bootstrap core CSS -->
-    <!-- Favicons -->
+
+
+  
+   <!-- Favicons -->
+         <!-- Favicons -->
       <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
       <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
       <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
@@ -69,7 +67,7 @@
       <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
       <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-css/1.4.6/select2-bootstrap.min.css" rel="stylesheet" />
 
-<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css"> -->
+     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css"> -->
 
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
     <script src="/js/bootstrap-tagsinput.js"></script>
@@ -77,10 +75,7 @@
     @yield('js_role')
     @yield('js_user_page')
 
-<!-- fin del agreado -->
-
-
- <!-- Custom fonts for this template-->
+   <!-- Custom fonts for this template-->
   <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
   <!-- Page level plugin CSS-->
@@ -96,13 +91,15 @@
       <!-- Favicons -->
 
   @yield('css_role_page')
-</head>
+
+    </head>
     
 
+   
 
 <body id="page-top">
-<!-- -->   
-    <nav class="navbar navbar-expand-sm"  style="background-color:#276678;">
+
+ <nav class="navbar navbar-expand-sm"  style="background-color:#276678;">
       <H4 style="color: #D3E0EA;; text-shadow: 1px 0 #0061A8, 0 1px #1687A7, 1px 0 #ffb31a, 0 1px #1687A7;">Smile Software</H4>
 
 
@@ -159,13 +156,19 @@
         </div>
     </nav>
 
-          <!-- -->
+          <!--hasta aqui bien hasta el momento -->
 
-          <!-- -->
-    <div class="card"  style="width: 15rem; background-color: #d3e0ea;" id="ventana">
-        <span class="border border-white"><img style="border-radius: 70%;margin-left:3.5em;;  position:relative; top: 10px;"src='/Imagenes/{{$pacientes->imagen}}' width="100px" height="100px"id="datos">
-        <div id="">
-          <h2 id="nombre">{{ $pacientes->nombres}} <br>{{ $pacientes->apellidos}}</h2>
+
+
+<!-- abro vista izquierda-->
+     <div id="wrapper">
+
+          <!-- abro imagen de usuario-->
+    <div class="card"  style="width: 17rem; background-color: #d3e0ea;" id="ventana">
+        <span class="border border-white">  
+          <img style="border-radius: 70%;margin-left:3.5em;;  position:relative; top: 15px;"src='/Imagenes/{{$pacientes->imagen}}' width="100px" height="100px"id="datos">
+            <div id="">
+              <h2 id="nombre" style="border: radius 5px;margin-left:0.5em;">{{ $pacientes->nombres}} <br>{{ $pacientes->apellidos}}</h2>
           
                 @forelse($pacientes->alertas as $ver)
                 <span style="color:red">  <svg xmlns="http://www.w3.org/2000/svg" color="red" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
@@ -178,15 +181,15 @@
             </span>
             <br><br>
          </div>
-        <!-- -->
+        <!--cierro imagen de usuario bien -->
+      
 
 
-        <!-- -->
-     <div id="wrapper">
+
 
         <!-- Sidebar -->
         <ul class="  sidebar navbar-nav" style="
-        background-color: #1687A7; border: border-white;">
+        background-color: #1687A7; ">
         
         
         <li class="nav-item">
@@ -309,29 +312,37 @@
 
         </ul>
         </div>
-     </div><!-- div cierre de ventana -->
+     <!-- div cierre de ventana de izquierda -->
 
 
-<!-- -->
- <!-- Sticky Footer -->
-        <footer class="sticky-footer">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Derechos Reservados ©SmileSoftware2021</span>
-            </div>
+<!-- Contenido a la derecha: :. -->
+      <div id="content-wrapper">
+          <div class="container-fluid">
+          @yield('cuerpo')
           </div>
-        </footer>
+          <!-- Sticky Footer -->
+              
+     
+      
+                  <footer class="sticky-footer">
+                    <div class="container my-auto">
+                      <div class="copyright text-center my-auto">
+                        <span>Derechos Reservados ©SmileSoftware2021</span>
+                      </div>
+                    </div>
+                  </footer>
+                
+            </div>
 
-    </div>
+
   <!-- /.content-wrapper -->
-
-  </div>
+ </div>
   <!-- /#wrapper -->
-  
-  <!-- Scroll to Top Button-->
+<!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
   
   </a>
+
 
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -361,14 +372,36 @@
         </div>
       </div>
     </div>
+
   </div>
 
  
 
+   <!-- Bootstrap core JavaScript-->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
   
+  <script src="/vendor/datatables/jquery.dataTables.js"></script>
+  <script src="/vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="/js/admin/sb-admin.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="/js/admin/demo/datatables-demo.js"></script>
+ 
+    
+  @yield('js_post_page')
+  @yield('js_user_page') 
+  @yield('js_role_page') 
  
 
  
 </body>
 
-
+</html>
