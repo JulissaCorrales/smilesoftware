@@ -223,7 +223,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label for="identidad">Identidad:</label>
-                <input required type="number" class="form-control" name="identidad" id="identidad"  placeholder="ingresar identidad del paciente"  value="{{ $odontologo->identidad }}">
+                <input required type="number" class="form-control" name="identidad" id="identidad"  placeholder="ingresar identidad del paciente"  value="{{ $odontologo->identidad }}" maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)">
             </div>
         </div>
       </div>
@@ -231,14 +231,14 @@
         <div class="col-md-4">
              <div class="form-group">
             <label for="telefonoFijo">Tel.Fijo:</label>
-            <input type="number" required class="form-control" name="telefonoFijo" id="telefonoFijo"  placeholder="ingresar telefono Fijo del paciente"  value="{{ $odontologo->telefonoFijo}}">
+            <input type="number" required class="form-control" name="telefonoFijo" id="telefonoFijo"  placeholder="ingresar telefono Fijo del paciente"  value="{{ $odontologo->telefonoFijo}}" oninput="this.value = Math.max(this.value, 1)">
                  
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
               <label for="telefonoCelular">Tel.Celular:</label>
-              <input type="number" required  class="form-control" name="telefonoCelular"  id="telefonoCelular" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->telefonoCelular }}">
+              <input type="number" required  class="form-control" name="telefonoCelular"  id="telefonoCelular" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->telefonoCelular }}" oninput="this.value = Math.max(this.value, 1)">
           </div>  
         </div>
         <div class="col-md-4">
@@ -402,7 +402,7 @@
       <div class="col-md-4">
           <div class="form-group">
             <label for="identidad">Identidad:</label>
-            <input required type="number" class="form-control" name="identidad" id="identidad" placeholder="Ingrese la Identidad ">
+            <input required type="number"  class="form-control" name="identidad" id="identidad" placeholder="Ingrese la Identidad " maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" >
           </div>
       </div>
     </div><!--  -->
@@ -410,13 +410,13 @@
       <div class="col-md-4">
          <div class="form-group">
             <label for="telefonoFijo">Teléfono fijo:</label>
-            <input required type="number" class="form-control" name="telefonoFijo" id="telefonoFijo" placeholder="Ingrese el  Numero del Telefono Fijo">
+            <input required type="number" class="form-control" name="telefonoFijo" id="telefonoFijo" placeholder="Ingrese el  Numero del Telefono Fijo"  oninput="this.value = Math.max(this.value, 1)">
           </div>
       </div>
       <div class="col-md-4">
         <div class="form-group">
           <label for="telefonoCelular">Teléfono celular:</label>
-          <input required  type="number" class="form-control" name="telefonoCelular" id="telefonoCelular" placeholder="Ingrese el Numero de Celular">
+          <input required  type="number" class="form-control" name="telefonoCelular" id="telefonoCelular" placeholder="Ingrese el Numero de Celular"  oninput="this.value = Math.max(this.value, 1)">
         </div>
       </div>
       <div class="col-md-4">
