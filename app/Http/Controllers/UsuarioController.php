@@ -13,12 +13,41 @@ class UsuarioController extends Controller
 {
 
 
-    public function ver(){
+   
+    public function ver(Request $request){
         if(Gate::denies('isAdmin')){
             abort(403);
          }
          $usuarios=User::All();
-        return view('usuarios.VistaUsuarios')->with ('usuarios',$usuarios);
+           if($request->ajax()){
+            $roles = Role::where('id', $request->role_id)->first();
+            $permissions = $roles->permisos;
+            return $permissions;
+        }
+        $roles=Role::all();
+        /* lo que ocupa para modal editar */
+        foreach ($usuarios as $usuario){
+            $user = User::findOrFail($usuario->id);
+        
+        
+            $roles2 = Role::get();
+            $userRole = $user->roles->first();
+            if($userRole != null){
+                $rolePermissions = $userRole->allRolePermissions;
+            }else{
+                $rolePermissions = null;
+            }
+            $userPermissions = $user->permisos;
+        }
+
+        /*  */
+        return view('usuarios.VistaUsuarios', [
+        'user'=>$user,
+            'roles2'=>$roles2,
+            'userRole'=>$userRole,
+            'rolePermissions'=>$rolePermissions,
+            'userPermissions'=>$userPermissions
+            ])->with ('usuarios',$usuarios)->with ('roles',$roles);
     }
 
 
