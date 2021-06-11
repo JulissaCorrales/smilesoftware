@@ -56,12 +56,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <!-- CSS Files -->
 
-   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+   <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
      <!--<link href="../assets/css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" /> -->
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="../assets/css/demo.css" rel="stylesheet" />
+    <link href="/assets/css/demo.css" rel="stylesheet" />
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sticky-footer-navbar/">
+
 
   <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
       <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -69,7 +70,7 @@
       <link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
       <link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
       <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
-      <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+      <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
       <link href="/css/bootstrap-tagsinput.css" rel="stylesheet" type="text/css">
     <script src="/js/bootstrap-tagsinput.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -85,6 +86,7 @@
     @yield('css_role')
     @yield('js_role')
     @yield('js_user_page')
+     @yield('js_user_page2')
     
 
 <!--Fin de lo Agregado -->
@@ -293,11 +295,11 @@
 
  
   <!-- Bootstrap core JavaScript-->
-  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/js/core/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
   <!-- Page level plugin JavaScript-->
   
@@ -314,6 +316,7 @@
   @yield('js_post_page')
   @yield('js_user_page') 
   @yield('js_role_page') 
+
   </body>
     
 </html>
