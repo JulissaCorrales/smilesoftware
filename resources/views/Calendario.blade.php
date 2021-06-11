@@ -7,54 +7,62 @@
 @section('content')
 
 
-
 <div class="card mb-3">
           <div class="card-header">
            <h4><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge-fill" viewBox="0 0 16 16">
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
-</svg>Pacientes</h4>
- <p>En esta ventana  muestra los pacientes que se han registrado  en la clínica, <br> en esta misma se podra crear un nuevo paciente, editar informacion, eliminar el paciente.</p>
+</svg><b>Agenda</b></h4>
+ <p>En esta seccion muestra un calendario al dar click se podra agendar una cita tambien tiene las opciones:Citas, ver citas semanales,Dar cita y descarga la cita en un archivo Pdf.</p>
+
+
+
+  @can('view', App\Cita::class)
+  <a type="button" class="btn btn-info" href="/pantallainicio/calendario/citadiaria" style="  color:white; "><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-day" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+  <path d="M4.684 11.523v-2.3h2.261v-.61H4.684V6.801h2.464v-.61H4v5.332h.684zm3.296 0h.676V8.98c0-.554.227-1.007.953-1.007.125 0 .258.004.329.015v-.613a1.806 1.806 0 0 0-.254-.02c-.582 0-.891.32-1.012.567h-.02v-.504H7.98v4.105zm2.805-5.093c0 .238.192.425.43.425a.428.428 0 1 0 0-.855.426.426 0 0 0-.43.43zm.094 5.093h.672V7.418h-.672v4.105z"/>
+</svg>Citas</a>
+
+@endcan
+
+
+
+@can('view3', App\Cita::class)
+  <a type="button" class="btn btn-info" href="/pantallainicio/calendario/semanal" style=" color:white; "><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-week" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+  <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+</svg>Semanal</a>
+
+@endcan
+
+
+@can('create', App\Cita::class)
+  <a type="button" class="btn btn-info" data-toggle="modal" data-target="#create" style=" color:white; "><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+  <path fill-rule="evenodd" d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+</svg>Dar Cita</a>
+@endcan
+
+
+@can('DescargarCitas',App\Cita::class)
+  <a type="button"  href="/pdfcitasimpresion"class="btn btn-info"style=" color:white; "><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/>
+<path fill-rule="evenodd" d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
+</svg>Descargar Citas</a>
+</div>
+
+@endcan
 
 </div>
 
 
-
-<div style="margin-top:50px; margin-left:50px;">
-
-@can('view', App\Cita::class)
-                      <a type="button" class="btn btn-outline-light" href="/pantallainicio/calendario/citadiaria" style=" background-image: linear-gradient(to bottom, #1687a7); ">
-<img src="{{ asset('Imagenes/citas1.png')}}" alt="Avatar"class="three-columns" id="imagen" width="200" height="220"><br>
-Citas</a>
-
-                  @endcan
-
-
-
-  @can('view3', App\Cita::class)
-                    <a type="button" class="btn btn-outline-info" href="/pantallainicio/calendario/semanal" style=" background-image: linear-gradient(to bottom, #1687a7);"><img src="{{ asset('Imagenes/citas1.png')}}" alt="Avatar"class="three-columns" id="imagen" width="200" height="220"><br>Semanal</a>
-
-                  @endcan
-
-<br>
-
-
-                  @can('create', App\Cita::class)
-                    <a type="button" class="btn btn-outline-info" data-toggle="modal" id="darcita1"data-target="#create" style=" background-image: linear-gradient(to bottom, #1687a7);"><img src="{{ asset('Imagenes/citas1.png')}}" alt="Avatar"class="three-columns" id="imagen" width="200" height="220"><br>Dar Cita</a>
-                  @endcan
-
-
-
-        @can('DescargarCitas',App\Cita::class)
-                    <a type="button"  href="/pdfcitasimpresion"class="btn btn-outline-info"style=" background-image: linear-gradient(to bottom, #1687a7);"><img src="{{ asset('Imagenes/citas1.png')}}" alt="Avatar"class="three-columns" id="imagen" width="200" height="220"> <br>
-Descargar Citas</a>
-                    </div>
-
-                  @endcan
-
-
-
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- modal -->
+  <!--  -->
+  <!--Estos son  Importante -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.16/vue.min.js"></script>
   <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
@@ -86,19 +94,19 @@ Descargar Citas</a>
 
   ?>
 <!--  -->
-<head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 #calendar {
 
-width:50%;
-margin-top:-530px;
-margin-left:575px;
+width: auto;
+margin-top:4em;
+margin-bottom:4em;
+margin-right:4em;
+margin-left:4em;
+padding: 25px 25px 25px 25px;
 background: url("/imagenes/fond.jpg");
 background-repeat: no-repeat;
-
-/* background-image: linear-gradient(to top, #006666 ,#e6ffff ); */
+/*background-image: linear-gradient(to top, #00cccc ,#e6ffff );*/
 background-position: center center;
   background-size: cover;
 
@@ -106,13 +114,13 @@ background-position: center center;
 
 .fc table {
 
-border-spacing: 1;
+border-spacing: 0;
 font-size: 1em; /* normalize cross-browser */
-  border: #006666  1px solid;
+  border:#c1d7d7 1px solid;
 }
 .fc th {
 text-align: center;
-background-color:#e0ebeb;
+background-color:#c1d7d7;
 font-size: 1.2em;
 }
 .fc th,
@@ -144,67 +152,6 @@ border-color: #b3ffff;
       }
       #comentarios{margin-left:2em;
       margin-right:2em;}
-
-
-
-
-@media all and (min-width: 200px){
-    div.primerdiv{
-        width:20%;
-        height:auto;
-        margin-left:100px;
-
-    }
-}
-
-
-
-
-
-@media all and (min-width: 200px) {
-    a.menu{
-        padding-left:30%;
-         margin:0px 4px;
-    }
-}
-
-
-
-
-@media all and (min-width: 200px) {
-    div.primerdiv{
-        display: inline-block;
-        padding:2px 6px;
-        margin:0px 4px;
-    }
-}
-
-
-@media all and (min-width: 1200px) {
-    div.primerdiv {
-        display: inline-block;
-        padding:2px 6px;
-        margin:0px 4px;
-    }
-}
-
-
-}
-
-
-
-
-#primerdiv1{
-
-width:50%;
-min-width:20%;
-margin-left: 50px;
-margin-top:50px;
-
-
-}
-
-
 
 </style>
 
@@ -512,6 +459,11 @@ console.log(date);
 
 
 
+<div style="position:static;"  id='hijo'>
+<div >
+@yield('cuerpo')
+</div>
+
 
 </div>
 @include('darcita')
@@ -532,13 +484,6 @@ $(document)
         this.rows = minRows + rows;
     });
 </script>
-<!--  -->
-
-
-</div>
-
-
-
 
 </div>
 
