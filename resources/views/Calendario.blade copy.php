@@ -1,64 +1,21 @@
-
 @extends('Plantilla.dashboard')
+@section('Titulo','Agenda')
 
 
-@section('titulo','Especialidad')
-
-@section('content')
-
-
-
-<div class="card mb-3">
-          <div class="card-header">
-           <h4><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge-fill" viewBox="0 0 16 16">
-  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
-</svg>Pacientes</h4>
- <p>En esta ventana  muestra los pacientes que se han registrado  en la clínica, <br> en esta misma se podra crear un nuevo paciente, editar informacion, eliminar el paciente.</p>
-
-</div>
-
-
-
-<div style="margin-top:50px; margin-left:50px;">
-
-@can('view', App\Cita::class)
-                      <a type="button" class="btn btn-outline-light" href="/pantallainicio/calendario/citadiaria" style=" background-image: linear-gradient(to bottom, #1687a7); ">
-<img src="{{ asset('Imagenes/citas1.png')}}" alt="Avatar"class="three-columns" id="imagen" width="200" height="220"><br>
-Citas</a>
-
-                  @endcan
-
-
-
-  @can('view3', App\Cita::class)
-                    <a type="button" class="btn btn-outline-info" href="/pantallainicio/calendario/semanal" style=" background-image: linear-gradient(to bottom, #1687a7);"><img src="{{ asset('Imagenes/citas1.png')}}" alt="Avatar"class="three-columns" id="imagen" width="200" height="220"><br>Semanal</a>
-
-                  @endcan
-
-<br>
-
-
-                  @can('create', App\Cita::class)
-                    <a type="button" class="btn btn-outline-info" data-toggle="modal" id="darcita1"data-target="#create" style=" background-image: linear-gradient(to bottom, #1687a7);"><img src="{{ asset('Imagenes/citas1.png')}}" alt="Avatar"class="three-columns" id="imagen" width="200" height="220"><br>Dar Cita</a>
-                  @endcan
-
-
-
-        @can('DescargarCitas',App\Cita::class)
-                    <a type="button"  href="/pdfcitasimpresion"class="btn btn-outline-info"style=" background-image: linear-gradient(to bottom, #1687a7);"><img src="{{ asset('Imagenes/citas1.png')}}" alt="Avatar"class="three-columns" id="imagen" width="200" height="220"> <br>
-Descargar Citas</a>
-                    </div>
-
-                  @endcan
-
-
-
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- modal -->
+  <!--  -->
+  <!--Estos son  Importante -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.16/vue.min.js"></script>
   <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
-
+@section('content')
   <!-- este es importante -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" />
   <!-- Este Tambien es Importante -->
@@ -86,19 +43,19 @@ Descargar Citas</a>
 
   ?>
 <!--  -->
-<head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 #calendar {
 
-width:50%;
-margin-top:-530px;
-margin-left:575px;
+width: auto;
+margin-top:4em;
+margin-bottom:4em;
+margin-right:4em;
+margin-left:4em;
+padding: 25px 25px 25px 25px;
 background: url("/imagenes/fond.jpg");
 background-repeat: no-repeat;
-
-/* background-image: linear-gradient(to top, #006666 ,#e6ffff ); */
+background-image: linear-gradient(to top, #00cccc ,#e6ffff );
 background-position: center center;
   background-size: cover;
 
@@ -106,20 +63,20 @@ background-position: center center;
 
 .fc table {
 
-border-spacing: 1;
+border-spacing: 0;
 font-size: 1em; /* normalize cross-browser */
-  border: #006666  1px solid;
+  border: #00cccc  2px solid;
 }
 .fc th {
 text-align: center;
-background-color:#e0ebeb;
+background-color:#D1C4E9;
 font-size: 1.2em;
 }
 .fc th,
 .fc td {
 vertical-align: top;
 padding: 0;
-/*border: #00cccc  2px solid; */
+border: #00cccc  2px solid;
 }
 
 #app{
@@ -144,67 +101,6 @@ border-color: #b3ffff;
       }
       #comentarios{margin-left:2em;
       margin-right:2em;}
-
-
-
-
-@media all and (min-width: 200px){
-    div.primerdiv{
-        width:20%;
-        height:auto;
-        margin-left:100px;
-
-    }
-}
-
-
-
-
-
-@media all and (min-width: 200px) {
-    a.menu{
-        padding-left:30%;
-         margin:0px 4px;
-    }
-}
-
-
-
-
-@media all and (min-width: 200px) {
-    div.primerdiv{
-        display: inline-block;
-        padding:2px 6px;
-        margin:0px 4px;
-    }
-}
-
-
-@media all and (min-width: 1200px) {
-    div.primerdiv {
-        display: inline-block;
-        padding:2px 6px;
-        margin:0px 4px;
-    }
-}
-
-
-}
-
-
-
-
-#primerdiv1{
-
-width:50%;
-min-width:20%;
-margin-left: 50px;
-margin-top:50px;
-
-
-}
-
-
 
 </style>
 
@@ -512,6 +408,11 @@ console.log(date);
 
 
 
+<div style="position:static;"  id='hijo'>
+<div >
+@yield('cuerpo')
+</div>
+
 
 </div>
 @include('darcita')
@@ -533,22 +434,8 @@ $(document)
     });
 </script>
 <!--  -->
-
-
-</div>
-
-
-
-
-</div>
-
-
-
-
-
-
-
-@endSection
+@endsection
 @endcanany
+</html>
 
 
