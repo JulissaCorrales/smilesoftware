@@ -53,25 +53,151 @@
  <p>En esta ventana  muestra los pacientes que se han registrado  en la clínica, <br> en esta misma se podra crear un nuevo paciente, editar informacion, eliminar el paciente.</p>
 @can('descargarPacientes', App\Paciente::class)
 <div>
-<a type="button"style="background-color:#28a4a4; color:#c1f0f0; position: absolute;
+<a type="button"style="background-color:#ffb037; color:#151515; position: absolute;
   left: 900px;
-  top:  40px;"  class="btn" href="{{route('descargarPDFPacientes')}}"><svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-cloud-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  top:  15px;"  class="btn" href="{{route('descargarPDFPacientes')}}"><svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-cloud-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/>
   <path fill-rule="evenodd" d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
 </svg> 
          Descargar Paciente </a>
 </div>
 @endcan
+        <!-- boton de nuevo paciente -->
+        <div >
+            <button type="button"  class="btn btn-outline-info" data-toggle="modal" data-target="#Crearpaciente" style=" position: absolute; left: 900px; top:  70px;" >
+              <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-node-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M11 13a5 5 0 1 0-4.975-5.5H4A1.5 1.5 0 0 0 2.5 6h-1A1.5 1.5 0 0 0 0 7.5v1A1.5 1.5 0 0 0 1.5 10h1A1.5 1.5 0 0 0 4 8.5h2.025A5 5 0 0 0 11 13zm.5-7.5a.5.5 0 0 0-1 0v2h-2a.5.5 0 0 0 0 1h2v2a.5.5 0 0 0 1 0v-2h2a.5.5 0 0 0 0-1h-2v-2z"/>
+            </svg>
+            Nuevo Paciente
+            </button>
+        </div>
+    </div>
+    <!-- 1.modal crear paciente -->
+    <div class="modal fade" id="Crearpaciente" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header" style=" background-color:#276678; color:white;  height:100px;">
+            <h5 class="modal-title" id="exampleModalLabel">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M9.828 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91H9v1H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181L15.546 8H14.54l.265-2.91A1 1 0 0 0 13.81 4H9.828zm-2.95-1.707L7.587 3H2.19c-.24 0-.47.042-.684.12L1.5 2.98a1 1 0 0 1 1-.98h3.672a1 1 0 0 1 .707.293z"/>
+              <path fill-rule="evenodd" d="M15.854 10.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708l1.146 1.147 2.646-2.647a.5.5 0 0 1 .708 0z"/>
+              </svg>   
+            Crear Paciente</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <!--Contenido -->
+            <form id="formupaciente" method="post" action="/pantallainicio/vista/pacienteNuevo" enctype="multipart/form-data">
+            @csrf
+               <div class="form-group">
+                          <label for="nombres">Nombres:</label>
+                          <input type="text" class="form-control-file" name="nombres" id="nombres" placeholder="ingresar nombre del paciente">
+                      </div>
 
+                      <div class="form-group">
+                          <label for="apellidos">Apellidos:</label>
+                          <input type="text" class="form-control-file" name="apellidos" id="apellidos" placeholder="ingresar apellido del paciente">
+                      </div>
 
-<div>@can('create', App\Paciente::class)
-    <button type="button"style="background-color:#ffdb4d; color:#666699;  position: absolute; 
-  left: 840px;
-  top:  40px;   " class="btn"  data-toggle="modal" data-target="#create"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
-  <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-  <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-</svg>
- </button> @endcan
+                      <div class="form-group">
+                        <label for="identidad">identidad:</label>
+                        <input type="text" class="form-control-file" name="identidad" id="identidad" placeholder="ingresar identidad del paciente">
+                    </div>
+                    <div class="form-group">
+                        <label for="sexo">Sexo :</label>
+                        <select  name="sexo" id="sexo">
+                        <option disabled selected>Seleccione el sexo</option>
+                          <option>Masculino</option>
+                          <option>Femenino</option>
+                        
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="fechaNacimiento">fecha de nacimiento:</label>
+                      <input type="date" class="form-control-file" name="fechaNacimiento" id="fechaNacimiento" placeholder="ingresar fecha de nacimiento del paciente">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="departamento">Departamento:</label>
+                    <select name="departamento" id="departamento" class="form-control">
+                    <option disabled selected>Seleccione un departamento</option>
+                    <option >Atlántida</option>
+                    <option >Choluteca</option>
+                    <option>Colón</option>
+                    <option >Comayagua</option>
+                    <option >Copán</option>
+                    <option >Cortés</option>
+                    <option >El Paraíso</option>
+                    <option >Francisco Morazán</option>
+                    <option >Gracias a Dios</option>
+                    <option >Intibucá</option>
+                    <option >Islas de la Bahía</option>
+                    <option >La Paz</option>
+                    <option >Lempira</option>
+                    <option >Ocotepeque</option>
+                    <option >Olancho</option>
+                    <option >Santa Bárbara</option>
+                    <option >Valle</option>
+                    <option >Yoro</option>
+
+                </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="ciudad">ciudad:</label>
+                    <input type="text" class="form-control-file" name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente">
+                  
+                  </div><div class="form-group">
+                    <label for="direccion">Direccion:</label>
+                    <input type="text" class="form-control-file" name="direccion" id="direccion" placeholder="ingresar direccion del paciente">
+                  </div>
+               
+                  <div class="form-group">
+                    <label for="telefonoFijo">Telefono fijo:</label>
+                    <input type="text" class="form-control-file" name="telefonoFijo" id="telefonoFijo" placeholder="ingresar telefono Fijo del paciente">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="telefonoCelular">Telefono celular:</label>
+                    <input type="text" class="form-control-file" name="telefonoCelular" id="telefonoCelular" placeholder="ingresar telefono Celular del paciente">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="profesion">Profesion:</label>
+                    <input type="text" class="form-control-file" name="profesion" id="profesion" placeholder="ingresar profesion del paciente">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="empresa">Empresa:</label>
+                    <input type="text" class="form-control-file" name="empresa" id="empresa" placeholder="ingresar la empresa donde trabaja el paciente">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="observaciones">observaciones:</label>
+                    <input type="text" class="form-control-file" name="observaciones" id="observaciones" placeholder="Alguna observacion?">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="file" class="form-control-file" name="file" id="imagen" placeholder="Seleccione una Imagen">
+                  </div>
+
+                          </div>
+
+                  <div class="modal-footer">
+                  <button type="button" onclick="location.href='/pantallainicio/vista'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+                  <input type="reset" class="btn btn-danger">
+                <button type="submit" class="btn btn-primary" >Guardar Paciente</button>
+              </div>
+                  </form> 
+            <p id="resultado"></p>
+            <!-- fin contenido -->
+        </div>
+    </div>
+  
+    <!-- Fin modal nuevo paciente -->
 </div>
 
             </div>
