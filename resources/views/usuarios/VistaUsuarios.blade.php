@@ -104,18 +104,18 @@
                             <label class="col-form-label" style="margin-left:1em;margin-right:1em;" for="roles">{{ __('Rol:') }}</label>
                             <div>
                                 <br>
-                                <select class="role form-control" name="role" id="role">
+                                <select class="role form-control" name="role" id="role2">
                                     <option value="">Seleccione el Rol...</option>
                                         @foreach ($roles as $role)
-                                        <option data-role-id="{{$role->id}}" data-role-slug="{{$role->slug}}" value="{{$role->id}}">{{$role->Nombre}}</option>
+                                        <option data-role-id2="{{$role->id}}" data-role-slug2="{{$role->slug}}" value="{{$role->id}}">{{$role->Nombre}}</option>
                                         @endforeach
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group" id="permissions_box">
+                        <div class="form-group" id="permissions_box2">
                             <label class="col-form-label" for="permiso">{{ __('Seleccione los Permiso: ') }}</label><br>
                             <input type="checkbox" id="marcarTodas">Seleccionar todos los permisos</input>
-                            <div id="permissions_ckeckbox_list"></div>
+                            <div id="permissions_ckeckbox_list2"></div>
                         </div>
                     </div>
                 </div>
@@ -209,137 +209,10 @@
                         <path fill-rule="evenodd" d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
                         </svg>
                         </a>
-                        <button type="button" class="btn btn-success" style="margin:6px;" data-toggle="modal" data-target="#editarusuario-{{$user->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-                        </svg>
-                        </button>
-                        <!-- 2.Modal editar usuario -->
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="editarusuario-{{$user->id}}"class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalCenterTitle">Editar Usuario</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <!-- cuerpo modal -->
-                                        <form method="post" action="{{route('usuario.actualizar',$user->id)}} " enctype="multipart/form-data">
-                                        @method('PATCH')
-                                        @csrf() 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div>
-                                                    <label for="name" class=" col-form-label">{{ __('Nombre:') }}</label>
-                                                    <div>             
-                                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{$user->name}}" required autocomplete="name" autofocus>
-                                                        @error('name')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div >
-                                                    <label for="email" class=" col-form-label">{{ __('Correo Electrónico') }}</label>
-                                                    <div>
-                                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$user->email}}" required autocomplete="email">
-
-                                                        @error('email')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div>
-                                                    <label for="password" class=" col-form-label">{{ __('Contraseña:') }}</label>
-                                                    <div>
-                                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" value="{{$user->password}}"> 
-                                                        @error('password')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div>
-                                                    <label for="password-confirm" class="col-form-label">{{ __('Confirme Contraseña') }}</label>
-                                                    <div>
-                                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" value="{{$user->password}}">
-                                                    </div>
-                                                </div>
-                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <!-- Roles y permisos -->
-                                                <div>
-                                                    <label for="roles" class=" col-form-label">{{ __('Rol') }}</label>
-                                                    <div>
-                                                        <select class="role form-control" name="role" id="role">
-                                                            <option disabled>Seleccione el Rol...</option>
-                                                            @foreach ($roles as $role)
-                                                            <option data-role-id="{{$role->id}}" data-role-slug="{{$role->slug}}" value="{{$role->id}}" {{ $user->roles->isEmpty() || $role->Nombre != $userRole->Nombre? "" : "selected"}}>{{$role->Nombre}}</option>                
-                                                             @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <!--  -->
-                                                <div id="permissions_box" >
-                                                    <label class=" col-form-label " for="roles">Seleccione el Permiso</label>        
-                                                    <div id="permissions_ckeckbox_list"></div>
-                                                 </div>   
-                                                <div>
-                                                    @if($user->permisos->isNotEmpty())
-                                                        @if($rolePermissions != null)
-                                                            <div id="user_permissions_box" >
-                                                                <label for="roles">Permisos del Usuario</label>
-                                                                <div    id="user_permissions_ckeckbox_list">                    
-                                                                    @foreach ($rolePermissions as $permission)
-                                                                        <div class="custom-control custom-checkbox">                         
-                                                                            <input class="custom-control-input" type="checkbox" name="permissions[]" id="{{$permission->slug}}" value="{{$permission->id}}" {{ in_array($permission->id, $userPermissions->pluck('id')->toArray() ) ? 'checked="checked"' : '' }}>
-                                                                                <label class="custom-control-label" for="{{$permission->slug}}">{{$permission->Permiso}}</label>
-                                                                        </div>
-                                                                    @endforeach
-                                                                </div>
-                                                            </div>
-                                                        @endif
-                                                    @endif
-                                                </div>
-                                                 <!-- fin roles y permisos -->
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label  class=" col-form-label">{{ __('Fotografía de usuario:') }}</label>
-                                                <div align=center  class="form-group" id="imagen">       
-                                                    <input accept="image/*" type="file" class="form-control-file" name="file" id="file" value="{{$usuario->imagen}}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <input type="reset" class="btn btn-danger" id="reset" >
-                                            <button id="registrar "type="submit"class="btn btn-primary" data-toggle="modal" >
-                                                Guardar Cambios
-                                            </button>
-                                        </div>
-                                        </form>
-                                <!-- Fin cuerpo modal -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Fin modal editar usuario -->
+                       <a type="button" class="btn btn-success" style="margin:6px;" href="{{route('usuario.actualizar',$usuario->id)}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                        </svg> </a>
+                     
                         <button type="button" class="btn btn-danger" style="margin:6px;" data-toggle="modal" data-target="#modal-{{$usuario->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
                         </svg>
@@ -380,10 +253,7 @@
         </div>
     </div>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<!-- script de jquery para que funcione el buscador de nombre-->
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
-<!-- script de datatable para que funcione el buscado de nombre-->
+
 <script>
 $(document).ready( function () {
     $('#datatable1').DataTable( {
@@ -421,19 +291,19 @@ $(document).ready( function () {
 
     <script>
         $(document).ready(function(){
-            var permissions_box = $('#permissions_box');
-            var permissions_ckeckbox_list = $('#permissions_ckeckbox_list');
+            var permissions_box = $('#permissions_box2');
+            var permissions_ckeckbox_list = $('#permissions_ckeckbox_list2');
             permissions_box.hide(); // hide all boxes
-            $('#role').on('change', function() {
+            $('#role2').on('change', function() {
                 var role = $(this).find(':selected');    
-                var role_id = role.data('role-id');
-                var role_slug = role.data('role-slug');
+                var role_id = role.data('role-id2');
+                var role_slug = role.data('role-slug2');
                 permissions_ckeckbox_list.empty();
               // console.log(role_slug);
 
 
                $.ajax({
-                url: "/pantallainicio/usuarios/nuevo",
+                url: "/pantallainicio/usuarios/ver",
                     method: 'get',
                     dataType: 'json',
                     data: {
@@ -462,7 +332,7 @@ console.log(data);
         });
     </script>
 
-<!-- script para seleccionar todos los checkbox -->
+<!-- scripdt para seleccionar todos los checkbox -->
 <script>
 $(document).ready(()=>{
       $('#marcarTodas').click(function () {
@@ -470,19 +340,15 @@ $(document).ready(()=>{
     });
 });
 </script>
-<!-- fin script para seleccionar todos los checkbox  -->
-<!-- Script que servira para modal editar en seccion roles y permisos -->
 
-<!-- aqui tenia el otro script pero no me daba bien -->
+<!-- fin scrip-t para seleccionar todos los checkbox  -->
 
-
-<!-- fin Script que servira para modal editar en seccion roles y permisos -->
 @endsection
-@endsection <!-- fin seccion  -->
+@endsection 
 
 
 
-@endcanany<!-- fin seccion de todo el contenido -->
+@endcanany
 
 
 

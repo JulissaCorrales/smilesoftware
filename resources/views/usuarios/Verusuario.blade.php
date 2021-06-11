@@ -9,14 +9,10 @@
 <style>
 #padre{
 
-  margin:4em;
-  font-family: georgia;
+  margin:2em;
   text-align:center;
-position: absolute;
-top: 100px;
-left: 280px;  
-
-width: 1000px;
+position: relative; 
+width: auto;
  
 }
 #dd{
@@ -40,22 +36,26 @@ h4{
 
 
               </div>
-
+              <div id="imagen4">
+                      <img style="  border-radius: 70%;margin-top:1em"src='/Imagenes/{{$usuarios->imagen}}' width=" 100px" height="100px"id="datos6">
+                      </div>
               <div class="card-body">
                 <h5 class="card-title">Roles</h5>
                 <p>
                   @if($usuarios->roles->isNotEmpty())
-                                                      @foreach ($usuarios->roles as $role )
-                                                      <span class="badge badge-secondary" >
-                                                          {{ $role->Nombre }}                                    
-                                                      </span>
-                                                    
-                                                      @endforeach
-                                                      @endif
+                      @foreach ($usuarios->roles as $role )
+                      <span style="background-color:#d3e0ea;color:black;"class="badge badge-secondary" >
+                          {{ $role->Nombre }}                                    
+                      </span>
+                    
+                      @endforeach
+                      @endif
 
                 </p>
                 <h5 class="card-title">Permisos</h5>
-                    <p class="card-text">
+                <div class="row">
+                  <div class="col-md-12">
+                     <p class="card-text" style="margin:1em;">
                     @if($usuarios->permisos->isNotEmpty())
                     @foreach ($usuarios->permisos as $permisos )
                     <span class="badge badge-secondary" >
@@ -66,7 +66,10 @@ h4{
                     @endif
 
                       </p>
+                  </div>
 
+                   
+                  </div>
                   @isset($usuarios->odontologo)
               <h5 class="card-title"> Odontólogo  Asignado a este Usuario</h5>
                   {{$usuarios->odontologo->nombres}} {{$usuarios->odontologo->apellidos}}

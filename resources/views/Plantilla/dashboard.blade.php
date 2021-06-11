@@ -72,7 +72,8 @@
       <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
       <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
       <link href="/css/bootstrap-tagsinput.css" rel="stylesheet" type="text/css">
-    <script src="/js/bootstrap-tagsinput.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
       <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
@@ -315,6 +316,7 @@
     
   @yield('js_post_page')
   @yield('js_user_page') 
+  @yield('js_user_page2') 
   @yield('js_role_page') 
 
   </body>
