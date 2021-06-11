@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Odontologo;
-use App\EspecialidadOdontologos;
+use App\Especialidad;
 use DispatchesJobs, ValidatesRequests;
 use Illuminate\Support\Facades\Gate;
 use App\Mail\Contactanos;
@@ -23,9 +23,10 @@ class OdontologoController extends Controller
         //return "texto de contacto desde el controlador ";
         if(Gate::denies('isAdmin') || Gate::denies('isSecretaria')){
 
-        $odontologos=Odontologo::paginate(4);
-        $especialidad_odontologos= EspecialidadOdontologos::all();
-        return view('Odontologo')->with ('odontologos',$odontologos);
+        $odontologos=Odontologo::all();
+        $especialidades= Especialidad::all();
+        //$especialidad_odontologos= EspecialidadOdontologos::all();
+        return view('Odontologo')->with ('odontologos',$odontologos)->with('especialidades',$especialidades);
 
         }else{
             abort(403);
@@ -42,7 +43,7 @@ class OdontologoController extends Controller
      public function GuardarNuevo(Request $request){
         $this->authorize('create', Odontologo::class); //si tiene el permiso de crear: 
         $nuevo = new Odontologo();
-
+        
         //formulario
         $nuevo->nombres = $request->input('nombres');
         $nuevo->apellidos = $request->input('apellidos');
@@ -52,7 +53,7 @@ class OdontologoController extends Controller
         $nuevo->departamento = $request->input('departamento');
         $nuevo->ciudad = $request->input('ciudad');
         $nuevo->direccion = $request -> input('direccion');
-        $nuevo->especialidad_id = $request->input('especialidad');
+       // $nuevo->especialidad_id = $request->input('especialidad');
         $nuevo->user_id = $request->input('user_id');
 
 
@@ -79,8 +80,38 @@ class OdontologoController extends Controller
         'user_id'=>'required|unique:App\Odontologo'
         ]);
        $creado = $nuevo->save();
+          
+
+     
+    /*
+          $listOfPermissions = explode(',',  $request->especialidad_odontologo); //crear matriz a partir de permisos separados/coma
+        
+         
+        foreach ($listOfPermissions as  $permiso) {
+             $permisos= new Especialidad();
+             $permisos->Especialidad= $permiso;
+            
+             $permisos->save();
+
+             $nuevo->especialidades()->attach($permisos->id);
+             $nuevo->save();
+        }    
 
 
+ */
+
+
+
+    if($request->especialidades != null){            
+        foreach ($request->especialidades as $permission) {
+            $nuevo->especialidades()->attach($permission);
+            $nuevo->save();
+        }
+    }
+
+
+
+    
 
 
 

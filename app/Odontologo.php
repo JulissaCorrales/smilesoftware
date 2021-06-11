@@ -13,6 +13,7 @@ class Odontologo extends Model
     }
 
 
+
     public function especialidadOdontologos()
     {
         
@@ -28,9 +29,10 @@ class Odontologo extends Model
     public function especialidades()
     {
         
-        return $this->hasMany(Especialidad::class,'especialidad_id','id');/*Un odontologo tiene muchoas especialidadidades*/
+        return $this->belongsToMany(Especialidad::class,'especialidad_odontologo');/*Un odontologo tiene muchoas especialidadidades*/
     }
     
+
     protected $dates = ['fecha'];
     public function citas(){
         return $this->hasMany(Cita::class); //*un odontologo tiene muchas citas */

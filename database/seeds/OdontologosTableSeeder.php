@@ -20,6 +20,8 @@ class OdontologosTableSeeder extends Seeder
      */
     public function run()
     {
+
+
         $especialidad = new Especialidad();
         $especialidad->Especialidad="Endodoncia";   
         $especialidad->save();

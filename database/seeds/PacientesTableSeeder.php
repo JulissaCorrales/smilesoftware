@@ -12,6 +12,7 @@ class PacientesTableSeeder extends Seeder
      */
     public function run()
     {
+/*
         $paciente=new Paciente;
         $paciente->nombres="Luis David";
         $paciente->apellidos="Ferrera Martinez";
@@ -47,5 +48,9 @@ class PacientesTableSeeder extends Seeder
         $paciente->observaciones="Alergias al mani";
         $paciente->save();
        
+    }
+
+ */
+
     }
 }

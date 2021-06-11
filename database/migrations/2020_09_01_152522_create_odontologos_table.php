@@ -25,8 +25,8 @@ class CreateOdontologosTable extends Migration
             $table->string('direccion');
             $table->string('imagen')->default('Icono.jpg');
             $table->bigInteger('user_id')->unsigned();
-            $table->unsignedBigInteger('especialidad_id')->unsigned();
-            $table->foreign('especialidad_id')->references('id')->on('especialidads')->onDelete('cascade')->update('cascade');
+            //$table->unsignedBigInteger('especialidad_id')->unsigned();
+            //$table->foreign('especialidad_id')->references('id')->on('especialidads')->onDelete('cascade')->update('cascade');
            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->update('cascade');
             $table->timestamps();
        

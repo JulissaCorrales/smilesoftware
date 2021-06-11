@@ -24,4 +24,10 @@ class Especialidad extends Model
     public function citas(){
         return $this->hasMany(Cita::class); //*una especialidad tiene muchas citas */
     }
+
+
+public function odontologos(){
+        return $this->belongsToMany(Odontologo::class,'especialidad_odontologo');
+    }
+
 }

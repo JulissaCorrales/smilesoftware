@@ -66,9 +66,9 @@
          <option value="{{$odontologos->id}}">
          {{$odontologos->id}}--
          {{$odontologos->nombres}}  {{$odontologos->apellidos}}
-          --|Especialidades:{{$odontologos->especialidad->Especialidad}},
-                   @forelse ($odontologos->especialidadOdontologos as $tag) 
-                    {{ $tag->especialidad->Especialidad}},
+          --|Especialidades:
+                   @forelse ($odontologos->especialidades as $tag) 
+                    {{ $tag->Especialidad}},
                     <hr>
                     @empty
                     @endforelse

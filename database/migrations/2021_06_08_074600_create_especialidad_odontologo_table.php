@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEspecialidadOdontologosTable extends Migration
+class CreateEspecialidadOdontologoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateEspecialidadOdontologosTable extends Migration
      */
     public function up()
     {
-        Schema::create('especialidad_odontologos', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('especialidad_id');
+        Schema::create('especialidad_odontologo', function (Blueprint $table) {
+             $table->unsignedBigInteger('especialidad_id');
             $table->unsignedBigInteger('odontologo_id');
-            $table->foreign('odontologo_id')->references('id')->on('odontologos')->onDelete('cascade')->update('cascade');
+
             $table->foreign('especialidad_id')->references('id')->on('especialidads')->onDelete('cascade')->update('cascade');
-            $table->timestamps();
+            $table->foreign('odontologo_id')->references('id')->on('odontologos')->onDelete('cascade')->update('cascade');
+            $table->primary(['especialidad_id','odontologo_id']);
         });
     }
 
@@ -30,6 +30,6 @@ class CreateEspecialidadOdontologosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('especialidad_odontologos');
+        Schema::dropIfExists('especialidad_odontologo');
     }
 }

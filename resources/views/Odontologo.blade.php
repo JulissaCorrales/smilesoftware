@@ -4,7 +4,14 @@
 @section('content')
 
 <!--</head> -->
+<style>
+
+
+</style>
 <div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-boostrap/4.5.0/css/bootstrap.css" type="text/css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boostrap-select/1.13.18/css/bootstrap-select.min.css" type="text/css">
 <div>@if(session('mensaje'))
     <div class="alert alert-success">
         {{session('mensaje')}}
@@ -84,7 +91,11 @@
    
       <td>{{$odontologo->identidad}} </td>
 
-     <td>{{$odontologo->especialidad->Especialidad}}
+     <td> @forelse($odontologo->especialidades as $tag) 
+                    {{ $tag->Especialidad}}
+                    <hr>
+                    @empty
+                    @endforelse
 
 </td>
   
@@ -288,7 +299,7 @@
       <div class="col-md-4">
         <label for="state_id">Especialidad:</label>
         <select required name="especialidad" class="form-control">
-          <option value="{{  $odontologo->especialidad_id }}" selected>Actual: {{$odontologo->especialidad->Especialidad}}</option>
+          <option value="" selected>Actual:</option>
             <?php
             $getDoctor =$mysqli->query("select * from especialidads order by id");
             while($f=$getDoctor->fetch_object()) {
@@ -464,6 +475,7 @@
       $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
       $mysqli->set_charset("utf8");
       ?>
+
       <div class="col-md-4">
          <div class="form-group">
           <label for="file" class="control-label">Fotografía del Odontólogo:</label>
@@ -471,10 +483,36 @@
         </div>
       </div>
     </div>
-    <div class="row">
+
+</select>
+     
+ </div>
+
+
+
+
+ <div class="row">
       <div class="col-md-6">
-          <!-- usuario -->
-           <label for="user_id" class="control-label">Usuario:</label>
+          <label for="state_id" class="control-label">Especialidad:</label>
+<!-- <input type="text" value="" data-role="tagsinput" name="especialidad_odontologo"  placeholder="Ingrese una o varias Especialidades"> -->
+        
+<select name="especialidades[]" id="" required  class="form-control" multiple>
+<option value="" disabled selected>Seleccione una o varias Especialidades</option>
+@foreach($especialidades as $especialidad){
+ <option value="{{ $especialidad->id  }}">{{ $especialidad->Especialidad }}</option>
+
+
+}
+@endforeach
+
+
+
+
+</select>
+      </div>
+    
+      <div class="col-md-5 ">
+      <label for="user_id" class="control-label">Usuario:</label>
             <select required  name="user_id" class="form-control">
               <option value="" disabled selected>Seleccione un usuario</option>
          
@@ -490,48 +528,33 @@
                 } 
                 ?>      
             </select>
-        <!-- fin usuario -->
-      </div>
-      <div class="col-md-5">
-      <label for="state_id" class="control-label">Especialidad:</label>
-      <select required name="especialidad" class="form-control">
-        <option value="" disabled selected>Seleccione una especialidad</option>
-        <?php
-        $getDoctor =$mysqli->query("select * from especialidads order by id");
-        while($f=$getDoctor->fetch_object()) {
-          echo $f->id;
-          echo $f->Especialidad;
-        ?>
-          <option value="<?php echo $f->id; ?>"><?php echo $f->Especialidad ?></option>
-          <?php
-        } 
-        ?>
-      </select> </div>
+<!-- <input type="text" value="" data-role="tagsinput" name="especialidad_odontologo"  placeholder="Ingrese una o varias Especialidades"> -->
+    
+     
+ </div>
+
         <!-- Agregar especialidad -->
         <div class="col-md-1">
       
            
-          <button  id="bu1" type="button" style="margin-top:2em;" class="btn btn-outline-info" data-toggle="modal" data-target="#especia">
+          <button  type="button" style="margin-top: 9em; margin-left:-41em; width:200px;" class="btn btn-outline-info" data-toggle="modal" data-target="#especia">
           <!-- Agregar Especialidad -->
          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-dotted" viewBox="0 0 16 16">
           <path d="M2.5 0c-.166 0-.33.016-.487.048l.194.98A1.51 1.51 0 0 1 2.5 1h.458V0H2.5zm2.292 0h-.917v1h.917V0zm1.833 0h-.917v1h.917V0zm1.833 0h-.916v1h.916V0zm1.834 0h-.917v1h.917V0zm1.833 0h-.917v1h.917V0zM13.5 0h-.458v1h.458c.1 0 .199.01.293.029l.194-.981A2.51 2.51 0 0 0 13.5 0zm2.079 1.11a2.511 2.511 0 0 0-.69-.689l-.556.831c.164.11.305.251.415.415l.83-.556zM1.11.421a2.511 2.511 0 0 0-.689.69l.831.556c.11-.164.251-.305.415-.415L1.11.422zM16 2.5c0-.166-.016-.33-.048-.487l-.98.194c.018.094.028.192.028.293v.458h1V2.5zM.048 2.013A2.51 2.51 0 0 0 0 2.5v.458h1V2.5c0-.1.01-.199.029-.293l-.981-.194zM0 3.875v.917h1v-.917H0zm16 .917v-.917h-1v.917h1zM0 5.708v.917h1v-.917H0zm16 .917v-.917h-1v.917h1zM0 7.542v.916h1v-.916H0zm15 .916h1v-.916h-1v.916zM0 9.375v.917h1v-.917H0zm16 .917v-.917h-1v.917h1zm-16 .916v.917h1v-.917H0zm16 .917v-.917h-1v.917h1zm-16 .917v.458c0 .166.016.33.048.487l.98-.194A1.51 1.51 0 0 1 1 13.5v-.458H0zm16 .458v-.458h-1v.458c0 .1-.01.199-.029.293l.981.194c.032-.158.048-.32.048-.487zM.421 14.89c.183.272.417.506.69.689l.556-.831a1.51 1.51 0 0 1-.415-.415l-.83.556zm14.469.689c.272-.183.506-.417.689-.69l-.831-.556c-.11.164-.251.305-.415.415l.556.83zm-12.877.373c.158.032.32.048.487.048h.458v-1H2.5c-.1 0-.199-.01-.293-.029l-.194.981zM13.5 16c.166 0 .33-.016.487-.048l-.194-.98A1.51 1.51 0 0 1 13.5 15h-.458v1h.458zm-9.625 0h.917v-1h-.917v1zm1.833 0h.917v-1h-.917v1zm1.834-1v1h.916v-1h-.916zm1.833 1h.917v-1h-.917v1zm1.833 0h.917v-1h-.917v1zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-        </svg>
+        </svg>Agregar Especialidad
         </button>
       
+
+   
+<button id="botoncontinuar"type="submit"class="btn btn-primary" data-toggle="modal" style="margin-top: 9em; margin-left: 13em; width:200px;" >
+  Guardar
+</button>
           </div>
         <!-- fin -->
       </div>
-    </div>
- 
-            
-</div>
-<div class="modal-footer">
-<button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
-  Guardar
-</button>
+    </div>           
 </div>
 
-         
 </form>
         
      </div>
@@ -609,7 +632,10 @@ $(document).ready( function () {
 
 </script>
 
-  
+  <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.js">
+
+<script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js">
+</script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -630,7 +656,40 @@ $(document).ready( function () {
 
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+
+<script>
+$(document).ready(function(){
+
+ $('multi_select').selectpicker();
+
+});
+
+</script>
+
+<script src="https:://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" type="text/javascript">
+
+
+
+
+</script>
+
+@section('css_role')
+
+<link rel="stylesheet" href="/css/bootstrap-tagsinput.css">
+
+@endsection
+
+@section('js_role')
+<script src="/js/bootstrap-tagsinput.js"></script>
+
+@endsection
 
 
 

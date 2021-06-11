@@ -62,6 +62,7 @@ $rols=Role::all();
              $permisos->Permiso= $permiso;
              $permisos->slug= strtolower(str_replace(" ", "-",  $permiso));
              $permisos->save();
+
              $nuevo->permisos()->attach($permisos->id);
              $nuevo->save();
         }    
