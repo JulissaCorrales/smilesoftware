@@ -26,13 +26,10 @@
     
     border: 2px solid #ccc;
     width: auto;
-    height: auto;
-    
+    height: auto; 
   border: 5px solid gray;
-    position: absolute;
-    top:100px;
-    left: 350px;
-    
+    position: relative;
+    margin:4em;
 
     }
 
@@ -110,7 +107,11 @@
   @forelse ($pacientes->citas as $tag) 
     <tr>
         <td>{{ $tag->id}}</td>
-        <td>{{ $tag->odontologo->especialidad->Especialidad}}</td>
+        <td>
+        @foreach($tag->odontologo->especialidades as $especialidadodontologo)
+        {{$especialidadodontologo->Especialidad}} <hr>
+        @endforeach
+        </td>
         <td>{{ $tag->odontologo->nombres}} {{ $tag->odontologo->apellidos}}</td>
         <td>{{ $tag->duracionCita}} minutos</td>
         <td>{{ $tag->stard}}</td>
