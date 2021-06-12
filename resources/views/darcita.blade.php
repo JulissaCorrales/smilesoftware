@@ -31,7 +31,7 @@
   <!-- Este codigo es para la ventana modal darcita -->
 <div class="modal fade" id="create" >
   
-	<div class="modal-dialog modal-dialog-scrollable" role="document">
+	<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
 		<div class="modal-content" >
 			<div id="div1"class="modal-header" style="background-color:#276678;color:white">
 	
@@ -64,9 +64,8 @@
         
            @forelse($odontologos as $odontologos)
          <option value="{{$odontologos->id}}">
-         {{$odontologos->id}}--
          {{$odontologos->nombres}}  {{$odontologos->apellidos}}
-          --|Especialidades:
+          --Especialidades:
                    @forelse ($odontologos->especialidades as $tag) 
                     {{ $tag->Especialidad}},
                     <hr>
@@ -136,7 +135,7 @@
         <div class="container">
           <!-- comentario -->
           <label for="comentarios" id="comentariolabel" class="control-label">Comentarios:</label>
-          <textarea class='autoExpand' rows='3' data-min-rows='3'class="form-control" required type="text" name="comentarios" id="comentarios" placeholder="Escriba el comentario sobre el paciente aquí"></textarea>
+          <textarea class='autoExpand' rows='3' data-min-rows='3'cols="40" class="form-control" required type="text" name="comentarios" id="comentarios" placeholder="Escriba el comentario sobre el paciente aquí"></textarea>
         
         </div>
         <!-- boton continuar -->

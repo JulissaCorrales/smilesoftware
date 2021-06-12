@@ -17,12 +17,9 @@
         padding:2em;
         margin:1em;
         font-family: georgia; 
-
-position:absolute;
-left: 400px;
-top: 50px;
-width:900px;
-border: 5px solid gray;
+position:relative;
+width:auto;
+border: 2px solid gray;
 
 
 
@@ -53,23 +50,35 @@ background-color:#009999;
 </head>
 <body>
     <div class="container" id="padre">
+    <div>
+<div>@if(session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
+            @endforeach
+         
+        </ul>
+        
+    </div>
+@endif</div>
+</div>
     <!--  ggg-->
     <h3 id="titulo">Edición de la Cita del Paciente</h3>
     <h2 id="nombrePaciente">{{$pacientes->nombres}} {{$pacientes->apellidos}}</h2>
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    @if(session('mensaje'))
-        <div class="alert alert-success">
-            {{session('mensaje')}}
-        </div>
-    @endif
+ 
     <?php
         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
         $mysqli->set_charset("utf8");
@@ -86,21 +95,16 @@ background-color:#009999;
        
         <option value="{{$citas->odontologo->id}}" selected >Odontologo Actual: {{$citas->odontologo->nombres}}  {{$citas->odontologo->apellidos}}</option>
     
-        <?php
-        $getDoctor =$mysqli->query("select * from odontologos order by id");
-        while($f=$getDoctor->fetch_object()) {
-          echo $f->id;
-          echo $f->nombres;
-          echo $f->apellidos;
-          echo $f->especialidad_id;
-
-          ?>
-         
-          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos?>
-          || Especialidad: {{$citas->odontologo->especialidad->Especialidad}}</option>
-          <?php
-        } 
-        ?>
+           <?php $odontologos=App\Odontologo::all();?>
+        @foreach($odontologos as $odontologo)
+          <option value=" {{$odontologo->id}}">
+       
+            {{$odontologo->nombres}}  {{$odontologo->apellidos}} |
+            Especialidades:  @foreach($odontologo->especialidades as $especialidadodontologo)
+             {{$especialidadodontologo->Especialidad}}, 
+            @endforeach
+         </option>
+        @endforeach
         </select>
         <hr>
        <!-- Duracion-->
