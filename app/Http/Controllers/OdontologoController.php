@@ -83,8 +83,8 @@ class OdontologoController extends Controller
           
 
      
-    /*
-          $listOfPermissions = explode(',',  $request->especialidad_odontologo); //crear matriz a partir de permisos separados/coma
+    
+     /*     $listOfPermissions = explode(',',  $request->especialidad_odontologo); //crear matriz a partir de permisos separados/coma
         
          
         foreach ($listOfPermissions as  $permiso) {
@@ -96,19 +96,15 @@ class OdontologoController extends Controller
              $nuevo->especialidades()->attach($permisos->id);
              $nuevo->save();
         }    
-
-
- */
-
-
+*/
 
     if($request->especialidades != null){            
-        foreach ($request->especialidades as $permission) {
-            $nuevo->especialidades()->attach($permission);
+        foreach ($request->especialidades as $especialidad) {
+            $nuevo->especialidades()->attach($especialidad);
             $nuevo->save();
         }
     }
-
+ 
 
 
     
@@ -128,7 +124,14 @@ class OdontologoController extends Controller
     public function editarodontologo($id){
         $odontologos = Odontologo::findOrFail($id);
         $this->authorize('update',$odontologos); //si tiene el permiso de editar: 
+
+    
+
+
         return view('FormularioOdontologo')->with('odontologos',$odontologos);
+
+
+
     }
 
     public function updateodontologo(Request $_request,$id){
@@ -143,7 +146,7 @@ class OdontologoController extends Controller
         $odontologos->departamento = $_request->input('departamento');
         $odontologos->ciudad = $_request->input('ciudad');
         $odontologos->direccion = $_request -> input('direccion');
-        $odontologos->especialidad_id= $_request->input('especialidad');
+        //$odontologos->especialidad_id= $_request->input('especialidad');
         $odontologos->user_id = $_request->input('user_id');
 
         
@@ -168,6 +171,22 @@ class OdontologoController extends Controller
     'user_id' => ['required', Rule::unique('odontologos')->ignore($odontologos->id)]
     ]);
         $create = $odontologos->save();
+
+    
+        $odontologos->especialidades()->delete();
+        $odontologos->especialidades()->detach();
+
+        $listOfPermissions = explode(',',  $_request->especialidades); //crear matriz a partir de permisos separados/coma
+        
+         
+        foreach ($listOfPermissions as  $permiso) {
+             $permisos= new Especialidad();
+             $permisos->Especialidad= $permiso;
+             $permisos->save();
+             $odontologos->especialidades()->attach($permisos->id);
+             $create = $odontologos->save();
+        }  
+
 
         
         if($create){
