@@ -167,8 +167,8 @@
     <div class="card"  style="width: 17rem; background-color: #d3e0ea;" id="ventana">
         <span class="border border-white">  
           <img style="border-radius: 70%;margin-left:3.5em;;  position:relative; top: 15px;"src='/Imagenes/{{$pacientes->imagen}}' width="100px" height="100px"id="datos">
-            <div id="">
-              <h2 id="nombre" style="border: radius 5px;margin-left:0.5em;">{{ $pacientes->nombres}} <br>{{ $pacientes->apellidos}}</h2>
+            <div id=""><br>
+              <h2 id="nombre" style="border: radius 5px;margin-left:1em;">{{ $pacientes->nombres}} <br>{{ $pacientes->apellidos}}</h2>
           
                 @forelse($pacientes->alertas as $ver)
                 <span style="color:red">  <svg xmlns="http://www.w3.org/2000/svg" color="red" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
@@ -321,7 +321,7 @@
           @yield('cuerpo')
           </div>
           <!-- Sticky Footer -->
-              
+          </div>    
      
       
                   <footer class="sticky-footer">

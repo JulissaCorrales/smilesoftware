@@ -147,17 +147,16 @@
                      <div class="col-md-12">
                         <input type="file" style="font-size:18px; font-family: Times New Roman, Times, serif; "class="form-control-file" name="file" id="imagen" placeholder="Seleccione una Imagen">
                         </div>
-                      <diV>
+                      <diV class="card-body" >
                       @canany('update',$pacientes)
                       
-                          <button  style="position: absolute;
-                              left: 400px;  top: 1200px;font-size:18px; font-family: Times New Roman, Times, serif; "type="button" onclick="location.href='/pantallainicio/vista'" class="btn btn-secondary" data-dismiss="modal" >Atrás</button>
-                            <input style="position: absolute;
-                                        left: 480px;font-size:18px; top:1200px; font-family: Times New Roman, Times, serif; "type="reset" class="btn btn-danger">           
-                          <button type="submit" class="btn btn-primary" style="position: absolute;
-                                left: 600px;  top:1200px;font-size:18px; font-family: Times New Roman, Times, serif; " >Guardar Paciente</button>
+                          <button  style="font-size:18px; font-family: Times New Roman, Times, serif; "type="button" onclick="location.href='/pantallainicio/vista'" class="btn btn-secondary" data-dismiss="modal" >Atrás</button>
+                            <input style="font-size:18px;  font-family: Times New Roman, Times, serif; "type="reset" class="btn btn-danger">           
+                          <button type="submit" class="btn btn-primary" style="font-size:18px; font-family: Times New Roman, Times, serif; " >Guardar Paciente</button>
                       
                    @endcan</div>
+                      <div class="card-footer"></div>
+                
             </form>
                     
       </table>
