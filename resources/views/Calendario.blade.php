@@ -2,7 +2,7 @@
 @extends('Plantilla.dashboard')
 
 
-@section('titulo','Especialidad')
+@section('titulo','Calendario')
 
 @section('content')
 
