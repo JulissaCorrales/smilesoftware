@@ -89,21 +89,21 @@
         </div>
         <div class="modal-body">
             <!--Contenido -->
-            <form id="formupaciente" method="post" action="/pantallainicio/vista/pacienteNuevo" enctype="multipart/form-data">
+            <form id="formupaciente" method="post" action="/pantallainicio/vista/pacienteNuevo" enctype="multipart/form-data" onsubmit = "return calcularEdad(document.getElementById('fechanaci').value)">
             @csrf
                <div class="form-group">
                           <label for="nombres">Nombres:</label>
-                          <input type="text" class="form-control-file" name="nombres" id="nombres" placeholder="ingresar nombre del paciente">
+                          <input type="text" class="form-control-file" name="nombres" id="nombres" placeholder="Ingrese el Nombre del Paciente">
                       </div>
 
                       <div class="form-group">
                           <label for="apellidos">Apellidos:</label>
-                          <input type="text" class="form-control-file" name="apellidos" id="apellidos" placeholder="ingresar apellido del paciente">
+                          <input type="text" class="form-control-file" name="apellidos" id="apellidos" placeholder="Ingrese el Apellido del Paciente">
                       </div>
 
                       <div class="form-group">
-                        <label for="identidad">identidad:</label>
-                        <input type="text" class="form-control-file" name="identidad" id="identidad" placeholder="ingresar identidad del paciente">
+                        <label for="identidad">Identidad:</label>
+                        <input type="text" class="form-control-file" name="identidad" id="identidad" placeholder="Ingrese la Identidad del Paciente" >
                     </div>
                     <div class="form-group">
                         <label for="sexo">Sexo :</label>
@@ -114,10 +114,12 @@
                         
                         </select>
                     </div>
-
+<?php $fecha_actual= date("d-m-Y");  ?>
                     <div class="form-group">
                       <label for="fechaNacimiento">fecha de nacimiento:</label>
-                      <input type="date" class="form-control-file" name="fechaNacimiento" id="fechaNacimiento" placeholder="ingresar fecha de nacimiento del paciente">
+                      <input type="date" class="form-control-file" name="fechaNacimiento" id="fechaNacimiento" placeholder="Ingrese la Fech.de Nacimiento "  value="{{old('fechaNacimiento')}}"  min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 100 year")); ?>"
+ max="<?php echo date('Y-m-d',strtotime($fecha_actual
+."- 5 year"));?>" required>
                   </div>
 
                   <div class="form-group">
@@ -330,6 +332,23 @@ $(document).ready( function () {
 
 </script>
 
+<script>
+fuction existeFecha(fechaNacimiento){
+
+var fechaf= fechaNacimiento.split("/");
+
+var day = fechaf[0];
+var month= fechaf[1];
+var year= fechaf[2];
+var date = new Date(year,month,'0');
+ 
+if((day-0) >(date.getDate()-0)){
+return false; }
+
+return true;
+}
+
+</script>
   
 
   <!-- Bootstrap core JavaScript-->
@@ -348,6 +367,12 @@ $(document).ready( function () {
 
   <!-- Demo scripts for this page-->
   <script src="js/demo/datatables-demo.js"></script>
+
+<script>
+
+
+
+</script>
 
 </body>
 
