@@ -106,24 +106,7 @@ class PacienteController extends Controller
    //Guardar Paciente solo el admin y secretaria
     public function guardar(Request $request){
         $this->authorize('create', Paciente::class);
-        $request->validate([
-            'nombres'=>'required',
-            'apellidos'=>'required',
-            'identidad'=>'required|unique:pacientes,identidad|numeric',
-            'sexo'=>'required',
-            'fechaNacimiento'=>'required|date|before:today',
-            'departamento'=>'required',
-            'ciudad'=>'required',
-            'direccion'=>'required',
-            'telefonoFijo'=>'required|numeric',
-            'telefonoCelular'=>'required|numeric',
-            'profesion'=>'required',
-            'empresa'=>'required',
-             'observaciones'=>'required'
-           
-        ]);
-
-        $nuevoPaciente = new Paciente();
+       $nuevoPaciente = new Paciente();
 
         //formulario
         $nuevoPaciente->nombres = $request->input('nombres');
@@ -148,7 +131,25 @@ class PacienteController extends Controller
             $file->move(\public_path().'/Imagenes/',$image);
             $nuevoPaciente->imagen= $image;
         
-        }
+        } 
+            $request->validate([
+            'nombres'=>'required',
+            'apellidos'=>'required',
+            'identidad'=>['required', 'numeric', 'digits:13'],
+            'sexo'=>'required',
+            'fechaNacimiento'=>'required|date|before:today',
+            'departamento'=>'required',
+            'ciudad'=>'required',
+            'direccion'=>'required',
+            'telefonoFijo'=>'required|numeric',
+            'telefonoCelular'=>'required|numeric',
+            'profesion'=>'required',
+            'empresa'=>'required',
+             'observaciones'=>'required'
+           
+        ]);
+
+        
 
     
        $creado = $nuevoPaciente->save();
