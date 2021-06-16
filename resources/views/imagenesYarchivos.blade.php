@@ -40,12 +40,12 @@
             <path d="M10.564 8.27 14 11.708V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-.293l3.578-3.577 2.56 1.536 2.426-3.395z"/>
              </svg>Imagenes y Archivos del Paciente</h4>
             <p>En esta ventana  muestran las imagenes y los archivos de los pacientes que se han registrado  en la clínica, tambien se pueden subir nuevos archivos e imagenes, editar y eliminar los archivos existentes</p>
-            <h2 style="font-size:20px;">Expediente de Imagenes  del Paciente: {{$pacientes->nombres}} {{$pacientes->apellidos}}</h2>
+            
           
               @canany(['isAdmin','isOdontologo'])
           
                 
-                <button id="upload" onclick="location.href='/pantallainicio/vista/paciente/{{$pacientes->id}}/nuevoarchivo'" style=" position: absolute; left: 520px; top:  110px;"class="btn btn-outline-info">
+                <button id="upload" onclick="location.href='/pantallainicio/vista/paciente/{{$pacientes->id}}/nuevoarchivo'" style=" position: absolute; left: 920px; top:  85px;"class="btn btn-outline-info">
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
                       </svg>
@@ -58,9 +58,10 @@
 
           <!-- inicia el contenido -->
           <div id="content" class="card-body"  >
+<h2 style="font-size:20px;">Expediente del Paciente: {{$pacientes->nombres}} {{$pacientes->apellidos}}</h2>
             <div class="table-responsive">
               <table class="table table-bordered" id="datatable1" cellspacing="0">
-                  <thead><tr><h3>Imagenes de Radiografias,Tomografias y otros</h3>
+                  <thead><tr><h5>Imagenes de Radiografias,Tomografias y otros</h5>
                     </tr></thead>
                     <tbody>
                       <tr>
