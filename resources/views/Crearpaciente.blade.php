@@ -119,7 +119,7 @@
                     <option >Olancho</option>
                     <option >Santa Bárbara</option>
                     <option >Valle</option>
-                    <option >Yoro:</option>
+                    <option >Yoro </option>
 
                 </select>
                   </div>
@@ -129,22 +129,22 @@
                     <input type="text" required class="form-control-file" name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente">
                   
                   </div><div class="form-group">
-                    <label for="direccion">Direccion:</label>
+                    <label for="direccion">Dirección:</label>
                     <input type="text" required class="form-control-file" name="direccion" id="direccion" placeholder="ingresar direccion del paciente">
                   </div>
                
                   <div class="form-group">
-                    <label for="telefonoFijo">Telefono fijo:</label>
+                    <label for="telefonoFijo">Teléfono fijo:</label>
                     <input type="number"  required class="form-control-file" name="telefonoFijo" id="telefonoFijo" placeholder="ingresar telefono Fijo del paciente">
                   </div>
 
                   <div class="form-group">
-                    <label for="telefonoCelular">Telefono celular:</label>
+                    <label for="telefonoCelular">Teléfono celular:</label>
                     <input  required type="number" class="form-control-file" name="telefonoCelular" id="telefonoCelular" placeholder="ingresar telefono Celular del paciente">
                   </div>
 
                   <div class="form-group">
-                    <label for="profesion">Profesion:</label>
+                    <label for="profesion">Profesión:</label>
                     <input  required type="text" class="form-control-file" name="profesion" id="profesion" placeholder="ingresar profesion del paciente">
                   </div>
 

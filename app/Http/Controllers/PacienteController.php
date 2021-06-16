@@ -49,7 +49,7 @@ class PacienteController extends Controller
            //validar
         $_request->validate([     'nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
         'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
-        'identidad'=> ['required|unique:pacientes,identidad|numeric,digits:13'],
+        'identidad'=>['required', 'numeric', 'digits:13'],
         'sexo'=>'required',
         'fechaNacimiento'=>'required|date|before:today',
         'departamento'=>'required||regex:/^[\pL\s\-]+$/u',

@@ -147,22 +147,22 @@
                     <input type="text" class="form-control-file" name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente">
                   
                   </div><div class="form-group">
-                    <label for="direccion">Direccion:</label>
+                    <label for="direccion">Dirección:</label>
                     <input type="text" class="form-control-file" name="direccion" id="direccion" placeholder="ingresar direccion del paciente">
                   </div>
                
                   <div class="form-group">
-                    <label for="telefonoFijo">Telefono fijo:</label>
+                    <label for="telefonoFijo">Teléfono fijo:</label>
                     <input type="text" class="form-control-file" name="telefonoFijo" id="telefonoFijo" placeholder="ingresar telefono Fijo del paciente">
                   </div>
 
                   <div class="form-group">
-                    <label for="telefonoCelular">Telefono celular:</label>
+                    <label for="telefonoCelular">Teléfono celular:</label>
                     <input type="text" class="form-control-file" name="telefonoCelular" id="telefonoCelular" placeholder="ingresar telefono Celular del paciente">
                   </div>
 
                   <div class="form-group">
-                    <label for="profesion">Profesion:</label>
+                    <label for="profesion">Profesión:</label>
                     <input type="text" class="form-control-file" name="profesion" id="profesion" placeholder="ingresar profesion del paciente">
                   </div>
 

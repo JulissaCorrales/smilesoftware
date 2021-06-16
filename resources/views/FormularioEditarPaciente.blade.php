@@ -72,7 +72,7 @@
 
                       <div class="col-md-12">
                         <label for="identidad"class="col-sm form-label" style="font-size:20px; font-family: Times New Roman, Times, serif; ">Identidad:</label>                
-                        <input type="text" required style="font-size:18px; font-family: Times New Roman, Times, serif;" class="form-control form-control-sm" name="identidad" id="identidad" placeholder="ingresar identidad del paciente"  value="{{ $pacientes->identidad }}">
+                        <input required type="number"style="font-size:18px; font-family: Times New Roman, Times, serif;" class="form-control form-control-sm" name="identidad" id="identidad" placeholder="ingresar identidad del paciente" maxlength="13"value="{{ $pacientes->identidad }}">
                         </div>
 
                       <div class="col-md-12">
