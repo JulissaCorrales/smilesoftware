@@ -291,7 +291,7 @@
       </div>
       <div class="col-md-4">
         <div class="form-group">
-          <label for="direccion">Direccion:</label>
+          <label for="direccion">Dirección:</label>
           <input required type="text" class="form-control"  name="direccion" id="direccion" placeholder="ingresar direccion del paciente"  value="{{ $odontologo->direccion }}">
         </div>
       </div>
@@ -604,7 +604,7 @@
 $(document).ready( function () {
     $('#datatable1').DataTable( {
     language: {
-        search: "Busqueda por nombre o identidad:",
+        search: "Búsqueda por nombre o identidad:",
         "decimal": "",
         "emptyTable": "No hay información",
         "info": "Mostrando _START_ a _END_ de _TOTAL_ Pacientes",

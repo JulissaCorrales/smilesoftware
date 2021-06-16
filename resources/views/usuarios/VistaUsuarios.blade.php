@@ -260,7 +260,7 @@
 $(document).ready( function () {
     $('#datatable1').DataTable( {
     language: {
-        search: "Busqueda por nombre",
+        search: "Búsqueda por nombre",
         "decimal": "",
         "emptyTable": "No hay información",
         "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
