@@ -23,10 +23,11 @@
   width: 200px;
   height: 50px;
   border-radius: 12px;
-  background-image: linear-gradient(to bottom,  #ccf5ff ,#99ebff);
+  background-color: #F6F5F5;
   position: relative;
 float:right;
 margin-bottom:2em;
+margin-right:2em;
 margin-top:-4em;
  }
 
@@ -68,7 +69,7 @@ resize: none
 @endif</div>
 </div>
 <div id="" >
-<h3 style="text-align: left;padding: 1rem;font-size:30px; font-family: Times New Roman, Times, serif;  background-color: #293d3d;
+<h3 style="text-align: left;padding: 1rem;font-size:30px; font-family: Times New Roman, Times, serif;  background-color: #276678;
 color: white; position: relative;"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-clockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
 <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
