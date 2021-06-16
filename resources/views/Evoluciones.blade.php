@@ -7,19 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 <style>
-#divtabla{
-  width: auto;
-  position: relative;
-  margin-top:2em;
 
-
- }
- td{
-   font-family: "Times New Roman";
-   border-bottom: 5px solid #00cccc;
-  
- } 
- #evolucion{
+ /* #evolucion{
   width: 200px;
   height: 50px;
   border-radius: 12px;
@@ -28,20 +17,20 @@
 float:right;
 margin-bottom:2em;
 margin-right:2em;
-margin-top:-4em;
- }
+margin-top:-6.5em;
+ } */
 
 textarea{
 overflow-y: scroll;
 height: 100px;
-resize: none
+resize: none;
 }
 
 </style>
 </head>
 <body>
 @section('cuerpo')
-<div class="container">
+<div class="card">
   <!--Menu desplegable  -->
 <div class="container">
 <div>@if(session('mensaje'))
@@ -68,13 +57,13 @@ resize: none
     </div>
 @endif</div>
 </div>
-<div id="" >
-<h3 style="text-align: left;padding: 1rem;font-size:30px; font-family: Times New Roman, Times, serif;  background-color: #276678;
-color: white; position: relative;"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-clockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<div class="card-header" >
+<h3 ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-clockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
 <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
 </svg> 
 Evoluciones Medicas del Paciente</h3>
+<p>En esta sección podrá crear la evolución que ha tenido el plan de tratamiento que seleccione, estas se podrán eliminar y editar.</p>
 
 @can('create',App\Evoluciones::class)
     <button  id="evolucion" class="btn btn-outline-info"   class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -135,9 +124,10 @@ Evoluciones Medicas del Paciente</h3>
 <!-- fin modal para nueva evolucion -->
 
 <!-- Contenido -->
-<div class="container" id="divtabla">
-<table id="datatable" class="table table-hover">
-  <thead style=" background-color: #b3cccc;">
+ <div class="card-body" style="margin-top:2em;">
+<div id="divtabla" class="table-responsive"  width="100%">
+<table id="datatable" class="table table-bordered" width="100%" cellspacing="0">
+  <thead>
   <th>Número</th>
   <th>Evoluciones Medicas</th>
   <th>Accion</th>
@@ -147,16 +137,16 @@ Evoluciones Medicas del Paciente</h3>
     <tr>
     <td>{{$tag->id}}</td>
       <td>  
-        <h5> PlanTratamiento: {{ $tag->planestratamiento->tratamiento->categoria}} <br>
+        <p> PlanTratamiento: {{ $tag->planestratamiento->tratamiento->categoria}} <br>
           Paciente:{{$pacientes->nombres}}  {{$pacientes->apellidos}} <br>
         Evolucion:<br>
-         <textarea name="areaev" id="areaev" cols="30" rows="10" disabled={isDibabled}> {{ $tag->evolucion}} </textarea>  
-        </h5>
+         <textarea name="areaev" id="areaev"  disabled={isDibabled}> {{ $tag->evolucion}} </textarea>  
+        </p>
       </td>
   <!-- Eliminar evolucion -->
   <td>
     @can('delete',$tag)
-    <button style="margin:1em;" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$tag->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <button  type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$tag->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
     </svg>
     <!-- Sacar evolucion -->
@@ -166,7 +156,7 @@ Evoluciones Medicas del Paciente</h3>
     <div class="modal fade" id="modal-{{$tag->id}}"  data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
-                  <div class="modal-header" style="background-image: linear-gradient(to left,  #EC7063,#F9E79F);">
+                  <div class="modal-header" style="background-color:#276678;color:white;">
                       <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
                       </svg> Eliminar Evolución</h5>
@@ -195,7 +185,7 @@ Evoluciones Medicas del Paciente</h3>
 
 <!--button de editar evolucion -->
   @can('update',$tag)
-      <button type="button" style="margin:1em;" class="btn btn-warning" data-toggle="modal" data-target="#modaleditar-{{$tag->id}}"  style="  background-color:white;color:#00cc99; "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+      <button type="button"  class="btn btn-warning" data-toggle="modal" data-target="#modaleditar-{{$tag->id}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
       <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
       </svg>
       </button>
@@ -206,8 +196,8 @@ Evoluciones Medicas del Paciente</h3>
     <!--modal de editar evoluciones -->
   <div class="modal fade" id="modaleditar-{{$tag->id}}"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document" >
-          <div class="modal-content" style="position:absolute; left:50px; top:100px;">
-              <div class="modal-header"style="background-color:#293d3d; color:white;  height:80px; ">
+          <div class="modal-content" >
+              <div class="modal-header"style="background-color:#276678; color:white;  height:60px; ">
                   <h5 class="modal-title" id="exampleModalLabel"> <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
                   <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
@@ -216,7 +206,7 @@ Evoluciones Medicas del Paciente</h3>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
               </div>
 
-              <div class="modal-body"  style="background-color:#e6faff;">
+              <div class="modal-body">
                 <form method="POST" action="{{route('evolucion.update',['id'=>$pacientes->id,'id_evolucion'=>$tag->id])}}">
                 @csrf
                 @method('put')
@@ -224,9 +214,9 @@ Evoluciones Medicas del Paciente</h3>
                 $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
                 $mysqli->set_charset("utf8");
                 ?>
-                <textarea required id="w3review" maxlength="255" placeholder="Escriba la evolucion del plan de tratamiento" name="caja" value="text" rows="4" cols="52" >{{$tag->evolucion}}</textarea>
-
-                <div id="disv4">
+                <textarea required id="w3review" maxlength="255" placeholder="Escriba la evolucion del plan de tratamiento" name="caja" value="text" rows="4" cols="60" >{{$tag->evolucion}}</textarea>
+                
+                <div id="disv4" style="margin-top:1em;">
                 <select class="form-control" required name="tratamiento_id" id="disv3">
                 <option value={{$tag->plantratamiento_id}}  selected>Plan de Tratamiento actual:{{ $tag->planestratamiento->tratamiento->categoria}}</option>
                 @forelse ($pacientes->planestratamientos as $tag) 
@@ -237,8 +227,8 @@ Evoluciones Medicas del Paciente</h3>
                 @endforelse
                 </select>
                 </div>
-                <div id="disv4" class="modal-footer" style=" color:white;  height:80px; ">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal"  style="background-color:#b37700; color:white;">Cerrar</button>
+                <div id="disv4" class="modal-footer"  >
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"  style="background-color:#276678; color:white;">Cerrar</button>
                 <input type="reset" class="btn btn-danger">
                 <button type="submit" class="btn btn-primary" id="guardar" >Guardar </button>
          
@@ -255,6 +245,7 @@ Evoluciones Medicas del Paciente</h3>
  </tr>
 </tbody>
 </table>
+</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <!-- script de jquery para que funcione el buscador de nombre-->
