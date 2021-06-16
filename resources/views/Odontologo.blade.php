@@ -299,12 +299,35 @@
         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
         $mysqli->set_charset("utf8");
       ?>
-      <div class="col-md-4">
+      <div class="col-md-8">
+
         <label for="state_id">Especialidad:</label>
-       <input type="text" data-role="tagsinput"  class="form-control" id="roles_permisos" name="especialidades" value="@foreach ($odontologo->especialidades as $permiso)
+         
+<!-- <input type="text" value="" data-role="tagsinput" name="especialidad_odontologo"  placeholder="Ingrese una o varias Especialidades"> -->
+        
+<select name="especialidades[]" id="" required  class="form-control" multiple>
+<option value="@foreach ($odontologo->especialidades as $permiso)
+            {{$permiso->id. ','}}
+        @endforeach"   selected> Especialidad Actual: @foreach ($odontologo->especialidades as $permiso)
+            {{$permiso->Especialidad. ','}}
+        @endforeach </option>
+
+@foreach($especialidades as $especialidad){
+ <option value="{{ $especialidad->id  }}">{{ $especialidad->Especialidad }}</option>
+}
+@endforeach
+
+
+
+
+</select>
+      </div>
+      <!-- <input type="text" data-role="tagsinput"  class="form-control" id="roles_permisos" name="especialidades" value="@foreach ($odontologo->especialidades as $permiso)
             {{$permiso->Especialidad. ','}}
         @endforeach" 
-        >   
+        >    -->
+
+
       </div>
     </div>
     <div class="row">

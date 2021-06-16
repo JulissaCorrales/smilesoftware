@@ -173,19 +173,32 @@ class OdontologoController extends Controller
         $create = $odontologos->save();
 
     
-        $odontologos->especialidades()->delete();
-        $odontologos->especialidades()->detach();
+       // $odontologos->especialidades()->delete();
+     // $odontologos->especialidades()->detach();
 
-        $listOfPermissions = explode(',',  $_request->especialidades); //crear matriz a partir de permisos separados/coma
+        //$listOfPermissions = explode(',',  $_request->especialidades); //crear matriz a partir de permisos separados/coma
         
          
-        foreach ($listOfPermissions as  $permiso) {
-             $permisos= new Especialidad();
-             $permisos->Especialidad= $permiso;
-             $permisos->save();
-             $odontologos->especialidades()->attach($permisos->id);
+       /* foreach ($listOfPermissions as  $permiso) {
+             $especialidad= new Especialidad();
+             $especialidad->Especialidad= $permiso;
+             $especialidad->save();
+             $odontologos->especialidades()->attach($especialidad->id);
              $create = $odontologos->save();
-        }  
+        }   */
+
+     
+    if($_request->especialidades != null){            
+        foreach ($_request->especialidades as $especialidad) {
+          // $odontologos->especialidades()->detach();
+           // $odontologos->especialidades()->delete();
+          $odontologos->especialidades()->attach($especialidad);
+            $odontologos->save();
+        }
+    }
+ 
+
+
 
 
         

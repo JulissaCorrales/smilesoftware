@@ -23,12 +23,9 @@ class CreatePacientesTable extends Migration
             $table->string('departamento');
             $table->string('ciudad');
             $table->string('direccion');
-            $table->string('telefonoFijo');
             $table->string('telefonoCelular');
-            $table->string('profesion');
-            $table->string('empresa');
-            $table->string('observaciones');
-            $table->string('imagen')->default('Icono.jpg');
+            $table->string('observaciones')->nullable(true);
+            $table->string('imagen')->default('avatar1.png');
 
            // $table->unsignedInteger('cita_id');//relacion con cita
             $table->timestamps();
