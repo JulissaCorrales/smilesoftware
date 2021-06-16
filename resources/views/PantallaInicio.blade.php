@@ -1,6 +1,6 @@
-@extends('Plantilla.PlantillaMenuAgenda')
+@extends('Plantilla.dashboard')
 
-@section('cuerpo')
+@section('content')
 
 
 <!--  -->

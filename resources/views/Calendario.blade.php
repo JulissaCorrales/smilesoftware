@@ -2,11 +2,35 @@
 @extends('Plantilla.dashboard')
 
 
-@section('titulo','Especialidad')
+@section('titulo','Calendario')
 
 @section('content')
 
-
+<div class="container">
+<div>@if(session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
+            @endforeach
+         
+        </ul>
+        
+    </div>
+@endif</div>
+</div>
 <div class="card mb-3">
           <div class="card-header">
            <h4><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge-fill" viewBox="0 0 16 16">
