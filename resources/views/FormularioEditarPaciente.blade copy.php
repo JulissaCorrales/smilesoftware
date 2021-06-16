@@ -71,12 +71,12 @@
                       <div class="form-group">
                         <label for="identidad"class="col-sm-2 col-form-label col-form-label-lg" style="font-size:20px; font-family: Times New Roman, Times, serif; ">Identidad:</label>
                         <div>
-                        <input type="text" required style="font-size:18px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff; " class="form-control form-control-sm" name="identidad" id="identidad" placeholder="ingresar identidad del paciente"  value="{{ $pacientes->identidad }}">
+                        <input required type="number" style="font-size:18px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff; " class="form-control form-control-sm" name="identidad" id="identidad" placeholder="ingresar identidad del paciente"  value="{{ $pacientes->identidad }}"maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)">
                          </div>
                           </div>
 
                     <div class="form-group">
-                        <label for="identidad" class="col-sm-2 col-form-label col-form-label-lg" style="font-size:20px; font-family: Times New Roman, Times, serif; ">Sexo:</label>
+                        <label for="sexo" class="col-sm-2 col-form-label col-form-label-lg" style="font-size:20px; font-family: Times New Roman, Times, serif; ">Sexo:</label>
                         <div >
                         <input required type="text" style="font-size:18px; font-family: Times New Roman, Times, serif;  background-color: #e6f9ff; " class="form-control form-control-sm" name="sexo" id="sexo" placeholder="ingresar el sexo del paciente"  value="{{ $pacientes->sexo }}" >
                           </div>

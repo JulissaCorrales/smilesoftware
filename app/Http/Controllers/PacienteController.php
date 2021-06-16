@@ -47,16 +47,16 @@ class PacienteController extends Controller
     public function update(Request $_request,$id){
 
            //validar
-        $_request->validate([     'nombres'=>'required',
-        'apellidos'=>'required',
-        'identidad'=>'required|numeric',
+        $_request->validate([     'nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+        'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+        'identidad'=> ['required', 'numeric',  'digits:13'],
         'sexo'=>'required',
         'fechaNacimiento'=>'required|date|before:today',
-        'departamento'=>'required',
-        'ciudad'=>'required',
+        'departamento'=>'required||regex:/^[\pL\s\-]+$/u',
+        'ciudad'=>'required||regex:/^[\pL\s\-]+$/u',
         'direccion'=>'required',
-        'telefonoFijo'=>'required|numeric',
-        'telefonoCelular'=>'required|numeric',
+        'telefonoFijo'=>'required|numeric|digits:8',
+        'telefonoCelular'=>'required|numeric|digits:8',
         'profesion'=>'required',
         'empresa'=>'required',
         'observaciones'=>'required'
@@ -106,16 +106,16 @@ class PacienteController extends Controller
     public function guardar(Request $request){
         $this->authorize('create', Paciente::class);
         $request->validate([
-            'nombres'=>'required',
-            'apellidos'=>'required',
-            'identidad'=>'required|unique:pacientes,identidad|numeric',
+            'nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+            'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+            'identidad'=>'required|unique:pacientes,identidad|numeric,digits:13',
             'sexo'=>'required',
             'fechaNacimiento'=>'required|date|before:today',
-            'departamento'=>'required',
-            'ciudad'=>'required',
-            'direccion'=>'required',
-            'telefonoFijo'=>'required|numeric',
-            'telefonoCelular'=>'required|numeric',
+            'departamento'=>'required||regex:/^[\pL\s\-]+$/u',
+        'ciudad'=>'required||regex:/^[\pL\s\-]+$/u',
+        'direccion'=>'required',
+        'telefonoFijo'=>'required|numeric|digits:8',
+        'telefonoCelular'=>'required|numeric|digits:8',
             'profesion'=>'required',
             'empresa'=>'required',
              'observaciones'=>'required'

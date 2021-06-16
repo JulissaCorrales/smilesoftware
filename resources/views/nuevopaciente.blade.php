@@ -99,7 +99,7 @@
 
                       <div class="form-group">
                         <label for="identidad">identidad:</label>
-                        <input type="text" class="form-control-file" name="identidad" id="identidad" placeholder="ingresar identidad del paciente">
+                        <input required type="number" class="form-control-file" name="identidad" id="identidad" placeholder="ingresar identidad del paciente"maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)">
                     </div>
                     <div class="form-group">
                         <label for="sexo">Sexo :</label>
