@@ -56,6 +56,7 @@ class DocumentosClinicosController extends Controller
     public function editar($id , $iddocumento){  
         $pacientes=Paciente::findOrFail($id);
        $imagen=Documento::findOrFail($iddocumento);
+        $this->authorize('update',$imagen);
        return view('editarDocumento')->with('imagen',$imagen)->with('pacientes',$pacientes);
    
    }
@@ -80,6 +81,7 @@ class DocumentosClinicosController extends Controller
 
     $pacientes=Paciente::findOrFail($id);
     $imagenes=Documento::findOrFail($iddocumento);
+ $this->authorize('update',$imagenes);
     $imagenes->paciente_id=$id;
     $imagenes->fecha = Carbon::now();
     $imagenes->imagen1= $image;
