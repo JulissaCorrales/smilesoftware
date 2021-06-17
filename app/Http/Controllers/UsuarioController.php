@@ -63,7 +63,8 @@ class UsuarioController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:15','unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed']
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'role' => 'required',
           
            
         ]);
@@ -71,6 +72,7 @@ class UsuarioController extends Controller
         $nuevo->name = $request->input('name');
         $nuevo->email = $request->input('email');
         $nuevo->password = bcrypt($request->password);
+        $nuevo->role = $request->input('role');
 
         if ($request->hasFile('file')) {
             $file = $request->file('file');
@@ -140,13 +142,14 @@ class UsuarioController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'email' => ['required', 'string', 'email', 'max:255', ],
-            'password' => ['required', 'string', 'min:8', 'confirmed']
-          
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'role' => 'required',
         ]);
 
         $user = User::findOrFail($id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        $user->role = $request->input('role');
 
         if ($request->hasFile('file')) {
             $file = $request->file('file');

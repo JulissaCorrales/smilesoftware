@@ -107,8 +107,10 @@
                             <div>
                                 <br>
                                 <select class="role form-control" name="role" id="role2">
-                                    <option value="">Seleccione el Rol...</option>
+                                        
+                                    <option value="" required autocomplete="role2"autofocus>Seleccione el Rol...</option>
                                         @foreach ($roles as $role)
+                                        
                                         <option data-role-id2="{{$role->id}}" data-role-slug2="{{$role->slug}}" value="{{$role->id}}">{{$role->Nombre}}</option>
                                         @endforeach
                                 </select>
