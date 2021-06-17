@@ -51,7 +51,7 @@
                     <!-- Monto-->
                     <div class="form-group" id="div3">
                     <label for="monto" class="control-label">Monto:</label>
-                    <input required type="number"  step="any" class="form-control-file" name="monto" id="monto" placeholder="Ingrese el monto del gasto">
+                    <input  required type="number" min="1" pattern="^[0-9]+" class="form-control custom-select" name="monto" id="monto" placeholder="Ingrese el monto del gasto" formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)" >
                     </div>
                  
                     <!-- Fecha de la factura-->

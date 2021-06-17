@@ -143,13 +143,13 @@ class UsuarioController extends Controller
             'name' => 'required|max:255',
             'email' => ['required', 'string', 'email', 'max:255', ],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'role' => 'required',
+            
         ]);
 
         $user = User::findOrFail($id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->role = $request->input('role');
+        
 
         if ($request->hasFile('file')) {
             $file = $request->file('file');
