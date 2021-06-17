@@ -57,8 +57,7 @@ class PacienteController extends Controller
         'direccion'=>'required',
         'telefonoFijo'=>'required|numeric|digits:8',
         'telefonoCelular'=>'required|numeric|digits:8',
-        'profesion'=>'required',
-        'empresa'=>'required',
+        
         'observaciones'=>'required'
 
 
@@ -77,8 +76,7 @@ class PacienteController extends Controller
         $pacientes->direccion=$_request->input('direccion');
         $pacientes->telefonoFijo=$_request->input('telefonoFijo');
         $pacientes->telefonoCelular=$_request->input('telefonoCelular');
-        $pacientes->profesion=$_request->input('profesion');
-        $pacientes->empresa=$_request->input('empresa');
+        
         $pacientes->observaciones=$_request->input('observaciones');
         if ($_request->hasFile('file')) {
             $file = $_request->file('file');
@@ -117,10 +115,9 @@ class PacienteController extends Controller
         $nuevoPaciente->departamento = $request->input('departamento');
         $nuevoPaciente->ciudad = $request->input('ciudad');
         $nuevoPaciente->direccion = $request -> input('direccion');
-        $nuevoPaciente->telefonoFijo = $request->input('telefonoFijo');
+        
         $nuevoPaciente->telefonoCelular = $request->input('telefonoCelular');
-        $nuevoPaciente->profesion = $request->input('profesion');
-        $nuevoPaciente->empresa = $request -> input('empresa');
+        
         $nuevoPaciente->observaciones = $request->input('observaciones');
 
         if ($request->hasFile('file')) {
@@ -141,11 +138,9 @@ class PacienteController extends Controller
             'departamento'=>'required',
             'ciudad'=>'required||regex:/^[\pL\s\-]+$/u',
             'direccion'=>'required',
-            'telefonoFijo'=>'required|numeric|digits:8',
+            
             'telefonoCelular'=>'required|numeric|digits:8',
-            'profesion'=>'required',
-            'empresa'=>'required',
-             'observaciones'=>'required'
+           //  'observaciones'=>'required'
            
         ]);
 
