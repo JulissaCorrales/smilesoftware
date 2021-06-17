@@ -11,37 +11,29 @@
   
 </head>
 <body id="page-top">
-  
-      @if ($errors->any())
-      <div class="alert alert-danger">
-      <ul>
-      @foreach ($errors->all() as $error)
-      <li>{{ $error }}</li>
-      @endforeach
-      </ul>
-      </div>
-      @endif
-      @if(session('mensaje'))
-      <div class="alert alert-success">
-      {{session('mensaje')}}
-      </div>
-      @endif
-
-    
-            @if ($errors->any())
-            <div class="alert alert-danger">
-            <ul>
+<div>@if(session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
             @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
             @endforeach
-            </ul>
-            </div>
-            @endif
-            @if(session('mensaje'))
-            <div class="alert alert-success">
-            {{session('mensaje')}}
-            </div>
-            @endif
+         
+        </ul>
+        
+    </div>
+@endif</div>
  <div class="card mb-3">
   <div class="card-header">
            <h4><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge-fill" viewBox="0 0 16 16">
@@ -58,101 +50,113 @@
                       left: 450px; top: 150px; " id="scroll"  class="row g-3">
                       @csrf
                       @method('put')
-
-                      <div class="col-md-12" >
+                      <div class="row">
+                      <div class="col-md-6" >
                         <label for="nombres" class=" col-sm form-label" style="font-size:20px; font-family: Times New Roman, Times, serif; "> Nombres: </label>
                         <input required type="text" class="form-control form-control-sm" style="font-size:18px; font-family: Times New Roman, Times, serif;" name="nombres" id="nombres" placeholder="ingresar nombre del paciente"  value="{{ $pacientes->nombres }}" >
                        </div>
 
-              
-                      <div class="col-md-12">
+                     
+                      <div class="col-md-6">
                           <label for="apellidos" class="col-sm form-label " style="font-size:20px; font-family: Times New Roman, Times, serif; " >Apellidos:</label>
                           <input required type="text" style="font-size:18px; font-family: Times New Roman, Times, serif; "class="form-control form-control-sm" name="apellidos" id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $pacientes->apellidos }}">
                         </div>
-
-                      <div class="col-md-12">
+                      </div>
+                     <div class="row">
+                      <div class="col-md-6">
                         <label for="identidad"class="col-sm form-label" style="font-size:20px; font-family: Times New Roman, Times, serif; ">Identidad:</label>                
                         <input required type="number"style="font-size:18px; font-family: Times New Roman, Times, serif;" class="form-control form-control-sm" name="identidad" id="identidad" placeholder="ingresar identidad del paciente" maxlength="13"value="{{ $pacientes->identidad }}">
                         </div>
 
-                      <div class="col-md-12">
-                        <label for="identidad" class="col-sm  form-label " style="font-size:20px; font-family: Times New Roman, Times, serif; ">Sexo:</label>
-
-                        <input required type="text" style="font-size:18px; font-family: Times New Roman, Times, serif;" class="form-control form-control-sm" name="sexo" id="sexo" placeholder="ingresar el sexo del paciente"  value="{{ $pacientes->sexo }}" >
+                      <div class="col-md-6">
+                        <label for="identidad" class="col-sm  form-label " style="font-size:20px; font-family: Times New Roman, Times, serif; ">Genero:</label>
+ 
+                      <select class="form-control"  name="sexo" id="sexo">
+                            <option value="{{ $pacientes->sexo }}" selected>Genero Actual:{{ $pacientes->sexo }}</option>
+                            <option>Masculino</option>
+                            <option>Femenino</option>                        
+                          </select>
                           </div>
+                       </div>
 
-
-                      <div class="col-md-12">
+                      <div class="row">
+                      <div class="col-md-6">
                         <label for="fechaNacimiento" class="col-sm col-form-label " style="font-size:20px; font-family: Times New Roman, Times, serif; ">Fec.Nacimiento:</label>
                       
                         <input type="date" required style="font-size:18px; font-family: Times New Roman, Times, serif; "class="form-control form-control-sm" name="fechaNacimiento" id="fechaNacimiento" placeholder="ingresar fecha de nacimiento del paciente"  value="{{ $pacientes->fechaNacimiento }}">
                         </div>
                       
 
-                      <div class="col-md-12">
+                      <div class="col-md-6">
                         <label for="departamento" class="col-sm form-label"style="font-size:20px; font-family: Times New Roman, Times, serif; ">Departamento:</label>
+                        <select name="departamento" id="departamento" class="form-control select-css">
+                            <option name="departamento" selected value="{{ $pacientes->departamento }}"
+                             >Departamento Actual: {{ $pacientes->departamento }}</option>
+                            <option >Atlántida</option>
+                            <option >Choluteca</option>
+                            <option>Colón</option>
+                            <option >Comayagua</option>
+                            <option >Copán</option>
+                            <option >Cortés</option>
+                            <option >El Paraíso</option>
+                            <option >Francisco Morazán</option>
+                            <option >Gracias a Dios</option>
+                            <option >Intibucá</option>
+                            <option >Islas de la Bahía</option>
+                            <option >La Paz</option>
+                            <option >Lempira</option>
+                            <option >Ocotepeque</option>
+                            <option >Olancho</option>
+                            <option >Santa Bárbara</option>
+                            <option >Valle</option>
+                            <option >Yoro</option>
 
-                        <input required type="text" style="font-size:18px; font-family: Times New Roman, Times, serif; " class="form-control form-control-sm" name="departamento" id="departamento" placeholder="ingresar departamento del paciente"  value="{{ $pacientes->departamento }}">
+                          </select>
                           </div>
-
-
-                      <div class="col-md-12">
+                      </div>
+                      <div class="row">
+                      <div class="col-md-6">
                         <label for="ciudad" class="col-sm form-label"style="font-size:20px; font-family: Times New Roman, Times, serif; ">Ciudad:</label>
 
                         <input required type="text"style="font-size:18px; font-family: Times New Roman, Times, serif;" class="form-control form-control-sm" name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $pacientes->ciudad }}">
                           </div>
 
                   
-                      <div class="col-md-12">
+                      <div class="col-md-6">
                         <label for="direccion" class="col-sm form-label "style="font-size:20px; font-family: Times New Roman, Times, serif; ">Direccion:</label>
 
                             <input required type="text" class="form-control form-control-sm" style="font-size:18px; font-family: Times New Roman, Times, serif; "name="direccion" id="direccion" placeholder="ingresar direccion del paciente"  value="{{ $pacientes->direccion }}">
                           </div>
+                      </div>
 
-                  
-                      <div class="col-md-12">
-                        <h1 for="telefonoFijo" class="col-sm form-label" style="font-size:20px; font-family: Times New Roman, Times, serif; ">Tel.Fijo:</h1>
-
-                          <input required type="text" style="font-size:18px; font-family: Times New Roman, Times, serif;"class="form-control form-control-sm" name="telefonoFijo" id="telefonoFijo" placeholder="ingresar telefono Fijo del paciente"  value="{{ $pacientes->telefonoFijo}}">
-                        </div>
-
-
-                      <div class="col-md-12">
-                        <label for="telefonoCelular" class="col-sm form-label"style="font-size:20px; font-family: Times New Roman, Times, serif; ">Tel.Celular:</label>
+                       <div class="row">
+                      <div class="col-md-6">
+                        <label for="telefonoCelular" class="col-sm form-label"style="font-size:20px; font-family: Times New Roman, Times, serif; ">Número Teléfonico:</label>
 
                             <input required type="text" style="font-size:18px; font-family: Times New Roman, Times, serif;"class="form-control form-control-sm" name="telefonoCelular" id="telefonoCelular" placeholder="ingresar telefono Celular del paciente"  value="{{ $pacientes->telefonoCelular }}">
                           </div>
 
 
-                      <div class="col-md-12">
-                          <label for="profesion" class="col-sm form-label "style="font-size:20px; font-family: Times New Roman, Times, serif; ">Profesion:</label>
-                          <input required type="text" style="font-size:18px; font-family: Times New Roman, Times, serif; " class="form-control form-control-sm" name="profesion" id="profesion" placeholder="ingresar profesion del paciente"  value="{{ $pacientes->profesion }}">
-                      
-                        </div>
-
-                      <div class="col-md-12">
-                            <label for="empresa" class="col-sm form-label " style="font-size:20px; font-family: Times New Roman, Times, serif; ">Empresa:</label>
-                          
-                            <input required type="text" style="font-size:18px; font-family: Times New Roman, Times, serif;  "class="form-control form-control-sm" name="empresa" id="empresa" placeholder="ingresar la empresa donde trabaja el paciente"  value="{{ $pacientes->empresa }}">
-                          </div>
                    
-
-                      <div class="col-md-12">
+                      <div class="col-md-6">
                         <label for="observaciones" class="col-sm form-label"style="font-size:20px; font-family: Times New Roman, Times, serif; ">Observaciones:</label>
                         
                             <input required  type="text" style="font-size:18px; font-family: Times New Roman, Times, serif;"class="form-control form-control-sm" name="observaciones" id="observaciones" placeholder="Alguna observacion?"  value="{{ $pacientes->observaciones }}">
                           </div>
                     
-
+                     </div>
+                    <div class="row" style="margin-top:1em;">
                      <div class="col-md-12">
+                         <label  class="col-sm form-label"style="font-size:20px; font-family: Times New Roman, Times, serif; ">Cambie la foto de perfil aquí:</label>
                         <input type="file" style="font-size:18px; font-family: Times New Roman, Times, serif; "class="form-control-file" name="file" id="imagen" placeholder="Seleccione una Imagen">
                         </div>
-                      <diV class="card-body" >
+                     </div>
+                      <div class="modal-footer" >
                       @canany('update',$pacientes)
-                      
+                        
                           <button  style="font-size:18px; font-family: Times New Roman, Times, serif; "type="button" onclick="location.href='/pantallainicio/vista'" class="btn btn-secondary" data-dismiss="modal" >Atrás</button>
                             <input style="font-size:18px;  font-family: Times New Roman, Times, serif; "type="reset" class="btn btn-danger">           
-                          <button type="submit" class="btn btn-primary" style="font-size:18px; font-family: Times New Roman, Times, serif; " >Guardar Paciente</button>
+                          <button type="submit" class="btn btn-primary" style="font-size:18px; font-family: Times New Roman, Times, serif;background-color:#276678; " >Guardar Paciente</button>
                       
                    @endcan</div>
                       <div class="card-footer"></div>

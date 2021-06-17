@@ -184,19 +184,18 @@
               <div style="width: 450px; height: 550px; overflow-y: scroll;"> -->
             <div class="modal-body"> 
 
-
-                    <form method="post" action="/pantallainicio/vista/pacienteNuevo">
-                      @csrf
-                      <div class="form-group">
+  <form id="formupaciente" method="post" action="/pantallainicio/vista/pacienteNuevo" enctype="multipart/form-data" onsubmit = "return calcularEdad(document.getElementById('fechanaci').value)">
+            @csrf
+               <div class="form-group">
                         <div class="row">
                           <div class="col-md-6">
                               <label for="nombres">Nombres:</label>
-                               <input type="text" class="form-control"name="nombres" id="nombres" placeholder="Ingresar nombres aquí">
+                               <input type="text" class="form-control"name="nombres" id="nombres" placeholder="Ingrese los Nombres del Paciente">
                           </div>
                           <div class="col-md-6">
                              
                           <label for="apellidos">Apellidos:</label>
-                          <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingresar apellidos aquí">
+                          <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingrese los Apellidos del Paciente">
                           </div>
                         </div>
                           
@@ -207,12 +206,12 @@
                       <div class="row">
                         <div class="col-md-6">
                           <label for="identidad">Número de identidad:</label>
-                          <input type="number" class="form-control" name="identidad" id="identidad" placeholder="Ingresar  identidad aquí">
+                          <input type="number" class="form-control" name="identidad" id="identidad" placeholder="Ingrese la  Identidad del Paciente">
                         </div>
                         <div class="col-md-6">
-                          <label for="sexo">Sexo :</label>
+                          <label for="sexo">Género :</label>
                           <select class="form-control"  name="sexo" id="sexo">
-                            <option disabled selected>Seleccione el sexo</option>
+                            <option disabled selected>Seleccione el Género</option>
                             <option>Masculino</option>
                             <option>Femenino</option>                        
                           </select>
@@ -221,13 +220,31 @@
                        
                     </div>
                     
+                           
+<?php $fecha_actual= date("d-m-Y");  ?>
                     <div class="form-group">
                       <div class="row">
-                        <div class="col-md-6">
-                          <label for="fechaNacimiento">Fecha de nacimiento:</label>
-                          <input type="date" class="form-control" name="fechaNacimiento" id="fechaNacimiento" placeholder="ingresar fecha de nacimiento del paciente">
-                        </div>
-                        <div class="col-md-6">
+                         <div class="col-md-6">
+                      <label for="fechaNacimiento">Fech.Nacimiento:</label>
+                      <input type="date" class="form-control form-control-file" name="fechaNacimiento" id="fechaNacimiento" placeholder="Ingrese la Fech.de Nacimiento "  value="{{old('fechaNacimiento')}}"  min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 100 year")); ?>"
+ max="<?php echo date('Y-m-d',strtotime($fecha_actual
+."- 5 year"));?>" required>
+                  </div>
+                        
+                    <div class="col-md-6">
+                      <label for="telefonoCelular">Número Teléfonico:</label>
+                      <input type="number" class="form-control" name="telefonoCelular" id="telefonoCelular" placeholder="Ingrese el Número Teléfonico del Paciente">
+                    </div>
+                       
+                      </div>
+                      
+                  </div>
+
+                  <div class="form-group">
+
+                  <div class="row">
+
+    <div class="col-md-6">
                           <label for="departamento">Departamento:</label>
                           <select name="departamento" id="departamento" class="form-control select-css">
                             <option disabled selected>Seleccione un departamento</option>
@@ -252,21 +269,12 @@
 
                           </select>
                         </div>
-                      </div>
-                      
-                  </div>
-
-                  <div class="form-group">
-
-                  <div class="row">
-                    <div class="col-md-6">
+<div class="col-md-6">
                       <label for="ciudad">Ciudad:</label>
-                      <input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Ingresar ciudad del paciente">
+                      <input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Ingrese el Nombre la Ciudad en que reside el Paciente">
                     </div>
-                    <div class="col-md-6">
-                      <label for="direccion">Dirección:</label>
-                      <textarea  class='autoExpand' rows='2' data-min-rows='2' type="text" style="  width:370;"  class="form-control" name="direccion" id="direccion" placeholder="Ingrese dirección del paciente"></textarea>
-                    </div>
+                    
+                   
                   </div>
                   </div>
             
@@ -274,14 +282,15 @@
                   <div class="form-group">
 
                   <div class="row">
-                    <div class="col-md-6">
-                      <label for="telefonoFijo">Teléfono fijo:</label>
-                      <input type="number" class="form-control" name="telefonoFijo" id="telefonoFijo" placeholder="Ingresar telefono Fijo del paciente">
+                  <div class="col-md-6">
+                      <label for="direccion">Dirección:</label>
+                      <textarea  class="autoExpand form-control" rows='2' data-min-rows='2' type="text" style="  width:370;"  class="form-control" name="direccion" id="direccion" placeholder="Ingrese la dirección del paciente"></textarea>
                     </div>
-                    <div class="col-md-6">
-                      <label for="telefonoCelular">Teléfono celular:</label>
-                      <input type="number" class="form-control" name="telefonoCelular" id="telefonoCelular" placeholder="Ingresar telefono Celular del paciente">
-                    </div>
+<div class="col-md-6">
+                      <label for="direccion">Seleccione una Imagen de Perfil:</label>
+                 <input type="file" class="form-control-file" name="file" id="imagen" placeholder="Seleccione una Imagen">
+                    
+</div>
                   </div>
                   </div>
                   
@@ -290,27 +299,22 @@
                   <div class="form-group">
                     <div class="row">
                       <div class="col-md-6">  
-                          <label for="profesion">Profesión:</label>
-                          <input type="text" class="form-control" name="profesion" id="profesion" placeholder="Ingresar profesión del paciente">
-                      </div>
-                      <div class="col-md-6"> 
-                        <label for="empresa">Empresa:</label>
-                        <input type="text" class="form-control" name="empresa" id="empresa" placeholder="Ingresar la empresa donde trabaja el paciente">
-                      </div>
+                          <label for="observaciones">Observaciones:</label>
+                    <textarea  class="autoExpand form-control" rows='4' data-min-rows='3' type="text" style="  width:700;" class="form-control text-center" name="observaciones" id="observaciones" placeholder="Ingrese la Observación (opcional)"></textarea>
                     </div>
                   </div>
 
                  
-                   
+                   </div>
                  
 
                   <div class="form-group" >
-                    <label for="observaciones">Observaciones:</label>
-                    <textarea class='autoExpand' rows='4' data-min-rows='3' type="text" style="  width:700;" class="form-control text-center" name="observaciones" id="observaciones" placeholder="¿Alguna observación?"></textarea>
+                   
                   </div>
 
                   <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" onclick="location.href='/pantallainicio/vista'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+                  <input type="reset" class="btn btn-danger">
                 <button type="submit" class="btn btn-primary" >Guardar Paciente</button>
               </div>
                   </form>
