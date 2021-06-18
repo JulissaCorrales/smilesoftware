@@ -1,7 +1,4 @@
 <html>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <!-- para que funcione el auto ecpandir del textarea: -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <style>
@@ -31,7 +28,7 @@
   <!-- Este codigo es para la ventana modal darcita -->
 <div class="modal fade" id="create" >
   
-	<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content" >
 			<div id="div1"class="modal-header" style="background-color:#276678;color:white">
 	
@@ -54,7 +51,7 @@
       ?>
   
        <?php $odontologos=App\Odontologo::all();?>
-				<form method="post"  action="/darcita">
+				<form method="post"  action="/darcita" >
         @csrf
        
         <!-- Doctor -->
@@ -166,9 +163,9 @@
 
 <!-- Modal 2 -->
         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="npaciente">
-        <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-dialog modal-lg " role="document">
           <div class="modal-content">
-            <div class="modal-header" style="background-color: #d3e0ea;">
+            <div class="modal-header" style="background-color: #276678;color:white;">
               <h4 class="modal-title" id="myModalLabel">
 
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
@@ -184,18 +181,22 @@
               <div style="width: 450px; height: 550px; overflow-y: scroll;"> -->
             <div class="modal-body"> 
 
-  <form id="formupaciente" method="post" action="/pantallainicio/vista/pacienteNuevo" enctype="multipart/form-data" onsubmit = "return calcularEdad(document.getElementById('fechanaci').value)">
+      <form id="formupaciente" method="post" action="/pantallainicio/vista/pacienteNuevo" enctype="multipart/form-data" onsubmit = "return calcularEdad(document.getElementById('fechanaci').value)">
             @csrf
                <div class="form-group">
                         <div class="row">
-                          <div class="col-md-6">
+                          <div class="col-md-4">
                               <label for="nombres">Nombres:</label>
-                               <input type="text" class="form-control"name="nombres" id="nombres" placeholder="Ingrese los Nombres del Paciente">
+                               <input  type="text" class="form-control"name="nombres" id="nombres" placeholder="Ingrese los Nombres del Paciente">
                           </div>
-                          <div class="col-md-6">
+                          <div class="col-md-4">
                              
                           <label for="apellidos">Apellidos:</label>
-                          <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingrese los Apellidos del Paciente">
+                          <input  type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingrese los Apellidos del Paciente">
+                          </div>
+                          <div class="col-md-4">  
+                            <label for="direccion">Seleccione una Imagen de Perfil:</label>
+                            <input accept="image/*" class="form-control" type="file" class="form-control-file" name="file" id="imagen" placeholder="Seleccione una Imagen">
                           </div>
                         </div>
                           
@@ -286,38 +287,20 @@
                       <label for="direccion">Dirección:</label>
                       <textarea  class="autoExpand form-control" rows='2' data-min-rows='2' type="text" style="  width:370;"  class="form-control" name="direccion" id="direccion" placeholder="Ingrese la dirección del paciente"></textarea>
                     </div>
-<div class="col-md-6">
-                      <label for="direccion">Seleccione una Imagen de Perfil:</label>
-                 <input type="file" class="form-control-file" name="file" id="imagen" placeholder="Seleccione una Imagen">
+              <div class="col-md-6">
+                    <label for="observaciones">Observaciones:</label>
+                    <textarea  rows='2' data-min-rows='2' type="text" style="  width: 300px;;"  class="autoExpand form-control" name="observaciones" id="observaciones" placeholder="Ingrese la Observación (opcional)"></textarea>
                     
-</div>
                   </div>
                   </div>
-                  
-              
-
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-md-6">  
-                          <label for="observaciones">Observaciones:</label>
-                    <textarea  class="autoExpand form-control" rows='4' data-min-rows='3' type="text" style="  width:700;" class="form-control text-center" name="observaciones" id="observaciones" placeholder="Ingrese la Observación (opcional)"></textarea>
-                    </div>
-                  </div>
-
-                 
-                   </div>
-                 
-
-                  <div class="form-group" >
-                   
                   </div>
 
                   <div class="modal-footer">
-                  <button type="button" onclick="location.href='/pantallainicio/vista'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+
                   <input type="reset" class="btn btn-danger">
                 <button type="submit" class="btn btn-primary" >Guardar Paciente</button>
               </div>
-                  </form>
+                  </form> 
                   </div>
                   </div>
                
@@ -355,5 +338,51 @@ $(document)
     });
 </script>
 <!--  -->
+<!-- El siguiente script es para que la foto de perfil solo acepte imagenes -->
+        <script type="text/javascript">
+                    (function(){
+                        function filePreview(input){
+                            if (input.files && input.files[0]){
+                                var reader = new FileReader();
 
+                                reader.onload = function(e){
+                                    $('#imagePreview').html("<img src='"+e.target.result+"' />");
+                                }
+
+                                reader.readAsDataURL(input.files[0]);
+                            }
+                        }
+
+                        $('#imagen').change(function(el){
+                    if(LimitAttach(this,1))
+                            filePreview(this);
+                        });
+                    })();
+                    </script>
+                    <script type="text/javascript">
+                    function LimitAttach(tField,iType) {
+                        file=tField.value;
+                        if (iType==1) {
+                        extArray = new Array(".jpeg",".jpe",".gif",".jpg",".png");
+                        }	
+                        allowSubmit = false;
+                        if (!file) return false;
+                        while (file.indexOf("\\") != -1) file = file.slice(file.indexOf("\\") + 1);
+                    ext = file.slice(file.indexOf(".")).toLowerCase();
+                    for (var i = 0; i < extArray.length; i++) {
+                        if (extArray[i] == ext) {
+                        allowSubmit = true;
+                        break;
+                        }
+                        }
+                        if (allowSubmit) {
+                    return true
+                        } else {
+                        tField.value="";
+                        alert("Usted sólo puede subir archivos con extensiones " + (extArray.join(" ")) + "\n ¡¡Por favor escoja otra imagen!!");
+                    return false;
+                        setTimeout("location.reload()",2000);
+                        }
+                        }	
+                    </script>
 </html>
