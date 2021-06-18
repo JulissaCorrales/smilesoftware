@@ -49,19 +49,19 @@
                       @method('put')
                       <div class="row">
                       <div class="col-md-6" >
-                        <label for="nombres" lass="form-label " > Nombres: </label>
+                        <label for="nombres" class="form-label " > Nombres: </label>
                         <input required type="text" class="form-control " style="font-size:18px; font-family: Times New Roman, Times, serif;" name="nombres" id="nombres" placeholder="ingresar nombre del paciente"  value="{{ $pacientes->nombres }}" >
                        </div>
 
                      
                       <div class="col-md-6">
-                          <label for="apellidos" lass="form-label " >Apellidos:</label>
+                          <label for="apellidos" class="form-label " >Apellidos:</label>
                           <input required type="text" class="form-control " name="apellidos" id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $pacientes->apellidos }}">
                         </div>
                       </div>
                      <div class="row">
                       <div class="col-md-6">
-                        <label for="identidad"lass="form-label " >Identidad:</label>                
+                        <label for="identidad" class="form-label " >Identidad:</label>                
                         <input required type="number"style="font-size:18px; font-family: Times New Roman, Times, serif;" class="form-control " name="identidad" id="identidad" placeholder="ingresar identidad del paciente" maxlength="13"value="{{ $pacientes->identidad }}">
                         </div>
 
@@ -78,14 +78,14 @@
 
                       <div class="row">
                       <div class="col-md-6">
-                        <label for="fechaNacimiento" lass="form-label " >Fecha de Nacimiento:</label>
+                        <label for="fechaNacimiento" class="form-label " >Fecha de Nacimiento:</label>
                       
                         <input type="date" required class="form-control " name="fechaNacimiento" id="fechaNacimiento" placeholder="ingresar fecha de nacimiento del paciente"  value="{{ $pacientes->fechaNacimiento }}">
                         </div>
                       
 
                       <div class="col-md-6">
-                        <label for="departamento" lass="form-label ">Departamento:</label>
+                        <label for="departamento" class="form-label ">Departamento:</label>
                         <select name="departamento" id="departamento" class="form-control select-css">
                             <option name="departamento" selected value="{{ $pacientes->departamento }}"
                              >Departamento Actual: {{ $pacientes->departamento }}</option>
@@ -113,14 +113,14 @@
                       </div>
                       <div class="row">
                       <div class="col-md-6">
-                        <label for="ciudad" lass="form-label ">Ciudad:</label>
+                        <label for="ciudad" class="form-label ">Ciudad:</label>
 
                         <input required type="text"class="form-control " name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $pacientes->ciudad }}">
                           </div>
 
                   
                       <div class="col-md-6">
-                        <label for="direccion"lass="form-label ">Dirección:</label>
+                        <label for="direccion" class="form-label ">Dirección:</label>
 
                             <input required type="text" class="form-control " name="direccion" id="direccion" placeholder="ingresar direccion del paciente"  value="{{ $pacientes->direccion }}">
                           </div>
@@ -128,7 +128,7 @@
 
                        <div class="row">
                       <div class="col-md-6">
-                        <label for="telefonoCelular" lass="form-label ">Número Teléfonico:</label>
+                        <label for="telefonoCelular" class="form-label ">Número Teléfonico:</label>
 
                             <input required type="text" style="font-size:18px; font-family: Times New Roman, Times, serif;"class="form-control " name="telefonoCelular" id="telefonoCelular" placeholder="ingresar telefono Celular del paciente"  value="{{ $pacientes->telefonoCelular }}">
                           </div>
