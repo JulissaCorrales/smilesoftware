@@ -170,8 +170,7 @@ class OdontologoController extends Controller
     'direccion'=>'required|',
     'user_id' => ['required', Rule::unique('odontologos')->ignore($odontologos->id)]
     ]);
-        $create = $odontologos->save();
-
+        
     
        // $odontologos->especialidades()->delete();
      // $odontologos->especialidades()->detach();
@@ -189,19 +188,20 @@ class OdontologoController extends Controller
 
      
     if($_request->especialidades != null){            
-        foreach ($_request->especialidades as $especialidad) {
+       
           // $odontologos->especialidades()->detach();
            // $odontologos->especialidades()->delete();
-          $odontologos->especialidades()->attach($especialidad);
+          $odontologos->especialidades()->sync($_request->especialidades);
             $odontologos->save();
-        }
+       
     }
  
 
 
 
 
-        
+        $create = $odontologos->save();
+
         if($create){
             return redirect('/pantallainicio/odontologo')->with('mensaje','El Odontólogo ha sido modifcado exitosamente');
         }else{
