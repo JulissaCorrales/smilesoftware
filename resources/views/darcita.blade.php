@@ -2,7 +2,7 @@
 <!-- para que funcione el auto ecpandir del textarea: -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <style>
-      #div1{background-color:#d3e0ea;}
+      #div1{background-color:#276678;}
       #botonContinuar{text-align: center;}
       .control-label{margin:1em;}
       textarea{  

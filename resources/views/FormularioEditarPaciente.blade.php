@@ -147,7 +147,7 @@
                          <label  class=" form-label">Cambie la foto de perfil aquí:</label>
                         <input accept="image/*" type="file" class="form-control-file" name="file" id="imagen" placeholder="Seleccione una Imagen">
                         </div>
-                         <div class="col-md-6">
+                         <div class="col-md-6" style="margin-bottom:1em;">
                         <label for="direccion" class="form-label ">Direccion:</label>
 
                             <textarea  required type="text" class="form-control" name="direccion" id="direccion" placeholder="ingresar direccion del paciente"  value="{{ $pacientes->direccion }}">{{ $pacientes->direccion }}</textarea>
