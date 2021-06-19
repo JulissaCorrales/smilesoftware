@@ -50,15 +50,15 @@ class PacienteController extends Controller
         $_request->validate([     'nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
         'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
         'identidad'=>['required', 'numeric', 'digits:13'],
-        'sexo'=>'required',
+        'sexo'=>'required|alpha|in:Femenino,Masculino',
         'fechaNacimiento'=>'required|date|before:today',
-        'departamento'=>'required||regex:/^[\pL\s\-]+$/u',
-        'ciudad'=>'required||regex:/^[\pL\s\-]+$/u',
-        'direccion'=>'required',
-        'telefonoFijo'=>'required|numeric|digits:8',
+        'departamento'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+        'ciudad'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+        'direccion'=>'required|max:255',
+        // 'telefonoFijo'=>'required|numeric|digits:8',
         'telefonoCelular'=>'required|numeric|digits:8',
         
-        'observaciones'=>'required'
+        'observaciones'=>'|max:255'
 
 
         ]);
@@ -74,7 +74,7 @@ class PacienteController extends Controller
         $pacientes->departamento=$_request->input('departamento');
         $pacientes->ciudad=$_request->input('ciudad');
         $pacientes->direccion=$_request->input('direccion');
-        $pacientes->telefonoFijo=$_request->input('telefonoFijo');
+        // $pacientes->telefonoFijo=$_request->input('telefonoFijo');
         $pacientes->telefonoCelular=$_request->input('telefonoCelular');
         
         $pacientes->observaciones=$_request->input('observaciones');
@@ -90,7 +90,7 @@ class PacienteController extends Controller
 
         $create = $pacientes->save();
         if($create){
-            return redirect("/pantallainicio/vista/paciente/$id/editar")->with('mensaje','El paciente ha sido modifcado exitosamente');
+            return redirect()->back()->with('mensaje','El paciente ha sido modifcado exitosamente');
         }else{
 
         }
@@ -130,17 +130,16 @@ class PacienteController extends Controller
         
         } 
             $request->validate([
-            'nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
-            'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+            'nombres'=>'required|regex:/^[\pL\s\-]+$/u|max:255',
+            'apellidos'=>'required|regex:/^[\pL\s\-]+$/u|max:255',
             'identidad'=>['required', 'numeric', 'digits:13'],
-            'sexo'=>'required',
+            'sexo'=>'required|alpha|in:Femenino,Masculino',
             'fechaNacimiento'=>'required|date|before:today',
-            'departamento'=>'required',
-            'ciudad'=>'required||regex:/^[\pL\s\-]+$/u',
-            'direccion'=>'required',
-            
+            'departamento'=>'required|regex:/^[\pL\s\-]+$/u|max:255',
+            'ciudad'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+            'direccion'=>'required|max:255',
             'telefonoCelular'=>'required|numeric|digits:8',
-           //  'observaciones'=>'required'
+            'observaciones'=>'max:255'
            
         ]);
 
@@ -150,7 +149,7 @@ class PacienteController extends Controller
        $creado = $nuevoPaciente->save();
 
          if ($creado){
-            return redirect('/pantallainicio/vista')->with('mensaje', 'El paciente fue creado exitosamente!');
+            return redirect()->back()->with('mensaje', 'El paciente fue creado exitosamente!');
         }else{
             //retornar con un msj de error
         } 
@@ -164,7 +163,7 @@ class PacienteController extends Controller
         
         Paciente::destroy($id);
         Cita::where('paciente_id','=',$id)->delete();
-        return redirect('/pantallainicio/vista')->with('mensaje','Paciente borrado satisfactoriamente');
+        return redirect()->back()->with('mensaje','Paciente borrado satisfactoriamente');
 
         
        

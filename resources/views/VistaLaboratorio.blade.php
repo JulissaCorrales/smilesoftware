@@ -74,7 +74,7 @@
 
                     <div class="form-group">
                         <label for="nombre">por Pagar:</label>
-                        <input required type="number" class="form-control-file" pattern="^[0-9]+" name="porPagar" id="porPagar" placeholder="por pagar">
+                        <input required type="number" class="form-control-file" min="1" pattern="^[0-9]+" name="porPagar" id="porPagar" placeholder="por pagar"formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)">
                     </div>
                               
                   <div class="modal-footer">
@@ -163,7 +163,7 @@
 
                                   <div class="form-group">
                                     <label for="nombre">por Pagar:</label>
-                                    <input required type="number" class="form-control-file" pattern="^[0-9]+" name="porPagar" id="porPagar" value="{{$lab->porPagar}}">
+                                    <input required type="number" class="form-control-file" min="1" pattern="^[0-9]+" name="porPagar" id="porPagar" formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)"value="{{$lab->porPagar}}">
                                     </div>
                                           
                                   <div class="modal-footer">

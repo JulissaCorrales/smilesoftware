@@ -1,11 +1,8 @@
 <html>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <!-- para que funcione el auto ecpandir del textarea: -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <style>
-      #div1{background-color:#d3e0ea;}
+      #div1{background-color:#276678;}
       #botonContinuar{text-align: center;}
       .control-label{margin:1em;}
       textarea{  
@@ -31,7 +28,7 @@
   <!-- Este codigo es para la ventana modal darcita -->
 <div class="modal fade" id="create" >
   
-	<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content" >
 			<div id="div1"class="modal-header" style="background-color:#276678;color:white">
 	
@@ -54,7 +51,7 @@
       ?>
   
        <?php $odontologos=App\Odontologo::all();?>
-				<form method="post"  action="/darcita">
+				<form method="post"  action="/darcita" >
         @csrf
        
         <!-- Doctor -->
@@ -166,9 +163,9 @@
 
 <!-- Modal 2 -->
         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="npaciente">
-        <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-dialog modal-lg " role="document">
           <div class="modal-content">
-            <div class="modal-header" style="background-color: #d3e0ea;">
+            <div class="modal-header" style="background-color: #276678;color:white;">
               <h4 class="modal-title" id="myModalLabel">
 
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
@@ -184,19 +181,22 @@
               <div style="width: 450px; height: 550px; overflow-y: scroll;"> -->
             <div class="modal-body"> 
 
-
-                    <form method="post" action="/pantallainicio/vista/pacienteNuevo">
-                      @csrf
-                      <div class="form-group">
+      <form id="formupaciente" method="post" action="/pantallainicio/vista/pacienteNuevo" enctype="multipart/form-data" onsubmit = "return calcularEdad(document.getElementById('fechanaci').value)">
+            @csrf
+               <div class="form-group">
                         <div class="row">
-                          <div class="col-md-6">
+                          <div class="col-md-4">
                               <label for="nombres">Nombres:</label>
-                               <input type="text" class="form-control"name="nombres" id="nombres" placeholder="Ingresar nombres aquí">
+                               <input  type="text" class="form-control"name="nombres" id="nombres" placeholder="Ingrese los Nombres del Paciente">
                           </div>
-                          <div class="col-md-6">
+                          <div class="col-md-4">
                              
                           <label for="apellidos">Apellidos:</label>
-                          <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingresar apellidos aquí">
+                          <input  type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingrese los Apellidos del Paciente">
+                          </div>
+                          <div class="col-md-4">  
+                            <label for="direccion">Seleccione una Imagen de Perfil:</label>
+                            <input accept="image/*" class="form-control" type="file" class="form-control-file" name="file" id="imagen" placeholder="Seleccione una Imagen">
                           </div>
                         </div>
                           
@@ -207,12 +207,12 @@
                       <div class="row">
                         <div class="col-md-6">
                           <label for="identidad">Número de identidad:</label>
-                          <input type="number" class="form-control" name="identidad" id="identidad" placeholder="Ingresar  identidad aquí">
+                          <input type="number" class="form-control" name="identidad" id="identidad" placeholder="Ingrese la  Identidad del Paciente">
                         </div>
                         <div class="col-md-6">
-                          <label for="sexo">Sexo :</label>
+                          <label for="sexo">Género :</label>
                           <select class="form-control"  name="sexo" id="sexo">
-                            <option disabled selected>Seleccione el sexo</option>
+                            <option disabled selected>Seleccione el Género</option>
                             <option>Masculino</option>
                             <option>Femenino</option>                        
                           </select>
@@ -221,13 +221,31 @@
                        
                     </div>
                     
+                           
+<?php $fecha_actual= date("d-m-Y");  ?>
                     <div class="form-group">
                       <div class="row">
-                        <div class="col-md-6">
-                          <label for="fechaNacimiento">Fecha de nacimiento:</label>
-                          <input type="date" class="form-control" name="fechaNacimiento" id="fechaNacimiento" placeholder="ingresar fecha de nacimiento del paciente">
-                        </div>
-                        <div class="col-md-6">
+                         <div class="col-md-6">
+                      <label for="fechaNacimiento">Fech.Nacimiento:</label>
+                      <input type="date" class="form-control form-control-file" name="fechaNacimiento" id="fechaNacimiento" placeholder="Ingrese la Fech.de Nacimiento "  value="{{old('fechaNacimiento')}}"  min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 100 year")); ?>"
+ max="<?php echo date('Y-m-d',strtotime($fecha_actual
+."- 5 year"));?>" required>
+                  </div>
+                        
+                    <div class="col-md-6">
+                      <label for="telefonoCelular">Número Teléfonico:</label>
+                      <input type="number" class="form-control" name="telefonoCelular" id="telefonoCelular" placeholder="Ingrese el Número Teléfonico del Paciente">
+                    </div>
+                       
+                      </div>
+                      
+                  </div>
+
+                  <div class="form-group">
+
+                  <div class="row">
+
+    <div class="col-md-6">
                           <label for="departamento">Departamento:</label>
                           <select name="departamento" id="departamento" class="form-control select-css">
                             <option disabled selected>Seleccione un departamento</option>
@@ -252,21 +270,12 @@
 
                           </select>
                         </div>
-                      </div>
-                      
-                  </div>
-
-                  <div class="form-group">
-
-                  <div class="row">
-                    <div class="col-md-6">
+<div class="col-md-6">
                       <label for="ciudad">Ciudad:</label>
-                      <input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Ingresar ciudad del paciente">
+                      <input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Ingrese el Nombre la Ciudad en que reside el Paciente">
                     </div>
-                    <div class="col-md-6">
-                      <label for="direccion">Dirección:</label>
-                      <textarea  class='autoExpand' rows='2' data-min-rows='2' type="text" style="  width:370;"  class="form-control" name="direccion" id="direccion" placeholder="Ingrese dirección del paciente"></textarea>
-                    </div>
+                    
+                   
                   </div>
                   </div>
             
@@ -274,46 +283,24 @@
                   <div class="form-group">
 
                   <div class="row">
-                    <div class="col-md-6">
-                      <label for="telefonoFijo">Teléfono fijo:</label>
-                      <input type="number" class="form-control" name="telefonoFijo" id="telefonoFijo" placeholder="Ingresar telefono Fijo del paciente">
+                  <div class="col-md-6">
+                      <label for="direccion">Dirección:</label>
+                      <textarea  class="autoExpand form-control" rows='2' data-min-rows='2' type="text" style="  width:370;"  class="form-control" name="direccion" id="direccion" placeholder="Ingrese la dirección del paciente"></textarea>
                     </div>
-                    <div class="col-md-6">
-                      <label for="telefonoCelular">Teléfono celular:</label>
-                      <input type="number" class="form-control" name="telefonoCelular" id="telefonoCelular" placeholder="Ingresar telefono Celular del paciente">
-                    </div>
-                  </div>
-                  </div>
-                  
-              
-
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-md-6">  
-                          <label for="profesion">Profesión:</label>
-                          <input type="text" class="form-control" name="profesion" id="profesion" placeholder="Ingresar profesión del paciente">
-                      </div>
-                      <div class="col-md-6"> 
-                        <label for="empresa">Empresa:</label>
-                        <input type="text" class="form-control" name="empresa" id="empresa" placeholder="Ingresar la empresa donde trabaja el paciente">
-                      </div>
-                    </div>
-                  </div>
-
-                 
-                   
-                 
-
-                  <div class="form-group" >
+              <div class="col-md-6">
                     <label for="observaciones">Observaciones:</label>
-                    <textarea class='autoExpand' rows='4' data-min-rows='3' type="text" style="  width:700;" class="form-control text-center" name="observaciones" id="observaciones" placeholder="¿Alguna observación?"></textarea>
+                    <textarea  rows='2' data-min-rows='2' type="text" style="  width: 300px;;"  class="autoExpand form-control" name="observaciones" id="observaciones" placeholder="Ingrese la Observación (opcional)"></textarea>
+                    
+                  </div>
+                  </div>
                   </div>
 
                   <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+                  <input type="reset" class="btn btn-danger">
                 <button type="submit" class="btn btn-primary" >Guardar Paciente</button>
               </div>
-                  </form>
+                  </form> 
                   </div>
                   </div>
                
@@ -351,5 +338,51 @@ $(document)
     });
 </script>
 <!--  -->
+<!-- El siguiente script es para que la foto de perfil solo acepte imagenes -->
+        <script type="text/javascript">
+                    (function(){
+                        function filePreview(input){
+                            if (input.files && input.files[0]){
+                                var reader = new FileReader();
 
+                                reader.onload = function(e){
+                                    $('#imagePreview').html("<img src='"+e.target.result+"' />");
+                                }
+
+                                reader.readAsDataURL(input.files[0]);
+                            }
+                        }
+
+                        $('#imagen').change(function(el){
+                    if(LimitAttach(this,1))
+                            filePreview(this);
+                        });
+                    })();
+                    </script>
+                    <script type="text/javascript">
+                    function LimitAttach(tField,iType) {
+                        file=tField.value;
+                        if (iType==1) {
+                        extArray = new Array(".jpeg",".jpe",".gif",".jpg",".png");
+                        }	
+                        allowSubmit = false;
+                        if (!file) return false;
+                        while (file.indexOf("\\") != -1) file = file.slice(file.indexOf("\\") + 1);
+                    ext = file.slice(file.indexOf(".")).toLowerCase();
+                    for (var i = 0; i < extArray.length; i++) {
+                        if (extArray[i] == ext) {
+                        allowSubmit = true;
+                        break;
+                        }
+                        }
+                        if (allowSubmit) {
+                    return true
+                        } else {
+                        tField.value="";
+                        alert("Usted sólo puede subir archivos con extensiones " + (extArray.join(" ")) + "\n ¡¡Por favor escoja otra imagen!!");
+                    return false;
+                        setTimeout("location.reload()",2000);
+                        }
+                        }	
+                    </script>
 </html>

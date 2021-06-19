@@ -106,9 +106,11 @@
                             <label class="col-form-label" style="margin-left:1em;margin-right:1em;" for="roles">{{ __('Rol:') }}</label>
                             <div>
                                 <br>
-                                <select class="role form-control" name="role" id="role2">
-                                    <option value="">Seleccione el Rol...</option>
+                                <select class="role form-control" name="role" id="role2" required autocomplete="role2">
+                                        
+                                    <option value="" >Seleccione el Rol...</option>
                                         @foreach ($roles as $role)
+                                        
                                         <option data-role-id2="{{$role->id}}" data-role-slug2="{{$role->slug}}" value="{{$role->id}}">{{$role->Nombre}}</option>
                                         @endforeach
                                 </select>

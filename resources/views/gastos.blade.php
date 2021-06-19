@@ -116,7 +116,7 @@
             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
             </svg>
                    
-                        Editar Gasto
+                        Editar Gasto 
                     </h4>
                     <button type="button" class="close" data-dismiss="modal"    aria-label="Close">
                     <span span aria-hidden="true">&times;</span>
@@ -145,7 +145,7 @@
                     <!-- Monto-->
                     <div class="form-group" id="div3">
                     <label for="monto" class="control-label">Monto:</label>
-                    <input requiredrequired type="number"  class="form-control-file" name="monto" id="monto" placeholder="Ingrese el monto del gasto"  value="{{ $gasto->monto }}">
+                    <input required type="number" min="1" pattern="^[0-9]+" class="form-control custom-select" name="monto" id="monto" placeholder="Ingrese el monto del gasto" formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)" value="{{ $gasto->monto }}">
                     </div>
                  
                     <!-- Fecha de la factura-->
