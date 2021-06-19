@@ -173,7 +173,7 @@ class OdontologoController extends Controller
         $create = $odontologos->save();
 
     
-       // $odontologos->especialidades()->delete();
+      // $odontologos->especialidades()->delete();
      // $odontologos->especialidades()->detach();
 
         //$listOfPermissions = explode(',',  $_request->especialidades); //crear matriz a partir de permisos separados/coma
@@ -190,8 +190,7 @@ class OdontologoController extends Controller
      
     if($_request->especialidades != null){            
         foreach ($_request->especialidades as $especialidad) {
-          // $odontologos->especialidades()->detach();
-           // $odontologos->especialidades()->delete();
+         // $odontologos->especialidades()->detach();
           $odontologos->especialidades()->attach($especialidad);
             $odontologos->save();
         }
