@@ -153,7 +153,7 @@
 $(document).ready( function () {
     $('#datatable').DataTable( {
     language: {
-        search: "Buscador de citas:",
+        search: "Búscador de citas:",
       "decimal": "",
         "emptyTable": "No Tiene Citas Asignadas ¡¡asignele por favor!!",
         "info": "",
