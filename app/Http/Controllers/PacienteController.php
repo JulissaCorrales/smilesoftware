@@ -50,15 +50,15 @@ class PacienteController extends Controller
         $_request->validate([     'nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
         'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
         'identidad'=>['required', 'numeric', 'digits:13'],
-        'sexo'=>'required',
+        'sexo'=>'required|alpha|in:Femenino,Masculino',
         'fechaNacimiento'=>'required|date|before:today',
-        'departamento'=>'required||regex:/^[\pL\s\-]+$/u',
-        'ciudad'=>'required||regex:/^[\pL\s\-]+$/u',
-        'direccion'=>'required',
+        'departamento'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+        'ciudad'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+        'direccion'=>'required|max:255',
         // 'telefonoFijo'=>'required|numeric|digits:8',
         'telefonoCelular'=>'required|numeric|digits:8',
         
-        'observaciones'=>'required'
+        'observaciones'=>'|max:255'
 
 
         ]);
@@ -130,17 +130,16 @@ class PacienteController extends Controller
         
         } 
             $request->validate([
-            'nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
-            'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+            'nombres'=>'required|regex:/^[\pL\s\-]+$/u|max:255',
+            'apellidos'=>'required|regex:/^[\pL\s\-]+$/u|max:255',
             'identidad'=>['required', 'numeric', 'digits:13'],
-            'sexo'=>'required',
+            'sexo'=>'required|alpha|in:Femenino,Masculino',
             'fechaNacimiento'=>'required|date|before:today',
-            'departamento'=>'required',
-            'ciudad'=>'required||regex:/^[\pL\s\-]+$/u',
-            'direccion'=>'required',
-            
+            'departamento'=>'required|regex:/^[\pL\s\-]+$/u|max:255',
+            'ciudad'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+            'direccion'=>'required|max:255',
             'telefonoCelular'=>'required|numeric|digits:8',
-           //  'observaciones'=>'required'
+            'observaciones'=>'max:255'
            
         ]);
 

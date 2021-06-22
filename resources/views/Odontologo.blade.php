@@ -306,7 +306,7 @@
 <!-- <input type="text" value="" data-role="tagsinput" name="especialidad_odontologo"  placeholder="Ingrese una o varias Especialidades"> -->
         
 <select name="especialidades[]" id="" required  class="form-control" multiple>
-<option value="@foreach ($odontologo->especialidades as $permiso)
+<option  disabled value="@foreach ($odontologo->especialidades as $permiso)
             {{$permiso->id. ','}}
         @endforeach"   selected> Especialidad Actual: @foreach ($odontologo->especialidades as $permiso)
             {{$permiso->Especialidad. ','}}
