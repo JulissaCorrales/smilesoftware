@@ -110,7 +110,7 @@ background-color:#009999;
        <!-- Duracion-->
        <label for="duracionCita" class="control-label">Duración de la cita:</label>
         <select required name="duracionCita" id="duracionCita" class="form-control">
-        <option selected value="{{$citas->duracionCita}}">Duracion Actual: {{$citas->duracionCita}}</option>
+        <option selected value="{{$citas->duracionCita}}">Duración Actual: {{$citas->duracionCita}}</option>
         <option value="10m">10 minutos</option>
         <option value="15m">15 minutos</option>
         <option value="20m">20 minutos</option>
