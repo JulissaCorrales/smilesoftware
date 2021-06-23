@@ -161,7 +161,7 @@ $(document).ready( function () {
         "infoFiltered": "(Filtrado de _MAX_ total tratamientos)",
         "infoPostFix": "",
         "thousands": ",",
-        "lengthMenu": "Mostrar  _MENU_  citas",
+        "lengthMenu": "Mostrar  citas _MENU_ ",
         "loadingRecords": "Cargando...",
         "processing": "Procesando...",
         "zeroRecords": "Sin resultados encontrados",
