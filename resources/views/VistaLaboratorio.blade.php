@@ -31,12 +31,12 @@
            <h4><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-eyedropper" viewBox="0 0 16 16">
   <path d="M13.354.646a1.207 1.207 0 0 0-1.708 0L8.5 3.793l-.646-.647a.5.5 0 1 0-.708.708L8.293 5l-7.147 7.146A.5.5 0 0 0 1 12.5v1.793l-.854.853a.5.5 0 1 0 .708.707L1.707 15H3.5a.5.5 0 0 0 .354-.146L11 7.707l1.146 1.147a.5.5 0 0 0 .708-.708l-.647-.646 3.147-3.146a1.207 1.207 0 0 0 0-1.708l-2-2zM2 12.707l7-7L10.293 7l-7 7H2v-1.293z"/>
 </svg> Laboratorio</h4>
-            <p>En esta Sección se muestra todos los tlaboratorios de la clínica, se pueden agregar nuevos laboratorio, así como tambien borrar y editar los laboratorios Existentes</p>
+            <p>En esta Sección se muestra todos los laboratorios de la clínica, se pueden agregar nuevos laboratorio, así como tambien borrar y editar los laboratorios Existentes</p>
             
             @can('create',App\Laboratorio::class)
             <button id="internoC" type="button"class="btn btn-outline-info" data-toggle="modal" data-target="#nuevoLab" ><span id="interno"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
             <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
-            </svg>Nuevo Laboratorio</span>
+            </svg>  Nuevo Laboratorio</span>
             </button>
           </div>
 

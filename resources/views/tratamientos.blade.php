@@ -248,8 +248,8 @@
 $(document).ready( function () {
     $('#datatable').DataTable( {
     language: {
-        search: "Buscador de tratamientos:",
-      "decimal": "",
+        search: "Búscador de tratamientos :",
+      "decimal": " ",
         "emptyTable": "No hay información",
         "info": "",
         "infoEmpty": "Mostrando 0 to 0 of 0 tratamientos",

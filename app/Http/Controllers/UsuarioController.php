@@ -72,7 +72,7 @@ class UsuarioController extends Controller
         $nuevo->name = $request->input('name');
         $nuevo->email = $request->input('email');
         $nuevo->password = bcrypt($request->password);
-        $nuevo->role = $request->input('role');
+        
 
         if ($request->hasFile('file')) {
             $file = $request->file('file');

@@ -254,7 +254,7 @@ margin-left: 4px;
 				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
 				@csrf
 					<span class="login100-form-title p-b-59" style="text-shadow: 2px 0 #ffb31a, 0 2px #ffb31a, 2px 0 #ffb31a, 0 2px #ffb31a;">
-						Iniciar Sesion 
+						Iniciar Sesión 
 					
   </span>
 

@@ -32,7 +32,7 @@
   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
   <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
 </svg> Medios de Pagos</h4>
-            <p>En esta Sección se muestra  los medios de pagos disponibles con los que cuenta la clínica, se pueden agregar nuevos medios de pagos, así como tambien borrar y editar los medios de pagos Existentes</p>
+            <p>En esta Sección se muestra  los medios de pagos disponibles con los que cuenta la clínica, se pueden agregar nuevos medios de pagos, así como también borrar y editar los medios de pagos Existentes</p>
             
             @can('create',App\Mediopago::class)
             <div>
@@ -228,7 +228,7 @@
 $(document).ready( function () {
     $('#datatable').DataTable( {
     language: {
-        search: "Buscador de Medios de pagos :",
+        search: "Búscador de Medios de pagos :",
         "decimal": "",
         "emptyTable": "No hay información",
         "info": "",
