@@ -31,8 +31,13 @@
 
 <!-- Titulo -->
   <title>@yield('titulo')</title>
+<!-- Select-->
+
 
 <!-- agregado -->
+    <link rel="icon" href="/images/logo/logo.jpg">
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -120,30 +125,28 @@
 
 <body id="page-top">
 
-  <nav class="navbar navbar-expand-sm " style="background-color:#276678;
+  <nav class="navbar navbar-expand-sm " style="background-color:#276678;  height:50%;
 ">
 
-  <H4 style="color: #D3E0EA;; text-shadow: 1px 0 #0061A8, 0 1px #1687A7, 1px 0 #ffb31a, 0 1px #1687A7;">Smile Software</H4>
+
+ 
 
 
- <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">@forelse($logotipos  as $tag)
-    <img  class="logo" style=" border-radius: 50%; "src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="50px;" height=50px;>
-    @empty
-
-    <img class="logo" style=" border-radius: 50%;" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3" id="logo1" width="50px;"> 
-    @endforelse 
-
-
+ 
+ <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#" style="margin-left:10%; ">
+   
+    <img class="logo" style=" border-radius: 70%;" src="{{ asset('Imagenes/diente.png') }}" width="50px;"> 
+    
     </button>
 
-    
+
 
 <div>
     <!-- Navbar Search -->
         <form class="form-inline my-2 my-lg-0" id="buscar1"  action="buscar">
-      <input  name="buscarpor"  style=" width:300px;margin-left:4em;"class="form-control" type="search" placeholder="Buscar Paciente" aria-label="Search"  id="texto"  >
+      <input  name="buscarpor"  style=" width:400%; margin-left:2%; margin-top:5%;"class="form-control" type="search" placeholder="Buscar Paciente por el nombre" aria-label="Search">
 
-      <button style="width:50px; height:40px; float: left;" class="btn btn-primary"  id="buscar" type='submit'><svg width="1em" height="50px;" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <button style="width:20%; height:10%; margin-left:100%; margin-top:-15%; background-color:#276678; color:white; border-color:#276678;" class="btn btn-primary"  id="buscar" type='submit'><svg width="20" height="20" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
       <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
       </svg></button>
@@ -179,12 +182,30 @@
 </div>
   </nav>
 
-  <div id="wrapper">
 
+
+
+  <div id="wrapper" style="">
+ 
+    
     <!-- Sidebar -->
     <ul class="  sidebar navbar-nav" style="
-    background-color: #1687A7;
+    background-color: #1687A7; 
     ">
+
+
+        <li>
+
+     <a class="navbar-brand" href="/" >@forelse($logotipos  as $tag)
+    <img  class="logo" style=" border-radius: 50%; "src="{{Storage::url($tag->logo)}}"  alt="image" width="100%;" height="95%";>
+    @empty
+
+    <img class="logo" style=" margin-left:5%;" src="{{ asset('Imagenes/logo4.jpg') }}"  id="logo1" width="100%;" height="95%"> 
+    @endforelse 
+
+    </a>
+          </li> 
+
      
       
         <li class="nav-item">
@@ -193,7 +214,8 @@
             <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
             </svg> 
                     
-            <span>Agenda</span></a>
+            <span> 
+          Agenda</span></a>
         </li>
       
     
@@ -311,7 +333,8 @@
 
   <!-- Demo scripts for this page-->
   <script src="/js/admin/demo/datatables-demo.js"></script>
- 
+
+
     
   @yield('js_post_page')
   @yield('js_user_page') 

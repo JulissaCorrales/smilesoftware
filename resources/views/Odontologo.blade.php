@@ -3,15 +3,14 @@
 @section('titulo','Odontólogos')
 @section('content')
 
-<!--</head> -->
-<style>
+<head>
+
+</head>
 
 
-</style>
+
 <div>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-boostrap/4.5.0/css/bootstrap.css" type="text/css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boostrap-select/1.13.18/css/bootstrap-select.min.css" type="text/css">
 <div>@if(session('mensaje'))
     <div class="alert alert-success">
         {{session('mensaje')}}
@@ -43,17 +42,13 @@
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
-           <h4><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge-fill" viewBox="0 0 16 16">
-  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
-</svg>Odontólogos</h4>
+           <h4><img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/dentista.png') }}"  id="logo1" width="4%;" height="4%"><b>Odontólogos(as)</b></h4>
  <p>En esta Sección se muestra los Odontólogos registrados y también se podra editar datos, crear un nuevo Odontólogo, borrar el Odontólogo registrado, Editar Horario,Ver la especialidad del Odontólogo.</p>
 
 
 @can('create',App\Odontologo::class)
   <button  type="button" data-toggle="modal"  style="color:#006622; background-color: white; width:180px; "class="btn btn-success" data-target="#create">
-  <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-</svg>Nuevo Odontólogo </button> 
+ Nuevo Odontólogo</button>
 @endcan
 </div>
 
@@ -93,7 +88,7 @@
 
      <td> @forelse($odontologo->especialidades as $tag) 
                     {{ $tag->Especialidad}}
-                    <hr>
+                       <br>
                     @empty
                     @endforelse
 
@@ -114,7 +109,7 @@
   
 
 <!--Editar datos  -->
-    <button type="button" style="color:#006622; background-color: white; width:50px;" class="btn btn-success" data-toggle="modal" data-target="#modal-{{$odontologo->id}}" ><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+  <button type="button" style="color:#006622; background-color: white; width:50px;" class="btn btn-success" data-toggle="modal" data-target="#modal-{{$odontologo->id}}" ><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
   <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
   <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
 </svg>
@@ -152,13 +147,13 @@
               <div class="modal-header" style=" background-color:#276678; color:white">
                   <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
-</svg> Eliminar Odontologo</h5>
+</svg> Eliminar Odontólogo(a)</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <!--<span aria-hidden="true">&times;</span>-->
                   </button>
               </div>
               <div class="modal-body" style="color:black;">
-                  ¿Desea realmente eliminar el Odontólogo {{$odontologo->nombres}} {{$odontologo->apellidos}}?
+                  ¿Desea realmente eliminar el Odontólogo (a) {{$odontologo->nombres}} {{$odontologo->apellidos}}?
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -192,7 +187,7 @@
         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
         </svg> -->
 <img style=" border-radius: 50%; " src='/Imagenes/{{$odontologo->imagen}}' width=" 70px" height="70px"  >
-        Editar Odontólogo </h4>  
+        Editar Odontólogo (a) </h4>  
  <p style="margin-top:50px; margin-left:-180px;">{{$odontologo->nombres}} {{$odontologo->apellidos}} </p>
          
      
@@ -397,10 +392,8 @@
 			<div id=""class="modal-header" style=" background-color:#276678; color:white;  height:100px;">
 	
 				<h3  class="modal-title" id="myModalLabel">
-        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-        </svg>
-        Crear Odontólogo</h3>
+        <img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/dentista.png') }}"  id="logo1" width="6%;" height="6%"> 
+        Crear Odontólogo(a)</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -529,7 +522,7 @@
 
 </select>
       </div>
-    
+
       <div class="col-md-5 ">
       <label for="user_id" class="control-label">Usuario:</label>
             <select required  name="user_id" class="form-control">
@@ -649,6 +642,14 @@ $(document).ready( function () {
 });
 } );
 
+</script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example-getting-started').multiselect();
+    });
 </script>
 
   <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.js">
