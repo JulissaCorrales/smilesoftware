@@ -130,7 +130,7 @@
                       <div class="col-md-6">
                         <label for="telefonoCelular" class="form-label ">Número Teléfonico:</label>
 
-                            <input required type="text" style="font-size:18px; font-family: Times New Roman, Times, serif;"class="form-control " name="telefonoCelular" id="telefonoCelular" placeholder="ingresar telefono Celular del paciente"  value="{{ $pacientes->telefonoCelular }}">
+                            <input required type="text" style="font-size:18px; font-family: Times New Roman, Times, serif;"class="form-control " name="telefonoCelular" id="telefonoCelular" placeholder="ingresar teléfono Celular del paciente"  value="{{ $pacientes->telefonoCelular }}">
                           </div>
 
 
@@ -138,7 +138,7 @@
                       <div class="col-md-6">
                         <label for="observaciones" class="col-sm form-label">Observaciones:</label>
                         
-                            <textarea   type="text" style="font-size:18px; font-family: Times New Roman, Times, serif;"class="form-control " name="observaciones" id="observaciones" placeholder="Alguna observacion?"  value="{{ $pacientes->observaciones }}">{{ $pacientes->observaciones }}</textarea>
+                            <textarea   type="text" style="font-size:18px; font-family: Times New Roman, Times, serif;"class="form-control " name="observaciones" id="observaciones" placeholder="Alguna observación?"  value="{{ $pacientes->observaciones }}">{{ $pacientes->observaciones }}</textarea>
                           </div>
                     
                      </div>
@@ -147,11 +147,7 @@
                          <label  class=" form-label">Cambie la foto de perfil aquí:</label>
                         <input accept="image/*" type="file" class="form-control-file" name="file" id="imagen" placeholder="Seleccione una Imagen">
                         </div>
-                         <div class="col-md-6" style="margin-bottom:1em;">
-                        <label for="direccion" class="form-label ">Direccion:</label>
-
-                            <textarea  required type="text" class="form-control" name="direccion" id="direccion" placeholder="ingresar direccion del paciente"  value="{{ $pacientes->direccion }}">{{ $pacientes->direccion }}</textarea>
-                          </div>
+                        
                      </div>
                       <div class="modal-footer" >
                       @canany('update',$pacientes)
