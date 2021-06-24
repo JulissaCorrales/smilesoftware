@@ -172,7 +172,7 @@ class OdontologoController extends Controller
     ]);
         
     
-       // $odontologos->especialidades()->delete();
+      // $odontologos->especialidades()->delete();
      // $odontologos->especialidades()->detach();
 
         //$listOfPermissions = explode(',',  $_request->especialidades); //crear matriz a partir de permisos separados/coma
@@ -188,10 +188,9 @@ class OdontologoController extends Controller
 
      
     if($_request->especialidades != null){            
-       
-          // $odontologos->especialidades()->detach();
-           // $odontologos->especialidades()->delete();
-          $odontologos->especialidades()->sync($_request->especialidades);
+        foreach ($_request->especialidades as $especialidad) {
+         // $odontologos->especialidades()->detach();
+          $odontologos->especialidades()->attach($especialidad);
             $odontologos->save();
        
     }
@@ -208,8 +207,10 @@ class OdontologoController extends Controller
             //error
         }
     
+    
     }
 
+    }
     public function destroy($id){
 
         if(Gate::denies('isAdmin')){
