@@ -200,7 +200,7 @@ class OdontologoController extends Controller
         $create = $odontologos->save();
 
         if($create){
-            return redirect('/pantallainicio/odontologo')->with('mensaje','El Odontólogo ha sido modifcado exitosamente');
+            return redirect('/pantallainicio/odontologo')->with('mensaje','El Odontólogo ha sido modificado correctamente');
         }else{
             //error
         }
@@ -212,7 +212,7 @@ class OdontologoController extends Controller
             abort(403);
          }
         Odontologo::destroy($id);
-        return redirect('/pantallainicio/odontologo')->with('mensaje','El Odontólogo ha sido  borrado exitosamente');
+        return redirect('/pantallainicio/odontologo')->with('mensaje','El Odontólogo ha sido  borrado correctamente');
     }
 
 

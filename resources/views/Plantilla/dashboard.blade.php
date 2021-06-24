@@ -27,7 +27,15 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
   <meta name="theme-color" content="#563d7c">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
   
+  <!--llamamos al enlace de Jquery 3.3.1 para la funcionalidad-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!--llamamos a una clase de internet donde esta el diseño-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+    <!--llamamos a otra clase JS que hace la tarea de que se muestren los seleccionados como si fueran etiquetas-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
 <!-- Titulo -->
   <title>@yield('titulo')</title>

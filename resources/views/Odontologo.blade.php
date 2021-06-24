@@ -5,6 +5,15 @@
 
 <head>
 
+ <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <!--llamamos al enlace de Jquery 3.3.1 para la funcionalidad-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!--llamamos a una clase de internet donde esta el diseño-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+    <!--llamamos a otra clase JS que hace la tarea de que se muestren los seleccionados como si fueran etiquetas-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
 </head>
 
 
@@ -294,13 +303,38 @@
         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
         $mysqli->set_charset("utf8");
       ?>
-      <div class="col-md-8">
 
-        <label for="state_id">Especialidad:</label>
-         
-<!-- <input type="text" value="" data-role="tagsinput" name="especialidad_odontologo"  placeholder="Ingrese una o varias Especialidades"> -->
+
+
+
+         <div class="form-group col-md-8">
+          <label for="state_id" class="control-label">Especialidades:</label>
+
+        <!--Crucial que aqui ponga el atributo multiple y la class mi-selector porque luego la llamamos en el JS-->
+        <select    style="width: 105%;"  id="selectcrimen" name="especialidades[]" id="" required   class="form-control mi-selector1" data-show-subtext="true" data-live-search="true" multiple >
+            <!--Ponga las opciones que quiera como quiera y donde quieta-->
+        <option  data-role="tagsinput"  disabled value="@foreach ($odontologo->especialidades as $permiso)
+            {{$permiso->id}}
+        @endforeach"   selected> Especialidad Actual: @foreach ($odontologo->especialidades as $permiso)
+            {{$permiso->Especialidad. '.'}}
+        @endforeach </option>
+
+
+          
+@foreach($especialidades as $especialidad){
+ <option  data-role="tagsinput"  value="{{ $especialidad->id  }}">{{ $especialidad->Especialidad }}</option>
+}
+@endforeach
+
+        </select>
+
+      </div>
+
+     <!-- <div class=" form-group col-md-8"> -->
+
+         <!--<input type="text" value="" data-role="tagsinput" name="especialidad_odontologo"  placeholder="Ingrese una o varias Especialidades"> -->
         
-<select name="especialidades[]" id="" required  class="form-control" multiple>
+<!--<select name="especialidades[]" id="" required  class="form-control" multiple>
 <option  disabled value="@foreach ($odontologo->especialidades as $permiso)
             {{$permiso->id. ','}}
         @endforeach"   selected> Especialidad Actual: @foreach ($odontologo->especialidades as $permiso)
@@ -313,18 +347,16 @@
 @endforeach
 
 
-
-
-</select>
-      </div>
+</select> -->
+    <!--  </div> -->
       <!-- <input type="text" data-role="tagsinput"  class="form-control" id="roles_permisos" name="especialidades" value="@foreach ($odontologo->especialidades as $permiso)
             {{$permiso->Especialidad. ','}}
         @endforeach" 
         >    -->
 
-
-      </div>
     </div>
+
+
     <div class="row">
       <div class="col-md-8">
         <!-- usuario -->
@@ -480,7 +512,7 @@
       <div class="col-md-4">
          <div class="form-group">
             <label for="direccion">Dirección:</label>
-            <input required type="text" class="form-control" name="direccion" id="direccion" placeholder="Ingrese su direccion">
+            <input required type="text" class="form-control" name="direccion" id="direccion" placeholder="Ingrese la  Dirección:">
           </div>
       </div>
       <?php
@@ -504,11 +536,23 @@
 
 
  <div class="row">
-      <div class="col-md-6">
-          <label for="state_id" class="control-label">Especialidad:</label>
+      <div class="form-group col-md-6">
+          <label for="state_id" class="control-label">Especialidades:</label>
+
+        <!--Crucial que aqui ponga el atributo multiple y la class mi-selector porque luego la llamamos en el JS-->
+        <select  style="width: 80%;"  id="selectcrimen" name="especialidades[]" id="" required   class="form-control mi-selector" data-show-subtext="true" data-live-search="true" multiple>
+            <!--Ponga las opciones que quiera como quiera y donde quieta-->
+          @foreach($especialidades as $especialidad){
+ <option value="{{ $especialidad->id  }}">{{ $especialidad->Especialidad }}</option>
+
+
+}
+@endforeach
+
+        </select>
 <!-- <input type="text" value="" data-role="tagsinput" name="especialidad_odontologo"  placeholder="Ingrese una o varias Especialidades"> -->
         
-<select name="especialidades[]" id="" required  class="form-control" multiple>
+<!--<select name="especialidades[]" id="" required  class="form-control" multiple>
 <option value="" disabled selected>Seleccione una o varias Especialidades</option>
 @foreach($especialidades as $especialidad){
  <option value="{{ $especialidad->id  }}">{{ $especialidad->Especialidad }}</option>
@@ -520,7 +564,7 @@
 
 
 
-</select>
+</select> -->
       </div>
 
       <div class="col-md-5 ">
@@ -645,60 +689,27 @@ $(document).ready( function () {
 </script>
 
 
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#example-getting-started').multiselect();
-    });
-</script>
-
-  <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.js">
-
-<script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js">
-</script>
-
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Page level plugin JavaScript-->
-  <script src="vendor/datatables/jquery.dataTables.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin.min.js"></script>
-
-  <!-- Demo scripts for this page-->
-  <script src="js/demo/datatables-demo.js"></script>
+ <script>
+        jQuery(document).ready(function($){
+          $(document).ready(function() {
+              $('.mi-selector').select2();
+          });
+      });
+      
+      </script>
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-
-<!-- (Optional) Latest compiled and minified JavaScript translation files -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
-
-<script>
-$(document).ready(function(){
-
- $('multi_select').selectpicker();
-
-});
-
-</script>
-
-<script src="https:://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" type="text/javascript">
+ <script>
+        jQuery(document).ready(function($){
+          $(document).ready(function() {
+              $('.mi-selector1').select2();
+          });
+      });
+      
+      </script>
 
 
-
-
-</script>
 
 @section('css_role')
 
