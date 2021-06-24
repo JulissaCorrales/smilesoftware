@@ -540,7 +540,7 @@
           <label for="state_id" class="control-label">Especialidades:</label>
 
         <!--Crucial que aqui ponga el atributo multiple y la class mi-selector porque luego la llamamos en el JS-->
-        <select  style="width: 80%;"  id="selectcrimen" name="especialidades[]" id="" required   class="form-control mi-selector" data-show-subtext="true" data-live-search="true" multiple>
+        <select  style="width: 80%;"   name="especialidades[]" id="" required   class="form-control mi-selector1" data-show-subtext="true" data-live-search="true" multiple>
             <!--Ponga las opciones que quiera como quiera y donde quieta-->
           @foreach($especialidades as $especialidad){
  <option value="{{ $especialidad->id  }}">{{ $especialidad->Especialidad }}</option>
@@ -566,6 +566,8 @@
 
 </select> -->
       </div>
+
+
 
       <div class="col-md-5 ">
       <label for="user_id" class="control-label">Usuario:</label>
@@ -660,6 +662,25 @@
 </div>
   <!-- /#wrapper -->
 
+
+ 
+ <script>
+        jQuery(document).ready(function($){
+          $(document).ready(function() {
+              $('.mi-selector1').select2();
+          });
+      });
+      
+
+
+
+jQuery(document).ready(function($){
+          $(document).ready(function() {
+              $('.mi-selector3').select2();
+          });
+      });
+      
+
 <script>
 $(document).ready( function () {
     $('#datatable1').DataTable( {
@@ -689,15 +710,6 @@ $(document).ready( function () {
 </script>
 
 
- <script>
-        jQuery(document).ready(function($){
-          $(document).ready(function() {
-              $('.mi-selector').select2();
-          });
-      });
-      
-      </script>
-
 
 
  <script>
@@ -707,8 +719,42 @@ $(document).ready( function () {
           });
       });
       
+
+
       </script>
 
+<script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.js"></script>
+<script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js">
+</script>
+
+
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="js/demo/datatables-demo.js"></script>
+
+<script src="https:://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" type="text/javascript"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
 
 
 @section('css_role')
