@@ -159,7 +159,7 @@
 $(document).ready( function () {
     $('#datatable').DataTable( {
     language: {
-        search: "Buscador de comentarios:",
+        search: "Búscador de comentarios:",
       "decimal": "",
         "emptyTable": "No hay información",
         "info": "",
