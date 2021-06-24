@@ -137,7 +137,6 @@ class OdontologoController extends Controller
     public function updateodontologo(Request $_request,$id){
         $odontologos = Odontologo::findOrFail($id);
         $this->authorize('update',$odontologos); //si tiene el permiso de editar:
-
         $odontologos->nombres = $_request->input('nombres');
         $odontologos->apellidos = $_request->input('apellidos');
         $odontologos->identidad = $_request->input('identidad');
@@ -148,7 +147,6 @@ class OdontologoController extends Controller
         $odontologos->direccion = $_request -> input('direccion');
         //$odontologos->especialidad_id= $_request->input('especialidad');
         $odontologos->user_id = $_request->input('user_id');
-
         
         if ($_request->hasFile('file')) {
             $file = $_request->file('file');
@@ -159,18 +157,18 @@ class OdontologoController extends Controller
             $odontologos->imagen= $image;
         
         }
-    //validar
-    $_request->validate(['nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
-    'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
-    'identidad' => ['required','digits:13','numeric', Rule::unique('odontologos')->ignore($odontologos->id)],
-    'departamento'=>'required|regex:/^[\pL\s\-]+$/u',
-    'ciudad'=>'required|regex:/^[\pL\s\-]+$/u',
-    'telefonoFijo'=>'required|numeric|digits:8',
-    'telefonoCelular'=>'required|numeric|digits:8',
-    'direccion'=>'required|',
-    'user_id' => ['required', Rule::unique('odontologos')->ignore($odontologos->id)]
-    ]);
-        
+        //validar
+        $_request->validate(['nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+        'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+        'identidad' => ['required','digits:13','numeric', Rule::unique('odontologos')->ignore($odontologos->id)],
+        'departamento'=>'required|regex:/^[\pL\s\-]+$/u',
+        'ciudad'=>'required|regex:/^[\pL\s\-]+$/u',
+        'telefonoFijo'=>'required|numeric|digits:8',
+        'telefonoCelular'=>'required|numeric|digits:8',
+        'direccion'=>'required|',
+        'user_id' => ['required', Rule::unique('odontologos')->ignore($odontologos->id)]
+        ]);
+            
     
       // $odontologos->especialidades()->delete();
      // $odontologos->especialidades()->detach();
@@ -188,13 +186,13 @@ class OdontologoController extends Controller
 
      
     if($_request->especialidades != null){            
-        foreach ($_request->especialidades as $especialidad) {
-         // $odontologos->especialidades()->detach();
-          $odontologos->especialidades()->attach($especialidad);
+
+  
+          $odontologos->especialidades()->sync($_request->especialidades);
             $odontologos->save();
-       
+
     }
- 
+
 
 
 
@@ -207,9 +205,6 @@ class OdontologoController extends Controller
             //error
         }
     
-    
-    }
-
     }
     public function destroy($id){
 
