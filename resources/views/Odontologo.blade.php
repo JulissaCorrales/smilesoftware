@@ -311,7 +311,7 @@
           <label for="state_id" class="control-label">Especialidades:</label>
 
         <!--Crucial que aqui ponga el atributo multiple y la class mi-selector porque luego la llamamos en el JS-->
-        <select    style="width: 105%;"  id="selectcrimen" name="especialidades[]" id="" required   class="form-control mi-selector1" data-show-subtext="true" data-live-search="true" multiple >
+        <select    style="width: 105%;"  id="select" name="especialidades[]" id="" required   class="form-control mi-selector1" data-show-subtext="true" data-live-search="true" multiple >
             <!--Ponga las opciones que quiera como quiera y donde quieta-->
         <option  data-role="tagsinput"  disabled value="@foreach ($odontologo->especialidades as $permiso)
             {{$permiso->id}}
