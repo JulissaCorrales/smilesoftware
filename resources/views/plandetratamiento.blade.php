@@ -47,7 +47,7 @@
     <div class="card-body">
         <div id="divtabla" class="table-responsive">
             <table id="datatable" class="table table-bordered"width="100%" cellspacing="0">
-            <thead class="thead-dark">
+            <thead >
             <tr style="text-align: center">
                 <th>N°</th>
                 <th>Plan de Tratamiento </th>
@@ -150,15 +150,15 @@
 $(document).ready( function () {
     $('#datatable').DataTable( {
     language: {
-        search: "Búscar Plan de tratamiento:",
+        search: "Buscar Plan de tratamiento:",
       "decimal": "",
         "emptyTable": "No hay información",
         "info": "Mostrando _START_ a _END_ de _TOTAL_ Tratamientos",
-        "infoEmpty": "Mostrando 0 to 0 of 0 Plan de tratamientos",
-        "infoFiltered": "(Filtrado de _MAX_ total Plan de tratamientos)",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Plan de Tratamientos",
+        "infoFiltered": "(Filtrado de _MAX_ total Plan de Tratamientos)",
         "infoPostFix": "",
         "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ Plan de tratamientos",
+        "lengthMenu": "Mostrar _MENU_ Plan de Tratamientos",
         "loadingRecords": "Cargando...",
         "processing": "Procesando...",
         "zeroRecords": "Sin resultados encontrados",
