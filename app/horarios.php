@@ -11,10 +11,10 @@ class horarios extends Model
         return $this->belongsToMany(Dias::class,'dias_horarios');
     }
 
-    public function odontologo()
+    public function odontologos()
     {
         
-        return $this->belongsTo(Odontologo::class,'odontologo_id','id');/*Un odontologo tiene muchoas especialidadidades*/
+        return $this->belongsToMany(Odontologo::class,'horarios_odontologo');/*Un odontologo tiene muchoas especialidadidades*/
     }
 
 }

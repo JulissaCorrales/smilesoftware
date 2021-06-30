@@ -27,6 +27,7 @@ class HorarioController extends Controller
      */
 /*Crear un Horario */
      //
+
     public function create($id)
     {
         $this->authorize('crearHorario', Odontologo::class); //si tiene el permiso de crear 
@@ -45,25 +46,28 @@ class HorarioController extends Controller
      * @return \Illuminate\Http\Response
      */
     /*Guardar un Horario */
-    public function store(Request $request, $id)
+    public function store(Request $request, $odontologo_id)
     {
 
 
         $request->validate([     'horainicio'=>'required',
-        'horafin'=>'required',
+           'Día'=>'required',
+        
+        'Hora Final'=>'required',
+        
         
         ]);
     
         $this->authorize('crearHorario', Odontologo::class); //si tiene el permiso de crear 
         $horario = new horarios();
-        $odontologo=Odontologo::findOrFail($id);
+        $odontologo=Odontologo::findOrFail($odontologo_id);
 
         //formulario
        
-        $horario->odontologo_id= $id;
+        //$horario->odontologo_id= $id;
         $horario->HoraInicio= $request->input('horainicio');
         //$horario->HoraInicio= $request->input('hoini');
-        $horario->HoraFinal= $request->input('horafin');
+        $horario->HoraFinal= $request->input('Hora Final');
         $horario->Descanso= $request->input('descanso');
         $horario->DescansoInicial= $request->input('horadescansoini');
         $horario->DescansoFinal= $request->input('horadescansofin');
@@ -75,15 +79,16 @@ class HorarioController extends Controller
          
         foreach ($lista as  $dias) {
             $dias= new Dias();
-            $dias->dias=$request->input('dias');
+            $dias->dias=$request->input('Día');
             $dias->save();
 
              $horario->dias()->attach($dias->id);
+             $horario->odontologos()->attach($odontologo_id);
              $horario->save();
         }    
 
          if ($create){
-            return redirect("create/$id/nuevo")->with('mensaje', 'El Horario fue guardado correctamente!');
+            return redirect("create/$odontologo_id/nuevo")->with('mensaje', 'El Horario fue guardado correctamente!');
         }else{
             //retornar con un msj de error
         } 

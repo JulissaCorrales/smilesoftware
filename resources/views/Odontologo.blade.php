@@ -109,7 +109,7 @@
     <a type="button"  style="color:#006622; background-color: white; width:150px;"class="btn btn-warning" href="/create/{{$odontologo->id}}/nuevo" ><svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-calendar3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
   <path fill-rule="evenodd" d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-</svg>Editar Horarios
+</svg>Crear Horarios
     
   </a>@endcan
 
@@ -181,6 +181,7 @@
 
 </td> 
 <!--Modal de Editar Datos -->
+
  <div class="modal fade bd-example-modal-lg" id="modal-{{$odontologo->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
  
   
@@ -315,8 +316,8 @@
             <!--Ponga las opciones que quiera como quiera y donde quieta-->
         <option  data-role="tagsinput"  disabled value="@foreach ($odontologo->especialidades as $permiso)
             {{$permiso->id}}
-        @endforeach"   selected> Especialidad Actual: @foreach ($odontologo->especialidades as $permiso)
-            {{$permiso->Especialidad. '.'}}
+        @endforeach"   selected> Especialidad Actual: @foreach ($odontologo->especialidades as $especialidad)
+            {{$especialidad->Especialidad. '.'}}
         @endforeach </option>
 
 
@@ -417,6 +418,7 @@
   </div>
 <div>
 <!-- modala de crear odontologo -->
+
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="create" >
   
 	<div class="modal-dialog modal-lg" role="document">

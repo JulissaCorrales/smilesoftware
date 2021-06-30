@@ -15,15 +15,11 @@ class CreateHorariosTable extends Migration
     {
         Schema::create('horarios', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('odontologo_id')->unsigned();
             $table->string('HoraInicio');
             $table->string('HoraFinal');
             $table->string('Descanso')->nullable();
             $table->string('DescansoInicial')->nullable();
             $table->string('DescansoFinal')->nullable();
-           
-            $table->foreign('odontologo_id')->references('id')->on('odontologos')->onDelete('cascade');
-          
             $table->timestamps();
         });
     }

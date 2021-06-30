@@ -1,570 +1,6 @@
 @extends('Plantilla.dashboard')
 @section('titulo','HorarioOdontologo')
 @section('content')
-<style>
-#ho2{
-  position: absolute;
-            left: 750px;
-            top: 500px;
-            font-size:40px;
-            width:500px;
-
-            background-color: #00cccc;
-}
-
-#texto4{
-  color: #007399;
-  font-family: serif;
-  position: absolute;
-            align: center;
-            top: -350px;
-            font-size:25px;
-left:-350px;
-height: 450px;
-color: #1f2e2e;
- background-image: linear-gradient(to bottom,  #ffc34d ,#c2d6d6);
-width:900px;
-
-        
-}
-
-
-#td1{
-
-position: absolute;
-          left: 180px;
-          
-
-}
-
-
-#table1{
-    position: absolute;
-            left: 350px;
-            top: 260px;
-            font-size:15px;
-            width:900px;
-            
-}
-
-
-#table2{
-    position: absolute;
-            left: 350px;
-            top: 300px;
-            font-size:15px;
-            width:900px;
-            
-}
-
-#table3{
-    position: absolute;
-            left:500px;
-            top: 230px;
-            font-size:15px;
-            width:600px;
-}
-
-
-#table4{
-    position: absolute;
-            left: 550px;
-            top: 350px;
-            font-size:15px;
-            width:780px;
-            
-}
-
-
-
-#table5{
-    position: absolute;
-            left: 350px;
-            top: 400px;
-            font-size:15px;
-            width:900px;
-            
-}
-
-
-#table6{
-    position: absolute;
-            left: 350px;
-            top: 450px;
-            font-size:15px;
-            width:900px;
-            
-}
-#lunes{
-
-position: absolute;
-    left: 50px;
-    top:-5px;
-    font-size:15px;
-
-}
-
-
-#martes{
-position: absolute;
-left: 150px;
-    top:-5px;
-    font-size:15px;
-    width:105px; 
-} 
-
-#miercoles{
-position: absolute;
-left: 250px;
-    top:-5px;
-    font-size:15px;
-    width:105px; 
-   
-
-} 
-
-#jueves{
-position: absolute;
-left: 370px;
-    top:-5px;
-    font-size:15px;
-    width:105px; 
-       
-} 
-
-#viernes{
-    position: absolute;
-    left: 480px;
-    top:-5px;
-    font-size:15px;
-  
-       
-} 
-
-#sabado{
-position: absolute;
-left: 590px;
-    top:-5px;
-   
-    font-size:15px;
-    width:105px; 
-       
-} 
-
-#domingo{
-
-position: absolute;
-    left: 690px;
-    top:-5px;
-    font-size:15px;
-    width:105px; 
-} 
-
-
-    #selecinicio{
-
-        position: absolute;
-            left: 170px;
-           
-            font-size:15px;
-            width:105px; 
-    }
-
-
-    #selecinicio1{
-    position: absolute;
-            left: 280px;
-           
-            font-size:15px;
-            width:105px; 
-} 
-
-#selecinicio2{
-    position: absolute;
-            left: 390px;
-           
-            font-size:15px;
-            width:105px; 
-           
-        
-} 
-
-#selecinicio3{
-    position: absolute;
-            left: 500px;
-           
-            font-size:15px;
-            width:105px; 
-               
-} 
-
-#selecinicio4{
-    position: absolute;
-            left: 610px;
-           
-            font-size:15px;
-            width:105px; 
-               
-} 
-
-#selecinicio5{
-   
-    position: absolute;
-            left: 720px;
-           
-            font-size:15px;
-            width:105px; 
-} 
-#selecinicio6{
-    position: absolute;
-            left: 830px;
-           
-            font-size:15px;
-            width:105px; 
-} 
-
-
-#selecinicio7{
-
-position: absolute;
-    left: 170px;
-   
-    font-size:15px;
-    width:105px; 
-}
-
-#selecinicio8{
-    position: absolute;
-            left: 280px;
-           
-            font-size:15px;
-            width:105px; 
-} 
-
-#selecinicio9{
-    position: absolute;
-            left: 390px;
-           
-            font-size:15px;
-            width:105px; 
-           
-        
-} 
-
-#selecinicio10{
-    position: absolute;
-            left: 500px;
-           
-            font-size:15px;
-            width:105px; 
-               
-} 
-
-#selecinicio11{
-    position: absolute;
-            left: 610px;
-           
-            font-size:15px;
-            width:105px; 
-               
-} 
-
-#selecinicio12{
-   
-    position: absolute;
-            left: 720px;
-           
-            font-size:15px;
-            width:105px; 
-} 
-#selecinicio13{
-    position: absolute;
-            left: 830px;
-           
-            font-size:15px;
-            width:105px; 
-} 
-
-#hofin{
-
-            position: absolute;
-            left: 50px;
-            top:5px;
-            font-size:15px;
-            width:105px; 
-}
-
- #horaini{
-
-    position: absolute;
-            left: 50px;
-            top:5px;
-            font-size:15px;
-            width:105px; 
-
- }
-
-
-
- #hoofinal{
-    position: absolute;
-            left: 50px;
-            top:5px;
-            font-size:15px;
-            width:105px; 
- }
-
- #hoinicio{
-    position: absolute;
-            left: 50px;
-            top:5px;
-            font-size:15px;
-            width:105px; 
- }
-
-
- #hodescanso{
-    position: absolute;
-            left: -150px;
-            top:5px;
-            font-size:15px;
-          
-
- }
-
-
- #selecinicio14{
-
-position: absolute;
-    left: 170px;
-   
-    font-size:15px;
-    width:105px; 
-}
-
-
-#selecinicio15{
-position: absolute;
-    left: 280px;
-   
-    font-size:15px;
-    width:105px; 
-} 
-
-#selecinicio16{
-position: absolute;
-    left: 390px;
-   
-    font-size:15px;
-    width:105px; 
-   
-
-} 
-
-#selecinicio17{
-position: absolute;
-    left: 500px;
-   
-    font-size:15px;
-    width:105px; 
-       
-} 
-
-#selecinicio18{
-position: absolute;
-    left: 610px;
-   
-    font-size:15px;
-    width:105px; 
-       
-} 
-
-#selecinicio19{
-
-position: absolute;
-    left: 720px;
-   
-    font-size:15px;
-    width:105px; 
-} 
-#selecinicio20{
-position: absolute;
-    left: 830px;
-   
-    font-size:15px;
-    width:105px; 
-} 
-
-
-#selecinicio21{
-
-position: absolute;
-    left: 170px;
-   
-    font-size:15px;
-    width:105px; 
-}
-
-
-#selecinicio22{
-position: absolute;
-    left: 280px;
-   
-    font-size:15px;
-    width:105px; 
-} 
-
-#selecinicio23{
-position: absolute;
-    left: 390px;
-   
-    font-size:15px;
-    width:105px; 
-   
-
-} 
-
-#selecinicio24{
-position: absolute;
-    left: 500px;
-   
-    font-size:15px;
-    width:105px; 
-       
-} 
-
-#selecinicio25{
-position: absolute;
-    left: 610px;
-   
-    font-size:15px;
-    width:105px; 
-       
-} 
-
-#selecinicio26{
-
-position: absolute;
-    left: 720px;
-   
-    font-size:15px;
-    width:105px; 
-} 
-#selecinicio27{
-position: absolute;
-    left: 830px;
-   
-    font-size:15px;
-    width:105px; 
-} 
-
-#butongua{
-    position: absolute;
-            left: 450px;
-            top:10px;
-}
-
-
-#buton2{
-    position: absolute;
-            left: 380px;
-            top:10px;
-}
-
-
-#buton3{
-
-    position: absolute;
-            left: 200px;
-            top: 205px;
-
-}
-
-
-
-
-
-
-
-#datos{
-position: absolute;
-    left: 450px;
-   top: 700px;
-    font-size:16px;
-    width: 800px;
-    border-collapse: collapse;
-    background-color: #f2f2f2;
-    
-
-} 
-
-
-#image{
-    margin-left: auto;
-  margin-right: auto;
-
-  border-radius: 70%;
-  position: relative;
-  top: 5px;
-  left:150px;
-  border: 4px solid  #00ccff;
-
-  width: 100px;
-
-}
-
-
-#image1{
-    margin-left: auto;
-  margin-right: auto;
-
-  border-radius: 70%;
-  position: relative;
-  top: -5px;
-  left:180px;
-  border: 4px solid  #00ccff;
-
-  width: 100px;
-
-}
-
-
-
-
-
-#dat2{
-position: relative;
-  top: -100px;
-  left:20px;
-  width: 250px;
-}
-
-
-#dat3{
-position: relative;
-  top: -5px;
-  left:20px;
-  width: 250px;
-}
-
-
-#dat4{
-position: relative;
-  top: -20px;
-  left:20px;
-  width: 250px;
-}
-
-
-#dat5{
-position: relative;
-  top: -13px;
-  left:20px;
-  width: 250px;
-}
-
-</style>
-
 
 <body id="page-top">
 
@@ -587,13 +23,149 @@ position: relative;
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
-           <h4><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge-fill" viewBox="0 0 16 16">
-              <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
-            </svg>Horarios</h4>
-            <p>En esta ventana  muestra los pacientes que se han registrado  en la clínica, esta misma se podrá crear un nuevo paciente, editar información, eliminar el paciente.</p>
-           
-      
+           <h4><img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/Horario.png') }}"  id="logo1" width="4%;" height="4%"><b>Crear Horario</b></h4>
+            <p>En esta Sesión se podra crear un horario al odontólogo(a), en el cuál debera de seleccionar el día y la Hora inicio,Hora final, la Hora de Descanso (Opcional).
+               El Horario  creado  se visualizará al dar click en la opción de ver Horario que tendrá la opción de  eliminar Horario creado.
+</p>
+     
+<button type="button" style="color:#006622; background-color: #d1e0e0; border-color:white; width:160px; margin-left:0%;"class="btn btn-primary" data-toggle="modal" data-target="#modalll3-{{$odontologos->id}}" id="buton">
+
+<img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/calendarioo.png') }}"  id="logo1" width="35%;" height="4%">
+  Ver Horario</button>
+
     </div>
+
+<!-- ventana Modal -->
+  
+      
+      <!-- Esta parte del codigo es para poder ir a traer informacion de la base de datos -->
+     
+  
+  <div class="modal fade bd-example-modal-lg" id="modalll3-{{$odontologos->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+      <div class="modal-dialog modal-lg" role="document" >
+          <div class="modal-content" style=" width:80%; margin-top:10%; margin-left:15%; ">
+              <div class="modal-header" style="background-color: #d3e0ea; height:100px; color:black;">
+                  <h5 class="modal-title" id="exampleModalLabel"><img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/calendarioo.png') }}"  id="logo1" width="9%;" height="4%">
+Horario del  odontólogo(a) {{$odontologos->nombres}} {{$odontologos->apellidos}}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <!--<span aria-hidden="true">&times;</span>-->
+                  </button>
+              </div>
+              <div class="modal-body">
+                
+
+               
+<table class="table">
+ 
+<tr style="background-color: #f0f5f5;" >
+ <th>Día</th>
+ <th>Horario de Atención</th>
+<th>Descanso</th>
+<th>Eliminar</th>
+ 
+
+</tr>
+
+  <tbody>
+  
+         <tr>
+@forelse($odontologos->horarios as $tag)
+  
+          
+       
+        
+ @if($tag->dias !=null)
+                                @foreach ($tag->dias as $dia )
+                                <td >
+                                        {{ $dia->dias }} </td>
+                                @endforeach
+                            @endif
+
+           
+           
+       <td><b>Hora Inicio:</b>{{$tag->HoraInicio}}   <br><b>Hora Final:</b>{{$tag->HoraFinal}}</td>
+
+      
+                               
+                        <td >   @if($tag->Descanso == null)
+                               <b>No tiene descanso</b>  @endif  @if($tag->Descanso !=null)<b>Hora Inicio:</b>{{$tag->DescansoInicial}} <br><b>Hora Final:</b>{{$tag->DescansoFinal}} @endif</td>
+                            
+
+      
+     
+      <td> <button   style="color:#006622; background-color: #d1e0e0; border-color:white; width:150px; margin-left:0%;"type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalll5-{{$tag->id}}" id="buton">
+<img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/eliminar.png') }}"  id="logo1" width="25%;" height="4%">
+   
+  </button></td>
+
+   
+
+    
+  
+    </tr>
+@empty
+    <tr>
+    <td  colspan="4"><p align="center" ><b>No hay Registro de Horarios</b></p></td> 
+    @endforelse
+     </tr>
+   
+  
+
+  </tbody>
+</table>
+   
+              </div>
+              <div class="modal-footer">
+                  
+                  
+               </div>
+           </div>
+       </div>
+</div>
+
+@forelse ($horario as $tag) 
+ 
+
+  <div class="modal fade" id="modalll5-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content" style="width:80%; margin-top:-10%; margin-left:15%; ">
+              <div class="modal-header" style="background-color: #d3e0ea;; height:100px; color:black;">
+                  <h5 class="modal-title" id="exampleModalLabel"><img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/eliminar.png') }}"  id="logo1" width="8%;" height="4%">
+
+ Eliminar el Horario de Atención  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <!--<span aria-hidden="true">&times;</span>-->
+                  </button>
+              </div>
+              <div class="modal-body">
+                  ¿Desea realmente eliminar el Horario de Atención {{$tag->HoraInicio}}-{{$tag->HoraFinal}}?
+              </div>
+              <div class="modal-footer">
+                  
+                  <form method="post" action="{{route('horario.borrar',['id'=>$tag->id])}}">
+
+                      @csrf
+                      @method('delete')
+                      <input type="submit" value="Eliminar" class="btn btn-danger">
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
+
+@endforeach 
+
+
+<!-- Fin del Modal de Editar Datos -->
+<!-- cierre de ventana modal -->
+  
+
+
+
+
+     
+
+
     
           <div class="card-body">
             <div class="table-responsive">
@@ -609,21 +181,22 @@ for($i=1; $i <= 1; $i++) {?>
 
               <table class="table table-bordered" id="datatable1" width="100%" cellspacing="0">
                 <thead>
-                  <tr>
+                  <tr style="background-color: #f0f5f5;">
                          <th></th>
-                    <th ><input type="radio" name="dias" value="Lunes" >Lunes</th>
+                    <th ><input type="radio" name="Día" value="Lunes" require >Lunes</th>
 
-                    <th ><input type="radio" name="dias" value="Martes">Martes</th>
+                    <th ><input type="radio" name="Día" value="Martes" require >Martes</th>
 
-                    <th ><input type="radio" name="dias" value="Miércoles">Miércoles</th>
+                    <th ><input type="radio" name="Día" value="Miércoles" require >Miércoles</th>
 
-                     <th ><input type="radio" name="dias" value="Jueves">Jueves</th>
+                     <th ><input type="radio" name="Día" value="Jueves" require >Jueves</th>
 
-                      <th ><input type="radio" name="dias" value="Viernes">Viernes</th>
+                      <th ><input type="radio" name="Día" value="Viernes" require  >Viernes</th>
+                     
 
-                      <th ><input type="radio" name="dias" value="Sábado">Sábado</th>
+                      <th ><input type="radio" name="Día" value="Sábado" require >Sábado</th>
 
-                     <th ><input type="radio" name="dias" value="Domingo">Domingo</th>
+                     <th ><input type="radio" name="Día" value="Domingo" require >Domingo</th>
 
 <?php
 }
@@ -777,7 +350,7 @@ for($i=1; $i <= 1; $i++) {?>
                   <tr>
                   <th>Hora Final</th>
                    
-                   <td><select name="horafin" class="form-control" value="Lunes" >
+                   <td><select name="Hora Final" class="form-control" value="Lunes" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -792,7 +365,7 @@ for($i=1; $i <= 1; $i++) {?>
 
                     </select></td>
 
-                <td>    <select name="horafin" class="form-control" value="Martes" >
+                <td>    <select name="Hora Final" class="form-control" value="Martes" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -807,7 +380,7 @@ for($i=1; $i <= 1; $i++) {?>
 
                     </select> </td>
 
-                 <td>   <select name="horafin" class="form-control" value="Miercoles" >
+                 <td>   <select name="Hora Final" class="form-control" value="Miercoles" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -823,7 +396,7 @@ for($i=1; $i <= 1; $i++) {?>
                     </select> </td>
 
 
-                 <td>   <select name="horafin" class="form-control" value="Jueves" >
+                 <td>   <select name="Hora Final" class="form-control" value="Jueves" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -839,7 +412,7 @@ for($i=1; $i <= 1; $i++) {?>
                     </select></td>
 
 
-                   <td> <select name="horafin" class="form-control" value="Viernes" >
+                   <td> <select name="Hora Final" class="form-control" value="Viernes" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -854,7 +427,7 @@ for($i=1; $i <= 1; $i++) {?>
 
                     </select></td>
 
-                   <td> <select name="horafin" class="form-control" value="Sabado" >
+                   <td> <select name="Hora Final" class="form-control" value="Sabado" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -869,7 +442,7 @@ for($i=1; $i <= 1; $i++) {?>
 
                     </select></td>
 
-                  <td>  <select name="horafin" class="form-control" value="Domingo" >
+                  <td>  <select name="Hora Final" class="form-control" value="Domingo" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -894,7 +467,7 @@ for($i=1; $i <= 1; $i++) {?>
                    <!-- descanso -->
                  <?php 
 for($i=1; $i <= 1; $i++) {?> 
-                    <tr align="center;" >
+                    <tr align="center;"  style="background-color: #f0f5f5;">
 
                         <th>Hora Descanso</th>
 
