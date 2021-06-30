@@ -350,7 +350,7 @@ for($i=1; $i <= 1; $i++) {?>
                   <tr>
                   <th>Hora Final</th>
                    
-                   <td><select name="Hora Final" class="form-control" value="Lunes" >
+                   <td><select name="horafinal" class="form-control" value="Lunes" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -365,7 +365,7 @@ for($i=1; $i <= 1; $i++) {?>
 
                     </select></td>
 
-                <td>    <select name="Hora Final" class="form-control" value="Martes" >
+                <td>    <select name="horafinal" class="form-control" value="Martes" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -380,7 +380,7 @@ for($i=1; $i <= 1; $i++) {?>
 
                     </select> </td>
 
-                 <td>   <select name="Hora Final" class="form-control" value="Miercoles" >
+                 <td>   <select name="horafinal" class="form-control" value="Miercoles" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -396,7 +396,7 @@ for($i=1; $i <= 1; $i++) {?>
                     </select> </td>
 
 
-                 <td>   <select name="Hora Final" class="form-control" value="Jueves" >
+                 <td>   <select name="horafinal" class="form-control" value="Jueves" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -412,7 +412,7 @@ for($i=1; $i <= 1; $i++) {?>
                     </select></td>
 
 
-                   <td> <select name="Hora Final" class="form-control" value="Viernes" >
+                   <td> <select name="horafinal" class="form-control" value="Viernes" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -427,7 +427,7 @@ for($i=1; $i <= 1; $i++) {?>
 
                     </select></td>
 
-                   <td> <select name="Hora Final" class="form-control" value="Sabado" >
+                   <td> <select name="horafinal" class="form-control" value="Sabado" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -442,7 +442,7 @@ for($i=1; $i <= 1; $i++) {?>
 
                     </select></td>
 
-                  <td>  <select name="Hora Final" class="form-control" value="Domingo" >
+                  <td>  <select name="horafinal" class="form-control" value="Domingo" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>

@@ -52,8 +52,7 @@ class HorarioController extends Controller
 
         $request->validate([     'horainicio'=>'required',
            'Día'=>'required',
-        
-        'Hora Final'=>'required',
+        'horafinal'=>'required'
         
         
         ]);
@@ -67,7 +66,7 @@ class HorarioController extends Controller
         //$horario->odontologo_id= $id;
         $horario->HoraInicio= $request->input('horainicio');
         //$horario->HoraInicio= $request->input('hoini');
-        $horario->HoraFinal= $request->input('Hora Final');
+        $horario->HoraFinal= $request->input('horafinal');
         $horario->Descanso= $request->input('descanso');
         $horario->DescansoInicial= $request->input('horadescansoini');
         $horario->DescansoFinal= $request->input('horadescansofin');
