@@ -20,7 +20,40 @@ class OdontologosTableSeeder extends Seeder
      */
     public function run()
     {
+       
+       $dias= new Dias();
+        $dias->dias="Lunes";
+        $dias->save();
+        
 
+
+     $dias= new Dias();
+        $dias->dias="Lunes";
+        $dias->save();
+
+ $dias= new Dias();
+        $dias->dias="Martes";
+        $dias->save();
+
+ $dias= new Dias();
+        $dias->dias="Miércoles";
+        $dias->save();
+
+ $dias= new Dias();
+        $dias->dias="Jueves";
+        $dias->save();
+
+ $dias= new Dias();
+        $dias->dias="Viernes";
+        $dias->save();
+
+ $dias= new Dias();
+        $dias->dias="Sábado";
+        $dias->save();
+
+ $dias= new Dias();
+        $dias->dias="Domingo";
+        $dias->save();
 
         $especialidad = new Especialidad();
         $especialidad->Especialidad="Endodoncia";   

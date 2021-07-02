@@ -1,6 +1,8 @@
 @extends('Plantilla.dashboard')
 @section('titulo','HorarioOdontologo')
 @section('content')
+<!DOCTYPE html>
+<html lang="en">
 
 <body id="page-top">
 
@@ -141,7 +143,7 @@ Horario del  odontólogo(a) {{$odontologos->nombres}} {{$odontologos->apellidos}
                   ¿Desea realmente eliminar el Horario de Atención {{$tag->HoraInicio}}-{{$tag->HoraFinal}}?
               </div>
               <div class="modal-footer">
-                  
+                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                   <form method="post" action="{{route('horario.borrar',['id'=>$tag->id])}}">
 
                       @csrf
@@ -175,6 +177,10 @@ Horario del  odontólogo(a) {{$odontologos->nombres}} {{$odontologos->apellidos}
 <form method="post" action="\create\{{$odontologos->id}}\nuevo " file="true" enctype="multipart/form-data">
 @csrf
 
+
+
+
+            
 <?php 
 for($i=1; $i <= 1; $i++) {?>
 
@@ -182,7 +188,7 @@ for($i=1; $i <= 1; $i++) {?>
               <table class="table table-bordered" id="datatable1" width="100%" cellspacing="0">
                 <thead>
                   <tr style="background-color: #f0f5f5;">
-                         <th></th>
+                        <th></th>
                     <th ><input type="radio" name="Día" value="Lunes" require >Lunes</th>
 
                     <th ><input type="radio" name="Día" value="Martes" require >Martes</th>
@@ -201,6 +207,21 @@ for($i=1; $i <= 1; $i++) {?>
 <?php
 }
 ?>
+ 
+                   <!-- <th ><input type="radio" name="Día" value="Martes" require >Martes</th>
+
+                    <th ><input type="radio" name="Día" value="Miércoles" require >Miércoles</th>
+
+                     <th ><input type="radio" name="Día" value="Jueves" require >Jueves</th>
+
+                      <th ><input type="radio" name="Día" value="Viernes" require  >Viernes</th>
+                     
+
+                      <th ><input type="radio" name="Día" value="Sábado" require >Sábado</th>
+
+                     <th ><input type="radio" name="Día" value="Domingo" require >Domingo</th> -->
+
+
                   </tr>
                 </thead>
                
@@ -210,130 +231,32 @@ for($i=1; $i <= 1; $i++) {?>
                <!--Hora de Inicio -->
 
                                    
-    <?php
- for($i=1; $i <= 1; $i++) {?>
+    
+
 
   <br> <br>
                     <tr>
    
                       <th>Hora Inicio</th>
 
-                      
-             <td><select name="horainicio" class="form-control" value="Lunes" >
+                      @for($i=1; $i <= 7; $i++) 
+             <td ><select name="horainicio" onchange="camuno({{$i}})" class="form-control" id="horainicio{{$i}}" >
                     <option >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
+                    <option >9:00 a.m</option>
+                    <option >10:00 a.m</option>
                     <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
+                    <option >12:00 p.m</option>
                     <option >1:00 p.m</option>
                     <option >2:00 p.m</option>
                     <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
+                    <option  >4:00 p.m</option>
+                    <option  >5:00 p.m</option>
                     <option >6:00 p.m</option>
 
                     </select> </td>
 
 
-                 
-                  <td>  <select name="horainicio" class="form-control" value="Martes" >
-                    <option  >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select> </td>
-
-
-                 <td>   <select name="horainicio" class="form-control" value="Miercoles" >
-                    <option >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select></td>
-
-
-                  <td>  <select name="horainicio" class="form-control" value="Jueves" >
-                    <option >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select></td>
-
-                 <td>   <select name="horainicio" class="form-control" value="Viernes" >
-                    <option >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select> </td>
-
-               <td>     <select name="horainicio" class="form-control" value="Sabado" >
-                    <option >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select> </td>
-
-
-                  <td>  <select name="horainicio" class="form-control" value="Domingo">
-                    <option >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select></td>
-
-
-
-<?php
-}
-    ?> 
+   @endfor
 
                     </tr>  
 
@@ -343,151 +266,44 @@ for($i=1; $i <= 1; $i++) {?>
 <!-- inicio de Hora Final -->
 
 
-      <?php
- for($i=1; $i <= 1; $i++) {?>
 
 
                   <tr>
                   <th>Hora Final</th>
-                   
-                   <td><select name="horafinal" class="form-control" value="Lunes" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
+                   @for($i=1; $i <= 7; $i++) 
+                   <td><select name="horafinal"  class="form-control" id="horafin{{$i}}">
+                <!--  <option disabled selected >Seleccione</option> -->
+                    <option disabled selected >9:00 a.m</option>
+                    <option >10:00 a.m</option>
                     <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
+                    <option  >12:00 p.m</option>
                     <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
+                    <option  >2:00 p.m</option>
+                    <option  >3:00 p.m</option>
                     <option >4:00 p.m</option>
                     <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
+                    <option  >6:00 p.m</option>
 
                     </select></td>
 
-                <td>    <select name="horafinal" class="form-control" value="Martes" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select> </td>
-
-                 <td>   <select name="horafinal" class="form-control" value="Miercoles" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select> </td>
-
-
-                 <td>   <select name="horafinal" class="form-control" value="Jueves" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select></td>
-
-
-                   <td> <select name="horafinal" class="form-control" value="Viernes" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select></td>
-
-                   <td> <select name="horafinal" class="form-control" value="Sabado" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select></td>
-
-                  <td>  <select name="horafinal" class="form-control" value="Domingo" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select> </td>
-<?php
-}
-    ?> 
+                @endfor
+  
 
                  </tr>
                    <!-- cierre de la hora final -->
 
 
                    <!-- descanso -->
-                 <?php 
-for($i=1; $i <= 1; $i++) {?> 
+               
                     <tr align="center;"  style="background-color: #f0f5f5;">
 
                         <th>Hora Descanso</th>
+                       @for($i=1; $i<=7; $i++)
 
-                        <td >Si  <input type="checkbox" id="" value="si" name="descanso"></td>
+                        <td >Si  <input type="checkbox" id="checx{{$i}}" value="si" name="descanso" onclick="prueb({{$i}})"></td>
 
-<td>         Si<input type="checkbox" id="" value="si" name="descanso" ></td>
+                       @endfor
 
-<td>         Si<input type="checkbox" id=""  value="si" name="descanso"  ></td>
-
-<td>         Si<input type="checkbox" id="" value="si" name="descanso"  ></td>
-
-<td>         Si<input type="checkbox" id="" value="si" name="descanso"  ></td>
-
-<td>         Si<input type="checkbox" id="" value="si" name="descanso"  ></td>
-
-<td>         Si<input type="checkbox" id=""  value="si" name="descanso" ></td>
-
-<?php
-}
-?>
 
                        </tr>
                      
@@ -497,16 +313,15 @@ for($i=1; $i <= 1; $i++) {?>
 
                      <!--Hora Inicio descanso -->
                        
-      <?php
- for($i=1; $i <= 1; $i++) {?>
+   
 
                         <tr>
 
               <th>Hora Inicio Descanso</th>
             
-
+  @for($i=1; $i<=7; $i++)
              
-<td> <select name="horadescansoini" class="form-control" value="Lunes" >
+<td> <select name="horadescansoini" onchange="cam({{$i}})"  class="form-control" id="DesIni{{$i}}" style="display: none;" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -522,99 +337,7 @@ for($i=1; $i <= 1; $i++) {?>
                     </select>
 </td>
 
-              <td>      <select name="horadescansoini" class="form-control" value="Martes" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select></td>
-
-
-                <td>    <select name="horadescansoini" class="form-control" value="Miercoles" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select></td>
-
-                <td>    <select name="horadescansoini" class="form-control" value="Jueves" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select></td>
-
-                  <td>  <select name="horadescansoini" class="form-control" value="Viernes" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select> </td>
-
-                  <td>  <select name="horadescansoini" class="form-control" value="Sabado" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select> </td>
-
-                 <td>   <select name="horadescansoini" class="form-control" value="Domingo" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select> </td>
-<?php
-}
-    ?> 
+              @endfor
 </tr>
 
         <!-- cierre de hora inicio de descando -->
@@ -624,13 +347,12 @@ for($i=1; $i <= 1; $i++) {?>
    <!-- hora final de descanso -->
 
           
-          <?php
-        for($i=1; $i <= 1; $i++) {?>
+         
            <tr>
           <th>Hora Final Descanso</th>
 
-          
- <td><select name="horadescansofin" class="form-control" value="Lunes" >
+            @for($i=1; $i<=7; $i++)
+ <td><select name="horadescansofin" class="form-control" id="DesFin{{$i}}"  style="display: none;" >
                     <option disabled selected >8:00 a.m</option>
                     <option>9:00 a.m</option>
                     <option>10:00 a.m</option>
@@ -646,101 +368,7 @@ for($i=1; $i <= 1; $i++) {?>
                     </select></td>
 
 
-                 <td>   <select name="horadescansofin" class="form-control" value="Martes" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select></td>
-
-
-                   <td> <select name="horadescansofin" class="form-control" value="Miercoles" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select></td>
-
-                   <td> <select name="horadescansofin" class="form-control" value="Jueves" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select> </td>
-
-
-                   <td> <select name="horadescansofin" class="form-control" value="Viernes" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select></td>
-
-
-                  <td>  <select name="horadescansofin" class="form-control" value="Sabado" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select> </td>
-
-                  <td>  <select name="horadescansofin" class="form-control" value="Domingo" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
-                    <option>10:00 a.m</option>
-                    <option >11:00 a.m</option>
-                    <option>12:00 p.m</option>
-                    <option >1:00 p.m</option>
-                    <option >2:00 p.m</option>
-                    <option >3:00 p.m</option>
-                    <option >4:00 p.m</option>
-                    <option >5:00 p.m</option>
-                    <option >6:00 p.m</option>
-
-                    </select></td>
-<?php
-}
-    ?> 
+                   @endfor
 
 
           </tr>
@@ -765,6 +393,97 @@ for($i=1; $i <= 1; $i++) {?>
   </div>
  
 
+    <!--Necesitaremos la libreria JQuery 3.2.0-->
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+
+    <!--Iniciamos la funcion-->
+    <script>
+  //funcion para que al seleccionar el checx se muestre su correspondiente select hora
+  function prueb(d){
+    //recuperamos el estado del check ojo llamamos check y concatenamos la letra d de esa manera si nos enviaron 1 seria checx1 y asi
+    var a = document.getElementById("checx"+d).checked;
+
+    //validamos si el check esta o no seleccionado
+    if(a === true){
+      document.getElementById("DesIni"+d).style.display="block";
+      document.getElementById("DesFin"+d).style.display="block";
+    }else{
+      document.getElementById("DesIni"+d).style.display="none";
+      document.getElementById("DesFin"+d).style.display="none";
+      //cuando el check fue deseleccionado se llama a una funcion reset
+      reset(d);
+    }
+
+  }
+
+  //funcion reset restablecer a valor cero para que no se envien datos al controlador
+  function reset(g){
+    document.getElementById("DesFin"+g).selectedIndex = 0;
+    document.getElementById("DesIni"+g).selectedIndex = 0;
+  }
+
+  //funcion cam para que al momento de seleccionar la hora de inicio cambien los valores en la hora final
+  function cam(g){
+    //recuperamos el valor del select de hora final y concatenamos la variable
+    var b = document.getElementById("DesFin"+g);
+
+    //calculamos cuantos items ay en el select hora final
+    var a = $('select#DesFin'+g+' option').length;
+
+    //asignamos el atributo block para que todos se muestren
+    for(var i=0; i < a; i++){
+      b.options[i].style.display="block";
+    }
+
+    //recuperamos el valor del options seleccionado en el select hora inicio
+    var d = document.getElementById("DesIni"+g).selectedIndex;
+
+    //deshabilitamos todos los options de hora final menor al de hora de inicio
+    for(var i=0; i < d; i++){
+      b.options[i].style.display="none";
+    }
+
+    //asignamos un valor por defecto luego de cambiar el valor del select
+    b.selectedIndex = d;
+  }
+
+function camuno(g){
+    //recuperamos el valor del select de hora final y concatenamos la variable
+    var b = document.getElementById("horafin"+g);
+
+    //calculamos cuantos items ay en el select hora final
+    var a = $('select#horafin'+g+' option').length;
+
+    //asignamos el atributo block para que todos se muestren
+    for(var i=0; i < a; i++){
+      b.options[i].style.display="block";
+    }
+
+    //recuperamos el valor del options seleccionado en el select hora inicio
+    var d = document.getElementById("horainicio"+g).selectedIndex;
+
+    //deshabilitamos todos los options de hora final menor al de hora de inicio
+    for(var i=0; i < d; i++){
+      b.options[i].style.display="none";
+    }
+
+    //asignamos un valor por defecto luego de cambiar el valor del select
+    b.selectedIndex = d;
+  }
+
+
+
+
+
+
+
+</script>
+
+
+ 
+
+   
+   
 </body>
 
 
@@ -775,6 +494,6 @@ for($i=1; $i <= 1; $i++) {?>
 
 
 
-
+</html>
 
 @endsection

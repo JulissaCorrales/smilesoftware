@@ -72,6 +72,8 @@ class HorarioController extends Controller
         $horario->DescansoFinal= $request->input('horadescansofin');
 
         $create = $horario->save();
+         $horario->dias()->delete();
+        $horario->dias()->detach();
 
         $lista = explode(',',  $request->dias_horarios); 
         
@@ -80,12 +82,14 @@ class HorarioController extends Controller
             $dias= new Dias();
             $dias->dias=$request->input('Día');
             $dias->save();
-
              $horario->dias()->attach($dias->id);
+              
              $horario->odontologos()->attach($odontologo_id);
              $horario->save();
         }    
 
+
+        
          if ($create){
             return redirect("create/$odontologo_id/nuevo")->with('mensaje', 'El Horario fue guardado correctamente!');
         }else{
