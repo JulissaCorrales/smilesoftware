@@ -50,7 +50,7 @@
            <h4><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge-fill" viewBox="0 0 16 16">
               <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
             </svg>Pacientes</h4>
-            <p>En esta ventana  muestra los pacientes que se han registrado  en la clínica, <br> en esta misma se podrá crear un nuevo paciente, editar información, eliminar el paciente.</p>
+            <p>En esta ventana  muestra los pacientes que se han registrado  en la clínica, en esta misma se podrá crear un nuevo paciente, editar información, eliminar el paciente.</p>
             @can('descargarPacientes', App\Paciente::class)
             <div>
             <a type="button"style="background-color:#ffb037; color:#151515; position: relative;float:right;"  class="btn" href="{{route('descargarPDFPacientes')}}"><svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-cloud-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

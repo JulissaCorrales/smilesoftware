@@ -683,19 +683,19 @@ jQuery(document).ready(function($){
       });
       
 
-<script>
+
 $(document).ready( function () {
     $('#datatable1').DataTable( {
     language: {
-        search: "Búsqueda por nombre o identidad:",
+        search: "Búsqueda por Nombre o identidad:",
         "decimal": "",
         "emptyTable": "No hay información",
-        "info": "Mostrando _START_ a _END_ de _TOTAL_ Pacientes",
-        "infoEmpty": "Mostrando 0 to 0 of 0 Pacientes",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Odontólogo(a)",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Odontólogo(a)",
         "infoFiltered": "(Filtrado de _MAX_ total entradas)",
         "infoPostFix": "",
         "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ Pacientes",
+        "lengthMenu": "Mostrar _MENU_ Odontólogo(a)",
         "loadingRecords": "Cargando...",
         "processing": "Procesando...",
         "zeroRecords": "Sin resultados encontrados",
@@ -708,6 +708,7 @@ $(document).ready( function () {
     }
 });
 } );
+
 
 </script>
 
