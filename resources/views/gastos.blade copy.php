@@ -85,7 +85,7 @@ color:white;
 <table id="datatable">
 <thead>
         <tr>
-            <th>Categoria</th>
+            <th>Categoría</th>
             <th>Detalle</th>
             <th>Fecha de Factura</th>
             <th>Fecha  de Pago</th>

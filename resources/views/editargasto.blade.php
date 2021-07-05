@@ -4,17 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style>
-#padre{
-    width:auto;
-    font:1em Tahoma;
-    margin: 5rem;
-    padding: 2rem;
-    border: 2px solid #ccc;
-}   #titulo{
-    text-align:center;
-}
-</style>
+
 </head>
 <body>
     
@@ -41,8 +31,8 @@
      <!-- Categoria-->
                 
      <div class="form-group" id="divcate">
-                    <label for="categoria" class="control-label">Categoria:</label>
-                    <input type="text"  class="form-control-file" placeholder="Ingrese la categoria del gasto" name="categoria" id="categoria  "   value="{{ $gastos->categoria }}"> 
+                    <label for="categoria" class="control-label">Categoría:</label>
+                    <input type="text"  class="form-control-file" placeholder="Ingrese la categoría del gasto" name="categoria" id="categoria  "   value="{{ $gastos->categoria }}"> 
                     </div>
                    
                     <!-- Detalle-->
@@ -69,10 +59,10 @@
                     <input type="date"  class="form-control-file"  name="fechapago" id="fechapago" value="{{ $gastos->fechapago }}">
                     </div>
                    
-                    <div class="form-group" id="div6">
-                    <button style="background-color:purple"type="button" onclick="location.href='/pantallainicio/gastos'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
-                    <input type="reset" class="btn btn-danger">
-                    <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
+                    <div class="form-group" >
+                    <button type="button" onclick="location.href='/pantallainicio/gastos'" class="btn btn-outline-secondary" data-dismiss="modal">Atrás</button>
+                    <input type="reset" class="btn btn-outline-danger">
+                    <button id="botonContinuar"type="submit"class="btn btn-outline-info" data-toggle="modal" >
                         Continuar
                     </button>
                     

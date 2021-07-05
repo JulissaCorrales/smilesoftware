@@ -38,8 +38,8 @@
                     <!-- Categoria-->
                 
                     <div class="form-group" id="divcate">
-                    <label for="categoria" class="control-label">Categoria:</label>
-                    <input required type="text"  class="form-control-file" placeholder="Ingrese la categoria del gasto" name="categoria" id="categoria  "> 
+                    <label for="categoria" class="control-label">Categoría:</label>
+                    <input required type="text"  class="form-control-file" placeholder="Ingrese la categoría del gasto" name="categoria" id="categoria  "> 
                     </div>
                    
                     <!-- Detalle-->
@@ -67,8 +67,8 @@
                     </div>
                    
                     <div class="form-group" id="div6">
-                    <input  type="reset" class="btn btn-danger">
-                    <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
+                    <input  type="reset" class="btn btn-outline-danger">
+                    <button id="botonContinuar"type="submit"class="btn btn-outline-info" data-toggle="modal" >
                         Continuar
                     </button>
                     
