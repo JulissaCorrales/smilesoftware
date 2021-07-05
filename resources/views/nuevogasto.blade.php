@@ -39,13 +39,14 @@
                 
                     <div class="form-group" id="divcate">
                     <label for="categoria" class="control-label">Categoría:</label>
-                    <input required type="text"  class="form-control-file" placeholder="Ingrese la categoría del gasto" name="categoria" id="categoria  "> 
+                    <input required type="text" maxlength="100" class="form-control  @error('categoria') is-invalid @enderror" placeholder="Ingrese la categoría del gasto" name="categoria" id="categoria  "> 
+                    
                     </div>
                    
                     <!-- Detalle-->
                     <div class="form-group" id="div2">
                     <label for="detalle" class="control-label">Detalle:</label>
-                    <input required type="text"  class="form-control-file" name="detalle" id="detalle" placeholder="Ingrese el detalle del gasto">
+                    <input required type="text" maxlength="255" class="form-control-file" name="detalle" id="detalle" placeholder="Ingrese el detalle del gasto">
                     </div>
                  
                     <!-- Monto-->
