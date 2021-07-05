@@ -100,25 +100,19 @@
 <body id="page-top">
 
  <nav class="navbar navbar-expand-sm"  style="background-color:#276678;">
-      <H4 style="color: #D3E0EA;; text-shadow: 1px 0 #0061A8, 0 1px #1687A7, 1px 0 #ffb31a, 0 1px #1687A7;">Smile Software</H4>
-
-
-      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">@forelse($logotipos  as $tag)
-          <img  class="logo" style=" border-radius: 50%; "src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="50px;" height=50px;>
-          @empty
-
-          <img class="logo" style=" border-radius: 50%;" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3" id="logo1" width="50px;"> 
-          @endforelse 
-
-
-          </button>
+     
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#" style="margin-left:10%; ">
+   
+    <img class="logo" style=" border-radius: 70%;" src="{{ asset('Imagenes/diente.png') }}" width="50px;"> 
+    
+    </button>
            <!-- -->
       <div>
            <!-- Navbar Search -->
-             <form class="form-inline my-2 my-lg-0" id="buscar1"  action="buscar">
-      <input  name="buscarpor"  style=" width:300px;margin-left:4em;"class="form-control" type="search" placeholder="Buscar Paciente..." aria-label="Search"  id="texto"  >
+          <form class="form-inline my-2 my-lg-0" id="buscar1"  action="buscar">
+      <input  name="buscarpor"  style=" width:400%; margin-left:0%; margin-top:5%;"class="form-control" type="search" placeholder="Buscar el Nombre del Paciente" aria-label="Search">
 
-      <button style="width:50px; height:40px; float: left;" class="btn btn-primary"  id="buscar" type='submit'><svg width="1em" height="50px;" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <button style="width:40px; height:10%; margin-left:100%; margin-top:-15%; background-color:#276678; color:white; border-color:#276678;" class="btn btn-primary"  id="buscar" type='submit'><svg width="20" height="20" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
       <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
       </svg></button>
@@ -163,23 +157,8 @@
      <div id="wrapper">
 
           <!-- abro imagen de usuario-->
-    <div class="card"  style="width: 17rem; background-color: #d3e0ea;" id="ventana">
-        <span class="border border-white">  
-          <img style="border-radius: 70%;margin-left:3.5em;;  position:relative; top: 15px;"src='/Imagenes/{{$pacientes->imagen}}' width="100px" height="100px"id="datos">
-            <div id="">
-              <h2 id="nombre" style="border: radius 5px;margin-left:1.5em;">{{ $pacientes->nombres}} <br>{{ $pacientes->apellidos}}</h2>
-          
-                @forelse($pacientes->alertas as $ver)
-                <span style="color:red">  <svg xmlns="http://www.w3.org/2000/svg" color="red" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
-                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                  <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
-                  </svg>{{$ver->alertas}} </span>
-            @empty
-            @endforelse
-        
-            </span>
-            <br><br>
-         </div>
+
+         
         <!--cierro imagen de usuario bien -->
       
 
@@ -190,7 +169,19 @@
         <ul class="  sidebar navbar-nav" style="
         background-color: #1687A7; ">
         
-        
+        <li>
+              @forelse($pacientes->alertas as $ver)
+                {{$ver->alertas}} 
+                  @empty
+                <img style=" border-radius: 50%;" src='/Imagenes/{{$pacientes->imagen}}' width="100px" height="100px"id="datos" alt="image">                    
+                <h2 id="nombre" style=" margin-left:5%;">{{ $pacientes->nombres}} <br>{{ $pacientes->apellidos}}</h2>
+                                
+                                    
+                  @endforelse
+              
+              
+
+          </li>
         <li class="nav-item">
                   @canany(['isAdmin','isOdontologo','isSecretaria'])
                 <a  href="/pantallainicio/vista/paciente/{{$pacientes->id}}/editar"class="nav-link" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -310,7 +301,7 @@
                 
 
         </ul>
-        </div>
+        
      <!-- div cierre de ventana de izquierda -->
 
 

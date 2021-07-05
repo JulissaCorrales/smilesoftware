@@ -152,7 +152,7 @@
 <div>
     <!-- Navbar Search -->
         <form class="form-inline my-2 my-lg-0" id="buscar1"  action="buscar">
-      <input  name="buscarpor"  style=" width:400%; margin-left:0%; margin-top:5%;"class="form-control" type="search" placeholder="Buscar Paciente por el nombre" aria-label="Search">
+      <input  name="buscarpor"  style=" width:400%; margin-left:0%; margin-top:5%;"class="form-control" type="search" placeholder="Buscar el Nombre del Paciente" aria-label="Search">
 
       <button style="width:40px; height:10%; margin-left:100%; margin-top:-15%; background-color:#276678; color:white; border-color:#276678;" class="btn btn-primary"  id="buscar" type='submit'><svg width="20" height="20" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
