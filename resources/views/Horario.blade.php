@@ -3,6 +3,12 @@
 @section('content')
 <!DOCTYPE html>
 <html lang="en">
+<head>
+
+
+ <link  src="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" rel="stylesheet"/>
+
+</head>
 
 <body id="page-top">
 
@@ -26,11 +32,11 @@
         <div class="card mb-3">
           <div class="card-header">
            <h4><img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/Horario.png') }}"  id="logo1" width="4%;" height="4%"><b>Crear Horario</b></h4>
-            <p>En esta Sesión se podra crear un horario al odontólogo(a), en el cuál debera de seleccionar el día y la Hora inicio,Hora final, la Hora de Descanso (Opcional).
-               El Horario  creado  se visualizará al dar click en la opción de ver Horario que tendrá la opción de  eliminar Horario creado.
+            <p>En esta Sesión se podra crear un horario al odontólogo(a), en el cuál debera  seleccionar el día   y la Hora inicio,Hora final, la Hora de Descanso (Opcional).
+               El Horario  creado  se visualizará al dar click en la opción de ver Horario que tendrá la opción de  eliminar Horario.
 </p>
      
-<button type="button" style="color:#006622; background-color: #d1e0e0; border-color:white; width:160px; margin-left:0%;"class="btn btn-primary" data-toggle="modal" data-target="#modalll3-{{$odontologos->id}}" id="buton">
+<button type="button" style="color:#006622; background-color: #e1eaea; border-color:white; width:160px; margin-left:0%;"class="btn btn-primary" data-toggle="modal" data-target="#modalll3-{{$odontologos->id}}" id="buton">
 
 <img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/calendarioo.png') }}"  id="logo1" width="35%;" height="4%">
   Ver Horario</button>
@@ -57,7 +63,7 @@ Horario del  odontólogo(a) {{$odontologos->nombres}} {{$odontologos->apellidos}
                 
 
                
-<table class="table">
+<table class="table display" id="example1">
  
 <tr style="background-color: #f0f5f5;" >
  <th>Día</th>
@@ -108,13 +114,17 @@ Horario del  odontólogo(a) {{$odontologos->nombres}} {{$odontologos->apellidos}
 @empty
     <tr>
     <td  colspan="4"><p align="center" ><b>No hay Registro de Horarios</b></p></td> 
+
     @endforelse
      </tr>
+
+     
    
   
 
   </tbody>
 </table>
+
    
               </div>
               <div class="modal-footer">
@@ -317,7 +327,7 @@ for($i=1; $i <= 1; $i++) {?>
 
                         <tr>
 
-              <th>Hora Inicio Descanso</th>
+             <th>Hora Inicio Descanso</th> 
             
   @for($i=1; $i<=7; $i++)
              
@@ -349,12 +359,13 @@ for($i=1; $i <= 1; $i++) {?>
           
          
            <tr>
-          <th>Hora Final Descanso</th>
+         <th>Hora Final Descanso</th> 
 
             @for($i=1; $i<=7; $i++)
+              
  <td><select name="horadescansofin" class="form-control" id="DesFin{{$i}}"  style="display: none;" >
-                    <option disabled selected >8:00 a.m</option>
-                    <option>9:00 a.m</option>
+
+                    <option disabled selected >9:00 a.m</option>
                     <option>10:00 a.m</option>
                     <option >11:00 a.m</option>
                     <option>12:00 p.m</option>
@@ -395,6 +406,11 @@ for($i=1; $i <= 1; $i++) {?>
 
     <!--Necesitaremos la libreria JQuery 3.2.0-->
     <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+     
+      <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
     <!--Iniciamos la funcion-->
     <script>
@@ -473,6 +489,11 @@ function camuno(g){
 
 
 
+$(document).ready(function() {
+    $('#example1').DataTable( {
+        "pagingType": "numbers"
+    } );
+} );
 
 
 
