@@ -99,7 +99,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 <div class="modal fade" id="exampleModalCenter-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header" style="background-color:#276678;color:white">
+      <div class="modal-header" style="background-color:#D3E0EA;color:black">
         <h5 class="modal-title" id="exampleModalLabel">{{$tag->Especialidad}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
