@@ -29,12 +29,12 @@
                 <div id="verlogoactual" align="center">
                     @forelse($logotipos as $tag)
                         <div id="fondo">
-                        <img  class="mr-3" id="imlogoactual" style="border-radius: 50%;" src="{{Storage::url($tag->logo)}}" alt="image" width="200px" high="200px" >
+                        <img  class="mr-3" name="imagedoc" src=""  alt="image" >
                         </div>
                        
-                        <!-- Borrar logo -->
+                        
     @can('isAdmin')                
-    <td>
+    <!-- Borrar logo -->
            <!-- boton eliminar -->
            <br>
                  <button  type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$tag->id}}">
@@ -49,8 +49,8 @@
                 <div class="modal fade" id="modal-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Eliminar Logotipo de  la Clinica</h5>
+                            <div class="modal-header" style="background-color: #276678;color:white;">
+                                <h5 class="modal-title" id="exampleModalLabel">Eliminar Logotipo de  la Clínica</h5>
                                  <button type="button" class="close"        data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -74,16 +74,13 @@
  
 
                             <!-- actualizar logo -->
-   <div style=" padding-top: 30px;
-                                padding-right: 30px;
-                                padding-bottom: 30px;
-                                ">
+   <div >
     <form method="POST" action="{{route('logotipo.update')}}" accept-charset="UTF-8" enctype="multipart/form-data">
      {{ csrf_field() }}
     @csrf
     @method('put')
      <label for="archivo"><b>Suba el nuevo logo que desea: </b></label><br>
-     <input style="padding-left: 400px;" type="file" class="form-control-file" id="imagedoc" name="imagedoc"  accept="image/*" required >
+     <input  type="file" class="form-control-file" id="imagedoc" name="imagedoc"  accept="image/*" required >
      <br>
      <input class="btn btn-success" type="submit" value="Cambiar" >
     </form>
@@ -92,7 +89,7 @@
 @endcan
             
                     @empty
-                    <img class="logo" style="border-radius: 50%;" src="{{ asset('Imagenes/dental2.jpg') }}" > 
+                    <img class="logo"  src="{{ asset('Imagenes/logo4.jpg') }}"  > 
                  <br>  <br>
                 
                 <!--  -->
@@ -111,47 +108,37 @@
 <!-- crear -->
 <div >
    <!-- Modal -->
-   <div  class="modal fade" id="crear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div  class="modal fade  bd-example-modal-lg" id="crear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    
-                    <div class="modal-dialog" role="document">
+                    <div class="modal-dialog modal-lg " role="document">
                         <div class="modal-content">
+                        <div class="modal-header" style="background-color: #276678;color:white;">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            <svg width="2em" height="2em" viewBox="0 0 17 16" class="bi bi-image" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M14.002 2h-12a1 1 0 0 0-1 1v9l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094L15.002 9.5V3a1 1 0 0 0-1-1zm-12-1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm4 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                            </svg>                        
+                            Nuevo Logotipo
+                        </h5>
                         
-                        <form method="POST" action="{{route('logotipo.guardar')}}" accept-charset="UTF-8" enctype="multipart/form-data"
-                        style=" padding-top: 30px;
-                                padding-right: 30px;
-                                padding-bottom: 30px;
-                                padding-left: 30px; background-color: #EBF5FB;border: 10px solid #fff;" >
-                            {{ csrf_field() }}
-                          
-                            <div align=right > 
                             
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				                	<span aria-hidden="true">&times;</span>
 				            </button> 
                             </div>
-                            <br>
-                            <hr>
-                            <svg width="2em" height="2em" viewBox="0 0 17 16" class="bi bi-image" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M14.002 2h-12a1 1 0 0 0-1 1v9l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094L15.002 9.5V3a1 1 0 0 0-1-1zm-12-1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm4 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                            </svg>
-                            <label for="archivo" ><b>Logotipo: </b></label><br>
-                            <!--  -->
-                            
-						<div class="col-sm-12">
-						    <div class="col-sm-12" id="imagePreview">							
-						    </div>
-
-						    <div class="col-sm-12">
-							    <div class="form-group" style="background-color: #c8dadf;border-radius: 5px;padding-bottom: 50px">
-								<br>												
-								    <div class="col-sm-12">					
-									    <input type="file" class="form-control-file" id="imagedoc" name="imagedoc"  accept="image/*" required>										
-								    </div>
-							    </div>
-					    	</div>
-							
-						</div>
-                        <button  style="margin-left:350px; "type="submit" class="btn btn-primary">Crear</button>	
+                        <div class="modal-body">
+                            <form method="POST" action="{{route('logotipo.guardar')}}" accept-charset="UTF-8" enctype="multipart/form-data">
+                            @csrf
+                          
+                                    <div class="col-sm-12" id="imagePreview">							
+                                    </div>                                                                           
+                                    <div class="col-sm-12">					
+                                                <input type="file" class="form-control-file" id="imagedoc" name="imagedoc"  accept="image/*" required>										
+                                    </div>
+                                        
+                                 
+                              <button  style="margin-left:350px; "type="submit" class="btn btn-primary">Crear</button>	      
+						
+                        
 <!-- validaciones para que solo permita imagenes -->
                                 <script type="text/javascript">
                                 (function(){
