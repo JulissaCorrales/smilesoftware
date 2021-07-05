@@ -1,6 +1,6 @@
 
 <!-- Modal 2 -->
-        <div class="modal fade" id="nespecialidad">
+        <div class="modal fade " id="nespecialidad">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
