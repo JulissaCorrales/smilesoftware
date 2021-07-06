@@ -83,8 +83,8 @@
                                         <label for="tipo">Tipo:</label>
                                         <select required  name="tipo" id="tipo" class="form-control-file" style="padding:1em;">
                                         <option value="" disabled selected>Seleccione el tipo</option>
-                                          <option>Accion Clínica</option>
-                                          <option>Accion de Laboratorio</option>
+                                          <option>Acción Clínica</option>
+                                          <option>Acción de Laboratorio</option>
                                         </select>
                                     </div>
                                   <div class="modal-footer">
@@ -106,7 +106,7 @@
   <thead >
     <tr id="encabezado">
       <th>N°</th>
-      <th >Categoria</th>
+      <th >Categoría</th>
       <th>Tipo</th>
       <th>Acciones</th>
     </tr>
@@ -115,7 +115,7 @@
   <tbody>
   <tr>
       @forelse($tratamientos as $tratamiento)
-      <td><a  class="btn btn-outline-info"  href="/tratamiento/{{ $tratamiento->id}}/producto"  id="lista">{{$tratamiento->id}}</a></td>
+      <td>{{$tratamiento->id}}</td>
      <td>{{$tratamiento->categoria}}</td>
      <td>{{$tratamiento->tipo}}</td>
      <td>
@@ -127,6 +127,10 @@
             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
             </svg>
           </button>
+          <a  class="btn btn-outline-info"  href="/tratamiento/{{ $tratamiento->id}}/producto"  id="lista">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
+</svg>Productos</a>
       @endcan
     <!-- modal editar -->
           <!-- Modal -->
@@ -163,8 +167,8 @@
           <label for="tipo" class="control-label">Tipo:</label>
           <select required  name="tipo" id="tipo" class="form-control-file" style="padding:1em;">
           <option value="{{ $tratamiento->tipo }}"  selected>Actual:{{ $tratamiento->tipo }}</option>
-            <option>Accion Clínica</option>
-            <option>Accion de Laboratorio</option>
+            <option>Acción Clínica</option>
+            <option>Acción de Laboratorio</option>
           </select>
           </div>
 
