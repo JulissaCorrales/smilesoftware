@@ -76,7 +76,7 @@
                                       @csrf
                                       <div class="form-group">
                                           <label for="categoria">Tratamiento:</label>
-                                          <input required type="text" class="form-control-file" name="categoria" id="categoria" placeholder="Ingrese el nombre del tratamiento">
+                                          <input required type="text" MinLength="3" MaxLength="100"class="form-control-file" name="categoria" id="categoria" placeholder="Ingrese el nombre del tratamiento">
                                       </div>
                                     
                                     <div class="form-group">
@@ -155,7 +155,7 @@
 
           <div class="form-group" id="divcate">
           <label for="categoria" class="control-label">Nombre del Tratamiento:</label>
-          <input  required style="background-color:#FFFDE7" type="text"  class="form-control-file" placeholder="Ingrese la categoria del gasto" name="categoria" id="categoria  "   value="{{ $tratamiento->categoria }}"> 
+          <input  required style="background-color:#FFFDE7" MinLength="3"  type="text" MaxLength="100" class="form-control-file" placeholder="Ingrese la categoria del gasto" name="categoria" id="categoria  "   value="{{ $tratamiento->categoria }}"> 
           </div>
 
           <!-- Tipo-->
