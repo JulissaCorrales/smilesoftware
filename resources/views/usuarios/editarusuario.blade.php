@@ -211,7 +211,7 @@
                 console.log(data);
                 
                 permissions_box.show();                        
-                // permissions_ckeckbox_list.empty();
+                permissions_ckeckbox_list.empty();
                 $.each(data, function(index, element){
                     $(permissions_ckeckbox_list).append(       
                         '<div class="custom-control custom-checkbox">'+                         
