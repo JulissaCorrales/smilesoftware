@@ -222,12 +222,12 @@ left:850px;}
    
     <div class="form-group">
         <label for="rol">Nombre del Rol</label>
-        <input type="text" class="form-control" value="{{$tag->Nombre}}"  required name="rol" id="name" >
+        <input MinLength="3"  type="text" MaxLength="50"  class="form-control" value="{{$tag->Nombre}}"  required name="rol" id="name" >
     </div>
 
     <div class="form-group">
         <label for="usuario">Slug</label>
-        <input type="text" class="form-control" name="slug" id="slug" placeholder="Ingrese el slug" value="{{$tag->slug}}" required>
+        <input MinLength="3"  type="text" MaxLength="50"  class="form-control" name="slug" id="slug" placeholder="Ingrese el slug" value="{{$tag->slug}}" required>
     </div>
     <div class="form-group">
         <label for="roles_permisos">Permisos</label>
