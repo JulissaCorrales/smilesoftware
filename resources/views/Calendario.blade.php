@@ -6,6 +6,133 @@
 
 @section('content')
 
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- modal -->
+  <!--  -->
+  <!--Estos son  Importante -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.16/vue.min.js"></script>
+  <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+
+  <!-- este es importante -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" />
+  <!-- Este Tambien es Importante -->
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+  <!-- Este tambien es importante -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
+  <!-- Fecha -->
+  <!-- fecha -->
+<script src='{{asset("vendor/moment.min.js")}}'></script>
+  <!-- idioma -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/es.min.js"></script>
+  <!--  -->
+
+  <?php 
+
+  try
+  {
+  $mbd = new PDO('mysql:host=127.0.0.1;dbname=smilesoftware', "root", "");
+  $sth= $mbd->query('SELECT p.nombres,p.apellidos , c.stard
+FROM pacientes p
+JOIN  citas c ON  p.id= c.paciente_id;');
+  }
+  catch(Exception $e)
+  {
+  echo "no conectado";
+  }
+
+  ?>
+<!--  -->
+
+<style>
+#calendar {
+
+width: 90%;
+margin-top:5%;
+margin-bottom:0;
+margin-right:;
+margin-left:5%;
+/*padding: 9px 9px 9px 9px;  */
+background: url("/imagenes/fond.jpg");
+background-repeat: no-repeat;
+/*background-image: linear-gradient(to top, #00cccc ,#e6ffff );*/
+background-position: center center;
+  background-size: cover;
+/*font-size: 100%; */
+font-size: 15px;
+
+}
+
+.fc table {
+width: 100%;
+
+border-spacing: 0;
+/*font-size: 105%; */ /* normalize cross-browser */
+  
+}
+.fc th {
+text-align: center;
+background-color:#c1d7d7;
+=
+
+
+}
+.fc th,
+.fc td {
+vertical-align: top;
+padding: 0;
+/*border: #00cccc  2px solid; */
+
+}
+
+.fc. td{
+
+}
+
+#app{
+color: #ABEBC6;
+  
+
+
+}
+#cal{
+color: #343a40;
+border-color: #b3ffff;
+
+
+}
+
+
+.fc-event{
+background-image: linear-gradient(to bottom,  #d1e0e0 ,#d1e0e0);
+color:#1f2e2e;
+height: 40px;
+border-color:white;
+height:60px;
+font-weight: 600;
+
+
+}
+   textarea{  
+        display:block;
+        box-sizing: padding-box;
+        overflow:hidden;
+        width:300px;
+
+        border-radius:6px; 
+      }
+      #comentarios{margin-left:2em;
+      margin-right:2em;}
+
+</style>
+
+
+</head>
 <div class="container">
 <div>@if(session('mensaje'))
     <div class="alert alert-success">
@@ -74,111 +201,8 @@
 
 @endcan
 
-</div>
 
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- modal -->
-  <!--  -->
-  <!--Estos son  Importante -->
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.16/vue.min.js"></script>
-  <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
-
-  <!-- este es importante -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" />
-  <!-- Este Tambien es Importante -->
-  <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
-  <!-- Este tambien es importante -->
-  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
-  <!-- Fecha -->
-  <!-- fecha -->
-<script src='{{asset("vendor/moment.min.js")}}'></script>
-  <!-- idioma -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/es.min.js"></script>
-  <!--  -->
-
-  <?php 
-
-  try
-  {
-  $mbd = new PDO('mysql:host=127.0.0.1;dbname=smilesoftware', "root", "");
-  $sth= $mbd->query('select * from citas');
-  }
-  catch(Exception $e)
-  {
-  echo "no conectado";
-  }
-
-  ?>
-<!--  -->
-
-<style>
-#calendar {
-
-width: auto;
-margin-top:4em;
-margin-bottom:4em;
-margin-right:4em;
-margin-left:4em;
-padding: 25px 25px 25px 25px;
-background: url("/imagenes/fond.jpg");
-background-repeat: no-repeat;
-/*background-image: linear-gradient(to top, #00cccc ,#e6ffff );*/
-background-position: center center;
-  background-size: cover;
-
-}
-
-.fc table {
-
-border-spacing: 0;
-font-size: 1em; /* normalize cross-browser */
-  border:#c1d7d7 1px solid;
-}
-.fc th {
-text-align: center;
-background-color:#c1d7d7;
-font-size: 1.2em;
-}
-.fc th,
-.fc td {
-vertical-align: top;
-padding: 0;
-/*border: #00cccc  2px solid; */
-}
-
-#app{
-color: #ABEBC6;
-  
-
-
-}
-#cal{
-color: #343a40;
-border-color: #b3ffff;
-
-
-}
-   textarea{  
-        display:block;
-        box-sizing: padding-box;
-        overflow:hidden;
-        width:400;
-
-        border-radius:6px; 
-      }
-      #comentarios{margin-left:2em;
-      margin-right:2em;}
-
-</style>
-
-
-</head>
 <body>
 
 
@@ -456,8 +480,9 @@ events: [
 foreach($sth as $fila){
 ?>
 {
-title:"<?php echo "Cita  ". $fila["id"]; ?>",
-start: "<?php echo $fila["stard"]; ?>",
+title:"<?php echo $fila["nombres"];?>"  ,
+ start: "<?php echo $fila["stard"]; ?>", 
+
 end: " " 
 
 },
@@ -511,7 +536,7 @@ $(document)
 
 
 
-
+</div>
 
 
 

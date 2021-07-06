@@ -1,79 +1,103 @@
 @extends('Plantilla.dashboard')
-@section('titulo'.'Citas')
+
 @section('content')
 
-<div class="card mb-3">
-          <div class="card-header">
-           <h4><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge-fill" viewBox="0 0 16 16">
-              <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
-            </svg>Citas</h4>
-            <p>En esta Sección muestra  el registro de todas las citas.</p>
+
+<!--  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <!-- CSS Just for demo purpose, don't include it in your project -->
+   <link href="../assets/css/demo.css" rel="stylesheet" />
+
+<link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sticky-footer-navbar/">
+
+
+    <style>
+        #padre {
+        overflow: hidden;
+        border:2px ;
+        font-family: georgia; 
+        }
+        #hijo1 {
+        
+            position: absolute;
+            top: -235px;
             
-@can('create', App\Cita::class)
-  <a type="button" class="btn btn-info" data-toggle="modal" data-target="#create" style=" color:white; "><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
-  <path fill-rule="evenodd" d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-</svg>Dar Cita</a>
-@endcan
+            }
+        #hijo2{
+            width:700px;
+            margin: 10px;
+            position: absolute;
+            top: 330px;
+            left: 290px;
+        }  
+        #encabezado{
+            background-color: #003333;
+             color:white;
 
-</div>
-
-
+        }
+        #cuerpo{
+            border: #00cccc  2px solid;
+        }
+        
+        a:link, a:visited, a:active {
+            text-decoration:none;
+        }
+        #botondesplegable{
+            background-image: linear-gradient(to left,  #CCFF33 ,#00FF99); 
+        color:#ffffff;
+    }
+        
+    </style>
+</head>
+<body >
+<div class="container" >
 @if(session('mensaje'))
-        <div class="alert alert-success">
+        <div class="alert alert-success" style="position:absolute; top:200px; left:450px; width:800px;">
             {{session('mensaje')}}
         </div>
     @endif
-
-
-<div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="datatable1" width="100%" cellspacing="0">
-        <thead >
-            <tr >
-               
-                <th >Nombre del Paciente</th>
-                <th>Número telefónico</th>
-                <th >Doctor</th>
-                <th >Fecha y Hora</th>
-                <th>Acciónes</th>
+<table class="table" style="position:absolute; left:450px; top: 250px; width:800px; height:200px;">
+        <thead class="table table-striped table-bordered">
+            <tr id="encabezado">
+                <th scope="col">Numero</th>
+                <th scope="col">Paciente</th>
+                <th scope="col">Doctor</th>
+                <th scope="col">Fecha y Hora</th>
+                <th>Acción</th>
                 
             </tr>  
         </thead>
-
-<tfoot>
- <tr >
-               
-                <th >Nombre del Paciente</th>
-                 <th>Número telefónico</th>
-                <th >Doctor</th>
-              
-                <th >Fecha y Hora</th>
-                <th>Acciónes</th>
-                
-            </tr>  
-
-</tfoot>
         <tbody>
- 
+ <h1>1</h1>
+            <tr>
+                <td >    
                         @forelse($citas as $cita)
                         
-                            <tr >
+                            <tr id="cuerpo">
+                            <!-- numero cita -->
+                                <td>@can('view',$cita->paciente) <a href="{{route('citaIndividual',['id'=>$cita->paciente->id])}}">@endcan{{$cita->id}}</td>
                                 <!-- Paciente -->
-                                <td>@can('update',$cita->paciente) <a href="{{route('paciente.editar',['id'=>$cita->paciente->id])}}">@endcan{{$cita->paciente->nombres}} {{$cita->paciente->apellidos}} </td>
-
-<td> Teléfono  Fijo:{{$cita->paciente->telefonoFijo}} <br>Teléfono  Celular: {{$cita->paciente->telefonoCelular}} </td>
+                                <td>@can('update',$cita->paciente) <a href="{{route('paciente.editar',['id'=>$cita->paciente->id])}}">@endcan{{$cita->paciente->nombres}} <br>{{$cita->paciente->apellidos}}<br>{{$cita->paciente->telefonoFijo}}<br>{{$cita->paciente->telefonoCelular}} </td>
                                 <!-- Odontologo -->
-                                <td>@can('view',$cita->odontologo) <a href="{{route('odontologo.vista',['id'=>$cita->odontologo->id])}}">@endcan{{$cita->odontologo->nombres}} {{$cita->odontologo->apellidos}}</td>
+                                <td>@can('view',$cita->odontologo) <a href="{{route('odontologo.vista',['id'=>$cita->odontologo->id])}}">@endcan{{$cita->odontologo->nombres}}<br>{{$cita->odontologo->apellidos}}</td>
                                 <!-- Fecha -->
                                 <td>{{$cita->stard}}</td>
-   <td width="">
+                                <td>
                                 <div class="dropdown" >
-                                <button id="" class="btn btn-primary" type="button" data-toggle="dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                                <button id="botondesplegable" class="btn btn-primary" type="button" data-toggle="dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
                                 <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
                                 </svg></button>
-                                
-                                <ul class="dropdown-menu" style="" >
+
+                                <ul class="dropdown-menu" >
                                 <!-- Editar -->
                                     @can('updateCitaIndividual',$cita)
                                     <li> <a  class="dropdown-item"  class="btn btn-secondary" href="{{route('citaindividual.editar',['id'=>$cita->paciente->id,'citaid'=>$cita->id])}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
@@ -99,52 +123,34 @@
                                     <!-- Eliminar -->
                                 </ul>
                                 </div>
-                            </td>
+                                </td>
                                 
-                            
-                          @empty
-                            
-                            <td> No hay citas Registras</td>
+                                @empty
+                            No hay citas programadas
+                            </tr>
                            
                         @endforelse
-
+                </td>
             </tr>
-        
+            <tr>
+            <td id="paginacion"> 
+         
+                    {{$citas->links()}}
+
+            </td>
+    </tr>
             
         </tbody>
 
     </table>
-</div>
-</div>
+    </div>
+
 </div>
 
 
-<script>
-$(document).ready( function () {
-    $('#datatable1').DataTable( {
-    language: {
-        search: "Búsqueda por nombre o identidad:",
-        "decimal": "",
-        "emptyTable": "No hay información",
-        "info": "Mostrando _START_ a _END_ de _TOTAL_ Citas",
-        "infoEmpty": "Mostrando 0 to 0 of 0 Citas",
-        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-        "infoPostFix": "",
-        "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ Citas",
-        "loadingRecords": "Cargando...",
-        "processing": "Procesando...",
-        "zeroRecords": "Sin resultados encontrados",
-        "paginate": {
-            "first": "Primero",
-            "last": "Ultimo",
-            "next": "Siguiente",
-            "previous": "Anterior"
-        }
-    }
-});
-} );
 
-</script>
 @include('darcita')<!-- esta seccion hace que funcione modal dar cita -->
 @endsection
+</body>
+
+</html>

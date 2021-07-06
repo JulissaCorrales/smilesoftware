@@ -88,7 +88,11 @@
 try
 {
   $mbd = new PDO('mysql:host=127.0.0.1;dbname=smilesoftware', "root", "");
-  $sth= $mbd->query('select * from citas');
+  $sth= $mbd->query('
+
+SELECT p.nombres,p.apellidos , c.stard
+FROM pacientes p
+JOIN  citas c ON  p.id= c.paciente_id;');
   //foreach($sth as $fila){
   //echo $fila["odontologo_id"];
   //echo "<br>";
@@ -151,14 +155,21 @@ catch(Exception $e)
 .fc-event{
 background-image: linear-gradient(to bottom,  #d1e0e0 ,#d1e0e0);
 color:#1f2e2e;
-height: 40px;
-border-color:#1f2e2e;
-font-size: 15px;
+height: 85px;
+width: ;
+border-color:white;
+/*font-size: 12px; */
+font-weight: 600;
 
 }
 .fc table {
-font-size: 15px; /* normalize cross-browser */
+font-size: ; /* normalize cross-browser */
 /*border: #00cccc  1px solid; */
+
+}
+
+.fc tr{
+height: 50px;
 }
 .fc th {
 text-align: center;
@@ -170,13 +181,14 @@ background-image: linear-gradient(to bottom,  #f0f5f5 ,#f0f5f5);
 .fc td {
 vertical-align: center;
 /*border: #00cccc  2px solid; */
-height: 100px;
+height: 50px;
+
 }
 .comp-full-calendar {
 
 /*    background: #cceeff; */
 
-font-size: 20px;
+font-size: px; 
 
 /* padding: 25px 25px 25px 25px; */
 
@@ -185,7 +197,7 @@ font-size: 20px;
 
 #app{
 
-font-size: 15px;
+font-size: px; 
 
 
 
@@ -355,7 +367,7 @@ new Vue({
     //echo "<br>";
 
     {  
-            title:"<?php echo "paciente". $fila["paciente_id"]; ?> ",
+            title:"<?php echo"Paciente:". $fila["nombres"]; ?> ",
             start: "<?php echo $fila["stard"]; ?>",
             end: " "
 
