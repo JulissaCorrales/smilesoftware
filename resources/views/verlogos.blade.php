@@ -29,7 +29,7 @@
                 <div id="verlogoactual" align="center">
                     @forelse($logotipos as $tag)
                         <div id="fondo">
-                        <img  class="mr-3" name="imagedoc" src=""  alt="image" >
+                        <img  class="mr-3" id="imlogoactual" style="" src="{{Storage::url($tag->logo)}}" alt="image" width="30%" high="30%" >
                         </div>
                        
                         

@@ -205,7 +205,7 @@
         <li>
 
      <a class="navbar-brand" href="/" >@forelse($logotipos  as $tag)
-    <img  class="logo" style=" border-radius: 50%; "src="{{Storage::url($tag->logo)}}"  alt="image" width="100%;" height="95%";>
+    <img  class="logo" style="margin-left:5%;"src="{{Storage::url($tag->logo)}}"  alt="image" width="100%;" height="95%";>
     @empty
 
     <img class="logo" style=" margin-left:5%;" src="{{ asset('Imagenes/logo4.jpg') }}"  id="logo1" width="100%;" height="95%"> 

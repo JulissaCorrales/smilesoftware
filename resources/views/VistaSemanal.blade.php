@@ -157,7 +157,7 @@ font-size: 15px;
 
 }
 .fc table {
-font-size: 1em; /* normalize cross-browser */
+font-size: 15px; /* normalize cross-browser */
 /*border: #00cccc  1px solid; */
 }
 .fc th {
@@ -172,9 +172,20 @@ vertical-align: center;
 /*border: #00cccc  2px solid; */
 height: 100px;
 }
+.comp-full-calendar {
+
+/*    background: #cceeff; */
+
+font-size: 20px;
+
+/* padding: 25px 25px 25px 25px; */
+
+
+}
 
 #app{
 
+font-size: 15px;
 
 
 
