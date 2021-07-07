@@ -83,8 +83,8 @@
                                         <label for="tipo">Tipo:</label>
                                         <select required  name="tipo" id="tipo" class="form-control-file" style="padding:1em;">
                                         <option value="" disabled selected>Seleccione el tipo</option>
-                                          <option>Accion Clínica</option>
-                                          <option>Accion de Laboratorio</option>
+                                          <option>Acción Clínica</option>
+                                          <option>Acción de Laboratorio</option>
                                         </select>
                                     </div>
                                   <div class="modal-footer">
@@ -167,8 +167,8 @@
           <label for="tipo" class="control-label">Tipo:</label>
           <select required  name="tipo" id="tipo" class="form-control-file" style="padding:1em;">
           <option value="{{ $tratamiento->tipo }}"  selected>Actual:{{ $tratamiento->tipo }}</option>
-            <option>Accion Clínica</option>
-            <option>Accion de Laboratorio</option>
+            <option>Acción Clínica</option>
+            <option>Acción de Laboratorio</option>
           </select>
           </div>
 
