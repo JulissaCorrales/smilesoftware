@@ -173,7 +173,9 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
         </div>
         <div>
-        <button type="submit"  class="btn btn-primary" id="guardar" >Guardar </button>
+        <button id="botonContinuar"type="submit"class="btn btn-outline-info" data-toggle="modal" >
+                        Guardar
+                    </button>
         </div>
       </div>
     </div>
