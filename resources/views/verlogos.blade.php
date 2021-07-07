@@ -164,7 +164,7 @@
                                 function LimitAttach(tField,iType) {
                                     file=tField.value;
                                     if (iType==1) {
-                                    extArray = new Array(".jpeg",".jpe",".gif",".jpg",".png");
+                                    extArray = new Array(".ico",".jpeg",".jpe",".gif",".jpg",".png");
                                     }	
                                     allowSubmit = false;
                                     if (!file) return false;
