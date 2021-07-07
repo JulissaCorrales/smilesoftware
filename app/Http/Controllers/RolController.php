@@ -30,55 +30,55 @@ $rols=Role::all();
         return view('usuarios.VerRol')->with ('roles',$roles);
     }
 
-    public function nuevoRol(){
-        if(Gate::denies('isAdmin')){
-            abort(403);
-         }
-        return view('usuarios.CrearRol');
-     }
+    // public function nuevoRol(){
+    //     if(Gate::denies('isAdmin')){
+    //         abort(403);
+    //      }
+    //     return view('usuarios.CrearRol');
+    //  }
 
-     public function guardarRol(Request $request){
-        if(Gate::denies('isAdmin')){
-            abort(403);
-         }
-           $request->validate([
-            'name'=>'required|unique:roles,Nombre',
-            'slug'=>'required',
+    //  public function guardarRol(Request $request){
+    //     if(Gate::denies('isAdmin')){
+    //         abort(403);
+    //      }
+    //        $request->validate([
+    //         'name'=>'required|unique:roles,Nombre',
+    //         'slug'=>'required',
         
-        ]);
-        $nuevo = new Role();
+    //     ]);
+    //     $nuevo = new Role();
 
-        //formulario
-        $nuevo->Nombre = $request->input('name');
-        $nuevo->slug = $request->input('slug');
+    //     //formulario
+    //     $nuevo->Nombre = $request->input('name');
+    //     $nuevo->slug = $request->input('slug');
        
-          $creado = $nuevo->save();
+    //       $creado = $nuevo->save();
 
-          $listOfPermissions = explode(',',  $request->roles_permisos); //crear matriz a partir de permisos separados/coma
+    //       $listOfPermissions = explode(',',  $request->roles_permisos); //crear matriz a partir de permisos separados/coma
         
          
-        foreach ($listOfPermissions as  $permiso) {
-             $permisos= new Permiso();
-             $permisos->Permiso= $permiso;
-             $permisos->slug= strtolower(str_replace(" ", "-",  $permiso));
-             $permisos->save();
+    //     foreach ($listOfPermissions as  $permiso) {
+    //          $permisos= new Permiso();
+    //          $permisos->Permiso= $permiso;
+    //          $permisos->slug= strtolower(str_replace(" ", "-",  $permiso));
+    //          $permisos->save();
 
-             $nuevo->permisos()->attach($permisos->id);
-             $nuevo->save();
-        }    
+    //          $nuevo->permisos()->attach($permisos->id);
+    //          $nuevo->save();
+    //     }    
 
         
 
     
       
       
-         if ($creado){
-            // return redirect('pantallainicio/usuarios/ver')->with('mensaje', 'El usuario fué creado exitosamente!');
-            return back()->with('mensaje', 'El Rol fué creado exitosamente!');
-        }else{
-            //retornar con un msj de error
-        } 
-    }
+    //      if ($creado){
+    //         // return redirect('pantallainicio/usuarios/ver')->with('mensaje', 'El usuario fué creado exitosamente!');
+    //         return back()->with('mensaje', 'El Rol fué creado exitosamente!');
+    //     }else{
+    //         //retornar con un msj de error
+    //     } 
+    // }
     public function editarRol($id){
         if(Gate::denies('isAdmin')){
             abort(403);
@@ -92,8 +92,8 @@ $rols=Role::all();
             abort(403);
          }
         $request->validate([
-            'rol'                     =>  'required',
-            'slug'           =>  'required',
+            'rol'                     =>  'required|regex:/^[\pL\s\-]+$/u|max:255',
+            'slug'           =>  'required|regex:/^[\pL\s\-]+$/u|max:255',
         ]);
     
         $roles=Role::findOrFail($id);
@@ -121,20 +121,20 @@ $rols=Role::all();
         }
     
     }
-    public function borrar($id){
-        if(Gate::denies('isAdmin')){
-            abort(403);
-         }
-        $roles=Role::findOrFail($id);
-        $roles->permisos()->delete();
-        $roles->delete();
-        $roles->permisos()->detach();
+    // public function borrar($id){
+    //     if(Gate::denies('isAdmin')){
+    //         abort(403);
+    //      }
+    //     $roles=Role::findOrFail($id);
+    //     $roles->permisos()->delete();
+    //     $roles->delete();
+    //     $roles->permisos()->detach();
         
-        return redirect()->back()->with('mensaje','Rol borrado satisfactoriamente');
+    //     return redirect()->back()->with('mensaje','Rol borrado satisfactoriamente');
 
 
        
-    }
+    // }
 
     
 
