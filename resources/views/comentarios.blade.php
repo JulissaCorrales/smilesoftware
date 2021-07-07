@@ -29,22 +29,62 @@
         <div class="card-header">
            <h4><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
-            </svg>Comentarios Administrativos</h4>
+            </svg> Comentarios Administrativos</h4>
             
-            <!-- Booton de agregar Comentario Administrativo-->
-            @can('create',App\Comentario::class)
-            <button style=" position: absolute; left: 900px; top:  20px;"   data-toggle="modal" data-target="#create" type="button"  class="btn btn-outline-info">
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
-            </svg>Agregar Comentario</button> 
-                        @endcan
+            
             
           
         </div>
 
     
         <div class="card-body">
+
+<!-- Booton de agregar Comentario Administrativo-->
+            @can('create',App\Comentario::class)
+            <button style=" position: relative; margin: 5px;"   data-toggle="modal" data-target="#create" type="button"  class="btn btn-outline-info">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
+            </svg>Agregar Comentario</button> 
+                        @endcan
             <div class="table-responsive">
+
+
+
+<!-- modal para crear comentario -->
+<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:#276678; color:white;">
+        <h5 class="modal-title" id="exampleModalLabel">Crear Comentario Administrativo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form method="post" action="{{route('comentario.guardar',['id'=>$pacientes->id])}}" enctype="multipart/form-data">
+           @csrf
+        <?php
+          $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
+          $mysqli->set_charset("utf8");
+          ?>
+      <div class="form-group">
+        <textarea required id="w3review" name="caja" value="text" rows="4" cols="52" placeholder="ingresar comentario  del paciente" ></textarea>
+        
+       </div>
+      </div>
+      <div class="modal-footer">
+        <div>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+        </div>
+        <div>
+        <button type="submit"  class="btn btn-primary" id="guardar" >Guardar </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
                 <!-- Tabla de comentarios administrativos -->
 
                 <table id="datatable" class="table table-bordered"  width="100%" cellspacing="0">
@@ -78,11 +118,11 @@
                                                 <div class="modal-header"style="background-color:#276678; color:white;  height:80px; ">
                                                     <h5 class="modal-title" id="exampleModalLabel"> <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
-                                                </svg>Editar el Comentario Administrativo</h5>
+                                                </svg> Editar el Comentario Administrativo</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
                                                 </div>
 
-                                                <div class="modal-body"  style="background-color:#e6faff;">
+                                                <div class="modal-body" >
 
                                                 <form method="POST" action="{{route('comentario.update',['id'=>$pacientes->id,'id2'=>$ver->id])}}">
                                                             @csrf
@@ -111,13 +151,13 @@
                                 <div class="modal fade" id="modal-{{$ver->id}}"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document" style="background-color:#f2e6ff;  position: absolute; left: 480px; top:190px; ">
                                         <div class="modal-content">
-                                            <div class="modal-header"  style="background-color:#293d3d; color:white;  height:60px; ">
+                                            <div class="modal-header"  style="background-color:#276678; color:white;  height:60px; ">
                                                 <h5 class="modal-title" id="exampleModalLabel">
                                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
                                                 </svg> Eliminar el Comentario Administrativo </h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                            <div class="modal-body"  style="background-color:#e6faff;">
+                                            <div class="modal-body"  >
                                                 ¿Desea realmente eliminar el comentario {{$ver->comentarios}} ?
                                             </div>
                                             <div class="modal-footer" style=";height: 60px;">

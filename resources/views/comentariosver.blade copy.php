@@ -10,14 +10,7 @@
   <body>
   <!-- Este codigo es para la ventana modal darcita -->
 <!-- modal para crear paciente -->
-
-
-
-
-
-
-
- <div class="modal fade" id="createL"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal fade" id="create"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document" >
                                             <div class="modal-content" style="position:absolute; left:50px; top:100px;">
                                                 <div class="modal-header"style="background-color:#276678; color:white;  height:80px; ">
