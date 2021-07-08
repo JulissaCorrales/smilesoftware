@@ -32,20 +32,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/es.min.js"></script>
   <!--  -->
 
-  <?php 
-
+   <?php 
   try
   {
   $mbd = new PDO('mysql:host=127.0.0.1;dbname=smilesoftware', "root", "");
-  $sth= $mbd->query('SELECT p.nombres,p.apellidos , c.stard
-FROM pacientes p
-JOIN  citas c ON  p.id= c.paciente_id;');
+  $sth= $mbd->query('select * from citas');
   }
   catch(Exception $e)
   {
   echo "no conectado";
   }
-
   ?>
 <!--  -->
 
@@ -55,7 +51,7 @@ JOIN  citas c ON  p.id= c.paciente_id;');
 width: 90%;
 margin-top:5%;
 margin-bottom:0;
-margin-right:;
+/* margin-right:; */
 margin-left:5%;
 /*padding: 9px 9px 9px 9px;  */
 background: url("/imagenes/fond.jpg");
@@ -78,7 +74,7 @@ border-spacing: 0;
 .fc th {
 text-align: center;
 background-color:#c1d7d7;
-=
+
 
 
 }
@@ -90,9 +86,7 @@ padding: 0;
 
 }
 
-.fc. td{
 
-}
 
 #app{
 color: #ABEBC6;
@@ -283,7 +277,7 @@ font-weight: 600;
           </div>
           <div class="col-md-6">
            <label for="hora" class="control-label">Fecha y Hora:</label>
-        <input required type="date" name="stard" id="stard">
+        <input required type="datetime-local"  name="stard" id="stard">
           </div>
         
         </div>
@@ -419,11 +413,11 @@ events: self.events,
     dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
     dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
 
+
 dayClick: function(date)
 {
   $("#modalejemplo").modal();
-
-  $('#stard').val(date.format());
+  $('#stard').val(moment(date).format('YYYY-MM-DDThh:mm'));
 
 
 // self.$dispatch('day::clicked', date);
@@ -436,6 +430,7 @@ eventColor: '#F7DC6F',
 
 eventClick: function(event)
 {
+
 self.$dispatch('event::clicked', event);
 window.open("{{route('cita.diaria')}}");
 console.log(event)
@@ -444,7 +439,7 @@ console.log(event)
 
 if (self.editable)
 {
-args.editable = true;
+args.editable = false;
 args.eventResize = function(event)
 {
 self.$dispatch('event::resized', event);
@@ -480,7 +475,7 @@ events: [
 foreach($sth as $fila){
 ?>
 {
-title:"<?php echo $fila["nombres"];?>"  ,
+title:"<?php echo "Cita ". $fila["id"]; ?>",
  start: "<?php echo $fila["stard"]; ?>", 
 
 end: " " 
