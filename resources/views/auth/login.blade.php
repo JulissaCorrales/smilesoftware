@@ -94,17 +94,6 @@ margin-left: 4px;
 }
 
 
-#butr{
-  position: absolute;
-  left: 125px;
-  top:290px;
-  width: 100px;
-  background-color: #00cccc;
-  height:35px;
-  font-size:15px;
-  color: #00091a;
-
-}
 
 
 .user_card {
@@ -241,10 +230,18 @@ opacity: 1"
   
 
 
-			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50" style=" background-image: linear-gradient(to left,   #b3cccc , #d3e0ea);">
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50" style=" background-image: linear-gradient(to left);">
+
+
+  @forelse($logotipos  as $tag)
+                    <img  style="   margin-left: 27%;  border-style: solid; border-color: #b3cccc; border-width: 15px; "  id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="50%" height="">
+                    @empty
+                    <img  style="   margin-left: 27%;  border-style: solid; border-color: #b3cccc; border-width: 15px;" src="{{ asset('Imagenes/logo4.jpg') }}" class="mr-3"  width="50%" height=""> 
+                    @endforelse
+
 				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
 				@csrf
-					<span class="login100-form-title p-b-59" style="text-shadow: 2px 0 #ffb31a, 0 2px #ffb31a, 2px 0 #ffb31a, 0 2px #ffb31a;">
+					<span class="login100-form-title " style="text-shadow: 1px 0 #b3cccc, 0 1px #b3cccc, 1px 0 #b3cccc, 0 1px #b3cccc; margin-left:27%; margin-top:4%;">
 						Iniciar Sesión 
 					
   </span>
@@ -257,17 +254,11 @@ opacity: 1"
                             {{ session('status') }}
                         </div>
                     @endif
-     @forelse($logotipos  as $tag)
-                    <img  style="    margin-left: 28%; " class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="50%" height="50%">
-                    @empty
-                    <img  style="   margin-left: 28%;" class="logo" src="{{ asset('Imagenes/logo4.jpg') }}" class="mr-3"  width="100px" height="100px"> 
-                    @endforelse
+    
 					
 
-					<div  class="wrap-input100 validate-input" data-validate="name is required">
-						<div class="input-group-prepend">
+					<div  class="wrap-input100 validate-input" data-validate="name is required" style="border-style: solid; border-color: #b3cccc; border-width: 8%;">
 						
-						</div>
             <input type="name" id="name" class="input100 @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Nombre de usuario" required autocomplete="name" autofocus>
             @error('name')
                       <span class="invalid-feedback" role="alert">
@@ -275,10 +266,8 @@ opacity: 1"
                       </span>
                   @enderror
 					</div>
-            <div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<div class="input-group-prepend">
-							
-						</div>
+            <div class="wrap-input100 validate-input" data-validate = "Password is required" style="border-style: solid; border-color: #b3cccc;border-width: 8%;">
+						
             <input type="password" id="inputPassword" class="input100 @error('password') is-invalid @enderror" placeholder="Ingrese su contraseña" name="password" required autocomplete="current-password">
             @error('password')
                       <span class="invalid-feedback" role="alert">
@@ -287,22 +276,19 @@ opacity: 1"
                   @enderror
 					</div>
 
+				
+			
+ <button class="btn btn-info" type="submit" id="butr" style=" margin-top:5%; margin-left:18%; width:70%;">Entrar
+	</button>
 
-	<div class="mt-4">
-				
-				
-			  @if (Route::has('password.request'))
-				  <a class="small" href="{{ route('password.request') }}" style="top:60px; position:relative; left:150px; font-size:15px;
+	  @if (Route::has('password.request'))
+				  <a class="small" href="{{ route('password.request') }}" style="margin-top:2%;  margin-left:28%; font-size:18px;
  ">¿Olvidaste tu contraseña?</a>
 			  @endif
 
- <button class="btn btn-lg btn-primary " type="submit" id="butr" style="margin-top:60%; width: 55%;">Entrar
-	</button>
-
-	
 			
 		
-					</div>
+
 
  <!-- <div>
 
