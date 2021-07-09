@@ -1,5 +1,5 @@
 @extends('datospersonales')
-@section('titulo','Documentos Clinicos')
+@section('titulo','Documentos Clínicos')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,42 +9,7 @@
     
   
     
-    <style>
 
-
-    table {
-    width:auto;
-     height:150px;"
-    }
-
-    #upload{
-      
-       float:right; 
-   }
-
-
-   .timeline {
-  position: relative;
-  width: 900px;
-  margin: 0 auto;
-  padding-top: 50px;
-  
-   }
-
- 
-
-.timeline  div {
-  position: relative;
-  bottom: 1px;
-  width: 900px;
-  font-size:20px; font-family: Times New Roman, Times, serif;
-  padding: 15px;
- border: 2px solid #ccc;
- border: 5px solid gray;
-}
- 
-
-    </style>
 
 </head>
 <body>
@@ -66,8 +31,8 @@
             
     
               @can('create',App\Documento::class)
-              <button id="upload" onclick="location.href='/pantallainicio/vista/paciente/{{$pacientes->id}}/nuevodocumento'">
-                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <button id="upload"  class="btn btn-info" onclick="location.href='/pantallainicio/vista/paciente/{{$pacientes->id}}/nuevodocumento'">
+                  <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-bar-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
                     </svg>
                   Subir Archivos</button>
@@ -79,21 +44,22 @@
           <!-- inicia el contenido -->
         
       <div id="content" class="card-body"  >
-            <div class="timeline">
-              <table class="table table-bordered" id="datatable1" cellspacing="0">
-                  <tbody ><tr>
-                    @forelse ($pacientes->documentos as $tag)
-                    
-                        <div>
-                          <time>Fecha: {{$tag->fecha}}</time>
-                          <br>
-                          <br>
-                        <p>Odontólogo: {{$tag->odontologo->nombres}} {{$tag->odontologo->apellidos}}</p>
-                          <br>
+            <div class="card border-info mb-3" style="max-width: 60rem;">
+              @forelse ($pacientes->documentos as $tag)
 
-                          <p>Observaciones: {{$tag->observaciones}}</p>
-
-                          <a target="_blank" href="/documento/{{$tag->imagen1}}" > Descargar Archivo </a>
+            <div class="card-header text-white bg-dark mb-10" ><h4> Documento Clínico</h4></div>
+            <div class="card-body">
+              <h5 class="card-title">Paciente: {{$tag->paciente->nombres}}  {{$tag->paciente->apellidos}}</h5>
+              <p class="card-text">
+                  <time>Fecha: {{$tag->fecha}}</time><br>
+                  <p>Odontólogo: {{$tag->odontologo->nombres}} {{$tag->odontologo->apellidos}}</p>
+                          <br>
+                  <p>Observaciones: {{$tag->observaciones}}</p>
+                <a target="_blank" href="/documento/{{$tag->imagen1}}" > Descargar Archivo </a>
+              </p>
+            </div>
+            <div class="card-footer bg-transparent border-info">
+                        
                          
                           <button onclick="location.href='{{route('documento.editar',['id'=>$pacientes->id,'iddocumento'=>$tag->id])}}'"  
                             
@@ -111,30 +77,36 @@
                         </div> 
                       
                           @empty
-                          <p> No hay archivos de historial disponible</p>
+                          <p style="margin: 2em;"> No hay archivos de historial disponible   </p>
                               
                           @endforelse
-                      </tr>
-</div>
+            </div>
+          </div>
               
+       <!-- fin del contenido-->                 
+
+                          
+           
               
         
                     
 
-                    <tr>
+                    <!--Modal para eliminar-->
                           @forelse ($pacientes->documentos as $tag)
                         
                           <div class="modal fade" id="modal-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                             <div class="modal-content" style="position:absolute; left:50px; top:100px;">
-                               <div class="modal-header" style="background-color:#293d3d; color:white;  height:80px;">
-                                  <h5 class="modal-title" id="exampleModalLabel">Eliminar Documentos Clinicos</h5>
+                            <div class="modal-dialog " role="document">
+                             <div class="modal-content" style="position:absolute; top:100px;">
+                               <div class="modal-header" style="background-color:#276678; color:white;">
+                                  <h5 class="modal-title" id="exampleModalLabel"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                                                </svg>Eliminar Documentos Clínicos</h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
+                                   <!--<span aria-hidden="true">&times;</span>-->
                                   </button>
                                   </div>
                                 <div class="modal-body">
-                                ¿Desea realmente eliminar el Documento Clinico {{ $tag->imagen1}} ?
+                                ¿Desea realmente eliminar el Documento Clínico {{ $tag->imagen1}} ?
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -142,18 +114,16 @@
                                   @csrf
                                   @method('delete')
                                   <input type="submit" value="Eliminar" class="btn btn-danger">
-                                  </form>
+                                                    </form>
                                </div>
                             </div>
                             </div>
                         </div> 
                         @empty
-                          <p> No hay archivos de historial disponible</p>
+                          
                               
                           @endforelse
-                  </tr>
-            </tbody>
-          </table>
+                  
         
       
 

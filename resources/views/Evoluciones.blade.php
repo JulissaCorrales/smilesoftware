@@ -6,27 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-<style>
 
- /* #evolucion{
-  width: 200px;
-  height: 50px;
-  border-radius: 12px;
-  background-color: #F6F5F5;
-  position: relative;
-float:right;
-margin-bottom:2em;
-margin-right:2em;
-margin-top:-6.5em;
- } */
-
-textarea{
-overflow-y: scroll;
-height: 100px;
-resize: none;
-}
-
-</style>
 </head>
 <body>
 @section('cuerpo')
@@ -124,8 +104,8 @@ Evoluciones Médicas del Paciente</h3>
 <!-- fin modal para nueva evolucion -->
 
 <!-- Contenido -->
- <div class="card-body" style="margin-top:2em;">
-<div id="divtabla" class="table-responsive"  width="100%">
+ <div class="card-body" >
+<div id="divtabla" class="table-responsive"  >
 <table id="datatable" class="table table-bordered" width="100%" cellspacing="0">
   <thead>
   <th>Número</th>
@@ -139,7 +119,7 @@ Evoluciones Médicas del Paciente</h3>
       <td>  
         <p> PlanTratamiento: {{ $tag->planestratamiento->tratamiento->categoria}} <br>
           Paciente:  {{$pacientes->nombres}}  {{$pacientes->apellidos}} <br>
-        Evolucion:  <br>
+        Evolución:  <br>
          <textarea name="areaev" id="areaev"  disabled={isDibabled}> {{ $tag->evolucion}} </textarea>  
         </p>
       </td>
@@ -197,7 +177,7 @@ Evoluciones Médicas del Paciente</h3>
   <div class="modal fade" id="modaleditar-{{$tag->id}}"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document" >
           <div class="modal-content" >
-              <div class="modal-header"style="background-color:#276678; color:white;  height:60px; ">
+              <div class="modal-header"style="background-color:#276678; color:white;  ">
                   <h5 class="modal-title" id="exampleModalLabel"> <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
                   <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
@@ -214,7 +194,7 @@ Evoluciones Médicas del Paciente</h3>
                 $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
                 $mysqli->set_charset("utf8");
                 ?>
-                <textarea required id="w3review" maxlength="255" placeholder="Escriba la evolución del plan de tratamiento" name="caja" value="text" rows="4" cols="60" >{{$tag->evolucion}}</textarea>
+                <textarea required id="w3review" maxlength="255" placeholder="Escriba la evolución del plan de tratamiento" name="caja" value="text" rows="4" cols="55" >{{$tag->evolucion}}</textarea>
                 
                 <div id="disv4" style="margin-top:1em;">
                 <select class="form-control" required name="tratamiento_id" id="disv3">
@@ -257,7 +237,7 @@ Evoluciones Médicas del Paciente</h3>
 <script type="text/javascript">
 $(document).ready( function () {
     $('#datatable').DataTable( {
-    "sScrollY": "500px",
+    
     language: {
         search: "Búsqueda por nombre:",
  "decimal": "",
