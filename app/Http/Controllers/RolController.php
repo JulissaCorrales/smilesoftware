@@ -6,28 +6,29 @@ use Illuminate\Http\Request;
 use App\Role;
 use App\Permiso;
 use Illuminate\Support\Facades\Gate;
+
 class RolController extends Controller
 {
 
 
-    public function Roles(){
-        
-        if(Gate::denies('isAdmin')){
-            abort(403);
-         }
-       // $rols = Role::Paginate(1);
-$rols=Role::all();
-        return view('usuarios.VistaRol')->with ('rols',$rols);
-        
+    public function Roles()
+    {
 
+        if (Gate::denies('isAdmin')) {
+            abort(403);
+        }
+        // $rols = Role::Paginate(1);
+        $rols = Role::all();
+        return view('usuarios.VistaRol')->with('rols', $rols);
     }
 
-    public function verRoles($id){
-        if(Gate::denies('isAdmin')){
+    public function verRoles($id)
+    {
+        if (Gate::denies('isAdmin')) {
             abort(403);
-         }
-        $roles =Role::findOrFail($id);
-        return view('usuarios.VerRol')->with ('roles',$roles);
+        }
+        $roles = Role::findOrFail($id);
+        return view('usuarios.VerRol')->with('roles', $roles);
     }
 
     // public function nuevoRol(){
@@ -44,19 +45,19 @@ $rols=Role::all();
     //        $request->validate([
     //         'name'=>'required|unique:roles,Nombre',
     //         'slug'=>'required',
-        
+
     //     ]);
     //     $nuevo = new Role();
 
     //     //formulario
     //     $nuevo->Nombre = $request->input('name');
     //     $nuevo->slug = $request->input('slug');
-       
+
     //       $creado = $nuevo->save();
 
     //       $listOfPermissions = explode(',',  $request->roles_permisos); //crear matriz a partir de permisos separados/coma
-        
-         
+
+
     //     foreach ($listOfPermissions as  $permiso) {
     //          $permisos= new Permiso();
     //          $permisos->Permiso= $permiso;
@@ -67,11 +68,11 @@ $rols=Role::all();
     //          $nuevo->save();
     //     }    
 
-        
 
-    
-      
-      
+
+
+
+
     //      if ($creado){
     //         // return redirect('pantallainicio/usuarios/ver')->with('mensaje', 'El usuario fué creado exitosamente!');
     //         return back()->with('mensaje', 'El Rol fué creado exitosamente!');
@@ -79,47 +80,43 @@ $rols=Role::all();
     //         //retornar con un msj de error
     //     } 
     // }
-    public function editarRol($id){
-        if(Gate::denies('isAdmin')){
+    public function editarRol($id)
+    {
+        if (Gate::denies('isAdmin')) {
             abort(403);
-         }
+        }
         $roles = Role::findOrFail($id);
-        return view('usuarios.editarRol')->with('roles',$roles);
-
+        return view('usuarios.editarRol')->with('roles', $roles);
     }
-    public function update(Request $request,$id){
-        if(Gate::denies('isAdmin')){
+    public function update(Request $request, $id)
+    {
+        if (Gate::denies('isAdmin')) {
             abort(403);
-         }
+        }
         $request->validate([
             'rol'                     =>  'required|regex:/^[\pL\s\-]+$/u|max:255',
             'slug'           =>  'required|regex:/^[\pL\s\-]+$/u|max:255',
         ]);
-    
-        $roles=Role::findOrFail($id);
+
+        $roles = Role::findOrFail($id);
         //formulario
-        $roles->Nombre= $request->input('rol');
-        $roles->slug= $request->input('slug');
-    
+        $roles->Nombre = $request->input('rol');
+        $roles->slug = $request->input('slug');
+
         $actualizado = $roles->save();
-        $roles->permisos()->delete();
-        $roles->permisos()->detach();
-        $listOfPermissions = explode(',',  $request->roles_permisos); //crear matriz a partir de permisos separados/coma
-        
-         
-        foreach ($listOfPermissions as  $permiso) {
-             $permisos= new Permiso();
-             $permisos->Permiso= $permiso;
-             $permisos->slug= strtolower(str_replace(" ", "-",  $permiso));
-             $permisos->save();
-             $roles->permisos()->attach($permisos->id);
-             $actualizado = $roles->save();
-        }  
-        if ($actualizado){
-            return redirect()->back()->with('mensaje','¡¡El Rol Fué Modificado Exitosamente!!');
-        }else{ 
+        // $roles->permisos()->delete();
+        // $roles->permisos()->detach();
+
+
+ 
+
+        $roles->permisos()->sync($request->input('roles_permisos'));
+        $actualizado = $roles->save();
+
+        if ($actualizado) {
+            return redirect()->back()->with('mensaje', '¡¡El Rol Fué Modificado Exitosamente!!');
+        } else {
         }
-    
     }
     // public function borrar($id){
     //     if(Gate::denies('isAdmin')){
@@ -129,14 +126,14 @@ $rols=Role::all();
     //     $roles->permisos()->delete();
     //     $roles->delete();
     //     $roles->permisos()->detach();
-        
+
     //     return redirect()->back()->with('mensaje','Rol borrado satisfactoriamente');
 
 
-       
+
     // }
 
-    
+
 
 
 
