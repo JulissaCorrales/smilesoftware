@@ -282,7 +282,7 @@ opacity: 1"
 	</button>
 
 	  @if (Route::has('password.request'))
-				  <a class="small" href="{{ route('password.request') }}" style="margin-top:2%;  margin-left:28%; font-size:18px;
+				  <a class="small" href="{{ route('password.request') }}" style="margin-top:2%;  margin-left:29%; font-size:18px;
  ">¿Olvidaste tu contraseña?</a>
 			  @endif
 

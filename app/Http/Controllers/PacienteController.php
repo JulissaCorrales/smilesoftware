@@ -56,7 +56,7 @@ class PacienteController extends Controller
         'ciudad'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
         'direccion'=>'required|max:255',
         // 'telefonoFijo'=>'required|numeric|digits:8',
-        'telefonoCelular'=>'required|numeric|digits:8|unique:pacientes',
+        //'telefonoCelular'=>'required|numeric|digits:8|unique:pacientes',
         
         'observaciones'=>'|max:255'
 

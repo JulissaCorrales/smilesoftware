@@ -1,4 +1,4 @@
-@extends('datospersonales')
+@extends('Plantilla.datospersonales')
 @section('titulo','Comentarios Administrativos')
 @section('cuerpo')
 @can('create',App\Comentario::class)

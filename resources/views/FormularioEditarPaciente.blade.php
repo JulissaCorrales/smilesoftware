@@ -1,15 +1,9 @@
-@extends('datospersonales')
+@extends('Plantilla.datospersonales')
 @section('titulo','EditarPaciente')
 @section('cuerpo') 
 
 @canany(['isAdmin','isSecretaria','isOdontologo'])
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-</head>
+
 <body id="page-top">
 <div>@if(session('mensaje'))
     <div class="alert alert-success">
@@ -34,23 +28,24 @@
         
     </div>
 @endif</div>
+
+
+
  <div class="card mb-3">
   <div class="card-header">
-           <h4><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-badge-fill" viewBox="0 0 16 16">
-            <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
-          </svg>Editar Datos del Pacientes</h4>
-          <p>En esta ventana  muestra los pacientes que se han registrado  en la clínica, <br> en esta misma se podrá crear un nuevo paciente, editar información, eliminar el paciente.</p>
+           <h4> <img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/editar.png') }}"  id="logo1" width="3%;" height="3%"><b>Editar Datos Personales del Paciente:</b>   {{$pacientes->nombres}} {{$pacientes->apellidos}}</h4>
+          <p>En esta sección se puede editar los datos personales del Paciente.</p>
       </div>
   <div class="card-body">
       
       <table  style=" border-spacing: 5px;">
-            <form method="post" action="{{route('paciente.update',['id'=> $pacientes-> id])}} " file="true" enctype="multipart/form-data"   id="scroll"  class="row g-3">
+            <form method="post" action="{{route('paciente.update',['id'=> $pacientes-> id])}} " file="true" enctype="multipart/form-data"   id="scroll"  class="row g-3" >
                       @csrf
                       @method('put')
-                      <div class="row">
+                      <div class="row" style=" margin:25px;">
                       <div class="col-md-6" >
                         <label for="nombres" class="form-label " > Nombres: </label>
-                        <input required type="text" class="form-control " style="font-size:18px; font-family: Times New Roman, Times, serif;" name="nombres" id="nombres" placeholder="ingresar nombre del paciente"  value="{{ $pacientes->nombres }}" >
+                        <input required type="text" class="form-control " style="font-size:18px; font-family: Times New Roman, Times, serif; " name="nombres" id="nombres" placeholder="ingresar nombre del paciente"  value="{{ $pacientes->nombres }}" >
                        </div>
 
                      
@@ -59,10 +54,10 @@
                           <input required type="text" class="form-control " name="apellidos" id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $pacientes->apellidos }}">
                         </div>
                       </div>
-                     <div class="row">
+                     <div class="row" style=" margin:25px;">
                       <div class="col-md-6">
                         <label for="identidad" class="form-label " >Identidad:</label>                
-                        <input required type="number"style="font-size:18px; font-family: Times New Roman, Times, serif;" class="form-control " name="identidad" id="identidad" placeholder="ingresar identidad del paciente" maxlength="13"value="{{ $pacientes->identidad }}">
+                        <input required type="number"style="font-size:18px; font-family: Times New Roman, Times, serif;" class="form-control " name="identidad" id="identidad" placeholder="Ingresar identidad del paciente" maxlength="13"value="{{ $pacientes->identidad }}">
                         </div>
 
                       <div class="col-md-6">
@@ -76,11 +71,11 @@
                           </div>
                        </div>
 
-                      <div class="row">
+                      <div class="row" style=" margin:25px;">
                       <div class="col-md-6">
                         <label for="fechaNacimiento" class="form-label " >Fecha de Nacimiento:</label>
                       
-                        <input type="date" required class="form-control " name="fechaNacimiento" id="fechaNacimiento" placeholder="ingresar fecha de nacimiento del paciente"  value="{{ $pacientes->fechaNacimiento }}">
+                        <input type="date" required class="form-control " name="fechaNacimiento" id="fechaNacimiento" placeholder="Ingresar Fecha de nacimiento del paciente"  value="{{ $pacientes->fechaNacimiento }}">
                         </div>
                       
 
@@ -111,7 +106,7 @@
                           </select>
                           </div>
                       </div>
-                      <div class="row">
+                      <div class="row" style=" margin:25px;">
                       <div class="col-md-6">
                         <label for="ciudad" class="form-label ">Ciudad:</label>
 
@@ -126,7 +121,7 @@
                           </div>
                       </div>
 
-                       <div class="row">
+                       <div class="row" style=" margin:25px;">
                       <div class="col-md-6">
                         <label for="telefonoCelular" class="form-label ">Número Teléfonico:</label>
 
@@ -142,13 +137,15 @@
                           </div>
                     
                      </div>
-                    <div class="row" style="margin-top:1em;">
+
+                    <div class="row" style=" margin:25px;">
                      <div class="col-md-6">
                          <label  class=" form-label">Cambie la foto de perfil aquí:</label>
                         <input accept="image/*" type="file" class="form-control-file" name="file" id="imagen" placeholder="Seleccione una Imagen">
                         </div>
                         
                      </div>
+
                       <div class="modal-footer" >
                       @canany('update',$pacientes)
                         
@@ -157,7 +154,8 @@
                           <button type="submit" class="btn btn-primary" style="background-color:#276678; " >Guardar Paciente</button>
                       
                    @endcan</div>
-                      <div class="card-footer"></div>
+
+                      
 <!-- El siguiente script es para que la foto de perfil solo acepte imagenes -->
         <script type="text/javascript">
                     (function(){
@@ -213,8 +211,5 @@
    </div>           
 
 </body>
-
-
-</html>
 @endcanany
 @endsection 
