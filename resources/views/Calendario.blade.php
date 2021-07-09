@@ -111,9 +111,8 @@ border-color: #b3ffff;
 .fc-event{
 background-image: linear-gradient(to bottom,  #d1e0e0 ,#d1e0e0);
 color:#1f2e2e;
-height: 40px;
 border-color:white;
-height:60px;
+height: 64px;
 font-weight: 600;
 
 
@@ -211,13 +210,13 @@ font-weight: 600;
 <div class="container">
 
 </div>
-<div class=row id="app">
+<div  id="app">
   <div>
     <div   id="calendar"> 
         <calendar  :events="events" :editable="true" id="cal"></calendar>
     </div> 
   </div>
-  <div class="col"></div>
+  
 </div>
 <!-- Modal -->
 <div class="modal"  id="modalejemplo" tabindex="-1" role="dialog">
@@ -444,7 +443,7 @@ console.log(event)
 
 if (self.editable)
 {
-args.editable = true;
+args.editable = false;
 args.eventResize = function(event)
 {
 self.$dispatch('event::resized', event);
@@ -458,7 +457,7 @@ self.$dispatch('event::dropped', event);
 
 if (self.droppable)
 {
-args.droppable = true;
+args.droppable = false;
 args.eventReceive = function(event)
 {
 self.$dispatch('event::received', event);
@@ -480,8 +479,8 @@ events: [
 foreach($sth as $fila){
 ?>
 {
-title:"<?php echo $fila["nombres"];?>"  ,
- start: "<?php echo $fila["stard"]; ?>", 
+title:"<?php echo "Cita:" ." ".$fila["nombres"];?>"  ,
+ start: "<?php echo  $fila["stard"]; ?>", 
 
 end: " " 
 
@@ -506,13 +505,6 @@ console.log(date);
 
 
 
-<div style="position:static;"  id='hijo'>
-<div >
-@yield('cuerpo')
-</div>
-
-
-</div>
 @include('darcita')
 <!-- script para que textarea de cita se adecue al texto que se va ingresando -->
 <script>
