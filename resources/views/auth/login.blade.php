@@ -220,29 +220,20 @@ margin-left: 4px;
 	
 	<div class="limiter">
 		<div class="container-login100" style="position:absolute; top:-3px;">
-			<div class="" style="background-image: url('../assets/img/fondo21.jpg');  background-repeat: no-repeat;
+			<div class="" style="background-image: url('../assets/img/pantalla3.jpg');  background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   width: calc(100% - 520px);
   position: relative;
-  z-index: 1;"> 
+  z-index: 1;
+opacity: 1"
+> 
+
 
 
 
 <?php $logotipos=App\Logotipo::where('id','=',1)->get();?>
-                        @forelse($logotipos  as $tag)
-                    <img  style="   border-radius: 90%;  position:absolute; left: 400px; top: 230px;"class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="100px" height="70px">
-                    @empty
-                    <img  style="  border-radius: 90%;  position:absolute; left: 400px; top: 230px;" class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  width="100px" height="100px"> 
-                    @endforelse
-            
-<div style=" position:absolute; top: 250px; left:250px;">
-				<h3 style="color: #d6f5f5; position:absolute; 
-                     text-shadow: 4px 0 #ffb31a, 0 4px #ffb31a, 4px 0 #ffb31a, 0 4px #ffb31a;font-family: Cursive ;left: 80px; top: -120px;font-size: 80px;">Smile</h3>
-				<h3 style="color: #d6f5f5; position:absolute;
-                     text-shadow: 4px 0 #ffb31a, 0 4px #ffb31a, 4px 0 #ffb31a, 0 4px #ffb31a;font-family: cursive ;left: 30px; top: 70px;font-size: 70px;">Software</h3>
-
-	</div>
+    
 
  
   </div>
@@ -250,7 +241,7 @@ margin-left: 4px;
   
 
 
-			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50" style=" background-image: linear-gradient(to bottom, #ffeecc ,#e6ffff );">
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50" style=" background-image: linear-gradient(to left,   #b3cccc , #d3e0ea);">
 				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
 				@csrf
 					<span class="login100-form-title p-b-59" style="text-shadow: 2px 0 #ffb31a, 0 2px #ffb31a, 2px 0 #ffb31a, 0 2px #ffb31a;">
@@ -266,7 +257,11 @@ margin-left: 4px;
                             {{ session('status') }}
                         </div>
                     @endif
-
+     @forelse($logotipos  as $tag)
+                    <img  style="    margin-left: 28%; " class="logo" id="imlogoactual"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" width="50%" height="50%">
+                    @empty
+                    <img  style="   margin-left: 28%;" class="logo" src="{{ asset('Imagenes/logo4.jpg') }}" class="mr-3"  width="100px" height="100px"> 
+                    @endforelse
 					
 
 					<div  class="wrap-input100 validate-input" data-validate="name is required">
@@ -295,19 +290,18 @@ margin-left: 4px;
 
 	<div class="mt-4">
 				
-				<div class="container" >
+				
 			  @if (Route::has('password.request'))
-				  <a class="small" href="{{ route('password.request') }}" style="position:absolute; top: 380px; left:250px; font-family: FontAwesome;
-  font-size: 13px;">¿Olvidaste tu contraseña?</a></div>
+				  <a class="small" href="{{ route('password.request') }}" style="top:60px; position:relative; left:150px; font-size:15px;
+ ">¿Olvidaste tu contraseña?</a>
 			  @endif
 
- <button class="btn btn-lg btn-primary " type="submit" id="butr" style="position:absolute; width: 350px; top:400px; left:90px;">Entrar
+ <button class="btn btn-lg btn-primary " type="submit" id="butr" style="margin-top:60%; width: 55%;">Entrar
 	</button>
 
 	
-			<img class="logo" src="assets/img/muela.png" class="mr-3" id="logo1" style="position:absolute;  left: 260px; top: 450px; width: 250px;
-  height: 170px; "> 
-		</div>
+			
+		
 					</div>
 
  <!-- <div>

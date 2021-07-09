@@ -130,8 +130,8 @@ class PacienteController extends Controller
         
         } 
             $request->validate([
-            'nombres'=>'required|regex:/^[\pL\s\-]+$/u|max:255',
-            'apellidos'=>'required|regex:/^[\pL\s\-]+$/u|max:255',
+            'nombres'=>'required|regex:/^[\pL\s\-]+$/u|max:60',
+            'apellidos'=>'required|regex:/^[\pL\s\-]+$/u|max:60',
             'identidad'=>['required', 'numeric', 'digits:13'],
             'sexo'=>'required|alpha|in:Femenino,Masculino',
             'fechaNacimiento'=>'required|date|before:today',

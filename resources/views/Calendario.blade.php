@@ -474,13 +474,8 @@ events: [
 foreach($sth as $fila){
 ?>
 {
-<<<<<<< HEAD
-title:"<?php echo "Cita:" ." ".$fila["nombres"];?>"  ,
+title:"<?php echo "Cita:" ." ".$fila["id"];?>"  ,
  start: "<?php echo  $fila["stard"]; ?>", 
-=======
-title:"<?php echo "Cita ". $fila["id"]; ?>",
- start: "<?php echo $fila["stard"]; ?>", 
->>>>>>> b92b2e6fbf9aa9edcb5aca02e664f4f291785b34
 
 end: " " 
 

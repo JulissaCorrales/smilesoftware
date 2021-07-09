@@ -60,11 +60,11 @@
                         
                             <tr >
                                 <!-- Paciente -->
-                                <td>@can('update',$cita->paciente) <a href="{{route('paciente.editar',['id'=>$cita->paciente->id])}}">@endcan{{$cita->paciente->nombres}} {{$cita->paciente->apellidos}} </td>
+                                <td >@can('update',$cita->paciente) <a href="{{route('paciente.editar',['id'=>$cita->paciente->id])}}" style="color:#293d3d;">@endcan{{$cita->paciente->nombres}} {{$cita->paciente->apellidos}} </td>
 
 <td> Teléfono  Fijo:{{$cita->paciente->telefonoFijo}} <br>Teléfono  Celular: {{$cita->paciente->telefonoCelular}} </td>
                                 <!-- Odontologo -->
-                                <td>@can('view',$cita->odontologo) <a href="{{route('odontologo.vista',['id'=>$cita->odontologo->id])}}">@endcan{{$cita->odontologo->nombres}} {{$cita->odontologo->apellidos}}</td>
+                                <td>@can('view',$cita->odontologo) <a href="{{route('odontologo.vista',['id'=>$cita->odontologo->id])}}" style="color:#293d3d;">@endcan{{$cita->odontologo->nombres}} {{$cita->odontologo->apellidos}}</td>
                                 <!-- Fecha -->
                                 <td>{{$cita->stard}}</td>
    <td width="">
