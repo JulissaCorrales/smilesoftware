@@ -108,7 +108,7 @@ class RolController extends Controller
         // $roles->permisos()->detach();
 
 
-
+ 
 
         $roles->permisos()->sync($request->input('roles_permisos'));
         $actualizado = $roles->save();
