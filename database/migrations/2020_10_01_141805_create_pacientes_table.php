@@ -23,7 +23,7 @@ class CreatePacientesTable extends Migration
             $table->string('departamento');
             $table->string('ciudad');
             $table->string('direccion');
-            $table->string('telefonoCelular')->unique();
+            $table->string('telefonoCelular');
             $table->string('observaciones')->nullable(true);
             $table->string('imagen')->default('avatar1.png');
 

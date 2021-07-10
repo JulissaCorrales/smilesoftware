@@ -138,7 +138,7 @@ class PacienteController extends Controller
             'departamento'=>'required|regex:/^[\pL\s\-]+$/u|max:255',
             'ciudad'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
             'direccion'=>'required|max:255',
-            'telefonoCelular'=>'required|numeric|digits:8|unique:pacientes',
+            'telefonoCelular'=>'required|numeric|digits:8',
             'observaciones'=>'max:255'
            
         ]);
