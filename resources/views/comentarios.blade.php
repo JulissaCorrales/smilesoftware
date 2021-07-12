@@ -64,7 +64,9 @@
           $mysqli->set_charset("utf8");
           ?>
       <div class="form-group">
-        <textarea required id="w3review" name="caja" value="text" rows="4" cols="52" placeholder="Ingresar el  Comentario Administrativo del Paciente" ></textarea>
+        <textarea required id="w3review" style="border: 2px solid #765942;
+	border-radius: 10px;
+	"  name="caja" value="text" rows="4" cols="52" placeholder="Ingresar el  Comentario Administrativo del Paciente" ></textarea>
         
        </div>
       </div>
