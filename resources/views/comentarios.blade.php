@@ -110,6 +110,34 @@
                                             <path d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z"/>
                                             </svg></button>
                                         @endcan
+
+
+        <?php 
+
+try
+{
+  $mbd = new PDO('mysql:host=127.0.0.1;dbname=smilesoftware', "root", "");
+  $sth= $mbd->query('
+
+SELECT p.nombres,p.apellidos , c.comentarios AS comentario
+FROM comentarios c
+JOIN  pacientes p ON  p.id= c.paciente_id
+
+WHERE p.id= c.paciente_id;
+');
+  //foreach($sth as $fila){
+  //echo $fila["odontologo_id"];
+  //echo "<br>";
+  //}
+
+
+}
+catch(Exception $e)
+{
+        echo "no conectado";
+}
+
+ ?>
                                           <!-- -->
                                         <!--modal de editar comentario Administrativo -->
                                     <div class="modal fade" id="modall-{{$ver->id}}"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -128,9 +156,21 @@
                                                             @csrf
                                                             @method('put')
                                                   
-                                                <input required type="text"  class="form-control-file" name="caja"  value="{{ $ver->comentarios }}"  rows="4" cols="100">
+                                              <!--  <input required type="text"  class="form-control-file" name="caja"  value="{{ $ver->comentarios }}"  rows="4" cols="100"> -->
 
-                                                <div class="modal-footer" >
+<?php 
+      
+    
+      foreach($sth as $fila){
+?>
+                                                 <textarea required id="w3review" style="border: 2px solid #765942;
+	border-radius: 10px;
+	"  name="caja" value="text" rows="4" cols="52" placeholder="<?php echo "Comentario Administrativo Actual:". $fila["comentario"]; ?>" ></textarea>
+                                                
+<?php }  ?>
+<div class="modal-footer" >
+
+
                                         <button type="submit" class="btn btn-primary"  >Guardar </button>
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal"  >Cerrar</button>
                                         </div>
