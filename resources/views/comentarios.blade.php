@@ -165,9 +165,13 @@ catch(Exception $e)
 ?>
                                                  <textarea required id="w3review" style="border: 2px solid #765942;
 	border-radius: 10px;
-	"  name="caja" value="text" rows="4" cols="52" placeholder="<?php echo "Comentario Administrativo Actual:". $fila["comentario"]; ?>" ></textarea>
+	"  name="caja" value="text" rows="4" cols="52"  ><?php echo  $fila["comentario"]; ?></textarea>
                                                 
 <?php }  ?>
+
+
+   
+   
 <div class="modal-footer" >
 
 
@@ -235,6 +239,23 @@ catch(Exception $e)
 
 
 </body>
+
+
+<script>
+
+<?php 
+      
+    
+      foreach($sth as $fila){
+?>
+  function textarea() {
+    document.getElementById('story').value =' <?php echo "Comentario Administrativo Actual:". $fila["comentario"]; ?>';
+}
+
+
+<?php }  ?>
+
+</script>
 <script type="text/javascript">
 $(document).ready( function () {
     $('#datatable').DataTable( {
