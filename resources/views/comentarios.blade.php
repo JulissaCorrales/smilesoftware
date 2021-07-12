@@ -2,12 +2,7 @@
 @section('titulo','Comentarios Administrativos')
 @section('cuerpo')
 @can('create',App\Comentario::class)
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    
-</head>
+
 <body id="page-top">
 
         @if($errors->any())
@@ -31,22 +26,23 @@
             <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
             </svg> Comentarios Administrativos</h4>
             
-            
+             @can('create',App\Comentario::class)
+            <button style=" position: relative; margin: 5px;"   data-toggle="modal" data-target="#create" type="button"  class="btn btn-outline-info">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
+            </svg>Agregar Comentario</button> 
+                        @endcan
             
           
         </div>
 
     
         <div class="card-body">
-
+         
 <!-- Booton de agregar Comentario Administrativo-->
-            @can('create',App\Comentario::class)
-            <button style=" position: relative; margin: 5px;"   data-toggle="modal" data-target="#create" type="button"  class="btn btn-outline-info">
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
-            </svg>Agregar Comentario</button> 
-                        @endcan
+            
             <div class="table-responsive">
+
 
 
 
@@ -54,7 +50,7 @@
 <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header" style="background-color:#276678; color:white;">
+      <div class="modal-header" style="background-color: #d3e0ea;color:black;">
         <h5 class="modal-title" id="exampleModalLabel">Crear Comentario Administrativo</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -68,7 +64,7 @@
           $mysqli->set_charset("utf8");
           ?>
       <div class="form-group">
-        <textarea required id="w3review" name="caja" value="text" rows="4" cols="52" placeholder="ingresar comentario  del paciente" ></textarea>
+        <textarea required id="w3review" name="caja" value="text" rows="4" cols="52" placeholder="Ingresar el  Comentario Administrativo del Paciente" ></textarea>
         
        </div>
       </div>
@@ -84,13 +80,15 @@
   </div>
 </div>
 
+</form>
+
 
                 <!-- Tabla de comentarios administrativos -->
 
                 <table id="datatable" class="table table-bordered"  width="100%" cellspacing="0">
                     <thead>
                             <tr style="font-family: Times New Roman, Times, serif; ">
-                                <th >#</th>
+                              
                                 <th >Comentarios Administrativos</th>
                                 <th >Acción</th>
                                 </tr>
@@ -99,7 +97,7 @@
                     <tbody >
                                 @forelse($pacientes->comentarios as $ver)
                                 <tr >
-                                     <td> {{$ver->id}}</td>
+                                     
                                     <td>{{$ver->comentarios}}</td>
                     
                                     <td>
@@ -115,7 +113,7 @@
                                     <div class="modal fade" id="modall-{{$ver->id}}"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document" >
                                             <div class="modal-content" style="position:absolute; left:50px; top:100px;">
-                                                <div class="modal-header"style="background-color:#276678; color:white;  height:80px; ">
+                                                <div class="modal-header"style="background-color: #d3e0ea; color:black;  height:80px; ">
                                                     <h5 class="modal-title" id="exampleModalLabel"> <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
                                                 </svg> Editar el Comentario Administrativo</h5>
@@ -127,7 +125,7 @@
                                                 <form method="POST" action="{{route('comentario.update',['id'=>$pacientes->id,'id2'=>$ver->id])}}">
                                                             @csrf
                                                             @method('put')
-
+                                                  
                                                 <input required type="text"  class="form-control-file" name="caja"  value="{{ $ver->comentarios }}"  rows="4" cols="100">
 
                                                 <div class="modal-footer" >
@@ -151,7 +149,7 @@
                                 <div class="modal fade" id="modal-{{$ver->id}}"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document" style="background-color:#f2e6ff;  position: absolute; left: 480px; top:190px; ">
                                         <div class="modal-content">
-                                            <div class="modal-header"  style="background-color:#276678; color:white;  height:60px; ">
+                                            <div class="modal-header"  style="background-color: #d3e0ea; color:black;  height:60px; ">
                                                 <h5 class="modal-title" id="exampleModalLabel">
                                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
                                                 </svg> Eliminar el Comentario Administrativo </h5>
