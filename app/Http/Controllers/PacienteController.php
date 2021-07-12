@@ -90,7 +90,7 @@ class PacienteController extends Controller
 
         $create = $pacientes->save();
         if($create){
-            return redirect()->back()->with('mensaje','El paciente ha sido modifcado exitosamente');
+            return redirect()->back()->with('mensaje','El paciente ha sido modificado exitosamente');
         }else{
 
         }

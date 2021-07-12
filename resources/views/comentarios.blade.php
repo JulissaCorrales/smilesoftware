@@ -15,7 +15,7 @@
                 </div>
             @endif
             @if(session('mensaje'))
-                <div class="alert alert-success" style="position:absolute; top: 200px; left: 455px;">
+                <div class="alert alert-success" >
                     {{session('mensaje')}}
                 </div>
             @endif
