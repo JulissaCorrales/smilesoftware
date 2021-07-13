@@ -8,13 +8,11 @@
     <style>
     #todo{
       margin:4em;
-        width:800px;
-      border: 5px solid gray;
+        width:auto;
+      border: 1px solid gray;
         padding:2em;
-        font-family: arial; 
-position:absolute;
-left:400px;
-top: 100px;
+position:relative;
+
     }
     h2{
       text-align:center;
@@ -93,7 +91,7 @@ top: 100px;
               
 
               <div class="modal-footer">
-              <button type="button" onclick="location.href='{{route('imagenesYarchivos.ver',['id'=>$pacientes->id])}}'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+              <a type="button" href="{{route('imagenesYarchivos.ver',['id'=>$pacientes->id])}}"class="btn btn-secondary" data-dismiss="modal">Atrás</a>
               <input type="reset" class="btn btn-danger">
             <button type="submit" class="btn btn-primary" >Guardar Archivo</button>
           </div>

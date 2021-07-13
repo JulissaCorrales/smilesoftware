@@ -19,11 +19,7 @@ class PacienteController extends Controller
         return view('vistapaciente')->with ('pacientes',$pacientes);
     }
 
-    //Nuevo Paciente acceso el admin o si la secretaria o odontologo tiene el permiso
-    public function nuevo(){
-        $this->authorize('create', Paciente::class);
-        return view('nuevopaciente');
-    }
+ 
 
 
     //Fichero Paciente acceso admin,secretaria,odontologo

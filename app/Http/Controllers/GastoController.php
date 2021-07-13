@@ -49,12 +49,13 @@ class GastoController extends Controller
         return redirect()->back()->with('mensaje','Gasto borrado satisfactoriamente');
     }
 
+    // Ya esta en modal asi que ya no es necesaria
     /* funcion para poder editar un gasto */
-    public function editar($id){
-        $gastos=Gasto::findOrFail($id);
-        $this->authorize('update', $gastos);//si tiene el permiso de actualizar:
-        return view('editargasto')->with('gastos',$gastos);
-    }
+    // public function editar($id){
+    //     $gastos=Gasto::findOrFail($id);
+    //     $this->authorize('update', $gastos);//si tiene el permiso de actualizar:
+    //     return view('editargasto')->with('gastos',$gastos);
+    // }
     public function update(Request $request,$id){
         $request->validate([
             'categoria'     =>  'required||regex:/^[\pL\s\-]+$/u|max:255',

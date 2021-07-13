@@ -31,12 +31,6 @@ public function destroy($id){
 
 
 
-public function nuevo(){
-    $this->authorize('create', Mediopago::class); //si tiene el permiso de crear:
-    return view('mediopagonuevo');
-
-}
-
 public function guardar(Request $request){
     $this->authorize('create', Mediopago::class); //si tiene el permiso de crear:     
     $request->validate([
@@ -58,14 +52,6 @@ public function guardar(Request $request){
 
 }
 
-
-public function editar($id){  
-   
-    $mediopagos=Mediopago::findOrFail($id);
-    $this->authorize('update', $mediopagos); //si tiene el permiso de editar:
-    return view('editarmediopago')->with('mediopagos',$mediopagos);
-
-}
 
 
 public function update(Request $request,$id){

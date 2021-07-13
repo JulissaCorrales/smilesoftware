@@ -13,10 +13,7 @@ class laboratorioController extends Controller
         return view('VistaLaboratorio')->with ('laboratorios',$laboratorios);
     }
 
-    public function nuevo(){
-        $this->authorize('create',Laboratorio::class);
-        return view('LaboratorioNuevo');
-    }
+ 
 
     public function guardar(Request $request){
         $this->authorize('create',Laboratorio::class);
@@ -40,13 +37,6 @@ class laboratorioController extends Controller
     
     }
 
-    public function editar($id){  
-   
-        $labs=Laboratorio::findOrFail($id);
-        $this->authorize('update', $labs);/* si tiene el permiso de editar */
-        return view('EditarLaboratorio')->with('labs',$labs);
-    
-    }
 
 
     public function actualizar(Request $request,$id){
