@@ -211,19 +211,6 @@
 </body>
 
 
-<script>
-
-<?php 
-      
-    
-      foreach($sth as $fila){
-?>
-  function textarea() {
-    document.getElementById('story').value =' <?php echo "Comentario Administrativo Actual:". $fila["comentario"]; ?>';
-}
-
-
-<?php }  ?>
 
 </script>
 <script type="text/javascript">
