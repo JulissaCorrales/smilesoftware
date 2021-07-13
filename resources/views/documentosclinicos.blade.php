@@ -1,4 +1,4 @@
-@extends('datospersonales')
+@extends('Plantilla.datospersonales')
 @section('titulo','Documentos Clínicos')
 <!DOCTYPE html>
 <html lang="en">

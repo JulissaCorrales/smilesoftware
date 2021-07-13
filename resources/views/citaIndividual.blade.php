@@ -1,4 +1,4 @@
-@extends('datosPersonales')
+@extends('Plantilla.datosPersonales')
 @section('cuerpo')
 <!DOCTYPE html>
 @section('titulo','Cita Indivual del Paciente')

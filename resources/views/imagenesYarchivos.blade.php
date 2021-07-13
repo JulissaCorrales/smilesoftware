@@ -1,26 +1,68 @@
-@extends('datospersonales')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @section('titulo','Imagenes Cinicas del paciente')
+@extends('Plantilla.datospersonales')
+
+ @section('titulo','Imagenes Cinicas del paciente')
+
+
+    @section('cuerpo')
   
+  <head>
+ 
     <style>
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700|Oswald:400,300,700);
+
+#vPrincipal{
+    width:auto;
+    font-size:15px;
+    margin: 5rem;
+    padding: 2rem;
+    
+    position: absolute;
+  left: 330px;
+  
+  width: 900px;
+  top: 150px;
+   height:500px;
+
+    }
+
+    .vPrincipal{
+      border-style: groove;
+      width: 1100px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0;
+  font-size:15px;
+  
+    }
+
+    
+
+  
+
+    .content{
+      border-style: groove;
+    }
+
+    @import url(
+  https://fonts.googleapis.com/css?family=Source + Sans + Pro:200,
+  300,
+  400,
+  600,
+  700|Oswald:400,
+  300,
+  700
+);
 body {
-  background: #e3e3e3;
   font-size: 16px;
 }
 strong {
-  font-weight: 600;
+  font-weight: 500;
 }
 h1 {
+  font-family: "Oswald", sans-serif;
   letter-spacing: 1.5px;
   color: #333333;
   font-weight: 100;
-  font-size: 2.4em;
+  font-size: 20px;
 }
 #content {
   margin-top: 50px;
@@ -33,6 +75,7 @@ h1 {
   border-top-right-radius: 4px;
   background: rgba(255, 255, 255, 0.03);
   color: #333;
+  font-family: "Source Sans Pro", sans-serif;
   margin: 50px auto;
   letter-spacing: 0.5px;
   position: relative;
@@ -47,6 +90,7 @@ h1 {
 .timeline h1,
 .timeline h2,
 .timeline h3 {
+  font-family: "Oswald", sans-serif;
   letter-spacing: 1.5px;
   font-weight: 100;
   font-size: 1.4em;
@@ -80,7 +124,7 @@ h1 {
 .timeline .event:after {
   box-shadow: 0 0 0 4px #169eda;
   left: -57.85px;
-  background: #169eda;
+  background: #91c740;
   border-radius: 50%;
   height: 11px;
   width: 11px;
@@ -88,7 +132,6 @@ h1 {
   top: 5px;
 }
 @media (max-width: 800px) {
-
   .timeline .event:before {
     left: -0.5px;
     top: 28px;
@@ -103,35 +146,22 @@ h1 {
     min-width: 120px;
   }
   .timeline .event p {
-      top: 27px;
-      padding: 10px 0px 10px 0px;
-      position: relative;
+    top: 27px;
+    padding: 10px 0px 10px 0px;
+    position: relative;
   }
 }
 
-/*******/
-.mfp-img {
-  cursor: pointer;
-}
-.mfp-force-scrollbars {
-  &.mfp-wrap {
-    overflow-y: auto !important;
-    overflow-x: auto !important;
-  }
-  .mfp-img {
-    max-width: none;
-  }
-  .mfp-close {
-    position: fixed;
-  }
-}
 
-</style>
+  </style>
+
 
 </head>
+
+
 <body id="page-top">
 
-    @section('cuerpo')
+  
   
     
 @if ($errors->any())
@@ -162,15 +192,12 @@ h1 {
             
           
               @canany(['isAdmin','isOdontologo'])
-          
-                
-                <button id="upload" onclick="location.href='/pantallainicio/vista/paciente/{{$pacientes->id}}/nuevoarchivo'" style=" position: absolute; left: 920px; top:  85px;"class="btn btn-outline-info">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
-                      </svg>
-                    Subir Archivos</button> 
-                  
-               @endcanany
+            <button class="btn btn-outline-info" onclick="location.href='/pantallainicio/vista/paciente/{{$pacientes->id}}/nuevoarchivo'" >
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
+                  </svg>
+                Subir Archivos</button>
+                @endcanany
            </div>
 
           <!--fin de tarjeta -->
@@ -242,7 +269,7 @@ h1 {
     </li>
    @empty
 
-  <p> En este momento no existen imagenes historial disponible</p>
+  <p> En este momento no existen imagenes en el historial.</p>
               
   @endforelse
 

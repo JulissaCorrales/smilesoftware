@@ -1,4 +1,4 @@
-@extends('datospersonales')
+@extends('Editar.datospersonales')
 
 @section('titulo','Edición de Alertas')
 @section('cuerpo')

@@ -1,4 +1,4 @@
-@extends('datospersonales')
+@extends('Plantilla.datospersonales')
 
 <!DOCTYPE html>
 <html lang="en">
