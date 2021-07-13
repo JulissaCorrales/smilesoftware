@@ -22,11 +22,11 @@ class ArchivoController extends Controller
         }
     }
 
-    public function nuevo($id){
-        $this->authorize('create', Archivo::class);
-        $pacientes = Paciente::findOrFail($id);
-        return view('formularioImagenesYarchivos',compact('pacientes'));
-    }
+    // public function nuevo($id){
+    //     $this->authorize('create', Archivo::class);
+    //     $pacientes = Paciente::findOrFail($id);
+    //     return view('formularioImagenesYarchivos',compact('pacientes'));
+    // }
 
     
 

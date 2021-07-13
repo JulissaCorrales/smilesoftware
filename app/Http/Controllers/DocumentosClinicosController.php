@@ -18,11 +18,11 @@ class DocumentosClinicosController extends Controller
         abort(404);
     }
     }
-    public function nuevo($id){
-        $this->authorize('create', Documento::class);
-        $pacientes = Paciente::findOrFail($id);
-        return view('formularioDocumentos',compact('pacientes'));
-    }
+    // public function nuevo($id){
+    //     $this->authorize('create', Documento::class);
+    //     $pacientes = Paciente::findOrFail($id);
+    //     return view('formularioDocumentos',compact('pacientes'));
+    // }
     public function guardar(Request $request,$id){
         $this->authorize('create', Documento::class);
 
