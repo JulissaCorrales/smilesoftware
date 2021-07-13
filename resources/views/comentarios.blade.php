@@ -174,7 +174,7 @@
                                             <div class="modal-body"  >
                                                 ¿Desea realmente eliminar el comentario {{$ver->comentarios}} ?
                                             </div>
-                                            <div class="modal-footer" style=";height: 60px;">
+                                            <div class="modal-footer" style="height: 60px;">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal"  style="background-color:#ff704d;">Cerrar</button>
                                                 <form method="post" action="{{route('comentario.borrar',['id'=>$ver->id])}}">
                                                     @csrf
@@ -189,7 +189,7 @@
                                 </td>
                                 <!-- Cierre de la Ventana Modal -->
                                 @empty
-                                <td colspan="3">No hay Comentarios Administrativo</td>
+                                <td colspan="3" align="center"><b>No hay Comentarios Administrativo<b></td>
                                 </tr>
                                 @endforelse
                         </tbody>
