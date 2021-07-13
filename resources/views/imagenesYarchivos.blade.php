@@ -174,7 +174,7 @@ h1 {
 </div>
 @endif
 @if(session('mensaje'))
-<div class="alert alert-success" style="position:absolute; top: 200px; left: 455px;">
+<div class="alert alert-success">
 {{session('mensaje')}}
 </div>
 @endif
@@ -192,12 +192,74 @@ h1 {
             
           
               @canany(['isAdmin','isOdontologo'])
-            <button class="btn btn-outline-info" onclick="location.href='/pantallainicio/vista/paciente/{{$pacientes->id}}/nuevoarchivo'" >
+            <button class="btn btn-outline-info" data-toggle="modal" data-target="#modal-{{$pacientes->id}}" >
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
                   </svg>
                 Subir Archivos</button>
                 @endcanany
+
+
+ <div class="modal fade" id="modal-{{$pacientes->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                          <div class="modal-header" style="background-color: #d3e0ea; color:black;">
+                                              <h5 class="modal-title" id="exampleModalLabel">Creación de un Nuevo Archivo </h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                 <?php
+                    $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
+                     $mysqli->set_charset("utf8");
+                    ?>
+
+        <form method="post" action="{{route('archivo.guardar',['id'=>$pacientes->id])}}" enctype="multipart/form-data">
+                  @csrf
+                  <hr>
+        <!-- Doctor -->
+        <label for="state_id" class="control-label">Doctor responsable del tratamiento:</label>
+        <select required name="odontologo_id" class="form-control">
+        <option value="" disabled selected>Seleccione un Doctor</option>
+        <?php
+        $getDoctor =$mysqli->query("select * from odontologos order by id");
+        while($f=$getDoctor->fetch_object()) {
+          echo $f->nombres;
+          echo $f->apellidos;
+
+          ?>
+         
+          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos;?></option>
+          <?php
+        } 
+        ?>
+        </select>
+        <hr>
+              <div class="form-group">
+              <label for="identidad">Imagen a subir:</label>
+              <input required type="file" class="form-control-file" name="imagen" id="imagen">
+              </div>
+                    
+            
+
+              <div class="form-group">
+                <label for="observaciones">Observaciones:</label>
+                <textarea required type="text" class="form-control-file" name="observaciones" id="observaciones" placeholder="Ingrese la  Observación (Obligatorio)"></textarea>
+              </div>
+              
+
+              <div class="modal-footer">
+              <button type="button" onclick="location.href='{{route('imagenesYarchivos.ver',['id'=>$pacientes->id])}}'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+              <input type="reset" class="btn btn-danger">
+            <button type="submit" class="btn btn-primary" >Guardar Archivo</button>
+          </div>
+              </form>
+                                            </div>
+
+                                      </div>
+                              </div>   
+                            </div>
            </div>
 
           <!--fin de tarjeta -->
