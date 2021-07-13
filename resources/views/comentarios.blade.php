@@ -59,10 +59,7 @@
       <div class="modal-body">
        <form method="post" action="{{route('comentario.guardar',['id'=>$pacientes->id])}}" enctype="multipart/form-data">
            @csrf
-        <?php
-          $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
-          $mysqli->set_charset("utf8");
-          ?>
+      
       <div class="form-group">
         <textarea required id="w3review" style="border: 2px solid #765942;
 	border-radius: 10px;
@@ -112,32 +109,6 @@
                                         @endcan
 
 
-        <?php 
-
-try
-{
-  $mbd = new PDO('mysql:host=127.0.0.1;dbname=smilesoftware', "root", "");
-  $sth= $mbd->query('
-
-SELECT p.nombres,p.apellidos , c.comentarios AS comentario
-FROM comentarios c
-JOIN  pacientes p ON  p.id= c.paciente_id
-
-WHERE p.id= c.paciente_id;
-');
-  //foreach($sth as $fila){
-  //echo $fila["odontologo_id"];
-  //echo "<br>";
-  //}
-
-
-}
-catch(Exception $e)
-{
-        echo "no conectado";
-}
-
- ?>
                                           <!-- -->
                                         <!--modal de editar comentario Administrativo -->
                                     <div class="modal fade" id="modall-{{$ver->id}}"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -156,7 +127,7 @@ catch(Exception $e)
                                                             @csrf
                                                             @method('put')
                                                   
-                                              <!--  <input required type="text"  class="form-control-file" name="caja"  value="{{ $ver->comentarios }}"  rows="4" cols="100"> -->
+                                              
 
 
                                                  <textarea required id="w3review" style="border: 2px solid #765942;
