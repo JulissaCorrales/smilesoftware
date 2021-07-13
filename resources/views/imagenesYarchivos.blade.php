@@ -204,7 +204,7 @@ h1 {
                               <div class="modal-dialog" role="document">
                                   <div class="modal-content">
                                           <div class="modal-header" style="background-color: #d3e0ea; color:black;">
-                                              <h5 class="modal-title" id="exampleModalLabel">Creación de un Nuevo Archivo </h5>
+                                              <h5 class="modal-title" id="exampleModalLabel">Subir una Nueva Imagen </h5>
                                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                               <span aria-hidden="true">&times;</span>
                                               </button>
