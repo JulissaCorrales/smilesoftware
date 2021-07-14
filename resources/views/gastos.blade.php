@@ -15,7 +15,7 @@
   <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z"/>
   <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z"/>
 </svg> Gastos de la Clínica</h4>
-                        <p>En esta Sección se muestra los Gastos registrados y también se podra editar datos, crear un nuevo Gasto, borrar el Gasto registrado, ver el total de los Gastos la 
+                        <p>En esta sección se muestra los Gastos registrados y también se podrá editar datos, crear un nuevo Gasto, borrar el Gasto registrado, ver el total de los Gastos, la 
                             fecha  de factura y la fecha de los pagos</p>
                        
                         <div id="divhijo1"><!-- div hijo1 -->

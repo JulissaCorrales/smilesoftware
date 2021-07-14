@@ -52,7 +52,7 @@
         <div class="card mb-3">
           <div class="card-header">
            <h4><img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/dentista.png') }}"  id="logo1" width="4%;" height="4%"><b>Odontólogos(as)</b></h4>
- <p>En esta Sección se muestra los Odontólogos registrados y también se podra editar datos, crear un nuevo Odontólogo, borrar el Odontólogo registrado, Editar Horario,Ver la especialidad del Odontólogo.</p>
+ <p>En esta sección se muestra los Odontólogos registrados y también se podrá editar datos, crear un nuevo Odontólogo, borrar el Odontólogo registrado, Editar Horario,Ver la especialidad del Odontólogo.</p>
 
 
 @can('create',App\Odontologo::class)
@@ -186,7 +186,7 @@
  
   
 	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content"  style="">
+		<div class="modal-content"  >
 			<div class="modal-header" style=" background-color: #d3e0ea; color:black;">
             
             

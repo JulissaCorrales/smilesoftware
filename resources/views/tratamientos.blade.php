@@ -17,20 +17,32 @@
 
 
           <div class="container" id="padre">
-          @if(session('mensaje'))
-              <div class="alert alert-success">
-                  {{session('mensaje')}}
-              </div>
-          @endif
-        @if($errors->any())
-      <div class="alert alert-danger">
-            <ul>
-            @foreach($errors->all() as $error)
-            <li>{{$error}}</li>
+     <div>
+
+<div>@if(session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
             @endforeach
-            </ul>
-      </div>
-        @endif
+         
+        </ul>
+        
+    </div>
+@endif</div>
+</div>
 
 <div class="card mb-3">
           <div class="card-header">
@@ -38,7 +50,7 @@
   <path d="M8.5 4.5a.5.5 0 0 0-1 0v.634l-.549-.317a.5.5 0 1 0-.5.866L7 6l-.549.317a.5.5 0 1 0 .5.866l.549-.317V7.5a.5.5 0 1 0 1 0v-.634l.549.317a.5.5 0 1 0 .5-.866L9 6l.549-.317a.5.5 0 1 0-.5-.866l-.549.317V4.5zM5.5 9a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 2a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
 </svg> Tratamientos Disponibles en la Clínica</h4>
-            <p>En esta Sección se muestra todos los tratamientos disponibles de la clínica, se pueden agregar nuevos tratamientos, así como tambien borrar y editar los tratamientos Existentes</p>
+            <p>En esta sección se muestra todos los tratamientos disponibles de la clínica, se pueden agregar nuevos tratamientos, así como tambien borrar y editar los tratamientos existentes.</p>
             
           <!-- boton de nuevo tratamiento -->
 
