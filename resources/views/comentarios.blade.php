@@ -70,6 +70,7 @@
       <div class="modal-footer">
         <div>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+          <button type="reset" class="btn btn-warning"  >Restablecer</button>
         </div>
         <div>
         <button type="submit"  class="btn btn-primary" id="guardar" >Guardar </button>
@@ -143,10 +144,12 @@
    
    
 <div class="modal-footer" >
-
-
-                                        <button type="submit" class="btn btn-primary"  >Guardar </button>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal"  >Cerrar</button>
+ <button type="button" class="btn btn-secondary" data-dismiss="modal"  >Cerrar</button>
+                           <button type="reset" class="btn btn-warning"  >Restablecer</button>
+                              
+                                        <button type="submit" class="btn btn-primary"  >Actualizar </button>
+                                     
+                                     
                                         </div>
 
                                                 </form>
