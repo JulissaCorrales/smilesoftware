@@ -48,7 +48,7 @@
     <div class="card mb-3">
           <div class="card-header">
            <h4> <img class="dire" style=" margin-left:0%;" src="{{ asset('Imagenes/Direc.png') }}"  id="dire" width="5%;" height="5%"> Directorio de Especialidades</h4>
- <p>En esta ventana  se muestran las especialidades de los Odontólogo que se han registrado  en la clínica, <br> en esta misma se podrán crear nuevas especialidades, así mismo como asignarles nuevas especialidades a los Odontólogos y eliminar las especialidades con las que ya no se cuentan dentro de la clínica.</p>
+ <p>En esta ventana  se muestran las especialidades de los Odontólogo que se han registrado  en la clínica, en esta misma se podrán crear nuevas especialidades, así mismo como asignarles nuevas especialidades a los Odontólogos y eliminar las especialidades con las que ya no se cuentan dentro de la clínica.</p>
 
   <!--Menu desplegable  -->
 </div>
