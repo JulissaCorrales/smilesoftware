@@ -44,9 +44,7 @@
 
 <div class="card mb-3">
           <div class="card-header">
-           <h4><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
-                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-                  </svg> Productos Disponibles para el Tratamiento: {{$tratamientos->categoria}}</h4>
+           <h4><img class="prod" style=" margin-left:0%;" src="{{ asset('Imagenes/produc.png') }}"  id="pro" width="10%;" height="10%"> Productos Disponibles para el Tratamiento: {{$tratamientos->categoria}}</h4>
                         <p>En esta sección se muestra todos los productos disponibles para los tratamientos que se brindan dentro de la clínica, se pueden agregar nuevos productos, así como tambien borrar y editar los productos existentes.</p>
                         
             </div>
@@ -75,8 +73,8 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                       <div class="modal-header" style=" background-color:#276678; color:white;">
-                          <h5 class="modal-title" align="center" id="exampleModalLabel">
-                          Nuevo producto</h5>
+                          <h4 class="modal-title"  id="exampleModalLabel"><img class="produ"  src="{{ asset('Imagenes/newp.png') }}"  id="produ" width="20%;" height="20%">
+                          Nuevo producto</h4>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                           </button>
@@ -162,12 +160,9 @@
                                   <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header" style=" background-color:#276678; color:white;" >
-                                        <h5 class="modal-title" id="exampleModalScrollableTitle">
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
-                                        <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
-                                      </svg>
-                                        Edición del Producto</h5>
+                                        <h4 class="modal-title" id="exampleModalScrollableTitle">
+<img class="eprodu"  src="{{ asset('Imagenes/editp.png') }}"  id="eprodu" width="20%;" height="20%">
+                                        Edición del Producto</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
