@@ -298,13 +298,13 @@
     <div class="modal-dialog" role="document" >
       <div class="modal-content" style="position:absolute; top:40px; left:px;">
         <div class="modal-header" style="background-color: #d3e0ea;">
-          <h5 class="modal-title" id="exampleModalLabel">Desea cerrar sesión?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">¿Desea cerrar sesión?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
         <div class="modal-body">
-          Al dar click en el boton "Salir" podra Cerrar la sesión</div>
+          Al dar click en el boton "Salir" podrá Cerrar la sesión</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
 
