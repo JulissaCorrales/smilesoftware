@@ -41,6 +41,7 @@ class EspecialidadController extends Controller
         $nuevo = new Especialidad();
         //formulario
         $nuevo->Especialidad = $request->input('nombres');
+           $nuevo->Descripcion = $request->input('Descripcion');
         $creado = $nuevo->save();
 
          if ($creado){

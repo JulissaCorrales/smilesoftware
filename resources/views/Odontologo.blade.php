@@ -647,6 +647,11 @@
                           <label for="nombres"  class="control-label">Nombre:</label>
                           <input required  type="text" class="form-control" name="nombres" id="nombres" placeholder="Ingresar nombre de la especialidad">
                       </div>
+                        <div class="form-group">
+                          <label for="nombres"  class="control-label">Descripción:</label>
+                     
+                          <textarea class="form-control"  required name="Descripcion" id="Descripcion" placeholder="Ingresar la descripción de la especialidad"name="" id="" cols="10" rows="5"></textarea>
+                      </div>
                       </div>
                      
                       
