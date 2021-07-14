@@ -97,6 +97,50 @@ $especialidad = new Especialidad();
         $especialidad->save();
 
 
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Odontología Preventiva";
+        $especialidad->Descripcion="Es aquella que tiene como objetivo velar por la salud bucodental antes de que aparezca la patología. Se previene y se intenta reducir al máximo las posibilidades de aparición de caries, gingivitis, periodontitis, problemas articulares, etc.";
+        $especialidad->save();
+
+
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Odontología Conservadora";
+        $especialidad->Descripcion="Se encarga de reconstruir los dientes cuando están dañadas, ya que es muy importante conservarlas el máximo tiempo posible para mantener una buena funcionalidad y estética.";
+        $especialidad->save();
+
+
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Implantología";
+        $especialidad->Descripcion="Sustitución de dientes y muelas perdidos por implantes osteointegrados de titanio, para recuperar la funcionalidad y la estética. Se puede sustituir desde un único diente o todos los de la boca";
+        $especialidad->save();
+
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Prótesis";
+        $especialidad->Descripcion="Restaura la falta de dientes mediante un elemento artificial para así restaurar la anatomía de una o varias dientes, restaurando también la relación entre maxilares y la dimensión vertical. ";
+        $especialidad->save();
+
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Blanqueamiento dental";
+        $especialidad->Descripcion="El blanqueamiento dental es uno de los tratamientos dentales estéticos más solicitados en la actualidad. Con la tecnología de la lámpara Philips Zoom y su completo protocolo, tus dientes más blancos en una sesión en clínica.";
+        $especialidad->save();
+
+
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Oclusión / Bruxismo";
+        $especialidad->Descripcion="Especialidad encargada de tratar el rechinamiento involuntario de los dientes, mientras la persona está despierta o dormida, a través de técnicas y/o planos de relajación";
+        $especialidad->save();
+
+
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Rehabilitación Oral";
+        $especialidad->Descripcion="Especialidad encargada de devolver la estética y funcionalidad a los dientes de las personas mediante coronas, carillas, incrustaciones, prótesis removibles, puentes y coronas sobre implantes.";
+        $especialidad->save();
+
+
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Disfunción";
+        $especialidad->Descripcion="La disfunción es la especialidad que tiene como objetivo diagnosticar y tratar alteraciones relacionadas con la articulación. Manifestaciones como dolor de cabeza, columna cervical, zumbidos en los oídos, etc.";
+        $especialidad->save();
         //seeder para los dias de Semana
         
         /*

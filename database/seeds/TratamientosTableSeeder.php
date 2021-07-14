@@ -15,63 +15,74 @@ class TratamientosTableSeeder extends Seeder
     {
         $tratamiento=new Tratamiento;
         $tratamiento->categoria="Acciones Generales";
-        $tratamiento->tipo="Accion Clinica";
+        $tratamiento->tipo="Acción Clínica";
         $tratamiento->save(); 
 
         $tratamiento=new Tratamiento;
         $tratamiento->categoria="Aparatos Fijos";
-        $tratamiento->tipo="Accion Clinica";
+        $tratamiento->tipo="Acción Clínica";
         $tratamiento->save(); 
      
         $tratamiento=new Tratamiento;
         $tratamiento->categoria="Aparatos Removibles";
-        $tratamiento->tipo="Accion Clinica";
+        $tratamiento->tipo="Acción Clínica";
         $tratamiento->save(); 
 
         $tratamiento=new Tratamiento;
-        $tratamiento->categoria="Ciruguia";
-        $tratamiento->tipo="Accion Clinica";
+        $tratamiento->categoria="Cirugía";
+        $tratamiento->tipo="Acción Clínica";
         $tratamiento->save(); 
 
         $tratamiento=new Tratamiento;
         $tratamiento->categoria="Endodoncia";
-        $tratamiento->tipo="Accion Clinica";
+        $tratamiento->tipo="Acción Clínica";
         $tratamiento->save();
         
         $tratamiento=new Tratamiento;
-        $tratamiento->categoria="Odontopetria";
-        $tratamiento->tipo="Accion Clinica";
+        $tratamiento->categoria="Odontopediatría";
+        $tratamiento->tipo="Acción Clínica";
         $tratamiento->save(); 
 
 
         $tratamiento=new Tratamiento;
         $tratamiento->categoria="Ortodoncia";
-        $tratamiento->tipo="Accion Clinica";
+        $tratamiento->tipo="Acción Clínica";
         $tratamiento->save(); 
 
         $tratamiento=new Tratamiento;
         $tratamiento->categoria="Ortopedia";
-        $tratamiento->tipo="Accion Clinica";
+        $tratamiento->tipo="Acción Clínica";
         $tratamiento->save(); 
 
         $tratamiento=new Tratamiento;
         $tratamiento->categoria="Periodoncia";
-        $tratamiento->tipo="Accion Clinica";
+        $tratamiento->tipo="Acción Clínica";
         $tratamiento->save(); 
 
         $tratamiento=new Tratamiento;
         $tratamiento->categoria="Promociones";
-        $tratamiento->tipo="Accion Clinica";
+        $tratamiento->tipo="Acción Clínica";
         $tratamiento->save(); 
 
         $tratamiento=new Tratamiento;
-        $tratamiento->categoria="Protesis";
-        $tratamiento->tipo="Accion Clinica";
+        $tratamiento->categoria="Prótesis";
+        $tratamiento->tipo="Acción Clínica";
         $tratamiento->save(); 
 
+        $tratamiento=new Tratamiento;
+        $tratamiento->categoria="Estética Dental";
+        $tratamiento->tipo="Acción Clínica";
+        $tratamiento->save(); 
+    
+        $tratamiento=new Tratamiento;
+        $tratamiento->categoria="Tratamiento Antirronquidos";
+        $tratamiento->tipo="Acción Clínica";
+        $tratamiento->save(); 
+    
+        
         $tratamiento=new Tratamiento;
         $tratamiento->categoria="Tratamientos";
-        $tratamiento->tipo="Accion Clinica";
+        $tratamiento->tipo="Acción Clínica";
         $tratamiento->save(); 
     }
 }
