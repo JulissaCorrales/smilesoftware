@@ -14,12 +14,13 @@
         <p>En esta sección se muestra los usuarios registrados y también se podrá editar los datos, crear un nuevo usuario, borrar el usuario registrado, ver la especialidad del usuario y la identidad del mismo.</p>
         <!-- boton de nuevo usuario -->
         
-            <button id="boton" type="button"class="btn btn-outline-info" data-toggle="modal" data-target="#Crearusuario" >Nuevo Usuario <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-node-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M11 13a5 5 0 1 0-4.975-5.5H4A1.5 1.5 0 0 0 2.5 6h-1A1.5 1.5 0 0 0 0 7.5v1A1.5 1.5 0 0 0 1.5 10h1A1.5 1.5 0 0 0 4 8.5h2.025A5 5 0 0 0 11 13zm.5-7.5a.5.5 0 0 0-1 0v2h-2a.5.5 0 0 0 0 1h2v2a.5.5 0 0 0 1 0v-2h2a.5.5 0 0 0 0-1h-2v-2z"/>
-        </svg></button>
+           
            
         
     </div>
+ <div><button id="boton" style="margin:1em;" type="button"class="btn btn-outline-info" data-toggle="modal" data-target="#Crearusuario" >Nuevo Usuario <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-node-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M11 13a5 5 0 1 0-4.975-5.5H4A1.5 1.5 0 0 0 2.5 6h-1A1.5 1.5 0 0 0 0 7.5v1A1.5 1.5 0 0 0 1.5 10h1A1.5 1.5 0 0 0 4 8.5h2.025A5 5 0 0 0 11 13zm.5-7.5a.5.5 0 0 0-1 0v2h-2a.5.5 0 0 0 0 1h2v2a.5.5 0 0 0 1 0v-2h2a.5.5 0 0 0 0-1h-2v-2z"/>
+        </svg></button>
     <!-- 1.modal crear usuario -->
     <div class="modal fade" id="Crearusuario" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -400,7 +401,7 @@
      </div>
 </div>
 
-
+</div>
 <script>
 $(document).ready( function () {
     $('#datatable1').DataTable( {

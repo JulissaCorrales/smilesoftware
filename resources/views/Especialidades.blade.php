@@ -51,7 +51,7 @@
  <p>En esta ventana  se muestran las especialidades de los Odontólogo que se han registrado  en la clínica, <br> en esta misma se podrán crear nuevas especialidades, así mismo como asignarles nuevas especialidades a los Odontólogos y eliminar las especialidades con las que ya no se cuentan dentro de la clínica.</p>
 
   <!--Menu desplegable  -->
-
+</div>
 
 <div  class="card-body" id="dd"><!-- es necesario para que funcione el boton de buscar por nombre
 y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflicto la pantilla de extencion
@@ -89,7 +89,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
         <tr>
 
   @forelse($especialidads as $tag) 
-    <td colspan="1">{{$tag->id}}</td>
+    <th colspan="1">{{$tag->id}}</th>
    <td colspan="2"> {{$tag->Especialidad}} </td>
    <td>
   <button type="button" class="btn btn-outline-info"data-toggle="modal" data-target="#exampleModalCenter-{{$tag->id}}">
