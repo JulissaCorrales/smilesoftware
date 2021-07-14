@@ -132,7 +132,7 @@
                 
                     <div class="form-group" id="divcate">
                     <label for="categoria" class="control-label">Categoría:</label>
-                    <input required type="text" maxlength="100"  class="form-control @error('categoria') is-invalid @enderror" placeholder="Ingrese la categoría del gasto" name="categoria" id="categoria  "   value="{{ $gasto->categoria }}" autocomplete="categoria" > 
+                    <input required type="text" maxlength="100" minlength="3" class="form-control @error('categoria') is-invalid @enderror" placeholder="Ingrese la categoría del gasto" name="categoria" id="categoria  "   value="{{ $gasto->categoria }}" autocomplete="categoria" > 
                     @error('categoria')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

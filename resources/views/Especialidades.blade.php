@@ -71,6 +71,8 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 <table id="datatable1" class="table table-bordered"  width="100%" cellspacing="0">
 <thead >
   <tr id="can">
+      <th id="thh" colspan="1" >
+      No.</th>
     <th id="thh1" colspan="1" >
       Especialidades</th>
 
@@ -89,8 +91,9 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   </thead>
   <tbody>
         <tr>
+
   @forelse($especialidads as $tag) 
-  
+    <td colspan="1">{{$tag->id}}</td>
    <td colspan="2"> {{$tag->Especialidad}} </td>
    <td>
   <button type="button" class="btn btn-outline-info"data-toggle="modal" data-target="#exampleModalCenter-{{$tag->id}}">
@@ -112,7 +115,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header" style="background-color:#D3E0EA;color:black">
-        <h5 class="modal-title" id="exampleModalLabel">{{$tag->Especialidad}}</h5>
+        <h3 class="modal-title" id="exampleModalLabel">{{$tag->Especialidad}}</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
