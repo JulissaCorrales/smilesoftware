@@ -118,7 +118,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
              //ruta de Imagenes y Archivos
             Route::get('{id}/imagenesArchivos','ArchivoController@ver')->name('imagenesYarchivos.ver')->middleware('role:admin,odontologo');
             Route::get('{id}/nuevoarchivo','ArchivoController@nuevo')-> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
-            Route::post('{id}/nuevoarchivo','ArchivoController@guardar')-> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
+            Route::post('{id}/nuevoarchivo','ArchivoController@guardar')->name('archivo.guardar')-> where('id' ,'[0-9]+')->middleware('role:admin,odontologo');
             
           Route::delete('{id}/borrararchivo','ArchivoController@borrar')->name('imagenesyarchivos.borrar')->where('id','[0-9]+');
           //ruta de editar Archivo

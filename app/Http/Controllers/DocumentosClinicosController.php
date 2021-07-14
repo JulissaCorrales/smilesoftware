@@ -18,11 +18,11 @@ class DocumentosClinicosController extends Controller
         abort(404);
     }
     }
-    public function nuevo($id){
-        $this->authorize('create', Documento::class);
-        $pacientes = Paciente::findOrFail($id);
-        return view('formularioDocumentos',compact('pacientes'));
-    }
+    // public function nuevo($id){
+    //     $this->authorize('create', Documento::class);
+    //     $pacientes = Paciente::findOrFail($id);
+    //     return view('formularioDocumentos',compact('pacientes'));
+    // }
     public function guardar(Request $request,$id){
         $this->authorize('create', Documento::class);
 
@@ -53,13 +53,13 @@ class DocumentosClinicosController extends Controller
 
     }
 
-    public function editar($id , $iddocumento){  
-        $pacientes=Paciente::findOrFail($id);
-       $imagen=Documento::findOrFail($iddocumento);
-        $this->authorize('update',$imagen);
-       return view('editarDocumento')->with('imagen',$imagen)->with('pacientes',$pacientes);
+//     public function editar($id , $iddocumento){  
+//         $pacientes=Paciente::findOrFail($id);
+//        $imagen=Documento::findOrFail($iddocumento);
+//         $this->authorize('update',$imagen);
+//        return view('editarDocumento')->with('imagen',$imagen)->with('pacientes',$pacientes);
    
-   }
+//    }
 
    public function update(Request $_request,$id, $iddocumento){
    $_request->validate([

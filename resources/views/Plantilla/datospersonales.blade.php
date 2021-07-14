@@ -202,12 +202,12 @@
     ">
 
 
-        <li style="background-color: #d3e0ea;">
+        <li style="">
 
  
 
      <a class="navbar-brand" href="" >
-    <img style=" border-radius: 50%; margin-left:14%; margin-top:10%; border-style: solid; border-color: #b3cccc; border-width: 2px;" src='/Imagenes/{{$pacientes->imagen}}'  id="logo1" width="80%;" height="40%" alt="image"> 
+    <img style=" border-radius:60px; margin-left:22%; margin-top:10%; border-style: solid; border-color: #b3cccc; border-width: 2px;" src='/Imagenes/{{$pacientes->imagen}}'  id="logo1" width="60%;" height="20%" alt="image"> 
     
     </a>
           </li> 

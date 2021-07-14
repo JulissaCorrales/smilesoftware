@@ -1,26 +1,68 @@
-@extends('datospersonales')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @section('titulo','Imagenes Cinicas del paciente')
+@extends('Plantilla.datospersonales')
+
+ @section('titulo','Imagenes Cinicas del paciente')
+
+
+    @section('cuerpo')
   
+  <head>
+ 
     <style>
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700|Oswald:400,300,700);
+
+#vPrincipal{
+    width:auto;
+    font-size:15px;
+    margin: 5rem;
+    padding: 2rem;
+    
+    position: absolute;
+  left: 330px;
+  
+  width: 900px;
+  top: 150px;
+   height:500px;
+
+    }
+
+    .vPrincipal{
+      border-style: groove;
+      width: 1100px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0;
+  font-size:15px;
+  
+    }
+
+    
+
+  
+
+    .content{
+      border-style: groove;
+    }
+/* 
+    @import url(
+  https://fonts.googleapis.com/css?family=Source + Sans + Pro:200,
+  300,
+  400,
+  600,
+  700|Oswald:400,
+  300,
+  700
+); */
 body {
-  background: #e3e3e3;
   font-size: 16px;
 }
 strong {
-  font-weight: 600;
+  font-weight: 500;
 }
 h1 {
+  font-family: "Oswald", sans-serif;
   letter-spacing: 1.5px;
   color: #333333;
   font-weight: 100;
-  font-size: 2.4em;
+  font-size: 20px;
 }
 #content {
   margin-top: 50px;
@@ -33,6 +75,7 @@ h1 {
   border-top-right-radius: 4px;
   background: rgba(255, 255, 255, 0.03);
   color: #333;
+  font-family: "Source Sans Pro", sans-serif;
   margin: 50px auto;
   letter-spacing: 0.5px;
   position: relative;
@@ -47,6 +90,7 @@ h1 {
 .timeline h1,
 .timeline h2,
 .timeline h3 {
+  font-family: "Oswald", sans-serif;
   letter-spacing: 1.5px;
   font-weight: 100;
   font-size: 1.4em;
@@ -80,7 +124,7 @@ h1 {
 .timeline .event:after {
   box-shadow: 0 0 0 4px #169eda;
   left: -57.85px;
-  background: #169eda;
+  background: #91c740;
   border-radius: 50%;
   height: 11px;
   width: 11px;
@@ -88,7 +132,6 @@ h1 {
   top: 5px;
 }
 @media (max-width: 800px) {
-
   .timeline .event:before {
     left: -0.5px;
     top: 28px;
@@ -103,35 +146,22 @@ h1 {
     min-width: 120px;
   }
   .timeline .event p {
-      top: 27px;
-      padding: 10px 0px 10px 0px;
-      position: relative;
+    top: 27px;
+    padding: 10px 0px 10px 0px;
+    position: relative;
   }
 }
 
-/*******/
-.mfp-img {
-  cursor: pointer;
-}
-.mfp-force-scrollbars {
-  &.mfp-wrap {
-    overflow-y: auto !important;
-    overflow-x: auto !important;
-  }
-  .mfp-img {
-    max-width: none;
-  }
-  .mfp-close {
-    position: fixed;
-  }
-}
 
-</style>
+  </style>
+
 
 </head>
+
+
 <body id="page-top">
 
-    @section('cuerpo')
+  
   
     
 @if ($errors->any())
@@ -144,7 +174,7 @@ h1 {
 </div>
 @endif
 @if(session('mensaje'))
-<div class="alert alert-success" style="position:absolute; top: 200px; left: 455px;">
+<div class="alert alert-success">
 {{session('mensaje')}}
 </div>
 @endif
@@ -162,15 +192,74 @@ h1 {
             
           
               @canany(['isAdmin','isOdontologo'])
-          
-                
-                <button id="upload" onclick="location.href='/pantallainicio/vista/paciente/{{$pacientes->id}}/nuevoarchivo'" style=" position: absolute; left: 920px; top:  85px;"class="btn btn-outline-info">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
-                      </svg>
-                    Subir Archivos</button> 
-                  
-               @endcanany
+            <button class="btn btn-outline-info" data-toggle="modal" data-target="#modal-{{$pacientes->id}}" >
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
+                  </svg>
+                Subir Archivos</button>
+                @endcanany
+
+
+ <div class="modal fade" id="modal-{{$pacientes->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                          <div class="modal-header" style="background-color: #d3e0ea; color:black;">
+                                              <h5 class="modal-title" id="exampleModalLabel">Subir una Nueva Imagen </h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                 <?php
+                    $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
+                     $mysqli->set_charset("utf8");
+                    ?>
+
+        <form method="post" action="{{route('archivo.guardar',['id'=>$pacientes->id])}}" enctype="multipart/form-data">
+                  @csrf
+                  <hr>
+        <!-- Doctor -->
+        <label for="state_id" class="control-label">Doctor responsable del tratamiento:</label>
+        <select required name="odontologo_id" class="form-control">
+        <option value="" disabled selected>Seleccione un Doctor</option>
+        <?php
+        $getDoctor =$mysqli->query("select * from odontologos order by id");
+        while($f=$getDoctor->fetch_object()) {
+          echo $f->nombres;
+          echo $f->apellidos;
+
+          ?>
+         
+          <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos;?></option>
+          <?php
+        } 
+        ?>
+        </select>
+        <hr>
+              <div class="form-group">
+              <label for="identidad">Imagen a subir:</label>
+              <input required type="file" class="form-control-file" name="imagen" id="imagen">
+              </div>
+                    
+            
+
+              <div class="form-group">
+                <label for="observaciones">Observaciones:</label>
+                <textarea required type="text" class="form-control-file" name="observaciones" id="observaciones" placeholder="Ingrese la  Observación (Obligatorio)"></textarea>
+              </div>
+              
+
+              <div class="modal-footer">
+              <a type="button" href="{{route('imagenesYarchivos.ver',['id'=>$pacientes->id])}}" class="btn btn-secondary" data-dismiss="modal">Atrás</a>
+              <input type="reset" class="btn btn-danger">
+            <button type="submit" class="btn btn-primary" >Guardar Archivo</button>
+          </div>
+              </form>
+                                            </div>
+
+                                      </div>
+                              </div>   
+                            </div>
            </div>
 
           <!--fin de tarjeta -->
@@ -193,14 +282,14 @@ h1 {
     </a>
 
 <!--boton de editar-->
-<button type="button" onclick="location.href='{{route('archivo.editar',['id'=>$pacientes->id,'idarchivo'=>$tag->id])}}'" class="btn btn-outline-success">
+<a type="button" href="{{route('archivo.editar',['id'=>$pacientes->id,'idarchivo'=>$tag->id])}}" class="btn btn-outline-success">
                               <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                        </svg>Editar</button>
+                        </svg>Editar</a>
 
                         <!--inicio del  boton y modal de borrado-->
-                          <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-{{$tag->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modaleliminar-{{$tag->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                           <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
                           </svg>
                           Eliminar 
@@ -209,7 +298,7 @@ h1 {
                    
                         <tr>
                             <!-- Modal -->
-                            <div class="modal fade" id="modal-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="modaleliminar-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">
                                   <div class="modal-content">
                                           <div class="modal-header" style="background-color:#276678; color:white;  height:100px;">
@@ -242,7 +331,7 @@ h1 {
     </li>
    @empty
 
-  <p> En este momento no existen imagenes historial disponible</p>
+  <p> En este momento no existen imagenes en el historial.</p>
               
   @endforelse
 

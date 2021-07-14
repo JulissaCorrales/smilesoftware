@@ -1,4 +1,4 @@
-@extends('datospersonales')
+@extends('Plantilla.datospersonales')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +14,8 @@
         padding:2em;
         font-family: arial; 
         background-color:white ;
-position:absolute;
-left: 350px;
-top:50px;
+position:relative;
+
         
     }
     #titulo{
@@ -122,13 +121,13 @@ top:50px;
         </table>
             
             </div>  <!-- fin divtabla --> 
-        <button onclick="location.href='{{route('tratamiento.ver',['id'=>$pacientes->id])}}'"
+        <a href='{{route('tratamiento.ver',['id'=>$pacientes->id])}}'
         style="background-color:#45B39D" class="btn btn-secondary">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-90deg-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z"/>
                 </svg>
             Atrás
-        </button>
+        </a>
 
   
 
@@ -136,38 +135,6 @@ top:50px;
     </div> <!-- fin div padre -->
   
 
-
-<!-- footer -->
-<div class="modal-footer" style="position: absolute;
-left: -20px;
-width: 2070px;
-top: 1100px; height:50px;
-background-color: #e6f9ff;">
-    
-    
-    <a style="position: absolute;
-left: 830px; font-size:18px; font-family: Times New Roman, Times, serif; color:#7a7a52; " href="/">@Smile Software 2021</a>  
-
-    @forelse($logotipos  as $tag)
-<img  class="logo" id="logo4"src="{{Storage::url($tag->logo)}}" class="mr-3" alt="image" style="border-radius: 50%;
-position: absolute;
-left: 1005px;
-top: 0px;
-width: 40px;
-border-color: #33ccff , 2px;" >
-@empty
-
-<img class="logo" src="{{ asset('Imagenes/dental2.jpg') }}" class="mr-3"  style="border-radius: 50%;
-position: absolute;
-left: 1005px;
-top: 0px;
-width: 40px;
-border-color: #33ccff , 2px;"  > 
-@endforelse 
-    </div>
-</div>
-
-<!-- fin footer -->
 
 </body>
 

@@ -13,26 +13,39 @@
 <body id="page-top">
 
   <div class="container">
-@if(session('mensaje'))
-        <div class="alert alert-success" >
-            {{session('mensaje')}}
-        </div>
-    @endif
-    @if ($errors->any())
-        <div class="alert alert-danger" >
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+<div>
+
+<div>@if(session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
+            @endforeach
+         
+        </ul>
+        
+    </div>
+@endif</div>
+</div>
+
 </div>
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
            <h4><img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/Horario.png') }}"  id="logo1" width="4%;" height="4%"><b>Crear Horario</b></h4>
-            <p>En esta Sesión se podra crear un horario al odontólogo(a), en el cuál debera  seleccionar el día   y la Hora inicio,Hora final, la Hora de Descanso (Opcional).
+            <p>En esta sección se podrá crear un horario al odontólogo(a), en el cuál deberá  seleccionar el día   y la Hora inicio,Hora final, la Hora de Descanso (Opcional).
                El Horario  creado  se visualizará al dar click en la opción de ver Horario que tendrá la opción de  eliminar Horario.
 </p>
      
@@ -393,9 +406,10 @@ for($i=1; $i <= 1; $i++) {?>
           </div>
         
   
-
+<div class="modal-footer">
   <a type="button" class="btn btn-info" href="{{route('odontologo.vista')}}"  style="width:100px; margin-left:2%;">Atras</a>
-  <button type="submit" class="btn btn-primary"  style="width:100px; margin-top:-3%;  margin-left:11%; ">Guardar</button>
+  <button type="submit" class="btn btn-primary"  style="width:100px; ">Guardar</button>
+</div>
   </form>
 
 <br>

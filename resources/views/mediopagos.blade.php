@@ -6,25 +6,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medios de pagos</title>
+    
+     @section('titulo','Medios de pagos')
     
 </head>
 
 <body >
- @if ($errors->any())
-<div class="alert alert-danger">
-<ul>
-@foreach ($errors->all() as $error)
-<li>{{ $error }}</li>
-@endforeach
-</ul>
-</div>
+ <div>
+
+<div>@if(session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
 @endif
-@if(session('mensaje'))
-<div class="alert alert-success">
-{{session('mensaje')}}
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
+            @endforeach
+         
+        </ul>
+        
+    </div>
+@endif</div>
 </div>
-@endif
 
  <div class="card mb-3">
       <div class="card-header">
@@ -32,7 +45,7 @@
   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
   <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
 </svg> Medios de Pagos</h4>
-            <p>En esta Sección se muestra  los medios de pagos disponibles con los que cuenta la clínica, se pueden agregar nuevos medios de pagos, así como también borrar y editar los medios de pagos Existentes</p>
+            <p>En esta sección se muestra  los medios de pagos disponibles con los que cuenta la clínica, se pueden agregar nuevos medios de pagos, así como también borrar y editar los medios de pagos existentes</p>
             
             @can('create',App\Mediopago::class)
             <div>

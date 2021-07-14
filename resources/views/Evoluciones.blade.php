@@ -1,4 +1,4 @@
-@extends('datospersonales')
+@extends('Plantilla.datospersonales')
 @section('titulo','Evoluciones')
 <!DOCTYPE html>
 <html lang="en">

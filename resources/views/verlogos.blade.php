@@ -20,16 +20,37 @@
         <hr>
         <div>
              <h5 style="text-align:center" for="">Logo Actual:</h5>
-             @if(session('mensaje'))
-        <div class="alert alert-success">
-            {{session('mensaje')}}
-        </div>
-    @endif
+<div>
+
+<div>@if(session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
+            @endforeach
+         
+        </ul>
+        
+    </div>
+@endif</div>
+</div>
     
                 <div id="verlogoactual" align="center">
                     @forelse($logotipos as $tag)
                         <div id="fondo">
-                        <img  class="mr-3" id="imlogoactual" style="" src="{{Storage::url($tag->logo)}}" alt="image" width="30%" high="30%" >
+                        <img  class="mr-3" id="imlogoactual"  src="{{Storage::url($tag->logo)}}" alt="image" width="30%" high="30%" >
                         </div>
                        
                         
@@ -94,7 +115,7 @@
                 
                 <!--  -->
                 @can('isAdmin')
-                <button  type="button" class="btn btn-danger" data-toggle="modal" data-target="#crear">
+                <button  style="margin-bottom:2em;"type="button" class="btn btn-danger" data-toggle="modal" data-target="#crear">
                 Crear otro
                  </button>
                  @endcan
