@@ -76,9 +76,7 @@
                 ?>
 
                 <div class="modal-footer">
-                    @can('isAdmin')
-                    <button type="button" id="config" class="btn btn-outline-info" data-toggle="modal" data-target="#configurar">Configurar alertas predeterminadas </button>
-                    @endcan
+                   
                     <button type="submit" class="btn" style="background-color:#276678;color:white;" id="guardar">Guardar </button>
                 </div>
             </form>
@@ -241,7 +239,7 @@
 
     <!-- ************************************************************************************************************************************************************************************************ -->
     <!-- Seccion de agregar alertas predefinidas -->
-    <div class="modal fade" id="configurar">
+    <div class="modal fade" id="configuraralerta">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background-color:#276678; color:white; ">

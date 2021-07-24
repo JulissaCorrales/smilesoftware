@@ -66,10 +66,10 @@ class OdontologoController extends Controller
             $nuevo->imagen= $image;
         
         }
+      
         
-        
-        $request->validate(['nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
-        'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+        $request->validate(['nombres'=>'required||regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)|max:65',
+        'apellidos'=>'required||regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)|max:65',
         'identidad' => ['required', 'numeric', Rule::unique('odontologos')->ignore($nuevo->id), 'digits:13'],
 
         'departamento'=>'required||regex:/^[\pL\s\-]+$/u',
