@@ -26,7 +26,7 @@
     <div  class="card " id="padre">
                 
                      
-        <div class="card-header">              
+        <div class="card-header" style=" background-color:#276678; color:white;">              
         <h2 id="titulo" ><img class="logo" style="border-radius: 70%;" src='/Imagenes/{{$user->imagen}}'   width="100px" height="100px">
  Editar Usuario: {{$user->name}}     
         
