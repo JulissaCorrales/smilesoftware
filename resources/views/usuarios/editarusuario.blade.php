@@ -8,21 +8,14 @@
 #padre{
     width:auto;
     font:1em Tahoma;
-    margin: 5rem;
-    margin-top:2em;
-    padding: 2rem;
-    border: 2px solid #d3e0ea;
-    background-color: #d3e0ea;
+    
+   
+    
 }   #titulo{
-    text-align:center;
+    
 }
 
-#imagen4{
 
-    text-align: right;
-    margin-right:2em;
-
-}
 #imagen{
     margin-left:15em;
 }
@@ -30,13 +23,16 @@
 </head>
 <body>
  
-    <div  class="container" id="padre">
-        <h3 id="titulo">Edición de  datos del Usuario: {{$user->name}}
-        <div id="imagen4">
-                      <img style="  border-radius: 70%;"src='/Imagenes/{{$user->imagen}}' width=" 100px" height="100px"id="datos6">
-                      </div>
+    <div  class="card " id="padre">
+                
+                     
+        <div class="card-header">              
+        <h2 id="titulo" ><img class="logo" style="border-radius: 70%;" src='/Imagenes/{{$user->imagen}}'   width="100px" height="100px">
+ Editar Usuario: {{$user->name}}     
         
-        </h3>
+        
+        </h2>
+        </div>
     
  <div>
 <div>@if(session('mensaje'))
@@ -63,7 +59,7 @@
     </div>
 @endif</div>
 </div>
-
+<div class="card-body">  
        <form method="post" action="{{route('usuario.actualizar',$user->id)}} " enctype="multipart/form-data">
                 @method('PATCH')
                 @csrf() 
@@ -180,7 +176,7 @@
                     </button>
                 </div>
         </form>
- 
+ </div>
           
         @section('js_user_page')
 
