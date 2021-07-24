@@ -9,7 +9,7 @@
 <style>
 #padre{
 
-  margin:2em;
+  
   text-align:center;
 position: relative; 
 width: auto;
@@ -20,7 +20,7 @@ width: auto;
 color: white;
 }
 h4{
-  text-align:center;
+  
 }
 
 </style>
@@ -28,11 +28,11 @@ h4{
 <body>
 
 
-    <div id="padre"class="container">
+    <div id="padre"class="card">
         <div class="card">
               <div id="dd" class="card-header">
-                <h4>Nombre de Usuario: {{$usuarios->name}}</h1>
-                <h4>Correo Electronico:{{$usuarios->email}}</h1>
+                <h4>Nombre de Usuario: {{$usuarios->name}}</h4>
+                
 
 
               </div>
@@ -40,6 +40,16 @@ h4{
                       <img style="  border-radius: 70%;margin-top:1em"src='/Imagenes/{{$usuarios->imagen}}' width=" 100px" height="100px"id="datos6">
                       </div>
               <div class="card-body">
+              <div class="row">
+
+                
+                  <div class="col-md-4">
+                      <h4>Correo Electronico:</h4>
+                        <span style="background-color:#d3e0ea;color:black;"class="badge badge-secondary" >
+                             {{$usuarios->email}}                                
+                      </span>
+                    </div>
+                  <div class="col-md-4">
                 <h5 class="card-title">Roles</h5>
                 <p>
                   @if($usuarios->roles->isNotEmpty())
@@ -50,12 +60,24 @@ h4{
                     
                       @endforeach
                       @endif
-
                 </p>
+              </div>
+
+                  <div class="col-md-4">
+                @isset($usuarios->odontologo)
+              <h5 class="card-title"> Odontólogo  Asignado a este Usuario</h5>
+                <span style="background-color:#d3e0ea;color:black;"class="badge badge-secondary" >
+                  {{$usuarios->odontologo->nombres}} {{$usuarios->odontologo->apellidos}}
+                </span>
+                  @endisset
+                </div>
+            </div>
+
+                <br><br>
                 <h5 class="card-title">Permisos</h5>
                 <div class="row">
                   <div class="col-md-12">
-                     <p class="card-text" style="margin:1em;">
+                     <p  class="card-text" style="margin:1em;">
                     @if($usuarios->permisos->isNotEmpty())
                     @foreach ($usuarios->permisos as $permisos )
                     <span class="badge badge-secondary" >
@@ -70,10 +92,7 @@ h4{
 
                    
                   </div>
-                  @isset($usuarios->odontologo)
-              <h5 class="card-title"> Odontólogo  Asignado a este Usuario</h5>
-                  {{$usuarios->odontologo->nombres}} {{$usuarios->odontologo->apellidos}}
-                  @endisset
+                  
 
             <div class="container">
               <div class="modal-footer">
