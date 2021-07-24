@@ -56,27 +56,91 @@ class OdontologosTableSeeder extends Seeder
         $dias->save();
 
         $especialidad = new Especialidad();
-        $especialidad->Especialidad="Endodoncia";   
+        $especialidad->Especialidad="Endodoncia"; 
+       $especialidad->Descripcion="La endodoncia es un tratamiento dental conocido comúnmente para “matar el nervio”. Consiste en eliminar la parte profunda del diente cuando se encuentra lesionado o infectado.";
         $especialidad->save();
 
         $especialidad = new Especialidad();
         $especialidad->Especialidad="Ortodoncia";
+        $especialidad->Descripcion="La ortodoncia es una especialidad de la odontología que se encarga de todo el estudio, prevención, diagnóstico y tratamiento de las anomalías de forma, posición, relación y función de las estructuras dentomaxilofaciales.";
         $especialidad->save();
 
  $especialidad = new Especialidad();
         $especialidad->Especialidad="General";
+        $especialidad->Descripcion="La medicina general brinda atención médica y es imprescindible para la prevención, detección, tratamiento y seguimiento de las enfermedades, es responsable del paciente, para decidir su derivación a los especialistas cuando alguna patología se descompense";
         $especialidad->save();
 
  $especialidad = new Especialidad();
         $especialidad->Especialidad="Prostodoncia";
+        $especialidad->Descripcion="Prostodoncia es la especialidad dental dedicada a la restauración y reemplazo de dientes ausentes o dañados.";
         $especialidad->save();
 
  $especialidad = new Especialidad();
-        $especialidad->Especialidad="Patologías Bucales y Maxilofaciales";
+        $especialidad->Especialidad="Periodoncia";
+        $especialidad->Descripcion="Estudia la prevención, diagnóstico y tratamiento de las enfermedades y condiciones que afectan a los tejidos que dan soporte a los órganos dentarios, para el mantenimiento de la salud, función y estética de los dientes, sus tejidos adyacentes.";
+        $especialidad->save();
+
+       
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Odontopediatría";
+        $especialidad->Descripcion="La Odontopediatría  atiende y trata las distintas enfermedades bucodentales desde la infancia más temprana hasta finalizar el crecimiento. Por tanto, el odontopediatra se encargará de explorar la cavidad oral del menor y detectar posibles anomalías";
+        $especialidad->save();
+
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Radiología maxilofacial y oral";
+        $especialidad->Descripcion="La radiología oral y maxilofacial, también conocida como radiología dental y maxilofacial, es la especialidad de la odontología que se ocupa del desempeño e interpretación de las imágenes de diagnóstico.";
+        $especialidad->save();
+
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Cirugía maxilofacial y oral.";
+        $especialidad->Descripcion="Es una especialidad quirúrgica que incluye el diagnóstico, cirugía y tratamientos relacionados de un gran espectro de enfermedades, heridas y aspectos estéticos de la boca, dientes, cara, cabeza y cuello.";
         $especialidad->save();
 
 
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Odontología Preventiva";
+        $especialidad->Descripcion="Es aquella que tiene como objetivo velar por la salud bucodental antes de que aparezca la patología. Se previene y se intenta reducir al máximo las posibilidades de aparición de caries, gingivitis, periodontitis, problemas articulares, etc.";
+        $especialidad->save();
 
+
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Odontología Conservadora";
+        $especialidad->Descripcion="Se encarga de reconstruir los dientes cuando están dañadas, ya que es muy importante conservarlas el máximo tiempo posible para mantener una buena funcionalidad y estética.";
+        $especialidad->save();
+
+
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Implantología";
+        $especialidad->Descripcion="Sustitución de dientes y muelas perdidos por implantes osteointegrados de titanio, para recuperar la funcionalidad y la estética. Se puede sustituir desde un único diente o todos los de la boca";
+        $especialidad->save();
+
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Prótesis";
+        $especialidad->Descripcion="Restaura la falta de dientes mediante un elemento artificial para así restaurar la anatomía de una o varias dientes, restaurando también la relación entre maxilares y la dimensión vertical. ";
+        $especialidad->save();
+
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Blanqueamiento dental";
+        $especialidad->Descripcion="El blanqueamiento dental es uno de los tratamientos dentales estéticos más solicitados en la actualidad. Con la tecnología de la lámpara Philips Zoom y su completo protocolo, tus dientes más blancos en una sesión en clínica.";
+        $especialidad->save();
+
+
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Oclusión / Bruxismo";
+        $especialidad->Descripcion="Especialidad encargada de tratar el rechinamiento involuntario de los dientes, mientras la persona está despierta o dormida, a través de técnicas y/o planos de relajación";
+        $especialidad->save();
+
+
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Rehabilitación Oral";
+        $especialidad->Descripcion="Especialidad encargada de devolver la estética y funcionalidad a los dientes de las personas mediante coronas, carillas, incrustaciones, prótesis removibles, puentes y coronas sobre implantes.";
+        $especialidad->save();
+
+
+$especialidad = new Especialidad();
+        $especialidad->Especialidad="Disfunción";
+        $especialidad->Descripcion="La disfunción es la especialidad que tiene como objetivo diagnosticar y tratar alteraciones relacionadas con la articulación. Manifestaciones como dolor de cabeza, columna cervical, zumbidos en los oídos, etc.";
+        $especialidad->save();
         //seeder para los dias de Semana
         
         /*

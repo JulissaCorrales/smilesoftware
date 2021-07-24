@@ -18,6 +18,7 @@ class CreateEspecialidadsTable extends Migration
             $table->string('Especialidad');
            // $table->unsignedBigInteger('odontologo_id');
            // $table->foreign('odontologo_id')->references('id')->on('odontologos')->onDelete('cascade')->update('cascade');
+            $table->text('Descripcion');
             $table->timestamps();
         });
     }

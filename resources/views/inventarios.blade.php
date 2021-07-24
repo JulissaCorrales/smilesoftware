@@ -16,18 +16,45 @@
 
           <!-- titulo -->
           <div class="card-header">
+<div>
+
+<div>@if(session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
+            @endforeach
+         
+        </ul>
+        
+    </div>
+@endif</div>
+</div>
+
               <h4>
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
   <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
   <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
 </svg>  Inventarios de la Clínica </h4>
-                <p>En esta Sección se muestra los Inventarios Existentes en la actualidad y en seguridad, también se podra editar datos, crear un nuevos Inventarios, borrar los inventarios existentes y descargar  el archivo con todos los Inventarios.</p>
+                <p>En esta sección se muestra los inventarios existentes en la actualidad y en seguridad, también se podrá editar datos, crear  nuevos Inventarios, borrar los inventarios existentes y descargar  el archivo con todos los Inventarios.</p>
           </div>
           <!-- -->
 
 
           <!-- boton de nuevo inventario -->
-          <div style="width:;">
+          <div >
             
                 @can('create',App\Inventario::class)
                     <button type="button" id="btnagregar"  class="btn btn-outline-info" data-toggle="modal" data-target="#nuevoinventario" style="position:absolute; left:900px; margin: 10px;" >
@@ -91,7 +118,7 @@
 
 
           <!-- boton para descargar inventario -->
-          <div style="width:;">
+          <div >
              @can('descargarinventarios',App\Inventario::class)
             <a type="button" class="btn btn-warning"id="btndescarga"  href="{{route('descargarPDFInventarios')}}" style="margin: 10px;">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

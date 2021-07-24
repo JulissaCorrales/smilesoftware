@@ -18,32 +18,40 @@
 @section('content')
 
   <body id="page-top">
+<div>
+
+<div>@if(session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+@endif
 @if ($errors->any())
-<div class="alert alert-danger">
-<ul>
-@foreach ($errors->all() as $error)
-<li>{{ $error }}</li>
-@endforeach
-</ul>
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
+            @endforeach
+         
+        </ul>
+        
+    </div>
+@endif</div>
 </div>
-@endif
-@if(session('mensaje'))
-<div class="alert alert-success">
-{{session('mensaje')}}
-</div>
-@endif
 
     <div class="card mb-3">
           <div class="card-header">
-           <h4><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-journal-medical" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v.634l.549-.317a.5.5 0 1 1 .5.866L9 6l.549.317a.5.5 0 1 1-.5.866L8.5 6.866V7.5a.5.5 0 0 1-1 0v-.634l-.549.317a.5.5 0 1 1-.5-.866L7 6l-.549-.317a.5.5 0 0 1 .5-.866l.549.317V4.5A.5.5 0 0 1 8 4zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-  <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
-  <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
-</svg> Directorio de Especialidades</h4>
- <p>En esta ventana  muestra las especialidades de los Odontólogo que se han registrado  en la clínica, <br> en esta misma se podran crear nuevas Especialidades así mismo como asignarles nuevas especialidades a los Odontólogos y eliminar las especialidades con las que ya no se cuentan dentro de la clínica.</p>
+           <h4> <img class="dire" style=" margin-left:0%;" src="{{ asset('Imagenes/Direc.png') }}"  id="dire" width="5%;" height="5%"> Directorio de Especialidades</h4>
+ <p>En esta ventana  se muestran las especialidades de los Odontólogo que se han registrado  en la clínica, en esta misma se podrán crear nuevas especialidades, así mismo como asignarles nuevas especialidades a los Odontólogos y eliminar las especialidades con las que ya no se cuentan dentro de la clínica.</p>
 
   <!--Menu desplegable  -->
-
+</div>
 
 <div  class="card-body" id="dd"><!-- es necesario para que funcione el boton de buscar por nombre
 y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflicto la pantilla de extencion
@@ -59,6 +67,8 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
 <table id="datatable1" class="table table-bordered"  width="100%" cellspacing="0">
 <thead >
   <tr id="can">
+      <th id="thh" colspan="1" >
+      No.</th>
     <th id="thh1" colspan="1" >
       Especialidades</th>
 
@@ -77,8 +87,9 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   </thead>
   <tbody>
         <tr>
+
   @forelse($especialidads as $tag) 
-  
+    <th colspan="1">{{$tag->id}}</th>
    <td colspan="2"> {{$tag->Especialidad}} </td>
    <td>
   <button type="button" class="btn btn-outline-info"data-toggle="modal" data-target="#exampleModalCenter-{{$tag->id}}">
@@ -100,7 +111,7 @@ y numero de identidad agrupar todo en un un vid ya que no se hace crea u conflic
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header" style="background-color:#D3E0EA;color:black">
-        <h5 class="modal-title" id="exampleModalLabel">{{$tag->Especialidad}}</h5>
+        <h3 class="modal-title" id="exampleModalLabel">{{$tag->Especialidad}}</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

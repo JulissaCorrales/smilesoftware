@@ -54,6 +54,7 @@ public function guardar(Request $request){
     }
 }
 
+// Ya no es necesaria ya que esta en modal
 // public function editar($id){   
 //     $inventarios=Inventario::findOrFail($id);
 //     $this->authorize('update', $inventarios);//si tiene el permiso de actualizar:

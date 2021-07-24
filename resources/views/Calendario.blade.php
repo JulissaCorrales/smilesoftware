@@ -154,7 +154,7 @@ font-weight: 600;
 <div class="card mb-3">
           <div class="card-header">
            <h4> <img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/calendario.png') }}"  id="logo1" width="3%;" height="3%"> <b>    Agenda</b></h4>
- <p>En esta sección muestra un calendario al dar click se podra agendar una cita también tiene las opciones:Citas, ver citas semanales,Dar cita y descarga la cita en un archivo Pdf.</p>
+ <p>En esta sección se muestra un calendario, al dar click se podrá agendar una cita también tiene las opciones:Citas, ver citas semanales, Dar cita y descargar la cita en un archivo Pdf.</p>
 
 
 

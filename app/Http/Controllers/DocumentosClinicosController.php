@@ -53,13 +53,13 @@ class DocumentosClinicosController extends Controller
 
     }
 
-    public function editar($id , $iddocumento){  
-        $pacientes=Paciente::findOrFail($id);
-       $imagen=Documento::findOrFail($iddocumento);
-        $this->authorize('update',$imagen);
-       return view('editarDocumento')->with('imagen',$imagen)->with('pacientes',$pacientes);
+//     public function editar($id , $iddocumento){  
+//         $pacientes=Paciente::findOrFail($id);
+//        $imagen=Documento::findOrFail($iddocumento);
+//         $this->authorize('update',$imagen);
+//        return view('editarDocumento')->with('imagen',$imagen)->with('pacientes',$pacientes);
    
-   }
+//    }
 
    public function update(Request $_request,$id, $iddocumento){
    $_request->validate([

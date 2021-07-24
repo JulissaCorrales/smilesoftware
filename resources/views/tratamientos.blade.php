@@ -17,42 +17,51 @@
 
 
           <div class="container" id="padre">
-          @if(session('mensaje'))
-              <div class="alert alert-success">
-                  {{session('mensaje')}}
-              </div>
-          @endif
-        @if($errors->any())
-      <div class="alert alert-danger">
-            <ul>
-            @foreach($errors->all() as $error)
-            <li>{{$error}}</li>
+     <div>
+
+<div>@if(session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
             @endforeach
-            </ul>
-      </div>
-        @endif
+         
+        </ul>
+        
+    </div>
+@endif</div>
+</div>
 
 <div class="card mb-3">
           <div class="card-header">
-           <h4><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-medical" viewBox="0 0 16 16">
-  <path d="M8.5 4.5a.5.5 0 0 0-1 0v.634l-.549-.317a.5.5 0 1 0-.5.866L7 6l-.549.317a.5.5 0 1 0 .5.866l.549-.317V7.5a.5.5 0 1 0 1 0v-.634l.549.317a.5.5 0 1 0 .5-.866L9 6l.549-.317a.5.5 0 1 0-.5-.866l-.549.317V4.5zM5.5 9a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 2a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
-  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
-</svg> Tratamientos Disponibles en la Clínica</h4>
-            <p>En esta Sección se muestra todos los tratamientos disponibles de la clínica, se pueden agregar nuevos tratamientos, así como tambien borrar y editar los tratamientos Existentes</p>
+           <h4><img class="tra" style=" margin-left:0%;" src="{{ asset('Imagenes/tratadis.png') }}"  id="tra" width="8%;" height="8%"> Tratamientos Disponibles en la Clínica</h4>
+            <p>En esta sección se muestra todos los tratamientos disponibles de la clínica, se pueden agregar nuevos tratamientos, así como tambien borrar y editar los tratamientos existentes.</p>
             
           <!-- boton de nuevo tratamiento -->
+</div>
+            
+        </div>
 
+  <div>
               @can('create',App\Tratamiento::class)
-                      <button id="boton" type="button"class="btn btn-outline-info" data-toggle="modal" data-target="#nuevotratamiento" >Nuevo Tratamiento <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-node-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <button id="boton" type="button" style="margin:1em;"class="btn btn-outline-info" data-toggle="modal" data-target="#nuevotratamiento" >Nuevo Tratamiento <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-node-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" d="M11 13a5 5 0 1 0-4.975-5.5H4A1.5 1.5 0 0 0 2.5 6h-1A1.5 1.5 0 0 0 0 7.5v1A1.5 1.5 0 0 0 1.5 10h1A1.5 1.5 0 0 0 4 8.5h2.025A5 5 0 0 0 11 13zm.5-7.5a.5.5 0 0 0-1 0v2h-2a.5.5 0 0 0 0 1h2v2a.5.5 0 0 0 1 0v-2h2a.5.5 0 0 0 0-1h-2v-2z"/>
                       </svg></button>
               @endcan
         
-      
-            </div>
-        </div>
-
-  
+      </div>
     
                   <nav> 
                 <!-- modal para crear nuevo tratamiento -->
@@ -60,13 +69,10 @@
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                       <div class="modal-header"  style="background-color:#276678;color:white">
-                        <h5 class="modal-title" id="exampleModalLabel">
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M9.828 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91H9v1H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181L15.546 8H14.54l.265-2.91A1 1 0 0 0 13.81 4H9.828zm-2.95-1.707L7.587 3H2.19c-.24 0-.47.042-.684.12L1.5 2.98a1 1 0 0 1 1-.98h3.672a1 1 0 0 1 .707.293z"/>
-                        <path fill-rule="evenodd" d="M15.854 10.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708l1.146 1.147 2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                        </svg>
+                        <h4 class="modal-title" id="exampleModalLabel">
+                        <img class="med" style=" margin-left:0%;" src="{{ asset('Imagenes/tratamiento.png') }}"  id="med" width="10%;" height="10%">
 
-                        Creación de un Nuevo Tratamiento</h5>
+                        Creación de un Nuevo Tratamiento</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>

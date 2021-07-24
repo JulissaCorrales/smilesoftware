@@ -34,11 +34,6 @@ class OdontologoController extends Controller
      } 
 
 
-     public function nuevoodontologo(){
-        $this->authorize('create', Odontologo::class); //si tiene el permiso de crear: 
-        return view('nuevoDoctor');  
-     }
-    
 
      public function GuardarNuevo(Request $request){
         $this->authorize('create', Odontologo::class); //si tiene el permiso de crear: 
@@ -120,19 +115,6 @@ class OdontologoController extends Controller
 
 
 
-
-    public function editarodontologo($id){
-        $odontologos = Odontologo::findOrFail($id);
-        $this->authorize('update',$odontologos); //si tiene el permiso de editar: 
-
-    
-
-
-        return view('FormularioOdontologo')->with('odontologos',$odontologos);
-
-
-
-    }
 
     public function updateodontologo(Request $_request,$id){
         $odontologos = Odontologo::findOrFail($id);

@@ -63,6 +63,7 @@
       <div class="card mb-3">
           <div class="card-header">
            <h4><img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/dentista.png') }}"  id="logo1" width="4%;" height="4%"><b>Odontólogos(as)</b></h4>
+<<<<<<< HEAD
          <p>En esta Sección se muestra los Odontólogos registrados y también se podra editar datos, 
          crear un nuevo Odontólogo, borrar el Odontólogo registrado, Editar Horario,Ver la especialidad del
          Odontólogo.</p>
@@ -75,6 +76,17 @@
       </div>
          
          <!-- seccion de tabla -->
+=======
+ <p>En esta sección se muestra los Odontólogos registrados y también se podrá editar datos, crear un nuevo Odontólogo, borrar el Odontólogo registrado, Editar Horario,Ver la especialidad del Odontólogo.</p>
+</div>
+      <div>
+@can('create',App\Odontologo::class)
+  <button  type="button" data-toggle="modal"  style="margin:1em; "class="btn btn-outline-info" data-target="#create">
+ Nuevo Odontólogo</button>
+@endcan
+</div>
+
+>>>>>>> 0a1a7a718ebb408bde906d1ea43b9d0f0d15514f
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="datatable1" width="100%" cellspacing="0">
@@ -128,7 +140,7 @@
   
 
 <!--Editar datos  -->
-  <button type="button" style="color:#006622; background-color: white; width:50px;" class="btn btn-success" data-toggle="modal" data-target="#modal-{{$odontologo->id}}" ><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+  <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal-{{$odontologo->id}}" ><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
   <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
   <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
 </svg>
@@ -141,7 +153,7 @@
 <!--Eliminar Datos -->
 @can('isAdmin')
      
-     <buttton  style="color:red; background-color: white; width:50px;" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalll-{{$odontologo->id}}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
+     <buttton   type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalll-{{$odontologo->id}}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
   <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
   <path fill-rule="evenodd" d="M12.146 5.146a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
 </svg>
@@ -187,7 +199,7 @@
  
   
 	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content"  style="">
+		<div class="modal-content"  >
 			<div class="modal-header" style=" background-color: #d3e0ea; color:black;">
             
             
@@ -608,6 +620,11 @@
                       <div class="form-group">
                           <label for="nombres"  class="control-label">Nombre:</label>
                           <input required  type="text" class="form-control" name="nombres" id="nombres" placeholder="Ingresar nombre de la especialidad">
+                      </div>
+                        <div class="form-group">
+                          <label for="nombres"  class="control-label">Descripción:</label>
+                     
+                          <textarea class="form-control"  required name="Descripcion" id="Descripcion" placeholder="Ingresar la descripción de la especialidad"name="" id="" cols="10" rows="5"></textarea>
                       </div>
                       </div>
                      

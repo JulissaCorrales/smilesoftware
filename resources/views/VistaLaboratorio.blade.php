@@ -6,40 +6,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+    @section('titulo','Laboratorios')
 
 </head>
 
 <body >
+<div>
+
+<div>@if(session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+@endif
 @if ($errors->any())
-<div class="alert alert-danger">
-<ul>
-@foreach ($errors->all() as $error)
-<li>{{ $error }}</li>
-@endforeach
-</ul>
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
+            @endforeach
+         
+        </ul>
+        
+    </div>
+@endif</div>
 </div>
-@endif
-@if(session('mensaje'))
-<div class="alert alert-success">
-{{session('mensaje')}}
-</div>
-@endif
     
    <div class="card mb-3">
           <div class="card-header">
-           <h4><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-eyedropper" viewBox="0 0 16 16">
-  <path d="M13.354.646a1.207 1.207 0 0 0-1.708 0L8.5 3.793l-.646-.647a.5.5 0 1 0-.708.708L8.293 5l-7.147 7.146A.5.5 0 0 0 1 12.5v1.793l-.854.853a.5.5 0 1 0 .708.707L1.707 15H3.5a.5.5 0 0 0 .354-.146L11 7.707l1.146 1.147a.5.5 0 0 0 .708-.708l-.647-.646 3.147-3.146a1.207 1.207 0 0 0 0-1.708l-2-2zM2 12.707l7-7L10.293 7l-7 7H2v-1.293z"/>
-</svg> Laboratorio</h4>
-            <p>En esta Sección se muestra todos los laboratorios de la clínica, se pueden agregar nuevos laboratorio, así como tambien borrar y editar los laboratorios Existentes</p>
-            
+           <h3><img class="lab"  src="{{ asset('Imagenes/imagen1.png') }}"  id="lab" width="8%;" height="8%"> Laboratorio</h3>
+            <p>En esta sección se muestra todos los laboratorios de la clínica, se pueden agregar nuevos laboratorio, así como tambien borrar y editar los laboratorios existentes</p>
+            </div>
+            <div>
             @can('create',App\Laboratorio::class)
-            <button id="internoC" type="button"class="btn btn-outline-info" data-toggle="modal" data-target="#nuevoLab" ><span id="interno"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+            <button style="margin:1em;"id="internoC" type="button"class="btn btn-outline-info" data-toggle="modal" data-target="#nuevoLab" ><span id="interno"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
             <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
             </svg>  Nuevo Laboratorio</span>
             </button>
           </div>
-
+          @endcan
 
         <!-- modal para crear nuevo laboratorio -->
 <div class="modal fade" id="nuevoLab" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -93,7 +104,7 @@
 <!--fin del modal-->
 
 
-        @endcan
+        
         
 
 
@@ -101,12 +112,12 @@
     <table id="datatable" class="table table-bordered" width="100%" cellspacing="0">
         <thead >
           <tr >
-            <th>laboratorio</th>
-            <th>detalle</th>
-            <th>por pagar</th>
+            <th>Laboratorio</th>
+            <th>Detalle</th>
+            <th>Por Pagar</th>
 
-            <th>editar</th>
-            <th>eliminar</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
           </tr>
           </thead>
         <tbody> 
@@ -122,7 +133,7 @@
                   <td> 
                     @can('update',$lab)
                     
-                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong-{{$lab->id}}" >
+                     <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalLong-{{$lab->id}}" >
                         Editar laboratorio<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
@@ -188,7 +199,7 @@
               
                   <td>
                       @can('delete',$lab)
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$lab->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-{{$lab->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
                             </svg>
                             Eliminar Laboratorio
@@ -231,8 +242,8 @@
                    
                   
                </tr>
-           @empty
-            <h1> No hay laboratorios disponibles!</h1>
+           @empty<br>
+            <h4> No hay laboratorios disponibles!</h4>
               @endforelse 
         <tbody>
       </table>
