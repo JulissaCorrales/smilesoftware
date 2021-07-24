@@ -69,7 +69,7 @@ class OdontologoController extends Controller
 
         'departamento'=>'required||regex:/^[\pL\s\-]+$/u',
         'ciudad'=>'required||regex:/^[\pL\s\-]+$/u',
-        'telefonoFijo'=>'required|numeric|digits:8',
+       
         'telefonoCelular'=>'required|numeric|digits:8',
         'direccion'=>'required|',
         'user_id'=>'required|unique:App\Odontologo'
@@ -145,7 +145,7 @@ class OdontologoController extends Controller
         'identidad' => ['required','digits:13','numeric', Rule::unique('odontologos')->ignore($odontologos->id)],
         'departamento'=>'required|regex:/^[\pL\s\-]+$/u',
         'ciudad'=>'required|regex:/^[\pL\s\-]+$/u',
-        'telefonoFijo'=>'required|numeric|digits:8',
+        
         'telefonoCelular'=>'required|numeric|digits:8',
         'direccion'=>'required|',
         'user_id' => ['required', Rule::unique('odontologos')->ignore($odontologos->id)]

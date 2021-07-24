@@ -19,7 +19,7 @@ class CreateOdontologosTable extends Migration
             $table->string('apellidos');
             $table->string('identidad')->unique();
             $table->string('telefonoCelular');
-            $table->string('telefonoFijo');
+            $table->string('telefonoFijo')->nullable();
             $table->string('departamento');
             $table->string('ciudad');
             $table->string('direccion');

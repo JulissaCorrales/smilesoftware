@@ -63,30 +63,18 @@
       <div class="card mb-3">
           <div class="card-header">
            <h4><img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/dentista.png') }}"  id="logo1" width="4%;" height="4%"><b>Odontólogos(as)</b></h4>
-<<<<<<< HEAD
          <p>En esta Sección se muestra los Odontólogos registrados y también se podra editar datos, 
-         crear un nuevo Odontólogo, borrar el Odontólogo registrado, Editar Horario,Ver la especialidad del
-         Odontólogo.</p>
+         crear un nuevo Odontólogo, borrar el Odontólogo registrado, Editar Horario.</p>
 
 
           @can('create',App\Odontologo::class)
-              <button  type="button" data-toggle="modal"  style="color:#006622; background-color: white; width:180px; "class="btn btn-success" data-target="#create">
+              <button  type="button" data-toggle="modal"  style="color:white; background-color:#1687a7; width:180px; "class="btn btn-success" data-target="#create">
               Nuevo Odontólogo</button>
            @endcan
       </div>
          
-         <!-- seccion de tabla -->
-=======
- <p>En esta sección se muestra los Odontólogos registrados y también se podrá editar datos, crear un nuevo Odontólogo, borrar el Odontólogo registrado, Editar Horario,Ver la especialidad del Odontólogo.</p>
-</div>
-      <div>
-@can('create',App\Odontologo::class)
-  <button  type="button" data-toggle="modal"  style="margin:1em; "class="btn btn-outline-info" data-target="#create">
- Nuevo Odontólogo</button>
-@endcan
-</div>
+   
 
->>>>>>> 0a1a7a718ebb408bde906d1ea43b9d0f0d15514f
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="datatable1" width="100%" cellspacing="0">
@@ -114,7 +102,7 @@
              <tr>
                     @forelse($odontologos as $odontologo)
   
-             <td ><img src='/Imagenes/{{$odontologo->imagen}}' width="50px" height="50px"id="datos">
+             <td ><img src='/Imagenes/{{$odontologo->imagen}}' width="50px" style="border-radius:50%;" height="50px">
                {{ $odontologo->nombres }} {{$odontologo->apellidos}}</td>
    
              <td>{{$odontologo->identidad}} </td>
@@ -175,15 +163,15 @@
                   </button>
               </div>
               <div class="modal-body" style="color:black;">
-                  ¿Desea realmente eliminar el Odontólogo (a) {{$odontologo->nombres}} {{$odontologo->apellidos}}?
+                  ¿Desea realmente eliminar el Odontólogo (a):{{$odontologo->nombres}}?
               </div>
               <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                 
                   <form method="post" action="{{route('odontologo.borrar',['id'=>$odontologo->id])}}">
-
                       @csrf
                       @method('delete')
                       <input type="submit" value="Eliminar" class="btn btn-danger">
+                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                   </form>
               </div>
           </div>
@@ -207,7 +195,7 @@
 				<h4  class="modal-title" id="modal" >
        <img style=" border-radius: 50%; " src='/Imagenes/{{$odontologo->imagen}}' width=" 70px" height="70px"  >
         Editar Odontólogo (a) </h4>  
-       <p style="margin-top:50px; margin-left:-180px;">{{$odontologo->nombres}} {{$odontologo->apellidos}} </p>
+       <p style="margin-top:50px; margin-left: -30%;">{{$odontologo->nombres}} {{$odontologo->apellidos}} </p>
          
      
         	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -236,7 +224,7 @@
             <div class="form-group">
               <label for="nombres" >Nombres:</label>
               <div >
-              <input required type="text" class="form-control " name="nombres" id="nombres"  placeholder="ingresar nombre del paciente"  value="{{ $odontologo->nombres }}" >
+              <input required type="text" class="form-control " onkeypress="return SoloLetras3(event);" name="nombres" id="nombres"  placeholder="Ingresar los Nombres del  Odontólogo (a)"  value="{{ $odontologo->nombres }}" >
               </div>
               </div>
         </div>
@@ -244,7 +232,7 @@
             <div class="form-group">
                 <label for="apellidos" >Apellidos:</label>
                 <div >
-                <input required type="text" class="form-control" name="apellidos"  id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $odontologo->apellidos }}">
+                <input required type="text" class="form-control" name="apellidos" onkeypress="return SoloLetras4(event);" id="apellidos" placeholder="Ingresar los Apellidos del  Odontólogo (a)"  value="{{ $odontologo->apellidos }}">
               </div>
             </div>
         </div>
@@ -252,7 +240,7 @@
             <div class="form-group">
                 <label for="identidad">Identidad:</label>
                 <!--<input required type="number" class="form-control" name="identidad" id="identidad"  placeholder="ingresar identidad del paciente"  value="{{ $odontologo->identidad }}" maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)"> -->
-                   <input type="text" onkeypress="return SoloNumeros(event);" class="form-control" name="identidad" id="identidad"  value="{{ $odontologo->identidad }}" maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" required >
+                   <input type="text" onkeypress="return SoloNumeros(event);" class="form-control" name="identidad" id="identidad"  placeholder="Ingresar DNI del  Odontólogo (a)" value="{{ $odontologo->identidad }}" maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" required >
             
   </div>
         </div>
@@ -261,14 +249,14 @@
         <div class="col-md-4">
              <div class="form-group">
             <label for="telefonoFijo">Tel.Fijo:</label>
-            <input type="number" required class="form-control" name="telefonoFijo" id="telefonoFijo"  placeholder="ingresar telefono Fijo del paciente"  value="{{ $odontologo->telefonoFijo}}" oninput="this.value = Math.max(this.value, 2)">
+            <input type="number" class="form-control" name="telefonoFijo" onkeypress="return SoloNumero5(event);" id="telefonoFijo"  placeholder="Ingresar los Tel.Fijo del  Odontólogo (a)(Opcional)"  maxlength="8"  value="{{ $odontologo->telefonoFijo}}"  oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(2, this.maxLength)">
                  
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
               <label for="telefonoCelular">Tel.Celular:</label>
-              <input type="number" required  class="form-control" name="telefonoCelular"  id="telefonoCelular" placeholder="ingresar telefono Celular del paciente"  value="{{ $odontologo->telefonoCelular }}" oninput="this.value = Math.max(this.value, 2)">
+              <input type="number" required  class="form-control" name="telefonoCelular"  id="telefonoCelular" placeholder="Ingresar el Tel.Celular del  Odontólogo (a)"  value="{{ $odontologo->telefonoCelular }}" oninput="this.value = Math.max(this.value, 3)">
           </div>  
         </div>
         <div class="col-md-4">
@@ -302,15 +290,38 @@
       <div class="col-md-4">
         <div class="form-group">
           <label for="ciudad">Ciudad:</label>
-          <input required type="text" class="form-control"  name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $odontologo->ciudad }}">
+          <input required type="text" class="form-control"  name="ciudad" onkeypress="return SoloLetras5(event);" id="ciudad"placeholder="Ingresar la Ciudad  del  Odontólogo (a)"  value="{{ $odontologo->ciudad }}">
         </div>
       </div>
+
       <div class="col-md-4">
         <div class="form-group">
           <label for="direccion">Dirección:</label>
-          <input required type="text" class="form-control"  name="direccion" id="direccion" placeholder="ingresar direccion del paciente"  value="{{ $odontologo->direccion }}">
+          <input required type="text" class="form-control"  name="direccion" id="direccion" placeholder="Ingresar la Dirección  del  Odontólogo (a)"  value="{{ $odontologo->direccion }}">
         </div>
       </div>
+          <div class="col-md-4">
+        <div class="form-group">
+          <label for="user_id" class="control-label">Usuario:</label>
+          <select name="user_id" class="form-control">
+          <option value="{{$odontologo->user->id}}" selected>Usuario Actual: {{$odontologo->user->name}}</option>
+
+          <?php
+          $getUsuario =$mysqli->query("select * from users order by id");
+          while($f=$getUsuario->fetch_object()) {
+          echo $f->id;
+          echo $f->name;
+
+          ?>
+          <option value="<?php echo $f->id; ?>"><?php echo $f->name ?></option>
+          <?php
+          } 
+          ?>
+
+          </select>
+        </div>
+</div>
+
       <?php
         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
         $mysqli->set_charset("utf8");
@@ -342,44 +353,18 @@
 
       </div>
 
-    </div>
-
-
-    <div class="row">
-      <div class="col-md-8">
-        <!-- usuario -->
-        <div class="form-group">
-          <label for="user_id" class="control-label">Usuario:</label>
-          <select name="user_id" class="form-control">
-          <option value="{{$odontologo->user->id}}" selected>Usuario Actual: {{$odontologo->user->name}}</option>
-
-          <?php
-          $getUsuario =$mysqli->query("select * from users order by id");
-          while($f=$getUsuario->fetch_object()) {
-          echo $f->id;
-          echo $f->name;
-
-          ?>
-          <option value="<?php echo $f->id; ?>"><?php echo $f->name ?></option>
-          <?php
-          } 
-          ?>
-
-          </select>
-        </div>
-        <!-- fin usuario -->
-      </div>
-      <div class="col-md-4">
+<div class="col-md-4">
           <div class="form-group">
               <label for="file" class="control-label">Eliga la foto del odontólogo:</label>
             <input type="file" class="form-control-file" name="file" id="direccion" value="{{$odontologo->imagen}}">
           </div>
       </div>
+
     </div>
- 
-    </div>
+
+
   <div class="modal-footer">
-  <br>
+   <input type="reset" class="btn btn-danger">
   <button id="bot" type="submit"class="btn btn-secondary" style="background-color:#1687a7" data-toggle="modal" >
   Guardar Cambios
   </button>
@@ -435,33 +420,33 @@
       <div class="col-md-4">
          <div class="form-group">
             <label for="nombres">Nombres:</label>
-            <input required type="text" class="form-control" name="nombres" id="nombres" onkeypress="return SoloLetras(event);" placeholder="Ingrese el Nombre ">
+            <input required type="text" class="form-control" name="nombres" id="nombres" onkeypress="return SoloLetras(event);" placeholder="Ingresar los Nombres del  Odontólogo (a)">
           </div>
       </div>
       <div class="col-md-4">
          <div class="form-group">
             <label for="apellidos">Apellidos:</label>
-            <input required type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingrese el Apellido" onkeypress="return SoloLetras1(event);">
+            <input required type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingresar los Apellidos  del  Odontólogo (a)" onkeypress="return SoloLetras1(event);">
           </div>
       </div>
       <div class="col-md-4">
           <div class="form-group">
             <label for="identidad">Identidad:</label>
-            <input required type="number"  class="form-control"  onkeypress="return SoloNumeros1(event);" name="identidad" id="identidad" placeholder="Ingrese la Identidad " maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" >
+            <input required type="number"  class="form-control"  onkeypress="return SoloNumeros1(event);" name="identidad" id="identidad" placeholder="Ingresar el DNI del  Odontólogo (a)" maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" >
           </div>
       </div>
     </div><!--  -->
     <div class="row"><!--  -->
       <div class="col-md-4">
          <div class="form-group">
-            <label for="telefonoFijo">Teléfono fijo:</label>
-            <input required type="number" class="form-control" name="telefonoFijo" id="telefonoFijo" placeholder="Ingrese el  Numero del Telefono Fijo"  oninput="this.value = Math.max(this.value, 2)">
+            <label for="telefonoFijo">Teléfono fijo (Opcional):</label>
+            <input type="number" class="form-control" name="telefonoFijo" id="telefonoFijo" onkeypress="return SoloNumeros6(event);"  placeholder="Ingresar el Tel.Fijo  del  Odontólogo (a)" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(2, this.maxLength)">
           </div>
       </div>
       <div class="col-md-4">
         <div class="form-group">
           <label for="telefonoCelular">Teléfono celular:</label>
-          <input required  type="number" class="form-control" name="telefonoCelular" id="telefonoCelular" placeholder="Ingrese el Numero de Celular"  oninput="this.value = Math.max(this.value, 3)">
+          <input required  type="number" class="form-control" name="telefonoCelular" id="telefonoCelular" placeholder="Ingresar el Tel.Celular  del  Odontólogo (a)"  oninput="this.value = Math.max(this.value, 3)">
         </div>
       </div>
       <div class="col-md-4">
@@ -496,13 +481,13 @@
       <div class="col-md-4">
         <div class="form-group">
           <label for="ciudad">Ciudad:</label>
-          <input required type="text" class="form-control" name="ciudad" id="ciudad" onkeypress="return SoloLetras2(event);" placeholder="Ingrese la ciudad  en que reside "> 
+          <input required type="text" class="form-control" name="ciudad" id="ciudad" onkeypress="return SoloLetras2(event);"placeholder="Ingresar la Ciudad  del  Odontólogo (a)"> 
         </div>
       </div>
       <div class="col-md-4">
          <div class="form-group">
             <label for="direccion">Dirección:</label>
-            <input required type="text" class="form-control" name="direccion" id="direccion" placeholder="Ingrese la  Dirección:">
+            <input required type="text" class="form-control" name="direccion" id="direccion"placeholder="Ingresar la Dirección  del  Odontólogo (a)">
           </div>
       </div>
       <?php
@@ -567,7 +552,7 @@
 
 <div class="modal-footer">
  <input type="reset" class="btn btn-danger" style="">  
-<button id="bot" type="submit"class="btn btn-secondary" style="background-color:#1687a7" data-toggle="modal" >
+<button id="bot" type="submit"class="btn btn-secondary" style="background-color:#1687a7;" data-toggle="modal" >
 
   Guardar Cambios
   </button>
@@ -595,8 +580,10 @@
     </div>
   </div>
 </div>
+
+
 <!-- Modal 2_Crear Especialidad -->
-        <div class="modal fade" id="especia">
+      <!--  <div class="modal fade" id="especia">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header" style=" background-color:#276678; color:white">
@@ -604,13 +591,13 @@
               	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					      <span aria-hidden="true">&times;</span>
                 </button>     
-            </div>
+            </div> -->
               <!-- Barra de desplazamiento
               <div style="width: 450px; height: 550px; overflow-y: scroll;">
             <div class="modal-body">  -->
 
 
-                    <form method="post" action="/pantallainicio/nueva/especialidad">
+                  <!--  <form method="post" action="/pantallainicio/nueva/especialidad">
                       @csrf
                       <?php
                         $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
@@ -633,17 +620,15 @@
                   <input type="reset" class="btn btn-danger">
                   <button type="submit" class="btn btn-primary" >Guardar </button>
                 </div>
-                  </form>
+                  </form> 
                     
                       
                  
-      </div></div>
+      </div></div> -->
       
 </div>
 </div>
   <!-- /#wrapper -->
-
-
  
  <script>
         jQuery(document).ready(function($){
@@ -773,6 +758,73 @@ return false;
 }
 
 
+function SoloNumeros6(evt)
+{
+if(window.event){
+keynum = evt.keyCode;
+}
+else{
+keynum = evt.which;
+}
+
+if((keynum > 47 && keynum < 58) || keynum == 8 || keynum== 13)
+{
+return true;
+}
+else
+{
+
+return false;
+}
+}
+
+
+
+function SoloNumero4(evt)
+{
+if(window.event){
+keynum = evt.keyCode;
+}
+else{
+keynum = evt.which;
+}
+
+if((keynum > 47 && keynum < 58) || keynum == 8 || keynum== 13)
+{
+return true;
+}
+else
+{
+
+return false;
+}
+}
+
+
+
+function SoloNumero5(evt)
+{
+if(window.event){
+keynum = evt.keyCode;
+}
+else{
+keynum = evt.which;
+}
+
+if((keynum > 47 && keynum < 58) || keynum == 8 || keynum== 13)
+{
+return true;
+}
+else
+{
+
+return false;
+}
+}
+
+
+
+
 
 function SoloNumeros1(evt)
 {
@@ -865,6 +917,102 @@ if(letras.indexOf(tecla) == -1 && !tecla_especial)
  return false;
 }
 }
+
+
+function SoloLetras3(e)
+{
+key = e.keyCode || e.which;
+tecla = String.fromCharCode(key).toString();
+
+letras = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ";
+
+especiales = [8, 65];
+tecla_especial = false
+for(var i in especiales) {
+if(key == especiales[i]){
+ tecla_especial = true;
+ break;
+}
+}
+
+if(letras.indexOf(tecla) == -1 && !tecla_especial)
+{
+ 
+ return false;
+}
+}
+
+function SoloLetras4(e)
+{
+key = e.keyCode || e.which;
+tecla = String.fromCharCode(key).toString();
+
+letras = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ";
+
+especiales = [8, 65];
+tecla_especial = false
+for(var i in especiales) {
+if(key == especiales[i]){
+ tecla_especial = true;
+ break;
+}
+}
+
+if(letras.indexOf(tecla) == -1 && !tecla_especial)
+{
+ 
+ return false;
+}
+}
+
+function SoloLetras4(e)
+{
+key = e.keyCode || e.which;
+tecla = String.fromCharCode(key).toString();
+
+letras = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ";
+
+especiales = [8, 65];
+tecla_especial = false
+for(var i in especiales) {
+if(key == especiales[i]){
+ tecla_especial = true;
+ break;
+}
+}
+
+if(letras.indexOf(tecla) == -1 && !tecla_especial)
+{
+ 
+ return false;
+}
+}
+
+function SoloLetras5(e)
+{
+key = e.keyCode || e.which;
+tecla = String.fromCharCode(key).toString();
+
+letras = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ";
+
+especiales = [8, 65];
+tecla_especial = false
+for(var i in especiales) {
+if(key == especiales[i]){
+ tecla_especial = true;
+ break;
+}
+}
+
+if(letras.indexOf(tecla) == -1 && !tecla_especial)
+{
+ 
+ return false;
+}
+}
+
+
+
 </script>
 
 <script src="dist/sweetalert.min.js"></script>
