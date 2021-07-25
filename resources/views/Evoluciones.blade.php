@@ -38,11 +38,8 @@
 @endif</div>
 </div>
 <div class="card-header" >
-<h3 ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-clockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
-<path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
-</svg> 
-Evoluciones Médicas del Paciente</h3>
+<h2 > <img src="{{ asset('Imagenes/evo.png') }}"  width="7%" height="7%" >
+Evoluciones Médicas del Paciente</h2>
 <p>En esta sección podrá crear la evolución que ha tenido el plan de tratamiento que seleccione, estas se podrán eliminar y editar.</p>
 
 @can('create',App\Evoluciones::class)
@@ -59,13 +56,10 @@ Evoluciones Médicas del Paciente</h3>
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header" style="background-color:#276678;color:white">
-        <h5 class="modal-title" id="exampleModalCenterTitle">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
-        <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
-      </svg>
+        <h3 class="modal-title" id="exampleModalCenterTitle">
+        <img src="{{ asset('Imagenes/agree.png') }}"  width="15%" height="15%" >
 
-        Nueva Evolución</h5>
+        Nueva Evolución</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -178,11 +172,9 @@ Evoluciones Médicas del Paciente</h3>
       <div class="modal-dialog modal-dialog-centered" role="document" >
           <div class="modal-content" >
               <div class="modal-header"style="background-color:#276678; color:white;  ">
-                  <h5 class="modal-title" id="exampleModalLabel"> <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
-                  <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
-                  </svg>
-                  Editar Evolución </h5>
+                  <h3 class="modal-title" id="exampleModalLabel"> 
+                    <img src="{{ asset('Imagenes/edite.png') }}"  width="15%" height="15%" >
+                  Editar Evolución </h3>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
               </div>
 

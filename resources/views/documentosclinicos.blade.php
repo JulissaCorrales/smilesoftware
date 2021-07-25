@@ -23,10 +23,7 @@
     @endif
  <div class="card mb-3">
           <div class="card-header">
-              <h4><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-file-earmark-person" viewBox="0 0 16 16">
-  <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-  <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5v2z"/>
-</svg> Documentos Clínicos</h4>
+              <h2><img src="{{ asset('Imagenes/doc.jpg') }}"  width="7%" height="7%" > Documentos Clínicos</h2>
             <p>En esta ventana  muestran los archivos de los pacientes que se han registrado en la clínica por cada Odontólogo que a sido atendido,se suben los archivos de los pacientes a la base de datos y se puede descargar el archivo en formato pdf, word o excel</p>
             
                  <button type="button"  class="btn btn-info" data-toggle="modal" data-target="#SubirDoc" style="position:relative; margin: 10px; " >
@@ -158,12 +155,9 @@
                 <div class="modal-dialog modal-lg " role="document">
                     <div class="modal-content">
                     <div class="modal-header" style="background-color: #276678;color:white;">
-                        <h5 class="modal-title" id="exampleModalLabel">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
-                        <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
-                        <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
-                      </svg>
-                        Editar Documento Clínico</h5>
+                        <h3 class="modal-title" id="exampleModalLabel">
+                      <img src="{{ asset('Imagenes/edit.png') }}"  width="10%" height="10%" >
+                        Editar Documento Clínico</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
