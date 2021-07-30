@@ -36,7 +36,7 @@ position:relative;
   </ul>
   </div>
 @endif
-<h2>Edición Archivo del Paciente</h2>
+<h2> <img style=" margin-left:0%;" src="{{ asset('Imagenes/citas.webp') }}"   width="10%;" height="10%">Edición Archivo del Paciente</h2>
 
                     <?php
                     $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');

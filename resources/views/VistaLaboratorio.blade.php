@@ -144,7 +144,7 @@
                         <div class="modal-content">
                           <div class="modal-header" style="background-color:#276678;color:white">
                               <h3 class="modal-title"  id="exampleModalLongTitle">
-                              <img style=" margin-left:0%;" src="{{ asset('Imagenes/editla.png') }}"   width="20%;" height="20%">
+                              <img style=" margin-left:0%;" src="{{ asset('Imagenes/editar.png') }}"   width="10%;" height="10%">
                                    Editar laboratorio
                       
                                   </h3>

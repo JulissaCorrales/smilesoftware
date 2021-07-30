@@ -166,7 +166,7 @@
                                     <div class="modal-content"  >
                                         <div class="modal-header" style=" background-color:#276678; color:white;">
                                           <h3 class="modal-title" id="exampleModalCenterTitle">
-                                            <img   src='/Imagenes/editinve.png'   width="15%" height="15%">
+                                            <img   src='/Imagenes/editar.png'   width="10%" height="10%">
                                               Edición del Inventario
                                           </h3>
                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">

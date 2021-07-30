@@ -156,7 +156,7 @@
                     <div class="modal-content">
                     <div class="modal-header" style="background-color: #276678;color:white;">
                         <h3 class="modal-title" id="exampleModalLabel">
-                      <img src="{{ asset('Imagenes/edit.png') }}"  width="10%" height="10%" >
+                      <img src="{{ asset('Imagenes/editar.png') }}"  width="7%" height="7%" >
                         Editar Documento Clínico</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

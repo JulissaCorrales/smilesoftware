@@ -108,7 +108,7 @@
                 
   
                     <h3  class="modal-title" id="myModalLabel">
-                    <img style=" margin-left:0%;" src="{{ asset('Imagenes/gas.png') }}"   width="20%;" height="20%">
+                    <img style=" margin-left:0%;" src="{{ asset('Imagenes/editar.png') }}"   width="10%;" height="10%">
                         Editar Gasto 
                     </h3>
                     <button type="button" class="close" data-dismiss="modal"    aria-label="Close">

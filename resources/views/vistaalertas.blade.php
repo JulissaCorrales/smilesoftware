@@ -155,10 +155,12 @@
 
                                 <!-- modal para editar alerta -->
                                 <div class="modal fade" id="exampleModalCenter-{{$ver->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-dialog " role="document">
                                         <div class="modal-content">
                                             <div class="modal-header" style="background-color:#276678; color:white;">
-                                                <h5 class="modal-title" id="exampleModalLabel">Editar Alerta</h5>
+                                                <h3 class="modal-title" id="exampleModalLabel">
+                                                    <img  src="{{ asset('Imagenes/editar.png') }}"   width="10%;" height="10%">
+                                                    Editar Alerta</h3>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -178,6 +180,7 @@
                                             <div class="modal-footer">
                                                 <div>
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+                                                    <button type="reset" class="btn btn-danger"  >Restablecer</button>
                                                 </div>
                                                 <div>
                                                     <button id="botonContinuar" type="submit" class="btn btn-outline-info" data-toggle="modal">
