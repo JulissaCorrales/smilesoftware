@@ -100,8 +100,8 @@
                  <!-- Modal -->
                 <div class="modal fade" id="modal-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content" style="position:absolute; left:50px; top:100px;">
-                            <div class="modal-header" style="background-color:#293d3d; color:white;  height:80px;">
+                        <div class="modal-content" >
+                            <div class="modal-header" style=" background-color:#276678; color:white;">
                             <h5 class="modal-title" id="exampleModalLabel">Eliminar Plan de Tratamiento</h5>
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
