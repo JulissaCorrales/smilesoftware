@@ -51,7 +51,7 @@ public function PDFfacturaplantratamiento($id,$id2){
 public function PDFCitaindividual($id){
     $this->authorize('DescargarCitasPorPaciente', Cita::class);
     $pacientes = Paciente::findOrFail($id);
-    $pdf = PDF::loadView('citaindividual_pdf',compact('pacientes','citas'));
+    $pdf = PDF::loadView('citaindividual_pdf',compact('pacientes'));
     return $pdf->download('citaindividual_pdf.pdf');
 }
 
