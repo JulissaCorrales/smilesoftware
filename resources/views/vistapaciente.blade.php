@@ -144,7 +144,7 @@
                       <label for="fechaNacimiento">Fecha de Nacimiento:</label>
                       <input type="date" class="form-control form-control-file" name="fechaNacimiento" id="fechaNacimiento" placeholder="Ingrese la Fech.de Nacimiento "   min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 100 year")); ?>"
  max="<?php echo date('Y-m-d',strtotime($fecha_actual
-."- 5 year"));?>" required>
+." 0 year"));?>" required>
                   </div>
                         
                     <div class="col-md-6">
