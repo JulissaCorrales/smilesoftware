@@ -1,5 +1,5 @@
 @extends('Plantilla.dashboard')
-@section('titulo'.'Citas')
+@section('titulo','Citas')
 @section('content')
 
 <div class="card mb-3">

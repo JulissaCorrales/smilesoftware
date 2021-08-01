@@ -7,6 +7,7 @@ use App\Plantratamiento;
 use App\Cita;
 use App\Comentario;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rule;
 
 use Illuminate\Http\Request;
 
@@ -128,7 +129,7 @@ class PacienteController extends Controller
             $request->validate([
             'nombres'=>'required|regex:/^[\pL\s\-]+$/u|max:60',
             'apellidos'=>'required|regex:/^[\pL\s\-]+$/u|max:60',
-            'identidad'=>['required', 'numeric', 'digits:13'],
+            'identidad'=>['required', 'numeric', 'digits:13', Rule::unique('pacientes')],
             'sexo'=>'required|alpha|in:Femenino,Masculino',
             'fechaNacimiento'=>'required|date|before:today',
             'departamento'=>'required|regex:/^[\pL\s\-]+$/u|max:255',

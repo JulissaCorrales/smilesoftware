@@ -11,16 +11,16 @@
 </head>
 <body>
 
-<header>
+<header style="height:3em;">
 <p><strong> Reportes </strong></p>
 </header>
 
 <div class="container">
-    <h5 style="text-align : center ">Inventario de la Clinica</h5>
-    <table class="table table-striped" >
-<thead class="table-light">
+    <h5 style="text-align : center ">Inventarios de la Clínica</h5>
+    <table class="table" style="width: 100%; border: 1px solid #ccc;" >
+<thead style="background-color:#D3E0EA">
 <tr>
-<th scope="col">Codigo</th>
+<th scope="col">Código</th>
 <th scope="col">Producto</th>
 <th scope="col">Inventario de Seguridad </th>
 <th scope="col">Inventario Actual </th>
@@ -28,7 +28,7 @@
 </tr>
 </thead>
 <tbody>
-@foreach($inventarios as $inventario)
+@forelse($inventarios as $inventario)
 <tr>
 <th scope="row">{{$inventario->id}}</th>
 <th scope="row">{{$inventario->producto}}</th>
@@ -36,13 +36,15 @@
 <th scope="row">{{$inventario->stockactual}}</th>
 <th scope="row">{{$inventario->monto}}</th>
 </tr>
-@endforeach
+@empty
+<tr>No hay inventarios existentes</tr>
+@endforelse
   </tbody>
 
 </table>
 </div>
 <footer>
-<p> <strong> Clinica Odontologica Smile Software </strong> </p>
+<p> <strong> Clínica Odontólogica Smile Software </strong> </p>
 </footer>
 
 

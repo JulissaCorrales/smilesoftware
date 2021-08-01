@@ -186,7 +186,7 @@ class UsuarioController extends Controller
         
         
         if($creado){
-            return back()->with('mensaje','El Usuario ha sido modifcado exitosamente');
+            return redirect()->route('usuarios.indice')->with('mensaje','El Usuario ha sido modifcado exitosamente');
         }else{
           
           

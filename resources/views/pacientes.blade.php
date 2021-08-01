@@ -16,33 +16,31 @@
 
     <div class="container">
     <h5 style="text-align : center ">Tabla de Pacientes de la Clínica</h5>
-    <table class="table table-striped" >
-<thead class="table-light">
+    <table  class="table" style="width: 100%; border: 1px solid #ccc;margin-top:3em;"  >
+<thead style="background-color:#D3E0EA">
 <tr>
-<th scope="col">#</th>
-<th scope="col">Nombres</th>
-<th scope="col">Apellidos </th>
+<th scope="col">N°</th>
+<th scope="col">Nombre</th>
 <th scope="col">Identidad </th>
 <th scope="col">Sexo </th>
 <th scope="col">Fecha de Nacimiento </th>
 <th scope="col">Departamento </th>
 <th scope="col">Ciudad </th>
-<th scope="col">Teléfono Celular </th>
+<th scope="col">Teléfono</th>
 </tr>
 </thead>
 
 <tbody>
 @foreach($pacientes as $paciente)
 <tr>
-<th scope="row">{{$paciente->id}}</th>
-<th scope="row">{{$paciente->nombres}}</th>
-<th scope="row">{{$paciente->apellidos}}</th>
-<th scope="row">{{$paciente->identidad}}</th>
-<th scope="row">{{$paciente->sexo}}</th>
-<th scope="row">{{$paciente->fechaNacimiento}}</th>
-<th scope="row">{{$paciente->departamento}}</th>
-<th scope="row">{{$paciente->ciudad}}</th>
-<th scope="row">{{$paciente->telefonoCelular}}</th>
+<td >{{$paciente->id}}</td>
+<td >{{$paciente->nombres}} {{$paciente->apellidos}}</td>
+<td >{{$paciente->identidad}}</td>
+<td >{{$paciente->sexo}}</td>
+<td >{{$paciente->fechaNacimiento}}</td>
+<td >{{$paciente->departamento}}</td>
+<td >{{$paciente->ciudad}}</td>
+<td >{{$paciente->telefonoCelular}}</td>
 </tr>
 @endforeach
   </tbody>

@@ -22,21 +22,21 @@ class MediodepagosTableSeeder extends Seeder
         $mediopago->save();
 
         $mediopago=new Mediopago;
-        $mediopago->nombre="Tarjeta de Credito";
+        $mediopago->nombre="Tarjeta de Crédito";
         $mediopago->save();
 
         $mediopago=new Mediopago;
-        $mediopago->nombre="Tarjeta de Debito";
-        $mediopago->save();
-
-
-        $mediopago=new Mediopago;
-        $mediopago->nombre="Transferencia Electronica";
+        $mediopago->nombre="Tarjeta de Débito";
         $mediopago->save();
 
 
         $mediopago=new Mediopago;
-        $mediopago->nombre="Deposito Bancario";
+        $mediopago->nombre="Transferencia Electrónica";
+        $mediopago->save();
+
+
+        $mediopago=new Mediopago;
+        $mediopago->nombre="Depósito Bancario";
         $mediopago->save();
 
         $mediopago=new Mediopago;

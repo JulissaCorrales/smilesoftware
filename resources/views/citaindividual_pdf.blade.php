@@ -11,20 +11,20 @@
 
   <div class="container"> 
 
-<h1>Clinica Odontologica Smile Software</h1>
+<h3 align="center">Clínica Odontólogica: Smile Software</h3>
 
-<h6>Citas  del Paciente: {{$pacientes->nombres}} {{$pacientes->apellidos}}</h6>
+<h5 style="margin-top:3em;">Citas  del Paciente: {{$pacientes->nombres}} {{$pacientes->apellidos}}</h5>
      
-<table class="table">
-        <thead class="table table-striped table-bordered">
+<table class="table" style="width: 100%; border: 1px solid #ccc;margin-top:3em;" >
+<thead style="background-color:#D3E0EA">
             <tr>
-            <th scope="col">#Numero de cita</th>
-            <th scope="col">Especialidad</th>
+            <th scope="col">N°</th>
+            <th scope="col">Especialidades</th>
             <th scope="col">Dentista</th>
             <th scope="col">Duración</th>
-            <th scope="col">Fecha y Hora</th>
-            <th scope="col">Comentarios</th>
-            </tr>  
+            
+           
+            </tr> 
         </thead>
 
         <tbody>
@@ -34,15 +34,22 @@
            @forelse ($pacientes->citas as $tag) 
            <tr>
          <td>{{ $tag->id}}</td>
-         <td>{{ $tag->odontologo->especialidad_id}} </td>
+        <td>
+        @foreach($tag->odontologo->especialidades as $especialidadodontologo)
+        {{$especialidadodontologo->Especialidad}}
+        @endforeach
+        </td>
          <td>{{ $tag->odontologo->nombres}} {{ $tag->odontologo->apellidos}}</td>
-         <td>{{ $tag->duracionCita}} minutos</td>
-         <td>{{ $tag->stard}}</td>
-         <td>{{ $tag->comentarios}}</td>
+         <td colspan="1">{{ $tag->duracionCita}} minutos</td>
+       
+         
         
-        @empty
-         vacio
+     
          </tr> 
+        <tr><th scope="col">Fecha y Hora</th>  <td colspan="4">{{ $tag->stard}}</td></tr>
+        <tr><th scope="col">Comentarios:</th><td colspan="4">{{ $tag->comentarios}}</td></tr>
+           @empty
+         vacio
         @endforelse
            
           

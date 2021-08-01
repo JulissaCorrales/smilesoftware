@@ -22,9 +22,7 @@
 
 <div class="card mb-3">
         <div class="card-header">
-           <h4><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
-            </svg> Comentarios Administrativos</h4>
+           <h2><img src="{{ asset('Imagenes/comen.png') }}"  width="7%" height="7%" > Comentarios Administrativos</h2>
             
              @can('create',App\Comentario::class)
             <button style=" position: relative; margin: 5px;"   data-toggle="modal" data-target="#create" type="button"  class="btn btn-outline-info">
@@ -50,8 +48,10 @@
 <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header" style="background-color: #d3e0ea;color:black;">
-        <h5 class="modal-title" id="exampleModalLabel">Crear Comentario Administrativo</h5>
+      <div class="modal-header" style="background-color:#276678; color:white;">
+        <h4 class="modal-title" id="exampleModalLabel">
+            <img src="{{ asset('Imagenes/agreco.png') }}"  width="15%" height="15%" >
+                Crear Comentario Administrativo</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -70,7 +70,7 @@
       <div class="modal-footer">
         <div>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
-          <button type="reset" class="btn btn-warning"  >Restablecer</button>
+          <button type="reset" class="btn btn-danger"  >Restablecer</button>
         </div>
         <div>
         <button type="submit"  class="btn btn-primary" id="guardar" >Guardar </button>
@@ -116,9 +116,9 @@
                                         <div class="modal-dialog modal-dialog-centered" role="document" >
                                             <div class="modal-content" style="position:absolute; left:50px; top:100px;">
                                                 <div class="modal-header"style="background-color: #d3e0ea; color:black;  height:80px; ">
-                                                    <h5 class="modal-title" id="exampleModalLabel"> <svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
-                                                </svg> Editar el Comentario Administrativo</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel"> 
+                                                    <img src="{{ asset('Imagenes/editc.png') }}"  width="15%" height="15%" > 
+                                                    Editar el Comentario Administrativo</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
                                                 </div>
 
@@ -145,7 +145,7 @@
    
 <div class="modal-footer" >
  <button type="button" class="btn btn-secondary" data-dismiss="modal"  >Cerrar</button>
-                           <button type="reset" class="btn btn-warning"  >Restablecer</button>
+                           <button type="reset" class="btn btn-danger"  >Restablecer</button>
                               
                                         <button type="submit" class="btn btn-primary"  >Actualizar </button>
                                      
@@ -178,11 +178,11 @@
                                                 ¿Desea realmente eliminar el comentario {{$ver->comentarios}} ?
                                             </div>
                                             <div class="modal-footer" style="height: 60px;">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal"  style="background-color:#ff704d;">Cerrar</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal"  >Cerrar</button>
                                                 <form method="post" action="{{route('comentario.borrar',['id'=>$ver->id])}}">
                                                     @csrf
                                                     @method('delete')
-                                                    <input type="submit" value="Eliminar" class="btn btn-danger"  style="background-color:#ff5050;">
+                                                    <input type="submit" value="Eliminar" class="btn btn-danger"  >
                                                 </form>
                                             </div>
                                         </div>
