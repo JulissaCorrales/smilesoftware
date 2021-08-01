@@ -71,21 +71,20 @@
             </button>
         </div>
     <!-- 1.modal crear paciente -->
-    <div class="modal fade bd-example-modal-lg" id="Crearpaciente" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div  id="Crearpaciente" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"  data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg " role="document">
         <div class="modal-content">
         <div class="modal-header" style="background-color: #276678;color:white;">
             <h5 class="modal-title" id="exampleModalLabel">
            <img style="border-radius: 70%;" src='/Imagenes/agregarp.png' width="70px" height="70px" id="datosme">
             Crear Paciente</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
+              <form id="formupaciente" method="post" action="/pantallainicio/vista/pacienteNuevo" enctype="multipart/form-data" onsubmit = "return calcularEdad(document.getElementById('fechanaci').value)">
+            <button type="button" class="close" data-dismiss="modal" id="btncerrar"><span aria-hidden="true">×</span><span class="sr-only">Cerrar</span></button>
         </div>
         <!-- <div style="width: 450px; height: 550px; overflow-y: scroll;"> -->
         <div class="modal-body">
             <!--Contenido -->
-            <form id="formupaciente" method="post" action="/pantallainicio/vista/pacienteNuevo" enctype="multipart/form-data" onsubmit = "return calcularEdad(document.getElementById('fechanaci').value)">
+           
             @csrf
                <div class="form-group">
                         <div class="row">
@@ -131,7 +130,7 @@
                       <div class="row">
                          <div class="col-md-6">
                       <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                      <input type="date" class="form-control form-control-file" name="fechaNacimiento" id="fechaNacimiento" placeholder="Ingrese la Fech.de Nacimiento "  value="{{old('fechaNacimiento')}}"  min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 100 year")); ?>"
+                      <input type="date" class="form-control form-control-file" name="fechaNacimiento" id="fechaNacimiento" placeholder="Ingrese la Fech.de Nacimiento "   min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 100 year")); ?>"
  max="<?php echo date('Y-m-d',strtotime($fecha_actual
 ."- 5 year"));?>" required>
                   </div>
@@ -304,8 +303,24 @@ height= "60px" style="border-radius:50%;">
   
 
   </div>
-  <!-- /#wrapper -->
 
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+   $("#btncerrar").click(function(event) {
+	   $("#formupaciente")[0].reset();
+   });
+</script>
+  <!-- /#wrapper -->
+<script>
+
+$("btncerrar").click(fuction(event){
+$("formupaciente")[0].reset();
+
+
+});
+
+
+</script>
 <script>
 $(document).ready( function () {
     $('#datatable1').DataTable( {
@@ -332,9 +347,11 @@ $(document).ready( function () {
 });
 } );
 
+
 </script>
 
 <script>
+
 fuction existeFecha(fechaNacimiento){
 
 var fechaf= fechaNacimiento.split("/");
@@ -350,7 +367,21 @@ return false; }
 return true;
 }
 
+
+
 </script>
+
+<script type="text/javascript">
+
+
+    $('#Crearpaciente').on('hidden.bs.modal', function () {
+            $(this).find('form').trigger('reset');
+      });
+
+
+</script>
+
+
 <!-- El siguiente script es para que la foto de perfil solo acepte imagenes -->
    <script type="text/javascript">
       (function(){
@@ -417,7 +448,6 @@ return true;
   <script src="js/demo/datatables-demo.js"></script>
 
 <script>
-
 
 
 </script>

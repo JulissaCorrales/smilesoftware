@@ -418,15 +418,14 @@
     @csrf
     <div class="row"><!--  -->
       <div class="col-md-4">
-         <div class="form-group">
+       
             <label for="nombres">Nombres:</label>
-            <input required type="text" class="form-control" name="nombres" id="nombres" onkeypress="return SoloLetras(event);" placeholder="Ingresar los Nombres del  Odontólogo (a)">
-          </div>
+            <input required type="text" class="form-control" name="nombres" id="nombres" onkeypress="return SoloLetras(event);" placeholder="Ingresar los Nombres del  Odontólogo (a)"  pattern="[A-Za-z]{3,100}"  oninput="check_textuno(this);">
       </div>
       <div class="col-md-4">
-         <div class="form-group">
+         <div class="">
             <label for="apellidos">Apellidos:</label>
-            <input required type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingresar los Apellidos  del  Odontólogo (a)" onkeypress="return SoloLetras1(event);">
+            <input  type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingresar los Apellidos  del  Odontólogo (a)" onkeypress="return SoloLetras1(event);" class="input-large" pattern="[A-Za-z]{3,100}" required oninput="check_textdos(this);">
           </div>
       </div>
       <div class="col-md-4">
@@ -481,7 +480,7 @@
       <div class="col-md-4">
         <div class="form-group">
           <label for="ciudad">Ciudad:</label>
-          <input required type="text" class="form-control" name="ciudad" id="ciudad" onkeypress="return SoloLetras2(event);"placeholder="Ingresar la Ciudad  del  Odontólogo (a)"> 
+          <input required type="text" class="form-control" name="ciudad" id="ciudad" onkeypress="return SoloLetras2(event);"placeholder="Ingresar la Ciudad  del  Odontólogo (a)" pattern="[A-Za-z]{3,100}" required oninput="check_texttres(this);"> 
         </div>
       </div>
       <div class="col-md-4">
@@ -648,6 +647,8 @@ jQuery(document).ready(function($){
       
 
 
+
+
 $(document).ready( function () {
     $('#datatable1').DataTable( {
     language: {
@@ -676,7 +677,15 @@ $(document).ready( function () {
 
 </script>
 
-
+<script type="text/javascript">
+function check_textdos(input) {  
+    if (input.validity.patternMismatch){  
+        input.setCustomValidity("Debe ingresar al menos 3 LETRAS");  
+    }  
+    else {  
+        input.setCustomValidity("");  
+    }                 
+}  </script>
 
 
  <script>
@@ -685,10 +694,48 @@ $(document).ready( function () {
               $('.mi-selector1').select2();
           });
       });
+
+
+function check_text(input) {  
+    if (input.validity.patternMismatch){  
+        input.setCustomValidity("Debe ingresar al menos 3 LETRAS");  
+    }  
+    else {  
+        input.setCustomValidity("");  
+    }                 
+}  
       
 
 
+
       </script>
+
+<script>
+
+
+function check_textuno(input) {  
+    if (input.validity.patternMismatch){  
+        input.setCustomValidity("Debe ingresar al menos 3 letras");  
+    }  
+    else {  
+        input.setCustomValidity("");  
+    }                 
+}  
+      
+
+
+function check_texttres(input) {  
+    if (input.validity.patternMismatch){  
+        input.setCustomValidity("Debe ingresar al menos 3 letras");  
+    }  
+    else {  
+        input.setCustomValidity("");  
+    }                 
+}  
+      
+
+
+</script>
 
 <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.js"></script>
 <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js">

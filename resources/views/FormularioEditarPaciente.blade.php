@@ -45,13 +45,13 @@
                       <div class="row" style=" margin:25px;">
                       <div class="col-md-6" >
                         <label for="nombres" class="form-label " > Nombres: </label>
-                        <input required type="text" class="form-control " style="font-size:18px; font-family: Times New Roman, Times, serif; " name="nombres" id="nombres" placeholder="ingresar nombre del paciente"  value="{{ $pacientes->nombres }}" >
+                        <input required type="text" class="form-control " style="font-size:18px; font-family: Times New Roman, Times, serif; " name="nombres" id="nombres" placeholder="ingresar nombre del paciente"  value="{{ $pacientes->nombres }}" pattern="[A-Za-z]{3,100}" required oninput="check_text(this);" >
                        </div>
 
                      
                       <div class="col-md-6">
                           <label for="apellidos" class="form-label " >Apellidos:</label>
-                          <input required type="text" class="form-control " name="apellidos" id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $pacientes->apellidos }}">
+                          <input required type="text" class="form-control " name="apellidos" id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $pacientes->apellidos}}" pattern="[A-Za-z]{3,100}"  oninput="check_text1(this);">
                         </div>
                       </div>
                      <div class="row" style=" margin:25px;">
@@ -110,7 +110,7 @@
                       <div class="col-md-6">
                         <label for="ciudad" class="form-label ">Ciudad:</label>
 
-                        <input required type="text"class="form-control " name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $pacientes->ciudad }}">
+                        <input required type="text"class="form-control " name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $pacientes->ciudad }}" pattern="[A-Za-z]{3,100}"  oninput="check_text2(this);">
                           </div>
 
                   
@@ -203,6 +203,41 @@
                         }
                         }	
                     </script>
+<script type="text/javascript">
+function check_text(input) {  
+    if (input.validity.patternMismatch){  
+        input.setCustomValidity("Debe Ingresar al menos 3 letras");  
+    }  
+    else {  
+        input.setCustomValidity("");  
+    }    
+
+} 
+
+function check_text1(input) {  
+    if (input.validity.patternMismatch){  
+        input.setCustomValidity("Debe Ingresar al menos 3 letras");  
+    }  
+    else {  
+        input.setCustomValidity("");  
+    }    
+
+
+} 
+
+function check_text2(input) {  
+    if (input.validity.patternMismatch){  
+        input.setCustomValidity("Debe Ingresar al menos 3 letras");  
+    }  
+    else {  
+        input.setCustomValidity("");  
+    }    
+
+
+} 
+
+
+ </script>
             </form>
                     
       </table>
