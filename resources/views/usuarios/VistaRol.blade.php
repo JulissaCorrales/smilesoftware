@@ -81,10 +81,10 @@
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table class="table table-bordered" id="datatable1" width="100%" cellspacing="0">
+      <table class="table table-bordered"  width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th>Id</th>
+            <!-- <th>Id</th> -->
             <th>Roles</th>
             <th>Slug</th>
             <th>Permisos</th>
@@ -95,7 +95,7 @@
         </thead>
         <tfoot>
           <tr>
-            <th>Id</th>
+            <!-- <th>Id</th> -->
             <th>Roles</th>
             <th>Slug</th>
             <th>Permisos</th>
@@ -110,7 +110,7 @@
           <tr>
             @forelse ($rols as $tag)
 
-            <td><a type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModalLong-{{$tag->id}}" id="lista">{{ $tag->id}}</a></td>
+            <!-- <td><a type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModalLong-{{$tag->id}}" id="lista">{{ $tag->id}}</a></td> -->
             <td>{{ $tag->Nombre}} </td>
             <td>{{ $tag->slug}} </td>
             <td>
@@ -366,7 +366,7 @@
   </div>
   <!-- /#wrapper -->
 
-  <script>
+  <!-- <script>
     $(document).ready(function() {
       $('#datatable1').DataTable({
         language: {
@@ -391,7 +391,7 @@
         }
       });
     });
-  </script>
+  </script> -->
 
 
 
