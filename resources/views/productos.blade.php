@@ -97,7 +97,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="monto">Precio:</label>
-                                        <input  required type="number"  step="any"  class="form-control-file" name="monto" id="monto" placeholder="Ingrese el precio del producto">
+                                        <input  required type="number" min="1" pattern="^[0-9]+"oninput="this.value = Math.max(this.value, 1)" step="any"  class="form-control-file" name="monto" id="monto" placeholder="Ingrese el precio del producto">
                                     </div>
                                     <div class="modal-footer">
                                         <input type="reset" class="btn btn-danger">
