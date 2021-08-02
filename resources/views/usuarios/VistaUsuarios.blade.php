@@ -40,7 +40,7 @@
                         <div class="form-group ">
                             <label for="name" class=" col-form-label">{{ __('Nombre del usuario:') }}</label>
                             <div>
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Escriba su nombre de usuario aquí">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" minlength="3" maxlength="15"  onkeypress="return SoloLetras(event);" required oninput="check_text(this);"  autocomplete="name" autofocus placeholder="Escriba su nombre de usuario aquí">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -68,7 +68,7 @@
                         <div class="form-group">
                             <label class="col-form-label" for="password">{{ __('Contraseña') }}</label>
                             <div>
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Escriba su contraseña de 8 o mas caracteres aquí">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Escriba su contraseña de 8 o mas caracteres aquí" minlength="8">
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -81,7 +81,7 @@
                         <div class="form-group">
                             <label class="col-form-label" for="password-confirm">{{ __('Confirme Contraseña') }}</label>
                             <div>
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirme su contraseña de 8 o mas caracteres aquí">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirme su contraseña de 8 o mas caracteres aquí" minlength="8">
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                             <label class="col-form-label" style="margin-left:1em;margin-right:1em;" for="roles">{{ __('Rol:') }}</label>
                             <div>
                                 <br>
-                                <select class="role form-control" name="role" id="role2">
+                                <select required class="role form-control" name="role" id="role2">
                                     <option value="">Seleccione el Rol...</option>
                                         @foreach ($roles as $role)
                                         <option data-role-id2="{{$role->id}}" data-role-slug2="{{$role->slug}}" value="{{$role->id}}">{{$role->Nombre}}</option>
@@ -529,6 +529,34 @@ $(document).ready(()=>{
     });
 });
 </script> 
+
+<!-- scrip para validaciones -->
+<script>
+
+
+function SoloLetras(e)
+{
+key = e.keyCode || e.which;
+tecla = String.fromCharCode(key).toString();
+
+letras = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ";
+
+especiales = [8, 65];
+tecla_especial = false
+for(var i in especiales) {
+if(key == especiales[i]){
+ tecla_especial = true;
+ break;
+}
+}
+
+if(letras.indexOf(tecla) == -1 && !tecla_especial)
+{
+ 
+ return false;
+}
+}
+</script>
 
 
 @endsection
