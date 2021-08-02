@@ -197,7 +197,7 @@
                                         <!-- Precio Final-->
                                         <div class="form-group" id="div2">
                                         <label for="detalle" class="control-label">Precio Final:</label>
-                                        <input  required type="number"  step="any"  class="form-control-file" name="monto" id="monto" placeholder="Ingrese valor "value="{{ $tag->monto}}">
+                                        <input  required type="number"  step="any"  class="form-control-file" name="monto" pattern="^[0-9]+" min="0" id="monto" placeholder="Ingrese valor "value="{{ $tag->monto}}">
                                         </div>
                                         <div class="form-group" align="center"id="div6">
                                         <input type="reset" class="btn btn-dark">
