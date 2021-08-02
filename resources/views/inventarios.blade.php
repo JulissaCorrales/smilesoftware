@@ -84,7 +84,7 @@
                                     
                                     <div class="form-group">
                                         <label for="producto">Nombre del Inventario:</label>
-                                        <input type="text" required class="form-control-file" name="producto" id="producto" placeholder="Ingresar nombre del inventario">
+                                        <input type="text" maxlength="100" minlength="3"required class="form-control-file" name="producto" id="producto" placeholder="Ingresar nombre del inventario">
                                     </div>
                                     <div class="row">
                                       <div class="col">
@@ -181,7 +181,7 @@
                                           <!-- Producto-->
                                              <div class="form-group" id="divcate">
                                                 <label for="producto" class="control-label">Nombre del Inventario:</label>
-                                                 <input type="text" required class="form-control-file" placeholder="Ingrese nombre del inventario" name="producto" id="producto"   value="{{ $inventario->producto}}"> 
+                                                 <input type="text" required maxlength="100" minlength="3"class="form-control-file" placeholder="Ingrese nombre del inventario" name="producto" id="producto"   value="{{ $inventario->producto}}"> 
                                               </div>
                                                   <div class="row">
                                                     <div class="col">

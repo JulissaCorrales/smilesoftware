@@ -181,7 +181,7 @@
 
                                         <div class="form-group" id="divcate">
                                         <label for="nombre" class="control-label">Nombre del Producto:</label>
-                                        <input type="text" required  class="form-control-file" placeholder="Ingrese nombre producto" name="nombre" id="nombre"   value="{{ $tag->nombre }}"> 
+                                        <input type="text" required maxlength="100" minlength="3"  class="form-control-file" placeholder="Ingrese nombre producto" name="nombre" id="nombre"   value="{{ $tag->nombre }}"> 
                                         </div>
 
                                         <!-- Permite Descuento-->
