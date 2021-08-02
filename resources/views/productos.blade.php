@@ -84,7 +84,12 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="categoria">Nombre:</label>
-                                        <input required type="text" class="form-control-file" name="nombre" id="nombre" placeholder="Ingrese el nombre del producto">
+                                        <input required type="text" maxlength="100" minlength="3" class="form-control-file" name="nombre" id="nombre" placeholder="Ingrese el nombre del producto">
+                                        @error('categoria')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>  
+                                @enderror
                                     </div>
 
                                     <div class="form-group">
