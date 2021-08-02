@@ -5,6 +5,12 @@
     
  
     <title>Plan de Tratamiento</title>
+<style>
+#colorF{
+color: black;
+align-content: center;
+}
+</style>
 </head>
 <body>
 
@@ -78,7 +84,8 @@
                 <td>{{ $tag->estado}}</td>
                <!-- Fecha y Hora de Cita -->
                 <td>
-                <span class="badge">{{ $tag->cita->stard}} </span></td>
+                <FONT color="black"><span class="badge" id="colorF" >{{ $tag->cita->stard}} </span></td></FONT>
+                
                 <!-- Acciones -->
                 <!-- Para boton borrar -->
                 <td>
