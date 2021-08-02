@@ -74,8 +74,10 @@
                       <div class="row" style=" margin:25px;">
                       <div class="col-md-6">
                         <label for="fechaNacimiento" class="form-label " >Fecha de Nacimiento:</label>
-                      
-                        <input type="date" required class="form-control " name="fechaNacimiento" id="fechaNacimiento" placeholder="Ingresar Fecha de nacimiento del paciente"  value="{{ $pacientes->fechaNacimiento }}">
+                      <?php $fecha_actual= date("d-m-Y");  ?>
+                        <input type="date" required class="form-control " name="fechaNacimiento" id="fechaNacimiento" placeholder="Ingresar Fecha de nacimiento del paciente"  value="{{ $pacientes->fechaNacimiento }}"  min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 100 year")); ?>"
+ max="<?php echo date('Y-m-d',strtotime($fecha_actual
+." 0 year"));?>">
                         </div>
                       
 
