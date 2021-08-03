@@ -75,7 +75,7 @@
                                   
                                   <div class="form-group">
                                       <label for="nombre">Medio de Pago:</label>
-                                      <input required type="text" class="form-control-file" name="nombre" id="nombre"  maxlength="60" placeholder="ingresar nombre del medio de pago">
+                                      <input required type="text" class="form-control-file" name="nombre" id="nombre"  maxlength="60" minlength="3" placeholder="ingresar nombre del medio de pago">
                                   </div>
                                           
                               <div class="modal-footer">
@@ -147,7 +147,7 @@
                                               
                                   <div class="form-group" id="divcate">
                                                   <label for="nombre" class="control-label">Nombre del Medio de Pago:</label>
-                                                  <input required type="text" maxlength="60" class="form-control-file" placeholder="Ingrese nombre del inventario" name="nombre" id="nombre"   value="{{$mediopago->nombre}}"> 
+                                                  <input required type="text" maxlength="60" minlength="3" class="form-control-file" placeholder="Ingrese nombre del inventario" name="nombre" id="nombre"   value="{{$mediopago->nombre}}"> 
                                                   </div>
                                 
                                 <div class="modal-footer" id="div6">

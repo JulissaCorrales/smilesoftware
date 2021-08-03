@@ -152,7 +152,7 @@
                     <!-- Detalle-->
                     <div class="form-group" id="div2">
                     <label for="detalle" class="control-label">Detalle:</label>
-                    <input required type="text" maxlength="255" class="form-control-file" name="detalle" id="detalle" placeholder="Ingrese el detalle del gasto" value="{{ $gasto->detalle }}">
+                    <input required type="text" maxlength="150" minlength="3" class="form-control-file" name="detalle" id="detalle" placeholder="Ingrese el detalle del gasto" value="{{ $gasto->detalle }}">
                     </div>
                  
                     <!-- Monto-->
