@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Inventario;
+use Illuminate\Validation\Rule;
 
 class InventarioController extends Controller
 {  
@@ -34,7 +35,7 @@ public function destroy($id){
 public function guardar(Request $request){
     $this->authorize('create', Inventario::class); //si tiene el permiso de crear sera guardado:        
     $request->validate([
-        'producto'         =>  'required',
+        'producto'         =>  ['required',Rule::unique('inventarios')],
         'stockseguridad'   =>  'required|numeric',
         'stockactual'      =>  'required|numeric',
         'monto'      =>  'required|numeric',
@@ -65,7 +66,7 @@ public function guardar(Request $request){
 
 public function update(Request $request,$id){
     $request->validate([
-        'producto'        =>'required',
+        'producto'        =>['required',Rule::unique('inventarios')],
         'stockseguridad'  =>'required|numeric',
         'stockactual'     =>'required|numeric',
         'monto'           =>'required|numeric',
