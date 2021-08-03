@@ -34,9 +34,6 @@ class UsuarioController extends Controller
 
 
     public function verUsuario($id){
-        if(Gate::denies('isAdmin')){
-            abort(403);
-         }
         $usuarios =User::findOrFail($id);
         return view('usuarios.Verusuario')->with ('usuarios',$usuarios);
     }
@@ -57,9 +54,9 @@ class UsuarioController extends Controller
 
 
      public function guardar(Request $request){
-        if(Gate::denies('isAdmin')){
-            abort(403);
-         }
+        // if(Gate::denies('isAdmin')){
+        //     abort(403);
+        //  }
         $request->validate([
             'name' => ['required', 'string', 'max:15','unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -136,9 +133,9 @@ class UsuarioController extends Controller
 
     }
     public function actualizar(Request $request,$id){
-        if(Gate::denies('isAdmin')){
-            abort(403);
-         }
+        // if(Gate::denies('isAdmin')){
+        //     abort(403);
+        //  }
         $request->validate([
             'name' => 'required|max:255',
             'email' => ['required', 'string', 'email', 'max:255', ],
@@ -186,7 +183,7 @@ class UsuarioController extends Controller
         
         
         if($creado){
-            return redirect()->route('usuarios.indice')->with('mensaje','El Usuario ha sido modifcado exitosamente');
+            return redirect()->back()->with('mensaje','El Usuario ha sido modifcado exitosamente');
         }else{
           
           
