@@ -59,7 +59,7 @@
                   <div class="table-responsive">
                     <!-- tabla -->
 
-                    <table class="table table-bordered" id="datatable1" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">
                         <thead>
                            <tr>
             <th>Categoría</th>
@@ -124,14 +124,29 @@
     @method('put')
      <!-- Categoria-->
                 
-                    <div class="form-group" id="divcate">
+                   <div class="form-group" id="divcate">
                     <label for="categoria" class="control-label">Categoría:</label>
-                    <input required type="text" maxlength="100" minlength="3" class="form-control @error('categoria') is-invalid @enderror" placeholder="Ingrese la categoría del gasto" name="categoria" id="categoria  "   value="{{ $gasto->categoria }}" autocomplete="categoria" > 
-                    @error('categoria')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+              <select required name="categoria" id="categoria" class="form-control">
+              <option  selected value="{{$gasto->categoria}}"> Categoría Actual: {{$gasto->categoria}}</option>
+              <option value="Servicios Públicos">Servicios Públicos</option>
+              <option value="Provision por Contingencias">Provision por Contingencias</option>
+              <option value="Compra de Material de la Clínica">Compra de Material de la Clínica</option>
+              <option value="Pago por Alquiler">Pago por Alquiler</option>
+              <option value="Marketing, Públicidad y Diseño">Marketing, Públicidad y Diseño</option>
+              <option value="Gastos Financieros y Administrativo">Gastos Financieros y Administrativos</option>
+            <option value="Mantenimiento y Reparaciones Imprevistas">Mantenimiento y Reparaciones Imprevistas</optio>
+            <option value="Nóminas, Salarios y Seguridad Social">Nóminas, Salarios y Seguridad Social</optio>
+            <option value="Transportes y logística">Transportes y logísticar</optio>
+            <option value="Gastos de kilometraje">Gastos de kilometraje</optio>
+            <option value="Impuestos y Tasa">Impuestos y Tasas</option>
+            <option value="Gastos por Suministros y Facturas de Servicios">Gastos por Suministros y Facturas de Servicios</option>
+            <option value="Servicios de Empresas Externa">Servicios de Empresas Externas</option>
+            <option value="Costes de Persona">Costes de Personal</option>
+            <option value="Impuestos Específicos y Costos de Distribución">Impuestos Específicos y Costos de Distribución</option>
+            <option value="Materias Primas">Materias Primas</option>
+
+
+              </select>
                     </div>
                    
                     <!-- Detalle-->
