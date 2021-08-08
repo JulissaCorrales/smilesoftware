@@ -74,7 +74,7 @@
                                   @csrf
                                   
                                   <div class="form-group">
-                                      <label for="nombre">Medio de Pago:</label>
+                                      <label for="nombre" class="control-label" >Medio de Pago:</label>
                                       <input required type="text" class="form-control-file" name="nombre" id="nombre"  maxlength="60" minlength="3" placeholder="ingresar nombre del medio de pago">
                                   </div>
                                           
