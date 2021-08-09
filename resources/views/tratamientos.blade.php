@@ -112,7 +112,7 @@
   <thead >
     <tr id="encabezado">
       <th>N°</th>
-      <th >Categoría</th>
+      <th >Tratamientos</th>
       <th>Tipo</th>
       <th>Acciones</th>
     </tr>
