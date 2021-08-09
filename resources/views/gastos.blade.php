@@ -79,7 +79,7 @@
         <tfoot>
             <td  colspan="4" style="text-align: left; background-color:#D7DBDD  ;">Total a pagar</td>
             <td colspan="3"style="text-align: left;background-color:#D7DBDD  ;">
-            {{$monto}}
+{{ number_format($monto, 2 ) }}
             </td>
         </tfoot>
         <!--  -->
@@ -91,7 +91,7 @@
             <td>{{$gasto->detalle}}</td>
             <td>{{$gasto->fechafactura}}</td>
             <td>{{$gasto->fechapago}}</td>
-            <td>{{$gasto->monto}}</td>
+            <td>{{number_format(($gasto->monto),2)}}</td>
             @can('update',$gasto)
             <td >  <button class="btn btn-outline-success"  data-toggle="modal" data-target="#modall-{{$gasto->id}}">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -158,7 +158,7 @@
                     <!-- Monto-->
                     <div class="form-group" id="div3">
                     <label for="monto" class="control-label">Monto:</label>
-                    <input required type="number" min="1" pattern="^[0-9]+" class="form-control custom-select" name="monto" id="monto" placeholder="Ingrese el monto del gasto" formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)" value="{{ $gasto->monto }}">
+                    <input required type="number" min="1" pattern="^[0-9]+" class="form-control custom-select" name="monto" id="monto" placeholder="Ingrese el monto del gasto" formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)" value="{{$gasto->monto}}">
                     </div>
                  
                     <!-- Fecha de la factura-->
