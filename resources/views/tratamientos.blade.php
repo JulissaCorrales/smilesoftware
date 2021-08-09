@@ -82,7 +82,7 @@
                                       @csrf
                                       <div class="form-group">
                                           <label for="categoria">Tratamiento:</label>
-                                          <input required type="text" MinLength="3" MaxLength="100"class="form-control-file" name="categoria" id="categoria" placeholder="Ingrese el nombre del tratamiento">
+                                          <input required type="text" MinLength="3" MaxLength="50"class="form-control-file" name="categoria" id="categoria" placeholder="Ingrese el nombre del tratamiento">
                                       </div>
                                     
                                     <div class="form-group">
