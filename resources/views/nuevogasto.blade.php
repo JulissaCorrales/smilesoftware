@@ -86,7 +86,7 @@
                     <div class="form-group" id="div6">
                     <input  type="reset" class="btn btn-outline-danger">
                     <button id="botonContinuar"type="submit"class="btn btn-outline-info" data-toggle="modal" >
-                        Continuar
+                        Guardar
                     </button>
                     
                    
