@@ -10,7 +10,7 @@
                 <div class="card mb-3">
                 <div class="card-header">
                     <h3><img style=" margin-left:0%;" src="{{ asset('Imagenes/gastoss.png') }}"   width="7%;" height="7%"> Gastos de la Clínica</h3>
-                        <p>En esta sección se muestra los Gastos registrados y también se podrá editar datos, crear un nuevo Gasto, borrar el Gasto registrado, ver el total de los Gastos, la 
+                        <p>En esta sección se muestra los Gastos registrados y también se podrá editar Gastos, crear un nuevo Gasto, borrar el Gasto registrado, ver el total de los Gastos, la 
                             fecha  de factura y la fecha de los pagos</p>
                        
                                       
