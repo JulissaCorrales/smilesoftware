@@ -12,7 +12,8 @@ class InventarioController extends Controller
     public function vistaprincipal(){
         $this->authorize('view', Inventario::class);//si tiene el permiso de ver:
         $inventarios=Inventario::All();
-        return view('inventarios')->with ('inventarios',$inventarios);  
+        $monto =Inventario::sum('monto');
+        return view('inventarios')->with ('inventarios',$inventarios)->with('monto',$monto);  
    
 }
 public function destroy($id){

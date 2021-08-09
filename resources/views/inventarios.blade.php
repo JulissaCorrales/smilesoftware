@@ -141,6 +141,17 @@
                               <th>Opciones</th>
                             </tr>
                     </thead>
+       <!-- pie de tabla -->
+        <tfoot>
+            <td  colspan="4" style="text-align: left; background-color:#D7DBDD  ;">Total del inventario</td>
+            <td colspan="3"style="text-align: left;background-color:#D7DBDD  ;">
+{{ number_format($monto, 2 ) }}
+            </td>
+        </tfoot>
+        <!--  -->
+
+
+
                           
                     <tbody>
                         <tr>
@@ -148,7 +159,7 @@
                             <td>{{$inventario->producto}}</td>
                             <td>{{$inventario->stockseguridad}}</td>
                             <td>{{$inventario->stockactual}}</td>
-                            <td>{{$inventario->monto}}</td>
+                            <td>{{number_format(($inventario->monto),2)}}</td>
                             <td>
                             @can('update',$inventario)
                                 <button class="btn btn-outline-success" data-toggle="modal" data-target="#editarinventarios-{{$inventario->id}}">
