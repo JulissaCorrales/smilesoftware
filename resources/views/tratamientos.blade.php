@@ -111,7 +111,7 @@
      
   <thead >
     <tr id="encabezado">
-      <th>N°</th>
+     <!-- <th>N°</th> -->
       <th >Tratamientos</th>
       <th>Tipo</th>
       <th>Acciones</th>
@@ -121,7 +121,7 @@
   <tbody>
   <tr>
       @forelse($tratamientos as $tratamiento)
-      <td>{{$tratamiento->id}}</td>
+     <!-- <td>{{$tratamiento->id}}</td> -->
      <td>{{$tratamiento->categoria}}</td>
      <td>{{$tratamiento->tipo}}</td>
      <td>
