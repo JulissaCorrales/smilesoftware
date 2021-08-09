@@ -74,7 +74,7 @@
                     <!-- Fecha de la factura-->
                     <div class="form-group" id="div4">
                     <label for="fechafactura" class="control-label">Fecha de la Factura:</label>
-                    <input required type="date"  class="form-control-file" name="fechafactura" id="fechafactura" >
+                    <input required type="date"  class="form-control-file" name="fechafactura" id="fechafactura" value="2021-01-01">
                     </div>
                    
                     <!-- Fecha de la factura-->
