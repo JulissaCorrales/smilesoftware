@@ -229,7 +229,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                            ¿Desea realmente eliminar el Gasto que seleccionó  {{$gasto->categoria}}?
+                            ¿Desea realmente eliminar el Gasto que seleccionó  {{$gasto->categoria}}  <b>{{$gasto->detalle}} </b> ?
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cerrar</button>
