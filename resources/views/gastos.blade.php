@@ -177,7 +177,7 @@
                     <button type="button" onclick="location.href='/pantallainicio/gastos'"class="btn btn-outline-secondary" data-dismiss="modal">Atrás</button>
                     <input  type="reset" class="btn btn-outline-danger">
                     <button id="botonContinuar"type="submit"class="btn btn-outline-info" data-toggle="modal" >
-                        Continuar
+                        Actualizar
                     </button>
                     
                    
