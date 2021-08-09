@@ -21,7 +21,7 @@ class GastoController extends Controller
                 $request->validate([
                     'categoria'     =>  'required',
                     'detalle'       =>  'required',
-                    'monto'         =>  'required|numeric|min:0|max:100000000000000000',
+                    'monto'         =>  'required|integer|min:5|max:10000000',
                     'fechafactura'  =>  'required|date',
                     'fechapago'     =>  'required|date|after_or_equal:fechafactura',
                 ]);
