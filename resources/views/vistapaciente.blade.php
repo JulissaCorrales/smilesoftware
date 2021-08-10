@@ -107,7 +107,7 @@
                           <div class="col-md-4">
                              
                           <label for="apellidos">Apellidos:</label>
-                          <input  type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingrese los Apellidos del Paciente">
+                          <input  type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingrese los Apellidos del Paciente"onkeypress="return SoloLetras(event);" pattern="[A-Za-z]{3,100}" required oninput="check_text(this);">
                           </div>
                           <div class="col-md-4">  
                             <label for="direccion">Seleccione una Imagen de Perfil:</label>
@@ -199,7 +199,7 @@
 
                   <div class="row">
                   <div class="col-md-6">
-                      <label for="direccion">Dirección:</label>
+                      <label for="direccion">Dirección: </label>
                       <textarea  class="autoExpand form-control" rows='2' data-min-rows='2' type="text" style="  width:370;"  class="form-control" name="direccion" id="direccion" placeholder="Ingrese la dirección del paciente"></textarea>
                     </div>
               <div class="col-md-6">

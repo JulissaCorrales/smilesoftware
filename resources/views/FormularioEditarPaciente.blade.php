@@ -127,7 +127,7 @@
                       <div class="col-md-6">
                         <label for="telefonoCelular" class="form-label ">Número Teléfonico:</label>
 
-                            <input required type="text" style="font-size:18px; font-family: Times New Roman, Times, serif;"class="form-control " name="telefonoCelular" id="telefonoCelular" placeholder="ingresar teléfono Celular del paciente"  value="{{ $pacientes->telefonoCelular }}">
+                            <input required type="number" style="font-size:18px; font-family: Times New Roman, Times, serif;"class="form-control " name="telefonoCelular" id="telefonoCelular" placeholder="ingresar teléfono Celular del paciente"  value="{{ $pacientes->telefonoCelular }}" maxlength="8" minlength="8" pattern="[0-9]+">
                           </div>
 
 
@@ -135,7 +135,7 @@
                       <div class="col-md-6">
                         <label for="observaciones" class="col-sm form-label">Observaciones:</label>
                         
-                            <textarea   type="text" style="font-size:18px; font-family: Times New Roman, Times, serif;"class="form-control " name="observaciones" id="observaciones" placeholder="Alguna observación?"  value="{{ $pacientes->observaciones }}">{{ $pacientes->observaciones }}</textarea>
+                            <textarea type="text" style="font-size:18px; font-family: Times New Roman, Times, serif;"class="form-control " name="observaciones" id="observaciones" placeholder="Alguna observación?"  value="{{ $pacientes->observaciones }}">{{ $pacientes->observaciones }}</textarea>
                           </div>
                     
                      </div>
