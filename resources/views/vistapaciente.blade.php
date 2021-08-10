@@ -199,7 +199,7 @@
 
                   <div class="row">
                   <div class="col-md-6">
-                      <label for="direccion">Dirección:</label>
+                      <label for="direccion">Dirección: </label>
                       <textarea  class="autoExpand form-control" rows='2' data-min-rows='2' type="text" style="  width:370;"  class="form-control" name="direccion" id="direccion" placeholder="Ingrese la dirección del paciente"></textarea>
                     </div>
               <div class="col-md-6">
