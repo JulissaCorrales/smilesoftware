@@ -102,7 +102,7 @@
                         <div class="row">
                           <div class="col-md-4">
                               <label for="nombres">Nombres:</label>
-                               <input  type="text" class="form-control"name="nombres" id="nombres" placeholder="Ingrese los Nombres del Paciente">
+                               <input  type="text" class="form-control"name="nombres" id="nombres" placeholder="Ingrese los Nombres del Paciente"  onkeypress="return SoloLetras(event);" pattern="[A-Za-z]{3,100}" required oninput="check_text(this);">
                           </div>
                           <div class="col-md-4">
                              
@@ -330,6 +330,42 @@ $("formupaciente")[0].reset();
 
 
 });
+</script>
+
+<script>
+
+
+function check_text(input) {  
+    if (input.validity.patternMismatch){  
+        input.setCustomValidity("Debe ingresar al menos 3 Letras");  
+    }  
+    else {  
+        input.setCustomValidity("");  
+    }                 
+}
+
+
+
+function check_textuno(input) {  
+    if (input.validity.patternMismatch){  
+        input.setCustomValidity("Debe ingresar al menos 3 Letras");  
+    }  
+    else {  
+        input.setCustomValidity("");  
+    }                 
+}
+
+
+
+function check_textdos(input) {  
+    if (input.validity.patternMismatch){  
+        input.setCustomValidity("Debe ingresar al menos 3 Letras");  
+    }  
+    else {  
+        input.setCustomValidity("");  
+    }                 
+}
+
 
 
 </script>
@@ -364,6 +400,7 @@ $(document).ready( function () {
 
 <script>
 
+
 fuction existeFecha(fechaNacimiento){
 
 var fechaf= fechaNacimiento.split("/");
@@ -389,6 +426,36 @@ return true;
     $('#Crearpaciente').on('hidden.bs.modal', function () {
             $(this).find('form').trigger('reset');
       });
+
+
+</script>
+
+<script>
+
+
+function SoloLetras(e)
+{
+key = e.keyCode || e.which;
+tecla = String.fromCharCode(key).toString();
+
+letras = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ";
+
+especiales = [8, 65];
+tecla_especial = false
+for(var i in especiales) {
+if(key == especiales[i]){
+ tecla_especial = true;
+ break;
+}
+}
+
+if(letras.indexOf(tecla) == -1 && !tecla_especial)
+{
+ 
+ return false;
+}
+}
+
 
 
 </script>

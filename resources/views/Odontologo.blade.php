@@ -480,7 +480,7 @@
       <div class="col-md-4">
         <div class="form-group">
           <label for="ciudad">Ciudad:</label>
-          <input required type="text" class="form-control" name="ciudad" id="ciudad" onkeypress="return SoloLetras2(event);"placeholder="Ingresar la Ciudad  del  Odontólogo (a)" pattern="[A-Za-z]{3,100}" required oninput="check_texttres(this);"> 
+          <input  type="text" class="form-control" name="ciudad" id="ciudad" onkeypress="return SoloLetras2(event);"placeholder="Ingresar la Ciudad  del  Odontólogo (a)" pattern="[A-Za-z]{3,100}" required oninput="check_texttres(this);"> 
         </div>
       </div>
       <div class="col-md-4">
