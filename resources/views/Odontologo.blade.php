@@ -420,12 +420,12 @@
       <div class="col-md-4">
        
             <label for="nombres">Nombres:</label>
-            <input required type="text" class="form-control" name="nombres" id="nombres" onkeypress="return SoloLetras(event);" placeholder="Ingresar los Nombres del  Odontólogo (a)"  pattern="[A-Za-z]{3,100}"  oninput="check_textuno(this);">
+            <input required type="text" class="form-control" name="nombres" id="nombres" onkeypress="return SoloLetras(event);" placeholder="Ingresar los Nombres del  Odontólogo (a)"  pattern="[A- Za- z]{3,100}"  oninput="check_textuno(this);">
       </div>
       <div class="col-md-4">
          <div class="">
             <label for="apellidos">Apellidos:</label>
-            <input  type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingresar los Apellidos  del  Odontólogo (a)" onkeypress="return SoloLetras1(event);" class="input-large" pattern="[A-Za-z]{3,100}" required oninput="check_textdos(this);">
+            <input  type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingresar los Apellidos  del  Odontólogo (a)" onkeypress="return SoloLetras1(event);" class="input-large" pattern="[A- Za- z]{3,100}" required oninput="check_textdos(this);">
           </div>
       </div>
       <div class="col-md-4">
@@ -439,13 +439,19 @@
       <div class="col-md-4">
          <div class="form-group">
             <label for="telefonoFijo">Teléfono fijo (Opcional):</label>
-            <input type="number" class="form-control" name="telefonoFijo" id="telefonoFijo" onkeypress="return SoloNumeros6(event);"  placeholder="Ingresar el Tel.Fijo  del  Odontólogo (a)" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(2, this.maxLength)">
+            <input type="text" class="form-control" name="telefonoFijo" id="telefonoFijo" onkeypress="return SoloNumeros6(event);"  placeholder="Ingresar el Tel.Fijo  del  Odontólogo (a)" maxlength="8" onload="ValidarTell()"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            pattern="^[2]\d{7}$"
+                            title="Ingrese un numero telefónico valido que inicie con 2">
           </div>
       </div>
       <div class="col-md-4">
         <div class="form-group">
           <label for="telefonoCelular">Teléfono celular:</label>
-          <input required  type="number" class="form-control" name="telefonoCelular" id="telefonoCelular" placeholder="Ingresar el Tel.Celular  del  Odontólogo (a)"  oninput="this.value = Math.max(this.value, 3)">
+          <input required  type="text" class="form-control" name="telefonoCelular" id="telefonoCelular"   placeholder="Ingresar el Tel.Celular  del  Odontólogo (a)" maxlength="8"onload="ValidarTell()"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            pattern="^[9|8|7|3]\d{7}$"
+                            title="Ingrese un numero telefónico valido que inicie con 3,7,8 o 9" >
         </div>
       </div>
       <div class="col-md-4">
@@ -480,7 +486,7 @@
       <div class="col-md-4">
         <div class="form-group">
           <label for="ciudad">Ciudad:</label>
-          <input  type="text" class="form-control" name="ciudad" id="ciudad" onkeypress="return SoloLetras2(event);"placeholder="Ingresar la Ciudad  del  Odontólogo (a)" pattern="[A-Za-z]{3,100}" required oninput="check_texttres(this);"> 
+          <input  type="text" class="form-control" name="ciudad" id="ciudad" onkeypress="return SoloLetras2(event);"placeholder="Ingresar la Ciudad  del  Odontólogo (a)" pattern="[A- Za -z]{3,100}" required oninput="check_texttres(this);"> 
         </div>
       </div>
       <div class="col-md-4">
