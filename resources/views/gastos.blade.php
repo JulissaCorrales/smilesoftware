@@ -10,7 +10,7 @@
                 <div class="card mb-3">
                 <div class="card-header">
                     <h3><img style=" margin-left:0%;" src="{{ asset('Imagenes/gastoss.png') }}"   width="7%;" height="7%"> Gastos de la Clínica</h3>
-                        <p>En esta sección se muestra los Gastos registrados y también se podrá editar datos, crear un nuevo Gasto, borrar el Gasto registrado, ver el total de los Gastos, la 
+                        <p>En esta sección se muestra los Gastos registrados y también se podrá editar Gastos, crear un nuevo Gasto, borrar el Gasto registrado, ver el total de los Gastos, la 
                             fecha  de factura y la fecha de los pagos</p>
                        
                                       
@@ -59,7 +59,7 @@
                   <div class="table-responsive">
                     <!-- tabla -->
 
-                    <table class="table table-bordered" id="datatable1" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">
                         <thead>
                            <tr>
             <th>Categoría</th>
@@ -79,7 +79,7 @@
         <tfoot>
             <td  colspan="4" style="text-align: left; background-color:#D7DBDD  ;">Total a pagar</td>
             <td colspan="3"style="text-align: left;background-color:#D7DBDD  ;">
-            {{$monto}}
+{{ number_format($monto, 2 ) }}
             </td>
         </tfoot>
         <!--  -->
@@ -91,7 +91,7 @@
             <td>{{$gasto->detalle}}</td>
             <td>{{$gasto->fechafactura}}</td>
             <td>{{$gasto->fechapago}}</td>
-            <td>{{$gasto->monto}}</td>
+            <td>{{number_format(($gasto->monto),2)}}</td>
             @can('update',$gasto)
             <td >  <button class="btn btn-outline-success"  data-toggle="modal" data-target="#modall-{{$gasto->id}}">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -124,26 +124,41 @@
     @method('put')
      <!-- Categoria-->
                 
-                    <div class="form-group" id="divcate">
+                   <div class="form-group" id="divcate">
                     <label for="categoria" class="control-label">Categoría:</label>
-                    <input required type="text" maxlength="100" minlength="3" class="form-control @error('categoria') is-invalid @enderror" placeholder="Ingrese la categoría del gasto" name="categoria" id="categoria  "   value="{{ $gasto->categoria }}" autocomplete="categoria" > 
-                    @error('categoria')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+              <select required name="categoria" id="categoria" class="form-control">
+              <option  selected value="{{$gasto->categoria}}"> Categoría Actual: {{$gasto->categoria}}</option>
+              <option value="Servicios Públicos">Servicios Públicos</option>
+              <option value="Provision por Contingencias">Provision por Contingencias</option>
+              <option value="Compra de Material de la Clínica">Compra de Material de la Clínica</option>
+              <option value="Pago por Alquiler">Pago por Alquiler</option>
+              <option value="Marketing, Públicidad y Diseño">Marketing, Públicidad y Diseño</option>
+              <option value="Gastos Financieros y Administrativo">Gastos Financieros y Administrativos</option>
+            <option value="Mantenimiento y Reparaciones Imprevistas">Mantenimiento y Reparaciones Imprevistas</optio>
+            <option value="Nóminas, Salarios y Seguridad Social">Nóminas, Salarios y Seguridad Social</optio>
+            <option value="Transportes y logística">Transportes y logísticar</optio>
+            <option value="Gastos de kilometraje">Gastos de kilometraje</optio>
+            <option value="Impuestos y Tasa">Impuestos y Tasas</option>
+            <option value="Gastos por Suministros y Facturas de Servicios">Gastos por Suministros y Facturas de Servicios</option>
+            <option value="Servicios de Empresas Externa">Servicios de Empresas Externas</option>
+            <option value="Costes de Persona">Costes de Personal</option>
+            <option value="Impuestos Específicos y Costos de Distribución">Impuestos Específicos y Costos de Distribución</option>
+            <option value="Materias Primas">Materias Primas</option>
+
+
+              </select>
                     </div>
                    
                     <!-- Detalle-->
                     <div class="form-group" id="div2">
                     <label for="detalle" class="control-label">Detalle:</label>
-                    <input required type="text" maxlength="255" class="form-control-file" name="detalle" id="detalle" placeholder="Ingrese el detalle del gasto" value="{{ $gasto->detalle }}">
+                    <input required type="text" maxlength="150" minlength="3" class="form-control-file" name="detalle" id="detalle" placeholder="Ingrese el detalle del gasto" value="{{ $gasto->detalle }}">
                     </div>
                  
                     <!-- Monto-->
                     <div class="form-group" id="div3">
                     <label for="monto" class="control-label">Monto:</label>
-                    <input required type="number" min="1" pattern="^[0-9]+" class="form-control custom-select" name="monto" id="monto" placeholder="Ingrese el monto del gasto" formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)" value="{{ $gasto->monto }}">
+                    <input required type="number" min="1" pattern="^[0-9]+" class="form-control custom-select" name="monto" id="monto" placeholder="Ingrese el monto del gasto" formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)" value="{{$gasto->monto}}">
                     </div>
                  
                     <!-- Fecha de la factura-->
@@ -162,7 +177,7 @@
                     <button type="button" onclick="location.href='/pantallainicio/gastos'"class="btn btn-outline-secondary" data-dismiss="modal">Atrás</button>
                     <input  type="reset" class="btn btn-outline-danger">
                     <button id="botonContinuar"type="submit"class="btn btn-outline-info" data-toggle="modal" >
-                        Continuar
+                        Actualizar
                     </button>
                     
                    
@@ -214,7 +229,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                            ¿Desea realmente eliminar el Gasto que seleccionó  {{$gasto->categoria}}?
+                            ¿Desea realmente eliminar el Gasto que seleccionó  {{$gasto->categoria}}  <b>{{$gasto->detalle}} </b> ?
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cerrar</button>

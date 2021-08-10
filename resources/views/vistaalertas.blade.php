@@ -59,7 +59,7 @@
             <form method="POST" action="">
 
                 @csrf
-                <textarea id="areadetexto" name="alerta" value="text" rows="4" cols="100" placeholder="Escriba la alerta a tener en cuenta del paciente"></textarea>
+                <textarea id="areadetexto" name="alerta" value="text" rows="4" cols="100" maxlength="90"placeholder="Escriba la alerta a tener en cuenta del paciente"></textarea>
                 <br>
                 <?php
                 $mysqli = new mysqli('127.0.0.1', 'root', '', 'smilesoftware');

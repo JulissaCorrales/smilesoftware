@@ -45,13 +45,13 @@
                       <div class="row" style=" margin:25px;">
                       <div class="col-md-6" >
                         <label for="nombres" class="form-label " > Nombres: </label>
-                        <input required type="text" class="form-control " style="font-size:18px; font-family: Times New Roman, Times, serif; " name="nombres" id="nombres" placeholder="ingresar nombre del paciente"  value="{{ $pacientes->nombres }}" pattern="[A-Za-z]{3,100}" required oninput="check_text(this);" >
+                        <input required type="text" class="form-control " style="font-size:18px; font-family: Times New Roman, Times, serif; " name="nombres" id="nombres" placeholder="ingresar nombre del paciente"  value="{{ $pacientes->nombres }}" pattern="[A-Za-z]{3,100}" onkeypress="return SoloLetras(event);" required oninput="check_text(this);" >
                        </div>
 
                      
                       <div class="col-md-6">
                           <label for="apellidos" class="form-label " >Apellidos:</label>
-                          <input required type="text" class="form-control " name="apellidos" id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $pacientes->apellidos}}" pattern="[A-Za-z]{3,100}"  oninput="check_text1(this);">
+                          <input required type="text" class="form-control " name="apellidos" id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $pacientes->apellidos}}" pattern="[A-Za-z]{3,100}"  oninput="check_text1(this);" onkeypress="return SoloLetras(event);">
                         </div>
                       </div>
                      <div class="row" style=" margin:25px;">
@@ -74,8 +74,10 @@
                       <div class="row" style=" margin:25px;">
                       <div class="col-md-6">
                         <label for="fechaNacimiento" class="form-label " >Fecha de Nacimiento:</label>
-                      
-                        <input type="date" required class="form-control " name="fechaNacimiento" id="fechaNacimiento" placeholder="Ingresar Fecha de nacimiento del paciente"  value="{{ $pacientes->fechaNacimiento }}">
+                      <?php $fecha_actual= date("d-m-Y");  ?>
+                        <input type="date" required class="form-control " name="fechaNacimiento" id="fechaNacimiento" placeholder="Ingresar Fecha de nacimiento del paciente"  value="{{ $pacientes->fechaNacimiento }}"  min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 100 year")); ?>"
+ max="<?php echo date('Y-m-d',strtotime($fecha_actual
+." 0 year"));?>">
                         </div>
                       
 
@@ -110,7 +112,7 @@
                       <div class="col-md-6">
                         <label for="ciudad" class="form-label ">Ciudad:</label>
 
-                        <input required type="text"class="form-control " name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $pacientes->ciudad }}" pattern="[A-Za-z]{3,100}"  oninput="check_text2(this);">
+                        <input required type="text"class="form-control " name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $pacientes->ciudad }}" pattern="[A-Za-z]{3,100}"  oninput="check_text2(this); "onkeypress="return SoloLetras(event);">
                           </div>
 
                   
@@ -235,7 +237,28 @@ function check_text2(input) {
 
 
 } 
+function SoloLetras(e)
+{
+key = e.keyCode || e.which;
+tecla = String.fromCharCode(key).toString();
 
+letras = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ";
+
+especiales = [8, 65];
+tecla_especial = false
+for(var i in especiales) {
+if(key == especiales[i]){
+ tecla_especial = true;
+ break;
+}
+}
+
+if(letras.indexOf(tecla) == -1 && !tecla_especial)
+{
+ 
+ return false;
+}
+}
 
  </script>
             </form>

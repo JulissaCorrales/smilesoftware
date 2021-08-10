@@ -84,7 +84,7 @@
                                     
                                     <div class="form-group">
                                         <label for="producto">Nombre del Inventario:</label>
-                                        <input type="text" required class="form-control-file" name="producto" id="producto" placeholder="Ingresar nombre del inventario">
+                                        <input type="text" maxlength="100" minlength="3"required class="form-control-file" name="producto" id="producto" placeholder="Ingresar nombre del inventario">
                                     </div>
                                     <div class="row">
                                       <div class="col">
@@ -141,6 +141,17 @@
                               <th>Opciones</th>
                             </tr>
                     </thead>
+       <!-- pie de tabla -->
+        <tfoot>
+            <td  colspan="4" style="text-align: left; background-color:#D7DBDD  ;">Total del inventario</td>
+            <td colspan="3"style="text-align: left;background-color:#D7DBDD  ;">
+{{ number_format($monto, 2 ) }}
+            </td>
+        </tfoot>
+        <!--  -->
+
+
+
                           
                     <tbody>
                         <tr>
@@ -148,7 +159,7 @@
                             <td>{{$inventario->producto}}</td>
                             <td>{{$inventario->stockseguridad}}</td>
                             <td>{{$inventario->stockactual}}</td>
-                            <td>{{$inventario->monto}}</td>
+                            <td>{{number_format(($inventario->monto),2)}}</td>
                             <td>
                             @can('update',$inventario)
                                 <button class="btn btn-outline-success" data-toggle="modal" data-target="#editarinventarios-{{$inventario->id}}">
@@ -181,7 +192,7 @@
                                           <!-- Producto-->
                                              <div class="form-group" id="divcate">
                                                 <label for="producto" class="control-label">Nombre del Inventario:</label>
-                                                 <input type="text" required class="form-control-file" placeholder="Ingrese nombre del inventario" name="producto" id="producto"   value="{{ $inventario->producto}}"> 
+                                                 <input type="text" required maxlength="100" minlength="3"class="form-control-file" placeholder="Ingrese nombre del inventario" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" requiredname="producto" id="producto"   value="{{ $inventario->producto}}"> 
                                               </div>
                                                   <div class="row">
                                                     <div class="col">

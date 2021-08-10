@@ -82,7 +82,7 @@
                                       @csrf
                                       <div class="form-group">
                                           <label for="categoria">Tratamiento:</label>
-                                          <input required type="text" MinLength="3" MaxLength="100"class="form-control-file" name="categoria" id="categoria" placeholder="Ingrese el nombre del tratamiento">
+                                          <input required type="text" MinLength="3" MaxLength="50"class="form-control-file" name="categoria" id="categoria" placeholder="Ingrese el nombre del tratamiento">
                                       </div>
                                     
                                     <div class="form-group">
@@ -111,8 +111,8 @@
      
   <thead >
     <tr id="encabezado">
-      <th>N°</th>
-      <th >Categoría</th>
+     <!-- <th>N°</th> -->
+      <th >Tratamientos</th>
       <th>Tipo</th>
       <th>Acciones</th>
     </tr>
@@ -121,7 +121,7 @@
   <tbody>
   <tr>
       @forelse($tratamientos as $tratamiento)
-      <td>{{$tratamiento->id}}</td>
+     <!-- <td>{{$tratamiento->id}}</td> -->
      <td>{{$tratamiento->categoria}}</td>
      <td>{{$tratamiento->tipo}}</td>
      <td>

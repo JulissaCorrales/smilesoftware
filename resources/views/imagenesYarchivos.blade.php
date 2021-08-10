@@ -238,7 +238,7 @@ h1 {
         <hr>
               <div class="form-group">
               <label for="identidad">Imagen a subir:</label>
-              <input required type="file" class="form-control-file" name="imagen" id="imagen">
+              <input required type="file" accept="image/png,image/jpeg,image/ico,image/jpg,image/jpe,image/gif" class="form-control-file" name="imagen" id="imagen">
               </div>
                     
             

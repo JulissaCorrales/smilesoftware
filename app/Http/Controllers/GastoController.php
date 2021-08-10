@@ -19,9 +19,9 @@ class GastoController extends Controller
         
         $this->authorize('create', Gasto::class); //si tiene el permiso de crear sera guardado:  
                 $request->validate([
-                    'categoria'     =>  'required||regex:/^[\pL\s\-]+$/u|max:255',
+                    'categoria'     =>  'required',
                     'detalle'       =>  'required',
-                    'monto'         =>  'required|numeric|min:0|max:100000000000000000',
+                    'monto'         =>  'required|integer|min:5|max:10000000',
                     'fechafactura'  =>  'required|date',
                     'fechapago'     =>  'required|date|after_or_equal:fechafactura',
                 ]);
@@ -58,7 +58,7 @@ class GastoController extends Controller
     // }
     public function update(Request $request,$id){
         $request->validate([
-            'categoria'     =>  'required||regex:/^[\pL\s\-]+$/u|max:255',
+            'categoria'     =>  'required',
             'detalle'       =>  'required',
             'monto'         =>  'required|numeric|min:0|max:100000000000000000',
             'fechafactura'  =>  'required|date',

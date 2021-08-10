@@ -229,9 +229,9 @@ Route::prefix('pantallainicio/calendario')->group( function(){
           Route::get('usuarios/ver','UsuarioController@ver')->name('usuarios.indice')->middleware('role:admin');
           Route::get('usuarios/nuevo','UsuarioController@nuevo')->name('usuario.nuevo')->middleware('role:admin');
           Route::post('usuarios/guardar','UsuarioController@guardar')->name('usuario.guardar')->middleware('role:admin');
-          Route::get('{id}/verusuario','UsuarioController@verusuario')->name('usuario.verusuario') -> where('id' ,'[0-9]+')->middleware('role:admin');
-          Route::get('usuarios/{id}/editar','UsuarioController@editar') ->name('usuario.editar') -> where('id' ,'[0-9]+')->middleware('role:admin');
-          Route::patch('usuarios/{id}/editar','UsuarioController@actualizar') ->name('usuario.actualizar') -> where('id' ,'[0-9]+')->middleware('role:admin');
+          Route::get('{id}/verusuario','UsuarioController@verusuario')->name('usuario.verusuario') -> where('id' ,'[0-9]+')->middleware('role:admin,secretaria,odontologo');
+          Route::get('usuarios/{id}/editar','UsuarioController@editar') ->name('usuario.editar') -> where('id' ,'[0-9]+');
+          Route::patch('usuarios/{id}/editar','UsuarioController@actualizar') ->name('usuario.actualizar') -> where('id' ,'[0-9]+');
           Route::delete('usuarios/{id}/borrar','UsuarioController@borrar') ->name('usuario.borrar')->where('id','[0-9]+')->middleware('role:admin');
 
 

@@ -84,7 +84,12 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="categoria">Nombre:</label>
-                                        <input required type="text" class="form-control-file" name="nombre" id="nombre" placeholder="Ingrese el nombre del producto">
+                                        <input required type="text" maxlength="100" minlength="3" class="form-control-file" name="nombre" id="nombre" placeholder="Ingrese el nombre del producto">
+                                        @error('categoria')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>  
+                                @enderror
                                     </div>
 
                                     <div class="form-group">
@@ -97,7 +102,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="monto">Precio:</label>
-                                        <input  required type="number"  step="any"  class="form-control-file" name="monto" id="monto" placeholder="Ingrese el precio del producto">
+                                        <input  required type="number" min="1" pattern="^[0-9]+"oninput="this.value = Math.max(this.value, 1)" step="any"  class="form-control-file" name="monto" id="monto" placeholder="Ingrese el precio del producto">
                                     </div>
                                     <div class="modal-footer">
                                         <input type="reset" class="btn btn-danger">
@@ -176,7 +181,7 @@
 
                                         <div class="form-group" id="divcate">
                                         <label for="nombre" class="control-label">Nombre del Producto:</label>
-                                        <input type="text" required  class="form-control-file" placeholder="Ingrese nombre producto" name="nombre" id="nombre"   value="{{ $tag->nombre }}"> 
+                                        <input type="text" required maxlength="100" minlength="3"  class="form-control-file" placeholder="Ingrese nombre producto" name="nombre" id="nombre"   value="{{ $tag->nombre }}"> 
                                         </div>
 
                                         <!-- Permite Descuento-->
@@ -192,7 +197,7 @@
                                         <!-- Precio Final-->
                                         <div class="form-group" id="div2">
                                         <label for="detalle" class="control-label">Precio Final:</label>
-                                        <input  required type="number"  step="any"  class="form-control-file" name="monto" id="monto" placeholder="Ingrese valor "value="{{ $tag->monto}}">
+                                        <input  required type="number"  step="any"  class="form-control-file" name="monto" pattern="^[0-9]+" min="0" id="monto" placeholder="Ingrese valor "value="{{ $tag->monto}}">
                                         </div>
                                         <div class="form-group" align="center"id="div6">
                                         <input type="reset" class="btn btn-dark">
