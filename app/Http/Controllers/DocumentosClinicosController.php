@@ -65,7 +65,7 @@ class DocumentosClinicosController extends Controller
    $_request->validate([
             'odontologo_id'=>'required',
             'observaciones'=>'required',
-            'image'=>'required',]);
+            'imagen'=>'required',]);
 
     if ($_request->hasFile('imagen')) {
         $file = $_request->file('imagen');
