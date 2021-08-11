@@ -75,7 +75,8 @@
                                   
                                   <div class="form-group">
                                       <label for="nombre" class="control-label" >Medio de Pago:</label>
-                                      <input required type="text" class="form-control-file" name="nombre" id="nombre"  maxlength="60" minlength="3" placeholder="ingresar nombre del medio de pago">
+                                      <input required type="text" class="form-control-file" name="nombre" id="nombre"  maxlength="60" minlength="3"  onkeypress="return SoloLetras(event);" pattern="[A-Za-zñÑ]{3,60}" placeholder="Ingresar nombre del medio de pago">
+                                    <small style="color:blueviolet">¡¡Recuerda ingresar el nombre con más de tres carácteres!!</small>
                                   </div>
                                           
                               <div class="modal-footer">
@@ -255,7 +256,37 @@ $(document).ready( function () {
 } );
 </script>
 
+<!-- script para que solo acepte letras -->
+<script>
 
+
+function SoloLetras(e)
+{
+key = e.keyCode || e.which;
+tecla = String.fromCharCode(key).toString();
+
+letras = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ñ Ñ";
+
+especiales = [8, 65];
+tecla_especial = false
+for(var i in especiales) {
+if(key == especiales[i]){
+ tecla_especial = true;
+ break;
+}
+}
+
+if(letras.indexOf(tecla) == -1 && !tecla_especial)
+{
+ 
+ return false;
+}
+}
+
+
+
+</script>
+<!-- fin de script -->
 
 
 </html>

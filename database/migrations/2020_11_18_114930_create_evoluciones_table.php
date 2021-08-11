@@ -18,7 +18,7 @@ class CreateEvolucionesTable extends Migration
             $table->bigInteger('paciente_id')->unsigned();
            // $table->bigInteger('odontologo_id')->unsigned();
             $table->bigInteger('plantratamiento_id')->unsigned();
-            $table->string('evolucion');
+            $table->text('evolucion');
             
             $table->timestamps();
             $table->foreign('plantratamiento_id')->references('id')->on('plantratamientos')->onDelete('cascade');
