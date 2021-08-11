@@ -148,7 +148,7 @@
                                               
                                   <div class="form-group" id="divcate">
                                                   <label for="nombre" class="control-label">Nombre del Medio de Pago:</label>
-                                                  <input required type="text" maxlength="60" minlength="3" class="form-control-file" placeholder="Ingrese nombre del inventario" name="nombre" id="nombre"   value="{{$mediopago->nombre}}"> 
+                                                  <input required type="text" maxlength="60" minlength="3" class="form-control-file" placeholder="Ingrese nombre del inventario" name="nombre" id="nombre"   value="{{$mediopago->nombre}}" onkeypress="return SoloLetras(event);" pattern="[A-Za-zñÑ]{3,60}" > 
                                                   </div>
                                 
                                 <div class="modal-footer" id="div6">
