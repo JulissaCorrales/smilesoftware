@@ -55,7 +55,26 @@ position:relative;
                      $mysqli->set_charset("utf8");
                     ?>
                 <label for="observaciones">Doctor:</label>
-                
+
+                 @if(empty($tag->odontologo))
+
+<select required name="odontologo_id" class="form-control">
+                                  <option value="" disabled selected>Seleccione un Doctor</option>
+                                  <?php
+                                  $getDoctor =$mysqli->query("select * from odontologos order by id");
+                                  while($f=$getDoctor->fetch_object()) {
+                                    echo $f->nombres;
+                                    echo $f->apellidos;
+                                    ?>
+
+                                    <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos;?></option>
+                                    <?php
+                                  } 
+                                  ?>
+                            </select>
+
+                                @else
+
                     <select required name="odontologo_id" class="form-control">
                     <option value="{{$imagen->odontologo->id}}" selected >Odontologo Actual: {{$imagen->odontologo->nombres}}  {{$imagen->odontologo->apellidos}}</option>
             <?php
@@ -71,6 +90,9 @@ position:relative;
             } 
             ?>
             </select>
+
+             @endif
+
               </div>
         <hr>
               <div class="form-group">

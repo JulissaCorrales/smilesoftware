@@ -75,7 +75,8 @@
                                   
                                   <div class="form-group">
                                       <label for="nombre" class="control-label" >Medio de Pago:</label>
-                                      <input required type="text" class="form-control-file" name="nombre" id="nombre"  maxlength="60" minlength="3" placeholder="ingresar nombre del medio de pago">
+                                      <input required type="text" class="form-control-file" name="nombre" id="nombre"  maxlength="60" minlength="3"  onkeypress="return SoloLetras(event);" pattern="[A-Za-zñÑ ]{3,60}" placeholder="Ingresar nombre del medio de pago" onblur="valeft()">
+                                    <small style="color:blueviolet">¡¡Recuerda ingresar el nombre con más de tres carácteres!!</small>
                                   </div>
                                           
                               <div class="modal-footer">
@@ -115,7 +116,8 @@
                   <td>
                      @can('update',$mediopago)
                       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong-{{$mediopago->id}}" >
-                        Editar Medio de Pago<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Editar Medio de Pago -->
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                         </svg>
@@ -147,7 +149,7 @@
                                               
                                   <div class="form-group" id="divcate">
                                                   <label for="nombre" class="control-label">Nombre del Medio de Pago:</label>
-                                                  <input required type="text" maxlength="60" minlength="3" class="form-control-file" placeholder="Ingrese nombre del inventario" name="nombre" id="nombre"   value="{{$mediopago->nombre}}"> 
+                                                  <input required type="text" maxlength="60" minlength="3" class="form-control-file" placeholder="Ingrese nombre del inventario" name="nombre" id="nombre"   value="{{$mediopago->nombre}}" onkeypress="return SoloLetras(event);" pattern="[A-Za-zñÑ ]{3,60}" onblur="valeft()"> 
                                                   </div>
                                 
                                 <div class="modal-footer" id="div6">
@@ -173,10 +175,10 @@
 
                   <td>
                     @can('delete',$mediopago)
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$mediopago->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <button style="text-align:center;"type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-{{$mediopago->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
                     </svg>
-                    Eliminar Medio de pago 
+                    <!-- Eliminar Medio de pago  -->
                     </button>
                     @else
                     No tiene el permiso
@@ -255,7 +257,47 @@ $(document).ready( function () {
 } );
 </script>
 
+<!-- script para que solo acepte letras -->
+<script>
 
+
+function SoloLetras(e)
+{
+key = e.keyCode || e.which;
+tecla = String.fromCharCode(key).toString();
+
+letras = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ñ Ñ";
+
+especiales = [8, 65];
+tecla_especial = false
+for(var i in especiales) {
+if(key == especiales[i]){
+ tecla_especial = true;
+ break;
+}
+}
+
+if(letras.indexOf(tecla) == -1 && !tecla_especial)
+{
+ 
+ return false;
+}
+}
+
+// -- Función para aceptar espacios -- //
+function valeft(){
+ 
+    var val = document.getElementById("nombre").value;
+    var tam = val.length;
+ 
+        for(i=0;i<tam;i++){
+            if(!isNaN(val[i]) && val[i] != " ")
+            document.getElementById("nombre").value='';
+            }
+}
+
+</script>
+<!-- fin de script -->
 
 
 </html>

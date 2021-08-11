@@ -8,33 +8,52 @@
     rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
     crossorigin="anonymous">
 <link rel="stylesheet" href="{{asset('css/estilospdf.css')}}">
+
+<style>
+    @page { size: 21.59cm 27.94cm landscape; }
+table, th, td {
+  border: 1px solid #00303F; 
+  border-collapse: collapse;
+}
+th {
+  background-color:#276678; 
+  color:white;
+  text-align: center;    
+line-height: 2;
+}
+td,th {
+  padding: 7px;
+     
+}
+  </style>
 </head>
 <body>
 
-<header style="height:3em;">
-<p><strong> Reportes </strong></p>
+<header>
+<p><strong > Reportes </strong></p>
 </header>
 
-<div class="container">
+
     <h5 style="text-align : center ">Inventarios de la Clínica</h5>
-    <table class="table" style="width: 100%; border: 1px solid #ccc;" >
-<thead style="background-color:#D3E0EA">
-<tr>
-<th scope="col">Código</th>
-<th scope="col">Producto</th>
-<th scope="col">Inventario de Seguridad </th>
-<th scope="col">Inventario Actual </th>
-<th scope="col">Monto por Unidad </th>
+<div class="table-responsive">
+    <table class="table" style="" >
+<thead class="thead-dark">
+<tr class="border border-secondary" style="text-align : center ">
+<th >Código</th>
+<th class="mx-auto">Producto</th>
+<th >Inventario de Seguridad </th>
+<th >Inventario Actual </th>
+<th >Monto por Unidad </th>
 </tr>
 </thead>
 <tbody>
 @forelse($inventarios as $inventario)
 <tr>
-<th scope="row">{{$inventario->id}}</th>
-<th scope="row">{{$inventario->producto}}</th>
-<th scope="row">{{$inventario->stockseguridad}}</th>
-<th scope="row">{{$inventario->stockactual}}</th>
-<th scope="row">{{$inventario->monto}}</th>
+<td >{{$inventario->id}}</th>
+<td >{{$inventario->producto}}</th>
+<td >{{$inventario->stockseguridad}}</th>
+<td>{{$inventario->stockactual}}</th>
+<td >{{$inventario->monto}}</th>
 </tr>
 @empty
 <tr>No hay inventarios existentes</tr>

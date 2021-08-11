@@ -18,9 +18,9 @@ class laboratorioController extends Controller
     public function guardar(Request $request){
         $this->authorize('create',Laboratorio::class);
         $request->validate([
-            'nombreLaboratorio'         =>  'required',
-            'detalle'         =>  'required',
-            'porPagar'         =>  'required',
+            'nombreLaboratorio'         =>  'required|regex:/^[\pL\s\-]+$/u|max:60|min:3',
+            'detalle'         =>  'required|regex:/^[\pL\s\-]+$/u|max:255|min:3',
+            'porPagar'         =>  'required|integer',
         ]);
 
     $nuevo = new Laboratorio();
@@ -43,9 +43,9 @@ class laboratorioController extends Controller
  
 
         $request->validate([
-            'nombreLaboratorio'        =>'required',
-            'detalle'        =>'required',
-            'porPagar'        =>'required',
+              'nombreLaboratorio'         =>  'required|regex:/^[\pL\s\-]+$/u|max:60|min:3',
+            'detalle'         =>  'required|regex:/^[\pL\s\-]+$/u|max:255|min:3',
+            'porPagar'         =>  'required|integer',
            
         ]);
     
