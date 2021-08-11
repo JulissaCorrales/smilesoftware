@@ -392,16 +392,20 @@
 <div>
 <!-- modala de crear odontologo -->
 
+
+
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="create" >
   
 	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content" >
+		<div class="modal-content"  >
 			<div id=""class="modal-header" style=" background-color: #d3e0ea; color:black;  height:70px;">
 	
-				<h3  class="modal-title" id="myModalLabel">
+				<h4 class="modal-title" id="myModalLabel">
         <img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/dentista.png') }}"  id="logo1" width="6%;" height="6%"> 
-        Crear Odontólogo(a)</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        Crear Odontólogo(a)</h4>
+<!--Formulario -->
+        <form method="post" action="/odontologo/nuevo"  id="formupaciente" file="true" enctype="multipart/form-data" style="">
+<button type="button" id="btncerrar" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
 			</div>
@@ -410,52 +414,41 @@
 
     <!-- Esta parte del codigo es para poder ir a traer informacion de la base de datos -->
     <div class="content" id="nuevodoctor">
-    <form method="post" action="/odontologo/nuevo" file="true" enctype="multipart/form-data">
+    
     <?php
       $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
       $mysqli->set_charset("utf8");
     ?>
     @csrf
+
     <div class="row"><!--  -->
-      <div class="col-md-4">
+      <div class="col-md-6">
        
             <label for="nombres">Nombres:</label>
             <input required type="text" class="form-control" name="nombres" id="nombres" onkeypress="return SoloLetras(event);" placeholder="Ingresar los Nombres del  Odontólogo (a)"  pattern="[A- Za- z]{3,100}"  oninput="check_textuno(this);">
       </div>
-      <div class="col-md-4">
-         <div class="">
+
+      <div class="col-md-6">
+         
             <label for="apellidos">Apellidos:</label>
             <input  type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingresar los Apellidos  del  Odontólogo (a)" onkeypress="return SoloLetras1(event);" class="input-large" pattern="[A- Za- z]{3,100}" required oninput="check_textdos(this);">
-          </div>
       </div>
-      <div class="col-md-4">
-          <div class="form-group">
-            <label for="identidad">Identidad:</label>
-            <input required type="number"  class="form-control"  onkeypress="return SoloNumeros1(event);" name="identidad" id="identidad" placeholder="Ingresar el DNI del  Odontólogo (a)" maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" >
-          </div>
-      </div>
-    </div><!--  -->
+     
+    
+ </div>
+
+<br>
+
     <div class="row"><!--  -->
-      <div class="col-md-4">
-         <div class="form-group">
-            <label for="telefonoFijo">Teléfono fijo (Opcional):</label>
-            <input type="text" class="form-control" name="telefonoFijo" id="telefonoFijo" onkeypress="return SoloNumeros6(event);"  placeholder="Ingresar el Tel.Fijo  del  Odontólogo (a)" maxlength="8" onload="ValidarTell()"
-                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            pattern="^[2]\d{7}$"
-                            title="Ingrese un numero telefónico valido que inicie con 2">
+
+ <div class="col-md-6">
+          
+            <label for="identidad">Identidad:</label>
+            <input required type="number"  class="form-control"  onkeypress="return SoloNumeros1(event);" name="identidad" id="identidad" placeholder="Ingresar la Identidad del  Odontólogo (a)" maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" >
           </div>
-      </div>
-      <div class="col-md-4">
-        <div class="form-group">
-          <label for="telefonoCelular">Teléfono celular:</label>
-          <input required  type="text" class="form-control" name="telefonoCelular" id="telefonoCelular"   placeholder="Ingresar el Tel.Celular  del  Odontólogo (a)" maxlength="8"onload="ValidarTell()"
-                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            pattern="^[9|8|7|3]\d{7}$"
-                            title="Ingrese un numero telefónico valido que inicie con 3,7,8 o 9" >
-        </div>
-      </div>
-      <div class="col-md-4">
-          <div class="form-group">
+
+ <div class="col-md-6">
+         
             <label for="departamento">Departamento:</label>
             <select required name="departamento" id="departamento" class="form-control">
             <option value="" disabled selected>Seleccione un departamento</option>
@@ -479,52 +472,71 @@
             <option >Yoro:</option>
 
             </select>
-          </div>
+         
       </div>
-    </div><!--  -->
+ 
+</div>
+
+<br>
+
     <div class="row">
-      <div class="col-md-4">
-        <div class="form-group">
+<div class="col-md-6">
+       
           <label for="ciudad">Ciudad:</label>
           <input  type="text" class="form-control" name="ciudad" id="ciudad" onkeypress="return SoloLetras2(event);"placeholder="Ingresar la Ciudad  del  Odontólogo (a)" pattern="[A- Za -z]{3,100}" required oninput="check_texttres(this);"> 
         </div>
-      </div>
-      <div class="col-md-4">
-         <div class="form-group">
+      
+
+     
+      
+      <div class="col-md-6">
+        
             <label for="direccion">Dirección:</label>
             <input required type="text" class="form-control" name="direccion" id="direccion"placeholder="Ingresar la Dirección  del  Odontólogo (a)">
-          </div>
+        
       </div>
-      <?php
-      $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
-      $mysqli->set_charset("utf8");
-      ?>
-
-      <div class="col-md-4">
-         <div class="form-group">
-          <label for="file" class="control-label">Fotografía del Odontólogo:</label>
-          <input type="file" class="form-control-file" name="file" id="direccion" placeholder="Seleccione una Imagen">
-        </div>
-      </div>
-    </div>
-
-</select>
-     
+      
  </div>
 
 
+<br>
+<div class="row">
+
+<div class="col-md-6">
+         
+            <label for="telefonoFijo">Teléfono fijo (Opcional):</label>
+            <input type="text" class="form-control" name="telefonoFijo" id="telefonoFijo" onkeypress="return SoloNumeros6(event);"  placeholder="Ingresar el Tel.Fijo  del  Odontólogo (a)" maxlength="8" onload="ValidarTell()"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            pattern="^[2]\d{7}$"
+                            title="Ingrese un numero telefónico valido que inicie con 2">
+         
+      </div>
+      
 
 
+<div class="col-md-6">
+        <div class="form-group">
+          <label for="telefonoCelular">Teléfono celular:</label>
+          <input required  type="text" class="form-control" name="telefonoCelular" id="telefonoCelular"   placeholder="Ingresar el Tel.Celular  del  Odontólogo (a)" maxlength="8"onload="ValidarTell()"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            pattern="^[9|8|7|3]\d{7}$"
+                            title="Ingrese un numero telefónico valido que inicie con 3,7,8 o 9" >
+        </div>
+      </div>
+
+
+</div>
+
+ <br>
  <div class="row">
-      <div class="form-group col-md-6">
-          <label for="state_id" class="control-label">Especialidades:</label>
 
-        <!--Crucial que aqui ponga el atributo multiple y la class mi-selector porque luego la llamamos en el JS-->
-        <select  style="width: 80%;"   name="especialidades[]" id="" required   class="form-control mi-selector1" data-show-subtext="true" data-live-search="true" multiple>
+
+<div class="col-md-6">
+    <label for="especialidad" class="control-label">Especialidades:</label>
+<select    name="especialidades[]" id="" required   class="form-control mi-selector1" data-show-subtext="true" data-live-search="true" multiple>
             <!--Ponga las opciones que quiera como quiera y donde quieta-->
           @foreach($especialidades as $especialidad){
  <option value="{{ $especialidad->id  }}">{{ $especialidad->Especialidad }}</option>
-
 
 }
 @endforeach
@@ -532,9 +544,10 @@
         </select>
       </div>
 
+      
 
 
-      <div class="col-md-5 ">
+      <div class="col-md-6 ">
       <label for="user_id" class="control-label">Usuario:</label>
             <select required  name="user_id" class="form-control">
               <option value="" disabled selected>Seleccione un usuario</option>
@@ -554,6 +567,29 @@
 <!-- <input type="text" value="" data-role="tagsinput" name="especialidad_odontologo"  placeholder="Ingrese una o varias Especialidades"> -->
          
  </div>
+
+</div>
+
+<div class="row">
+
+     
+<?php
+      $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
+      $mysqli->set_charset("utf8");
+      ?>
+
+      <div class="col-md-6">
+         <div class="form-group">
+          <label for="file" class="control-label">Fotografía del Odontólogo(Opcional):</label>
+          <input type="file" class="form-control-file" name="file" id="direccion" placeholder="Seleccione una Imagen">
+        </div>
+      </div>
+    
+
+</div>
+
+
+
 
 <div class="modal-footer">
  <input type="reset" class="btn btn-danger" style="">  
@@ -1069,6 +1105,23 @@ if(letras.indexOf(tecla) == -1 && !tecla_especial)
 </script>
 
 <script src="dist/sweetalert.min.js"></script>
+
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+   $("#btncerrar").click(function(event) {
+	   $("#formupaciente")[0].reset();
+   });
+</script>
+  <!-- /#wrapper -->
+<script>
+
+$("btncerrar").click(fuction(event){
+$("formupaciente")[0].reset();
+
+
+});
+</script>
 
 
 
