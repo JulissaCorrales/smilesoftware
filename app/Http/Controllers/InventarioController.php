@@ -67,7 +67,7 @@ public function guardar(Request $request){
 
 public function update(Request $request,$id){
     $request->validate([
-        'producto'        =>['required',Rule::unique('inventarios')],
+        'producto'        =>['required'],
         'stockseguridad'  =>'required|numeric',
         'stockactual'     =>'required|numeric',
         'monto'           =>'required|numeric',

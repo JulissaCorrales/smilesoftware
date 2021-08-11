@@ -9,15 +9,16 @@
     crossorigin="anonymous">
 <link rel="stylesheet" href="{{asset('css/estilospdf.css')}}">
 </head>
-<body>
+<body style="margin:margen_horizontal;">
 
 <header style="height:3em;">
 <p><strong> Reportes </strong></p>
 </header>
 
-<div class="container">
+ <div class="card-body">
+            <div class="table-responsive">
     <h5 style="text-align : center ">Inventarios de la Clínica</h5>
-    <table class="table" style="width: 100%; border: 1px solid #ccc;" >
+     <table class="table table-bordered" id="datatable1" width="100%" cellspacing="0">
 <thead style="background-color:#D3E0EA">
 <tr>
 <th scope="col">Código</th>
@@ -42,6 +43,7 @@
   </tbody>
 
 </table>
+</div>
 </div>
 <footer>
 <p> <strong> Clínica Odontólogica Smile Software </strong> </p>
