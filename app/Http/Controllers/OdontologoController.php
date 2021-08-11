@@ -71,7 +71,7 @@ class OdontologoController extends Controller
         'ciudad'=>'required||regex:/^[\pL\s\-]+$/u',
        
         'telefonoCelular'=>'required|numeric|digits:8',
-        'direccion'=>'required|',
+        'direccion'=>'required|max:255',
         'user_id'=>'required|unique:App\Odontologo|exists:users,id',
         'especialidades'=>'exists:especialidads,id',
 
@@ -129,15 +129,17 @@ class OdontologoController extends Controller
         
         }
         //validar
-        $_request->validate(['nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
-        'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:255',
+        $_request->validate(['nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:65',
+        'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:65',
         'identidad' => ['required','digits:13','numeric', Rule::unique('odontologos')->ignore($odontologos->id)],
         'departamento'=>'required|regex:/^[\pL\s\-]+$/u',
         'ciudad'=>'required|regex:/^[\pL\s\-]+$/u',
         
         'telefonoCelular'=>'required|numeric|digits:8',
-        'direccion'=>'required|',
-        'user_id' => ['required', Rule::unique('odontologos')->ignore($odontologos->id)]
+        'direccion'=>'required|max:255',
+        'especialidades'=>'exists:especialidads,id',
+        
+        'user_id' => ['required','exists:users,id', Rule::unique('odontologos')->ignore($odontologos->id)]
         ]);
             
     
