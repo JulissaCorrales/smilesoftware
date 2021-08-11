@@ -209,7 +209,7 @@
                               <div class="form-group">
                                 <label for="observaciones">Doctor:</label>
                               @if(empty($tag->odontologo))
-                                    <p>No existe ningún doctor todavia. ¡¡Por favor cree el odontólogo para poder usar esta funcionalidad.</p>
+                                    <p>No existe ningún doctor todavia. ¡¡Por favor cree el odontólogo para poder usar esta funcionalidad!!</p>
                                 @else
                                   <input required type="text" class="form-control-file" name="odontologo_id" id="observaciones" value="{{$tag->odontologo->id}}">
                                 @endif
