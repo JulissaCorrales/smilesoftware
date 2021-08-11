@@ -275,7 +275,12 @@ h1 {
   
   <li class="event" data-date="{{$tag->fecha}}">
 
+@if(empty($tag->odontologo))
+   <p>No tiene doctor asignado</p>
+@else
     <h3>Doctor:{{$tag->odontologo->nombres}} {{$tag->odontologo->apellidos}}</h3>
+@endif
+
     <p> {{$tag->observaciones}} </p>
     <a href="/images/{{$tag->imagen}}" class="with-caption image-link" title="Click on image to enlarge/reduce it">
     <img src="/images/{{$tag->imagen}}" width="150" alt="imagen">
