@@ -208,10 +208,40 @@
 
                               <div class="form-group">
                                 <label for="observaciones">Doctor:</label>
+                              
                               @if(empty($tag->odontologo))
-                                    <p>No existe ningún doctor todavia. ¡¡Por favor cree el odontólogo para poder usar esta funcionalidad!!</p>
+                              <select required name="odontologo_id" class="form-control">
+                                  <option value="" disabled selected>Seleccione un Doctor</option>
+                                  <?php
+                                  $getDoctor =$mysqli->query("select * from odontologos order by id");
+                                  while($f=$getDoctor->fetch_object()) {
+                                    echo $f->nombres;
+                                    echo $f->apellidos;
+
+                                    ?>
+                                  
+                                    <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos;?></option>
+                                    <?php
+                                  } 
+                                  ?>
+                            </select>
                                 @else
-                                  <input required type="text" class="form-control-file" name="odontologo_id" id="observaciones" value="{{$tag->odontologo->id}}">
+                                <select required name="odontologo_id" class="form-control">
+                            <option name="odontologo_id"  selected value="{{$tag->odontologo->id}}">Doctor actual:{{$tag->odontologo->nombres}} {{$tag->odontologo->apellidos}}</option>
+                            <?php
+                            $getDoctor =$mysqli->query("select * from odontologos order by id");
+                            while($f=$getDoctor->fetch_object()) {
+                              echo $f->nombres;
+                              echo $f->apellidos;
+
+                              ?>
+                            
+                              <option value="<?php echo $f->id; ?>"><?php echo $f->nombres." ".$f->apellidos;?></option>
+                              <?php
+                            } 
+                            ?>
+                            </select>
+                                 
                                 @endif
                               </div>
 
