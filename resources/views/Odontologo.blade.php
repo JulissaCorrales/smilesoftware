@@ -423,17 +423,17 @@
 
     <div class="row"><!--  -->
       <div class="col-md-6">
-       
+       <div class="form-group">
             <label for="nombres">Nombres:</label>
-            <input required type="text" class="form-control" name="nombres" id="nombres" onkeypress="return SoloLetras(event);" placeholder="Ingresar los Nombres del  Odontólogo (a)"  pattern="[A- Za- z]{3,100}"  oninput="check_textuno(this);">
+            <input required type="text" class="form-control" name="nombres" id="nombres" onkeypress="return SoloLetras(event);" placeholder="Ingresar los Nombres del  Odontólogo (a)"  pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}"  oninput="check_textuno(this);">
       </div>
-
+ </div>
       <div class="col-md-6">
-         
+         <div class="form-group">
             <label for="apellidos">Apellidos:</label>
-            <input  type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingresar los Apellidos  del  Odontólogo (a)" onkeypress="return SoloLetras1(event);" class="input-large" pattern="[A- Za- z]{3,100}" required oninput="check_textdos(this);">
+            <input  type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingresar los Apellidos  del  Odontólogo (a)" onkeypress="return SoloLetras1(event);" class="input-large" pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}" required oninput="check_textdos(this);">
       </div>
-     
+     </div>
     
  </div>
 
@@ -483,7 +483,7 @@
 <div class="col-md-6">
        
           <label for="ciudad">Ciudad:</label>
-          <input  type="text" class="form-control" name="ciudad" id="ciudad" onkeypress="return SoloLetras2(event);"placeholder="Ingresar la Ciudad  del  Odontólogo (a)" pattern="[A- Za -z]{3,100}" required oninput="check_texttres(this);"> 
+          <input  type="text" class="form-control" name="ciudad" id="ciudad" onkeypress="return SoloLetras2(event);"placeholder="Ingresar la Ciudad  del  Odontólogo (a)" pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}" required oninput="check_texttres(this);"> 
         </div>
       
 
@@ -528,14 +528,17 @@
 </div>
 
  <br>
+
+
  <div class="row">
-
-
+ 
 <div class="col-md-6">
-    <label for="especialidad" class="control-label">Especialidades:</label>
-<select    name="especialidades[]" id="" required   class="form-control mi-selector1" data-show-subtext="true" data-live-search="true" multiple>
+            
+          <label for="especialidad" class="control-label">Especialidades:</label>
+
+<select   style="width:100%;" name="especialidades[]" id="" required   class="form-control mi-selector1" data-show-subtext="true" data-live-search="true" multiple>
             <!--Ponga las opciones que quiera como quiera y donde quieta-->
-          @foreach($especialidades as $especialidad){
+          @foreach($especialidades as $especialidad){ 
  <option value="{{ $especialidad->id  }}">{{ $especialidad->Especialidad }}</option>
 
 }
@@ -544,11 +547,9 @@
         </select>
       </div>
 
-      
+   <div class="col-md-6">
 
-
-      <div class="col-md-6 ">
-      <label for="user_id" class="control-label">Usuario:</label>
+ <label for="user_id" class="control-label">Usuario:</label>
             <select required  name="user_id" class="form-control">
               <option value="" disabled selected>Seleccione un usuario</option>
          
@@ -564,11 +565,17 @@
                 } 
                 ?>      
             </select>
-<!-- <input type="text" value="" data-role="tagsinput" name="especialidad_odontologo"  placeholder="Ingrese una o varias Especialidades"> -->
-         
- </div>
+          
 
-</div>
+     </div>
+
+
+      </div>
+
+
+
+<!-- <input type="text" value="" data-role="tagsinput" name="especialidad_odontologo"  placeholder="Ingrese una o varias Especialidades"> -->
+  
 
 <div class="row">
 
