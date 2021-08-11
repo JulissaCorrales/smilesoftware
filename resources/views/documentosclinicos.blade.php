@@ -16,11 +16,35 @@
     @section('cuerpo')
  
     <div class="container" id="vPrincipal">
-    @if(session('mensaje'))
-        <div class="alert alert-success">
-            {{session('mensaje')}}
-        </div>
-    @endif
+ 
+<!-- alerta -->
+<div>
+
+<div>@if(session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
+            @endforeach
+         
+        </ul>
+        
+    </div>
+@endif</div>
+</div>
+<!-- fin de la alerta -->
  <div class="card mb-3">
           <div class="card-header">
               <h2><img src="{{ asset('Imagenes/doc.jpg') }}"  width="7%" height="7%" > Documentos Clínicos</h2>
@@ -44,11 +68,18 @@
 
             <div class="card-header text-white bg-dark mb-10" ><h4> Documento Clínico</h4></div>
             <div class="card-body">
+
               <h5 class="card-title">Paciente: {{$tag->paciente->nombres}}  {{$tag->paciente->apellidos}}</h5>
               <p class="card-text" ><img  style=" margin-left:0%;" src="{{ asset('Imagenes/doc.png') }}"  id="imgdocu"class="rounded float-right" width="200" height="220" style="" >
                   <br>
                   <time>Fecha: {{$tag->fecha}}</time><br>
-                  <p>Odontólogo: {{$tag->odontologo->nombres}} {{$tag->odontologo->apellidos}}</p>
+
+@if(empty($tag->odontologo))
+    <p>No tiene doctor asignado</p>
+@else
+    <p><p>Odontólogo: {{$tag->odontologo->nombres}} {{$tag->odontologo->apellidos}}</p></p>
+@endif
+                  
                   <p>Observaciones: {{$tag->observaciones}} </p>
                 <a target="_blank" href="/documento/{{$tag->imagen1}}" ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-pdf" viewBox="0 0 16 16">
               <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
@@ -173,9 +204,15 @@
                               @csrf
                               @method('put')
                               
+
+
                               <div class="form-group">
                                 <label for="observaciones">Doctor:</label>
-                                <input required type="text" class="form-control-file" name="odontologo_id" id="observaciones" value="{{$tag->odontologo->id}}">
+                              @if(empty($tag->odontologo))
+                                    <p>No existe ningún doctor todavia. ¡¡Por favor cree el odontólogo para poder usar esta funcionalidad.</p>
+                                @else
+                                  <input required type="text" class="form-control-file" name="odontologo_id" id="observaciones" value="{{$tag->odontologo->id}}">
+                                @endif
                               </div>
 
                                             <div class="form-group">
