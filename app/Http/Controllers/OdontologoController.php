@@ -72,26 +72,15 @@ class OdontologoController extends Controller
        
         'telefonoCelular'=>'required|numeric|digits:8',
         'direccion'=>'required|',
-        'user_id'=>'required|unique:App\Odontologo'
+        'user_id'=>'required|unique:App\Odontologo|exists:users,id',
+        'especialidades'=>'exists:especialidads,id',
+
+  
         ]);
        $creado = $nuevo->save();
           
 
      
-    
-     /*     $listOfPermissions = explode(',',  $request->especialidad_odontologo); //crear matriz a partir de permisos separados/coma
-        
-         
-        foreach ($listOfPermissions as  $permiso) {
-             $permisos= new Especialidad();
-             $permisos->Especialidad= $permiso;
-            
-             $permisos->save();
-
-             $nuevo->especialidades()->attach($permisos->id);
-             $nuevo->save();
-        }    
-*/
 
     if($request->especialidades != null){            
         foreach ($request->especialidades as $especialidad) {

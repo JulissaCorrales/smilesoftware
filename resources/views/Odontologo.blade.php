@@ -224,7 +224,7 @@
             <div class="form-group">
               <label for="nombres" >Nombres:</label>
               <div >
-              <input required type="text" class="form-control " onkeypress="return SoloLetras3(event);" name="nombres" id="nombres"  placeholder="Ingresar los Nombres del  Odontólogo (a)"  value="{{ $odontologo->nombres }}" >
+              <input required type="text" class="form-control " onkeypress="return SoloLetras3(event);" name="nombres" id="nombres"  placeholder="Ingresar los Nombres del  Odontólogo (a)"  value="{{ $odontologo->nombres }}" pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}"  oninput="checkt_textuno(this);">
               </div>
               </div>
         </div>
@@ -232,7 +232,8 @@
             <div class="form-group">
                 <label for="apellidos" >Apellidos:</label>
                 <div >
-                <input required type="text" class="form-control" name="apellidos" onkeypress="return SoloLetras4(event);" id="apellidos" placeholder="Ingresar los Apellidos del  Odontólogo (a)"  value="{{ $odontologo->apellidos }}">
+                <input required type="text" class="form-control" name="apellidos" onkeypress="return SoloLetras4(event);" id="apellidos" placeholder="Ingresar los Apellidos del  Odontólogo (a)"  value="{{ $odontologo->apellidos }}"
+      pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}"  oninput="checkt_textdos(this);">
               </div>
             </div>
         </div>
@@ -249,14 +250,19 @@
         <div class="col-md-4">
              <div class="form-group">
             <label for="telefonoFijo">Tel.Fijo:</label>
-            <input type="number" class="form-control" name="telefonoFijo" onkeypress="return SoloNumero5(event);" id="telefonoFijo"  placeholder="Ingresar los Tel.Fijo del  Odontólogo (a)(Opcional)"  maxlength="8"  value="{{ $odontologo->telefonoFijo}}"  oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(2, this.maxLength)">
+            <input type="number" class="form-control" name="telefonoFijo" onkeypress="return SoloNumero5(event);" id="telefonoFijo"  placeholder="Ingresar los Tel.Fijo del  Odontólogo (a)(Opcional)"  maxlength="8"  value="{{ $odontologo->telefonoFijo}}" 
+           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            pattern="^[2]\d{7}$"
+                            title="Ingrese un numero telefónico valido que inicie con 2">
                  
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
               <label for="telefonoCelular">Tel.Celular:</label>
-              <input type="number" required  class="form-control" name="telefonoCelular"  id="telefonoCelular" placeholder="Ingresar el Tel.Celular del  Odontólogo (a)"  value="{{ $odontologo->telefonoCelular }}" oninput="this.value = Math.max(this.value, 3)">
+              <input type="number" required  class="form-control" name="telefonoCelular"  id="telefonoCelular" placeholder="Ingresar el Tel.Celular del  Odontólogo (a)" maxlength="8"   value="{{ $odontologo->telefonoCelular }}" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            pattern="^[3|7|8|9]\d{7}$"
+                            title="Ingrese un numero telefónico valido que inicie con 3,7,8 y 9">
           </div>  
         </div>
         <div class="col-md-4">
@@ -290,7 +296,8 @@
       <div class="col-md-4">
         <div class="form-group">
           <label for="ciudad">Ciudad:</label>
-          <input required type="text" class="form-control"  name="ciudad" onkeypress="return SoloLetras5(event);" id="ciudad"placeholder="Ingresar la Ciudad  del  Odontólogo (a)"  value="{{ $odontologo->ciudad }}">
+          <input required type="text" class="form-control"  name="ciudad" onkeypress="return SoloLetras5(event);" id="ciudad"placeholder="Ingresar la Ciudad  del  Odontólogo (a)"  value="{{ $odontologo->ciudad }}"
+ pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}"  oninput="checkt_texttres(this);">
         </div>
       </div>
 
@@ -334,7 +341,7 @@
           <label for="state_id" class="control-label">Especialidades:</label>
 
         <!--Crucial que aqui ponga el atributo multiple y la class mi-selector porque luego la llamamos en el JS-->
-        <select    style="width: 105%;"  id="select" name="especialidades[]" id="" required   class="form-control mi-selector1" data-show-subtext="true" data-live-search="true" multiple >
+        <select    style="width: 70%;"  id="select" name="especialidades[]" id="" required   class="form-control mi-selector1" data-show-subtext="true" data-live-search="true" multiple >
             <!--Ponga las opciones que quiera como quiera y donde quieta-->
         <option  data-role="tagsinput"  disabled value="@foreach ($odontologo->especialidades as $permiso)
             {{$permiso->id}}
@@ -425,7 +432,8 @@
       <div class="col-md-6">
        <div class="form-group">
             <label for="nombres">Nombres:</label>
-            <input required type="text" class="form-control" name="nombres" id="nombres" onkeypress="return SoloLetras(event);" placeholder="Ingresar los Nombres del  Odontólogo (a)"  pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}"  oninput="check_textuno(this);">
+            <input required type="text" class="form-control" name="nombres" id="nombres" onkeypress="return SoloLetras(event);" placeholder="Ingresar los Nombres del  Odontólogo (a)" 
+ pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}"  oninput="check_textuno(this);">
       </div>
  </div>
       <div class="col-md-6">
@@ -781,6 +789,39 @@ function check_texttres(input) {
         input.setCustomValidity("");  
     }                 
 }  
+      
+
+         
+function checkt_textuno(input) {  
+    if (input.validity.patternMismatch){  
+        input.setCustomValidity("Debe ingresar al menos 3 letras");  
+    }  
+    else {  
+        input.setCustomValidity("");  
+    }                 
+}  
+
+  
+function checkt_textdos(input) {  
+    if (input.validity.patternMismatch){  
+        input.setCustomValidity("Debe ingresar al menos 3 letras");  
+    }  
+    else {  
+        input.setCustomValidity("");  
+    }                 
+}  
+      
+
+   
+function checkt_texttres(input) {  
+    if (input.validity.patternMismatch){  
+        input.setCustomValidity("Debe ingresar al menos 3 letras");  
+    }  
+    else {  
+        input.setCustomValidity("");  
+    }                 
+}  
+      
       
 
 
