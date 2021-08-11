@@ -75,7 +75,7 @@
                                   
                                   <div class="form-group">
                                       <label for="nombre" class="control-label" >Medio de Pago:</label>
-                                      <input required type="text" class="form-control-file" name="nombre" id="nombre"  maxlength="60" minlength="3"   placeholder="Ingresar nombre del medio de pago">
+                                      <input required type="text" class="form-control-file" name="nombre" id="nombre"  maxlength="60" minlength="3"  onkeypress="return SoloLetras(event);" pattern="[A-Za-zñÑ ]{3,60}" placeholder="Ingresar nombre del medio de pago" onblur="valeft()">
                                     <small style="color:blueviolet">¡¡Recuerda ingresar el nombre con más de tres carácteres!!</small>
                                   </div>
                                           
@@ -148,7 +148,7 @@
                                               
                                   <div class="form-group" id="divcate">
                                                   <label for="nombre" class="control-label">Nombre del Medio de Pago:</label>
-                                                  <input required type="text" maxlength="60" minlength="3" class="form-control-file" placeholder="Ingrese nombre del inventario" name="nombre" id="nombre"   value="{{$mediopago->nombre}}" > 
+                                                  <input required type="text" maxlength="60" minlength="3" class="form-control-file" placeholder="Ingrese nombre del inventario" name="nombre" id="nombre"   value="{{$mediopago->nombre}}" onkeypress="return SoloLetras(event);" pattern="[A-Za-zñÑ]{3,60}" onblur="valeft()"> 
                                                   </div>
                                 
                                 <div class="modal-footer" id="div6">
@@ -283,7 +283,17 @@ if(letras.indexOf(tecla) == -1 && !tecla_especial)
 }
 }
 
-
+// -- Función para aceptar espacios -- //
+function valeft(){
+ 
+    var val = document.getElementById("nombre").value;
+    var tam = val.length;
+ 
+        for(i=0;i<tam;i++){
+            if(!isNaN(val[i]) && val[i] != " ")
+            document.getElementById("nombre").value='';
+            }
+}
 
 </script>
 <!-- fin de script -->
