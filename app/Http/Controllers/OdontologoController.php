@@ -73,7 +73,7 @@ class OdontologoController extends Controller
         'telefonoCelular'=>'required|numeric|digits:8',
         'direccion'=>'required|max:255',
         'user_id'=>'required|unique:App\Odontologo|exists:users,id',
-        'especialidades'=>'exists:especialidads,id,Especialidad',
+        'especialidades'=>'exists:especialidads,id',
 
   
         ]);
