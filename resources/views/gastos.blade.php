@@ -1,17 +1,26 @@
 @extends('Plantilla.dashboard')
 @section('content')
-@section('titulo','Gastos')
+
 @canany(['isAdmin','isSecretaria'])
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   @section('titulo','Gastos')
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+  
+</head>
 
     <body>
                 <div class="card mb-3">
                 <div class="card-header">
                     <h3><img style=" margin-left:0%;" src="{{ asset('Imagenes/gastoss.png') }}"   width="7%;" height="7%"> Gastos de la Clínica</h3>
                         <p>En esta sección se muestra los Gastos registrados y también se podrá editar Gastos, crear un nuevo Gasto, borrar el Gasto registrado, ver el total de los Gastos, la 
-                            fecha  de factura y la fecha de los pagos</p>
+                            fecha  de factura y la fecha en la que se deben hacer los pagos</p>
                        
                                       
                 </div>
@@ -59,7 +68,7 @@
                   <div class="table-responsive">
                     <!-- tabla -->
 
-                    <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">
+                    <table id="datatable" class="table table-bordered"  width="100%" cellspacing="0">
                         <thead>
                            <tr>
             <th>Categoría</th>
@@ -126,7 +135,7 @@
                 
                    <div class="form-group" id="divcate">
                     <label for="categoria" class="control-label">Categoría:</label>
-              <select required name="categoria" id="categoria" class="form-control">
+              <select required name="categoria" id="categoria" class="mi-select">
               <option  selected value="{{$gasto->categoria}}"> Categoría Actual: {{$gasto->categoria}}</option>
               <option value="Servicios Públicos">Servicios Públicos</option>
               <option value="Provision por Contingencias">Provision por Contingencias</option>
@@ -258,11 +267,16 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 <!-- script de datatable para que funcione el buscado de nombre-->
 
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoftBy2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+</div>
+</div>
 
 </body>
 
 <script type="text/javascript">
+
 $(document).ready( function () {
     $('#datatable').DataTable( {
     language: {
@@ -291,9 +305,7 @@ $(document).ready( function () {
 } );
 </script>
 
-<!-- escript de datatable con el id de la tabla este muy importante en este caso la tabla es id="datatable"-->
-</div>
-</div><!-- fin del DIV contenedor de la buscador!!!  -->
+
 </html>
 @include('nuevogasto')<!-- esta seccion hace que funcione modal nuevo gasto -->
 @endcanany

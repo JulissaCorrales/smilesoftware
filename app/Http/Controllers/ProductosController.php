@@ -34,8 +34,8 @@ public function guardar(Request $request,$id){
     $this->authorize('create', Producto::class); //si tiene el permiso de crear:
     if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){ 
     $request->validate([
-        'nombre'                    =>  'required',
-        'permitedescuento'          =>  'required',
+        'nombre'                    =>  'required|min:3|max:100',
+        'permitedescuento'          =>  'required|in:si,no',
         'monto'                     =>  'required|numeric',
        
     ]);
@@ -83,8 +83,8 @@ public function guardar(Request $request,$id){
     public function update(Request $request,$id){
         if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
         $request->validate([
-            'nombre'                     =>  'required',
-            'permitedescuento'           =>  'required',
+            'nombre'                     =>  'required|min:3|max:100',
+            'permitedescuento'           =>  'required|in:si,no',
             'monto'                      =>  'required|numeric',
         ]);
     

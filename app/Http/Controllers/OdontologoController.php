@@ -67,7 +67,7 @@ class OdontologoController extends Controller
         'apellidos'=>'required||regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)|max:65',
         'identidad' => ['required', 'numeric', Rule::unique('odontologos')->ignore($nuevo->id), 'digits:13'],
 
-        'departamento'=>'required||regex:/^[\pL\s\-]+$/u',
+        'departamento'=>'required||regex:/^[\pL\s\-]+$/u|in:Atlántida,Choluteca,Colón,Comayagua,Copán,Cortés,El Paraíso,Francisco Morazán,Gracias a Dios,Intibucá,Islas de la Bahía,La Paz,Lempira,Ocotepeque,Olancho,Santa Bárbara,Valle,Yoro',
         'ciudad'=>'required||regex:/^[\pL\s\-]+$/u',
        
         'telefonoCelular'=>'required|numeric|digits:8',
@@ -132,7 +132,7 @@ class OdontologoController extends Controller
         $_request->validate(['nombres'=>'required||regex:/^[\pL\s\-]+$/u|max:65',
         'apellidos'=>'required||regex:/^[\pL\s\-]+$/u|max:65',
         'identidad' => ['required','digits:13','numeric', Rule::unique('odontologos')->ignore($odontologos->id)],
-        'departamento'=>'required|regex:/^[\pL\s\-]+$/u',
+        'departamento'=>'required|regex:/^[\pL\s\-]+$/u|in:Atlántida,Choluteca,Colón,Comayagua,Copán,Cortés,El Paraíso,Francisco Morazán,Gracias a Dios,Intibucá,Islas de la Bahía,La Paz,Lempira,Ocotepeque,Olancho,Santa Bárbara,Valle,Yoro',
         'ciudad'=>'required|regex:/^[\pL\s\-]+$/u',
         
         'telefonoCelular'=>'required|numeric|digits:8',
