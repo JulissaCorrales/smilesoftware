@@ -224,15 +224,15 @@
         <div class="col-md-6">
             <div class="form-group">
               <label for="nombres" >Nombres:</label>
-              <input required type="text" class="form-control " onkeypress="return SoloLetras3(event);" name="nombres" id="nombres"  placeholder="Ingresar los Nombres del  Odontólogo (a)"  value="{{ $odontologo->nombres }}" pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,65}"  oninput="checkt_textuno(this);">
+              <input required maxlength="60"  type="text" class="form-control " onkeypress="return SoloLetras3(event);" name="nombres" id="nombres"  placeholder="Ingresar los Nombres del  Odontólogo (a)"  value="{{ $odontologo->nombres }}" pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3, 60}"  oninput="checkt_textuno(this);">
               </div>
               </div>
         
         <div class="col-md-6">
             <div class="form-group">
                 <label for="apellidos" >Apellidos:</label>
-                <input required type="text" class="form-control" name="apellidos" onkeypress="return SoloLetras4(event);" id="apellidos" placeholder="Ingresar los Apellidos del  Odontólogo (a)"  value="{{ $odontologo->apellidos }}"
-      pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,65}"  oninput="checkt_textdos(this);">
+                <input required maxlength="60"  type="text" class="form-control" name="apellidos" onkeypress="return SoloLetras4(event);" id="apellidos" placeholder="Ingresar los Apellidos del  Odontólogo (a)"  value="{{ $odontologo->apellidos }}"
+      pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,60}"  oninput="checkt_textdos(this);">
               </div>
             </div>
       
@@ -310,8 +310,8 @@ onload="ValidarTell()" oninput="javascript: if (this.value.length > this.maxLeng
       <div class="col-md-6">
         <div class="form-group">
           <label for="ciudad">Ciudad:</label>
-          <input required type="text" class="form-control"  name="ciudad" onkeypress="return SoloLetras5(event);" id="ciudad"placeholder="Ingresar la Ciudad  del  Odontólogo (a)"  value="{{ $odontologo->ciudad }}"
- pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,65}"  oninput="checkt_texttres(this);">
+          <input required maxlength="100"  type="text" class="form-control"  name="ciudad" onkeypress="return SoloLetras5(event);" id="ciudad"placeholder="Ingresar la Ciudad  del  Odontólogo (a)"  value="{{ $odontologo->ciudad }}"
+ pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}"  oninput="checkt_texttres(this);">
         </div>
       </div>
 
@@ -450,16 +450,16 @@ onload="ValidarTell()" oninput="javascript: if (this.value.length > this.maxLeng
        <div class="form-group">
             <label for="nombres">Nombres:</label>
             <input required type="text" class="form-control" name="nombres" id="nombres" onkeypress="return SoloLetras(event);" placeholder="Ingresar los Nombres del  Odontólogo (a)" 
- pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}"  oninput="check_textuno(this);" 
-value="{{ old('nombres') }}">
+ pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,60}"  oninput="check_textuno(this);" 
+value="{{ old('nombres') }}" maxlength="60" >
       </div>
  </div>
       <div class="col-md-6">
          <div class="form-group">
             <label for="apellidos">Apellidos:</label>
             <input  type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingresar los Apellidos  del  Odontólogo (a)" onkeypress="return SoloLetras1(event);" class="input-large" 
-pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}" required oninput="check_textdos(this);"
-         value="{{ old('apellidos') }}">
+pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,60}" required oninput="check_textdos(this);"
+         value="{{ old('apellidos') }}" maxlength="60" >
       </div>
      </div>
     
@@ -515,7 +515,7 @@ pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b
 <div class="col-md-6">
        
           <label for="ciudad">Ciudad:</label>
-          <input  value="{{ old('ciudad') }}" type="text" class="form-control" name="ciudad" id="ciudad" onkeypress="return SoloLetras2(event);"placeholder="Ingresar la Ciudad  del  Odontólogo (a)" pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}" required oninput="check_texttres(this);"> 
+          <input maxlength="100"  value="{{ old('ciudad') }}" type="text" class="form-control" name="ciudad" id="ciudad" onkeypress="return SoloLetras2(event);"placeholder="Ingresar la Ciudad  del  Odontólogo (a)" pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}" required oninput="check_texttres(this);"> 
         </div>
       
 
@@ -762,7 +762,7 @@ $(document).ready( function () {
 <script type="text/javascript">
 function check_textdos(input) {  
     if (input.validity.patternMismatch){  
-        input.setCustomValidity("Debe ingresar al menos 3 LETRAS");  
+         input.setCustomValidity("Debe ingresar minimo 3 letras y máximo 60 letras");  
     }  
     else {  
         input.setCustomValidity("");  
@@ -780,7 +780,7 @@ function check_textdos(input) {
 
 function check_text(input) {  
     if (input.validity.patternMismatch){  
-        input.setCustomValidity("Debe ingresar al menos 3 LETRAS");  
+         input.setCustomValidity("Debe ingresar minimo 3 letras y máximo 60 letras");   
     }  
     else {  
         input.setCustomValidity("");  
@@ -797,7 +797,7 @@ function check_text(input) {
 
 function check_textuno(input) {  
     if (input.validity.patternMismatch){  
-        input.setCustomValidity("Debe ingresar al menos 3 letras");  
+          input.setCustomValidity("Debe ingresar minimo 3 letras y máximo 60 letras");    
     }  
     else {  
         input.setCustomValidity("");  
@@ -808,8 +808,7 @@ function check_textuno(input) {
 
 function check_texttres(input) {  
     if (input.validity.patternMismatch){  
-        input.setCustomValidity("Debe ingresar al menos 3 letras");  
-    }  
+        input.setCustomValidity("Debe ingresar minimo 3 letras y máximo 100 letras");  
     else {  
         input.setCustomValidity("");  
     }                 
@@ -819,7 +818,7 @@ function check_texttres(input) {
          
 function checkt_textuno(input) {  
     if (input.validity.patternMismatch){  
-        input.setCustomValidity("Debe ingresar al menos 3 letras");  
+        input.setCustomValidity("Debe ingresar minimo 3 letras y máximo 60 letras");  
     }  
     else {  
         input.setCustomValidity("");  
@@ -829,7 +828,7 @@ function checkt_textuno(input) {
   
 function checkt_textdos(input) {  
     if (input.validity.patternMismatch){  
-        input.setCustomValidity("Debe ingresar al menos 3 letras");  
+         input.setCustomValidity("Debe ingresar minimo 3 letras y máximo 60 letras");  
     }  
     else {  
         input.setCustomValidity("");  
@@ -840,7 +839,7 @@ function checkt_textdos(input) {
    
 function checkt_texttres(input) {  
     if (input.validity.patternMismatch){  
-        input.setCustomValidity("Debe ingresar al menos 3 letras");  
+          input.setCustomValidity("Debe ingresar minimo 3 letras y máximo 100 letras");  
     }  
     else {  
         input.setCustomValidity("");  
