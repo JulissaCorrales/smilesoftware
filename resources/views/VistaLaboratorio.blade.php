@@ -72,18 +72,33 @@
                       @csrf
                       
                       <div class="form-group">
-                          <label for="nombre">Nombre del Laboratorio:</label>
-                          <input required type="text" class="form-control-file" name="nombreLaboratorio" id="nombreLaboratorio" placeholder="Ingresar nombre del laboratorio"  maxlength="60" minlength="3" onkeypress="return SoloLetras(event);" pattern="[A-Za-zñÑ ]{3,60}" onblur="valeft()">
+                          <label for="nombreLaboratorio">Nombre del Laboratorio:</label>
+                          <input required type="text" class="form-control-file @error('nombreLaboratorio') is-invalid @enderror" name="nombreLaboratorio" id="nombreLaboratorio" placeholder="Ingresar nombre del laboratorio"  maxlength="60" minlength="3" onkeypress="return SoloLetras(event);" pattern="[A-Za-zñÑ ]{3,60}" onblur="valeft()" value="{{ old('nombreLaboratorio') }}">
+                             @error('nombreLaboratorio')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                       </div>
 
                       <div class="form-group">
-                        <label for="nombre">Detalle:</label>
-                        <input maxlength="255" minlength="3" required type="text" class="form-control-file" name="detalle" id="detalle" placeholder="Detalle del laboratorio">
+                        <label for="detalle">Detalle:</label>
+                        <input maxlength="255" minlength="3" required type="text" class="form-control-file @error('detalle') is-invalid @enderror" name="detalle" id="detalle" placeholder="Detalle del laboratorio" value="{{ old('detalle') }}">
+                       @error('detalle')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                     </div>
 
                     <div class="form-group">
-                        <label for="nombre">Por Pagar:</label>
-                        <input required type="number" class="form-control-file" min="1" pattern="^[0-9]+" name="porPagar" id="porPagar" placeholder="Ingrese la cantidad por pagar"formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)">
+                        <label for="porPagar">Por Pagar:</label>
+                        <input required type="number" class="form-control-file @error('porPagar') is-invalid @enderror" min="1" pattern="^[0-9]+" name="porPagar" id="porPagar" placeholder="Ingrese la cantidad por pagar"formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)" value="{{ old('porPagar') }}">
+                       @error('porPagar')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                     </div>
                               
                   <div class="modal-footer">
