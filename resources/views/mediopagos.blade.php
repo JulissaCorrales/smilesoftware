@@ -55,7 +55,7 @@
 </div>
 
             <!-- modal para crear nuevo medio de pago -->
-            <div class="modal fade" id="nuevoMedioPago" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="nuevoMedioPago" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-header"  style="background-color:#276678;color:white">
@@ -74,9 +74,13 @@
                                   @csrf
                                   
                                   <div class="form-group">
-                                      <label for="nombre" class="control-label" >Medio de Pago:</label>
-                                      <input required type="text" class="form-control-file" name="nombre" id="nombre"  maxlength="60" minlength="3"  onkeypress="return SoloLetras(event);" pattern="[A-Za-zñÑ ]{3,60}" placeholder="Ingresar nombre del medio de pago" onblur="valeft()">
-                                    <small style="color:blueviolet">¡¡Recuerda ingresar el nombre con más de tres carácteres!!</small>
+                                      <label for="nombre" class="control-label @error('nombre') is-invalid @enderror" >Medio de Pago:</label>
+                                      <input required type="text" class="form-control-file" name="nombre" id="nombre"  maxlength="60" minlength="3"  onkeypress="return SoloLetras(event);" pattern="[A-Za-zñÑ ]{3,60}" placeholder="Ingresar nombre del medio de pago" onblur="valeft()" value="{{ old('nombre') }}">
+                                     @error('nombre')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                                   </div>
                                           
                               <div class="modal-footer">
@@ -125,7 +129,7 @@
 
                     <!-- modal editar -->
                      <!-- Modal -->
-                   <div class="modal fade" id="exampleModalLong-{{$mediopago->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                   <div class="modal fade" id="exampleModalLong-{{$mediopago->id}}" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" role="document">
                           <div class="modal-content">
                               <div class="modal-header" style="background-color:#276678;color:white">
@@ -185,7 +189,7 @@
                     @endcan
                     
                         <!-- Modal -->
-                        <div class="modal fade" id="modal-{{$mediopago->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="modal-{{$mediopago->id}}" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                               <div class="modal-dialog modal-dialog-centered " role="document">
                                   <div class="modal-content">
                                       <div class="modal-header" style="background-color:#276678;color:white">
@@ -193,7 +197,7 @@
                                           <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
                                           </svg> Eliminar Medio de pago</h5>
                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <!--<span aria-hidden="true">&times;</span>-->
+                                          <span aria-hidden="true" style="color: white;">&times;</span>
                                           </button>
                                       </div>
                                       <div class="modal-body" style="word-wrap: break-word;">
