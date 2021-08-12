@@ -54,7 +54,7 @@
        
 
         <!-- modal para crear nuevo laboratorio -->
-<div class="modal fade" id="nuevoLab" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="nuevoLab" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header"  style="background-color:#276678;color:white">
@@ -63,7 +63,7 @@
 
           Nuevo Laboratorio</h3>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span style="color: whitesmoke;"aria-hidden="true">&times;</span>
           </button>
         </div>
       <div class="modal-body">
@@ -87,7 +87,7 @@
                     </div>
                               
                   <div class="modal-footer">
-                    <button type="button" onclick="location.href='/pantallainicio/laboratorios'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     <input type="reset" class="btn btn-danger">
                     <button type="submit" class="btn btn-primary" >Guardar Laboratorio</button>
                  </div>
@@ -141,7 +141,7 @@
 
                      <!-- modal editar -->
                       <!-- Modal -->
-                    <div class="modal fade" id="exampleModalLong-{{$lab->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal fade" id="exampleModalLong-{{$lab->id}}" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                           <div class="modal-header" style="background-color:#276678;color:white">
@@ -151,7 +151,7 @@
                       
                                   </h3>
                                   <button type="button"  style="color:white"class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
+                                  <span style="color:whitesmoke;"aria-hidden="true">&times;</span>
                                   </button>
                               </div>
                           <div class="modal-body">
@@ -165,17 +165,17 @@
                                    </div>
 
                                   <div class="form-group">
-                                    <label for="nombre">detalle:</label>
+                                    <label for="nombre">Detalle:</label>
                                     <input required type="text" class="form-control-file" name="detalle" id="detalle" value="{{$lab->detalle}}" >
                                     </div>
 
                                   <div class="form-group">
-                                    <label for="nombre">por Pagar:</label>
+                                    <label for="nombre">Por Pagar:</label>
                                     <input required type="number" class="form-control-file" min="1" pattern="^[0-9]+" name="porPagar" id="porPagar" formControlName="precio_min" oninput="this.value = Math.max(this.value, 1)"value="{{$lab->porPagar}}">
                                     </div>
                                           
                                   <div class="modal-footer">
-                                    <button type="button" onclick="location.href='/pantallainicio/laboratorios'"class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                     <input type="reset" class="btn btn-danger">
                                     <button type="submit" class="btn btn-primary" >Actualizar</button>
                                     </div>
@@ -207,7 +207,7 @@
                       
                      </td>    
                         <!-- Modal -->
-                        <div class="modal fade" id="modal-{{$lab->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="modal-{{$lab->id}}" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                               <div class="modal-dialog modal-dialog-centered" role="document">
                                   <div class="modal-content" >
                                       <div class="modal-header" style="background-color:#276678;color:white">
@@ -215,7 +215,7 @@
                                             <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
                                             </svg> Eliminar laboratorio</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <!--<span aria-hidden="true">&times;</span>-->
+                                          <span style="color: whitesmoke;" aria-hidden="true">&times;</span>
                                           </button>
                                       </div>
                                       <div class="modal-body">

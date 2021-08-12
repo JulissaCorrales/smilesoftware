@@ -58,10 +58,10 @@ class UsuarioController extends Controller
         //     abort(403);
         //  }
         $request->validate([
-            'name' => ['required', 'string', 'max:15','unique:users'],
+            'name' => ['required','regex:/^[\pL\s\-]+$/u', 'max:15','unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'role' => 'required',
+            'role' => 'required|exists:roles,id',
           
            
         ]);
@@ -137,9 +137,10 @@ class UsuarioController extends Controller
         //     abort(403);
         //  }
         $request->validate([
-            'name' => 'required|max:255',
+            'name' => 'required|max:255|regex:/^[\pL\s\-]+$/u',
             'email' => ['required', 'string', 'email', 'max:255', ],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+             'role' => 'required|exists:roles,id',
             
         ]);
 
