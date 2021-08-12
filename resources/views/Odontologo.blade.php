@@ -246,7 +246,10 @@
             <div class="form-group">
                 <label for="identidad">Identidad:</label>
                 <!--<input required type="number" class="form-control" name="identidad" id="identidad"  placeholder="ingresar identidad del paciente"  value="{{ $odontologo->identidad }}" maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)"> -->
-                   <input type="text" onkeypress="return SoloNumeros(event);" class="form-control" name="identidad" id="identidad"  placeholder="Ingresar DNI del  Odontólogo (a)" value="{{ $odontologo->identidad }}" maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" required >
+                   <input type="text" onkeypress="return SoloNumeros(event);" class="form-control" name="identidad" id="identidad"  placeholder="Ingresar DNI del  Odontólogo (a)" value="{{ $odontologo->identidad }}" maxlength="13"   onload="ValidarTell()"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            pattern="^[0]\d{12}$"
+                            title="Ingrese un código  valido de la identidad que inicie con 0."required >
             
   </div>
         </div>
@@ -254,8 +257,8 @@
 <div class="col-md-6">
              <div class="form-group">
             <label for="telefonoFijo">Tel.Fijo (opcional):</label>
-            <input type="number" class="form-control" name="telefonoFijo" onkeypress="return SoloNumero5(event);" id="telefonoFijo"  placeholder="Ingresar los Tel.Fijo del  Odontólogo (a)"  maxlength="8"  value="{{ $odontologo->telefonoFijo}}" 
-           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            <input type="text" class="form-control" name="telefonoFijo" onkeypress="return SoloNumero5(event);" id="telefonoFijo"  placeholder="Ingresar los Tel.Fijo del  Odontólogo (a)"  maxlength="8"  value="{{ $odontologo->telefonoFijo}}" 
+          onload="ValidarTell()" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                             pattern="^[2]\d{7}$"
                             title="Ingrese un numero telefónico valido que inicie con 2">
                  
@@ -269,7 +272,8 @@
         <div class="col-md-6">
           <div class="form-group">
               <label for="telefonoCelular">Tel.Celular:</label>
-              <input type="number" required  class="form-control" name="telefonoCelular"  id="telefonoCelular" placeholder="Ingresar el Tel.Celular del  Odontólogo (a)" maxlength="8"   value="{{ $odontologo->telefonoCelular }}" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              <input type="text" required  class="form-control" name="telefonoCelular"  id="telefonoCelular" placeholder="Ingresar el Tel.Celular del  Odontólogo (a)" maxlength="8"   value="{{ $odontologo->telefonoCelular }}" 
+onload="ValidarTell()" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                             pattern="^[3|7|8|9]\d{7}$"
                             title="Ingrese un numero telefónico valido que inicie con 3,7,8 y 9">
           </div>  
@@ -446,13 +450,16 @@
        <div class="form-group">
             <label for="nombres">Nombres:</label>
             <input required type="text" class="form-control" name="nombres" id="nombres" onkeypress="return SoloLetras(event);" placeholder="Ingresar los Nombres del  Odontólogo (a)" 
- pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}"  oninput="check_textuno(this);">
+ pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}"  oninput="check_textuno(this);" 
+value="{{ old('nombres') }}">
       </div>
  </div>
       <div class="col-md-6">
          <div class="form-group">
             <label for="apellidos">Apellidos:</label>
-            <input  type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingresar los Apellidos  del  Odontólogo (a)" onkeypress="return SoloLetras1(event);" class="input-large" pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}" required oninput="check_textdos(this);">
+            <input  type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingresar los Apellidos  del  Odontólogo (a)" onkeypress="return SoloLetras1(event);" class="input-large" 
+pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}" required oninput="check_textdos(this);"
+         value="{{ old('apellidos') }}">
       </div>
      </div>
     
@@ -465,7 +472,11 @@
  <div class="col-md-6">
           
             <label for="identidad">Identidad:</label>
-            <input required type="number"  class="form-control"  onkeypress="return SoloNumeros1(event);" name="identidad" id="identidad" placeholder="Ingresar la Identidad del  Odontólogo (a)" maxlength="13" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" >
+            <input required type="text" value="{{ old('identidad') }}" class="form-control"  onkeypress="return SoloNumeros1(event);" name="identidad" id="identidad" placeholder="Ingresar la Identidad del  Odontólogo (a)" maxlength="13" 
+                 onload="ValidarTell()"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            pattern="^[0]\d{12}$"
+                            title="Ingrese un código  valido de la identidad que inicie con 0.">
           </div>
 
  <div class="col-md-6">
@@ -504,7 +515,7 @@
 <div class="col-md-6">
        
           <label for="ciudad">Ciudad:</label>
-          <input  type="text" class="form-control" name="ciudad" id="ciudad" onkeypress="return SoloLetras2(event);"placeholder="Ingresar la Ciudad  del  Odontólogo (a)" pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}" required oninput="check_texttres(this);"> 
+          <input  value="{{ old('ciudad') }}" type="text" class="form-control" name="ciudad" id="ciudad" onkeypress="return SoloLetras2(event);"placeholder="Ingresar la Ciudad  del  Odontólogo (a)" pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}" required oninput="check_texttres(this);"> 
         </div>
       
 
@@ -513,7 +524,7 @@
       <div class="col-md-6">
         
             <label for="direccion">Dirección:</label>
-            <input required type="text" class="form-control" name="direccion" id="direccion"placeholder="Ingresar la Dirección  del  Odontólogo (a)">
+            <input required  value="{{ old('direccion') }}"type="text" class="form-control" name="direccion" id="direccion"placeholder="Ingresar la Dirección  del  Odontólogo (a)">
         
       </div>
       
@@ -526,10 +537,10 @@
 <div class="col-md-6">
          
             <label for="telefonoFijo">Teléfono fijo (Opcional):</label>
-            <input type="text" class="form-control" name="telefonoFijo" id="telefonoFijo" onkeypress="return SoloNumeros6(event);"  placeholder="Ingresar el Tel.Fijo  del  Odontólogo (a)" maxlength="8" onload="ValidarTell()"
+            <input type="text" value="{{ old('telefonoFijo') }}" class="form-control" name="telefonoFijo" id="telefonoFijo" onkeypress="return SoloNumeros6(event);"  placeholder="Ingresar el Tel.Fijo  del  Odontólogo (a)" maxlength="8" onload="ValidarTell()"
                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                             pattern="^[2]\d{7}$"
-                            title="Ingrese un numero telefónico valido que inicie con 2">
+                            title="Ingrese un número telefónico valido que inicie con 2">
          
       </div>
       
@@ -538,10 +549,10 @@
 <div class="col-md-6">
         <div class="form-group">
           <label for="telefonoCelular">Teléfono celular:</label>
-          <input required  type="text" class="form-control" name="telefonoCelular" id="telefonoCelular"   placeholder="Ingresar el Tel.Celular  del  Odontólogo (a)" maxlength="8"onload="ValidarTell()"
+          <input required  type="text" class="form-control" value="{{ old('telefonoCelular') }}" name="telefonoCelular" id="telefonoCelular"   placeholder="Ingresar el Tel.Celular  del  Odontólogo (a)" maxlength="8"onload="ValidarTell()"
                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                             pattern="^[9|8|7|3]\d{7}$"
-                            title="Ingrese un numero telefónico valido que inicie con 3,7,8 o 9" >
+                            title="Ingrese un número telefónico valido que inicie con 3,7,8 o 9" >
         </div>
       </div>
 
@@ -557,7 +568,8 @@
             
           <label for="especialidad" class="control-label">Especialidades:</label>
 
-<select   style="width:100%;" name="especialidades[]" id="" required   class="form-control mi-selector1" data-show-subtext="true" data-live-search="true" multiple>
+<select   style="width:100%;" name="especialidades[]" id="" required   class="form-control mi-selector1" data-show-subtext="true" data-live-search="true" multiple >
+
             <!--Ponga las opciones que quiera como quiera y donde quieta-->
           @foreach($especialidades as $especialidad){ 
  <option value="{{ $especialidad->id  }}">{{ $especialidad->Especialidad }}</option>
@@ -572,7 +584,7 @@
 
  <label for="user_id" class="control-label">Usuario:</label>
             <select required  name="user_id" class="form-control">
-              <option value="" disabled selected>Seleccione un usuario</option>
+              <option value="{{ old('name') }}" disabled selected>Seleccione un usuario</option>
          
                 <?php
                 $getUsuario =$mysqli->query("select * from users order by id");
