@@ -39,7 +39,7 @@ public function guardar(Request $request){
         'producto'         =>  ['required',Rule::unique('inventarios')],
         'stockseguridad'   =>  'required|numeric',
         'stockactual'      =>  'required|numeric',
-        'monto'      =>  'required|numeric',
+        'monto'      =>  'required|numeric|min:1|max:100000000000000000',
     ]);
 
     // formulario
@@ -70,7 +70,7 @@ public function update(Request $request,$id){
         'producto'        =>['required'],
         'stockseguridad'  =>'required|numeric',
         'stockactual'     =>'required|numeric',
-        'monto'           =>'required|numeric',
+        'monto'           =>'required|numeric|min:1|max:100000000000000000',
     ]);
 
     $inventarios=Inventario::findOrFail($id);
