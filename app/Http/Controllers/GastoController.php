@@ -19,7 +19,11 @@ class GastoController extends Controller
         
         $this->authorize('create', Gasto::class); //si tiene el permiso de crear sera guardado:  
                 $request->validate([
-                    'categoria'     =>  'required',
+                    'categoria'     =>  'required||regex:/^[\pL\s\-]+$/u|in:Servicios Públicos,Provision por Contingencias,Compra de Material de la Clínica,
+                                        Pago por Alquiler,Marketing, Públicidad y Diseño,Gastos Financieros y Administrativos,Mantenimiento y Reparaciones Imprevistas,
+                                        Nóminas, Salarios y Seguridad Social,Transportes y logísticar,Gastos de kilometraje,Impuestos y Tasa,
+                                        Gastos por Suministros y Facturas de Servicios,Servicios de Empresas Externas,Costes de Personal,
+                                        Impuestos Específicos y Costos de Distribución,Materias Primas',
                     'detalle'       =>  'required',
                     'monto'         =>  'required|integer|min:1|max:10000000',
                     'fechafactura'  =>  'required|date',
