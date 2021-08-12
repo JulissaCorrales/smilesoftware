@@ -34,7 +34,7 @@ public function destroy($id){
 public function guardar(Request $request){
     $this->authorize('create', Mediopago::class); //si tiene el permiso de crear:     
     $request->validate([
-        'nombre'         =>  'required|regex:/^[\pL\s\-]+$/u|max:60',
+        'nombre'         =>  'required|regex:/^[\pL\s\-]+$/u|max:60|min:3',
     ]);
 
     // formulario
@@ -58,7 +58,7 @@ public function update(Request $request,$id){
  
 
     $request->validate([
-        'nombre'         =>  'required|regex:/^[\pL\s\-]+$/u|max:60',
+        'nombre'         =>  'required|regex:/^[\pL\s\-]+$/u|max:60|min:3',
        
     ]);
 

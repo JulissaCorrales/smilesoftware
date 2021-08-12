@@ -37,8 +37,8 @@ class TratamientoController extends Controller
 public function guardar(Request $request){
     $this->authorize('create', Tratamiento::class); //si tiene el permiso de crear:        
     $request->validate([
-        'categoria'     =>  'required',
-        'tipo'          =>  'required',
+        'categoria'     =>  'required|min:3|max:100',
+        'tipo'          =>  'required|in:Acción Clínica,Acción de Laboratorio',
        
     ]);
 
@@ -67,8 +67,8 @@ public function guardar(Request $request){
 public function update(Request $request,$id){
     if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){ 
     $request->validate([
-        'categoria'     =>  'required',
-        'tipo'           =>  'required',
+        'categoria'     =>  'required|min:3|max:100',
+        'tipo'           =>  'required|in:Acción Clínica,Acción de Laboratorio',
        
     ]);
 

@@ -30,10 +30,16 @@ td,th {
 <body>
 
 <header>
-<p><strong > Reportes </strong></p>
+@forelse($logotipos  as $tag)
+    <img  class="logo" src="{{Storage::url($tag->logo)}}"  alt="image" width="20%;" height="110%";>
+    @empty
+ 
+    <img class="logo"  src="{{ asset('Imagenes/logo4.jpg') }}"  id="logo1" width="20%;" height="110%"> 
+    @endforelse 
+
 </header>
 
-
+<strong > Reportes </strong>
     <h5 style="text-align : center ">Inventarios de la Clínica</h5>
 <div class="table-responsive">
     <table class="table" style="" >
@@ -63,7 +69,7 @@ td,th {
 </table>
 </div>
 <footer>
-<p> <strong> Clínica Odontólogica Smile Software </strong> </p>
+<p> <b> Clínica Odontólogica Smile Software </b> </p>
 </footer>
 
 

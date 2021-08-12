@@ -8,12 +8,38 @@
     rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
     crossorigin="anonymous">
 <link rel="stylesheet" href="{{asset('css/estilospdf.css')}}">
+
+<style>
+table, th, td {
+  border: 1px solid #00303F; 
+  border-collapse: collapse;
+}
+th {
+  background-color:#276678; 
+  color:white;
+  text-align: center;    
+line-height: 1;
+}
+td,th {
+  padding: 5px;
+     
+}
+
+
+</style>
 </head>
 <body>
 <header>
-<p><strong> Reportes </strong></p>
-</header>
+ 
+@forelse($logotipos  as $tag)
+    <img  class="logo" src="{{Storage::url($tag->logo)}}"  alt="image" width="20%;" height="110%";>
+    @empty
+ 
+    <img class="logo"  src="{{ asset('Imagenes/logo4.jpg') }}"  id="logo1" width="20%;" height="110%"> 
+    @endforelse 
 
+</header>
+<strong id="report" name=>Reportes</strong>
     <div class="container">
     <h5 style="text-align : center ">Tabla de Pacientes de la Clínica</h5>
     <table  class="table" style="width: 100%; border: 1px solid #ccc;margin-top:3em;"  >
@@ -25,7 +51,7 @@
 <th scope="col">Sexo </th>
 <th scope="col">Fecha de Nacimiento </th>
 <th scope="col">Departamento </th>
-<th scope="col">Ciudad </th>
+<th scope="col">   Ciudad  </th>
 <th scope="col">Teléfono</th>
 </tr>
 </thead>
@@ -47,7 +73,7 @@
 </table>
 </div>
 <footer>
-<p> <strong> Clínica Odontologica Smile Software </strong> </p>
+<p> <b> Clínica Odontologica Smile Software </b> </p>
 </footer>
 
 

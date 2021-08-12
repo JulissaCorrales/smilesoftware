@@ -14,6 +14,14 @@ header {
     right: 0cm;
     height: 2cm;
     background-color: #1687A7;
+}
+
+strong {
+    position: fixed;
+    top: 0cm;
+    left: 0cm;
+    right: 0cm;
+    height: 2cm;
     color: white;
     text-align: center;
     line-height: 30px;
@@ -30,5 +38,4 @@ footer {
     background-color: #1687A7;
     color: white;
     text-align: center;
-    line-height: 35px;
 }

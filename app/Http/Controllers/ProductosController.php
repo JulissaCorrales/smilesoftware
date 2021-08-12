@@ -35,7 +35,7 @@ public function guardar(Request $request,$id){
     if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){ 
     $request->validate([
         'nombre'                    =>  'required|min:3|max:100',
-        'permitedescuento'          =>  'required|in:si,no',
+        'permitedescuento'          =>  'required|in:Si,No',
         'monto'                     =>  'required|numeric',
        
     ]);
@@ -84,7 +84,7 @@ public function guardar(Request $request,$id){
         if(Gate::denies('isAdmin') || Gate::denies('isOdontologo')){
         $request->validate([
             'nombre'                     =>  'required|min:3|max:100',
-            'permitedescuento'           =>  'required|in:si,no',
+            'permitedescuento'           =>  'required|in:Si,No',
             'monto'                      =>  'required|numeric',
         ]);
     
