@@ -7,7 +7,7 @@
 
 <style>
 html,body{
-background-image: url('../assets/img/fondo34.jpg');
+background-image: url('../assets/img/fondo34-min.jpg');
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
@@ -106,9 +106,8 @@ margin-left: 4px;
   color: #00091a;
 }
 
-<style>
 html,body{
-background-image: url('../assets/img/fondo34.jpg');
+/* background-image: url('../assets/img/fondo34.jpg'); */
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
@@ -281,15 +280,28 @@ margin-left: 4px;
 		
 
     #enlace5{
-      position: absolute;
-  left: 125px;
-  top:200px;
+      position: relative;
+margin-left: 2.5em;
+  margin-top:12em;
   width: 130px;
   background-color: #00cccc;
   height:35px;
   font-size:15px;
   color: #00091a;
+ text-align: center;
     }
+    #enlacesalir{
+      position: relative;
+  margin-top:-2.3em;
+  text-align: center;
+  width: 120px;
+  background-color: #00cccc;
+  height:35px;
+  font-size:15px;
+  color: #00091a;
+margin-left: 15em;
+    }
+
 
 
     #text1{
@@ -353,6 +365,36 @@ margin-left: 4px;
         <h3 id="text1">Tu Sesion esta Activa</h3>
         <p id="parra1">Dar Click en Iniciar Sesion para ingresar Nuevamente</p>
       <a  class="btn btn-lg btn-primary" href="{{ url('/login') }}" id="enlace5">Iniciar Sesion</a>
+		    <a id="enlacesalir"  class="btn btn-lg btn-primary" href="#" data-toggle="modal" data-target="#logoutModal">Salir</a>
+			 <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" >
+      <div class="modal-content" style="position:center;">
+        <div class="modal-header" style="background-color: #1687A7;color:white">
+          <h5 class="modal-title" id="exampleModalLabel">¿Desea cerrar sesión?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Al dar click en el boton "Salir" podrá Cerrar la sesión</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+
+          <a class="btn btn-primary" href="#"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+              {{ __('Salir') }}
+          </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+          </form>
+
+          {{-- <a class="btn btn-primary"  href="login.html">Salir</a> --}}
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 	</div>
