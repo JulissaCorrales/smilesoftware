@@ -110,7 +110,7 @@
             </button>
 
              <!-- modal de editar -->
- <div class="modal fade" id="modall-{{$gasto->id}}" >
+ <div class="modal fade" id="modall-{{$gasto->id}}"  data-keyboard="false" data-backdrop="static"tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content" >
                 <div id="div1"class="modal-header" style=" background-color:#276678; color:white;">

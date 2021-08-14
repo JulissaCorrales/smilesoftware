@@ -14,7 +14,7 @@
 <body>
    <div class="container"><!-- padre -->
      <!-- Este codigo es para la ventana modal gasto nuevo -->
-        <div class="modal fade" id="creategasto" >
+        <div class="modal fade" id="creategasto" data-keyboard="false" data-backdrop="static"tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content" >
                 <div id="div1"class="modal-header" style="background-color:#276678; color:white; ">

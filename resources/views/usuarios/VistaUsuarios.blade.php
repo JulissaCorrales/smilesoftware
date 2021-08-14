@@ -31,7 +31,7 @@
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body">  
             <!--Contenido -->
             <form id="frmusuarios" method="post" action="{{route('usuario.guardar')}} " enctype="multipart/form-data">
             @csrf

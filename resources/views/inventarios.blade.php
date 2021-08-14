@@ -67,7 +67,7 @@
 
           <!-- Modal para nuevo Inventario -->
           <!-- Modal -->
-              <div class="modal fade" data-keyboard="false" data-backdrop="static" id="nuevoinventario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal fade"  data-backdrop="static" id="nuevoinventario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content"  >
                     <div class="modal-header" style=" background-color:#276678; color:white;">
