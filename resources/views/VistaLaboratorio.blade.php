@@ -62,13 +62,13 @@
           <img style=" margin-left:0%;" src="{{ asset('Imagenes/lab.png') }}"   width="20%;" height="20%">
 
           Nuevo Laboratorio</h3>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span style="color: whitesmoke;"aria-hidden="true">&times;</span>
-          </button>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"id="btncerrar">
+                                            <span aria-hidden="true">×</span><span class="sr-only">
+                                                Cerrar</span></button>
         </div>
       <div class="modal-body">
         
-         <form method="post" action="/laboratorioNuevo">
+         <form method="post" id="formu" action="/laboratorioNuevo">
                       @csrf
                       
                       <div class="form-group">
@@ -298,7 +298,12 @@ $(document).ready( function () {
 });
 } );
 </script>
-
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+   $("#btncerrar").click(function(event) {
+	   $("#formu")[0].reset();
+   });
+</script>
 <!-- script para que solo acepte letras -->
 <script>
 

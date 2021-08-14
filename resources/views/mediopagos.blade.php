@@ -63,14 +63,14 @@
                     <img class="med" style=" margin-left:0%;" src="{{ asset('Imagenes/crearmedio.png') }}"  id="med" width="15%;" height="15%">
 
                     Creación de un Nuevo Medio De pago</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btncerrar">
+                                            <span aria-hidden="true">×</span><span class="sr-only">
+                                                Cerrar</span></button>
                   </div>
                   <div class="modal-body">
                     
 
-                  <form method="post" action="/mediopagoNuevo">
+                  <form method="post" id="formu"action="/mediopagoNuevo">
                                   @csrf
                                   
                                   <div class="form-group">
@@ -302,7 +302,12 @@ function valeft(){
 
 </script>
 <!-- fin de script -->
-
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+   $("#btncerrar").click(function(event) {
+	   $("#formu")[0].reset();
+   });
+</script>
 
 </html>
 @endcanany
