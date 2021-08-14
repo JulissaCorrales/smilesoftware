@@ -143,10 +143,20 @@
                     </thead>
        <!-- pie de tabla -->
         <tfoot>
-            <td  colspan="4" style="text-align: left; background-color:#D7DBDD  ;">Total del inventario</td>
-            <td colspan="3"style="text-align: left;background-color:#D7DBDD  ;">
-{{ number_format($monto, 2 ) }}
-            </td>
+            <td  colspan="3" style="text-align: left; background-color:#D7DBDD  ;"><b>Total de Gasto en Inventario<b></td>
+
+            @foreach($monto as $monto){
+            
+             <td colspan="2" style="background-color:#D7DBDD;"><b>{{ $monto->Total }}</b></td>
+        }
+
+                          @endforeach
+           
+           
+</td>
+
+
+            
         </tfoot>
         <!--  -->
 
@@ -159,7 +169,9 @@
                             <td>{{$inventario->producto}}</td>
                             <td>{{$inventario->stockseguridad}}</td>
                             <td>{{$inventario->stockactual}}</td>
-                            <td>{{number_format(($inventario->monto),2)}}</td>
+                           <td>{{$inventario->monto }} </td> 
+                      
+                            
                             <td>
                             @can('update',$inventario)
                                 <button class="btn btn-outline-success" data-toggle="modal" data-target="#editarinventarios-{{$inventario->id}}">
@@ -275,6 +287,7 @@
                         
                           
                         </tr>
+               
                           @empty
                              <td colspan="5"><h3>¡¡No hay Inventarios Existentes!!</h3></td>
                           @endforelse

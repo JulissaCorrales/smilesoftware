@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Inventario;
@@ -12,7 +12,9 @@ class InventarioController extends Controller
     public function vistaprincipal(){
         $this->authorize('view', Inventario::class);//si tiene el permiso de ver:
         $inventarios=Inventario::All();
-        $monto =Inventario::sum('monto');
+     
+        
+     $monto= Inventario::select(DB::raw('sum(monto * stockseguridad) as Total'))->get();
         return view('inventarios')->with ('inventarios',$inventarios)->with('monto',$monto);  
    
 }
