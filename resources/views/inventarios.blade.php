@@ -137,22 +137,23 @@
                               <th> Existencias de Seguridad</th>
                               <th>Existencias Actuales</th>
                               <th>Precio</th>
+                               <th>Total por Producto</th>
                               <th>Opciones</th>
                             </tr>
                     </thead>
        <!-- pie de tabla -->
         <tfoot>
-            <td  colspan="3" style="text-align: left; background-color:#D7DBDD  ;"><b>Total de Gasto en Inventario<b></td>
+            <td  colspan="4" style="text-align: left; background-color:#D7DBDD  ;"><b>Total de Gasto en Inventario<b></td>
 
-            @foreach($monto as $monto){
+            @foreach($monto as $monto)
             
              <td colspan="2" style="background-color:#D7DBDD;"><b>{{ $monto->Total }}</b></td>
-        }
+        
 
                           @endforeach
            
            
-</td>
+
 
 
             
@@ -169,6 +170,13 @@
                             <td>{{$inventario->stockseguridad}}</td>
                             <td>{{$inventario->stockactual}}</td>
                            <td>{{$inventario->monto }} </td> 
+       @foreach($producto as $p)
+@if($inventario->id == $p->id)
+<td> {{$p->mult}}</td>
+@endif
+@endforeach
+
+
                       
                             
                             <td>

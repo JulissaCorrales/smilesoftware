@@ -87,6 +87,7 @@
 
 try
 {
+
   $mbd = new PDO('mysql:host=127.0.0.1;dbname=smilesoftware', "root", "");
   $sth= $mbd->query('
 

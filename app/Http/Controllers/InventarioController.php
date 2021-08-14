@@ -7,17 +7,30 @@ use Illuminate\Support\Facades\Gate;
 use App\Inventario;
 use Illuminate\Validation\Rule;
 
+
 class InventarioController extends Controller
 {  
     public function vistaprincipal(){
         $this->authorize('view', Inventario::class);//si tiene el permiso de ver:
         $inventarios=Inventario::All();
      
-        
-     $monto= Inventario::select(DB::raw('sum(monto * stockseguridad) as Total'))->get();
-        return view('inventarios')->with ('inventarios',$inventarios)->with('monto',$monto);  
+       
+    
+
+    $producto = DB::select('SELECT id, stockseguridad * monto AS mult
+FROM inventarios;');
+
+      
+    $monto= Inventario::select(DB::raw('sum(monto * stockseguridad) as Total'))->get();
+   
+
+        return view('inventarios')->with ('inventarios',$inventarios)->with('monto',$monto)->with('producto',$producto);  
+
    
 }
+
+
+
 public function destroy($id){
     //permisos
     $inventarios=Inventario::findOrFail($id);
