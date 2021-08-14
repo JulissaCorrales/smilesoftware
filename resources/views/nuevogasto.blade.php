@@ -14,7 +14,7 @@
 <body>
    <div class="container"><!-- padre -->
      <!-- Este codigo es para la ventana modal gasto nuevo -->
-        <div class="modal fade" id="creategasto" >
+        <div class="modal fade" id="creategasto" data-keyboard="false" data-backdrop="static"tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content" >
                 <div id="div1"class="modal-header" style="background-color:#276678; color:white; ">
@@ -24,13 +24,13 @@
                     <img style=" margin-left:0%;" src="{{ asset('Imagenes/editg.png') }}"   width="20%;" height="20%">
                         Nuevo Gasto
                     </h3>
-                    <button type="button" class="close" data-dismiss="modal"    aria-label="Close">
-                    <span span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="close" data-dismiss="modal"    aria-label="Close" id="btncerrar">
+                        <span aria-hidden="true">×</span>
+                      <span class="sr-only">Cerrar</span></button>
                 </div>
             <div class="modal-body">
             
-                <form action="{{ route('gastos.guardar') }}" method="post">
+                <form id="formug" action="{{ route('gastos.guardar') }}" method="post">
                     @csrf
                     <!-- Categoria-->
                 
@@ -98,5 +98,12 @@
 
    
    </div><!-- fin padre -->
+
 </body>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+   $("#btncerrar").click(function(event) {
+	   $("#formug")[0].reset();
+   });
+</script>
 </html>

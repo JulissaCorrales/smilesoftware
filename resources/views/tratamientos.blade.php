@@ -65,7 +65,7 @@
     
                   <nav> 
                 <!-- modal para crear nuevo tratamiento -->
-                <div class="modal fade" id="nuevotratamiento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="nuevotratamiento" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                       <div class="modal-header"  style="background-color:#276678;color:white">
@@ -73,12 +73,12 @@
                         <img class="med" style=" margin-left:0%;" src="{{ asset('Imagenes/tratamiento.png') }}"  id="med" width="10%;" height="10%">
 
                         Creación de un Nuevo Tratamiento</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"id="btncerrar">
+                                            <span aria-hidden="true">×</span><span class="sr-only">
+                                                Cerrar</span></button>
                       </div>
                       <div class="modal-body">
-                        <form method="post" action="/tratamientoNuevo">
+                        <form method="post" id="formu" action="/tratamientoNuevo">
                                       @csrf
                                       <div class="form-group">
                                           <label for="categoria">Tratamiento:</label>
@@ -140,7 +140,7 @@
       @endcan
     <!-- modal editar -->
           <!-- Modal -->
-          <div class="modal fade" id="exampleModalLong-{{$tratamiento->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal fade" id="exampleModalLong-{{$tratamiento->id}}" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
           <div class="modal-header" style="background-color:#276678;color:white">
@@ -279,7 +279,12 @@ $(document).ready( function () {
 });
 } );
 </script>
-
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+   $("#btncerrar").click(function(event) {
+	   $("#formu")[0].reset();
+   });
+</script>
 </html>
 @endcanany
 @endsection

@@ -69,18 +69,18 @@
 
 
               <!-- Modal para nuevo producto -->
-              <div class="modal fade" id="nuevoproducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal fade" id="nuevoproducto" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                       <div class="modal-header" style=" background-color:#276678; color:white;">
                           <h4 class="modal-title"  id="exampleModalLabel"><img class="produ"  src="{{ asset('Imagenes/newp.png') }}"  id="produ" width="20%;" height="20%">
                           Nuevo producto</h4>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                          </button>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btncerrar">
+                                            <span aria-hidden="true">×</span><span class="sr-only">
+                                                Cerrar</span></button>
                         </div>
                           <div class="modal-body">
-                              <form method="post" action="/tratamiento/{{$tratamientos->id}}/producto/Nuevo">
+                              <form method="post" id="formu" action="/tratamiento/{{$tratamientos->id}}/producto/Nuevo">
                                     @csrf
                                     <div class="form-group">
                                         <label for="categoria">Nombre:</label>
@@ -161,7 +161,7 @@
                                 <!-- Inicio modal editar -->
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="modaleditar-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                <div class="modal fade" data-backdrop="static" id="modaleditar-{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                   <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header" style=" background-color:#276678; color:white;" >
@@ -301,6 +301,12 @@ $(document).ready( function () {
     }
 });
 } );
+</script>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+   $("#btncerrar").click(function(event) {
+	   $("#formu")[0].reset();
+   });
 </script>
 </body>
 </div><!-- fin del DIV contenedor de la buscador!!!  -->

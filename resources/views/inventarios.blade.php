@@ -67,19 +67,18 @@
 
           <!-- Modal para nuevo Inventario -->
           <!-- Modal -->
-              <div class="modal fade" data-keyboard="false" data-backdrop="static" id="nuevoinventario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal fade"  data-backdrop="static" id="nuevoinventario" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content"  >
                     <div class="modal-header" style=" background-color:#276678; color:white;">
                       <h4 class="modal-title" id="exampleModalCenterTitle">
                       <img   src='/Imagenes/inva.png'   width="15%" height="15%">
                       Ingreso de Inventario</h4>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btncerrar"><span aria-hidden="true">×</span>
+                      <span class="sr-only">Cerrar</span></button>
                     </div>
                     <div class="modal-body">
-                      <form method="post" action="/inventarioNuevo">
+                      <form id="formuinven" method="post" action="/inventarioNuevo">
                                     @csrf
                                     
                                     <div class="form-group">
@@ -192,12 +191,12 @@
                                             <img   src='/Imagenes/editar.png'   width="10%" height="10%">
                                               Edición del Inventario
                                           </h3>
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                          </button>
+                                          <button type="button" class="close" data-dismiss="modal" id="btncerrarr">
+                                            <span aria-hidden="true">×</span><span class="sr-only">
+                                                Cerrar</span></button>
                                         </div>
                                         <div class="modal-body">
-                                          <form method="post" action="{{route('inventario.update',['id'=> $inventario-> id])}} ">
+                                          <form id="editformu" method="post" action="{{route('inventario.update',['id'=> $inventario-> id])}} ">
                                           @csrf
                                           @method('put')
 
@@ -302,6 +301,23 @@
     </div>
 
   </body>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+   $("#btncerrar").click(function(event) {
+	   $("#formuinven")[0].reset();
+   });
+</script>
+  <!-- /#wrapper -->
+
+<script>
+
+$("#btncerrarr").click(function(event){
+$("#editformu")[0].reset();
+
+
+});
+</script>
+
 
 </html>
 @endcanany
