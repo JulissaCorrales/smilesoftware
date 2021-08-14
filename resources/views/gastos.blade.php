@@ -120,14 +120,14 @@
                     <img style=" margin-left:0%;" src="{{ asset('Imagenes/editar.png') }}"   width="10%;" height="10%">
                         Editar Gasto 
                     </h3>
-                    <button type="button" class="close" data-dismiss="modal"    aria-label="Close">
-                    <span span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="close" data-dismiss="modal"    aria-label="Close"id="btncerrarr">
+                                            <span aria-hidden="true">×</span><span class="sr-only">
+                                                Cerrar</span></button>
                 </div>
             <div class="modal-body">
             
             
-    <form method="post" action="{{route('gasto.update',['id'=> $gasto-> id])}} ">
+    <form method="post" id="formugas" action="{{route('gasto.update',['id'=> $gasto-> id])}} ">
 
     @csrf
     @method('put')
@@ -304,7 +304,12 @@ $(document).ready( function () {
 });
 } );
 </script>
-
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+   $("#btncerrar").click(function(event) {
+	   $("#formugas")[0].reset();
+   });
+</script>
 
 </html>
 @include('nuevogasto')<!-- esta seccion hace que funcione modal nuevo gasto -->
