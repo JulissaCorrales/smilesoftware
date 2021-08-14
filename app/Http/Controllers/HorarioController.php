@@ -51,8 +51,9 @@ class HorarioController extends Controller
 
 
         $request->validate([     'horainicio'=>'required',
-           'Día'=>'required',
-        'horafinal'=>'required'
+           'Día'=>'required||regex:/^[\pL\s\-]+$/u|in:Lunes,Martes,Miércoles,Jueves,Viernes,Sábado,Domingo',
+        'horafinal'=>'required|in:8:00 a.m,9:00 a.m,10:00 a.m,11:00 a.m,12:00 a.m,1:00 p.m,
+            2:00 p.m,3:00 p.m,4:00 p.m,5:00 p.m,6:00 p.m'
         
         
         ]);

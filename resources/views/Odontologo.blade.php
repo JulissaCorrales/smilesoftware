@@ -5,18 +5,7 @@
 
 <head>
 
- <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <!--llamamos al enlace de Jquery 3.3.1 para la funcionalidad-->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <!--llamamos a una clase de internet donde esta el diseño-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
-    <!--llamamos a otra clase JS que hace la tarea de que se muestren los seleccionados como si fueran etiquetas-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-
-
-<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
-
+  
 <style>
 
 .aviso{
@@ -189,14 +178,13 @@
   
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content"  >
-			<div class="modal-header" style=" background-color: #d3e0ea; color:black;">
+			<div class="modal-header" style=" background-color: #276678; color:White;">
             
             
 
 				<h4  class="modal-title" id="modal" >
-       <img style=" border-radius: 50%; " src='/Imagenes/{{$odontologo->imagen}}' width=" 70px" height="70px"  >
+       <img style=" border-radius: 50%; " src='/Imagenes/{{$odontologo->imagen}}' width=" 70px" height="70px">
         Editar Odontólogo (a) </h4>  
-       <p style="margin-top:50px; margin-left: -30%;">{{$odontologo->nombres}} {{$odontologo->apellidos}} </p>
          
      
         	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -330,7 +318,7 @@ onload="ValidarTell()" oninput="javascript: if (this.value.length > this.maxLeng
           <label for="state_id" class="control-label">Especialidades:</label>
 
         <!--Crucial que aqui ponga el atributo multiple y la class mi-selector porque luego la llamamos en el JS-->
-        <select    style="%;"  id="select" name="especialidades[]" id="" required   class="form-control mi-selector1" data-show-subtext="true" data-live-search="true" multiple >
+        <select    style="width:100%;"  id="select" name="especialidades[]" id="" required   class="form-control mi-selector1" data-show-subtext="true" data-live-search="true" multiple >
             <!--Ponga las opciones que quiera como quiera y donde quieta-->
         <option  data-role="tagsinput"  disabled value="@foreach ($odontologo->especialidades as $permiso)
             {{$permiso->id}}
@@ -422,7 +410,7 @@ onload="ValidarTell()" oninput="javascript: if (this.value.length > this.maxLeng
   
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content"  >
-			<div id=""class="modal-header" style=" background-color: #d3e0ea; color:black;  height:70px;">
+			<div id=""class="modal-header" style=" background-color: #276678; color:white;  height:80px;">
 	
 				<h4 class="modal-title" id="myModalLabel">
         <img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/dentista.png') }}"  id="logo1" width="6%;" height="6%"> 
@@ -794,7 +782,6 @@ function check_text(input) {
 
 <script>
 
-
 function check_textuno(input) {  
     if (input.validity.patternMismatch){  
           input.setCustomValidity("Debe ingresar minimo 3 letras y máximo 60 letras");    
@@ -845,45 +832,10 @@ function checkt_texttres(input) {
         input.setCustomValidity("");  
     }                 
 }  
+}
+
       
-      
-
-
 </script>
-
-<script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.js"></script>
-<script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js">
-</script>
-
-
-
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Page level plugin JavaScript-->
-  <script src="vendor/datatables/jquery.dataTables.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin.min.js"></script>
-
-  <!-- Demo scripts for this page-->
-  <script src="js/demo/datatables-demo.js"></script>
-
-<script src="https:://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" type="text/javascript"></script>
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-
-<!-- (Optional) Latest compiled and minified JavaScript translation files -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
-
 
 @section('css_role')
 
