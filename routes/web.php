@@ -341,6 +341,8 @@ Route::post('inventarioNuevo','InventarioController@guardar')->middleware('role:
 // Route::get('inventario/{id}/editar','InventarioController@editar') ->name('inventario.editar') -> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
 Route::put('inventario/{id}/editar','InventarioController@update')->name('inventario.update') -> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
 
+Route::put('inventario/{id}/salidas','InventarioController@updatesalida')->name('inventario.salidas') -> where('id' ,'[0-9]+')->middleware('role:secretaria,admin');
+
 //**************Rutas de  medios de pago******************/
 Route::get('/pantallainicio/mediopago','MediodepagoController@vistaprincipal')->middleware('role:admin,secretaria');
 Route::delete('mediopago/{id}/borrar','MediodepagoController@destroy') ->name('mediopago.borrar')->where('id','[0-9]+')->middleware('role:secretaria,admin');

@@ -9,8 +9,8 @@ class Odontologo extends Model
     public function especialidad()
     {
         
-        return $this->belongsTo(Especialidad::class,'especialidad_id','id');/*Un odontologo tiene muchoas especialidadidades*/
-    }
+        return $this->belongsTo(Especialidad::class,'especialidad_id','id');/*Un odontologo tiene una especialidadidades*/
+    } 
 
 
 

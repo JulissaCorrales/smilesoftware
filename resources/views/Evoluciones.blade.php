@@ -1,4 +1,4 @@
-@extends('Plantilla.datospersonales')
+@extends('Plantilla.datospersonales')ob_clean
 @section('titulo','Evoluciones')
 <!DOCTYPE html>
 <html lang="en">
