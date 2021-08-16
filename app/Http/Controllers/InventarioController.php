@@ -68,7 +68,7 @@ public function guardar(Request $request){
     $nuevo->producto=           $request->input('producto');
     $nuevo->CantidadExistente=    $request->input('stockseguridad');
  
-    $nuevo->precio=              $request->input('monto');
+    $nuevo->precio= $request->input('monto');
 
     $creado = $nuevo->save();
     //Asegurarse que fue creado
@@ -85,6 +85,7 @@ public function guardar(Request $request){
 //     return view('editarinventario')->with('inventarios',$inventarios);
 
 // }
+
 
 public function update(Request $request,$id){
     
@@ -105,17 +106,14 @@ public function update(Request $request,$id){
    // $inventarios->producto=       $request->input('producto');
     //$inventarios->CantidadExistente= $request->input('stockseguridad');
     //$inventarios->precio=           $request->input('monto');
-
-  if($request->entrada != null){            
-  $entrada= new entrada();
-   $entrada->inventario_id=$id;
+          
+    $entrada= new entrada();
+    $entrada->inventario_id=$id;
     $entrada->CantidadEntrante= $request->input('entrada');
     $entrada->precio= $request->input('costo');
-     $entrada->save();
-  
-          //$inventarios->entradas()->attach($entrada->id);
-           
-    }
+    $entrada->save();
+        //$inventarios->entradas()->attach($entrada->id);      
+
 
 
      /*  if($request->salida != null){            
@@ -129,19 +127,15 @@ public function update(Request $request,$id){
            
     } */
 
-
-
-
   // $inventarios->entradas()->attach($entrada->id);
-    $actualizado = $inventarios->save();
+    //$actualizado = $inventarios->save();
     //Asegurarse que fue creado
-    if ($actualizado){
+    if ($entrada){
         return redirect()->back()->with('mensaje','¡¡El Inventario Fué Modificado Exitosamente!!');
     }else{ 
     }
 
 }
-
 
 
 public function updatesalida(Request $request,$id){
@@ -155,31 +149,28 @@ public function updatesalida(Request $request,$id){
         'salida'  =>'required|numeric',
         
     ]);
-
-
-      if($request->salida != null){            
-  $salida= new salida();
-   $salida->inventario_id=$id;
+    
+    $salida= new salida();
+    $salida->inventario_id=$id;
     $salida->Cantidadsalidad= $request->input('salida');
    
-     $salida->save();
+    $salida->save();
   
           //$inventarios->entradas()->attach($entrada->id);
            
-    } 
-
-
-
 
   // $inventarios->entradas()->attach($entrada->id);
-    $actualizado = $inventarios->save();
+    //$actualizado = $inventarios->save();
     //Asegurarse que fue creado
-    if ($actualizado){
+    if ($salida){
         return redirect()->back()->with('mensaje','¡¡El Inventario Fué Modificado Exitosamente!!');
     }else{ 
     }
 
 }
+
+
+
 
 
 

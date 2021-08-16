@@ -170,228 +170,167 @@
 
                           
                     <tbody>
-                        <tr>
                           @forelse($inventarios as $inventario)
+                        <tr>
+                         
                              
-                            <td>{{$inventario->producto}}</td>
+                          <td>{{$inventario->producto}}</td>
 
-                           @foreach($datos as $dat)
+                          @foreach($datos as $dat)
                           
-                              @if($dat->id == $inventario->id)
-                                <td style="background-color:#f0f5f5 ;"><b>{{$dat->CantidadExistente}}<b></td>
+                            @if($dat->id == $inventario->id)
+                              <td style="background-color:#f0f5f5 ;"><b>{{$dat->CantidadExistente}}<b></td>
 
-                                @if($dat->CantidadEntrante == null)
-                                  <td> 0.00 </td>
-                                @else
-                                  <td> {{$dat->CantidadEntrante}}</td>
-                                @endif
+                              @if($dat->CantidadEntrante == null)
+                                <td> 0.00 </td>
+                              @else
+                                <td> {{$dat->CantidadEntrante}}</td>
+                              @endif
 
-                                @if($dat->CantidadSalida == null) 
+                              @if($dat->CantidadSalida == null) 
 
                                 <td>0.00 </td>
                               @else
                                 <td>{{ $dat->CantidadSalida }}</td>
 
-                                @endif
- 
-                           
-                                <td>{{$dat->CantidadExistente + $dat->CantidadEntrante - $dat->CantidadSalida }}</td>
-                                <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->precioinicial}}<b> </td> 
-                                <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->PrecioEntrada}}<b></td> 
-                                <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->precioinicial + $dat->PrecioEntrada}}<b></td>
-
-@endif           
-                            
-                          
-       @endforeach
-                     
-                           
-<td>  
-
- @can('update',$inventario)
-                               
+                              @endif
                               
-                                    <button class="btn btn-outline-info" data-toggle="modal" data-target="#entradainventarios-{{$inventario->id}}" >
+
+                          
+                            @endif
+ @endforeach
+                           
+                              <td>{{$dat->CantidadExistente + $dat->CantidadEntrante - $dat->CantidadSalida }}</td>
+                              <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->precioinicial}}<b> </td> 
+                              <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->PrecioEntrada}}<b></td> 
+                              <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->precioinicial + $dat->PrecioEntrada}}<b></td>
+                              <td>
+                                <button class="btn btn-outline-info" data-toggle="modal" data-target="#entradainventarios-{{$inventario->id}}" >
                                   <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                   </svg>
-                                <!-- Editar -->
-                               Entrada</button>
-                                
+                                  <!-- Editar -->
+                                Entrada
+                                </button>
+                              </td>
 
-                                 <button class="btn btn-outline-success" data-toggle="modal" data-target="#salidainventarios-{{$inventario->id}}">
+                              <td>
+                                <button class="btn btn-outline-success" data-toggle="modal" data-target="#salidainventarios-{{$inventario->id}}">
                                   <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                   </svg>
-                                <!-- Editar -->
-                               Salida</button>
-                              @endcan 
-</td>
-     
+                                      <!-- Editar -->
+                                  Salida
+                                </button>
+                              </td>
 
-                            <!-- modal editar -->´
-                            <!-- Modal -->
-                       
-                  
-     <!-- Modal -->
-                         <div class="modal fade" data-keyboard="false" data-backdrop="static"  id="entradainventarios-{{$inventario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                  <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content"  >
-                                        <div class="modal-header" style=" background-color:#276678; color:white;">
-                                          <h6 class="modal-title" id="exampleModalCenterTitle">
-                                            <img   src='/Imagenes/editar.png'   width="10%" height="10%">
-                                              Entrada del Inventario: {{$inventario->producto}}
-                                          </h6>
-                                          <button type="button" class="close" data-dismiss="modal" id="btncerrarr">
-                                            <span aria-hidden="true">×</span><span class="sr-only">
-                                                Cerrar</span></button>
-                                        </div>
+                              
 
-                                        <div class="modal-body">
-                                          <form id="editformu" method="post" action="{{route('inventario.update',['id'=> $inventario-> id])}} ">
-                                          @csrf
-                                          @method('put')
-
-                                          <!-- Producto-->
-                                           
-                                                     <div class="row">
-                                                        <div class="col-md-6">
-                                                          <label for="stockseguridad">Cantidad Entrada:</label>
-                                                             <input type="number" min="1" pattern="^[0-9]+" class="form-control"   name="entrada" id="entrada" placeholder="Ingresar la Cantidad"  formControlName="precio_min" onkeyup="entrada()">
-                                                        </div>
-                                                      
-                                                        
-                                                          <div class="col-md-6">
-                                                          <label for="stockseguridad">Costo Total Entrada:</label>
-                                                              <input type="number" min="1" pattern="^[0-9]+" class="form-control" name="costo" id="costo" placeholder="Ingresar Costo Total" value="" formControlName="precio_min" >
-                                                        </div>
-
-
-                                                      
-
-</div>
-
-                                        <!-- monto-->
-                                     <br>
-                                        <div class="">
-                                          <div class="modal-footer" id="div6" align="center">
-                                              <input type="reset" class="btn btn-danger">
-                                              <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
-                                                  Actualizar
-                                              </button>
-                                          </div>
-                                         </div>
-                                        </div>
-                                      </form>
-
+                              <!-- Modal -->
+                              <div class="modal fade" data-keyboard="false" data-backdrop="static"  id="entradainventarios-{{$inventario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                  <div class="modal-content"  >
+                                    <div class="modal-header" style=" background-color:#276678; color:white;">
+                                      <h6 class="modal-title" id="exampleModalCenterTitle">
+                                        <img   src='/Imagenes/editar.png'   width="10%" height="10%">
+                                        Entrada del Inventario: {{$inventario->producto}}
+                                      </h6>
+                                      <button type="button" class="close" data-dismiss="modal" id="btncerrarr">
+                                        <span aria-hidden="true">×</span><span class="sr-only">
+                                          Cerrar
+                                        </span>
+                                      </button>
                                     </div>
 
+                                    <div class="modal-body">
+                                      <form id="editformu" method="post" action="{{route('inventario.update',['id'=> $inventario-> id])}} ">
+                                        @csrf
+                                        
+                                          <!-- Producto-->
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <label for="stockseguridad">Cantidad Entrada:</label>
+                                            <input type="number" min="1" pattern="^[0-9]+" class="form-control"   name="entrada" id="entrada" placeholder="Ingresar la Cantidad"  formControlName="precio_min">
+                                          </div>
+                                                      
+                                          <div class="col-md-6">
+                                            <label for="stockseguridad">Costo Total Entrada:</label>
+                                            <input type="number" min="1" pattern="^[0-9]+" class="form-control" name="costo" id="costo" placeholder="Ingresar Costo Total" value="" formControlName="precio_min" >
+                                          </div>
+                                        </div>
+                                        <!-- monto-->
+                                        <br>
+                                        <div class="">
+                                          <div class="modal-footer" id="div6" align="center">
+                                            <input type="reset" class="btn btn-danger">
+                                            <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
+                                              Actualizar
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </form>
+                                    </div>
                                   </div>
-                            </div>
-</div>
-           
+                                </div>
+                              </div>
                               <!-- Fin modal Editar -->
 
-
-    <!-- Modal -->
-                         <div class="modal fade" data-keyboard="false" data-backdrop="static"  id="salidainventarios-{{$inventario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                  <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content"  >
-                                        <div class="modal-header" style=" background-color:#276678; color:white;">
-                                          <h6 class="modal-title" id="exampleModalCenterTitle">
-                                            <img   src='/Imagenes/editar.png'   width="10%" height="10%">
-                                              Salida del Inventario: {{$inventario->producto}}
-                                          </h6>
-                                          <button type="button" class="close" data-dismiss="modal" id="btncerrarr">
-                                            <span aria-hidden="true">×</span><span class="sr-only">
-                                                Cerrar</span></button>
-                                        </div>
-
-                                        <div class="modal-body">
-                                          <form id="editformu" method="post" action="{{route('inventario.salidas',['id'=> $inventario-> id])}} ">
-                                          @csrf
-                                          @method('put')
-
-                                          <!-- Producto-->
-                                           
-                                                     <div class="row">
-                                                        <div class="col">
-                                                          <label for="stockseguridad">Cantidad Salida:</label>
-                                                             <input type="number" min="1" pattern="^[0-9]+" class="form-control"   name="salida" id="salida" placeholder="Ingresar la Cantidad"  formControlName="precio_min" onkeyup="entrada()">
-                                                        </div>
-                                                      
-                                                        
-                                                      
-
-</div>
-
-                                        <!-- monto-->
-                                     <br>
-                                        <div class="">
-                                          <div class="modal-footer" id="div6" align="center">
-                                              <input type="reset" class="btn btn-danger">
-                                              <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
-                                                  Actualizar
-                                              </button>
-                                          </div>
-                                         </div>
-                                        </div>
-                                      </form>
-
+                              <!-- Modal -->
+                              <div class="modal fade" data-keyboard="false" data-backdrop="static"  id="salidainventarios-{{$inventario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                  <div class="modal-content"  >
+                                    <div class="modal-header" style=" background-color:#276678; color:white;">
+                                      <h6 class="modal-title" id="exampleModalCenterTitle">
+                                        <img   src='/Imagenes/editar.png'   width="10%" height="10%">
+                                        Salida del Inventario: {{$inventario->producto}}
+                                      </h6>
+                                      <button type="button" class="close" data-dismiss="modal" id="btncerrarr">
+                                        <span aria-hidden="true">×</span><span class="sr-only">
+                                          Cerrar
+                                        </span>
+                                      </button>
                                     </div>
 
+                                    <div class="modal-body">
+                                      <form id="editformu" method="post" action="{{route('inventario.salidas',['id'=> $inventario-> id])}} ">
+                                        @csrf
+                                        
+                                          <!-- Producto-->
+                                        <div class="row">
+                                          <div class="col">
+                                            <label for="stockseguridad">Cantidad Salida:</label>
+                                            <input type="number" min="1" pattern="^[0-9]+" class="form-control"   name="salida" id="salida" placeholder="Ingresar la Cantidad"  formControlName="precio_min">
+                                          </div>
+                                        </div>
+                                        <!-- monto-->
+                                        <br>
+                                        <div class="">
+                                          <div class="modal-footer" id="div6" align="center">
+                                            <input type="reset" class="btn btn-danger">
+                                            <button id="botonContinuar"type="submit"class="btn btn-primary" data-toggle="modal" >
+                                              Actualizar
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </form>
+                                    </div>
                                   </div>
-                            </div>
-</div>
-           
+                                </div>
+                              </div>
 
-                              <!-- botton borrar -->
-                            <!--  @can('delete',$inventario)
-                                <button type="button" class="btn btn-outline-danger"data-toggle="modal" data-target="#modal-{{$inventario->id}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                  <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
-                                  </svg>
-                                 Sacar Inventario
-                                </button> 
-                              @endcan -->
+                          
+                           
 
 
 
+                               
+                              
 
-                                <!-- Modal  donde muestra si hay inventario-->
-                             <!--   <div class="modal fade" id="modal-{{$inventario->id}}"  data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                      <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
+    
 
-                                                <div class="modal-header" style=" background-color:#276678; color:white;">
-                                                  <h5 class="modal-title" id="exampleModalLabel">
-                                                      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                      <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
-                                                      </svg> Eliminar Inventario
-                                                  </h5>
-                                                  <button type="button"  class="close" data-dismiss="modal" aria-label="Close">
-                                                  <!--<span aria-hidden="true">&times;</span>--> 
-                                                 <!-- </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                  ¿Desea realmente eliminar el inventario {{$inventario->producto}}?
-                                              </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                        <form method="post" action="{{route('inventario.borrar',['id'=>$inventario->id])}}">
 
-                                                            @csrf
-                                                            @method('delete')
-                                                            <input type="submit" value="Eliminar" class="btn btn-danger">
-                                                        </form>
-                                                      </button>
-                                                  </div>
-                                            </div>
-                                      </div>
-                                  </div>
-                              fin 
--->
                     
       </tr>
 
