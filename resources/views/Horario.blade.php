@@ -65,12 +65,11 @@
   <div class="modal fade bd-example-modal-lg" id="modalll3-{{$odontologos->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
       <div class="modal-dialog modal-lg" role="document" >
           <div class="modal-content" style=" width:80%; margin-top:10%; margin-left:15%; ">
-              <div class="modal-header" style="background-color: #d3e0ea; height:100px; color:black;">
+              <div class="modal-header" style=" background-color:#276678; color:white;">
                   <h5 class="modal-title" id="exampleModalLabel"><img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/calendarioo.png') }}"  id="logo1" width="9%;" height="4%">
 Horario del  odontólogo(a) {{$odontologos->nombres}} {{$odontologos->apellidos}}</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <!--<span aria-hidden="true">&times;</span>-->
-                  </button>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"id="btncerrar"><span aria-hidden="true">×</span>
+                      <span class="sr-only">Cerrar</span></button>
               </div>
               <div class="modal-body">
                 
@@ -158,9 +157,8 @@ Horario del  odontólogo(a) {{$odontologos->nombres}} {{$odontologos->apellidos}
                   <h5 class="modal-title" id="exampleModalLabel"><img class="logo" style=" margin-left:0%;" src="{{ asset('Imagenes/eliminar.png') }}"  id="logo1" width="8%;" height="4%">
 
  Eliminar el Horario de Atención  </h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <!--<span aria-hidden="true">&times;</span>-->
-                  </button>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"id="btncerrar"><span aria-hidden="true">×</span>
+                      <span class="sr-only">Cerrar</span></button>
               </div>
               <div class="modal-body">
                   ¿Desea realmente eliminar el Horario de Atención {{$tag->HoraInicio}}-{{$tag->HoraFinal}}?
