@@ -102,16 +102,31 @@
                         <div class="row">
                           <div class="col-md-4">
                               <label for="nombres">Nombres:</label>
-                               <input  type="text" class="form-control"name="nombres" id="nombres" placeholder="Ingrese los Nombres del Paciente"  onkeypress="return SoloLetras(event);" pattern="[A-Za-z]{3,100}" required oninput="check_text(this);">
+                               <input  type="text" class="form-control @error('nombres') is-invalid @enderror"name="nombres" id="nombres" placeholder="Ingrese los Nombres del Paciente"  onkeypress="return SoloLetras(event);" pattern="[A-Za-z ]{3,100}" required oninput="check_text(this);" onblur="valeft()" value="{{ old('nombres') }}">
+                                @error('nombres')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                           </div>
                           <div class="col-md-4">
                              
                           <label for="apellidos">Apellidos:</label>
-                          <input  type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingrese los Apellidos del Paciente"onkeypress="return SoloLetras(event);" pattern="[A-Za-z]{3,100}" required oninput="check_text(this);">
+                          <input  type="text" class="form-control  @error('apellidos') is-invalid @enderror" name="apellidos" id="apellidos" placeholder="Ingrese los Apellidos del Paciente"onkeypress="return SoloLetras(event);" pattern="[A-Za-z ]{3,100}" required oninput="check_text(this);" onblur="valeft2()" value="{{ old('apellidos') }}">
+                            @error('apellidos')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                           </div>
                           <div class="col-md-4">  
                             <label for="direccion">Seleccione una Imagen de Perfil:</label>
-                            <input accept="image/*" class="form-control" type="file" class="form-control-file" name="file" id="imagen" placeholder="Seleccione una Imagen">
+                            <input accept="image/*" class="form-control-file @error('imagen') is-invalid @enderror" type="file"  name="file" id="imagen" placeholder="Seleccione una Imagen" value="{{ old('imagen') }}">
+                             @error('imagen')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                           </div>
                         </div>
                           
@@ -122,16 +137,31 @@
                       <div class="row">
                         <div class="col-md-6">
                           <label for="identidad">Número de identidad:</label>
-                          <input type="number" class="form-control" name="identidad" id="identidad" placeholder="Ingrese la  Identidad del Paciente">
+                          <input type="number" class="form-control @error('identidad') is-invalid @enderror" required
+       minlength="13" maxlength="13"  onkeypress="return SoloNumeros1(event);" name="identidad" id="identidad" placeholder="Ingrese la  Identidad del Paciente" value="{{ old('identidad') }}"   onload="ValidarTell()"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            pattern="^[0]\d{12}$"
+                            title="Ingrese un código  valido de la identidad que inicie con 0.">
+                           @error('identidad')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                         </div>
                         <div class="col-md-6">
                           <label for="sexo">Género :</label>
-                          <select class="form-control"  name="sexo" id="sexo">
+                          <select required class="form-control @error('sexo') is-invalid @enderror"  name="sexo" id="sexo" >
                             <option disabled selected>Seleccione el Género</option>
                             <option>Masculino</option>
                             <option>Femenino</option>                        
                           </select>
+                          @error('sexo')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                         </div>
+                    
                       </div>
                        
                     </div>
@@ -142,14 +172,27 @@
                       <div class="row">
                          <div class="col-md-6">
                       <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                      <input type="date" class="form-control form-control-file" name="fechaNacimiento" id="fechaNacimiento" placeholder="Ingrese la Fech.de Nacimiento "   min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 100 year")); ?>"
+                      <input required value="{{ old('fechaNacimiento') }}" type="date" class="form-control form-control-file @error('fechaNacimiento') is-invalid @enderror" name="fechaNacimiento" id="fechaNacimiento" placeholder="Ingrese la Fech.de Nacimiento "   min="<?php echo date('Y-m-d',strtotime($fecha_actual."- 100 year")); ?>"
  max="<?php echo date('Y-m-d',strtotime($fecha_actual
 ." 0 year"));?>" required>
+                                @error('fechaNacimiento')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                   </div>
                         
                     <div class="col-md-6">
                       <label for="telefonoCelular">Número Teléfonico:</label>
-                      <input type="number" class="form-control" name="telefonoCelular" id="telefonoCelular" placeholder="Ingrese el Número Teléfonico del Paciente">
+                      <input maxlength="8" required type="number" class="form-control @error('telefonoCelular') is-invalid @enderror" name="telefonoCelular" id="telefonoCelular" placeholder="Ingrese el Número Teléfonico del Paciente" value="{{ old('telefonoCelular') }}" onload="ValidarTell()"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            pattern="^[9|8|7|3|2]\d{7}$"
+                            title="Ingrese un número telefónico valido que inicie con 2,3,7,8 o 9">
+                       @error('telefonoCelular')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                     </div>
                        
                       </div>
@@ -162,7 +205,7 @@
 
     <div class="col-md-6">
                           <label for="departamento">Departamento:</label>
-                          <select name="departamento" id="departamento" class="form-control select-css">
+                          <select  required name="departamento" id="departamento" class="form-control select-css @error('departamento') is-invalid @enderror" value="{{ old('departamento') }}">
                             <option disabled selected>Seleccione un departamento</option>
                             <option >Atlántida</option>
                             <option >Choluteca</option>
@@ -184,10 +227,20 @@
                             <option >Yoro</option>
 
                           </select>
+                          @error('departamento')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                         </div>
 <div class="col-md-6">
                       <label for="ciudad">Ciudad:</label>
-                      <input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Ingrese el Nombre la Ciudad en que reside el Paciente">
+                      <input required type="text" class="form-control @error('ciudad') is-invalid @enderror" name="ciudad" id="ciudad" placeholder="Ingrese el Nombre la Ciudad en que reside el Paciente" value="{{ old('ciudad') }}">
+                        @error('ciudad')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                     </div>
                     
                    
@@ -200,11 +253,21 @@
                   <div class="row">
                   <div class="col-md-6">
                       <label for="direccion">Dirección: </label>
-                      <textarea  class="autoExpand form-control" rows='2' data-min-rows='2' type="text" style="  width:370;"  class="form-control" name="direccion" id="direccion" placeholder="Ingrese la dirección del paciente"></textarea>
+                      <textarea  required class="autoExpand form-control @error('direccion')  is-invalid @enderror" value="{{ old('direccion') }}" rows='2' data-min-rows='2' type="text" style="  width:370;"  class="form-control" name="direccion" id="direccion" placeholder="Ingrese la dirección del paciente">{{ old('direccion') }}</textarea>
+                       @error('direccion')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                     </div>
               <div class="col-md-6">
                     <label for="observaciones">Observaciones:</label>
-                    <textarea  class="autoExpand form-control" rows='2' data-min-rows='2' type="text" style="  width:700;" class="form-control text-center" name="observaciones" id="observaciones" placeholder="Ingrese la Observación (opcional)"></textarea>
+                    <textarea  value="{{ old('observaciones') }}" class="autoExpand form-control  @error('observaciones')  is-invalid @enderror" rows='2' data-min-rows='2' type="text" style="  width:700;" class="form-control text-center" name="observaciones" id="observaciones" placeholder="Ingrese la Observación (opcional)"></textarea>
+                       @error('observaciones')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                     
                   </div>
                   </div>
@@ -530,7 +593,62 @@ if(letras.indexOf(tecla) == -1 && !tecla_especial)
 
 
 </script>
+<script>
+// -- Función para aceptar espacios -- //
+function valeft(){
+ 
+    var val = document.getElementById("nombres").value;
+   
+    var tam = val.length;
+ 
+        for(i=0;i<tam;i++){
+            if(!isNaN(val[i]) && val[i] != " ")
+            document.getElementById("nombres").value='';
+           
+            }
+}
+</script>
+<!-- fin de script -->
+<script>
+// -- Función para aceptar espacios -- //
+function valeft2(){
+ 
+    var val = document.getElementById("apellidos").value;
+   
+    var tam = val.length;
+ 
+        for(i=0;i<tam;i++){
+            if(!isNaN(val[i]) && val[i] != " ")
+            document.getElementById("apellidos").value='';
+           
+            }
+}
+</script>
+<!-- fin de script -->
 
+<script>
+
+
+function SoloNumeros1(evt)
+{
+if(window.event){
+keynum = evt.keyCode;
+}
+else{
+keynum = evt.which;
+}
+
+if((keynum > 47 && keynum < 58) || keynum == 8 || keynum== 13)
+{
+return true;
+}
+else
+{
+
+return false;
+}
+}
+</script>
 </body>
 
 </html>
