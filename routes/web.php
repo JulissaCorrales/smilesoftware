@@ -68,7 +68,7 @@ Route::prefix('pantallainicio/calendario')->group( function(){
 
     Route::prefix('pantallainicio/calendario')->group( function(){
       //  Route::get('{id}/odontologo','CitaController@datosver');
-          Route::get('{id}/doctor','CitaController@citaodontologo')->middleware('role:admin,secretaria,odontologo');
+          Route::get('{id}/doctor','CitaController@citaodontologo')->middleware('role:admin,secretaria,odontologo')->where('id','[0-9]+');
         
         });
 

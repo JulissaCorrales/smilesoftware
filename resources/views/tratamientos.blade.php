@@ -82,7 +82,14 @@
                                       @csrf
                                       <div class="form-group">
                                           <label for="categoria">Tratamiento:</label>
-                                          <input required type="text" MinLength="3" MaxLength="50"class="form-control-file" name="categoria" id="categoria" placeholder="Ingrese el nombre del tratamiento">
+                                          <input  onkeypress="return SoloLetras(event);" required type="text" MinLength="3" MaxLength="50"class="form-control @error('categoria') is-invalid @enderror" value="{{ old('categoria') }}"name="categoria" id="categoria" placeholder="Ingrese el nombre del tratamiento"
+                                           pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}"
+                                          >
+                                           @error('categoria')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                          @enderror
                                       </div>
                                     
                                     <div class="form-group">
@@ -163,7 +170,7 @@
 
           <div class="form-group" id="divcate">
           <label for="categoria" class="control-label">Nombre del Tratamiento:</label>
-          <input  required style="background-color:#FFFDE7" MinLength="3"  type="text" MaxLength="100" class="form-control-file" placeholder="Ingrese la categoria del gasto" name="categoria" id="categoria  "   value="{{ $tratamiento->categoria }}"> 
+          <input  required style="background-color:#FFFDE7" MinLength="3"  type="text" MaxLength="100" class="form-control-file" placeholder="Ingrese la categoria del gasto" name="categoria" id="categoria  "   value="{{ $tratamiento->categoria }}" onkeypress="return SoloLetras(event);" pattern="[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ]{3,100}" > 
           </div>
 
           <!-- Tipo-->
@@ -284,6 +291,34 @@ $(document).ready( function () {
    $("#btncerrar").click(function(event) {
 	   $("#formu")[0].reset();
    });
+</script>
+
+<!-- Escript para que solo acepte letras -->
+<script>
+function SoloLetras(e)
+{
+key = e.keyCode || e.which;
+tecla = String.fromCharCode(key).toString();
+
+letras = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ";
+
+especiales = [8, 65];
+tecla_especial = false
+for(var i in especiales) {
+if(key == especiales[i]){
+ tecla_especial = true;
+ break;
+}
+}
+
+if(letras.indexOf(tecla) == -1 && !tecla_especial)
+{
+ 
+ return false;
+}
+}
+
+
 </script>
 </html>
 @endcanany
