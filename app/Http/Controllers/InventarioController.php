@@ -20,16 +20,36 @@ class InventarioController extends Controller
        
     
 
+ $datos = DB::select('select I.id, E.cantidad,SUM(S.Cantidadsalidad) AS cantidadsalida,E.monto, I.CantidadExistente,I.precio
+FROM inventarios I
+LEFT JOIN 
+
+(SELECT SUM(E.CantidadEntrante)AS cantidad, SUM(E.precio)AS monto, E.inventario_id
+   FROM entradas E
+   GROUP BY E.inventario_id)
+	 AS E ON I.id= E.inventario_id
+
+LEFT JOIN 
+
+salidas S 
+
+
+ON I.id = S.inventario_id
+GROUP BY I.id;
+');
+
+$salidas = DB::select('select SUM(salidas.Cantidadsalidad) as salida,salidas.inventario_id FROM inventarios
+JOIN salidas ON salidas.inventario_id=inventarios.id
+WHERE salidas.inventario_id=inventarios.id
+GROUP BY salidas.inventario_id;');
+
+          
+
       
    // $monto= Inventario::select(DB::raw('sum(monto * stockseguridad) as Total'))->get();
-   $datos = DB::select('Select inventarios.id, sum(CantidadEntrante) as CantidadEntrante, sum(Cantidadsalidad) as CantidadSalida, sum(entradas.precio) as PrecioEntrada, inventarios.precio as precioinicial, CantidadExistente
-FROM inventarios 
-left join salidas on inventarios.id = salidas.inventario_id 
-left join entradas on inventarios.id = entradas.inventario_id
-group by inventarios.id;');
-     
 
-        return view('inventarios',compact('inventarios','datos'));  
+
+        return view('inventarios')->with('datos',$datos)->with('inventarios',$inventarios)->with('salidas',$salidas);  
 
    
 }

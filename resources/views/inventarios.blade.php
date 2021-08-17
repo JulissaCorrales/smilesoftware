@@ -149,7 +149,7 @@
               <?php  $suma = 0?>
 
 @foreach($datos as $d)
-     <?php $suma = $suma+$d->precioinicial + $d->PrecioEntrada?>
+     <?php $suma = $suma+$d->precio + $d->monto?>
 
    @endforeach
             
@@ -181,29 +181,26 @@
                             @if($dat->id == $inventario->id)
                               <td style="background-color:#f0f5f5 ;"><b>{{$dat->CantidadExistente}}<b></td>
 
-                              @if($dat->CantidadEntrante == null)
+                              @if($dat->cantidad == null)
                                 <td> 0.00 </td>
                               @else
-                                <td> {{$dat->CantidadEntrante}}</td>
+                                <td> {{$dat->cantidad}}</td>
                               @endif
 
-                              @if($dat->CantidadSalida == null) 
-
-                                <td>0.00 </td>
+                             
+                              @if($dat->cantidadsalida == null)
+                                <td> 0.00 </td>
                               @else
-                                <td>{{ $dat->CantidadSalida }}</td>
-
+                                <td> {{$dat->cantidadsalida}}</td>
                               @endif
-                              
 
-                          
-                            @endif
- @endforeach
-                           
-                              <td>{{$dat->CantidadExistente + $dat->CantidadEntrante - $dat->CantidadSalida }}</td>
-                              <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->precioinicial}}<b> </td> 
-                              <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->PrecioEntrada}}<b></td> 
-                              <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->precioinicial + $dat->PrecioEntrada}}<b></td>
+ 
+              
+                             
+                             <td>{{$dat->CantidadExistente + $dat->cantidad - $dat->cantidadsalida }}</td>
+                              <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->precio}}<b> </td> 
+                              <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->monto}}<b></td> 
+                              <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->precio + $dat->monto}}<b></td>
                               <td>
                                 <button class="btn btn-outline-info" data-toggle="modal" data-target="#entradainventarios-{{$inventario->id}}" >
                                   <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -213,10 +210,8 @@
                                   <!-- Editar -->
                                 Entrada
                                 </button>
-                              </td>
 
-                              <td>
-                                <button class="btn btn-outline-success" data-toggle="modal" data-target="#salidainventarios-{{$inventario->id}}">
+                          <button class="btn btn-outline-success" data-toggle="modal" data-target="#salidainventarios-{{$inventario->id}}">
                                   <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
@@ -227,6 +222,11 @@
                               </td>
 
                               
+
+                                
+                            @endif
+ @endforeach
+                           
 
                               <!-- Modal -->
                               <div class="modal fade" data-keyboard="false" data-backdrop="static"  id="entradainventarios-{{$inventario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

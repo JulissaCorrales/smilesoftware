@@ -11,11 +11,15 @@ class entrada extends Model
         return $this->belongsTo('App\Inventario');/* un inventario tiene un usuario */
     }
   
-       public function inventarios()
+   /*    public function inventarios()
     {
         
-        return $this->belongsToMany(entrada::class,'entradas_inventario');/*Un inventario  tiene muchoas entradas */
-    }
+        return $this->belongsToMany(entrada::class,'entradas_inventario');Un inventario  tiene muchoas entradas 
+    } */
+
+
+
 
 
 }
+
