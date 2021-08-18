@@ -173,7 +173,7 @@
                           @forelse($inventarios as $inventario)
                         <tr>
                          
-                             
+                              
                           <td>{{$inventario->producto}}</td>
 
                           @foreach($datos as $dat)
