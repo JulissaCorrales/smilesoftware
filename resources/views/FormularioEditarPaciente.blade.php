@@ -37,7 +37,7 @@
           <p>En esta sección se puede editar los datos personales del Paciente.</p>
       </div>
   <div class="card-body">
-      
+       
       <table  style=" border-spacing: 5px;">
             <form method="post" action="{{route('paciente.update',['id'=> $pacientes-> id])}} " file="true" enctype="multipart/form-data"   id="scroll"  class="row g-3" >
                       @csrf
@@ -45,14 +45,25 @@
                       <div class="row" style=" margin:25px;">
                       <div class="col-md-6" >
                         <label for="nombres" class="form-label " > Nombres: </label>
-                        <input required type="text" class="form-control " style="font-size:18px; font-family: Times New Roman, Times, serif; " name="nombres" id="nombres" placeholder="ingresar nombre del paciente"  value="{{ $pacientes->nombres }}" pattern="[A-Za-z]{3,100}" onkeypress="return SoloLetras(event);" required oninput="check_text(this);" >
-                       </div>
+                        
+                       <input required type="text" class="form-control @error('nombres') is-invalid @enderror"  style="font-size:18px; font-family: Times New Roman, Times, serif; " value="{{ $pacientes->nombres }}" name="nombres" id="nombres" placeholder="Ingrese los Nombres del Paciente"  onkeypress="return SoloLetras(event);" pattern="[A-Za-z ]{3,100}" required oninput="check_text(this);" onblur="valeft()" value="{{ old('nombres') }}">
+                                @error('nombres')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+</div>
 
                      
                       <div class="col-md-6">
                           <label for="apellidos" class="form-label " >Apellidos:</label>
-                          <input required type="text" class="form-control " name="apellidos" id="apellidos" placeholder="ingresar apellido del paciente"  value="{{ $pacientes->apellidos}}" pattern="[A-Za-z]{3,100}"  oninput="check_text1(this);" onkeypress="return SoloLetras(event);">
-                        </div>
+                        <input  required type="text" class="form-control  @error('apellidos') is-invalid @enderror" name="apellidos" id="apellidos" value="{{ $pacientes->apellidos}}" placeholder="Ingrese los Apellidos del Paciente"onkeypress="return SoloLetras(event);" pattern="[A-Za-z ]{3,100}" required oninput="check_text(this);" onblur="valeft2()" >
+                            @error('apellidos')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+</div>
                       </div>
                      <div class="row" style=" margin:25px;">
                       <div class="col-md-6">
@@ -157,7 +168,38 @@
                       
                    @endcan</div>
 
-                      
+              <!-- Función para aceptar espacios -->
+<script>
+function valeft(){
+ 
+    var val = document.getElementById("nombres").value;
+   
+    var tam = val.length;
+ 
+        for(i=0;i<tam;i++){
+            if(!isNaN(val[i]) && val[i] != " ")
+            document.getElementById("nombres").value='';
+           
+            }
+}
+</script>
+<!-- fin de script -->
+<script>
+// -- Función para aceptar espacios -- //
+function valeft2(){
+ 
+    var val = document.getElementById("apellidos").value;
+   
+    var tam = val.length;
+ 
+        for(i=0;i<tam;i++){
+            if(!isNaN(val[i]) && val[i] != " ")
+            document.getElementById("apellidos").value='';
+           
+            }
+}
+</script>
+<!-- fin de script -->        
 <!-- El siguiente script es para que la foto de perfil solo acepte imagenes -->
         <script type="text/javascript">
                     (function(){
