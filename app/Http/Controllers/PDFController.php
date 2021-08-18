@@ -8,6 +8,7 @@ use App\Paciente;
 use App\Inventario;
 use App\Cita;
 use App\Plantratamiento;
+use Illuminate\Support\Facades\DB;
 
 
 class PDFController extends Controller
@@ -26,8 +27,27 @@ public function PDFPacientes(){
 }
 public function PDFInventarios(){
     $this->authorize('descargarinventarios', Inventario::class);
+
+
     $inventarios = Inventario::all();
-    $pdf = PDF::loadView('inventarios_pdf',compact('inventarios'));
+$datos = DB::select('select I.id, E.cantidad,SUM(S.Cantidadsalidad) AS cantidadsalida,E.monto, I.CantidadExistente,I.precio
+FROM inventarios I
+LEFT JOIN 
+
+(SELECT SUM(E.CantidadEntrante)AS cantidad, SUM(E.precio)AS monto, E.inventario_id
+   FROM entradas E
+   GROUP BY E.inventario_id)
+	 AS E ON I.id= E.inventario_id
+
+LEFT JOIN 
+
+salidas S 
+
+
+ON I.id = S.inventario_id
+GROUP BY I.id;
+');
+    $pdf = PDF::loadView('inventarios_pdf',compact('inventarios','datos'));
     return $pdf->download('inventarios_pdf.pdf');
 }
 public function PDFCitas(){

@@ -29,7 +29,7 @@ td,th {
 </head>
 <body>
 
-<header>
+<header  height="150px;">
 @forelse($logotipos  as $tag)
     <img  class="logo" src="{{Storage::url($tag->logo)}}"  alt="image" width="20%;" height="110%";>
     @empty
@@ -45,21 +45,54 @@ td,th {
     <table class="table" style="" >
 <thead class="thead-dark">
 <tr class="border border-secondary" style="text-align : center ">
-<th >Código</th>
-<th class="mx-auto">Producto</th>
-<th >Inventario de Seguridad </th>
-<th >Inventario Actual </th>
-<th >Monto por Unidad </th>
+ <th  style="text-align:center;width:230px;">Producto</th>
+<th  style="text-align: center;">Cantidad Inicial</th> 
+                                <th  style="text-align: center;">Cantidad Entrada</th>
+                                <th  style="text-align: center;">Cantidad Salida</th>
+
+                                  <th  style="text-align: center; ">Cantidad Actual</th>
+                                 <th  style="text-align: center; ">Total Inicial</th>
+                                  <th  style="text-align: center;">Total Entrada </th>
+                               <th  style="text-align: center;">Total por Producto</th>
+   
 </tr>
 </thead>
 <tbody>
 @forelse($inventarios as $inventario)
 <tr>
-<td >{{$inventario->id}}</th>
-<td >{{$inventario->producto}}</th>
-<td >{{$inventario->stockseguridad}}</th>
-<td>{{$inventario->stockactual}}</th>
-<td >{{$inventario->monto}}</th>
+      <td>{{$inventario->producto}}</td>
+ @foreach($datos as $dat)
+                          
+                            @if($dat->id == $inventario->id)
+                              <td style="background-color:#f0f5f5 ;"><b>{{$dat->CantidadExistente}}<b></td>
+                              @if($dat->cantidad == null)
+                                <td> 0.00 </td>
+                              @else
+                                <td> {{$dat->cantidad}}</td>
+                              @endif
+
+                             
+                              @if($dat->cantidadsalida == null)
+                                <td> 0.00 </td>
+                              @else
+                                <td> {{$dat->cantidadsalida}}</td>
+                              @endif
+
+ 
+              
+                             
+                             <td>{{$dat->CantidadExistente + $dat->cantidad - $dat->cantidadsalida }}</td>
+
+                              <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->precio}}</b> </td> 
+@if($dat->monto == null)
+                                <td> <b>0.00 </b></td>
+                              @else
+                                <td> <b>{{$dat->monto}}</b></td>
+                              @endif
+                              <td style=""><b>Lps.{{$dat->precio + $dat->monto}}</b></td>
+
+          @endif
+            @endforeach
 </tr>
 @empty
 <tr>No hay inventarios existentes</tr>
