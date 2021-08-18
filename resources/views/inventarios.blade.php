@@ -223,9 +223,6 @@
 
                               
 
-                                
-                            @endif
- @endforeach
                            
 
                               <!-- Modal -->
@@ -296,12 +293,13 @@
                                     <div class="modal-body">
                                       <form id="editformu" method="post" action="{{route('inventario.salidas',['id'=> $inventario-> id])}} ">
                                         @csrf
-                                        
-                                          <!-- Producto-->
+                                       
+                                          <!-- Producto-->   
                                         <div class="row">
                                           <div class="col">
                                             <label for="stockseguridad">Cantidad Salida:</label>
-                                            <input type="number" min="1" pattern="^[0-9]+" class="form-control"   name="salida" id="salida" placeholder="Ingresar la Cantidad"  formControlName="precio_min">
+                                            <input required type="number" min="1"  class="form-control"   name="salida" id="salida" placeholder="Ingresar la Cantidad"  formControlName="precio_min" max="{{$dat->CantidadExistente + $dat->cantidad - $dat->cantidadsalida }}"
+                                                     >
                                           </div>
                                         </div>
                                         <!-- monto-->
@@ -321,6 +319,9 @@
                               </div>
 
                           
+                                
+                            @endif
+ @endforeach
                            
 
 
