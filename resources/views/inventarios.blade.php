@@ -201,7 +201,8 @@
 
                               <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->precio}}<b> </td> 
 @if($dat->monto == null)
-                                <td> <b>0.00 </b></td>
+                                <td> <b>0.00 </
+b></td>
                               @else
                                 <td> <b>{{$dat->monto}}</b></td>
                               @endif
