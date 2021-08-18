@@ -131,20 +131,20 @@
                         <tr>
                               <th  style="text-align:center;width:230px;">Producto</th>
                               <th  style="text-align: center; background-color:#e0ebeb ;">Cantidad Existente</th> 
-                                <th  style="text-align: center;">Cantidad Entrada</th>
+                               <!-- <th  style="text-align: center;">Cantidad Entrada</th>
                                 <th  style="text-align: center;">Cantidad Salida</th>
 
                                  
                                  <th  style="text-align: center; background-color:#e0ebeb;  ">Total Inicial</th>
                                   <th  style="text-align: center;background-color:#e0ebeb; ">Total Entrada </th>
-                               <th  style="text-align: center; background-color:#e0ebeb ;">Total por Producto</th>
+                               <th  style="text-align: center; background-color:#e0ebeb ;">Total por Producto</th>-->
    
                               <th style="width:230px; text-align:center; background-color:#D7DBDD  ;" >Unidades</th>
                             </tr>
                     </thead>
        <!-- pie de tabla -->
         <tfoot>
-            <td  colspan="7" style="text-align:left; background-color:#D7DBDD  ;"><b>Total de Gasto en Inventario<b></td>
+            <td  colspan="6" style="text-align:left; background-color:#D7DBDD  ;"></td>
 
               <?php  $suma = 0?>
 
@@ -153,7 +153,7 @@
 
    @endforeach
             
-             <td colspan="2" style="background-color:#D7DBDD;"><b>Lps.{{$suma}}.00</b></td>
+            
         
 
                     
@@ -181,7 +181,7 @@
                             @if($dat->id == $inventario->id)
                               <td style="background-color:#f0f5f5 ;text-align:center;"><b>{{$dat->CantidadExistente + $dat->cantidad - $dat->cantidadsalida }}</b></td>
 
-                              @if($dat->cantidad == null)
+                            <!--  @if($dat->cantidad == null)
                                 <td style="text-align:center;"><b> 0.00 <b></td>
                               @else
                                 <td style="text-align:center;"> <b>{{$dat->cantidad}}</b></td>
@@ -205,8 +205,9 @@
                               @else
                                 <td style="background-color:#f0f5f5 ;text-align:center;"> <b>{{$dat->monto}}</b></td>
                               @endif
+
                              
-                              <td style="background-color:#f0f5f5 ;text-align:center;"><b>Lps.{{$dat->precio + $dat->monto}}</b></td>
+                              <td style="background-color:#f0f5f5 ;text-align:center;"><b>Lps.{{$dat->precio + $dat->monto}}</b></td> -->
                               <td>
                                 <button class="btn btn-outline-info" data-toggle="modal" data-target="#entradainventarios-{{$inventario->id}}" >
                                   <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
