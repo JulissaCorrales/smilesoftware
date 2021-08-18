@@ -51,7 +51,34 @@ GROUP BY I.id;
 }
 
 
+public function vistaprincipalinventario(){
+$inventarios=Inventario::all();
+     
+       
+    
 
+ $datos = DB::select('select I.id, E.cantidad,SUM(S.Cantidadsalidad) AS cantidadsalida,E.monto, I.CantidadExistente,I.precio
+FROM inventarios I
+LEFT JOIN 
+
+(SELECT SUM(E.CantidadEntrante)AS cantidad, SUM(E.precio)AS monto, E.inventario_id
+   FROM entradas E
+   GROUP BY E.inventario_id)
+	 AS E ON I.id= E.inventario_id
+
+LEFT JOIN 
+
+salidas S 
+
+
+ON I.id = S.inventario_id
+GROUP BY I.id;
+');
+
+
+return view('vistaprincipalInventarios')->with('datos',$datos)->with('inventarios',$inventarios); 
+
+}
 
 public function destroy($id){
     //permisos

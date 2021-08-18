@@ -334,6 +334,7 @@ Route::get('pantallainicio/odontologo/{id}','EspecialidadOdontologosController@E
 
 
 //**************Rutas de  inventarios******************/
+Route::get('inventariovista','InventarioController@vistaprincipalinventario')->middleware('role:admin,secretaria,odontologo');
 Route::get('inventario','InventarioController@vistaprincipal')->middleware('role:admin,secretaria,odontologo');
 Route::delete('inventario/{id}/borrar','InventarioController@destroy') ->name('inventario.borrar')->where('id','[0-9]+')->middleware('role:secretaria,admin');
 Route::post('inventarioNuevo','InventarioController@guardar')->middleware('role:admin,secretaria');

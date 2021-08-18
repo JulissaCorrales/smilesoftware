@@ -130,11 +130,11 @@
                     <thead>
                         <tr>
                               <th  style="text-align:center;width:230px;">Producto</th>
-                              <th  style="text-align: center; background-color:#e0ebeb ;">Cantidad Inicial</th> 
+                              <th  style="text-align: center; background-color:#e0ebeb ;">Cantidad Existente</th> 
                                 <th  style="text-align: center;">Cantidad Entrada</th>
                                 <th  style="text-align: center;">Cantidad Salida</th>
 
-                                  <th  style="text-align: center; ">Cantidad Actual</th>
+                                 
                                  <th  style="text-align: center; background-color:#e0ebeb;  ">Total Inicial</th>
                                   <th  style="text-align: center;background-color:#e0ebeb; ">Total Entrada </th>
                                <th  style="text-align: center; background-color:#e0ebeb ;">Total por Producto</th>
@@ -179,34 +179,34 @@
                           @foreach($datos as $dat)
                           
                             @if($dat->id == $inventario->id)
-                              <td style="background-color:#f0f5f5 ;"><b>{{$dat->CantidadExistente + $dat->cantidad - $dat->cantidadsalida }}<b></td>
+                              <td style="background-color:#f0f5f5 ;text-align:center;"><b>{{$dat->CantidadExistente + $dat->cantidad - $dat->cantidadsalida }}</b></td>
 
                               @if($dat->cantidad == null)
-                                <td> 0.00 </td>
+                                <td style="text-align:center;"><b> 0.00 <b></td>
                               @else
-                                <td> {{$dat->cantidad}}</td>
+                                <td style="text-align:center;"> <b>{{$dat->cantidad}}</b></td>
                               @endif
 
                              
                               @if($dat->cantidadsalida == null)
-                                <td> 0.00 </td>
+                                <td style="text-align:center;"><b> 0.00</b> </td>
                               @else
-                                <td> {{$dat->cantidadsalida}}</td>
+                                <td style="text-align:center;"> <b>{{$dat->cantidadsalida}}</b></td>
                               @endif
 
  
               
                              
-                             <td>{{$dat->CantidadExistente + $dat->cantidad - $dat->cantidadsalida }}</td>
+                             
 
-                              <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->precio}}</b> </td> 
+                              <td style="background-color:#f0f5f5 ;text-align:center;"><b>Lps.{{$dat->precio}}</b> </td> 
 @if($dat->monto == null)
-                                <td> <b>0.00 </b></td>
+                                <td style="background-color:#f0f5f5 ;text-align:center;"> <b>0.00 </b></td>
                               @else
-                                <td> <b>{{$dat->monto}}</b></td>
+                                <td style="background-color:#f0f5f5 ;text-align:center;"> <b>{{$dat->monto}}</b></td>
                               @endif
                              
-                              <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->precio + $dat->monto}}</b></td>
+                              <td style="background-color:#f0f5f5 ;text-align:center;"><b>Lps.{{$dat->precio + $dat->monto}}</b></td>
                               <td>
                                 <button class="btn btn-outline-info" data-toggle="modal" data-target="#entradainventarios-{{$inventario->id}}" >
                                   <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

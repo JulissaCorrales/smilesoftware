@@ -131,7 +131,7 @@ height:0 auto;
 
  
    @can('view',App\Inventario::class)
-            <a class="btn btn-outline-info"  href="/inventario/" style=" background-color:white; color:#009999;  border-style: solid; border-color:white;  position:static; margin:10px;">
+            <a class="btn btn-outline-info"  href="/inventariovista/" style=" background-color:white; color:#009999;  border-style: solid; border-color:white;  position:static; margin:10px;">
               
  
           <img src="{{ asset('Imagenes/inventario.jpeg')}}" alt="Avatar" id="imagen" class="three-columns" width="200" height="220">
