@@ -29,7 +29,7 @@ td,th {
 </head>
 <body>
 
-<header>
+<header  height="150px;">
 @forelse($logotipos  as $tag)
     <img  class="logo" src="{{Storage::url($tag->logo)}}"  alt="image" width="20%;" height="110%";>
     @empty
@@ -46,14 +46,26 @@ td,th {
 <thead class="thead-dark">
 <tr class="border border-secondary" style="text-align : center ">
  <th  style="text-align:center;width:230px;">Producto</th>
+<<<<<<< HEAD
                               <th  style="text-align: center;">Cantidad Inicial</th> 
+=======
+<th  style="text-align: center;">Cantidad Inicial</th> 
+>>>>>>> ee1cb89e1f7d4aeaba821980065fbb2e0b85a0f5
                                 <th  style="text-align: center;">Cantidad Entrada</th>
                                 <th  style="text-align: center;">Cantidad Salida</th>
 
                                   <th  style="text-align: center; ">Cantidad Actual</th>
+<<<<<<< HEAD
                                  <th  style="text-align: center;  ">Total Inicial</th>
                                   <th  style="text-align: center;">Total Entrada </th>
                                <th  style="text-align: center;">Total por Producto </th>
+=======
+                                 <th  style="text-align: center; ">Total Inicial</th>
+                                  <th  style="text-align: center;">Total Entrada </th>
+                               <th  style="text-align: center;">Total por Producto</th>
+   
+</tr>
+>>>>>>> ee1cb89e1f7d4aeaba821980065fbb2e0b85a0f5
 </thead>
 <tbody>
 @forelse($inventarios as $inventario)
