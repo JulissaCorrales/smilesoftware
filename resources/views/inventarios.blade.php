@@ -198,8 +198,14 @@
               
                              
                              <td>{{$dat->CantidadExistente + $dat->cantidad - $dat->cantidadsalida }}</td>
+
                               <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->precio}}<b> </td> 
-                              <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->monto}}<b></td> 
+@if($dat->monto == null)
+                                <td> <b>0.00 </b></td>
+                              @else
+                                <td> <b>{{$dat->monto}}</b></td>
+                              @endif
+                             
                               <td style="background-color:#f0f5f5 ;"><b>Lps.{{$dat->precio + $dat->monto}}<b></td>
                               <td>
                                 <button class="btn btn-outline-info" data-toggle="modal" data-target="#entradainventarios-{{$inventario->id}}" >
