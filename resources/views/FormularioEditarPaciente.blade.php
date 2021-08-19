@@ -122,9 +122,13 @@
                       <div class="row" style=" margin:25px;">
                       <div class="col-md-6">
                         <label for="ciudad" class="form-label ">Ciudad:</label>
-
-                        <input required type="text"class="form-control " name="ciudad" id="ciudad" placeholder="ingresar ciudad del paciente"  value="{{ $pacientes->ciudad }}" pattern="[A-Za-z]{3,100}"  oninput="check_text2(this); "onkeypress="return SoloLetras(event);">
-                          </div>
+                         <input required type="text" class="form-control @error('ciudad') is-invalid @enderror" name="ciudad" id="ciudad" value="{{ $pacientes->ciudad }}" placeholder="Ingrese el Nombre la Ciudad en que reside el Paciente" onkeypress="return SoloLetras(event);" pattern="[A-Za-z ]{3,100}" required oninput="check_text(this);" onblur="valeft3()" >
+                        @error('ciudad')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+ </div>
 
                   
                       <div class="col-md-6">
@@ -195,6 +199,21 @@ function valeft2(){
         for(i=0;i<tam;i++){
             if(!isNaN(val[i]) && val[i] != " ")
             document.getElementById("apellidos").value='';
+           
+            }
+}
+</script>
+<script>
+// -- Función para aceptar espacios -- //
+function valeft3(){
+ 
+    var val = document.getElementById("ciudad").value;
+   
+    var tam = val.length;
+ 
+        for(i=0;i<tam;i++){
+            if(!isNaN(val[i]) && val[i] != " ")
+            document.getElementById("ciudad").value='';
            
             }
 }

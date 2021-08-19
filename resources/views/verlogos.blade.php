@@ -116,7 +116,7 @@
                 <!--  -->
                 @can('isAdmin')
                 <button  style="margin-bottom:2em;"type="button" class="btn btn-danger" data-toggle="modal" data-target="#crear">
-                Crear otro
+                Cambiar
                  </button>
                  @endcan
                  @endforelse
