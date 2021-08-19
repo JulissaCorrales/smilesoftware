@@ -1,6 +1,6 @@
 
 @extends('Plantilla.dashboard')
-@section('titulo','AgendaSemanal')
+@section('titulo','Agenda Semanal')
 
 @section('content')
 

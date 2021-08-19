@@ -59,7 +59,7 @@
        
     <div class="card-body">
         <div id="divtitulo" class="table-responsive">
-           <h3 style="font-family: Times New Roman, Times, serif;color: #293d3d;"><b>Citas del Paciente: {{$pacientes->nombres}} {{$pacientes->apellidos}}</b></h3>
+           <h3 ><b>Citas del Paciente: {{$pacientes->nombres}} {{$pacientes->apellidos}}</b></h3>
          <table id="datatable" class="table table-bordered"  cellspacing="0" >
                 <thead >
                     <tr> 

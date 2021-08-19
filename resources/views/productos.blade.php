@@ -258,7 +258,7 @@
                            </td>
                       </tr>
                      @empty
-                  <tr><td> vacio</td></tr>
+                  <tr><td colspan="6"style="text-align : center"> vacio</td></tr>
                   @endforelse
                 <tbody>
                 </table>

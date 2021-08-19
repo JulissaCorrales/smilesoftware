@@ -46,7 +46,7 @@
                       <div class="col-md-6" >
                         <label for="nombres" class="form-label " > Nombres: </label>
                         
-                       <input required type="text" class="form-control @error('nombres') is-invalid @enderror"  style="font-size:18px; font-family: Times New Roman, Times, serif; " value="{{ $pacientes->nombres }}" name="nombres" id="nombres" placeholder="Ingrese los Nombres del Paciente"  onkeypress="return SoloLetras(event);" pattern="[A-Za-z ]{3,100}" required oninput="check_text(this);" onblur="valeft()" value="{{ old('nombres') }}">
+                       <input required type="text" class="form-control @error('nombres') is-invalid @enderror"   value="{{ $pacientes->nombres }}" name="nombres" id="nombres" placeholder="Ingrese los Nombres del Paciente"  onkeypress="return SoloLetras(event);" pattern="[A-Za-z ]{3,100}" required oninput="check_text(this);" onblur="valeft()" value="{{ old('nombres') }}">
                                 @error('nombres')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -68,7 +68,7 @@
                      <div class="row" style=" margin:25px;">
                       <div class="col-md-6">
                         <label for="identidad" class="form-label " >Identidad:</label>                
-                        <input required type="number"style="font-size:18px; font-family: Times New Roman, Times, serif;" class="form-control " name="identidad" id="identidad" placeholder="Ingresar identidad del paciente" maxlength="13"value="{{ $pacientes->identidad }}">
+                        <input required type="number" class="form-control " name="identidad" id="identidad" placeholder="Ingresar identidad del paciente" maxlength="13"value="{{ $pacientes->identidad }}">
                         </div>
 
                       <div class="col-md-6">
@@ -138,7 +138,7 @@
                       <div class="col-md-6">
                         <label for="telefonoCelular" class="form-label ">Número Teléfonico:</label>
 
-                            <input required type="number" style="font-size:18px; font-family: Times New Roman, Times, serif;"class="form-control " name="telefonoCelular" id="telefonoCelular" placeholder="ingresar teléfono Celular del paciente"  value="{{ $pacientes->telefonoCelular }}" maxlength="8" minlength="8" pattern="[0-9]+">
+                            <input required type="number" class="form-control " name="telefonoCelular" id="telefonoCelular" placeholder="ingresar teléfono Celular del paciente"  value="{{ $pacientes->telefonoCelular }}" maxlength="8" minlength="8" pattern="[0-9]+">
                           </div>
 
 
@@ -146,7 +146,7 @@
                       <div class="col-md-6">
                         <label for="observaciones" class="col-sm form-label">Observaciones:</label>
                         
-                            <textarea type="text" style="font-size:18px; font-family: Times New Roman, Times, serif;"class="form-control " name="observaciones" id="observaciones" placeholder="Alguna observación?"  value="{{ $pacientes->observaciones }}">{{ $pacientes->observaciones }}</textarea>
+                            <textarea type="text" class="form-control " name="observaciones" id="observaciones" placeholder="Alguna observación?"  value="{{ $pacientes->observaciones }}">{{ $pacientes->observaciones }}</textarea>
                           </div>
                     
                      </div>

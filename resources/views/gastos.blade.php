@@ -256,7 +256,7 @@
         </tr>  
         @empty
         <tr>
-        <td colspan="6" style="text-align:center; font: 200 1.5em Tahoma, Arial, Verdana, sans-serif;">¡¡No Tiene Ningún Gasto Creado!!</td>
+        <td colspan="6" style="text-align : center ">¡¡No Tiene Ningún Gasto Creado!!</td>
         </tr>
         @endforelse   
         </tbody>

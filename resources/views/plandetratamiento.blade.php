@@ -140,7 +140,7 @@ align-content: center;
                 </td>
             </tr>
         @empty
-        <tr><td>No tiene plan de tratamiento</td></tr> 
+        <tr><td colspan="6"style="text-align : center">No tiene plan de tratamiento</td></tr> 
         @endforelse
             </tbody>
             </table>   

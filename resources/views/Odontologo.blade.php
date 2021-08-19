@@ -395,7 +395,7 @@ onload="ValidarTell()" oninput="javascript: if (this.value.length > this.maxLeng
 </tr> 
     @empty
     <tr>
-    <td  colspan="4"><p align="center" ><b>No hay Odontólogos  registrados</b></p></td> 
+    <td  colspan="4"><p align="center" >No hay Odontólogos  registrados</p></td> 
     @endforelse
      </tr>
 

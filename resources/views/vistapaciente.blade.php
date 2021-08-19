@@ -363,7 +363,7 @@ height= "60px" style="border-radius:50%;">
   </div>
 
   @empty
-     <td colspan="5"><h3>¡¡No hay Pacientes Existentes!!</h3></td>
+     <td colspan="6"style="text-align : center">¡¡No hay Pacientes Existentes!!</td>
   
     </tr>
     @endforelse

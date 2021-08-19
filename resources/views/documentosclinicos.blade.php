@@ -104,7 +104,7 @@
                         </div> 
                       
                           @empty
-                          <p style="margin: 2em;"> No hay archivos de historial disponible   </p>
+                          <p colspan="6"style="text-align : center"> No hay archivos de historial disponible   </p>
                               
                           @endforelse
             </div>
