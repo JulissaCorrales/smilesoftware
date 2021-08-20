@@ -46,7 +46,7 @@
                       <div class="col-md-6" >
                         <label for="nombres" class="form-label " > Nombres: </label>
                         
-                       <input required type="text" class="form-control @error('nombres') is-invalid @enderror"   value="{{ $pacientes->nombres }}" name="nombres" id="nombres" placeholder="Ingrese los Nombres del Paciente"  onkeypress="return SoloLetras(event);" pattern="[A-Za-z ]{3,100}" required oninput="check_text(this);" onblur="valeft()" value="{{ old('nombres') }}">
+                       <input required type="text" class="form-control @error('nombres') is-invalid @enderror"   value="{{ $pacientes->nombres }}" name="nombres" id="nombres" placeholder="Ingrese los Nombres del Paciente"  onkeypress="return SoloLetras(event);" pattern="[A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n ñ o p q r s t u v w x y z á é í ó ú ]{3,100}" required oninput="check_text(this);" onblur="valeft()" value="{{ old('nombres') }}">
                                 @error('nombres')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -57,7 +57,7 @@
                      
                       <div class="col-md-6">
                           <label for="apellidos" class="form-label " >Apellidos:</label>
-                        <input  required type="text" class="form-control  @error('apellidos') is-invalid @enderror" name="apellidos" id="apellidos" value="{{ $pacientes->apellidos}}" placeholder="Ingrese los Apellidos del Paciente"onkeypress="return SoloLetras(event);" pattern="[A-Za-z ]{3,100}" required oninput="check_text(this);" onblur="valeft2()" >
+                        <input  required type="text" class="form-control  @error('apellidos') is-invalid @enderror" name="apellidos" id="apellidos" value="{{ $pacientes->apellidos}}" placeholder="Ingrese los Apellidos del Paciente"onkeypress="return SoloLetras(event);" pattern="[A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n ñ o p q r s t u v w x y z á é í ó ú ]{3,100}" required oninput="check_text(this);" onblur="valeft2()" >
                             @error('apellidos')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -122,7 +122,7 @@
                       <div class="row" style=" margin:25px;">
                       <div class="col-md-6">
                         <label for="ciudad" class="form-label ">Ciudad:</label>
-                         <input required type="text" class="form-control @error('ciudad') is-invalid @enderror" name="ciudad" id="ciudad" value="{{ $pacientes->ciudad }}" placeholder="Ingrese el Nombre la Ciudad en que reside el Paciente" onkeypress="return SoloLetras(event);" pattern="[A-Za-z ]{3,100}" required oninput="check_text(this);" onblur="valeft3()" >
+                         <input required type="text" class="form-control @error('ciudad') is-invalid @enderror" name="ciudad" id="ciudad" value="{{ $pacientes->ciudad }}" placeholder="Ingrese el Nombre la Ciudad en que reside el Paciente" onkeypress="return SoloLetras(event);" pattern="[A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n ñ o p q r s t u v w x y z á é í ó ú ]{3,100}" required oninput="check_text(this);" onblur="valeft3()" >
                         @error('ciudad')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -303,7 +303,7 @@ function SoloLetras(e)
 key = e.keyCode || e.which;
 tecla = String.fromCharCode(key).toString();
 
-letras = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n o p q r s t u v w x y z á é í ó ú ";
+letras = "A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z Á É Í Ó Ú a b c d e f g h i j k l m n ñ o p q r s t u v w x y z á é í ó ú ";
 
 especiales = [8, 65];
 tecla_especial = false
