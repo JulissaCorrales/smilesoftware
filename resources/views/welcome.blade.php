@@ -40,7 +40,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
        
             <div class="container">
-            <p style="color:#fed136"class="masthead-heading mb-0">SMILE SOFTWARE</p>
+            <p style="color:#fed136;font-family:Arial;margin-right: 1em;"class="masthead-heading mb-0">SMILE SOFTWARE</p>
                 <a class="navbar-brand js-scroll-trigger" href="#page-top">
                
                 @forelse($logotipos  as $tag)
@@ -217,12 +217,7 @@
                 <div class="text-center">
                     <h2 style="color:orange;">CONTÁCTANOS</h2>
                 </div>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
+                
                 <!-- Contact Section Content-->
                 <div class="row justify-content-center">
                     <div class="col-lg-4">
