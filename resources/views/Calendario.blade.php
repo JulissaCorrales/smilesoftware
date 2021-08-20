@@ -119,8 +119,7 @@ font-weight: 600;
 
         border-radius:6px; 
       }
-      #comentarios{margin-left:2em;
-      margin-right:2em;}
+   
 
 </style>
 
@@ -317,7 +316,7 @@ font-weight: 600;
         <div class="container">
           <!-- comentario -->
           <label for="comentarios" id="comentariolabel" class="control-label">Comentarios:</label>
-          <textarea class='autoExpand' cols="40"  rows='3' data-min-rows='3'class="form-control" required type="text" name="comentarios" id="comentarios" placeholder="Escriba el comentario sobre el paciente aquí"></textarea>
+          <textarea class='autoExpand form-control'  data-min-rows='3' required type="text" name="comentarios" id="comentarios" placeholder="Escriba el comentario sobre el paciente aquí"></textarea>
         
         </div>
         <!-- boton continuar -->

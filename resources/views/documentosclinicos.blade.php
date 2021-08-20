@@ -70,7 +70,7 @@
             <div class="card-body">
 
               <h5 class="card-title">Paciente: {{$tag->paciente->nombres}}  {{$tag->paciente->apellidos}}</h5>
-              <p class="card-text" ><img  style=" margin-left:0%;" src="{{ asset('Imagenes/doc.png') }}"  id="imgdocu"class="rounded float-right" width="200" height="220" style="" >
+              <p class="card-text" ><img  style=" margin-left:0%;" src="{{ asset('Imagenes/doc.png') }}"  id="imgdocu"class="rounded float-right" width="200" height="220"  >
                   <br>
                   <time>Fecha: {{$tag->fecha}}</time><br>
 
@@ -162,8 +162,8 @@
                                 
 
                                   <div class="form-group">
-                                    <label for="observaciones">observaciones:</label>
-                                    <input required type="text" class="form-control-file" name="observaciones" id="observaciones" accept="application/pdf" >
+                                    <label for="observaciones">Observaciones:</label>
+                                    <textarea required type="text" class="form-control-file" name="observaciones" id="observaciones" accept="application/pdf" ></textarea>
                                   </div>
                                   
 
@@ -254,7 +254,7 @@
 
                                   <div class="form-group">
                                     <label for="observaciones">Observaciones:</label>
-                                    <input required type="text" class="form-control-file" name="observaciones" id="observaciones" value="{{$tag->observaciones}}">
+                                    <textarea required type="text" class="form-control-file" name="observaciones" id="observaciones" value="{{$tag->observaciones}}">{{$tag->observaciones}}</textarea>
                                   </div>
                               
 

@@ -186,7 +186,7 @@ Evoluciones Médicas del Paciente</h2>
                 $mysqli= new mysqli ('127.0.0.1','root','','smilesoftware');
                 $mysqli->set_charset("utf8");
                 ?>
-                <textarea required id="w3review" maxlength="255" placeholder="Escriba la evolución del plan de tratamiento" name="caja" value="text" rows="4" cols="55" >{{$tag->evolucion}}</textarea>
+                <textarea required id="w3review" maxlength="255" placeholder="Escriba la evolución del plan de tratamiento" name="caja" value="text" class="form-control" >{{$tag->evolucion}}</textarea>
                 
                 <div id="disv4" style="margin-top:1em;">
                 <select class="form-control" required name="tratamiento_id" id="disv3">

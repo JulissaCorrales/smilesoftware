@@ -5,20 +5,34 @@
 
 <body id="page-top">
 
-        @if($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                @foreach($errors->all() as $error)
-                <li>{{$error}}</li>
-                @endforeach
-                </ul>
-                </div>
-            @endif
-            @if(session('mensaje'))
-                <div class="alert alert-success" >
-                    {{session('mensaje')}}
-                </div>
-            @endif
+<!-- alerta -->
+<div>
+
+<div>@if(session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </li>
+            @endforeach
+         
+        </ul>
+        
+    </div>
+@endif</div>
+</div>
+<!-- fin de la alerta -->
 
 <div class="card mb-3">
         <div class="card-header">
@@ -63,7 +77,7 @@
       <div class="form-group">
         <textarea required id="w3review" style="border: 2px solid #765942;
 	border-radius: 10px;
-	"  name="caja" value="text" rows="4" cols="52" placeholder="Ingresar el  Comentario Administrativo del Paciente" ></textarea>
+	"  name="caja" value="text" class="form-control "  placeholder="Ingresar el  Comentario Administrativo del Paciente" ></textarea>
         
        </div>
       </div>
@@ -115,7 +129,7 @@
                                     <div class="modal fade" id="modall-{{$ver->id}}"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document" >
                                             <div class="modal-content" style="position:absolute; left:50px; top:100px;">
-                                                <div class="modal-header"style="background-color: #d3e0ea; color:black;  height:80px; ">
+                                                <div class="modal-header"style="background-color:#276678; color:white;">
                                                     <h5 class="modal-title" id="exampleModalLabel"> 
                                                     <img src="{{ asset('Imagenes/editc.png') }}"  width="15%" height="15%" > 
                                                     Editar el Comentario Administrativo</h5>
@@ -133,10 +147,7 @@
 
                                                  <textarea required id="w3review" style="border: 2px solid #765942;
 	border-radius: 10px;
-	"  name="caja" value="text" rows="4" cols="52"  >{{$ver->comentarios}} 
-      
-    
-     </textarea>
+	"  name="caja" value="text" class="form-control"  >{{$ver->comentarios}}</textarea>
                                                 
 
 

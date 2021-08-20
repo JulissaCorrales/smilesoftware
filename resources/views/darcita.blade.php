@@ -13,12 +13,7 @@
 
         border-radius:6px; 
       }
-      #comentarios{margin-left:2em;
-      margin-right:2em;}
-      #observaciones{margin-left:2em;
-      margin-right:2em
-      }
-
+   
 
       
       
@@ -132,7 +127,7 @@
         <div class="container">
           <!-- comentario -->
           <label for="comentarios" id="comentariolabel" class="control-label">Comentarios:</label>
-          <textarea class='autoExpand' rows='3' data-min-rows='3'cols="40" class="form-control" required type="text" name="comentarios" id="comentarios" placeholder="Escriba el comentario sobre el paciente aquí"></textarea>
+          <textarea class='autoExpand form-control'  data-min-rows='3'  required type="text" name="comentarios" id="comentarios" placeholder="Escriba el comentario sobre el paciente aquí"></textarea>
         
         </div>
         <!-- boton continuar -->
@@ -285,11 +280,11 @@
                   <div class="row">
                   <div class="col-md-6">
                       <label for="direccion">Dirección:</label>
-                      <textarea  class="autoExpand form-control" rows='2' data-min-rows='2' type="text" style="  width:370;"  class="form-control" name="direccion" id="direccion" placeholder="Ingrese la dirección del paciente"></textarea>
+                      <textarea  class="autoExpand form-control" data-min-rows='2' type="text" name="direccion" id="direccion" placeholder="Ingrese la dirección del paciente"></textarea>
                     </div>
               <div class="col-md-6">
                     <label for="observaciones">Observaciones:</label>
-                    <textarea  rows='2' data-min-rows='2' type="text" style="  width: 300px;;"  class="autoExpand form-control" name="observaciones" id="observaciones" placeholder="Ingrese la Observación (opcional)"></textarea>
+                    <textarea  data-min-rows='2' type="text" class="autoExpand form-control" name="observaciones" id="observaciones" placeholder="Ingrese la Observación (opcional)"></textarea>
                     
                   </div>
                   </div>
